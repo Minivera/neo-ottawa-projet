@@ -1,40 +1,27 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 import { Character } from './character';
+import { Event } from './event';
 import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
 import { CharacterPortrait } from '../components/characterPortrait';
 import { PortraitImage } from '../components/portraitImage';
-import { DialogBox } from '../components/dialogBox';
+import {
+  DialogBox,
+  DialogTitle,
+  DialogTitleLeftArrow,
+  DialogTitleRightArrow,
+} from '../components/dialogBox';
 import { AnimatedText } from '../components/animatedText';
 import { AnimationContainer } from '../components/animationContainer';
-
-export enum CharacterAnimation {
-  MOVE_UP = 'move-up',
-  FADE_IN = 'fade-in',
-}
-
-export interface Dialog {
-  type: 'dialog';
-  id: string;
-  character: Character;
-  expression: string;
-  animation?: CharacterAnimation;
-  lineId: string;
-}
-
-export interface Narration {
-  type: 'narration';
-  id: string;
-  shouldHideAll?: boolean;
-  lineId: string;
-}
-
-export type Event = Dialog | Narration;
+import { NextButton } from '../components/nextButton';
+import { useTranslation } from 'react-i18next';
 
 export interface Scene {
   id: string;
-  background: string;
+  background?: string;
+  bgm?: string;
   events: Event[];
   characters: Character[];
 }
@@ -85,47 +72,82 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   scene,
   state,
 }) => {
-  const portraits = (
-    <PortraitsContainer count={Math.max(state.loadedCharacters.length, 2)}>
-      {state.loadedCharacters.map(character =>
-        state.currentEvent.type === 'dialog' &&
-        character.id === state.currentEvent.character.id ? (
-          <CharacterPortrait key={character.id}>
-            <AnimationContainer animation={state.currentEvent.animation}>
+  const [t] = useTranslation();
+
+  if (
+    state.currentEvent.type === 'transition' &&
+    state.currentEvent.hideEverything
+  ) {
+    return (
+      <SceneContainer background={scene.background}>
+        {scene.bgm && <ReactAudioPlayer src={scene.bgm} autoPlay loop />}
+        {state.currentEvent.soundEffect && (
+          <ReactAudioPlayer src={state.currentEvent.soundEffect} autoPlay />
+        )}
+      </SceneContainer>
+    );
+  }
+
+  let portraits: ReactElement | null = null;
+  if (
+    state.currentEvent.type !== 'narration' ||
+    (state.currentEvent.type === 'narration' && !state.currentEvent.fullscreen)
+  ) {
+    portraits = (
+      <PortraitsContainer count={state.loadedCharacters.length}>
+        {state.loadedCharacters.map(character =>
+          state.currentEvent.type === 'dialog' &&
+          character.id === state.currentEvent.character.id ? (
+            <CharacterPortrait key={character.id}>
+              <AnimationContainer animation={state.currentEvent.animation}>
+                <PortraitImage
+                  src={
+                    character.images[state.characterExpressions[character.id]]
+                  }
+                  alt={`${character.name} ${state.currentEvent.expression}`}
+                />
+              </AnimationContainer>
+            </CharacterPortrait>
+          ) : (
+            <CharacterPortrait key={character.id}>
               <PortraitImage
                 src={character.images[state.characterExpressions[character.id]]}
-                alt={`${character.name} ${state.currentEvent.expression}`}
+                alt={`${character.name} ${
+                  state.characterExpressions[character.id]
+                }`}
               />
-            </AnimationContainer>
-          </CharacterPortrait>
-        ) : (
-          <CharacterPortrait key={character.id}>
-            <PortraitImage
-              src={character.images[state.characterExpressions[character.id]]}
-              alt={`${character.name} ${
-                state.characterExpressions[character.id]
-              }`}
-            />
-          </CharacterPortrait>
-        )
-      )}
-    </PortraitsContainer>
-  );
+            </CharacterPortrait>
+          )
+        )}
+      </PortraitsContainer>
+    );
+  }
 
   return (
-    <SceneContainer background={scene.background}>
+    <SceneContainer background={scene.background} centerRow={!portraits}>
       {portraits}
-      <DialogBox>
+      <DialogBox center={!portraits}>
         {state.currentEvent.type === 'dialog' && (
-          <h1>{state.currentEvent.character.name}</h1>
+          <DialogTitle>
+            <DialogTitleLeftArrow />
+            <h1>{state.currentEvent.character.name}</h1>
+            <DialogTitleRightArrow />
+          </DialogTitle>
         )}
-        <p>
-          <AnimatedText
-            text={state.currentEvent.lineId}
-            key={state.currentEvent.lineId}
-          />
-        </p>
+        {state.currentEvent.type !== 'transition' && (
+          <p>
+            <AnimatedText
+              text={t(state.currentEvent.lineId)}
+              key={state.currentEvent.lineId}
+            />
+          </p>
+        )}
+        <NextButton />
       </DialogBox>
+      {scene.bgm && <ReactAudioPlayer src={scene.bgm} autoPlay loop />}
+      {state.currentEvent.soundEffect && (
+        <ReactAudioPlayer src={state.currentEvent.soundEffect} autoPlay />
+      )}
     </SceneContainer>
   );
 };

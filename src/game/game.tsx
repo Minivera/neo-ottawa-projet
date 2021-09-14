@@ -6,8 +6,8 @@ import {
   getNextSceneEvent,
   Scene,
   SceneState,
-  Event,
 } from './scene';
+import { Event } from './event';
 import { GameContainer } from '../components/gameContainer';
 import { usePreloader } from '../hooks/useLoading';
 
@@ -264,7 +264,7 @@ const useGame = (
         };
       }
 
-      if (!images.includes(scene.background)) {
+      if (scene.background && !images.includes(scene.background)) {
         images.push(scene.background);
       }
 
@@ -330,8 +330,34 @@ export const Game: React.FunctionComponent<GameProps> = ({
         return <GameContainer>Could not load scene</GameContainer>;
       }
 
+      const onContinue = () => {
+        if (
+          gameState &&
+          gameState.currentScene &&
+          gameState.currentScene.currentEvent.action
+        ) {
+          const action = gameState.currentScene.currentEvent.action;
+
+          switch (action.type) {
+            case 'switch_scene': {
+              dispatch({
+                type: 'continue',
+                sceneId: action.sceneId,
+                eventId: action.eventId,
+              });
+              return;
+            }
+          }
+        }
+
+        dispatch({ type: 'continue' });
+      };
+
       return (
-        <GameContainer onClick={() => dispatch({ type: 'continue' })}>
+        <GameContainer
+          onClick={onContinue}
+          fullscreen={gameState.currentScene.currentEvent.fullscreen}
+        >
           <Scene scene={currentScene} state={gameState.currentScene} />
         </GameContainer>
       );

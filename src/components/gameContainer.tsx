@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
-export const GameContainer = styled.div`
+export interface GameContainerProps {
+  fullscreen?: boolean;
+}
+
+export const GameContainer = styled.div<GameContainerProps>`
   grid-row: 2;
   grid-column: 2;
   max-width: 1920px;

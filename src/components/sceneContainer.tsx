@@ -1,17 +1,24 @@
 import styled from '@emotion/styled';
-import { prop } from 'styled-tools';
+import { ifProp, prop, theme } from 'styled-tools';
 
 export interface SceneContainerProps {
-  background: string;
+  background?: string;
+  centerRow?: boolean;
 }
 
 export const SceneContainer = styled.div<SceneContainerProps>`
-  background-image: url(${prop('background')});
-  background-size: cover;
-  background-position: right;
+  ${props =>
+    props.background
+      ? `
+    background-image: url(${prop('background')(props)});
+    background-size: cover;
+    background-position: right;
+  `
+      : `background-color: ${theme('colors.black')(props)};`}
+
   height: 100%;
   display: grid;
-  grid-template-rows: auto max-content;
+  grid-template-rows: ${ifProp('centerRow', 'auto max-content auto', 'auto max-content')};
   padding: 3rem 0;
   overflow: hidden;
 `;
