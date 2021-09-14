@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import ReactAudioPlayer from 'react-audio-player';
+import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
 import { Event } from './event';
@@ -16,7 +16,7 @@ import {
 import { AnimatedText } from '../components/animatedText';
 import { AnimationContainer } from '../components/animationContainer';
 import { NextButton } from '../components/nextButton';
-import { useTranslation } from 'react-i18next';
+import { AudioPlayer } from '../components/audioPlayer';
 
 export interface Scene {
   id: string;
@@ -86,9 +86,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   ) {
     return (
       <SceneContainer background={scene.background}>
-        {scene.bgm && <ReactAudioPlayer src={scene.bgm} autoPlay loop />}
+        {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
         {state.currentEvent.soundEffect && (
-          <ReactAudioPlayer src={state.currentEvent.soundEffect} autoPlay />
+          <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />
         )}
       </SceneContainer>
     );
@@ -153,9 +153,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
         )}
         {skipAnimation && <NextButton />}
       </DialogBox>
-      {scene.bgm && <ReactAudioPlayer src={scene.bgm} autoPlay loop />}
+      {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
       {state.currentEvent.soundEffect && (
-        <ReactAudioPlayer src={state.currentEvent.soundEffect} autoPlay />
+        <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />
       )}
     </SceneContainer>
   );
