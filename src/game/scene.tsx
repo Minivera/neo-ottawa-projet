@@ -66,11 +66,17 @@ export const getNextSceneEvent = (
 export interface SceneProps {
   scene: Scene;
   state: SceneState;
+  onTextLoadingStart: () => void;
+  onTextLoadingEnd: () => void;
+  skipAnimation?: boolean;
 }
 
 export const Scene: React.FunctionComponent<SceneProps> = ({
   scene,
   state,
+  onTextLoadingStart,
+  onTextLoadingEnd,
+  skipAnimation,
 }) => {
   const [t] = useTranslation();
 
@@ -139,10 +145,13 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
             <AnimatedText
               text={t(state.currentEvent.lineId)}
               key={state.currentEvent.lineId}
+              skipAnimation={skipAnimation}
+              onTextLoadingStart={onTextLoadingStart}
+              onTextLoadingEnd={onTextLoadingEnd}
             />
           </p>
         )}
-        <NextButton />
+        {skipAnimation && <NextButton />}
       </DialogBox>
       {scene.bgm && <ReactAudioPlayer src={scene.bgm} autoPlay loop />}
       {state.currentEvent.soundEffect && (

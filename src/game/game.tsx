@@ -1,4 +1,4 @@
-import React, { useReducer, ReducerState, Dispatch } from 'react';
+import React, { useReducer, useState, ReducerState, Dispatch } from 'react';
 
 import {
   getSceneEvent,
@@ -310,6 +310,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
   saveState,
 }) => {
   const [loading, gameState, dispatch] = useGame(gameContent, saveState);
+  const [textLoading, setTextLoading] = useState<boolean | null>(null);
 
   if (loading) {
     return <GameContainer>loading content...</GameContainer>;
@@ -330,7 +331,23 @@ export const Game: React.FunctionComponent<GameProps> = ({
         return <GameContainer>Could not load scene</GameContainer>;
       }
 
+      const onTextLoadingStart = () => {
+        setTextLoading(true);
+      };
+
+      const onTextLoadingEnd = () => {
+        setTextLoading(false);
+      };
+
       const onContinue = () => {
+        if (textLoading) {
+          setTextLoading(false);
+          return;
+        }
+
+        // Clear the loading indicator so we know to animate the next event.
+        setTextLoading(null);
+
         if (
           gameState &&
           gameState.currentScene &&
@@ -358,7 +375,13 @@ export const Game: React.FunctionComponent<GameProps> = ({
           onClick={onContinue}
           fullscreen={gameState.currentScene.currentEvent.fullscreen}
         >
-          <Scene scene={currentScene} state={gameState.currentScene} />
+          <Scene
+            scene={currentScene}
+            state={gameState.currentScene}
+            skipAnimation={textLoading !== null && !textLoading}
+            onTextLoadingStart={onTextLoadingStart}
+            onTextLoadingEnd={onTextLoadingEnd}
+          />
         </GameContainer>
       );
     }

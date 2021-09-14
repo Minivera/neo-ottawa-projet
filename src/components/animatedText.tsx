@@ -1,9 +1,12 @@
 /** @jsx jsx */
-import { Fragment, FunctionComponent } from 'react';
+import { Fragment, FunctionComponent, useEffect } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 
 export interface AnimatedTextProps {
   text: string;
+  onTextLoadingStart: () => void;
+  onTextLoadingEnd: () => void;
+  skipAnimation?: boolean;
 }
 
 const specialChars = {
@@ -13,6 +16,9 @@ const specialChars = {
 
 export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
   text,
+  onTextLoadingStart,
+  onTextLoadingEnd,
+  skipAnimation,
 }) => {
   // TODO: Make this interpreter smarter
   text = text.replaceAll('<s>', specialChars.strongStart);
@@ -39,9 +45,13 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
         key={index}
         css={css`
           position: relative;
-          opacity: 0;
-          animation: move-text 0.75s forwards;
-          animation-delay: ${0.05 * index}s;
+          ${skipAnimation
+            ? ''
+            : css`
+                opacity: 0;
+                animation: move-text 0.75s forwards;
+                animation-delay: ${0.05 * index}s;
+              `}
           ${isStrong ? 'font-weight: bold; color: white;' : ''}
         `}
       >
@@ -50,6 +60,22 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
     );
     index++;
   }
+
+  useEffect(() => {
+    if (skipAnimation) {
+      return;
+    }
+
+    onTextLoadingStart();
+
+    const timeout = setTimeout(() => {
+      onTextLoadingEnd();
+    }, 0.05 * index * 1000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [onTextLoadingEnd, text]);
 
   return (
     <Fragment>
