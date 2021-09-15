@@ -1,5 +1,7 @@
+import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'styled-tools';
+import { lighten } from 'polished';
 
 export const MultipleChoices = styled.div`
   display: flex;
@@ -14,82 +16,92 @@ export const MultipleChoiceElement = styled.button`
   line-height: 1.15;
   margin: 0.5rem 3.5rem;
   font-family: inherit;
-  overflow: visible;
+  overflow: hidden;
   text-transform: none;
   -webkit-appearance: button;
   color: ${theme('colors.text')};
-  border-color: ${theme('colors.secondary')};
-  background-color: ${theme('colors.black')};
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  border-width: 0.2rem;
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-left: none;
-  border-right: none;
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
+  padding: 0 1.3rem;
 
   &:hover,
   &:active {
-    background-color: ${theme('colors.secondary')};
-    
-    & div:after, & div:before {
-      border-left-color: ${theme('colors.secondary')};
-      border-right-color: ${theme('colors.secondary')};
+    & span {
+      color: ${props => lighten(0.4, theme('colors.text')(props) as unknown as string)};
+      background-color: ${theme('colors.secondary')};
+    }
+
+    & div[data-arrow-direction="left"] {
+      background: ${theme('colors.secondary')};
+      clip-path: polygon(0 -0.4rem, 50% 50%, 0 calc(100% + 0.4rem));
+      transform: rotate(180deg);
+    }
+
+    & div[data-arrow-direction="right"] {
+      background: ${theme('colors.secondary')};
+      clip-path: polygon(0 -0.4rem, 50% 50%, 0 calc(100% + 0.4rem));
     }
   }
 
   & span {
+    border-width: 0.2rem;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: ${theme('colors.secondary')};
     display: block;
     padding: 1rem 1rem;
   }
 `;
 
-export const MultipleChoiceElementLeftArrow = styled.div`
+const LeftArrow = styled.div`
   position: absolute;
-  left: -2.25rem;
-  top: -0.25rem;
-  width: 0;
-  height: 0;
-  border-top: 2.40rem solid transparent;
-  border-bottom: 2.35rem solid transparent;
-  border-right: 2.35rem solid ${theme('colors.secondary')};
-  
-  &:before {
-    display: block;
-    content: " ";
-    position: relative;
-    left: 0.25rem;
-    top: -2.2rem;
-    width: 0;
-    height: 0;
-    border-top: 2.20rem solid transparent;
-    border-bottom: 2.15rem solid transparent;
-    border-right: 2.10rem solid ${theme('colors.black')};
-  }
+  left: -1.45rem;
+  top: -0.2rem;
+  width: 3rem;
+  height: calc(100% + 0.4rem);
+  background: linear-gradient(
+      to left top,
+      transparent 48%,
+      ${theme('colors.secondary')} 49%,
+      ${theme('colors.secondary')} 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      to left bottom,
+      transparent 48%,
+      ${theme('colors.secondary')} 49%,
+      ${theme('colors.secondary')} 51%,
+      transparent 52%
+    );
 `;
 
-export const MultipleChoiceElementRightArrow = styled.div`
-  position: absolute;
-  right: -2.25rem;
-  top: -0.25rem;
-  width: 0;
-  height: 0;
-  border-top: 2.40rem solid transparent;
-  border-bottom: 2.35rem solid transparent;
-  border-left: 2.35rem solid ${theme('colors.secondary')};
+export const MultipleChoiceElementLeftArrow: FunctionComponent = props => (
+  <LeftArrow data-arrow-direction="left" {...props} />
+);
 
-  &:before {
-    display: block;
-    content: " ";
-    position: relative;
-    right: 2.35rem;
-    top: -2.2rem;
-    width: 0;
-    height: 0;
-    border-top: 2.20rem solid transparent;
-    border-bottom: 2.15rem solid transparent;
-    border-left: 2.10rem solid ${theme('colors.black')};
-  }
+const RightArrow = styled.div`
+  position: absolute;
+  right: -1.45rem;
+  top: -0.2rem;
+  width: 3rem;
+  height: calc(100% + 0.4rem);
+  background: linear-gradient(
+      to right top,
+      transparent 48%,
+      ${theme('colors.secondary')} 49%,
+      ${theme('colors.secondary')} 51%,
+      transparent 52%
+    ),
+    linear-gradient(
+      to right bottom,
+      transparent 48%,
+      ${theme('colors.secondary')} 49%,
+      ${theme('colors.secondary')} 51%,
+      transparent 52%
+    );
 `;
+
+export const MultipleChoiceElementRightArrow: FunctionComponent = props => (
+  <RightArrow data-arrow-direction="right" {...props} />
+);
