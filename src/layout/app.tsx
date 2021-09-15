@@ -4,7 +4,8 @@ import styled from '@emotion/styled';
 import { jsx, css, Global, ThemeProvider } from '@emotion/react';
 import { fontFace } from 'polished';
 
-import { Game, GameContent } from '../game/game';
+import { Game, GameContent, GameSave } from '../game/game';
+import { PDATab } from '../game/pda';
 import { Character } from '../game/character';
 import { GameBackground } from '../components/gameBackground';
 import { CharacterAnimation } from '../game/event';
@@ -21,7 +22,7 @@ import bigExhale from '../assets/sound/big-exhale.mp3';
 
 const testCharacter: Character = {
   id: '1',
-  name: 'Test',
+  name: 'test_name_1',
   images: {
     neutral: gabrielNeutral,
     joy: gabrielJoy,
@@ -30,7 +31,7 @@ const testCharacter: Character = {
 
 const testCharacter2: Character = {
   id: '2',
-  name: 'Other test',
+  name: 'test_name_2',
   images: {
     neutral: gabrielNeutral,
     joy: gabrielJoy,
@@ -55,7 +56,7 @@ const gameContent: GameContent = {
               action: {
                 type: 'switch_scene',
                 sceneId: '1_2',
-              }
+              },
             },
           ],
         },
@@ -117,23 +118,23 @@ const gameContent: GameContent = {
                   action: {
                     type: 'switch_scene',
                     sceneId: '1_3',
-                  }
+                  },
                 },
                 {
                   lineId: 'test_multiple_choice_1_option_2',
                   action: {
                     type: 'switch_scene',
                     sceneId: '1_4',
-                  }
+                  },
                 },
                 {
                   lineId: 'test_multiple_choice_1_option_3',
                   action: {
                     type: 'switch_scene',
                     sceneId: '1_5',
-                  }
-                }
-              ]
+                  },
+                },
+              ],
             },
           ],
         },
@@ -175,9 +176,69 @@ const gameContent: GameContent = {
   ],
 };
 
+const saveGame: GameSave = {
+  currentScene: {
+    index: '1_1',
+    loadedCharacters: [],
+    characterExpressions: {},
+    currentEventIndex: 0,
+    currentEvent: {
+      type: 'transition',
+      id: 't1',
+      fullscreen: true,
+      hideEverything: true,
+      soundEffect: bigExhale,
+      action: {
+        type: 'switch_scene',
+        sceneId: '1_2',
+      },
+    },
+  },
+  pda: {
+    open: false,
+    tab: PDATab.DOCUMENTS,
+    documents: [
+      {
+        name: 'test_document_1',
+      },
+      {
+        name: 'test_document_2',
+      },
+    ],
+    contacts: [
+      {
+        name: 'test_name_1',
+        description: 'test_contact_description_1',
+        type: 'police',
+      },
+      {
+        name: 'test_name_2',
+        description: 'test_contact_description_2',
+        type: 'resistance',
+      },
+    ],
+    evidence: [
+      {
+        type: 'phone',
+        name: 'test_evidence_name_1',
+      },
+      {
+        type: 'computer',
+        name: 'test_evidence_name_2',
+      },
+      {
+        type: 'result',
+        name: 'test_evidence_name_3',
+      },
+      {
+        type: 'disk',
+        name: 'test_evidence_name_4',
+      }
+    ],
+  },
+};
+
 const Container = styled.main`
-  font-size: 24px;
-  font-family: VCR-OSD-MONO;
   display: grid;
   grid-template-columns: 1fr minmax(auto, 1920px) 1fr;
   grid-template-rows: 1fr minmax(auto, 1024px) 1fr;
@@ -195,7 +256,7 @@ export const App: React.FunctionComponent = () => (
             fontFilePath: vcrOsdMonoFont.slice(0, -4),
             fileFormats: ['ttf'],
           })}
-  
+
           ${fontFace({
             fontFamily: 'Permanent Marker',
             fontFilePath: permanentMarkerFont.slice(0, -4),
@@ -203,13 +264,8 @@ export const App: React.FunctionComponent = () => (
           })}
         `}
       />
-      <GameBackground
-        src={bgVideo}
-        autoPlay
-        muted
-        loop
-      />
-      <Game gameContent={gameContent} />
+      <GameBackground src={bgVideo} autoPlay muted loop />
+      <Game gameContent={gameContent} saveState={saveGame} />
     </Container>
   </ThemeProvider>
 );

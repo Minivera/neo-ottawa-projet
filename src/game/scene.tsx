@@ -74,6 +74,7 @@ export const getNextSceneEvent = (
 export interface SceneProps {
   scene: Scene;
   state: SceneState;
+  onContinue: () => void;
   onTextLoadingStart: () => void;
   onTextLoadingEnd: () => void;
   onChoiceSelected: (choice: Choice) => void;
@@ -83,6 +84,7 @@ export interface SceneProps {
 export const Scene: React.FunctionComponent<SceneProps> = ({
   scene,
   state,
+  onContinue,
   onTextLoadingStart,
   onTextLoadingEnd,
   onChoiceSelected,
@@ -95,7 +97,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     state.currentEvent.hideEverything
   ) {
     return (
-      <SceneContainer background={scene.background}>
+      <SceneContainer background={scene.background} onClick={onContinue}>
         {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
         {state.currentEvent.soundEffect && (
           <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />
@@ -140,14 +142,18 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   }
 
   return (
-    <SceneContainer background={scene.background} centerRow={!portraits}>
+    <SceneContainer
+      background={scene.background}
+      centerRow={!portraits}
+      onClick={onContinue}
+    >
       {portraits}
       {state.currentEvent.type === 'multiple_choice' ? (
         <DialogBox center={!portraits}>
           {state.currentEvent.character && (
             <DialogTitle>
               <DialogTitleLeftArrow />
-              <h1>{state.currentEvent.character.name}</h1>
+              <h1>{t(state.currentEvent.character.name)}</h1>
               <DialogTitleRightArrow />
             </DialogTitle>
           )}
@@ -180,7 +186,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           {state.currentEvent.type === 'dialog' && (
             <DialogTitle>
               <DialogTitleLeftArrow />
-              <h1>{state.currentEvent.character.name}</h1>
+              <h1>{t(state.currentEvent.character.name)}</h1>
               <DialogTitleRightArrow />
             </DialogTitle>
           )}

@@ -5,6 +5,7 @@ export interface GameContainerProps {
 }
 
 export const GameContainer = styled.div<GameContainerProps>`
+  position: relative;
   grid-row: 2;
   grid-column: 2;
   max-width: 1920px;
