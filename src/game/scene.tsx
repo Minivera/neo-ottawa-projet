@@ -1,8 +1,10 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
 import React, { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
-import { Event } from './event';
+import { Choice, Event } from './event';
 import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
 import { CharacterPortrait } from '../components/characterPortrait';
@@ -17,6 +19,12 @@ import { AnimatedText } from '../components/animatedText';
 import { AnimationContainer } from '../components/animationContainer';
 import { NextButton } from '../components/nextButton';
 import { AudioPlayer } from '../components/audioPlayer';
+import {
+  MultipleChoiceElement,
+  MultipleChoiceElementLeftArrow,
+  MultipleChoiceElementRightArrow,
+  MultipleChoices,
+} from '../components/multipleChoices';
 
 export interface Scene {
   id: string;
@@ -68,6 +76,7 @@ export interface SceneProps {
   state: SceneState;
   onTextLoadingStart: () => void;
   onTextLoadingEnd: () => void;
+  onChoiceSelected: (choice: Choice) => void;
   skipAnimation?: boolean;
 }
 
@@ -76,6 +85,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   state,
   onTextLoadingStart,
   onTextLoadingEnd,
+  onChoiceSelected,
   skipAnimation,
 }) => {
   const [t] = useTranslation();
@@ -132,15 +142,15 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   return (
     <SceneContainer background={scene.background} centerRow={!portraits}>
       {portraits}
-      <DialogBox center={!portraits}>
-        {state.currentEvent.type === 'dialog' && (
-          <DialogTitle>
-            <DialogTitleLeftArrow />
-            <h1>{state.currentEvent.character.name}</h1>
-            <DialogTitleRightArrow />
-          </DialogTitle>
-        )}
-        {state.currentEvent.type !== 'transition' && (
+      {state.currentEvent.type === 'multiple_choice' ? (
+        <DialogBox center={!portraits}>
+          {state.currentEvent.character && (
+            <DialogTitle>
+              <DialogTitleLeftArrow />
+              <h1>{state.currentEvent.character.name}</h1>
+              <DialogTitleRightArrow />
+            </DialogTitle>
+          )}
           <p>
             <AnimatedText
               text={t(state.currentEvent.lineId)}
@@ -150,9 +160,44 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
               onTextLoadingEnd={onTextLoadingEnd}
             />
           </p>
-        )}
-        {skipAnimation && <NextButton />}
-      </DialogBox>
+          {skipAnimation && (
+            <MultipleChoices>
+              {state.currentEvent.choices.map(choice => (
+                <MultipleChoiceElement
+                  key={choice.lineId}
+                  onClick={() => onChoiceSelected(choice)}
+                >
+                  <MultipleChoiceElementLeftArrow />
+                  <span>{t(choice.lineId)}</span>
+                  <MultipleChoiceElementRightArrow />
+                </MultipleChoiceElement>
+              ))}
+            </MultipleChoices>
+          )}
+        </DialogBox>
+      ) : (
+        <DialogBox center={!portraits}>
+          {state.currentEvent.type === 'dialog' && (
+            <DialogTitle>
+              <DialogTitleLeftArrow />
+              <h1>{state.currentEvent.character.name}</h1>
+              <DialogTitleRightArrow />
+            </DialogTitle>
+          )}
+          {state.currentEvent.type !== 'transition' && (
+            <p>
+              <AnimatedText
+                text={t(state.currentEvent.lineId)}
+                key={state.currentEvent.lineId}
+                skipAnimation={skipAnimation}
+                onTextLoadingStart={onTextLoadingStart}
+                onTextLoadingEnd={onTextLoadingEnd}
+              />
+            </p>
+          )}
+          {skipAnimation && <NextButton />}
+        </DialogBox>
+      )}
       {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
       {state.currentEvent.soundEffect && (
         <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />

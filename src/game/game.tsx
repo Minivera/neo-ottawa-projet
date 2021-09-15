@@ -7,7 +7,7 @@ import {
   Scene,
   SceneState,
 } from './scene';
-import { Event } from './event';
+import { Choice, Event } from './event';
 import { GameContainer } from '../components/gameContainer';
 import { usePreloader } from '../hooks/useLoading';
 
@@ -73,6 +73,9 @@ const generateCurrentSceneState = (
       : activeScene.characters.filter(
           character =>
             (event.type === 'dialog' && character.id === event.character.id) ||
+            (event.type === 'multiple_choice' &&
+              event.character &&
+              character.id === event.character.id) ||
             currentScene?.loadedCharacters.includes(character)
         );
 
@@ -90,6 +93,18 @@ const generateCurrentSceneState = (
         return {
           ...acc,
           [character.id]: event.expression,
+        };
+      }
+
+      if (
+        event.type === 'multiple_choice' &&
+        event.character &&
+        character.id === event.character.id
+      ) {
+        return {
+          ...acc,
+          [character.id]:
+            event.expression || currentScene.characterExpressions[character.id],
         };
       }
 
@@ -345,6 +360,14 @@ export const Game: React.FunctionComponent<GameProps> = ({
           return;
         }
 
+        if (
+          gameState &&
+          gameState.currentScene &&
+          gameState.currentScene.currentEvent.type === 'multiple_choice'
+        ) {
+          return;
+        }
+
         // Clear the loading indicator so we know to animate the next event.
         setTextLoading(null);
 
@@ -370,6 +393,16 @@ export const Game: React.FunctionComponent<GameProps> = ({
         dispatch({ type: 'continue' });
       };
 
+      const onChoiceSelected = (choice: Choice) => {
+        const action = choice.action;
+
+        dispatch({
+          type: 'continue',
+          sceneId: action.sceneId,
+          eventId: action.eventId,
+        });
+      };
+
       return (
         <GameContainer
           onClick={onContinue}
@@ -381,6 +414,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
             skipAnimation={textLoading !== null && !textLoading}
             onTextLoadingStart={onTextLoadingStart}
             onTextLoadingEnd={onTextLoadingEnd}
+            onChoiceSelected={onChoiceSelected}
           />
         </GameContainer>
       );

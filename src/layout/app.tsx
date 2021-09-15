@@ -101,14 +101,72 @@ const gameContent: GameContent = {
             },
             {
               type: 'narration',
-              id: 'n2',
-              lineId: 'test_narration_2',
-            },
-            {
-              type: 'narration',
               id: 'nca1',
               lineId: 'test_narration_clear_all',
               shouldHideAll: true,
+            },
+            {
+              type: 'multiple_choice',
+              id: 'mc1',
+              character: testCharacter,
+              expression: 'joy',
+              lineId: 'test_multiple_choice_1',
+              choices: [
+                {
+                  lineId: 'test_multiple_choice_1_option_1',
+                  action: {
+                    type: 'switch_scene',
+                    sceneId: '1_3',
+                  }
+                },
+                {
+                  lineId: 'test_multiple_choice_1_option_2',
+                  action: {
+                    type: 'switch_scene',
+                    sceneId: '1_4',
+                  }
+                },
+                {
+                  lineId: 'test_multiple_choice_1_option_3',
+                  action: {
+                    type: 'switch_scene',
+                    sceneId: '1_5',
+                  }
+                }
+              ]
+            },
+          ],
+        },
+        {
+          id: '3',
+          characters: [],
+          events: [
+            {
+              type: 'narration',
+              id: 'n2',
+              lineId: 'test_narration_2',
+            },
+          ],
+        },
+        {
+          id: '4',
+          characters: [],
+          events: [
+            {
+              type: 'narration',
+              id: 'n3',
+              lineId: 'test_narration_3',
+            },
+          ],
+        },
+        {
+          id: '5',
+          characters: [],
+          events: [
+            {
+              type: 'narration',
+              id: 'n4',
+              lineId: 'test_narration_4',
             },
           ],
         },

@@ -35,7 +35,6 @@ export interface Dialog extends GenericEvent {
 
 export interface Narration extends GenericEvent {
   type: 'narration';
-  id: string;
   shouldHideAll?: boolean;
   lineId: string;
   soundEffect?: string;
@@ -46,4 +45,17 @@ export interface Transition extends GenericEvent {
   hideEverything?: boolean;
 }
 
-export type Event = Dialog | Narration | Transition;
+export interface Choice {
+  lineId: string;
+  action: ActionType;
+}
+
+export interface MultipleChoice extends GenericEvent {
+  type: 'multiple_choice';
+  character?: Character;
+  expression?: string;
+  lineId: string;
+  choices: Choice[];
+}
+
+export type Event = Dialog | Narration | Transition | MultipleChoice;
