@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Scene, SceneState } from './scene';
 import { Choice } from './event';
-import { useGame, GameState, getCurrentScene } from './gameState';
+import { GameState, getCurrentScene, useGame } from './gameState';
 import { GameContainer } from '../components/gameContainer';
 import { GameMenu } from '../components/gameMenu';
 import { PDA, PDAComponent } from './pda';
 import { Character } from './character';
+import { GameLoader } from '../components/gameLoader';
+import { StartButton } from '../components/startButton';
 
 export interface Act {
   id: string;
@@ -26,26 +28,45 @@ export interface GameSave {
 export interface GameProps {
   gameContent: GameContent;
   saveState?: GameSave;
+  stopVideo: () => void;
 }
 
 export const Game: React.FunctionComponent<GameProps> = ({
   gameContent,
   saveState,
+  stopVideo,
 }) => {
-  const [loading, gameState, dispatch] = useGame(gameContent, saveState);
+  const [loading, percentLoaded, gameState, dispatch] = useGame(
+    gameContent,
+    saveState
+  );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
 
+  useEffect(() => {
+    if (gameState.state === GameState.Started) {
+      stopVideo();
+    }
+  }, [loading, gameState]);
+
   if (loading) {
-    return <GameContainer>loading content...</GameContainer>;
+    return (
+      <GameContainer>
+        <GameLoader percent={percentLoaded} />
+      </GameContainer>
+    );
   }
 
   switch (gameState.state) {
     case GameState.Loading:
-      return <GameContainer>loading...</GameContainer>;
+      return (
+        <GameContainer>
+          <GameLoader />
+        </GameContainer>
+      );
     case GameState.Loaded:
       return (
         <GameContainer>
-          <button onClick={() => dispatch({ type: 'start' })}>Start</button>
+          <StartButton onClick={() => dispatch({ type: 'start' })} />
         </GameContainer>
       );
     case GameState.Started: {

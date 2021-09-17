@@ -291,7 +291,7 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
 export const useGame = (
   content: GameContent,
   save?: GameSave
-): [boolean, ReducerState<GameReducer>, Dispatch<GameAction>] => {
+): [boolean, number, ReducerState<GameReducer>, Dispatch<GameAction>] => {
   const game: Game = {
     scenes: {},
     state: GameState.Loading,
@@ -357,5 +357,5 @@ export const useGame = (
     game.state = GameState.Loaded;
   }
 
-  return [usePreloader(images), ...useReducer(gameReducer, game)];
+  return [...usePreloader(images), ...useReducer(gameReducer, game)];
 };

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from '@emotion/styled';
 import { jsx, css, Global, ThemeProvider } from '@emotion/react';
 import { fontFace } from 'polished';
@@ -81,26 +81,49 @@ const Container = styled.main`
   width: 100%;
 `;
 
-export const App: React.FunctionComponent = () => (
-  <ThemeProvider theme={theme}>
-    <Container>
-      <Global
-        styles={css`
-          ${fontFace({
-            fontFamily: 'VCR-OSD-MONO',
-            fontFilePath: vcrOsdMonoFont.slice(0, -4),
-            fileFormats: ['ttf'],
-          })}
+export const App: React.FunctionComponent = () => {
+  const [videoRunning, setVideoRunning] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>();
 
-          ${fontFace({
-            fontFamily: 'Permanent Marker',
-            fontFilePath: permanentMarkerFont.slice(0, -4),
-            fileFormats: ['ttf'],
-          })}
-        `}
-      />
-      <GameBackground src={bgVideo} autoPlay muted loop />
-      <Game gameContent={gameContent} saveState={saveGame} />
-    </Container>
-  </ThemeProvider>
-);
+  const handleStopVideo = () => {
+    setVideoRunning(false);
+    if (videoRef.current) {
+      videoRef.current?.pause();
+    }
+  };
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Global
+          styles={css`
+            ${fontFace({
+              fontFamily: 'VCR-OSD-MONO',
+              fontFilePath: vcrOsdMonoFont.slice(0, -4),
+              fileFormats: ['ttf'],
+            })}
+
+            ${fontFace({
+              fontFamily: 'Permanent Marker',
+              fontFilePath: permanentMarkerFont.slice(0, -4),
+              fileFormats: ['ttf'],
+            })}
+          `}
+        />
+        <GameBackground
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          ref={videoRef}
+          src={bgVideo}
+          autoPlay={videoRunning}
+          muted
+          loop
+        />
+        <Game
+          gameContent={gameContent}
+          /* saveState={saveGame} */ stopVideo={handleStopVideo}
+        />
+      </Container>
+    </ThemeProvider>
+  );
+};

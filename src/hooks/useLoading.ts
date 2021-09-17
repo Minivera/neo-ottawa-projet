@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 // Keep this in memory to prevent the window from dumping the images we preloaded
 const imageReferences: Record<string, HTMLImageElement> = {};
 
-export const usePreloader = (imagePaths: string[]): boolean => {
-  const [loading, setLoading] = useState(true);
+const maxConcurrentLoading = 10;
+
+export const usePreloader = (imagePaths: string[]): [boolean, number] => {
+  const [loadedIndicators, setLoadedIndicators] = useState<Record<string, boolean>>({});
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
@@ -15,19 +17,37 @@ export const usePreloader = (imagePaths: string[]): boolean => {
     console.log('Game loading started');
     setStarted(true);
 
+    imagePaths.forEach(path => {
+      loadedIndicators[path] = false;
+    });
+    setLoadedIndicators(loadedIndicators);
+
     (async () => {
-      await Promise.all(
-        imagePaths.map(async path => {
+      const groupedImage: string[][] = [];
+      while (imagePaths.length) {
+        groupedImage.push(imagePaths.splice(0, maxConcurrentLoading));
+      }
+
+      // Load in batches equal to our max batch size. All elements of a batch must resolve
+      // before we start another one.
+      await groupedImage.reduce(async (previousBatch, currentBatch) => {
+        await previousBatch;
+
+        const currentBatchPromises = currentBatch.map(async path => {
           const image = new Image();
           image.src = path;
           imageReferences[path] = image;
-          image.setAttribute('style', 'display: none; height: 1px; width: 1px;');
+          image.setAttribute('style', 'display: none; height: 0px; width: 0px;');
           document.querySelector('body')?.appendChild(image);
 
           console.log(`Loading ${path} started`);
           const finalize = (resolve: () => void) => {
             if (image.complete/* && image.naturalHeight !== 0 */) {
               console.log(`Loading ${path} completed`);
+              setLoadedIndicators(loadedIndicators => ({
+                ...loadedIndicators,
+                [path]: true,
+              }));
               resolve();
               return;
             }
@@ -36,13 +56,18 @@ export const usePreloader = (imagePaths: string[]): boolean => {
           };
 
           return new Promise<void>(resolve => finalize(resolve));
-        })
-      );
+        });
+
+        await Promise.all(currentBatchPromises);
+      }, Promise.resolve());
 
       console.log('Game loading complete');
-      setLoading(false);
     })();
   }, [imagePaths]);
 
-  return loading;
+  const values = Object.values(loadedIndicators);
+  const countLoaded = values.reduce((acc, val) => acc + (val ? 1 : 0), 0);
+  const percentLoaded = (countLoaded * 100) / values.length;
+
+  return [values.some(indicator => !indicator), percentLoaded];
 };

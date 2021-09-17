@@ -23,4 +23,8 @@ export const SceneContainer = styled.div<SceneContainerProps>`
   grid-template-rows: ${ifProp('centerRow', '1fr auto 1fr', '1fr auto')};
   padding: 3rem 0;
   overflow: hidden;
+  
+  &:focus {
+    outline: none;
+  }
 `;

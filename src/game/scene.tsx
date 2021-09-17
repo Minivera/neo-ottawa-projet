@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import React, { ReactElement } from 'react';
+import React, { KeyboardEventHandler, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
@@ -93,12 +93,24 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
 }) => {
   const [t] = useTranslation();
 
+  const handleClickContinue = () => onContinue();
+  const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {
+    if (['Right', 'ArrowRight', 'Enter', 'Spacebar', ' '].includes(event.key)) {
+      onContinue();
+    }
+  };
+
   if (
     state.currentEvent.type === 'transition' &&
     state.currentEvent.hideEverything
   ) {
     return (
-      <SceneContainer background={scene.background} onClick={onContinue}>
+      <SceneContainer
+        background={scene.background}
+        onClick={handleClickContinue}
+        onKeyDown={handleKeyContinue}
+        tabIndex={-1}
+      >
         {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
         {state.currentEvent.soundEffect && (
           <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />
@@ -112,9 +124,13 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     state.currentEvent.type !== 'narration' ||
     (state.currentEvent.type === 'narration' && !state.currentEvent.fullscreen)
   ) {
+    const characterPortraits = state.loadedCharacters.filter(
+      character => character.images[state.characterExpressions[character.id]]
+    );
+
     portraits = (
-      <PortraitsContainer count={state.loadedCharacters.length}>
-        {state.loadedCharacters.map(character =>
+      <PortraitsContainer count={characterPortraits.length}>
+        {characterPortraits.map(character =>
           state.currentEvent.type === 'dialog' &&
           character.id === state.currentEvent.character.id ? (
             <CharacterPortrait key={character.id}>
@@ -146,7 +162,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     <SceneContainer
       background={scene.background}
       centerRow={!portraits}
-      onClick={onContinue}
+      onClick={handleClickContinue}
+      onKeyDown={handleKeyContinue}
+      tabIndex={-1}
     >
       {portraits}
       {state.currentEvent.type === 'multiple_choice' ? (

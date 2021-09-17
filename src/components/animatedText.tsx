@@ -70,7 +70,8 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
 
     const timeout = setTimeout(() => {
       onTextLoadingEnd();
-    }, 0.05 * index * 1000);
+      // add a 200 ms delay so the user has the time to understand the animation is done
+    }, 0.05 * index * 1000 + 500);
 
     return () => {
       clearTimeout(timeout);
