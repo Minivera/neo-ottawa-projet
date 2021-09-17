@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { FunctionComponent } from 'react';
 import { theme } from 'styled-tools';
 import { MenuContainer } from './menuContainer';
+import { useTranslation } from 'react-i18next';
 
 export interface GameLoaderProps {
   percent?: number;
@@ -116,14 +117,18 @@ const RightSide = styled.div`
   }
 `;
 
-export const GameLoader: FunctionComponent<GameLoaderProps> = ({ percent }) => (
-  <MenuContainer>
-    <LoadingArrow percent={percent}>
-      <LeftSide data-direction="left" />
-      <span>
-        {percent ? `Loading - ${percent.toFixed(0)}%` : 'Preparing...'}
+export const GameLoader: FunctionComponent<GameLoaderProps> = ({ percent }) => {
+  const [t] = useTranslation();
+
+  return (
+    <MenuContainer>
+      <LoadingArrow percent={percent}>
+        <LeftSide data-direction="left" />
+        <span>
+        {percent ? `${t('loading')} - ${percent.toFixed(0)}%` : t('preparing')}
       </span>
-      <RightSide data-direction="right" />
-    </LoadingArrow>
-  </MenuContainer>
-);
+        <RightSide data-direction="right" />
+      </LoadingArrow>
+    </MenuContainer>
+  );
+}

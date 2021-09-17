@@ -2,6 +2,8 @@ export const interfaceTerms = {
   // Interface
   pda: 'Accéder le PDA',
   settings: 'Paramètres',
+  loading: 'Chargement',
+  preparing: 'Préparation',
 
   // PDA
   pda_home: 'Le PDA',
