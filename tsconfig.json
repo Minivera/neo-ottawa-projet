@@ -20,5 +20,10 @@
     "jsx": "react",
     "types": ["node"]
   },
-  "include": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.d.ts"]
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": ["src/**/*.tsx", "src/**/*.ts", "scripts/**/*.ts", "src/**/*.d.ts"]
 }

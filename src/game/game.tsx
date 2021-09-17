@@ -6,6 +6,7 @@ import { useGame, GameState, getCurrentScene } from './gameState';
 import { GameContainer } from '../components/gameContainer';
 import { GameMenu } from '../components/gameMenu';
 import { PDA, PDAComponent } from './pda';
+import { Character } from './character';
 
 export interface Act {
   id: string;
@@ -14,6 +15,7 @@ export interface Act {
 
 export interface GameContent {
   acts: Act[];
+  characters: Character[];
 }
 
 export interface GameSave {

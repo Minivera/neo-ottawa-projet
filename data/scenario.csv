@@ -1,0 +1,411 @@
+ACTE,SCÈNE,LIEU,MOMENT ,ATMOSPHÈRE,PERSONNAGES,DIALOGUES,ANIMATION,DOCUMENTS/INVENTAIRE,PDA,GAMEPLAY,CHOIX,CHOIX COMPTABILISÉS,SUITES DES CHOIX,PERSONNAGES,DIALOGUES,ANIMATION
+1,prologue,ENDROIT NON-IDENTIFIÉ,INTEMPOREL," INQUIÉTANT, MYSTÉRIEUX, SOMBRE GENRE INTÉRIEUR D’UN PROGRAMME INFORMATIQUE ou
+INFORMATIONS QUI VOYAGENT SUR LA TOILE. ",NARRATEUR,"Néo-Ottawa, 2047. La loi game-over est en vigueur depuis 25 ans. Il est interdit de concevoir, de distribuer, de vendre ou de jouer à quelque jeux vidéo que ce soit. Que la loi soit vous semble justifiée ou non, vous devrez la défendre. Vous êtes maintenant l’agent FRED GALLANT, jeune recrue à la brigade. C’est votre première journée. Vous êtes un peu nerveux (se). Vous avez quelques appréhensions, mais vous devrez aller jusqu’au bout, prendre des risques. Faire des choix. Des choix qui changeront l’avenir. Des choix qui détermineront le type d’agent que vous serez. Un agent dont l’histoire se souviendra, peut-être. Vous devrez prendre des notes, effectuer des recherches. Préparez-vous. Respirez. Inspirez. Expirez. Fermez les yeux. Ouvrez-les. Commencez.",,,,,,,,,,
+1,1,POSTE DE POLICE: brigade anti-jeux vidéo /EXTÉRIEUR,JOUR : 23 juillet 2047,"C’est une journée radieuse et chaude. La pression atmosphérique et la lourdeur de l’air rendent les rues poisseuses et odorantes. Une vapeur s’échappe du bitume. Sur la façade du poste, on peut lire clairement : « brigade anti-jeux vidéo ».",FRED GALLANT,Tiens-t’en à ton plan : suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative.,Fred devant le Commissariat de police,,"Activation du PDA
+ (le PDA n'est pas branché à Internet)",,,,,,,
+1,2,BRIGADE ANTI-JEUX VIDÉO /INTÉRIEUR,JOUR   ,,GABRIEL SAND,Eh! Le (la) nouveau(elle)!,,,,,,,,,,
+,,,,,FRED GALLANT,Où dois-je me rapporter?,,,,,,,,,,
+,,,,,GABRIEL SAND,Directement au CHEF MILLER. ,,,,,,,,,,
+,,,,,GABRIEL SAND,"Gallant, c’est ça?",,,,,,,,,,
+,,,,,FRED GALLANT,C’est ça. À qui ai-je l’honneur?,,,,,,,,,,
+,,,,,GABRIEL SAND,Agent Sand. Gab.,,,,,,,,,,
+,,,,,,,Ils se serrent la main,,,,,,,,,
+,,,,,,,Fred se dirige directement vers le bureau du CHEF MILLER. ,,,,,,,,,
+,,,,,,,Il (elle) frappe à la porte.,,,,,,,,,
+1,3,BUREAU DU CHEF MILLER/INTÉRIEUR ,JOUR,,CHEF MILLER,Entrez.,,,,,,,,,,
+,,,,,FRED GALLANT,"Agent Gallant, au rapport.",,,,,,,,,,
+,,,,,CHEF MILLER  ,"Détendez-vous, Fred. Le protocole, on s’y tiendra bien assez tôt. Comment vous sentez-vous?",,,,,,,,,,
+,,,,,FRED GALLANT,Prêt (e).,,,,,,,,,,
+,,,,,CHEF MILLER,"J’aime votre attitude, Gallant. Assoyez-vous.",,,,,,,,,,
+,,,,,FRED GALLANT,Merci,,,,,,,,,,
+,,,,,,,Fred s'assoit.,,,,,,,,,
+,,,,,CHEF MILLER,Un café?,,,,,,,,,,
+,,,,,FRED GALLANT,"Merci, j’ai déjeuné.",,,,,,,,,,
+,,,,,CHEF MILLER,Très bien. J’ai une seule autre question pour vous Gallant. Qu’est-ce qui vous amène dans la brigade anti-jeux vidéo?,,,,,,,,,,
+,,,,,FRED GALLANT,"J’ai… pendant mes études, j’ai…",,,,,,,,,,
+,,,,,CHEF MILLER,"Comprenez-moi bien : peu de gens demandent à être affectés ici lorsqu’ils sortent de l’Académie. Ce n’est pas la brigade la plus sexy,
+cependant, ici, on prend les choses au sérieux ou on a de sérieux problèmes avec moi.",,,,,,,,,,
+,,,,,FRED GALLANT,"Oui, chef.",,,,,,,,,,
+,,,,,CHEF MILLER,"Répondez à la question, agent Gallant.",,,,,,,,,,
+,,,,,FRED GALLANT,"J’ai été…j’ai demandé à être affecté à la brigade anti-jeux vidéo, chef.",,,,,,,,,,
+,,,,,CHEF MILLER,Je sais. Mais pourquoi?,,,,,,,,,,
+,,,,,FRED GALLANT ,C’est une cause qui m’intéresse.,,,,,,,,,,
+,,,,,CHEF MILLER,"Allez droit au but, agent Gallant. Dites-moi la vérité. Je veux savoir qui j’envoie sur le terrain.",,,,,,,,,,
+,,,,,FRED GALLANT,La loi…,,,,,,,,,,
+,,,,,,,Le téléphone du chef Miller vibre. ,,,,,,,,,
+,,,,,,,Le chef Miller refuse l’appel sans regarder. ,,,,,,,,,
+,,,,,,,"Il fixe Fred dans les yeux, d’un air de défi. ",,,,,,,,,
+,,,,,FRED GALLANT,"Les contrevenants sont encore nombreux, parfois fanatiques. Je pense qu’il y a place à amélioration. Je voulais…",,,,,,,,,,
+,,,,,CHEF MILLER,Vous voulez innover? Vous démarquez? Dans un secteur où c’est encore possible?,,,,,,,,,,
+,,,,,FRED GALLANT,Je…,,,,,,,,,,
+,,,,,CHEF MILLER,"Vous n’avez pas à rougir de votre ambition. J’aime bien votre pragmatisme. On a besoin d’éléments comme vous, Gallant. Bienvenue dans l’équipe. ",,,,,,,,,,
+1,4,BUREAU DU CHEF MILLER /INTÉRIEUR,JOUR,,,,Le téléphone vibre à nouveau. ,,,,,,,,,
+,,,,,,,Le Chef Miller refuse l’appel sans regarder. ,,,,,,,,,
+,,,,,,,"Il tend un dossier à Fred, mais le laisse tomber sur le bureau.",,,,,,,,,
+,,,,,,,,Le dossier Leigh Kane,,,1-A : Vous choisissez de prendre le dossier immédiatement et de l’ouvrir devant le chef Miller. ,,1-A ,CHEF MILLER,Eh bien Fred? C’est mon bureau ici. Allez faire vos lectures ailleurs.,
+,,,,,,,,,,,1-B: Vous choisissez de prendre le dossier sans l’ouvrir. ,,1-B,CHEF MILLER,Bien. Ce sera tout.,
+,,,,,,,,,,,1-C: Vous choisissez de ne pas bouger et d’attendre d’autres ordres. ,,1-C,CHEF MILLER,"Qu’est-ce que vous attendez, Fred? Ma bénédiction? Des mots d’encouragement?",
+1,5,BUREAU DU CHEF MILLER /INTÉRIEUR,JOUR,,"CHEF MILLER
+","Chef Miller: Un instant. J’oubliais. Avant que vous ne partiez, je veux vous préciser quelque chose. Prenez rapidement connaissance de ce dossier Agent Gallant. On a retrouvé cet enfant de 13 ans en très mauvais état. On a examiné plusieurs avenues, mais les parents ont des soupçons quant à des jeux vidéo auxquels on l’aurait initié. Ils pensent qu’il a été exposé à un jeu conçu après l’entrée en vigueur de la loi. Un jeu à forte dépendance. On pense qu’il est possible que les concepteurs de ce jeu l’aient sciemment programmé de façon à ce qu’il crée chez les joueurs une dépendance permanente, une pathologie.
+",,,,,,,,,,
+,,,,,FRED GALLANT,Comme les dépendances aux drogues dures.,,,,,,,,,,
+,,,,,CHEF MILLER,"Exact. Sa vie est peut-être en danger. Et s’il arrivait un malheur, on nous en tiendrait probablement responsable.
+ On doit mettre la main sur les créateurs du jeu. Mais d’abord, établissez hors de tout doute la responsabilité du jeu. Les parents ne sont pas toujours conscients de qui sont vraiment leurs enfants.",,,,,,,,,,
+,,,,,FRED GALLANT,"Oui, Chef.",,,,,,,,,,
+,,,,,CHEF MILLER,"On ne peut pas interroger l’enfant pour l’instant, il est médicamenté et hors-circuit à ce qu’il semble.
+Vous devrez vous débrouiller pour trouver une piste qui pourrait nous mener au distributeur, puis au concepteur. Avant que ce jeu ne fasse d’autres victimes. Commencez par les parents, mais méfiez-vous de ce qu’ils racontent. Selon mon expérience, les parents sont rarement des témoins fiables.",,,,,,,,,,
+,,,,,FRED GALLANT,"Oui, Chef.",,,,,,,,,,
+1,6,BUREAU DU CHEF MILLER /INTÉRIEUR,JOUR,,,,"Fred se lève et se dirige vers la porte
+
+
+
+
+
+
+
+
+
+
+","
+
+
+
+Loi game over
+anciens tracts de la résistance",,,,,,,,
+,,,,,,,,,,,,,1-A.1 et 1-B.1,,,Avec le dossier déjà en main.
+,,,,,,,,,,,,,1-C..1,,,"Fred prend le dossier sur le bureau, un peu embarrassé. "
+,,,,,CHEF MILLER,"Je compte sur vous. Vous travaillerez seul(e) sur cette première mission. Ensuite, vous aurez peut-être ma confiance.",,,,,,,,,,
+,,,,,,,,,,,2-A: Vous posez la question suivante au chef Miller,,2-A,FRED GALLANT,Pourquoi me confier une mission si importante dès mon premier jour? ,
+,,,,,,,,,,,2-B: Vous remerciez le chef Miller.,,,,,
+,,,,,,,,,,,2-C:  Vous sortez sans rien dire. ,,,,,
+,,,,,,,,,,,,,2-A,CHEF MILLER,Vous avez une occasion de faire vos preuves. Une seule occasion. Ne la bousillez pas.,
+,,,,,,,,,,,,,2-B,CHEF MILLER,Allez faire ce pour quoi on vous paye.,
+,,,,,,,,,,,,,2-C,,,Le chef Miller regarde Fred d’un air interrogateur. Il semble suspicieux.
+,,,,,CHEF MILLER ,Vous passerez au bureau 403 pour récupérer votre badge et votre arme. Bonne chance et bienvenue.,,,,,,,,,,
+,,,,,,,,"Loi game-over
+documents censurés sur la résistence",,"Phase d'exploration 1: Le joueur peut découvrir des documents (rien de clair, tout est confus)",,,,,,
+1,7,BUREAU DE FRED/INTÉRIEUR,JOUR,,,,"Fred est à son bureau.
+D’un côté il y a l’AGENT MOORE et de l’autre, l’AGENT LUCAS. ","
+
+
+
+
+
+
+
+
+Dossier Leigh Kane
+photo de Leigh Kane",,,,,,,,
+,,,,,AGENT LUCAS,"Hey, le (la) nouveau(elle)! Tu as reçu un dossier?",,,,,,,,,,
+,,,,,FRED GALLANT,Comme tu vois.,,,,,,,,,,
+,,,,,,,,,,,3-A: Vous entamez une conversation spontanément avec vos collègues.,,3-A ,FRED GALLANT,"Alors, vos noms?",
+,,,,,,,,,,,"3-B: Vous ouvrez votre dossier et faites mine d’avoir besoin de toute votre concentration et donc,
+que vous ne pouvez pas socialiser.",,,,,
+,,,,,,,,,,,3-C: Vous ne souhaitez pas parler à vos collègues. ,,3-C,FRED GALLANT,"Je ne me cherche pas d’amis. Et vous m’excuserez, mais j’ai du travail.",
+,,,,,,,,,,,,,3-A ,AGENT LUCAS,"Lucas. Lui, c’est Moore. Attention, il n’est pas très bavard, mais il entend tout.",
+,,,,,,,,,,,,,3-A ,AGENT MOORE,Regarde qui parle. Ne fais pas confiance à Lucas. On ne sait pas toujours où il traîne.,
+,,,,,,,,,,,,,3-A ,AGENT LUCAS,On t’a confié le dossier du petit Leigh Kane?,
+,,,,,,,,,,,,,3-A ,FRED GALLANT,Je…,
+,,,,,,,,,,,,,3-B,AGENT LUCAS,"Hey princesse! Ici, on travaille en équipe. Tu te crois meilleur que nous? Mais tu sais, on est gentil, on t’attendra.",
+,,,,,,,,,,,,,3-B,AGENT MOORE,Laisse-le (la). Il (elle) va apprendre.,
+,,,,,,,,,,,,,3-C,AGENT LUCAS,"Tu as entendu, Moore? On a affaire à un mal élevé.",
+,,,,,,,,,,,,,3-C,AGENT MOORE,J’ai entendu.,
+,,,,,,,"Fred ouvre le dossier, car il (elle) n’a pas pris connaissance du nom encore. ",,,,,,,,,
+,,,,,,,"Il aperçoit la photo d’un jeune homme cerné et maigre, blême à faire
+peur avec un regard complètement vide et maladif. ",Photo de Leigh Kane,,,,,,,,
+,,,,,,,,,,,,,3-A-2,FRED GALLANT,"Oui, Leigh Kane.",
+,,,,,,,,,,,,,3-A-3,AGENT LUCAS,Merde!,
+,,,,,,,,,,,,,3-A-4,AGENT MOORE,Laisse-le (la) tranquille.,À l'agent Lucas
+,,,,,,,,,,,,,3-A-5,AGENT LUCAS,"Tout ce que je dis, c’est que tu vas en baver. Un enfant catatonique, c’est du bonbon pour les médias. Si la corrélation est établie, bien sûr!",
+,,,,,,,,,,,,,3-A-6,FRED GALLANT,Je vois.,
+,,,,,,,,,,,,,3-B-2,AGENT LUCAS,"Oui, et dès maintenant. On lui a confié Kane.",
+,,,,,,,,,,,,,3-B-3,AGENT MOORE,Hahahaha! Bienvenue! Hahahaha!,S'esclaffant de rire
+,,,,,,,,,,,,,3-C-2,AGENT LUCAS,Moore?,
+,,,,,,,,,,,,,3-C-3,AGENT MOORE,Quoi?,
+,,,,,,,,,,,,,3-C-4,AGENT LUCAS,"Tu veux un café? Je sors, ça pue ici.",
+,,,,,,,,,,,,,3-C-5,AGENT MOORE,"Ouais, je te suis.",
+,,,,,,,,,,,,,3-A-3 et 3-B-3,,,Les deux agents se détournent et fixent leur regard sur leurs propres dossiers.
+,,,,,,,,,,,,,3-C-3,,,Les deux agents sortent.
+,,,,,,,Le chef Miller apparaît devant le bureau de Fred.,,,,,,,,,
+,,,,,CHEF MILLER,Il y a du nouveau. Viens.,,,,,,,,,,
+1,8,CORRIDOR POSTE DE POLICE/INTÉRIEUR,JOUR,,CHEF MILLER,"Écoute, ça va mal : le garçon est disparu. Jusqu’à nouvel ordre, c’est une fugue ou un enlèvement. Vous lirez le dossier en chemin.
+Vous partez immédiatement. Vous devez trouver le moyen de fouillez sa chambre. Vous aurez les gars du criminel dans les pattes. Dépêchez-vous. On ignore comment il a pu se sauver avec tous les sédatifs qu’il a reçu!",,,,,,,,,,
+1,9,VOITURE DE FRED/INTÉRIEUR / ou RUE EXTÉRIEUR,JOUR,,FRED GALLANT,C’est pas le moment de t’énerver. Focus.,Se parle à lui (elle)-même.,,,,,,,,,
+,,,,"L’écran devient noir. INQUIÉTANT, MYSTÉRIEUX, SOMBRE GENRE INTÉRIEUR D’UN PROGRAMME INFORMATIQUE ou
+INFORMATIONS QUI VOYAGENT SUR LA TOILE. ",,,,,,,,,,,,
+,,,,,NARRATEUR,"L’agent Gallant n’a pas connaissance de cette conversation. Vous ne pouvez plus l’aider. Présentement, il (elle) est éteint(e), en pause.
+ Il (elle) se souviendra de ce moment comme de ce qu’il (elle) appellera plus tard, une absence. Et ces absences ont précisément commencé aujourd’hui, à cet instant. Au même moment où vous ferez une mission pour moi, à son insu. Pour que l’agent Gallant puisse se réveiller de son hypnose, vous devrez trouver une définition de la cyberdépendance ainsi que trois conséquences possibles de cette dépendance. Inscrivez ces informations dans le PDA de l’agent Gallant. Dors Fred, dors. ",,,,,,,,,,
+,,,,,,,,,"Le fichier dans lequel on peut écrire la définition
+et les trois conséquences apparaît.
+Une fois que les réponses sont inscrites,
+le corrigé est débloqué et le joueur y a accès.
+Fred pourra aussi voir les informations,
+mais ne saura pas comment ces informations sont apparues dans son PDA.
+En réalité, le PDA est celui du joueur, mais Fred et le joueur partagent le même PDA. ",,,,,,,
+,,,,,,,"Fred se réveille, nous sommes dans sa voiture. Il (elle) démarre, incertain(e)
+de ce qui vient de se passer, mais il (elle) ne s’inquiète pas trop puisque c’est la première fois que ça lui arrive. ",,,,,,,,,
+,,,,,FRED GALLANT,Montre-moi ce que tu as dans le ventre!,Se parle à lui (elle)-même. ,,,,,,,,,
+1,10,CHAMBRE DE LEIGH KANE/INTÉRIEUR,JOUR,,,,"Le joueur peut essayer d’obtenir l’accès aux conversations par message texte de
+Kane en conversant avec L’ENQUÊTEUR DU CRIMINEL.",,,,,,,,,
+,,,,,,,,,,,4-A: Vous abordez directement l’enquêteur.,,,,,
+,,,,,,,,,,,4-B: Vous tentez d’être le plus discret(e) possible tout en observant le travail des agents présents. ,,,,,
+,,,,,,,,,,,4-C: Vous choisissez d’attendre dans le cadre de porte et de voir ce qui se passe avant d’intervenir. ,,,,,
+,,,,,,,,,,,,,4-A,FRED GALLANT,"Fred Gallant, brigade anti-jeux vidéo.",Se présentant à l’enquêteur.
+,,,,,,,,,,,,,4-A,ENQUÊTEUR,Rien à foutre que vous soyez le fils du premier ministre ou l’éboueur sur appel. Sortez de cette chambre ou je vous jure que vous le regretterez.,Exaspéré
+,,,,,,,,,,,,,4-A,FRED GALLANT,J’ai une enquête à faire moi aussi.,
+,,,,,,,,,,,,,4-A,ENQUÊTEUR,Mais c’est merveilleux! Vous allez trouver le petit? Gallant vous avez dit? ,
+,,,,,,,,,,,,,4-A,FRED GALLANT,Oui.,
+,,,,,,,,,,,,,4-A,ENQUÊTEUR,Vous êtes nouveau(elle) c’est ça? ,
+,,,,,,,,,,,,,4-A,,,Ne lui laisse pas le temps de répondre.
+,,,,,,,,,,,,,4-A,ENQUÊTEUR,BRIGHTON?,
+,,,,,,,,,,,,,4-A,BRIGHTON,Oui chef?,
+,,,,,,,,,,,,,4-A,ENQUÊTEUR,Sors-moi ce(tte) clown d’ici tout de suite. ,
+,,,,,,,,,,,,,4-A,,,Il prend son téléphone
+,,,,,,,,,,,,,4-A,ENQUÊTEUR,"Miller? Ton agent, là, Gallant, il (elle) veut les accès au téléphone et quoi d’autre?
+Tu lui expliqueras comment ça marche si tu veux qu’il (elle) survive dans le métier.",
+,,,,,,,,,,,,,4-B,ENQUÊTEUR,Qui croyez-vous être pour enter ici pendant qu’on y est?,agressif
+,,,,,,,,,,,,,4-B,FRED GALLANT,"Fred Gallant, brigade anti-jeux vidéo.",
+,,,,,,,,,,,,,4-B,ENQUÊTEUR,Oooh! Quelle chance! Je vous attendais! ,ironique
+,,,,,,,,,,,,,4-B,ENQUÊTEUR,"Sortez d’ici avant que je vous fasse arrêter. Vous aurez accès à la chambre une fois que nous aurons déterminé
+s’il s’agit d’une fugue ou d’un enlèvement. ",agressif
+,,,,,,,,,,,,,4-B,FRED GALLANT,Je n’aurais besoin que de l’accès à son téléphone et à son ordinateur.,
+,,,,,,,,,,,,,4-B,ENQUÊTEUR,Mais c’est que nous avons affaire à un génie! Vous l’aurez. Maintenant sortez d’ici. Et ne touchez à rien.,
+,,,,,,,,,,,,,4-C,ENQUÊTEUR,Mais où est le connard de la brigade anti-jeux vidéo? Pas encore arrivé? ,
+,,,,,,,,,,,,,4-C,FRED GALLANT,Je suis ici.,
+,,,,,,,,,,,,,4-C,ENQUÊTEUR,J’aurais dû m’en douter. Tu attends sagement ton tour.,Se tournant vers Fred.
+,,,,,,,,,,,,,4-C,FRED GALLANT,Je n’ai besoin que d’un accès à son téléphone et à son ordinateur. Puis à sa chambre quand vous aurez terminé.,
+,,,,,,,,,,,,,4-C,ENQUÊTEUR,Mais il (elle) est bien élevé(e) ce(tte) con(ne). Brighton?,
+,,,,,,,,,,,,,4-C,BRIGHTON,Oui chef?,
+,,,,,,,,,,,,,4-C,ENQUÊTEUR,"Donne-lui l’accès. Puis, qu’il (elle) dégage. ",
+,,,,,,,,,,,,,4-C,,,Il appelle Miller.
+,,,,,,,,,,,,,4-C,ENQUÊTEUR,"Félicitations, ton agent(e) m’est pas encore tombé sur les nerfs. Oui, il (elle) a son accès.",
+,,,,,,,L’enquêteur quitte la chambre et fait un sourire faux à Fred.,,,,,,,,,
+,,,,,ENQUÊTEUR,La chambre est à vous.,,,,,,,,,,
+,,,,,,,,,,"Phase d'exploration 2: Le joueur peut fouiller la pièce et tenter de découvrir des indices sur Leigh Kane.
+(Les indices ne devraient rien révéler par rapport à une quelconque dépendance aux jeux-vidéo.
+Il s’agit de la chambre normale d’un garçon normal.) ",,,,,,
+1,11,BUREAU DE FRED/INTÉRIEUR,JOUR,,,,Fred parcourt les données du téléphone de Kane. ,,,,,,,,,
+,,,,,,,Il (elle) découvre une conversation entre Kane et un pseudo : TEACHER,,,,,,,,,
+,,,,,TEACHER,Tu vas adorer,Par messages texte,,,,,,,,,
+,,,,,LEIGH KANE,Bah vous dites toujours ça,Par messages texte,,,,,,,,,
+,,,,,TEACHER,"Cette fois, il est au point. On est tous à fond sur le jeu. Tu pourras plus t’arrêter. Il est immersif, complexe, on s’y croirait, on oublie tout.",Par messages texte,,,,,,,,,
+,,,,,LEIGH KANE,Où et quand,Par messages texte,,,,,,,,,
+,,,,,TEACHER,Tu peux l’avoir dès ce soir,Par messages texte,,,,,,,,,
+,,,,,LEIGH KANE,Combien,Par messages texte,,,,,,,,,
+,,,,,TEACHER,400,,,,,,,,,,
+,,,,,LEIGH KANE,Où,,,,,,,,,,
+,,,,,TEACHER,Je t’indique le lieu et l’heure plus tard,,,,,,,,,,
+,,,,,LEIGH KANE,(pouce en l'air),,,,,,,,,,
+,,,,,,,La conversation est datée du 10 juillet.,,,,,,,,,
+,,,,,,,Elle se poursuit ,,,,,,,,,
+,,,,,TEACHER,"23h, 5567 Flemming ",,,,,,,,,,
+,,,,,,Tu cognes 4 coups secs,,,,,,,,,,
+,,,,,,Mot de passe : ratata02,,,,,,,,,,
+,,,,,LEIGH KANE,(pouce en l’air),,,,,,,,,,
+1,12,5567 RUE FLEMMING/ EXTÉRIEUR,SOIR,,,,Vous arrivez devant la porte du 5567 Flemming ,,,,,,,,,
+,,,,,,,,,,,5-A: Vous décidez de sonner à la porte.,,,,,
+,,,,,,,,,,,"5-B: Vous décidez de ne pas sonner à la porte, mais de faire le tour de la maison et de tenter de voir par les fenêtres. ",,,,,
+,,,,,,,,,,,5-C: Vous restez dans la voiture à réfléchir.,,,,,
+,,,,,,,,,,,,,5-A,,,Une lumière s’allume.
+,,,,,,,,,,,,,5-A,,,"Vous entendez des cris, puis des chuchotements."
+,,,,,,,,,,,,,5-A,,,Des chiens aboient.
+,,,,,,,,,,,,,5-A,HOMME,Qui est là?,Derrière la porte
+,,,,,,,,,,,,,5-A,FRED GALLANT,"Police, ouvrez.",
+,,,,,,,,,,,,,5-A,HOMME,Faites passer votre mandat sous la porte. ,
+,,,,,,,,,,,,,5-A,,,Après un temps.
+,,,,,,,,,,,,,5-A,HOMME,"Si vous n’avez pas de mandat, fichez le camp d’ici. C’est une maison privée.",
+,,,,,,,,,,,,,5-A,,,"Comme Fred n'a pas de mandat, il (elle) retourne à sa voiture. "
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,5-B,,,Il fait sombre et il y a peu de mouvement.
+,,,,,,,,,,,,,5-B,,,"On n'entend rien, mais on voit qu'il y a des gens à l'intérieur."
+,,,,,,,,,,,,,5-C,,,La maison semble banale.
+,,,,,,,,,,,,,5-C,,,"Il y a des gens à l’intérieur, mais on ne distingue pas bien."
+,,,,,,,Fred décide de faire le tour de la maison.,,,"Phase d'exploration 3 : Le joueur peut explorer les alentours de la maison.
+Il peut trouver un indice : un tract de la résistance (une invitation à une manifestation pour l’abrogation de la loi game-over).",,,,,,
+,,,,,,,,"un tract de la résistance
+(une invitation à une manifestation pour l’abrogation de la loi game-over).",,,,,,,,
+,,,,,,,Fred retourne vers sa voiture. ,,,,,,,,,
+,,,,,,,"Au moment où il (elle) démarre la voiture, il (elle) voit une
+JEUNE FEMME qui arrive de derrière la maison et qui semble fuir.",,,,,,,,,
+,,,,,,,Fred observe pour voir où elle va.,,,,,,,,,
+1,13,VOITURE DE FRED GALLANT/ INTÉRIEUR,SOIR,,,,Vous êtes dans votre voiture.,,,,,,,,,
+,,,,,,,,,,,6-A: Vous décidez d’aborder la jeune femme.,,,,,
+,,,,,,,,,,,6-B: Vous suivez discrètement la jeune femme.,,,,,
+,,,,,,,,,,,6-C: Vous notez une description physique de la jeune femme mais vous décidez de ne pas la poursuivre.,,,,,
+,,,,,,,,,,,,,6-A,FRED GALLANT,"Mademoiselle, arrêtez-vous s’il-vous-plaît.",
+,,,,,,,,,,,,,6-A,JEUNE FEMME,Ne me suivez pas! Ils vont nous voir. Attendez-moi au coin de la rue Arch.,
+,,,,,,,,,,,,,6-A,,,Fred roule jusqu'à la rue Arch et attend la jeune femme.
+,,,,,,,,,,,,,6-B,,,"Elle s’en aperçoit et accélère le pas. Rendue au coin de la rue Arch,
+elle s’arrête et s’approche du véhicule."
+,,,,,,,,,,,,,6-C,,,"À son retour au bureau, Fred a un message dans sa boîte vocale."
+,,,,,,,,,,,,,6-A-2 et 6-B-2,JEUNE FEMME,"Je m’appelle Bonnie. Je fais partie de la résistance. Mais là, j’en ai marre. C’est pour ça que vous êtes là? Coincer la résistance?",
+,,,,,,,,,,,,,6-C-2,BOÏTE VOCALE (JEUNE FEMME),Allô? Je vous ai vu hier soir sur Flemming. Je m’appelle Bonnie. Je suis de la résistance. J’aimerais vous parler. ,
+,,,,,,,,,,,,,,,,
+1,14,ART HOUSE CAFÉ/ INTÉRIEUR,JOUR,,,,Fred et Bonnie sont assis au Art House Café et discutent.,,,,,,,,,
+,,,,,BONNIE RANDLE,Merci d’être venu(e).,,,,,,,,,,
+,,,,,FRED GALLANT,Qu’est-ce que je peux faire pour vous?,,,,,,,,,,
+,,,,,BONNIE RANDLE,"Je voudrais sortir de la résistance. Je voudrais aussi qu’ils ne puissent plus me rejoindre. Je voudrais
+que mes parents ne sachent pas que j’en ai fait partie.",,,,,,,,,,
+,,,,,FRED GALLANT,Connaissez-vous Leigh Kane?,,,,,,,,,,
+,,,,,BONNIE RANDLE,Non. Je n’ai jamais entendu ce nom.,,,,,,,,,,
+,,,,,,,Fred lui montre la photo de Leigh Kane.,,,,,,,,,
+,,,,,BONNIE RANDLE,Jamais vu. ,,,,,,,,,,
+,,,,,FRED GALLANT,"Étiez-vous au 5567, Flemming le soir du 10 juillet dernier?",,,,,,,,,,
+,,,,,BONNIE RANDLE,"Je ne sais pas, c’était quand ça, quel jour?",,,,,,,,,,
+,,,,,FRED GALLANT,C’était un mercredi.,,,,,,,,,,
+,,,,,BONNIE RANDLE,"Peut-être, j’y traînais de temps en temps.",Mal à l'aise.,,,,,,,,,
+,,,,,FRED GALLANT,Parlez-moi des activités de la résistance.,,,,,,,,,,
+,,,,,BONNIE RANDLE,"Je ne sais presque rien. Ils ne veulent pas que des mineurs soient au courant de leurs manigances.
+J’avais seulement le droit de me trouver avec eux, mais ils parlent à mots couverts.",,,,,,,,,,
+,,,,,FRED GALLANT,Quel est leur but?,,,,,,,,,,
+,,,,,BONNIE RANDLE,"Jouer et faire en sorte que plus de monde continue à jouer. Et puis, ils croient qu’ils vont arriver à faire reculer le gouvernement
+et à faire abroger la loi game-over. Ils préparent quelque chose, mais je ne sais pas quoi.",,,,,,,,,,
+,,,,,FRED GALLANT,"D’accord, mais jouer à quoi? À des jeux dangereux?",,,,,,,,,,
+,,,,,BONNIE RANDLE,"Je croyais que tous les jeux étaient potentiellement dangereux selon vous. Écoutez, je rentre à la faculté de droit à l’automne.
+Si on apprend que j’ai côtoyé des gens qui ont une activité illégale, mon père va me tuer.",,,,,,,,,,
+,,,,,FRED GALLANT,Avez-vous joué?,,,,,,,,,,
+,,,,,BONNIE RANDLE,"Non, jamais. Je n’arrive pas à contrôler les manettes!",,,,,,,,,,
+,,,,,,,,,,,7-A: Vous ne croyez pas Bonnie. ,,,,,
+,,,,,,,,,,,"7-B: Vous ne confrontez pas Bonnie davantage, mais tentez de l’amadouer autrement. ",,,,,
+,,,,,,,,,,,"7-C: Vous abandonnez. Ce témoin ne vous sera pas utile. Sauf pour l’idée que vous avez désormais en tête.
+Celle d’infiltrer la résistance.",,,,,
+,,,,,,,,,,,,,7-A,FRED GALLANT,"Si vous voulez que je vous aide, vous allez devoir me dire la vérité. J’ai besoin de savoir ce qui est arrivé au garçon dont je vous ai montré la photo.
+Ça urge.",
+,,,,,,,,,,,,,7-A,BONNIE RANDLE,"D’accord, j’ai joué une ou deux fois, mais je ne connais pas ce garçon. Je vous jure que je ne l’ai jamais vu!",
+,,,,,,,,,,,,,7-A,FRED GALLANT,Quel genre de jeux?,
+,,,,,,,,,,,,,7-A,BONNIE RANDLE,Des vieux jeux. Des jeux pour enfants. Ils les appellent les jeux d’arcade. Ça me semblait inoffensif!,
+,,,,,,,,,,,,,7-A,FRED GALLANT,Vous allez m’aider.,
+,,,,,,,,,,,,,7-A,BONNIE RANDLE,Comment?,
+,,,,,,,,,,,,,7-A,FRED GALLANT,Je vais infiltrer la résistance.,
+,,,,,,,,,,,,,7-B,FRED GALLANT,"Tu peux me dire tout ce que tu as sur le cœur. C’est mon travail de venir en aide aux gens qui ont des contacts avec des jeux. Je m’occupe de faire respecter la loi game-over,
+ mais ça veut aussi dire apporter du soutien aux personnes qui sont prisonniers d’une dépendance.",
+,,,,,,,,,,,,,7-B,BONNIE RANDLE,Je ne peux pas avoir un casier judiciaire et je ne suis pas dépendante.,
+,,,,,,,,,,,,,7-B,FRED GALLANT,J’ai compris. Mais pourquoi m’as-tu contacté(e) réellement? Pourquoi tu veux quitter le groupe?,
+,,,,,,,,,,,,,7-B,BONNIE RANDLE,"D’accord, j’ai joué une ou deux fois, mais je ne connais pas ce garçon. Je vous jure que je ne l’ai jamais vu!",
+,,,,,,,,,,,,,7-B,FRED GALLANT,Quel genre de jeux?,
+,,,,,,,,,,,,,7-B,BONNIE RANDLE,Des vieux jeux. Des jeux pour enfants. Ils les appellent les jeux d’arcade. Ça me semblait inoffensif!,
+,,,,,,,,,,,,,7-B,FRED GALLANT,Vous allez m’aider.,
+,,,,,,,,,,,,,7-B,BONNIE RANDLE,Comment?,
+,,,,,,,,,,,,,7-B,FRED GALLANT,Je vais infiltrer la résistance.,
+,,,,,,,,,,,,,7-C,FRED GALLANT,Vous allez m’aider.,
+,,,,,,,,,,,,,7-C,BONNIE RANDLE,Comment?,
+,,,,,,,,,,,,,7-C,FRED GALLANT,Je vais infiltrer la résistance.,
+,,,,,,,"Bonnie donne le nom et le numéro de téléphone d’une personne que Fred
+peut appeler en prétendant vouloir se procurer un jeu. ",,,,,,,,,
+,,,,,BONNIE RANDLE,"Vous pouvez dire que vous avez eu ces infos de moi. Dites que vous connaissez mon grand frère, John Randle, de l’Université d’Ottawa.
+Il a votre âge, il est nouvellement ingénieur. Ils le connaissent. Ce type, YOUNG, lui fait entièrement confiance et c’est
+pour ça qu’ils me laissent jouer dans leurs locaux, même si je suis mineure. Mais ensuite vous m’aiderez?",,,,,,,,,,
+,,,,,FRED GALLANT,Connaissez-vous quelqu’un qui utilise le pseudo de teacher?,,,,,,,,,,
+,,,,,BONNIE RANDLE,"Non, jamais entendu parler. ",,,,,,,,,,
+1,15,BUREAU DE FRED/ INTÉRIEUR,JOUR,,,,Le Chef Miller arrive au bureau de Fred. ,,,,,,,,,
+,,,,"L’écran devient noir. INQUIÉTANT, MYSTÉRIEUX, SOMBRE GENRE INTÉRIEUR D’UN PROGRAMME INFORMATIQUE ou
+INFORMATIONS QUI VOYAGENT SUR LA TOILE. ",,,,,,,,,,,,
+,,,,,NARRATEUR,"Vous reconnaissez la croisée des chemins quand vous y faites face? Vous aimez sentir la pression jusque dans le battement
+de vos tempes? La sueur perle sur votre front. Le moment sera décisif. Serez-vous à la hauteur? Dors Fred, dors. Pendant qu’on s’occupe de ton avenir. ",,,,,,,,,,
+,,,,,,,,,"Le joueur doit nommer et
+décrire trois manières existantes de venir en aide aux personnes atteintes de cyberdépendance. Une fois les informations entrées dans le PDA, le corrigé s’affiche.",,,,,,,
+,,,,,CHEF MILLER,Fred? Fred? Est-ce que vous manquez de sommeil? Secouez-vous! Reprenez vos esprits! Alors? Du nouveau? Qu’avez-vous trouvé sur les lieux?,,,,,,,,,,
+,,,,,FRED GALLANT,Peu de choses. Il n’y a rien de frappant qui mène à la conclusion que cet enfant jouait de manière clandestine. Pas dans sa chambre.,,,,,,,,,,
+,,,,,CHEF MILLER,Et ses conversations téléphoniques? Ces messages textes? Son ordinateur? Rien là non plus?,,,,,,,,,,
+,,,,,,,,,,,A-1: Vous choisissez de ne rien dire au chef Miller. ,A-1 : 1 point fin 3,,,,
+,,,,,,,,,,,"B-1: Vous choisissez de parler au chef Miller et
+de lui dire une partie de la vérité.",B-1: 1 point fin 2,,,,
+,,,,,,,,,,,,,A-1,FRED GALLANT,"Non, rien pour l’instant.",
+,,,,,,,,,,,,,A-1,CHEF MILLER,Aucune piste?,Méfiant
+,,,,,,,,,,,,,A-1,FRED GALLANT,Rien de sérieux.,
+,,,,,,,,,,,,,A-1,CHEF MILLER,"Le criminel a confirmé la cause de la disparition : tout indique que c’est une fugue. Je ne veux rien lire dans les médias sur un lien avec
+ les jeux vidéo, Gallant. Vous m’entendez? Prouvez que ce n’est pas le cas. Si c’est le cas, je veux boucler ça sans publicité.",
+,,,,,,,,,,,,,A-1,FRED GALLANT,Certainement. Je vérifie encore quelques possibilités. ,
+,,,,,,,,,,,,,A-1,CHEF MILLER,"Ne me laissez pas tomber sur ce coup, Gallant. C’est votre période d’essai, vous me suivez?",
+,,,,,,,,,,,,,A-1,FRED GALLANT,"Oui, chef.",
+,,,,,,,,,,,,,A-1,CHEF MILLER,Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien.,
+,,,,,,,,,,,,,A-1,,,Le chef Miller quitte le bureau de Fred.
+,,,,,,,,,,,,,A-1,,,Fred appelle au numéro que Bonnie lui a donné.
+,,,,,,,,,,,,,A-1,HOMME AU TÉLÉPHONE (YOUNG),Qui est-ce?,
+,,,,,,,,,,,,,A-1,FRED GALLANT,Je m’appelle Fred. C’est John Randle qui m’a donné votre numéro.,
+,,,,,,,,,,,,,A-1,HOMME AU TÉLÉPHONE (YOUNG),John qui?,
+,,,,,,,,,,,,,A-1,FRED GALLANT,Randle.,Hésitant.
+,,,,,,,,,,,,,A-1,HOMME AU TÉLÉPHONE (YOUNG),Ah. Vous connaissez Randle? ,
+,,,,,,,,,,,,,A-1,FRED GALLANT,Oui.,
+,,,,,,,,,,,,,A-1,HOMME AU TÉLÉPHONE (YOUNG),Comment?,
+,,,,,,,,,,,,,A-1,FRED GALLANT,L’université.,
+,,,,,,,,,,,,,A-1,HOMME AU TÉLÉPHONE (YOUNG),Et vous voulez quoi?,
+,,,,,,,,,,,,,A-1,FRED GALLANT,Jouer.,
+,,,,,,,,,,,,,B-1,FRED GALLANT,Il y a un groupe.,
+,,,,,,,,,,,,,B-1,CHEF MILLER,Un groupe?,
+,,,,,,,,,,,,,B-1,FRED GALLANT,Qui semble fournir des jeux vidéo à ceux qui en cherchent.,
+,,,,,,,,,,,,,B-1,CHEF MILLER,"Vous avez trouvé des informations sur ce groupe? Ça fait une éternité qu’on en cherche! La résistance, c’est ça?",
+,,,,,,,,,,,,,B-1,FRED GALLANT,"Oui, mais très peu. Leigh Kane avait une adresse dans ses messages texte. Une adresse qui mène à ce
+ groupe. Il cherchait à se procurer un jeu, le 10 juillet dernier.",
+,,,,,,,,,,,,,B-1,CHEF MILLER,"Eh merde! Gallant, vous allez contacter ce groupe et voir ce que vous pouvez trouver au
+sujet de Kane. Vous allez vous faire passer pour quelqu’un qui veut un jeu. Vous allez pouvoir le faire? On ne fait pas souvent dans l’agent double ici, même si presque tous vos collègues ont déjà essayé. Tentez le coup. Convainquez-les, endormez-les.",
+,,,,,,,,,,,,,B-1,FRED GALLANT,"Oui, chef. Je peux les contacter et me faire passer pour un joueur.",
+,,,,,,,,,,,,,B-1,CHEF MILLER,"Bien, j’espérais que je pouvais compter sur vous, Gallant. On avait besoin de sang n
+euf ici. Vous êtes jeune et vous pouvez encore passer pour un étudiant. Ne perdez pas une minute.",
+,,,,,,,,,,,,,B-1,FRED GALLANT,J’appelle immédiatement.,
+,,,,,,,,,,,,,B-1,CHEF MILLER,Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien.,
+,,,,,,,,,,,,,B-1,HOMME AU TÉLÉPHONE (YOUNG),Qui est-ce?,Le chef Miller quitte le bureau de Fred.
+,,,,,,,,,,,,,B-1,FRED GALLANT,Je m’appelle Fred. C’est John Randle qui m’a donné votre numéro.,Fred appelle au numéro que Bonnie lui a donné.
+,,,,,,,,,,,,,B-1,HOMME AU TÉLÉPHONE (YOUNG),John qui?,
+,,,,,,,,,,,,,B-1,FRED GALLANT,Randle.,
+,,,,,,,,,,,,,B-1,HOMME AU TÉLÉPHONE (YOUNG),Ah. Vous connaissez Randle? ,
+,,,,,,,,,,,,,B-1,FRED GALLANT,Oui.,
+,,,,,,,,,,,,,B-1,HOMME AU TÉLÉPHONE (YOUNG),Comment?,
+,,,,,,,,,,,,,B-1,FRED GALLANT,L’université.,
+,,,,,,,,,,,,,B-1,HOMME AU TÉLÉPHONE (YOUNG),Et vous voulez quoi?,
+,,,,,,,,,,,,,B-1,FRED GALLANT,Jouer.,
+1,16,BRITANNIA PARK/ EXTÉRIEUR,SOIR,,,,Fred et Christopher Young (l’homme au téléphone) sont assis sur un banc et discutent. ,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Les jeux, ce n’est plus ce que c’était.",,,,,,,,,,
+,,,,,FRED GALLANT,Je suis né après l’arrivée de la loi.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Ha! Tu as tout manqué! Moi aussi, j'en ai seulement entendu parler. ",,,,,,,,,,
+,,,,,FRED GALLANT,Je comprends.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Avant, il y avait un tel choix! On pouvait jouer à un jeu différent tous les jours.",,,,,,,,,,
+,,,,,FRED GALLANT,C’était un gros marché.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"C’est toujours un gros marché. Seulement maintenant, c’est hors taxes. Et plus difficile d’accès.",,,,,,,,,,
+,,,,,FRED GALLANT,Je vois.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Le seul danger, c’est de se faire pincer. Jouer n’implique pas de danger en soi.",,,,,,,,,,
+,,,,,FRED GALLANT,"Merci de me rassurer, mais je sais à quoi m’en tenir.",,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Comment tu as commencé à jouer?,,,,,,,,,,
+,,,,,FRED GALLANT,Des amis m’ont initié.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Randle?,,,,,,,,,,
+,,,,,FRED GALLANT,Entre autres.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Randle ne joue plus depuis au moins 8 ans.,,,,,,,,,,
+,,,,,FRED GALLANT,"Je sais. Je n’ai jamais joué avec lui. Seulement, il en parle.",,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Pourquoi il ne m’a jamais parlé de toi si tu le connais depuis le début de son bac?,,,,,,,,,,
+,,,,,FRED GALLANT,Faudra lui demander.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Tu joues sur PC?,,,,,,,,,,
+,,,,,FRED GALLANT,"Oui, c’est ça.",,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Avec ce code-là, tu peux télécharger Skyrim. Ça va rouler comme un charme, il y a 300 modes sur la clé. Tu m’en donneras des nouvelles. ",,,,,,,,,,
+,,,,,FRED GALLANT,Cool.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Écoute, tu sais, on commence à se faire connaître.",,,,,,,,,,
+,,,,,FRED GALLANT,Ce n’est pas dangereux de vous faire trop connaître?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Non, personne ne sait qui on est ni où se tiennent nos activités.
+ Le bruit circule qu’il y a un groupe qui s’occupe de fournir les gens en jeux vidéo, sans plus. Mais ce n’est pas notre principale activité. ",,,,,,,,,,
+,,,,,,,Fred ne répond rien pour ne pas avoir l’air trop intéressé(e).,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,On veut dévoiler la vérité au public.,,,,,,,,,,
+,,,,,FRED GALLANT,La vérité?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Oui. Le gouvernement nous ment. Ce n’est pas net cette loi. L’histoire de la loi, tu la connais?",,,,,,,,,,
+,,,,,FRED GALLANT,"Oui, comme tout le monde.",,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Personne ne la connaît. Ce qu’on en sait représente la pointe d’un iceberg. Sous l’eau, les choses sont plus troubles.",,,,,,,,,,
+,,,,,FRED GALLANT,Qu’est-ce que tu veux dire?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Des infos ont disparu, il y a des trous, des incohérences, des histoires invraisemblables. ",,,,,,,,,,
+,,,,,FRED GALLANT,Pourquoi le gouvernement se priverait d’un revenu aussi important si les raisons de l’interdiction n’étaient pas fondées?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"C’est plus compliqué que ça. Tu as connu John à l’université, tu disais?",,,,,,,,,,
+,,,,,FRED GALLANT,Oui.,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,T’as étudié en quoi?,,,,,,,,,,
+,,,,,FRED GALLANT,Sociologie.,Improvisant,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Ça t’intéresserait de nous aider? ,,,,,,,,,,
+,,,,,FRED GALLANT,À quoi?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Il nous manque des informations. Elles sont rares et difficiles à trouver. ,,,,,,,,,,
+,,,,,FRED GALLANT,Je ne vois pas bien ce que je peux faire. ,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Tout le monde peut être utile. On va faire lever l’interdiction. Fini l’illégalité. On va jouer au grand jour, comme avant.",,,,,,,,,,
+,,,,,FRED GALLANT,Tu penses?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,J’en suis sûr. Tu ne veux pas faire l’histoire?,,,,,,,,,,
+,,,,,FRED GALLANT,Bah à priori non!,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Juste une petite mission. Si tu n’es pas convaincu(e) après, on t’oublie. Tu continues à jouer, si tu veux. C’est tout.",,,,,,,,,,
+,,,,,FRED GALLANT,Pourquoi moi?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,"Moi, je suis brûlé à bien des endroits. Ton visage n’est pas encore connu. Aucun soupçon ne pèse sur toi.",,,,,,,,,,
+,,,,,FRED GALLANT,Qu’est-ce que tu as en tête?,,,,,,,,,,
+,,,,,CHRISTOPHER YOUNG,Une petite enquête. ,,,,,,,,,,

@@ -20,7 +20,7 @@ export const SceneContainer = styled.div<SceneContainerProps>`
 
   height: 100%;
   display: grid;
-  grid-template-rows: ${ifProp('centerRow', 'auto max-content auto', 'auto max-content')};
+  grid-template-rows: ${ifProp('centerRow', '1fr auto 1fr', '1fr auto')};
   padding: 3rem 0;
   overflow: hidden;
 `;

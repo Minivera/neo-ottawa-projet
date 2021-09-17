@@ -12,6 +12,7 @@ export const usePreloader = (imagePaths: string[]): boolean => {
       return;
     }
 
+    console.log('Game loading started');
     setStarted(true);
 
     (async () => {
@@ -20,22 +21,25 @@ export const usePreloader = (imagePaths: string[]): boolean => {
           const image = new Image();
           image.src = path;
           imageReferences[path] = image;
-          image.setAttribute('style', 'display: none; height: 0; width: 0;');
+          image.setAttribute('style', 'display: none; height: 1px; width: 1px;');
           document.querySelector('body')?.appendChild(image);
 
+          console.log(`Loading ${path} started`);
           const finalize = (resolve: () => void) => {
-            if (image.complete && image.naturalHeight !== 0) {
+            if (image.complete/* && image.naturalHeight !== 0 */) {
+              console.log(`Loading ${path} completed`);
               resolve();
               return;
             }
 
-            setTimeout(() => finalize(resolve), 10);
+            setTimeout(() => finalize(resolve), 100);
           };
 
           return new Promise<void>(resolve => finalize(resolve));
         })
       );
 
+      console.log('Game loading complete');
       setLoading(false);
     })();
   }, [imagePaths]);

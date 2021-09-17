@@ -31,6 +31,7 @@ export interface Scene {
   background?: string;
   bgm?: string;
   events: Event[];
+  preloadedCharacters?: Character[];
   characters: Character[];
 }
 

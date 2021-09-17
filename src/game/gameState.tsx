@@ -74,8 +74,18 @@ const generateCurrentSceneState = (
             (event.type === 'multiple_choice' &&
               event.character &&
               character.id === event.character.id) ||
-            currentScene?.loadedCharacters.includes(character)
+            (activeScene.id === currentScene.index &&
+              currentScene?.loadedCharacters.includes(character))
         );
+
+  // Push any preloaded character that may have been filtered out when changing scenes
+  if (activeScene.id !== currentScene.index) {
+    activeScene.preloadedCharacters?.forEach(character => {
+      if (!loadedCharacters.includes(character)) {
+        loadedCharacters.push(character);
+      }
+    });
+  }
 
   return {
     index: activeScene.id,
@@ -304,11 +314,9 @@ export const useGame = (
 
   content.acts.forEach(act => {
     act.scenes.forEach(scene => {
-      const sceneId = `${act.id}_${scene.id}`;
-
       if (!firstScene) {
         firstScene = {
-          index: sceneId,
+          index: scene.id,
           currentEvent: scene.events[0],
           currentEventIndex: 0,
           characterExpressions: {},
@@ -320,18 +328,18 @@ export const useGame = (
         images.push(scene.background);
       }
 
-      scene.characters.forEach(character => {
-        Object.values(character.images).forEach(image => {
-          if (!images.includes(image)) {
-            images.push(image);
-          }
-        });
-      });
-
-      game.scenes[sceneId] = {
+      game.scenes[scene.id] = {
         ...scene,
-        id: sceneId,
+        id: scene.id,
       };
+    });
+  });
+
+  content.characters.forEach(character => {
+    Object.values(character.images).forEach(image => {
+      if (!images.includes(image)) {
+        images.push(image);
+      }
     });
   });
 
