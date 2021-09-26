@@ -145,6 +145,7 @@ export const scene14: Scene = {
       lineId: '1_1_14_20_dialog',
       choices: [
         {
+          id: '7-A',
           lineId: '20_7-A',
           action: {
             type: 'switch_scene',
@@ -153,6 +154,7 @@ export const scene14: Scene = {
           },
         },
         {
+          id: '7-B',
           lineId: '20_7-B',
           action: {
             type: 'switch_scene',
@@ -161,6 +163,7 @@ export const scene14: Scene = {
           },
         },
         {
+          id: '7-C',
           lineId: '20_7-C',
           action: {
             type: 'switch_scene',
@@ -178,11 +181,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_22_7-A_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '23_7-A',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '23_7-A',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -190,11 +195,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_23_7-A_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '24_7-A',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '24_7-A',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -202,11 +209,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_24_7-A_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '25_7-A',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '25_7-A',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -214,11 +223,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_25_7-A_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '26_7-A',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '26_7-A',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -226,11 +237,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_26_7-A_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '27_7-A',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '27_7-A',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -238,11 +251,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_27_7-A_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '28_7-A',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '28_7-A',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -250,11 +265,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_28_7-A_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '4',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '4',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -262,11 +279,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_29_7-B_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '30_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '30_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -274,11 +293,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_30_7-B_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '31_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '31_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -286,11 +307,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_31_7-B_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '32_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '32_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -298,11 +321,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_32_7-B_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '33_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '33_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -310,11 +335,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_33_7-B_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '34_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '34_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -322,11 +349,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_34_7-B_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '35_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '35_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -334,11 +363,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_35_7-B_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '36_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '36_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -346,11 +377,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_36_7-B_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '37_7-B',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '37_7-B',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -358,11 +391,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_37_7-B_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '41',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '41',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -370,11 +405,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_38_7-C_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '39_7-C',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '39_7-C',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -382,11 +419,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_39_7-C_dialog',
       character: Bonnie,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '40_7-C',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '40_7-C',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -394,11 +433,13 @@ export const scene14: Scene = {
       lineId: '1_1_14_40_7-C_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_14',
-        eventId: '41',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_14',
+          eventId: '41',
+        },
+      ],
     },
     {
       type: 'narration',
@@ -425,10 +466,12 @@ export const scene14: Scene = {
       lineId: '1_1_14_44_dialog',
       expression: 'neutral',
       character: Bonnie,
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+        },
+      ],
     },
   ],
 };

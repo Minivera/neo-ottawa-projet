@@ -16,6 +16,7 @@ export const scene6: Scene = {
       lineId: '1_1_6_1_dialog',
       choices: [
         {
+          id: '2-A',
           lineId: '1_2-A',
           action: {
             type: 'switch_scene',
@@ -24,6 +25,7 @@ export const scene6: Scene = {
           },
         },
         {
+          id: '2-B',
           lineId: '1_2-B',
           action: {
             type: 'switch_scene',
@@ -32,6 +34,7 @@ export const scene6: Scene = {
           },
         },
         {
+          id: '2-C',
           lineId: '1_2-C',
           action: {
             type: 'switch_scene',
@@ -56,11 +59,13 @@ export const scene6: Scene = {
       lineId: '1_1_6_4_2-A_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_6',
-        eventId: '7',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_6',
+          eventId: '7',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -68,21 +73,25 @@ export const scene6: Scene = {
       lineId: '1_1_6_5_2-B_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_6',
-        eventId: '7',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_6',
+          eventId: '7',
+        },
+      ],
     },
     {
       type: 'narration',
       id: '6_2-C',
       lineId: '1_1_6_6_2-C_narration',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_6',
-        eventId: '7',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_6',
+          eventId: '7',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -90,10 +99,12 @@ export const scene6: Scene = {
       lineId: '1_1_6_7_dialog',
       expression: 'neutral',
       character: ChefMillerCigar,
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_7',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_7',
+        },
+      ],
     },
   ],
 };

@@ -7,8 +7,8 @@ import {
   Scene,
   SceneState,
 } from './scene';
-import { Event } from './event';
-import { PDA, PDATab } from './pda';
+import { Choice, Event } from './event';
+import { Document, Contact, Evidence, PDA, PDATab } from './pda';
 import { usePreloader } from '../hooks/useLoading';
 import { Game, GameContent, GameSave } from './game';
 
@@ -30,6 +30,9 @@ export interface Game {
   currentScene?: SceneState;
   state: GameState;
   pda: PDA;
+  chosenChoices: Choice[];
+  savedValues: Record<string, string>;
+  savedNumericalValues: Record<string, number>;
 }
 
 export const getCurrentScene = (game: Game): Scene | null => {
@@ -52,9 +55,16 @@ export type GameAction =
   | { type: 'start' }
   | { type: 'end' }
   | { type: 'continue'; sceneId?: string; eventId?: string }
+  | { type: 'choice_selected'; choice: Choice }
+  | { type: 'set_pda_state'; state: boolean }
+  | { type: 'set_value'; key: string; value: string }
+  | { type: 'increment_value'; key: string; value: number }
   | { type: 'open_pda' }
   | { type: 'close_pda' }
-  | { type: 'change_pda_tab'; tab: PDATab };
+  | { type: 'change_pda_tab'; tab: PDATab }
+  | { type: 'add_document'; document: Document }
+  | { type: 'add_contact'; contact: Contact }
+  | { type: 'add_evidence'; evidence: Evidence };
 type GameReducer = (state: Game, action: GameAction) => Game;
 
 const generateCurrentSceneState = (
@@ -256,6 +266,44 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
         ),
       };
     }
+    case 'choice_selected': {
+      return {
+        ...state,
+        chosenChoices: state.chosenChoices.concat(action.choice),
+      };
+    }
+    case 'set_value': {
+      return {
+        ...state,
+        savedValues: {
+          ...state.savedValues,
+          [action.key]: action.value,
+        },
+      };
+    }
+    case 'increment_value': {
+      return {
+        ...state,
+        savedNumericalValues: {
+          ...state.savedNumericalValues,
+          [action.key]: Object.hasOwnProperty.call(
+            state.savedNumericalValues,
+            action.key
+          )
+            ? state.savedNumericalValues[action.key] + action.value
+            : action.value,
+        },
+      };
+    }
+    case 'set_pda_state': {
+      return {
+        ...state,
+        pda: {
+          ...state.pda,
+          enabled: action.state,
+        },
+      };
+    }
     case 'open_pda': {
       return {
         ...state,
@@ -283,6 +331,33 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
         },
       };
     }
+    case 'add_document': {
+      return {
+        ...state,
+        pda: {
+          ...state.pda,
+          documents: state.pda.documents.concat(action.document),
+        },
+      };
+    }
+    case 'add_contact': {
+      return {
+        ...state,
+        pda: {
+          ...state.pda,
+          contacts: state.pda.contacts.concat(action.contact),
+        },
+      };
+    }
+    case 'add_evidence': {
+      return {
+        ...state,
+        pda: {
+          ...state.pda,
+          evidence: state.pda.evidence.concat(action.evidence),
+        },
+      };
+    }
     default:
       throw new Error('An error occurred, wrong game action');
   }
@@ -302,6 +377,9 @@ export const useGame = (
       contacts: [],
       evidence: [],
     },
+    chosenChoices: [],
+    savedValues: {},
+    savedNumericalValues: {},
   };
   const images: string[] = [
     pdaBorderTopCenter,
@@ -351,6 +429,9 @@ export const useGame = (
 
     game.currentScene = save.currentScene;
     game.pda = save.pda;
+    game.chosenChoices = save.chosenChoices;
+    game.savedValues = save.savedValues;
+    game.savedNumericalValues = save.savedNumericalValues;
     game.state = GameState.Started;
   } else {
     game.currentScene = firstScene;

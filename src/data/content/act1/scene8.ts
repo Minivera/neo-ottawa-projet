@@ -11,10 +11,12 @@ export const scene8: Scene = {
       lineId: '1_1_8_0_dialog',
       expression: 'neutral',
       character: ChefMillerCigar,
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_9',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_9',
+        },
+      ],
     },
   ],
 };

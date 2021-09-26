@@ -61,10 +61,12 @@ export const scene2: Scene = {
       type: 'narration',
       id: '8',
       lineId: '1_1_2_8_narration',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_3',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_3',
+        },
+      ],
     },
   ],
 };

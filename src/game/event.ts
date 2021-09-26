@@ -1,4 +1,5 @@
 import { Character } from './character';
+import { Contact, Evidence } from './pda';
 
 export enum CharacterAnimation {
   MOVE_UP = 'move-up',
@@ -15,14 +16,46 @@ export interface SwitchSceneAction extends Action {
   eventId?: string;
 }
 
-export type ActionType = SwitchSceneAction;
+export interface SaveValueAction extends Action {
+  type: 'save_value';
+  key: string;
+  value: string;
+}
+
+export interface IncrementValueAction extends Action {
+  type: 'increment_value';
+  key: string;
+  value: number;
+}
+
+export interface SetPDAState extends Action {
+  type: 'set_pda_state';
+  state: boolean;
+}
+
+export interface AddDocument extends Action {
+  type: 'add_document';
+  document: Document;
+}
+
+export interface AddContact extends Action {
+  type: 'add_contact';
+  contact: Contact;
+}
+
+export interface AddEvidence extends Action {
+  type: 'add_evidence';
+  evidence: Evidence;
+}
+
+export type ActionType = SwitchSceneAction | SaveValueAction | IncrementValueAction | SetPDAState | AddDocument | AddContact | AddEvidence;
 
 export interface GenericEvent {
   type: string;
   id: string;
   soundEffect?: string;
   fullscreen?: boolean;
-  action?: ActionType;
+  actions?: ActionType[];
 }
 
 export interface Dialog extends GenericEvent {
@@ -46,8 +79,9 @@ export interface Transition extends GenericEvent {
 }
 
 export interface Choice {
+  id: string;
   lineId: string;
-  action: ActionType;
+  action: SwitchSceneAction;
 }
 
 export interface MultipleChoice extends GenericEvent {

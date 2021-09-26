@@ -5,11 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { theme } from 'styled-tools';
 import { darken, transparentize } from 'polished';
 
-export interface GameMenuProps {
-  onPDAClick: () => void;
-  onSettingsClick: () => void;
-}
-
 const GameMenuContainer = styled.div`
   position: absolute;
   top: 5rem;
@@ -26,11 +21,11 @@ const GameMenuSide = styled.div`
   height: 100%;
   width: 1.7rem;
   background: linear-gradient(
-          to right top,
-          transparent 48%,
-          ${theme('colors.secondary')} 49%,
-          ${theme('colors.secondary')} 51%,
-          ${theme('colors.secondary')} 52%
+    to right top,
+    transparent 48%,
+    ${theme('colors.secondary')} 49%,
+    ${theme('colors.secondary')} 51%,
+    ${theme('colors.secondary')} 52%
   );
 `;
 
@@ -43,7 +38,12 @@ const GameMenuInnerContainer = styled.div`
 
   & a:first-child {
     padding-right: 1rem;
-    border-right: 2px solid ${props => transparentize(0.4, theme('colors.lightGray')(props) as unknown as string)};
+    border-right: 2px solid
+      ${props =>
+        transparentize(
+          0.4,
+          theme('colors.lightGray')(props) as unknown as string
+        )};
   }
 
   & a:last-child {
@@ -61,27 +61,41 @@ const GameMenuLink = styled.a`
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0.4rem 0.4rem;
-  
+
   & svg {
     margin-right: 0.4rem;
     margin-top: -0.2rem;
   }
-  
-  &:hover, &:active {
-    color: ${props => darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+
+  &:hover,
+  &:active {
+    color: ${props =>
+      darken(0.2, theme('colors.yellow')(props) as unknown as string)};
   }
 `;
 
-export const GameMenu: React.FunctionComponent<GameMenuProps> = ({ onPDAClick, onSettingsClick }) => {
+export interface GameMenuProps {
+  onPDAClick: () => void;
+  onSettingsClick: () => void;
+  showPDA?: boolean;
+}
+
+export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
+  onPDAClick,
+  onSettingsClick,
+  showPDA,
+}) => {
   const [t] = useTranslation();
 
   return (
     <GameMenuContainer>
       <GameMenuSide />
       <GameMenuInnerContainer>
-        <GameMenuLink onClick={onPDAClick}>
-          <span>{t('pda')}</span>
-        </GameMenuLink>
+        {showPDA && (
+          <GameMenuLink onClick={onPDAClick}>
+            <span>{t('pda')}</span>
+          </GameMenuLink>
+        )}
         <GameMenuLink onClick={onSettingsClick}>
           <IoSettingsSharp />
           <span>{t('settings')}</span>

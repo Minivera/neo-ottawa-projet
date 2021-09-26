@@ -22,6 +22,7 @@ export const scene4: Scene = {
       lineId: '1_1_4_2_narration',
       choices: [
         {
+          id: '1-A',
           lineId: '2_1-A',
           action: {
             type: 'switch_scene',
@@ -30,6 +31,7 @@ export const scene4: Scene = {
           },
         },
         {
+          id: '1-B',
           lineId: '2_1-B',
           action: {
             type: 'switch_scene',
@@ -38,6 +40,7 @@ export const scene4: Scene = {
           },
         },
         {
+          id: '1-C',
           lineId: '2_1-C',
           action: {
             type: 'switch_scene',
@@ -67,10 +70,12 @@ export const scene4: Scene = {
       lineId: '1_1_4_6_1-C_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_5',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_5',
+        },
+      ],
     },
   ],
 };

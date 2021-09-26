@@ -42,10 +42,12 @@ export const gameContent: GameContent = {
               fullscreen: true,
               hideEverything: true,
               soundEffect: bigExhale,
-              action: {
-                type: 'switch_scene',
-                sceneId: '1_2',
-              },
+              actions: [
+                {
+                  type: 'switch_scene',
+                  sceneId: '1_2',
+                },
+              ],
             },
           ],
         },
@@ -103,6 +105,7 @@ export const gameContent: GameContent = {
               lineId: 'test_multiple_choice_1',
               choices: [
                 {
+                  id: '1',
                   lineId: 'test_multiple_choice_1_option_1',
                   action: {
                     type: 'switch_scene',
@@ -110,6 +113,7 @@ export const gameContent: GameContent = {
                   },
                 },
                 {
+                  id: '2',
                   lineId: 'test_multiple_choice_1_option_2',
                   action: {
                     type: 'switch_scene',
@@ -117,6 +121,7 @@ export const gameContent: GameContent = {
                   },
                 },
                 {
+                  id: '3',
                   lineId: 'test_multiple_choice_1_option_3',
                   action: {
                     type: 'switch_scene',

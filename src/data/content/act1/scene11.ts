@@ -138,10 +138,12 @@ export const scene11: Scene = {
       lineId: '1_1_11_21_dialog',
       expression: 'neutral',
       character: LeighKane,
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_12',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_12',
+        },
+      ],
     },
   ],
 };

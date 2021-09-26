@@ -34,6 +34,7 @@ export interface Evidence {
 }
 
 export interface PDA {
+  enabled?: boolean;
   open?: boolean;
   tab?: PDATab;
   documents: Document[];

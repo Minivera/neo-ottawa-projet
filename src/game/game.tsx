@@ -22,7 +22,10 @@ export interface GameContent {
 
 export interface GameSave {
   currentScene: SceneState;
+  chosenChoices: Choice[];
   pda: PDA;
+  savedValues: Record<string, string>;
+  savedNumericalValues: Record<string, number>;
 }
 
 export interface GameProps {
@@ -103,32 +106,41 @@ export const Game: React.FunctionComponent<GameProps> = ({
         if (
           gameState &&
           gameState.currentScene &&
-          gameState.currentScene.currentEvent.action
+          gameState.currentScene.currentEvent.actions
         ) {
-          const action = gameState.currentScene.currentEvent.action;
-
-          switch (action.type) {
-            case 'switch_scene': {
-              dispatch({
-                type: 'continue',
-                sceneId: action.sceneId,
-                eventId: action.eventId,
-              });
-              return;
+          gameState.currentScene.currentEvent.actions.forEach(action => {
+            switch (action.type) {
+              case 'switch_scene': {
+                dispatch({
+                  type: 'continue',
+                  sceneId: action.sceneId,
+                  eventId: action.eventId,
+                });
+                break;
+              }
+              case 'set_pda_state': {
+                dispatch({
+                  type: 'set_pda_state',
+                  state: action.state,
+                });
+                break;
+              }
             }
-          }
+          });
         }
 
         dispatch({ type: 'continue' });
       };
 
       const onChoiceSelected = (choice: Choice) => {
-        const action = choice.action;
-
+        dispatch({
+          type: 'choice_selected',
+          choice,
+        });
         dispatch({
           type: 'continue',
-          sceneId: action.sceneId,
-          eventId: action.eventId,
+          sceneId: choice.action.sceneId,
+          eventId: choice.action.eventId,
         });
       };
 
@@ -137,6 +149,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
           fullscreen={gameState.currentScene.currentEvent.fullscreen}
         >
           <GameMenu
+            showPDA={gameState.pda.enabled}
             onPDAClick={() => dispatch({ type: 'open_pda' })}
             onSettingsClick={() => {}}
           />

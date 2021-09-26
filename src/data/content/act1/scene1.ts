@@ -16,10 +16,12 @@ export const scene1: Scene = {
       type: 'narration',
       id: '1',
       lineId: '1_1_1_1_narration',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_2',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_2',
+        },
+      ],
     },
   ],
 };

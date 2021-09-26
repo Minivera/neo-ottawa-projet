@@ -46,10 +46,10 @@ export const scene5: Scene = {
       lineId: '1_1_5_5_dialog',
       expression: 'neutral',
       character: FredGallant,
-      action: {
+      actions: [{
         type: 'switch_scene',
         sceneId: '1_6',
-      },
+      }],
     },
   ],
 };

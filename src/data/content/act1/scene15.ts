@@ -41,6 +41,7 @@ export const scene15: Scene = {
       lineId: '1_1_15_4_dialog',
       choices: [
         {
+          id: 'A-1',
           lineId: '4_A-1',
           action: {
             type: 'switch_scene',
@@ -49,6 +50,7 @@ export const scene15: Scene = {
           },
         },
         {
+          id: 'B-1',
           lineId: '4_B-1',
           action: {
             type: 'switch_scene',
@@ -66,11 +68,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_6_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '7_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '7_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -78,11 +82,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_7_A-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '8_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '8_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -90,11 +96,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_8_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '9_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '9_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -102,11 +110,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_9_A-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '10_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '10_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -114,11 +124,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_10_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '11_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '11_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -126,11 +138,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_11_A-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '12_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '12_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -138,11 +152,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_12_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '13_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '13_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -150,31 +166,37 @@ export const scene15: Scene = {
       lineId: '1_1_15_13_A-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '14_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '14_A-1',
+        },
+      ],
     },
     {
       type: 'narration',
       id: '14_A-1',
       lineId: '1_1_15_14_A-1_narration',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '15_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '15_A-1',
+        },
+      ],
     },
     {
       type: 'narration',
       id: '15_A-1',
       lineId: '1_1_15_15_A-1_narration',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '16_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '16_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -182,11 +204,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_16_A-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '17_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '17_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -194,11 +218,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_17_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '18_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '18_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -206,11 +232,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_18_A-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '19_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '19_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -218,11 +246,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_19_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '20_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '20_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -230,11 +260,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_20_A-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '21_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '21_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -242,11 +274,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_21_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '22_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '22_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -254,11 +288,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_22_A-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '23_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '23_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -266,11 +302,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_23_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '24_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '24_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -278,11 +316,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_24_A-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '25_A-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '25_A-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -290,10 +330,12 @@ export const scene15: Scene = {
       lineId: '1_1_15_25_A-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_16',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_16',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -301,11 +343,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_26_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '27_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '27_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -313,11 +357,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_27_B-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '28_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '28_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -325,11 +371,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_28_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '29_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '29_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -337,11 +385,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_29_B-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '30_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '30_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -349,11 +399,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_30_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '31_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '31_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -361,11 +413,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_31_B-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '32_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '32_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -373,11 +427,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_32_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '33_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '33_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -385,11 +441,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_33_B-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '34_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '34_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -397,11 +455,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_34_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '35_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '35_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -409,11 +469,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_35_B-1_dialog',
       character: ChefMillerCigar,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '36_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '36_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -421,11 +483,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_36_B-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '37_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '37_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -433,11 +497,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_37_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '38_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '38_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -445,11 +511,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_38_B-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '39_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '39_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -457,11 +525,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_39_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '40_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '40_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -469,11 +539,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_40_B-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '41_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '41_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -481,11 +553,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_41_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '42_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '42_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -493,11 +567,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_42_B-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '43_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '43_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -505,11 +581,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_43_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '44_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '44_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -517,11 +595,13 @@ export const scene15: Scene = {
       lineId: '1_1_15_44_B-1_dialog',
       character: HommeAuTelephone,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_15',
-        eventId: '45_B-1',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_15',
+          eventId: '45_B-1',
+        },
+      ],
     },
     {
       type: 'dialog',
@@ -529,10 +609,12 @@ export const scene15: Scene = {
       lineId: '1_1_15_45_B-1_dialog',
       character: FredGallant,
       expression: 'neutral',
-      action: {
-        type: 'switch_scene',
-        sceneId: '1_16',
-      },
+      actions: [
+        {
+          type: 'switch_scene',
+          sceneId: '1_16',
+        },
+      ],
     },
   ],
 };
