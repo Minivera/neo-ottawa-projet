@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/03 - Chef Miller/No cigar/
 import expressionWtf from '../../assets/characters/03 - Chef Miller/No cigar/wtf.svg?w=350';
 
 export const ChefMillerNoCigar: Character = {
-  id: 'CHEF MILLER NO CIGAR',
+  id: 'CHEF_MILLER_NO_CIGAR',
   name: 'chef_miller',
   images: {
     alertness: expressionAlertness,

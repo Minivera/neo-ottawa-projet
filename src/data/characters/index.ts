@@ -22,9 +22,7 @@ import { MereLeighKane } from './mereLeighKane';
 import { PereLeighKane } from './pereLeighKane';
 import { Al } from './al';
 import { Administrateur } from './administrateur';
-import { JeuneFemme } from './jeuneFemme';
 import { Homme } from './homme';
-import { HommeAuTelephone } from './hommeAuTelephone';
 
 export {
   FredGallant,
@@ -51,16 +49,14 @@ export {
   PereLeighKane,
   Al,
   Administrateur,
-  JeuneFemme,
   Homme,
-  HommeAuTelephone,
 };
 
 export const Characters = {
   [FredGallant.id]: FredGallant,
   [Gabriel.id]: Gabriel,
   [ChefMillerCigar.id]: ChefMillerCigar,
-  [ChefMillerNoCigar.id]: ChefMillerNoCigar,
+  // [ChefMillerNoCigar.id]: ChefMillerNoCigar,
   [AgentLucas.id]: AgentLucas,
   [AgentMoore.id]: AgentMoore,
   [LeighKane.id]: LeighKane,
@@ -69,19 +65,17 @@ export const Characters = {
   [Teacher.id]: Teacher,
   [Bonnie.id]: Bonnie,
   [ChristopherYoung.id]: ChristopherYoung,
-  [Vivian.id]: Vivian,
-  [Ronny.id]: Ronny,
-  [Tom.id]: Tom,
-  [Receptioniste.id]: Receptioniste,
-  [RobertPower.id]: RobertPower,
-  [OliviaPaul.id]: OliviaPaul,
-  [CarlWhite.id]: CarlWhite,
-  [CarlWhiteNoCigarette.id]: CarlWhiteNoCigarette,
-  [MereLeighKane.id]: MereLeighKane,
-  [PereLeighKane.id]: PereLeighKane,
-  [Al.id]: Al,
-  [Administrateur.id]: Administrateur,
-  [JeuneFemme.id]: JeuneFemme,
+  // [Vivian.id]: Vivian,
+  // [Ronny.id]: Ronny,
+  // [Tom.id]: Tom,
+  // [Receptioniste.id]: Receptioniste,
+  // [RobertPower.id]: RobertPower,
+  // [OliviaPaul.id]: OliviaPaul,
+  // [CarlWhite.id]: CarlWhite,
+  // [CarlWhiteNoCigarette.id]: CarlWhiteNoCigarette,
+  // [MereLeighKane.id]: MereLeighKane,
+  // [PereLeighKane.id]: PereLeighKane,
+  // [Al.id]: Al,
+  // [Administrateur.id]: Administrateur,
   [Homme.id]: Homme,
-  [HommeAuTelephone.id]: HommeAuTelephone,
 };

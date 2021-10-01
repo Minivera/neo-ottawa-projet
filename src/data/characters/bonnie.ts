@@ -22,7 +22,7 @@ import expressionSurprise from '../../assets/characters/10 - Bonnie/surprise.svg
 import expressionWonder from '../../assets/characters/10 - Bonnie/wonder.svg?w=350';
 
 export const Bonnie: Character = {
-  id: 'BONNIE RANDLE',
+  id: 'BONNIE_RANDLE',
   name: 'bonnie_randle',
   images: {
     alertness: expressionAlertness,

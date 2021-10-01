@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/04 - Agent Lucas/wonder.sv
 import expressionWtf from '../../assets/characters/04 - Agent Lucas/wtf.svg?w=350';
 
 export const AgentLucas: Character = {
-  id: 'AGENT LUCAS',
+  id: 'AGENT_LUCAS',
   name: 'agent_lucas',
   images: {
     alertness: expressionAlertness,

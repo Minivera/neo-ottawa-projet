@@ -21,8 +21,8 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
   skipAnimation,
 }) => {
   // TODO: Make this interpreter smarter
-  text = text.replaceAll('<s>', specialChars.strongStart);
-  text = text.replaceAll('</s>', specialChars.strongEnd);
+  text = text.replaceAll('<b>', specialChars.strongStart);
+  text = text.replaceAll('</b>', specialChars.strongEnd);
 
   const parts = text.split('');
   const letters: React.ReactElement[] = [];

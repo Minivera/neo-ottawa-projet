@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/18 - Carl White/no cigaret
 import expressionWtf from '../../assets/characters/18 - Carl White/no cigarette/wtf.svg?w=350';
 
 export const CarlWhiteNoCigarette: Character = {
-  id: 'CARL WHITE NO CIGARETTE',
+  id: 'CARL_WHITE_NO_CIGARETTE',
   name: 'carl_white',
   images: {
     alertness: expressionAlertness,

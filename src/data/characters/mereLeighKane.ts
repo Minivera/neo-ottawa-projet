@@ -22,7 +22,7 @@ import expressionSurprise from '../../assets/characters/19 - Mère de Leigh Kane
 import expressionWonder from '../../assets/characters/19 - Mère de Leigh Kane/wonder.svg?w=350';
 
 export const MereLeighKane: Character = {
-  id: 'MÈRE DE LEIGH KANE',
+  id: 'MERE_DE_LEIGH_KANE',
   name: 'mere_leigh_kane',
   images: {
     alertness: expressionAlertness,

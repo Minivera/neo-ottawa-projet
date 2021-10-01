@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/16 - Robert Power/wonder.s
 import expressionWtf from '../../assets/characters/16 - Robert Power/wtf.svg?w=350';
 
 export const RobertPower: Character = {
-  id: 'ROBERT POWER',
+  id: 'ROBERT_POWER',
   name: 'robert_power',
   images: {
     alertness: expressionAlertness,

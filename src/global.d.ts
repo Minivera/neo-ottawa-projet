@@ -28,3 +28,8 @@ declare module '*.mp4' {
   export default path;
 }
 
+
+declare module '*.json?raw' {
+  const content: string;
+  export default content;
+}

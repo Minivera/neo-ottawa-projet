@@ -1,16 +1,17 @@
-import { Dispatch, ReducerState, useReducer } from 'react';
+import { Dispatch, ReducerState, useReducer, useEffect } from 'react';
+import { InkList, Story } from 'inkjs/engine/Story';
+import { InkListItem } from 'inkjs/engine/InkList';
 
-import {
-  getFirstSceneEvent,
-  getNextSceneEvent,
-  getSceneEvent,
-  Scene,
-  SceneState,
-} from './scene';
-import { Choice, Event } from './event';
-import { Document, Contact, Evidence, PDA, PDATab } from './pda';
+import { SceneState } from './scene';
+import { PDA, PDATab } from './pda';
 import { usePreloader } from '../hooks/useLoading';
-import { Game, GameContent, GameSave } from './game';
+import { Game } from './game';
+import { extractCharacterTags, extractPlacementTags } from './tags';
+import { Characters } from '../data/characters';
+import { backgrounds } from '../data/assets/backgrounds';
+import { musics } from '../data/assets/musics';
+import { soundEffects } from '../data/assets/soundEffects';
+import { CharacterAnimation } from './event';
 
 // Hardcoded images to preload
 import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
@@ -26,142 +27,142 @@ export enum GameState {
 }
 
 export interface Game {
-  scenes: Record<string, Scene>;
-  currentScene?: SceneState;
+  story: Story;
   state: GameState;
+  currentScene?: SceneState;
   pda: PDA;
-  chosenChoices: Choice[];
-  savedValues: Record<string, string>;
-  savedNumericalValues: Record<string, number>;
 }
 
-export const getCurrentScene = (game: Game): Scene | null => {
-  if (game.currentScene && game.scenes[game.currentScene.index]) {
-    return game.scenes[game.currentScene.index];
-  }
-
-  return null;
-};
-
-export const getScene = (game: Game, sceneId: string): Scene | null => {
-  if (game.currentScene && game.scenes[sceneId]) {
-    return game.scenes[sceneId];
-  }
-
-  return null;
-};
+interface GameVariables {
+  /* eslint-disable camelcase */
+  shown_characters: InkList;
+  current_background: string;
+  current_music: string;
+  known_evidence: InkList;
+  known_contacts: InkList;
+  pda_activated: boolean;
+  /* eslint-enable camelcase */
+}
 
 export type GameAction =
   | { type: 'start' }
   | { type: 'end' }
-  | { type: 'continue'; sceneId?: string; eventId?: string }
-  | { type: 'choice_selected'; choice: Choice }
-  | { type: 'set_pda_state'; state: boolean }
-  | { type: 'set_value'; key: string; value: string }
-  | { type: 'increment_value'; key: string; value: number }
+  | { type: 'continue'; choiceId?: number }
+  | {
+      type: 'animate_character';
+      characterId: keyof typeof Characters;
+      animation: CharacterAnimation;
+    }
   | { type: 'open_pda' }
   | { type: 'close_pda' }
-  | { type: 'change_pda_tab'; tab: PDATab }
-  | { type: 'add_document'; document: Document }
-  | { type: 'add_contact'; contact: Contact }
-  | { type: 'add_evidence'; evidence: Evidence };
+  | { type: 'change_pda_tab'; tab: PDATab };
 type GameReducer = (state: Game, action: GameAction) => Game;
 
-const generateCurrentSceneState = (
-  activeScene: Scene,
-  currentScene: SceneState,
-  event: Event
-): SceneState => {
-  // Loaded characters are the characters that had an even this scene
-  // Merge the currently loaded characters with the newly evented character
-  // Empty if the narration mandates cleaning the character
-  const loadedCharacters =
-    event.type === 'narration' && event.shouldHideAll
-      ? []
-      : activeScene.characters.filter(
-          character =>
-            (event.type === 'dialog' && character.id === event.character.id) ||
-            (event.type === 'multiple_choice' &&
-              event.character &&
-              character.id === event.character.id) ||
-            (activeScene.id === currentScene.index &&
-              currentScene?.loadedCharacters.includes(character))
-        );
+const isPDAActivated = (story: Story) =>
+  (story.variablesState as unknown as GameVariables).pda_activated;
 
-  // Push any preloaded character that may have been filtered out when changing scenes
-  if (activeScene.id !== currentScene.index) {
-    activeScene.preloadedCharacters?.forEach(character => {
-      if (!loadedCharacters.includes(character)) {
-        loadedCharacters.push(character);
+const generateCurrentScene = (
+  text: string | null,
+  previousState: SceneState | null,
+  story: Story
+): SceneState => {
+  const tags = story.currentTags;
+
+  const characterTag = extractCharacterTags(tags);
+  const placementTag = extractPlacementTags(tags);
+
+  const variables = story.variablesState as unknown as GameVariables;
+
+  const currentScene: SceneState = {
+    text: text || previousState?.text || '',
+    notes: undefined,
+    centered: placementTag.centered,
+    choices: [],
+    shownCharacters: [],
+    characterExpressions: previousState
+      ? previousState.characterExpressions
+      : {},
+  };
+
+  // Try extracting the name of the person talking using `Name: dialog`
+  const extract = currentScene.text.split(':');
+  if (extract.length > 1) {
+    currentScene.text = extract.slice(1).join(':').trim();
+    currentScene.dialogName = extract[0].trim();
+  }
+
+  // Shown characters are the characters from the variable - any character set as hidden
+  variables.shown_characters.forEach((_, itemJson) => {
+    const item = JSON.parse(itemJson) as InkListItem;
+    const id = item.itemName;
+    if (!id) {
+      return;
+    }
+
+    const found = Characters[id];
+    if (!found) {
+      return;
+    }
+
+    if (
+      (id === characterTag.character?.id && !characterTag.invisible) ||
+      id !== characterTag.character?.id
+    ) {
+      currentScene.shownCharacters.push(found);
+
+      if (!currentScene.characterExpressions[found.id]) {
+        currentScene.characterExpressions[found.id] = 'neutral';
       }
+    }
+  });
+
+  if (characterTag.character) {
+    currentScene.currentCharacter = characterTag.character;
+
+    if (characterTag.expression) {
+      currentScene.characterExpressions[characterTag.character.id] =
+        characterTag.expression;
+    }
+  }
+
+  if (variables.current_music) {
+    currentScene.bgm =
+      variables.current_music === 'none'
+        ? undefined
+        : musics[variables.current_music];
+  }
+
+  if (variables.current_background) {
+    currentScene.background =
+      variables.current_background === 'none'
+        ? undefined
+        : backgrounds[variables.current_background];
+  }
+
+  if (story.currentChoices.length) {
+    currentScene.choices = [];
+
+    story.currentChoices.forEach(choice => {
+      currentScene.choices?.push({
+        id: choice.index,
+        content: choice.text,
+      });
     });
   }
 
-  return {
-    index: activeScene.id,
-    currentEvent: event,
-    currentEventIndex: activeScene.events.findIndex(
-      element => element.id === event.id
-    ),
-    loadedCharacters,
-    // Create an object of character expressions based on the previous expressions
-    // and the current event's character
-    characterExpressions: activeScene.characters.reduce((acc, character) => {
-      if (event.type === 'dialog' && character.id === event.character.id) {
-        return {
-          ...acc,
-          [character.id]: event.expression,
-        };
-      }
-
-      if (
-        event.type === 'multiple_choice' &&
-        event.character &&
-        character.id === event.character.id
-      ) {
-        return {
-          ...acc,
-          [character.id]:
-            event.expression || currentScene.characterExpressions[character.id],
-        };
-      }
-
-      if (loadedCharacters.includes(character) && currentScene) {
-        return {
-          ...acc,
-          [character.id]: currentScene.characterExpressions[character.id],
-        };
-      }
-
-      return acc;
-    }, {}),
-  };
+  return currentScene;
 };
 
 const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
   switch (action.type) {
     case 'start': {
-      // Get the first scene of the game and show its first event
-      const firstScene = getCurrentScene(state);
-      if (!firstScene || !state.currentScene) {
-        throw new Error('An error occurred, game was incorrectly loaded');
-      }
-
-      const event = getFirstSceneEvent(firstScene);
-      if (!event) {
-        throw new Error(
-          'An error occurred, action would result in invalid game state'
-        );
-      }
+      // Run the story for the first time
+      const result = state.story.Continue();
 
       return {
         ...state,
         state: GameState.Started,
-        currentScene: generateCurrentSceneState(
-          firstScene,
-          state.currentScene,
-          event
-        ),
+        currentScene: generateCurrentScene(result, null, state.story),
       };
     }
     case 'end': {
@@ -175,132 +176,39 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
         throw new Error('An error occurred, game was not started or has ended');
       }
 
-      // If we're not changing scenes
-      if (!action.sceneId) {
-        const currentScene = getCurrentScene(state);
-        if (!currentScene) {
-          throw new Error('An error occurred, game reached an invalid state');
-        }
+      if (typeof action.choiceId !== 'undefined') {
+        state.story.ChooseChoiceIndex(action.choiceId);
 
-        // If we're changing events
-        if (action.eventId) {
-          const event = getSceneEvent(currentScene, action.eventId);
-          if (!event) {
-            throw new Error(
-              'An error occurred, action would result in invalid game state'
-            );
-          }
-
-          return {
-            ...state,
-            // Generate for the old scene and new event in that scene
-            currentScene: generateCurrentSceneState(
-              currentScene,
-              state.currentScene,
-              event
-            ),
-          };
-        }
-
-        const event = getNextSceneEvent(
-          currentScene,
-          state.currentScene.currentEvent.id
-        );
-        if (!event) {
-          throw new Error(
-            'An error occurred, action would result in invalid game state'
-          );
-        }
-
-        return {
-          ...state,
-          // Instead, generate for the next event in the old scene
-          currentScene: generateCurrentSceneState(
-            currentScene,
-            state.currentScene,
-            event
-          ),
-        };
+        // Skip the interface showing chosen choice (TODO: Readd if we ever make use of that feature).
+        state.story.Continue();
       }
 
-      // If changing scene, get the new scene from the state
-      const newScene = getScene(state, action.sceneId);
-      if (!newScene) {
-        throw new Error(
-          'An error occurred, action would result in invalid game state'
-        );
-      }
+      const result = state.story.Continue();
 
-      // If we're also changing events
-      if (action.eventId) {
-        const event = getSceneEvent(newScene, action.eventId);
-        if (!event) {
-          throw new Error(
-            'An error occurred, action would result in invalid game state'
-          );
-        }
-
-        return {
-          ...state,
-          // Generate for the new evetn in the new scene
-          currentScene: generateCurrentSceneState(
-            newScene,
-            state.currentScene,
-            event
-          ),
-        };
-      }
-
-      const event = getFirstSceneEvent(newScene);
-      if (!event) {
-        throw new Error('An error occurred, game reached an invalid state');
-      }
-
-      return {
-        ...state,
-        // Instead, generate for the next event in the new scene
-        currentScene: generateCurrentSceneState(
-          newScene,
-          state.currentScene,
-          event
-        ),
-      };
-    }
-    case 'choice_selected': {
-      return {
-        ...state,
-        chosenChoices: state.chosenChoices.concat(action.choice),
-      };
-    }
-    case 'set_value': {
-      return {
-        ...state,
-        savedValues: {
-          ...state.savedValues,
-          [action.key]: action.value,
-        },
-      };
-    }
-    case 'increment_value': {
-      return {
-        ...state,
-        savedNumericalValues: {
-          ...state.savedNumericalValues,
-          [action.key]: Object.hasOwnProperty.call(
-            state.savedNumericalValues,
-            action.key
-          )
-            ? state.savedNumericalValues[action.key] + action.value
-            : action.value,
-        },
-      };
-    }
-    case 'set_pda_state': {
       return {
         ...state,
         pda: {
           ...state.pda,
-          enabled: action.state,
+          enabled: isPDAActivated(state.story),
+        },
+        currentScene: generateCurrentScene(
+          result,
+          state.currentScene,
+          state.story
+        ),
+      };
+    }
+    case 'animate_character': {
+      if (!state.currentScene) {
+        throw new Error('An error occurred, game was not started or has ended');
+      }
+
+      return {
+        ...state,
+        currentScene: {
+          ...state.currentScene,
+          currentCharacter: Characters[action.characterId],
+          animation: action.animation,
         },
       };
     }
@@ -331,44 +239,18 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
         },
       };
     }
-    case 'add_document': {
-      return {
-        ...state,
-        pda: {
-          ...state.pda,
-          documents: state.pda.documents.concat(action.document),
-        },
-      };
-    }
-    case 'add_contact': {
-      return {
-        ...state,
-        pda: {
-          ...state.pda,
-          contacts: state.pda.contacts.concat(action.contact),
-        },
-      };
-    }
-    case 'add_evidence': {
-      return {
-        ...state,
-        pda: {
-          ...state.pda,
-          evidence: state.pda.evidence.concat(action.evidence),
-        },
-      };
-    }
     default:
       throw new Error('An error occurred, wrong game action');
   }
 };
 
 export const useGame = (
-  content: GameContent,
-  save?: GameSave
+  storyContent: string,
+  save?: string
 ): [boolean, number, ReducerState<GameReducer>, Dispatch<GameAction>] => {
   const game: Game = {
-    scenes: {},
+    // JSON has invalid char at index 0 for some reason
+    story: new Story(storyContent.slice(1)),
     state: GameState.Loading,
     pda: {
       open: false,
@@ -377,66 +259,58 @@ export const useGame = (
       contacts: [],
       evidence: [],
     },
-    chosenChoices: [],
-    savedValues: {},
-    savedNumericalValues: {},
   };
   const images: string[] = [
     pdaBorderTopCenter,
     pdaBorderTopRight,
     pdaBorderBotLeft,
     pdaBorderBotRight,
+    ...Object.keys(Characters)
+      .map(key =>
+        Object.keys(Characters[key].images).map(
+          imageKey => Characters[key].images[imageKey]
+        )
+      )
+      .flat(),
+    ...Object.keys(backgrounds)
+      .map(key => backgrounds[key].asset)
+      .flat(),
   ];
 
-  let firstScene: SceneState | undefined;
-
-  content.acts.forEach(act => {
-    act.scenes.forEach(scene => {
-      if (!firstScene) {
-        firstScene = {
-          index: scene.id,
-          currentEvent: scene.events[0],
-          currentEventIndex: 0,
-          characterExpressions: {},
-          loadedCharacters: [],
-        };
-      }
-
-      if (scene.background && !images.includes(scene.background)) {
-        images.push(scene.background);
-      }
-
-      game.scenes[scene.id] = {
-        ...scene,
-        id: scene.id,
-      };
-    });
-  });
-
-  content.characters.forEach(character => {
-    Object.values(character.images).forEach(image => {
-      if (!images.includes(image)) {
-        images.push(image);
-      }
-    });
-  });
-
   if (save) {
-    // Check if the scene exists
-    if (!Object.hasOwnProperty.call(game.scenes, save.currentScene.index)) {
-      throw new Error("Corrupted save, scene doesn't exists");
-    }
-
-    game.currentScene = save.currentScene;
-    game.pda = save.pda;
-    game.chosenChoices = save.chosenChoices;
-    game.savedValues = save.savedValues;
-    game.savedNumericalValues = save.savedNumericalValues;
+    game.story.state.LoadJson(save);
     game.state = GameState.Started;
   } else {
-    game.currentScene = firstScene;
     game.state = GameState.Loaded;
   }
 
-  return [...usePreloader(images), ...useReducer(gameReducer, game)];
+  const [state, dispatch] = useReducer(gameReducer, game);
+
+  useEffect(() => {
+    try {
+      state.story.BindExternalFunction(
+        'animate_character',
+        (characterId: keyof typeof Characters, animation: CharacterAnimation) => {
+          dispatch({ type: 'animate_character', animation, characterId });
+        },
+        false
+      );
+
+      state.story.BindExternalFunction(
+        'play_sound',
+        (soundId: keyof typeof soundEffects) => {
+
+          const sound = soundEffects[soundId];
+          if (sound) {
+            sound.play();
+          }
+        },
+        false
+      );
+    } catch {
+      // Ignore exceptions here as hot-reloading can cause this effect to rerun
+    }
+  }, []);
+
+  return [...usePreloader(images), state, dispatch];
 };

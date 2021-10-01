@@ -1,80 +1,85 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import { Scene, SceneState } from './scene';
+import { Scene } from './scene';
 import { Choice } from './event';
-import { GameState, getCurrentScene, useGame } from './gameState';
+import { GameState, useGame } from './gameState';
 import { GameContainer } from '../components/gameContainer';
 import { GameMenu } from '../components/gameMenu';
-import { PDA, PDAComponent } from './pda';
-import { Character } from './character';
+import { PDAComponent } from './pda';
 import { GameLoader } from '../components/gameLoader';
 import { StartButton } from '../components/startButton';
+import { GameBackground } from '../components/gameBackground';
 
-export interface Act {
-  id: string;
-  scenes: Scene[];
-}
-
-export interface GameContent {
-  acts: Act[];
-  characters: Character[];
-}
-
-export interface GameSave {
-  currentScene: SceneState;
-  chosenChoices: Choice[];
-  pda: PDA;
-  savedValues: Record<string, string>;
-  savedNumericalValues: Record<string, number>;
-}
+import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 
 export interface GameProps {
-  gameContent: GameContent;
-  saveState?: GameSave;
-  stopVideo: () => void;
+  storyContent: string;
+  saveState?: string;
 }
 
 export const Game: React.FunctionComponent<GameProps> = ({
-  gameContent,
+  storyContent,
   saveState,
-  stopVideo,
 }) => {
   const [loading, percentLoaded, gameState, dispatch] = useGame(
-    gameContent,
+    storyContent,
     saveState
   );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    if (gameState.state === GameState.Started) {
-      stopVideo();
-    }
-  }, [loading, gameState]);
-
   if (loading) {
     return (
-      <GameContainer>
-        <GameLoader percent={percentLoaded} />
-      </GameContainer>
+      <>
+        <GameBackground
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          src={bgVideo}
+          autoPlay={true}
+          muted
+          loop
+        />
+        <GameContainer>
+          <GameLoader percent={percentLoaded} />
+        </GameContainer>
+      </>
     );
   }
 
   switch (gameState.state) {
     case GameState.Loading:
       return (
-        <GameContainer>
-          <GameLoader />
-        </GameContainer>
+        <>
+          <GameBackground
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            src={bgVideo}
+            autoPlay={true}
+            muted
+            loop
+          />
+          <GameContainer>
+            <GameLoader />
+          </GameContainer>
+        </>
       );
     case GameState.Loaded:
       return (
-        <GameContainer>
-          <StartButton onClick={() => dispatch({ type: 'start' })} />
-        </GameContainer>
+        <>
+          <GameBackground
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            src={bgVideo}
+            autoPlay={true}
+            muted
+            loop
+          />
+          <GameContainer>
+            <StartButton onClick={() => dispatch({ type: 'start' })} />
+          </GameContainer>
+        </>
       );
     case GameState.Started: {
-      const currentScene = getCurrentScene(gameState);
-      if (!currentScene || !gameState.currentScene) {
+      if (!gameState.currentScene) {
         return <GameContainer>Could not load scene</GameContainer>;
       }
 
@@ -92,82 +97,54 @@ export const Game: React.FunctionComponent<GameProps> = ({
           return;
         }
 
-        if (
-          gameState &&
-          gameState.currentScene &&
-          gameState.currentScene.currentEvent.type === 'multiple_choice'
-        ) {
+        if (!gameState.story.canContinue) {
           return;
         }
 
         // Clear the loading indicator so we know to animate the next event.
         setTextLoading(null);
 
-        if (
-          gameState &&
-          gameState.currentScene &&
-          gameState.currentScene.currentEvent.actions
-        ) {
-          gameState.currentScene.currentEvent.actions.forEach(action => {
-            switch (action.type) {
-              case 'switch_scene': {
-                dispatch({
-                  type: 'continue',
-                  sceneId: action.sceneId,
-                  eventId: action.eventId,
-                });
-                break;
-              }
-              case 'set_pda_state': {
-                dispatch({
-                  type: 'set_pda_state',
-                  state: action.state,
-                });
-                break;
-              }
-            }
-          });
-        }
-
         dispatch({ type: 'continue' });
       };
 
       const onChoiceSelected = (choice: Choice) => {
-        dispatch({
-          type: 'choice_selected',
-          choice,
-        });
-        dispatch({
-          type: 'continue',
-          sceneId: choice.action.sceneId,
-          eventId: choice.action.eventId,
-        });
+        dispatch({ type: 'continue', choiceId: choice.id });
       };
 
       return (
-        <GameContainer
-          fullscreen={gameState.currentScene.currentEvent.fullscreen}
-        >
-          <GameMenu
-            showPDA={gameState.pda.enabled}
-            onPDAClick={() => dispatch({ type: 'open_pda' })}
-            onSettingsClick={() => {}}
-          />
-          <Scene
-            scene={currentScene}
-            state={gameState.currentScene}
-            skipAnimation={textLoading !== null && !textLoading}
-            onContinue={onContinue}
-            onTextLoadingStart={onTextLoadingStart}
-            onTextLoadingEnd={onTextLoadingEnd}
-            onChoiceSelected={onChoiceSelected}
-          />
-          <PDAComponent
-            pdaState={gameState.pda}
-            onPDAClosed={() => dispatch({ type: 'close_pda' })}
-            onPDATabChanged={tab => dispatch({ type: 'change_pda_tab', tab })}
-          />
-        </GameContainer>
+        <>
+          {gameState.currentScene &&
+            gameState.currentScene.background?.type === 'video' && (
+              <GameBackground
+                /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+                // @ts-ignore
+                src={gameState.currentScene.background.asset}
+                autoPlay={true}
+                muted
+                loop
+              />
+            )}
+          <GameContainer>
+            <GameMenu
+              showPDA={gameState.pda.enabled}
+              onPDAClick={() => dispatch({ type: 'open_pda' })}
+              onSettingsClick={() => {}}
+            />
+            <Scene
+              state={gameState.currentScene}
+              skipAnimation={textLoading !== null && !textLoading}
+              onContinue={onContinue}
+              onTextLoadingStart={onTextLoadingStart}
+              onTextLoadingEnd={onTextLoadingEnd}
+              onChoiceSelected={onChoiceSelected}
+            />
+            <PDAComponent
+              pdaState={gameState.pda}
+              onPDAClosed={() => dispatch({ type: 'close_pda' })}
+              onPDATabChanged={tab => dispatch({ type: 'change_pda_tab', tab })}
+            />
+          </GameContainer>
+        </>
       );
     }
   }

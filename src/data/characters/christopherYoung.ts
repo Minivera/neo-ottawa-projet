@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/11 - Christopher Young/won
 import expressionWtf from '../../assets/characters/11 - Christopher Young/wtf.svg?w=350';
 
 export const ChristopherYoung: Character = {
-  id: 'CHRISTOPHER YOUNG',
+  id: 'CHRISTOPHER_YOUNG',
   name: 'christopher_young',
   images: {
     alertness: expressionAlertness,

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ifProp, prop, theme } from 'styled-tools';
+import { ifProp, prop } from 'styled-tools';
 
 export interface SceneContainerProps {
   background?: string;
@@ -16,7 +16,7 @@ export const SceneContainer = styled.div<SceneContainerProps>`
     background-size: cover;
     background-position: right;
   `
-      : `background-color: ${theme('colors.black')(props)};`}
+      : ``}
 
   height: 100%;
   display: grid;

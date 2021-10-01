@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/06 - Leigh Kane/wonder.svg
 import expressionWtf from '../../assets/characters/06 - Leigh Kane/wtf.svg?w=350';
 
 export const LeighKane: Character = {
-  id: 'LEIGH KANE',
+  id: 'LEIGH_KANE',
   name: 'leigh_kane',
   images: {
     alertness: expressionAlertness,

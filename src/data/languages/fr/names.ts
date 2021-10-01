@@ -21,7 +21,6 @@ import {
   PereLeighKane,
   Al,
   Administrateur,
-  JeuneFemme,
   Homme,
 } from '../../characters';
 
@@ -48,6 +47,5 @@ export const charactersNames = {
   [PereLeighKane.name]: 'Père de Leigh Kane',
   [Al.name]: 'Al',
   [Administrateur.name]: 'Administrateur',
-  [JeuneFemme.name]: 'Jeune femme',
   [Homme.name]: 'Homme',
 };

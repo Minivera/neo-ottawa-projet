@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/07 - Enquêteur du crimine
 import expressionWtf from '../../assets/characters/07 - Enquêteur du criminel/wtf.svg?w=350';
 
 export const Enqueteur: Character = {
-  id: 'ENQUÊTEUR',
+  id: 'ENQUETEUR',
   name: 'enqueteur',
   images: {
     alertness: expressionAlertness,

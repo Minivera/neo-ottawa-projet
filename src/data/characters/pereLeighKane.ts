@@ -36,7 +36,7 @@ import expressionTerror from '../../assets/characters/20 - Père de Leigh Kane/t
 import expressionWtf from '../../assets/characters/20 - Père de Leigh Kane/wtf.svg?w=350';
 
 export const PereLeighKane: Character = {
-  id: 'PÈRE DE LEIGH KANE',
+  id: 'PERE_DE_LEIGH_KANE',
   name: 'pere_leigh_kane',
   images: {
     alertness: expressionAlertness,

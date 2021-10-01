@@ -1,10 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import React, { KeyboardEventHandler, ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
-import { Choice, Event } from './event';
+import { Choice } from './event';
 import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
 import { CharacterPortrait } from '../components/characterPortrait';
@@ -26,54 +25,21 @@ import {
   MultipleChoices,
 } from '../components/multipleChoices';
 
-export interface Scene {
-  id: string;
-  background?: string;
-  bgm?: string;
-  events: Event[];
-  preloadedCharacters?: Character[];
-  characters: Character[];
-}
-
 export interface SceneState {
-  index: string;
-  currentEvent: Event;
-  currentEventIndex: number;
-  loadedCharacters: Character[];
+  dialogName?: string;
+  text: string;
+  centered?: boolean;
+  background?: { type: 'video' | 'image'; asset: string };
+  animation?: string;
+  bgm?: string;
+  choices?: Choice[];
+  notes?: string;
+  currentCharacter?: Character;
+  shownCharacters: Character[];
   characterExpressions: Record<string, string>;
 }
 
-export const getSceneEvent = (
-  scene: Scene,
-  eventId: string
-): Event | undefined => scene.events.find(event => event.id === eventId);
-
-export const getFirstSceneEvent = (scene: Scene): Event | undefined => {
-  if (scene.events.length < 1) {
-    return undefined;
-  }
-
-  return scene.events[0];
-};
-
-export const getNextSceneEvent = (
-  scene: Scene,
-  oldEventId: string
-): Event | undefined => {
-  const index = scene.events.findIndex(event => event.id === oldEventId);
-  if (index === -1) {
-    return undefined;
-  }
-
-  if (index + 1 > scene.events.length) {
-    return undefined;
-  }
-
-  return scene.events[index + 1];
-};
-
 export interface SceneProps {
-  scene: Scene;
   state: SceneState;
   onContinue: () => void;
   onTextLoadingStart: () => void;
@@ -83,7 +49,6 @@ export interface SceneProps {
 }
 
 export const Scene: React.FunctionComponent<SceneProps> = ({
-  scene,
   state,
   onContinue,
   onTextLoadingStart,
@@ -91,8 +56,6 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   onChoiceSelected,
   skipAnimation,
 }) => {
-  const [t] = useTranslation();
-
   const handleClickContinue = () => onContinue();
   const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {
     if (['Right', 'ArrowRight', 'Enter', 'Spacebar', ' '].includes(event.key)) {
@@ -100,50 +63,44 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     }
   };
 
-  if (
-    state.currentEvent.type === 'transition' &&
-    state.currentEvent.hideEverything
-  ) {
-    return (
-      <SceneContainer
-        background={scene.background}
-        onClick={handleClickContinue}
-        onKeyDown={handleKeyContinue}
-        tabIndex={-1}
-      >
-        {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
-        {state.currentEvent.soundEffect && (
-          <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />
-        )}
-      </SceneContainer>
-    );
-  }
-
+  // TODO: Bring back transitions
   let portraits: ReactElement | null = null;
   if (
-    state.currentEvent.type !== 'narration' ||
-    (state.currentEvent.type === 'narration' && !state.currentEvent.fullscreen)
+    !state.centered
   ) {
-    const characterPortraits = state.loadedCharacters.filter(
+    // Only show characters that have the loaded expression, never show empty images
+    const characterPortraits = state.shownCharacters.filter(
       character => character.images[state.characterExpressions[character.id]]
     );
 
     portraits = (
       <PortraitsContainer count={characterPortraits.length}>
-        {characterPortraits.map(character =>
-          state.currentEvent.type === 'dialog' &&
-          character.id === state.currentEvent.character.id ? (
-            <CharacterPortrait key={character.id}>
-              <AnimationContainer animation={state.currentEvent.animation}>
+        {characterPortraits.map(character => {
+          if (character.id === state.currentCharacter?.id) {
+            return state.animation ? (
+              <CharacterPortrait key={character.id} active>
+                <AnimationContainer animation={state.animation}>
+                  <PortraitImage
+                    src={
+                      character.images[state.characterExpressions[character.id]]
+                    }
+                    alt={`${character.name} ${state.characterExpressions[character.id]}`}
+                  />
+                </AnimationContainer>
+              </CharacterPortrait>
+            ) : (
+              <CharacterPortrait key={character.id} active>
                 <PortraitImage
                   src={
                     character.images[state.characterExpressions[character.id]]
                   }
-                  alt={`${character.name} ${state.currentEvent.expression}`}
+                  alt={`${character.name} ${state.characterExpressions[character.id]}`}
                 />
-              </AnimationContainer>
-            </CharacterPortrait>
-          ) : (
+              </CharacterPortrait>
+            );
+          }
+
+          return (
             <CharacterPortrait key={character.id}>
               <PortraitImage
                 src={character.images[state.characterExpressions[character.id]]}
@@ -152,34 +109,34 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
                 }`}
               />
             </CharacterPortrait>
-          )
-        )}
+          );
+        })}
       </PortraitsContainer>
     );
   }
 
   return (
     <SceneContainer
-      background={scene.background}
+      background={state.background?.type === 'image' ? state.background.asset : undefined}
       centerRow={!portraits}
       onClick={handleClickContinue}
       onKeyDown={handleKeyContinue}
       tabIndex={-1}
     >
       {portraits}
-      {state.currentEvent.type === 'multiple_choice' ? (
+      {state.choices && state.choices.length ? (
         <DialogBox center={!portraits}>
-          {state.currentEvent.character && (
+          {state.dialogName && (
             <DialogTitle>
               <DialogTitleLeftArrow />
-              <h1>{t(state.currentEvent.character.name)}</h1>
+              <h1>{state.dialogName}</h1>
               <DialogTitleRightArrow />
             </DialogTitle>
           )}
           <p>
             <AnimatedText
-              text={t(state.currentEvent.lineId)}
-              key={state.currentEvent.lineId}
+              text={state.text}
+              key={state.text}
               skipAnimation={skipAnimation}
               onTextLoadingStart={onTextLoadingStart}
               onTextLoadingEnd={onTextLoadingEnd}
@@ -187,13 +144,13 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           </p>
           {skipAnimation && (
             <MultipleChoices>
-              {state.currentEvent.choices.map(choice => (
+              {state.choices.map(choice => (
                 <MultipleChoiceElement
-                  key={choice.lineId}
+                  key={choice.content}
                   onClick={() => onChoiceSelected(choice)}
                 >
                   <MultipleChoiceElementLeftArrow />
-                  <span>{t(choice.lineId)}</span>
+                  <span>{choice.content}</span>
                   <MultipleChoiceElementRightArrow />
                 </MultipleChoiceElement>
               ))}
@@ -202,31 +159,26 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
         </DialogBox>
       ) : (
         <DialogBox center={!portraits}>
-          {state.currentEvent.type === 'dialog' && (
+          {state.dialogName && (
             <DialogTitle>
               <DialogTitleLeftArrow />
-              <h1>{t(state.currentEvent.character.name)}</h1>
+              <h1>{state.dialogName}</h1>
               <DialogTitleRightArrow />
             </DialogTitle>
           )}
-          {state.currentEvent.type !== 'transition' && (
-            <p>
-              <AnimatedText
-                text={t(state.currentEvent.lineId)}
-                key={state.currentEvent.lineId}
-                skipAnimation={skipAnimation}
-                onTextLoadingStart={onTextLoadingStart}
-                onTextLoadingEnd={onTextLoadingEnd}
-              />
-            </p>
-          )}
+          <p>
+            <AnimatedText
+              text={state.text}
+              key={Math.random()}
+              skipAnimation={skipAnimation}
+              onTextLoadingStart={onTextLoadingStart}
+              onTextLoadingEnd={onTextLoadingEnd}
+            />
+          </p>
           {skipAnimation && <NextButton />}
         </DialogBox>
       )}
-      {scene.bgm && <AudioPlayer src={scene.bgm} autoPlay loop />}
-      {state.currentEvent.soundEffect && (
-        <AudioPlayer src={state.currentEvent.soundEffect} autoPlay />
-      )}
+      {state.bgm && <AudioPlayer src={state.bgm} autoPlay loop />}
     </SceneContainer>
   );
 };

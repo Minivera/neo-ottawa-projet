@@ -1,7 +1,7 @@
 import { Character } from '../../game/character';
 
 export const FredGallant: Character = {
-  id: 'FRED GALLANT',
+  id: 'FRED_GALLANT',
   name: 'fred_gallant',
   images: {},
 };

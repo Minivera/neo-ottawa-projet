@@ -37,7 +37,7 @@ import expressionWonder from '../../assets/characters/02 - Gabriel/wonder.svg?w=
 import expressionWtf from '../../assets/characters/02 - Gabriel/wtf.svg?w=350';
 
 export const Gabriel: Character = {
-  id: 'GABRIEL SAND',
+  id: 'GABRIEL_SAND',
   name: 'gabriel_sand',
   images: {
     alertness: expressionAlertness,

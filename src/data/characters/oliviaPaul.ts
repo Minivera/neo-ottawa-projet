@@ -22,7 +22,7 @@ import expressionSurprise from '../../assets/characters/17 - Olivia Paul/surpris
 import expressionWonder from '../../assets/characters/17 - Olivia Paul/wonder.svg?w=350';
 
 export const OliviaPaul: Character = {
-  id: 'OLIVIA PAUL',
+  id: 'OLIVIA_PAUL',
   name: 'olivia_paul',
   images: {
     alertness: expressionAlertness,

@@ -14,7 +14,6 @@ export const usePreloader = (imagePaths: string[]): [boolean, number] => {
       return;
     }
 
-    console.log('Game loading started');
     setStarted(true);
 
     imagePaths.forEach(path => {
@@ -40,10 +39,8 @@ export const usePreloader = (imagePaths: string[]): [boolean, number] => {
           image.setAttribute('style', 'display: none; height: 0px; width: 0px;');
           document.querySelector('body')?.appendChild(image);
 
-          console.log(`Loading ${path} started`);
           const finalize = (resolve: () => void) => {
             if (image.complete/* && image.naturalHeight !== 0 */) {
-              console.log(`Loading ${path} completed`);
               setLoadedIndicators(loadedIndicators => ({
                 ...loadedIndicators,
                 [path]: true,
@@ -60,8 +57,6 @@ export const usePreloader = (imagePaths: string[]): [boolean, number] => {
 
         await Promise.all(currentBatchPromises);
       }, Promise.resolve());
-
-      console.log('Game loading complete');
     })();
   }, [imagePaths]);
 
