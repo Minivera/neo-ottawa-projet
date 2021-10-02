@@ -18,17 +18,20 @@ export enum PDATab {
 }
 
 export interface Document {
+  documentId: string;
   name: string;
   path?: string;
 }
 
 export interface Contact {
+  characterId: string;
   name: string;
   description: string;
   type: 'police' | 'resistance';
 }
 
 export interface Evidence {
+  evidenceId: string;
   name: string;
   type: 'phone' | 'computer' | 'result' | 'disk';
 }

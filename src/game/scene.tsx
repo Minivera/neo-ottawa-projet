@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
+import { css, jsx } from '@emotion/react';
 import React, { KeyboardEventHandler, ReactElement } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
 import { Choice } from './event';
@@ -30,13 +31,13 @@ export interface SceneState {
   text: string;
   centered?: boolean;
   background?: { type: 'video' | 'image'; asset: string };
-  animation?: string;
   bgm?: string;
   choices?: Choice[];
-  notes?: string;
+  notes?: { lineId: string; variables: Record<string, unknown> };
   currentCharacter?: Character;
   shownCharacters: Character[];
   characterExpressions: Record<string, string>;
+  characterAnimation: Record<string, string>;
 }
 
 export interface SceneProps {
@@ -56,6 +57,8 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   onChoiceSelected,
   skipAnimation,
 }) => {
+  const [t] = useTranslation();
+
   const handleClickContinue = () => onContinue();
   const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {
     if (['Right', 'ArrowRight', 'Enter', 'Spacebar', ' '].includes(event.key)) {
@@ -65,9 +68,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
 
   // TODO: Bring back transitions
   let portraits: ReactElement | null = null;
-  if (
-    !state.centered
-  ) {
+  if (!state.centered) {
     // Only show characters that have the loaded expression, never show empty images
     const characterPortraits = state.shownCharacters.filter(
       character => character.images[state.characterExpressions[character.id]]
@@ -77,25 +78,20 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
       <PortraitsContainer count={characterPortraits.length}>
         {characterPortraits.map(character => {
           if (character.id === state.currentCharacter?.id) {
-            return state.animation ? (
+            return (
               <CharacterPortrait key={character.id} active>
-                <AnimationContainer animation={state.animation}>
+                <AnimationContainer
+                  animation={state.characterAnimation[character.id]}
+                >
                   <PortraitImage
                     src={
                       character.images[state.characterExpressions[character.id]]
                     }
-                    alt={`${character.name} ${state.characterExpressions[character.id]}`}
+                    alt={`${character.name} ${
+                      state.characterExpressions[character.id]
+                    }`}
                   />
                 </AnimationContainer>
-              </CharacterPortrait>
-            ) : (
-              <CharacterPortrait key={character.id} active>
-                <PortraitImage
-                  src={
-                    character.images[state.characterExpressions[character.id]]
-                  }
-                  alt={`${character.name} ${state.characterExpressions[character.id]}`}
-                />
               </CharacterPortrait>
             );
           }
@@ -117,7 +113,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
 
   return (
     <SceneContainer
-      background={state.background?.type === 'image' ? state.background.asset : undefined}
+      background={
+        state.background?.type === 'image' ? state.background.asset : undefined
+      }
       centerRow={!portraits}
       onClick={handleClickContinue}
       onKeyDown={handleKeyContinue}
@@ -169,13 +167,30 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           <p>
             <AnimatedText
               text={state.text}
-              key={Math.random()}
+              key={state.text}
               skipAnimation={skipAnimation}
               onTextLoadingStart={onTextLoadingStart}
               onTextLoadingEnd={onTextLoadingEnd}
             />
           </p>
-          {skipAnimation && <NextButton />}
+          {skipAnimation && (
+            <React.Fragment>
+              <NextButton />
+              {state.notes && (
+                <p
+                  css={theme => css`
+                    color: ${theme.colors.yellow};
+                    font-size: 1.5rem;
+                  `}
+                >
+                  {t(state.notes?.lineId, {
+                    ...state.notes?.variables,
+                    name: t(state.notes?.variables.name as string || ''),
+                  })}
+                </p>
+              )}
+            </React.Fragment>
+          )}
         </DialogBox>
       )}
       {state.bgm && <AudioPlayer src={state.bgm} autoPlay loop />}

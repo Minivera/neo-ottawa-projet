@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 
 import { interfaceTerms as frInterfaceTerms } from '../data/languages/fr/interface';
 import { charactersNames as frCharacterNames } from '../data/languages/fr/names';
+import { notesMessages } from '../data/languages/fr/notes';
 import { generatedTranslations } from '../../__generated__/translations';
 
 const resources = {
@@ -11,6 +12,7 @@ const resources = {
       ...frInterfaceTerms,
       ...frCharacterNames,
       ...generatedTranslations.fr,
+      ...notesMessages,
 
       // Game content
       'test_fullscreen_narration_1': `Ceci est une <s>narration</s> pleine écran traduite en temps réel. Tous les exemple suivants sont aussi traduis. La narration pleine écran s'affiche toujours au centre.`,

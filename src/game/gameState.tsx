@@ -64,7 +64,8 @@ const isPDAActivated = (story: Story) =>
 const generateCurrentScene = (
   text: string | null,
   previousState: SceneState | null,
-  story: Story
+  story: Story,
+  pdaState: PDA
 ): SceneState => {
   const tags = story.currentTags;
 
@@ -82,6 +83,7 @@ const generateCurrentScene = (
     characterExpressions: previousState
       ? previousState.characterExpressions
       : {},
+    characterAnimation: previousState ? previousState.characterAnimation : {},
   };
 
   // Try extracting the name of the person talking using `Name: dialog`
@@ -150,10 +152,39 @@ const generateCurrentScene = (
     });
   }
 
+  // Loop in all contacts, document, and evidence to check if any was recently added
+  variables.known_contacts.forEach((_, value) => {
+    const item = JSON.parse(value) as InkListItem;
+    const contact = item.itemName;
+
+    if (contact && !pdaState.contacts.find(el => el.characterId === contact)) {
+      debugger;
+      currentScene.notes = {
+        lineId: 'contact_added',
+        variables: { name: Characters[contact]?.name },
+      };
+    }
+  });
+
+  variables.known_evidence.forEach((_, value) => {
+    const item = JSON.parse(value) as InkListItem;
+    const evidence = item.itemName;
+
+    if (evidence && !pdaState.evidence.find(el => el.evidenceId === evidence)) {
+      currentScene.notes = {
+        lineId: 'evidence_added',
+        variables: { name: evidence },
+      };
+    }
+  });
+
   return currentScene;
 };
 
-const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
+const gameReducerFactory: GameReducer = (
+  state: Game,
+  action: GameAction
+): Game => {
   switch (action.type) {
     case 'start': {
       // Run the story for the first time
@@ -162,7 +193,12 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
       return {
         ...state,
         state: GameState.Started,
-        currentScene: generateCurrentScene(result, null, state.story),
+        currentScene: generateCurrentScene(
+          result,
+          null,
+          state.story,
+          state.pda
+        ),
       };
     }
     case 'end': {
@@ -191,11 +227,19 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
           ...state.pda,
           enabled: isPDAActivated(state.story),
         },
-        currentScene: generateCurrentScene(
-          result,
-          state.currentScene,
-          state.story
-        ),
+        currentScene: {
+          // Show a message if the PDA has recently been activated. We can clear in the next continue.
+          notes:
+            isPDAActivated(state.story) !== state.pda.enabled
+              ? { lineId: 'pda_enabled', variables: {} }
+              : undefined,
+          ...generateCurrentScene(
+            result,
+            state.currentScene,
+            state.story,
+            state.pda
+          ),
+        },
       };
     }
     case 'animate_character': {
@@ -208,7 +252,10 @@ const gameReducer: GameReducer = (state: Game, action: GameAction): Game => {
         currentScene: {
           ...state.currentScene,
           currentCharacter: Characters[action.characterId],
-          animation: action.animation,
+          characterAnimation: {
+            ...state.currentScene.characterAnimation,
+            [action.characterId]: action.animation,
+          },
         },
       };
     }
@@ -284,13 +331,16 @@ export const useGame = (
     game.state = GameState.Loaded;
   }
 
-  const [state, dispatch] = useReducer(gameReducer, game);
+  const [state, dispatch] = useReducer(gameReducerFactory, game);
 
   useEffect(() => {
     try {
       state.story.BindExternalFunction(
         'animate_character',
-        (characterId: keyof typeof Characters, animation: CharacterAnimation) => {
+        (
+          characterId: keyof typeof Characters,
+          animation: CharacterAnimation
+        ) => {
           dispatch({ type: 'animate_character', animation, characterId });
         },
         false
@@ -299,7 +349,6 @@ export const useGame = (
       state.story.BindExternalFunction(
         'play_sound',
         (soundId: keyof typeof soundEffects) => {
-
           const sound = soundEffects[soundId];
           if (sound) {
             sound.play();

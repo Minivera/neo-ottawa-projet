@@ -16,19 +16,19 @@ Préparez-vous. Respirez. Inspirez. Expirez. Fermez les yeux. Ouvrez-les. Commen
 
 = scene_1
 ~ jouer_effet_sonore(big_exhale)
-Fred Gallant: Tiens-t’en à ton plan \: suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative. # character=FRED_GALLANT invisible
+Fred Gallant: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative. # character=FRED_GALLANT invisible
 -> scene_2
 
 = scene_2
 ~ activer_pda()
 ~ afficher_fond(police)
 ~ afficher_personnage(GABRIEL_SAND, "move_up")
-???: Eh! Le (la) nouveau(elle)! # character=GABRIEL_SAND
+???: Eh! Le (la) nouveau(elle)! # character=GABRIEL_SAND expression=joy
 Fred Gallant: Où dois-je me rapporter? # character=FRED_GALLANT invisible
-???: Directement au CHEF MILLER. # character=GABRIEL_SAND
-???: Gallant, c’est ça? # character=GABRIEL_SAND
+???: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
+???: Gallant, c’est ça? # character=GABRIEL_SAND expression=amusement
 Fred Gallant: C’est ça. À qui ai-je l’honneur? # character=FRED_GALLANT invisible
-Gabriel Sand: Agent Sand. Gab. # character=GABRIEL_SAND
+Gabriel Sand: Agent Sand. Gab. # character=GABRIEL_SAND expression=joy
 Ils se serrent la main
 ~ ajouter_contact(GABRIEL_SAND)
 ~ cacher_tout_personnages()
