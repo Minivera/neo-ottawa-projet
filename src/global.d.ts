@@ -3,7 +3,22 @@ declare module '*.svg?w=350' {
   export default path;
 }
 
+declare module '*.svg?component' {
+  import * as React from "react";
+
+  const ReactComponent: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & { title?: string }
+    >;
+
+  export default ReactComponent;
+}
+
 declare module '*.jpg?w=1920&h=1024' {
+  const path: string;
+  export default path;
+}
+
+declare module '*.png?w=1920&h=1024' {
   const path: string;
   export default path;
 }

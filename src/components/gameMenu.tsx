@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { IoSettingsSharp } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
 import { theme } from 'styled-tools';
 import { darken, transparentize } from 'polished';
+
+import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
+import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
 
 const GameMenuContainer = styled.div`
   position: absolute;
@@ -12,6 +14,7 @@ const GameMenuContainer = styled.div`
   background-color: transparent;
   padding-left: 1.7rem;
   filter: drop-shadow(0 0.4rem 0.4rem ${theme('colors.gray')});
+  z-index: 2;
 `;
 
 const GameMenuSide = styled.div`
@@ -38,16 +41,16 @@ const GameMenuInnerContainer = styled.div`
 
   & a:first-child {
     padding-right: 1rem;
-    border-right: 2px solid
+  }
+
+  & a:nth-child(2) {
+    margin-left: 0.5rem;
+    border-left: 2px solid
       ${props =>
         transparentize(
           0.4,
           theme('colors.lightGray')(props) as unknown as string
         )};
-  }
-
-  & a:last-child {
-    margin-left: 0.5rem;
   }
 `;
 
@@ -63,6 +66,7 @@ const GameMenuLink = styled.a`
   padding: 0.4rem 0.4rem;
 
   & svg {
+    height: 1.3rem;
     margin-right: 0.4rem;
     margin-top: -0.2rem;
   }
@@ -93,11 +97,12 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
       <GameMenuInnerContainer>
         {showPDA && (
           <GameMenuLink onClick={onPDAClick}>
+            <PDAIcon />
             <span>{t('pda')}</span>
           </GameMenuLink>
         )}
         <GameMenuLink onClick={onSettingsClick}>
-          <IoSettingsSharp />
+          <SettingsIcon />
           <span>{t('settings')}</span>
         </GameMenuLink>
       </GameMenuInnerContainer>

@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { IoCloseCircle } from 'react-icons/io5';
+import { ifProp, theme } from 'styled-tools';
+import { useTranslation } from 'react-i18next';
+import { darken } from 'polished';
 
 import { PDATab } from '../game/pda';
 
@@ -8,9 +10,13 @@ import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
 import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
-import { ifProp, theme } from 'styled-tools';
-import { useTranslation } from 'react-i18next';
-import { darken } from 'polished';
+
+import CloseIcon from '../assets/ui/pda/PDA-RetourAuJeu.svg?component';
+import HomeIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
+import DocumentsIcon from '../assets/ui/pda/PDA-Documents.svg?component';
+import MapIcon from '../assets/ui/pda/PDA-PlanDeLaVille.svg?component';
+import ContactIcon from '../assets/ui/pda/PDA-Contacts.svg?component';
+import EvidenceIcon from '../assets/ui/pda/PDA-Preuves.svg?component';
 
 const PDAContainer = styled.div`
   height: 100%;
@@ -50,7 +56,8 @@ const PDANavigationLink = styled.a<PDANavigationLinkProps>`
   cursor: pointer;
   position: relative;
   white-space: nowrap;
-
+  text-transform: uppercase;
+  
   &:first-of-type {
     margin-left: 0;
   }
@@ -59,15 +66,30 @@ const PDANavigationLink = styled.a<PDANavigationLinkProps>`
     margin-right: 0;
   }
 
+  & svg {
+    margin-right: 0.4rem;
+    margin-top: 0.2rem;
+    height: 1.2rem;
+    fill: ${theme('colors.secondary')};
+  }
+
   &:hover,
   &:active {
     color: ${theme('colors.yellow')};
+    
+    & svg {
+      fill: ${theme('colors.yellow')};
+    }
   }
 
   ${ifProp(
     'selected',
     props => `
     color: ${theme('colors.yellow')(props)};
+    
+    & svg {
+      fill: ${theme('colors.yellow')(props)};
+    }
     
     &:after {
       content: " ";
@@ -136,11 +158,16 @@ const PDAReturnInner = styled.div`
   & svg {
     margin-right: 0.4rem;
     margin-top: 0.2rem;
+    height: 1.2rem;
   }
 
   &:hover,
   &:active {
     color: ${props => darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+
+    & svg {
+      fill: ${props => darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+    }
   }
 `;
 
@@ -201,6 +228,9 @@ const PDAContent = styled.div`
   font-size: 22px;
   max-width: 100%;
   max-height: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
 `;
 
 export interface PDATabControlProps {
@@ -225,30 +255,35 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
             onClick={() => onTabClick(PDATab.HOME)}
             selected={selectedTab === PDATab.HOME}
           >
+            <HomeIcon />
             {t('pda_home')}
           </PDANavigationLink>
           <PDANavigationLink
             onClick={() => onTabClick(PDATab.DOCUMENTS)}
             selected={selectedTab === PDATab.DOCUMENTS}
           >
+            <DocumentsIcon />
             {t('pda_documents')}
           </PDANavigationLink>
           <PDANavigationLink
             onClick={() => onTabClick(PDATab.MAP)}
             selected={selectedTab === PDATab.MAP}
           >
+            <MapIcon />
             {t('pda_map')}
           </PDANavigationLink>
           <PDANavigationLink
             onClick={() => onTabClick(PDATab.CONTACTS)}
             selected={selectedTab === PDATab.CONTACTS}
           >
+            <ContactIcon />
             {t('pda_contacts')}
           </PDANavigationLink>
           <PDANavigationLink
             onClick={() => onTabClick(PDATab.EVIDENCE)}
             selected={selectedTab === PDATab.EVIDENCE}
           >
+            <EvidenceIcon />
             {t('pda_evidence')}
           </PDANavigationLink>
         </PDANavigation>
@@ -259,7 +294,7 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
         <PDAReturnButton>
           <PDAReturnSide />
           <PDAReturnInner>
-            <IoCloseCircle />
+            <CloseIcon />
             <a onClick={onReturnClick}>{t('pda_return')}</a>
           </PDAReturnInner>
         </PDAReturnButton>
@@ -276,7 +311,9 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           <img src={pdaBorderBotRight} alt="side bottom triangle" />
         </PDABottomRightCorner>
         <PDABottomBorder />
-        <PDAContent>{children}</PDAContent>
+        <PDAContent>
+          {children}
+        </PDAContent>
       </PDABackgroundGrid>
     </PDAContainer>
   );

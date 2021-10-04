@@ -18,6 +18,7 @@ import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
 import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
+import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
 
 export enum GameState {
   Loading = 'loading',
@@ -158,7 +159,6 @@ const generateCurrentScene = (
     const contact = item.itemName;
 
     if (contact && !pdaState.contacts.find(el => el.characterId === contact)) {
-      debugger;
       currentScene.notes = {
         lineId: 'contact_added',
         variables: { name: Characters[contact]?.name },
@@ -312,6 +312,7 @@ export const useGame = (
     pdaBorderTopRight,
     pdaBorderBotLeft,
     pdaBorderBotRight,
+    cityMapImage,
     ...Object.keys(Characters)
       .map(key =>
         Object.keys(Characters[key].images).map(

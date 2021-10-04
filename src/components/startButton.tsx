@@ -3,8 +3,10 @@ import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { ButtonHTMLAttributes, FunctionComponent } from 'react';
 import { theme } from 'styled-tools';
+
 import { MenuContainer } from './menuContainer';
-import { IoPowerSharp } from 'react-icons/io5';
+
+import StartIcon from '../assets/ui/pda/PowerResist.svg?component';
 
 export const BigButton = styled.button`
   position: relative;
@@ -28,13 +30,21 @@ export const BigButton = styled.button`
     border-color: ${theme('colors.primary')};
     background-color: ${theme('colors.secondary')};
     display: block;
-    padding: 1.7rem 3.5rem;
+    padding: 2.6rem 3.5rem;
+    
+    & svg {
+      fill: ${theme('colors.primary')};
+      transform: scale(1.5);
+    }
   }
   
   &:hover, &:active {
     & span {
       background-color: ${theme('colors.primary')};
-      color: ${theme('colors.secondary')};
+
+      & svg {
+        fill: ${theme('colors.secondary')};
+      }
     }
 
     & div[data-direction="left"]:before {
@@ -99,7 +109,7 @@ export const StartButton: FunctionComponent<ButtonHTMLAttributes<HTMLButtonEleme
     <BigButton {...props}>
       <LeftSide data-direction="left" />
       <span>
-        <IoPowerSharp />
+        <StartIcon />
       </span>
       <RightSide data-direction="right" />
     </BigButton>

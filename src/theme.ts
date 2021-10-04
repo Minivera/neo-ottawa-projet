@@ -13,6 +13,7 @@ export const theme: Theme = {
     black: '#1b1c1e',
     darkGreen: '#002626',
     yellow: '#cfd047',
+    purple: '#E11FDF',
   }
 };
 
