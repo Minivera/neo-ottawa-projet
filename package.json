@@ -10,7 +10,8 @@
     "dev": "vite --port 4002",
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
     "predeploy": "rm -rf dist && npm run build",
-    "deploy": "NODE_ENV=production sh ./scripts/deply.sh"
+    "deploy": "NODE_ENV=production sh ./scripts/deply.sh",
+    "generate_assets": "node ./scripts/generateSVGComponents.js && node ./scripts/generateLoadedExpressions.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,9 @@
   },
   "author": "",
   "devDependencies": {
+    "@svgr/core": "^5.5.0",
+    "@svgr/plugin-jsx": "^5.5.0",
+    "@svgr/plugin-svgo": "^5.5.0",
     "@types/howler": "^2.2.4",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",

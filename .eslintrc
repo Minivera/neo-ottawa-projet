@@ -12,6 +12,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
+  "ignorePatterns": ["**/__generated__/*.ts[x]"],
   "rules": {
     "no-var": "error", // optional, recommended when using es6+
     "no-unused-vars": 1, // recommended

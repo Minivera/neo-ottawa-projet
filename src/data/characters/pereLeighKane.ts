@@ -1,77 +1,21 @@
-import { Character } from '../../game/character';
+import { FunctionComponent } from 'react';
 
-import expressionAlertness from '../../assets/characters/20 - Père de Leigh Kane/alertness.svg?component';
-import expressionAmusement from '../../assets/characters/20 - Père de Leigh Kane/amusement.svg?component';
-import expressionAnger from '../../assets/characters/20 - Père de Leigh Kane/anger.svg?component';
-import expressionAnxiety from '../../assets/characters/20 - Père de Leigh Kane/anxiety.svg?component';
-import expressionAversion from '../../assets/characters/20 - Père de Leigh Kane/aversion.svg?component';
-import expressionBetrayal from '../../assets/characters/20 - Père de Leigh Kane/betrayal.svg?component';
-import expressionCaged from '../../assets/characters/20 - Père de Leigh Kane/caged.svg?component';
-import expressionConcern from '../../assets/characters/20 - Père de Leigh Kane/concern.svg?component';
-import expressionCruel from '../../assets/characters/20 - Père de Leigh Kane/cruel.svg?component';
-import expressionDejection from '../../assets/characters/20 - Père de Leigh Kane/dejection.svg?component';
-import expressionDesperation from '../../assets/characters/20 - Père de Leigh Kane/desperation.svg?component';
-import expressionDisdain from '../../assets/characters/20 - Père de Leigh Kane/disdain.svg?component';
-import expressionDisgust from '../../assets/characters/20 - Père de Leigh Kane/disgust.svg?component';
-import expressionEeww from '../../assets/characters/20 - Père de Leigh Kane/eeww.svg?component';
-import expressionFear from '../../assets/characters/20 - Père de Leigh Kane/fear.svg?component';
-import expressionGrief from '../../assets/characters/20 - Père de Leigh Kane/grief.svg?component';
-import expressionHorror from '../../assets/characters/20 - Père de Leigh Kane/horror.svg?component';
-import expressionIndignation from '../../assets/characters/20 - Père de Leigh Kane/indignation.svg?component';
-import expressionJoy from '../../assets/characters/20 - Père de Leigh Kane/joy.svg?component';
-import expressionLaughing from '../../assets/characters/20 - Père de Leigh Kane/laughing.svg?component';
-import expressionMelancholy from '../../assets/characters/20 - Père de Leigh Kane/melancholy.svg?component';
-import expressionNeutral from '../../assets/characters/20 - Père de Leigh Kane/neutral.svg?component';
-import expressionOmg from '../../assets/characters/20 - Père de Leigh Kane/omg.svg?component';
-import expressionOutrage from '../../assets/characters/20 - Père de Leigh Kane/outrage.svg?component';
-import expressionPain from '../../assets/characters/20 - Père de Leigh Kane/pain.svg?component';
-import expressionRage from '../../assets/characters/20 - Père de Leigh Kane/rage.svg?component';
-import expressionRevulsion from '../../assets/characters/20 - Père de Leigh Kane/revulsion.svg?component';
-import expressionSadness from '../../assets/characters/20 - Père de Leigh Kane/sadness.svg?component';
-import expressionSatisfaction from '../../assets/characters/20 - Père de Leigh Kane/satisfaction.svg?component';
-import expressionShock from '../../assets/characters/20 - Père de Leigh Kane/shock.svg?component';
-import expressionSterness from '../../assets/characters/20 - Père de Leigh Kane/sterness.svg?component';
-import expressionSurprise from '../../assets/characters/20 - Père de Leigh Kane/surprise.svg?component';
-import expressionTerror from '../../assets/characters/20 - Père de Leigh Kane/terror.svg?component';
-import expressionWtf from '../../assets/characters/20 - Père de Leigh Kane/wtf.svg?component';
+import { Character } from '../../game/character';
+import { loadingHelper } from '../../helpers/asyncImagesLoading';
+
+const expressionImages = import.meta.glob<FunctionComponent>(
+  '../../components/__generated__/characters/20 - Père de Leigh Kane/*.tsx'
+);
 
 export const PereLeighKane: Character = {
   id: 'PERE_DE_LEIGH_KANE',
   name: 'pere_leigh_kane',
-  images: {
-    alertness: expressionAlertness,
-    amusement: expressionAmusement,
-    anger: expressionAnger,
-    anxiety: expressionAnxiety,
-    aversion: expressionAversion,
-    betrayal: expressionBetrayal,
-    caged: expressionCaged,
-    concern: expressionConcern,
-    cruel: expressionCruel,
-    dejection: expressionDejection,
-    desperation: expressionDesperation,
-    disdain: expressionDisdain,
-    disgust: expressionDisgust,
-    eeww: expressionEeww,
-    fear: expressionFear,
-    grief: expressionGrief,
-    horror: expressionHorror,
-    indignation: expressionIndignation,
-    joy: expressionJoy,
-    laughing: expressionLaughing,
-    melancholy: expressionMelancholy,
-    neutral: expressionNeutral,
-    omg: expressionOmg,
-    outrage: expressionOutrage,
-    pain: expressionPain,
-    rage: expressionRage,
-    revulsion: expressionRevulsion,
-    sadness: expressionSadness,
-    satisfaction: expressionSatisfaction,
-    shock: expressionShock,
-    sterness: expressionSterness,
-    surprise: expressionSurprise,
-    terror: expressionTerror,
-    wtf: expressionWtf,
-  },
+  images: {},
 };
+
+export const load: () => Promise<void[]> = loadingHelper(
+  PereLeighKane,
+  expressionImages,
+  (key, value) => (PereLeighKane.images[key] = value)
+);
+

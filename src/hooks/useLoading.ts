@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLazyAssetLoading } from './useLazyAssetLoading';
 
 // Keep this in memory to prevent the window from dumping the images we preloaded
 const imageReferences: Record<string, HTMLImageElement> = {};
@@ -8,6 +9,7 @@ const maxConcurrentLoading = 10;
 export const usePreloader = (imagePaths: string[]): [boolean, number] => {
   const [loadedIndicators, setLoadedIndicators] = useState<Record<string, boolean>>({});
   const [started, setStarted] = useState(false);
+  const [assetLoading, assetsLoaded, assetsToLoad] = useLazyAssetLoading();
 
   useEffect(() => {
     if (started) {
@@ -62,7 +64,7 @@ export const usePreloader = (imagePaths: string[]): [boolean, number] => {
 
   const values = Object.values(loadedIndicators);
   const countLoaded = values.reduce((acc, val) => acc + (val ? 1 : 0), 0);
-  const percentLoaded = (countLoaded * 100) / values.length;
+  const percentLoaded = (countLoaded + assetsLoaded * 100) / (values.length + assetsToLoad);
 
-  return [values.some(indicator => !indicator), percentLoaded];
+  return [values.some(indicator => !indicator) || assetLoading, percentLoaded];
 };

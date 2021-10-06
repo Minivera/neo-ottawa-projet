@@ -4,11 +4,11 @@ declare module '*.svg?w=350' {
 }
 
 declare module '*.svg?component' {
-  import * as React from "react";
+  import * as React from 'react';
 
   const ReactComponent: React.FunctionComponent<
     React.SVGProps<SVGSVGElement> & { title?: string }
-    >;
+  >;
 
   export default ReactComponent;
 }
@@ -43,8 +43,13 @@ declare module '*.mp4' {
   export default path;
 }
 
-
 declare module '*.json?raw' {
   const content: string;
   export default content;
+}
+
+interface ImportMeta {
+  glob<T, E extends Record<string, unknown>>(
+    path: string
+  ): Record<string, () => Promise<{ default: T } & E>>;
 }

@@ -2,12 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'styled-tools';
 
-import { PDATabControl } from '../components/pdaTabControl';
-import { PDAHomeTab } from '../components/pdaHomeTab';
-import { PDADocumentsTab } from '../components/pdaDocumentsTab';
-import { PDAMapTab } from '../components/pdaMapTab';
-import { PDAContactsTab } from '../components/pdaContactsTab';
-import { PDAEvidenceTab } from '../components/pdaEvidenceTab';
+import { PDATabControl } from '../components/pda/pdaTabControl';
+import { PDAHomeTab } from '../components/pda/pdaHomeTab';
+import { PDADocumentsTab } from '../components/pda/pdaDocumentsTab';
+import { PDAMapTab } from '../components/pda/pdaMapTab';
+import { PDAContactsTab } from '../components/pda/pdaContactsTab';
+import { PDAEvidenceTab } from '../components/pda/pdaEvidenceTab';
 
 export enum PDATab {
   HOME = 'home',

@@ -8,5 +8,7 @@ import reactSvgPlugin from 'vite-plugin-react-svg';
 
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/neo-ottawa-projet/' : '',
-  plugins: [reactRefresh(), reactSvgPlugin(), ViteAliases(), imagetools()],
+  plugins: [reactRefresh({
+    exclude: /__generated__/,
+  }), reactSvgPlugin(), ViteAliases(), imagetools()],
 });
