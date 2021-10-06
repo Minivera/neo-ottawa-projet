@@ -77,20 +77,17 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     portraits = (
       <PortraitsContainer count={characterPortraits.length}>
         {characterPortraits.map(character => {
+          const CharacterImage = character.images[state.characterExpressions[character.id]];
+
           if (character.id === state.currentCharacter?.id) {
             return (
               <CharacterPortrait key={character.id} active>
                 <AnimationContainer
                   animation={state.characterAnimation[character.id]}
                 >
-                  <PortraitImage
-                    src={
-                      character.images[state.characterExpressions[character.id]]
-                    }
-                    alt={`${character.name} ${
-                      state.characterExpressions[character.id]
-                    }`}
-                  />
+                  <PortraitImage>
+                    <CharacterImage />
+                  </PortraitImage>
                 </AnimationContainer>
               </CharacterPortrait>
             );
@@ -98,12 +95,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
 
           return (
             <CharacterPortrait key={character.id}>
-              <PortraitImage
-                src={character.images[state.characterExpressions[character.id]]}
-                alt={`${character.name} ${
-                  state.characterExpressions[character.id]
-                }`}
-              />
+              <PortraitImage>
+                <CharacterImage />
+              </PortraitImage>
             </CharacterPortrait>
           );
         })}

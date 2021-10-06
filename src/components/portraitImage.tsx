@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 
-export const PortraitImage = styled.img`
+export const PortraitImage = styled.div`
   height: 200%;
   max-height: 140vh;
-  width: auto;
+  
+  & svg {
+    height: 100%;
+    width: auto;
+  }
 `;

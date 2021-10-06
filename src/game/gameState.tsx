@@ -7,10 +7,13 @@ import { PDA, PDATab } from './pda';
 import { usePreloader } from '../hooks/useLoading';
 import { Game } from './game';
 import { extractCharacterTags, extractPlacementTags } from './tags';
+// TODO: Add lazy loading to make this more seamless
 import { Characters } from '../data/characters';
 import { backgrounds } from '../data/assets/backgrounds';
 import { musics } from '../data/assets/musics';
 import { soundEffects } from '../data/assets/soundEffects';
+import { contacts } from '../data/contacts';
+import { piecesOfEvidence } from '../data/evidence';
 import { CharacterAnimation } from './event';
 
 // Hardcoded images to preload
@@ -40,7 +43,9 @@ interface GameVariables {
   current_background: string;
   current_music: string;
   known_evidence: InkList;
+  last_added_evidence: InkList | boolean;
   known_contacts: InkList;
+  last_added_contact: InkList | boolean;
   pda_activated: boolean;
   /* eslint-enable camelcase */
 }
@@ -62,11 +67,49 @@ type GameReducer = (state: Game, action: GameAction) => Game;
 const isPDAActivated = (story: Story) =>
   (story.variablesState as unknown as GameVariables).pda_activated;
 
+const generatePDAState = (previousState: PDA, story: Story): PDA => {
+  const variables = story.variablesState as unknown as GameVariables;
+
+  const state = {
+    ...previousState,
+    enabled: isPDAActivated(story),
+  };
+
+  // Check the recently added contact variable for the most recently added contact
+  if (
+    variables.last_added_contact && typeof variables.last_added_contact !== 'boolean'
+  ) {
+    const item = JSON.parse(variables.last_added_contact.entries().next().value[0]) as InkListItem;
+    const contactName = item.itemName as keyof typeof contacts;
+
+    const contact = contacts[contactName];
+
+    if (contact && !previousState.contacts.find(el => el.characterId === contactName)) {
+      state.contacts.push(contact);
+    }
+  }
+
+  // Do the same for the evidence
+  if (
+    variables.last_added_evidence && typeof variables.last_added_evidence !== 'boolean'
+  ) {
+    const item = JSON.parse(variables.last_added_evidence.entries().next().value[0]) as InkListItem;
+    const evidenceName = item.itemName as keyof typeof piecesOfEvidence;
+
+    const evidence = piecesOfEvidence[evidenceName];
+
+    if (evidence && !previousState.evidence.find(el => el.evidenceId === evidenceName)) {
+      state.evidence.push(evidence);
+    }
+  }
+
+  return state;
+};
+
 const generateCurrentScene = (
   text: string | null,
   previousState: SceneState | null,
-  story: Story,
-  pdaState: PDA
+  story: Story
 ): SceneState => {
   const tags = story.currentTags;
 
@@ -77,7 +120,6 @@ const generateCurrentScene = (
 
   const currentScene: SceneState = {
     text: text || previousState?.text || '',
-    notes: undefined,
     centered: placementTag.centered,
     choices: [],
     shownCharacters: [],
@@ -153,30 +195,35 @@ const generateCurrentScene = (
     });
   }
 
-  // Loop in all contacts, document, and evidence to check if any was recently added
-  variables.known_contacts.forEach((_, value) => {
-    const item = JSON.parse(value) as InkListItem;
-    const contact = item.itemName;
+  // Check the recently added contact variable for the most recently added contact
+  if (
+    variables.last_added_contact && typeof variables.last_added_contact !== 'boolean'
+  ) {
+    const item = JSON.parse(variables.last_added_contact.entries().next().value[0]) as InkListItem;
+    const contact = item.itemName as keyof typeof contacts;
 
-    if (contact && !pdaState.contacts.find(el => el.characterId === contact)) {
-      currentScene.notes = {
-        lineId: 'contact_added',
-        variables: { name: Characters[contact]?.name },
-      };
-    }
-  });
+    currentScene.notes = {
+      lineId: 'contact_added',
+      variables: { name: Characters[contact]?.name },
+    };
 
-  variables.known_evidence.forEach((_, value) => {
-    const item = JSON.parse(value) as InkListItem;
-    const evidence = item.itemName;
+    variables.last_added_contact = false;
+  }
 
-    if (evidence && !pdaState.evidence.find(el => el.evidenceId === evidence)) {
-      currentScene.notes = {
-        lineId: 'evidence_added',
-        variables: { name: evidence },
-      };
-    }
-  });
+  // Do the same for the evidence
+  if (
+    variables.last_added_evidence && typeof variables.last_added_evidence !== 'boolean'
+  ) {
+    const item = JSON.parse(variables.last_added_evidence.entries().next().value[0]) as InkListItem;
+    const evidence = item.itemName as keyof typeof piecesOfEvidence;
+
+    currentScene.notes = {
+      lineId: 'evidence_added',
+      variables: { name: evidence },
+    };
+
+    variables.last_added_evidence = false;
+  }
 
   return currentScene;
 };
@@ -193,12 +240,7 @@ const gameReducerFactory: GameReducer = (
       return {
         ...state,
         state: GameState.Started,
-        currentScene: generateCurrentScene(
-          result,
-          null,
-          state.story,
-          state.pda
-        ),
+        currentScene: generateCurrentScene(result, null, state.story),
       };
     }
     case 'end': {
@@ -223,22 +265,14 @@ const gameReducerFactory: GameReducer = (
 
       return {
         ...state,
-        pda: {
-          ...state.pda,
-          enabled: isPDAActivated(state.story),
-        },
+        pda: generatePDAState(state.pda, state.story),
         currentScene: {
           // Show a message if the PDA has recently been activated. We can clear in the next continue.
           notes:
             isPDAActivated(state.story) !== state.pda.enabled
               ? { lineId: 'pda_enabled', variables: {} }
               : undefined,
-          ...generateCurrentScene(
-            result,
-            state.currentScene,
-            state.story,
-            state.pda
-          ),
+          ...generateCurrentScene(result, state.currentScene, state.story),
         },
       };
     }
@@ -301,6 +335,7 @@ export const useGame = (
     state: GameState.Loading,
     pda: {
       open: false,
+      enabled: false,
       tab: PDATab.HOME,
       documents: [],
       contacts: [],
@@ -313,13 +348,6 @@ export const useGame = (
     pdaBorderBotLeft,
     pdaBorderBotRight,
     cityMapImage,
-    ...Object.keys(Characters)
-      .map(key =>
-        Object.keys(Characters[key].images).map(
-          imageKey => Characters[key].images[imageKey]
-        )
-      )
-      .flat(),
     ...Object.keys(backgrounds)
       .map(key => backgrounds[key].asset)
       .flat(),
