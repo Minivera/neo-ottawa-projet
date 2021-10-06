@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { switchProp } from 'styled-tools';
 
-import { CharacterAnimation } from '../game/scene';
+import { CharacterAnimation } from '../game/event';
 
 export interface AnimationContainerProps {
   animation?: CharacterAnimation;
@@ -40,11 +40,11 @@ export const AnimationContainer = styled.div<AnimationContainerProps>`
   ${switchProp(
     'animation',
     {
-      'move-up': css`
+      'move_up': css`
       bottom: 100%;
       animation: move-up 0.75s forwards;
     `,
-      'fade-in': css`
+      'fade_in': css`
       opacity: 0;
       animation: fade-in 0.75s forwards;
     `,

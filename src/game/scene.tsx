@@ -4,7 +4,7 @@ import React, { KeyboardEventHandler, ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
-import { Choice } from './event';
+import { CharacterAnimation, Choice } from './event';
 import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
 import { CharacterPortrait } from '../components/characterPortrait';
@@ -37,7 +37,7 @@ export interface SceneState {
   currentCharacter?: Character;
   shownCharacters: Character[];
   characterExpressions: Record<string, string>;
-  characterAnimation: Record<string, string>;
+  characterAnimation: Record<string, CharacterAnimation>;
 }
 
 export interface SceneProps {
@@ -77,27 +77,21 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     portraits = (
       <PortraitsContainer count={characterPortraits.length}>
         {characterPortraits.map(character => {
-          const CharacterImage = character.images[state.characterExpressions[character.id]];
-
-          if (character.id === state.currentCharacter?.id) {
-            return (
-              <CharacterPortrait key={character.id} active>
-                <AnimationContainer
-                  animation={state.characterAnimation[character.id]}
-                >
-                  <PortraitImage>
-                    <CharacterImage />
-                  </PortraitImage>
-                </AnimationContainer>
-              </CharacterPortrait>
-            );
-          }
+          const CharacterImage =
+            character.images[state.characterExpressions[character.id]];
 
           return (
-            <CharacterPortrait key={character.id}>
-              <PortraitImage>
-                <CharacterImage />
-              </PortraitImage>
+            <CharacterPortrait
+              key={character.id}
+              active={character.id === state.currentCharacter?.id}
+            >
+              <AnimationContainer
+                animation={state.characterAnimation[character.id]}
+              >
+                <PortraitImage>
+                  <CharacterImage />
+                </PortraitImage>
+              </AnimationContainer>
             </CharacterPortrait>
           );
         })}
@@ -179,7 +173,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
                 >
                   {t(state.notes?.lineId, {
                     ...state.notes?.variables,
-                    name: t(state.notes?.variables.name as string || ''),
+                    name: t((state.notes?.variables.name as string) || ''),
                   })}
                 </p>
               )}
