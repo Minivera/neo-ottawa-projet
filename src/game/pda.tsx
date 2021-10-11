@@ -59,7 +59,7 @@ const PDAContainer = styled.div`
   bottom: 0;
   z-index: 3;
   background: ${theme('colors.darkGreen')};
-  font-size: 20px;
+  font-size: 1rem;
   font-family: VCR-OSD-MONO;
 `;
 

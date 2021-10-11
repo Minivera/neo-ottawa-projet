@@ -25,6 +25,7 @@ import {
   MultipleChoiceElementRightArrow,
   MultipleChoices,
 } from '../components/multipleChoices';
+import { Settings } from '../hooks/useSettings';
 
 export interface SceneState {
   dialogName?: string;
@@ -41,6 +42,7 @@ export interface SceneState {
 }
 
 export interface SceneProps {
+  settings: Settings;
   state: SceneState;
   onContinue: () => void;
   onTextLoadingStart: () => void;
@@ -50,6 +52,7 @@ export interface SceneProps {
 }
 
 export const Scene: React.FunctionComponent<SceneProps> = ({
+  settings,
   state,
   onContinue,
   onTextLoadingStart,
@@ -123,12 +126,13 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
             <AnimatedText
               text={state.text}
               key={state.text}
-              skipAnimation={skipAnimation}
+              skipAnimation={!settings.textAnimationsEnabled || skipAnimation}
+              animationSpeed={settings.textAnimationSpeed}
               onTextLoadingStart={onTextLoadingStart}
               onTextLoadingEnd={onTextLoadingEnd}
             />
           </p>
-          {skipAnimation && (
+          {(!settings.textAnimationsEnabled || skipAnimation) && (
             <MultipleChoices>
               {state.choices.map(choice => (
                 <MultipleChoiceElement
@@ -136,7 +140,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
                   onClick={() => onChoiceSelected(choice)}
                 >
                   <MultipleChoiceElementLeftArrow />
-                  <span>{choice.content}</span>
+                  <span dangerouslySetInnerHTML={{ __html: choice.content }}/>
                   <MultipleChoiceElementRightArrow />
                 </MultipleChoiceElement>
               ))}
@@ -156,12 +160,13 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
             <AnimatedText
               text={state.text}
               key={state.text}
-              skipAnimation={skipAnimation}
+              skipAnimation={!settings.textAnimationsEnabled || skipAnimation}
+              animationSpeed={settings.textAnimationSpeed}
               onTextLoadingStart={onTextLoadingStart}
               onTextLoadingEnd={onTextLoadingEnd}
             />
           </p>
-          {skipAnimation && (
+          {(!settings.textAnimationsEnabled || skipAnimation) && (
             <React.Fragment>
               <NextButton />
               {state.notes && (
@@ -181,7 +186,14 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           )}
         </DialogBox>
       )}
-      {state.bgm && <AudioPlayer src={state.bgm} autoPlay loop />}
+      {state.bgm && settings.musicEnabled && (
+        <AudioPlayer
+          src={state.bgm}
+          autoPlay
+          loop
+          volume={settings.musicVolume / 100}
+        />
+      )}
     </SceneContainer>
   );
 };

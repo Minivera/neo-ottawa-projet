@@ -225,7 +225,7 @@ const PDAContent = styled.div`
   grid-column: 1 / span 7;
   z-index: 2;
   color: ${theme('colors.secondary')};
-  font-size: 22px;
+  font-size: 1rem;
   max-width: 100%;
   max-height: 100%;
   display: flex;
@@ -291,11 +291,11 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           <img src={pdaBorderTopCenter} alt="side slant" />
         </PDATopLeftSide>
         <PDATopBorder />
-        <PDAReturnButton>
+        <PDAReturnButton onClick={onReturnClick}>
           <PDAReturnSide />
           <PDAReturnInner>
             <CloseIcon />
-            <a onClick={onReturnClick}>{t('pda_return')}</a>
+            <a>{t('pda_return')}</a>
           </PDAReturnInner>
         </PDAReturnButton>
         <PDATopRightSide>

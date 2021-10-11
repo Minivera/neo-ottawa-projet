@@ -60,7 +60,7 @@ const GameMenuLink = styled.a`
   align-items: center;
   cursor: pointer;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 0.8rem;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0.4rem 0.4rem;

@@ -22,11 +22,16 @@ import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
 import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
+import { Settings } from '../hooks/useSettings';
 
 export enum GameState {
+  // eslint-disable-next-line no-unused-vars
   Loading = 'loading',
+  // eslint-disable-next-line no-unused-vars
   Loaded = 'loaded',
+  // eslint-disable-next-line no-unused-vars
   Started = 'started',
+  // eslint-disable-next-line no-unused-vars
   Ended = 'ended',
 }
 
@@ -59,6 +64,10 @@ export type GameAction =
       characterId: keyof typeof Characters;
       animation: CharacterAnimation;
     }
+  | {
+      type: 'play_sound';
+      soundId: keyof typeof soundEffects;
+    }
   | { type: 'open_pda' }
   | { type: 'close_pda' }
   | { type: 'change_pda_tab'; tab: PDATab };
@@ -77,28 +86,40 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
 
   // Check the recently added contact variable for the most recently added contact
   if (
-    variables.last_added_contact && typeof variables.last_added_contact !== 'boolean'
+    variables.last_added_contact &&
+    typeof variables.last_added_contact !== 'boolean'
   ) {
-    const item = JSON.parse(variables.last_added_contact.entries().next().value[0]) as InkListItem;
+    const item = JSON.parse(
+      variables.last_added_contact.entries().next().value[0]
+    ) as InkListItem;
     const contactName = item.itemName as keyof typeof contacts;
 
     const contact = contacts[contactName];
 
-    if (contact && !previousState.contacts.find(el => el.characterId === contactName)) {
+    if (
+      contact &&
+      !previousState.contacts.find(el => el.characterId === contactName)
+    ) {
       state.contacts.push(contact);
     }
   }
 
   // Do the same for the evidence
   if (
-    variables.last_added_evidence && typeof variables.last_added_evidence !== 'boolean'
+    variables.last_added_evidence &&
+    typeof variables.last_added_evidence !== 'boolean'
   ) {
-    const item = JSON.parse(variables.last_added_evidence.entries().next().value[0]) as InkListItem;
+    const item = JSON.parse(
+      variables.last_added_evidence.entries().next().value[0]
+    ) as InkListItem;
     const evidenceName = item.itemName as keyof typeof piecesOfEvidence;
 
     const evidence = piecesOfEvidence[evidenceName];
 
-    if (evidence && !previousState.evidence.find(el => el.evidenceId === evidenceName)) {
+    if (
+      evidence &&
+      !previousState.evidence.find(el => el.evidenceId === evidenceName)
+    ) {
       state.evidence.push(evidence);
     }
   }
@@ -197,9 +218,12 @@ const generateCurrentScene = (
 
   // Check the recently added contact variable for the most recently added contact
   if (
-    variables.last_added_contact && typeof variables.last_added_contact !== 'boolean'
+    variables.last_added_contact &&
+    typeof variables.last_added_contact !== 'boolean'
   ) {
-    const item = JSON.parse(variables.last_added_contact.entries().next().value[0]) as InkListItem;
+    const item = JSON.parse(
+      variables.last_added_contact.entries().next().value[0]
+    ) as InkListItem;
     const contact = item.itemName as keyof typeof contacts;
 
     currentScene.notes = {
@@ -212,9 +236,12 @@ const generateCurrentScene = (
 
   // Do the same for the evidence
   if (
-    variables.last_added_evidence && typeof variables.last_added_evidence !== 'boolean'
+    variables.last_added_evidence &&
+    typeof variables.last_added_evidence !== 'boolean'
   ) {
-    const item = JSON.parse(variables.last_added_evidence.entries().next().value[0]) as InkListItem;
+    const item = JSON.parse(
+      variables.last_added_evidence.entries().next().value[0]
+    ) as InkListItem;
     const evidence = item.itemName as keyof typeof piecesOfEvidence;
 
     currentScene.notes = {
@@ -228,104 +255,120 @@ const generateCurrentScene = (
   return currentScene;
 };
 
-const gameReducerFactory: GameReducer = (
-  state: Game,
-  action: GameAction
-): Game => {
-  switch (action.type) {
-    case 'start': {
-      // Run the story for the first time
-      const result = state.story.Continue();
+const gameReducerFactory =
+  (settings: Settings): GameReducer =>
+  (state: Game, action: GameAction): Game => {
+    switch (action.type) {
+      case 'start': {
+        // Run the story for the first time
+        const result = state.story.Continue();
 
-      return {
-        ...state,
-        state: GameState.Started,
-        currentScene: generateCurrentScene(result, null, state.story),
-      };
-    }
-    case 'end': {
-      return {
-        ...state,
-        state: GameState.Ended,
-      };
-    }
-    case 'continue': {
-      if (!state.currentScene) {
-        throw new Error('An error occurred, game was not started or has ended');
+        return {
+          ...state,
+          state: GameState.Started,
+          currentScene: generateCurrentScene(result, null, state.story),
+        };
       }
-
-      if (typeof action.choiceId !== 'undefined') {
-        state.story.ChooseChoiceIndex(action.choiceId);
-
-        // Skip the interface showing chosen choice (TODO: Readd if we ever make use of that feature).
-        state.story.Continue();
+      case 'end': {
+        return {
+          ...state,
+          state: GameState.Ended,
+        };
       }
+      case 'continue': {
+        if (!state.currentScene) {
+          throw new Error(
+            'An error occurred, game was not started or has ended'
+          );
+        }
 
-      const result = state.story.Continue();
+        if (typeof action.choiceId !== 'undefined') {
+          state.story.ChooseChoiceIndex(action.choiceId);
 
-      return {
-        ...state,
-        pda: generatePDAState(state.pda, state.story),
-        currentScene: {
-          // Show a message if the PDA has recently been activated. We can clear in the next continue.
-          notes:
-            isPDAActivated(state.story) !== state.pda.enabled
-              ? { lineId: 'pda_enabled', variables: {} }
-              : undefined,
-          ...generateCurrentScene(result, state.currentScene, state.story),
-        },
-      };
-    }
-    case 'animate_character': {
-      if (!state.currentScene) {
-        throw new Error('An error occurred, game was not started or has ended');
-      }
+          // Skip the interface showing chosen choice (TODO: Readd if we ever make use of that feature).
+          state.story.Continue();
+        }
 
-      return {
-        ...state,
-        currentScene: {
-          ...state.currentScene,
-          currentCharacter: Characters[action.characterId],
-          characterAnimation: {
-            ...state.currentScene.characterAnimation,
-            [action.characterId]: action.animation,
+        const result = state.story.Continue();
+
+        return {
+          ...state,
+          pda: generatePDAState(state.pda, state.story),
+          currentScene: {
+            // Show a message if the PDA has recently been activated. We can clear in the next continue.
+            notes:
+              isPDAActivated(state.story) !== state.pda.enabled
+                ? { lineId: 'pda_enabled', variables: {} }
+                : undefined,
+            ...generateCurrentScene(result, state.currentScene, state.story),
           },
-        },
-      };
+        };
+      }
+      case 'animate_character': {
+        if (!state.currentScene) {
+          throw new Error(
+            'An error occurred, game was not started or has ended'
+          );
+        }
+
+        return {
+          ...state,
+          currentScene: {
+            ...state.currentScene,
+            currentCharacter: Characters[action.characterId],
+            characterAnimation: {
+              ...state.currentScene.characterAnimation,
+              [action.characterId]: action.animation,
+            },
+          },
+        };
+      }
+      case 'play_sound': {
+        const sound = soundEffects[action.soundId];
+
+        if (sound && settings.soundEffectsEnabled) {
+          sound.volume(settings.soundEffectsVolume / 100);
+          sound.play();
+        }
+
+        return {
+          ...state,
+        };
+      }
+      case 'open_pda': {
+        return {
+          ...state,
+          pda: {
+            ...state.pda,
+            open: true,
+          },
+        };
+      }
+      case 'close_pda': {
+        return {
+          ...state,
+          pda: {
+            ...state.pda,
+            open: false,
+          },
+        };
+      }
+      case 'change_pda_tab': {
+        return {
+          ...state,
+          pda: {
+            ...state.pda,
+            tab: action.tab,
+          },
+        };
+      }
+      default:
+        return state;
     }
-    case 'open_pda': {
-      return {
-        ...state,
-        pda: {
-          ...state.pda,
-          open: true,
-        },
-      };
-    }
-    case 'close_pda': {
-      return {
-        ...state,
-        pda: {
-          ...state.pda,
-          open: false,
-        },
-      };
-    }
-    case 'change_pda_tab': {
-      return {
-        ...state,
-        pda: {
-          ...state.pda,
-          tab: action.tab,
-        },
-      };
-    }
-    default:
-      throw new Error('An error occurred, wrong game action');
-  }
-};
+  };
 
 export const useGame = (
+  settings: Settings,
   storyContent: string,
   save?: string
 ): [boolean, number, ReducerState<GameReducer>, Dispatch<GameAction>] => {
@@ -360,7 +403,10 @@ export const useGame = (
     game.state = GameState.Loaded;
   }
 
-  const [state, dispatch] = useReducer(gameReducerFactory, game);
+  const [state, dispatch] = useReducer<GameReducer>(
+    gameReducerFactory(settings),
+    game
+  );
 
   useEffect(() => {
     try {
@@ -378,10 +424,7 @@ export const useGame = (
       state.story.BindExternalFunction(
         'play_sound',
         (soundId: keyof typeof soundEffects) => {
-          const sound = soundEffects[soundId];
-          if (sound) {
-            sound.play();
-          }
+          dispatch({ type: 'play_sound', soundId });
         },
         false
       );

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Fragment, FunctionComponent, useEffect } from 'react';
+import { ReactElement, Fragment, FunctionComponent, useEffect } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 
 export interface AnimatedTextProps {
@@ -7,11 +7,13 @@ export interface AnimatedTextProps {
   onTextLoadingStart: () => void;
   onTextLoadingEnd: () => void;
   skipAnimation?: boolean;
+  animationSpeed: number;
 }
 
 const specialChars = {
   strongStart: 'Ƶ',
   strongEnd: 'ƶ',
+  lineBreak: 'ƴ',
 };
 
 export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
@@ -23,9 +25,10 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
   // TODO: Make this interpreter smarter
   text = text.replaceAll('<b>', specialChars.strongStart);
   text = text.replaceAll('</b>', specialChars.strongEnd);
+  text = text.replaceAll('<br/>', specialChars.lineBreak);
 
   const parts = text.split('');
-  const letters: React.ReactElement[] = [];
+  const letters: ReactElement[] = [];
   let isStrong = false;
   let index = 0;
   for (const charIndex in parts) {
@@ -36,6 +39,9 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
       continue;
     } else if (char === specialChars.strongEnd) {
       isStrong = false;
+      continue;
+    } if (char === specialChars.strongEnd) {
+      letters.push(<br />);
       continue;
     }
 
@@ -70,7 +76,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
 
     const timeout = setTimeout(() => {
       onTextLoadingEnd();
-      // add a 200 ms delay so the user has the time to understand the animation is done
+      // add a slight delay so the user has the time to understand the animation is done
     }, 0.05 * index * 1000 + 500);
 
     return () => {

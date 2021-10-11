@@ -10,6 +10,10 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/neo-ottawa-projet/' : '',
   plugins: [reactRefresh({
     exclude: /__generated__/,
-    
-  }), reactSvgPlugin(), ViteAliases(), imagetools()],
+  }), reactSvgPlugin({
+    expandProps: 'start',
+    svgProps: {
+      onClick: '{props.onClick}',
+    }
+  }), ViteAliases(), imagetools()],
 });

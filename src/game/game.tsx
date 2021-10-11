@@ -1,4 +1,7 @@
+/** @jsx jsx */
 import React, { useState } from 'react';
+import { jsx, css, Global } from '@emotion/react';
+import { useTranslation } from 'react-i18next';
 
 import { Scene } from './scene';
 import { Choice } from './event';
@@ -7,10 +10,15 @@ import { GameContainer } from '../components/gameContainer';
 import { GameMenu } from '../components/gameMenu';
 import { PDAComponent } from './pda';
 import { GameLoader } from '../components/gameLoader';
-import { StartButton } from '../components/startButton';
+import { BigButton } from '../components/bigButton';
 import { GameBackground } from '../components/gameBackground';
+import { useSettings } from '../hooks/useSettings';
+import { Settings } from '../components/settings/settings';
+import { MenuContainer } from '../components/menuContainer';
 
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
+import StartIcon from '../assets/ui/pda/PowerResist.svg?component';
+import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
 
 export interface GameProps {
   storyContent: string;
@@ -21,15 +29,29 @@ export const Game: React.FunctionComponent<GameProps> = ({
   storyContent,
   saveState,
 }) => {
+  const [t] = useTranslation();
+  const [settings, dispatchSettings] = useSettings({});
   const [loading, percentLoaded, gameState, dispatch] = useGame(
+    settings.settings,
     storyContent,
     saveState
   );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
 
+  const globalCSS = (
+    <Global
+      styles={css`
+        html {
+          font-size: ${settings.settings.fontSize}px;
+        }
+      `}
+    />
+  );
+
   if (loading) {
     return (
-      <>
+      <React.Fragment>
+        {globalCSS}
         <GameBackground
           /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
           // @ts-ignore
@@ -39,16 +61,19 @@ export const Game: React.FunctionComponent<GameProps> = ({
           loop
         />
         <GameContainer>
-          <GameLoader percent={percentLoaded} />
+          <MenuContainer>
+            <GameLoader percent={percentLoaded} />
+          </MenuContainer>
         </GameContainer>
-      </>
+      </React.Fragment>
     );
   }
 
   switch (gameState.state) {
     case GameState.Loading:
       return (
-        <>
+        <React.Fragment>
+          {globalCSS}
           <GameBackground
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
@@ -58,13 +83,16 @@ export const Game: React.FunctionComponent<GameProps> = ({
             loop
           />
           <GameContainer>
-            <GameLoader />
+            <MenuContainer>
+              <GameLoader />
+            </MenuContainer>
           </GameContainer>
-        </>
+        </React.Fragment>
       );
     case GameState.Loaded:
       return (
-        <>
+        <React.Fragment>
+          {globalCSS}
           <GameBackground
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
@@ -74,9 +102,23 @@ export const Game: React.FunctionComponent<GameProps> = ({
             loop
           />
           <GameContainer>
-            <StartButton onClick={() => dispatch({ type: 'start' })} />
+            <MenuContainer>
+              <BigButton
+                onClick={() => dispatch({ type: 'start' })}
+                icon={<StartIcon />}
+              >
+                {t('start_game')}
+              </BigButton>
+              <BigButton
+                onClick={() => dispatchSettings({ type: 'open' })}
+                icon={<SettingsIcon />}
+              >
+                {t('start_settings')}
+              </BigButton>
+            </MenuContainer>
           </GameContainer>
-        </>
+          <Settings settings={settings} dispatch={dispatchSettings} />
+        </React.Fragment>
       );
     case GameState.Started: {
       if (!gameState.currentScene) {
@@ -112,7 +154,8 @@ export const Game: React.FunctionComponent<GameProps> = ({
       };
 
       return (
-        <>
+        <React.Fragment>
+          {globalCSS}
           {gameState.currentScene &&
             gameState.currentScene.background?.type === 'video' && (
               <GameBackground
@@ -128,10 +171,11 @@ export const Game: React.FunctionComponent<GameProps> = ({
             <GameMenu
               showPDA={gameState.pda.enabled}
               onPDAClick={() => dispatch({ type: 'open_pda' })}
-              onSettingsClick={() => {}}
+              onSettingsClick={() => dispatchSettings({ type: 'open' })}
             />
             <Scene
               state={gameState.currentScene}
+              settings={settings.settings}
               skipAnimation={textLoading !== null && !textLoading}
               onContinue={onContinue}
               onTextLoadingStart={onTextLoadingStart}
@@ -143,8 +187,9 @@ export const Game: React.FunctionComponent<GameProps> = ({
               onPDAClosed={() => dispatch({ type: 'close_pda' })}
               onPDATabChanged={tab => dispatch({ type: 'change_pda_tab', tab })}
             />
+            <Settings settings={settings} dispatch={dispatchSettings} />
           </GameContainer>
-        </>
+        </React.Fragment>
       );
     }
   }

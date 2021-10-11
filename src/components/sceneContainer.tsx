@@ -7,7 +7,6 @@ export interface SceneContainerProps {
 }
 
 export const SceneContainer = styled.div<SceneContainerProps>`
-  font-size: 22px;
   font-family: VCR-OSD-MONO;
   ${props =>
     props.background

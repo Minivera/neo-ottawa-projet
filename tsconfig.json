@@ -26,5 +26,6 @@
       "module": "CommonJS"
     }
   },
-  "include": ["src/**/*.tsx", "src/**/*.ts", "scripts/**/*.ts", "src/**/*.d.ts"]
+  "include": ["src/**/*.tsx", "src/**/*.ts", "scripts/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "src/components/__generated__"]
 }

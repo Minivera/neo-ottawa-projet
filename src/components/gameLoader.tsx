@@ -3,7 +3,6 @@ import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FunctionComponent } from 'react';
 import { theme } from 'styled-tools';
-import { MenuContainer } from './menuContainer';
 import { useTranslation } from 'react-i18next';
 
 export interface GameLoaderProps {
@@ -36,9 +35,7 @@ export const LoadingArrow = styled.div<GameLoaderProps>`
     props.percent && props.percent >= 100
       ? `
     & div[data-direction="right"]:before {
-      border-left-color: ${
-        theme('colors.primary')(props) as unknown as string
-      };
+      border-left-color: ${theme('colors.primary')(props) as unknown as string};
     }
   `
       : ''}
@@ -121,14 +118,12 @@ export const GameLoader: FunctionComponent<GameLoaderProps> = ({ percent }) => {
   const [t] = useTranslation();
 
   return (
-    <MenuContainer>
-      <LoadingArrow percent={percent}>
-        <LeftSide data-direction="left" />
-        <span>
+    <LoadingArrow percent={percent}>
+      <LeftSide data-direction="left" />
+      <span>
         {percent ? `${t('loading')} - ${percent.toFixed(0)}%` : t('preparing')}
       </span>
-        <RightSide data-direction="right" />
-      </LoadingArrow>
-    </MenuContainer>
+      <RightSide data-direction="right" />
+    </LoadingArrow>
   );
-}
+};
