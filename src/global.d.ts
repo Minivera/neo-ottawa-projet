@@ -49,7 +49,7 @@ declare module '*.json?raw' {
 }
 
 interface ImportMeta {
-  glob<T, E extends Record<string, unknown>>(
+  glob<T, E extends Record<string, unknown> = Record<string, unknown>>(
     path: string
   ): Record<string, () => Promise<{ default: T } & E>>;
 }

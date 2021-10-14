@@ -20,7 +20,7 @@ export const useLazyAssetLoading = (): [boolean, number, number] => {
     modulePromises.forEach(module => {
       module()
         .then(mod =>
-          mod.load ? mod.load() : new Promise(resolve => resolve())
+          mod.load ? mod.load() : new Promise(resolve => resolve(null))
         )
         .then(() => {
           setLoadedCount(count => count + 1);
