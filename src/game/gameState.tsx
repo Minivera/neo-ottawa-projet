@@ -1,6 +1,7 @@
 import { Dispatch, ReducerState, useReducer, useEffect } from 'react';
 import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
+import { toast } from 'react-hot-toast';
 
 import { SceneState } from './scene';
 import { PDA, PDATab } from './pda';
@@ -15,6 +16,7 @@ import { soundEffects } from '../data/assets/soundEffects';
 import { contacts } from '../data/contacts';
 import { piecesOfEvidence } from '../data/evidence';
 import { CharacterAnimation } from './event';
+import { Settings } from '../hooks/useSettings';
 
 // Hardcoded images to preload
 import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
@@ -22,11 +24,14 @@ import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
 import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
-import { Settings } from '../hooks/useSettings';
+
+const localstorageSaveKey = 'game-save';
 
 export enum GameState {
   // eslint-disable-next-line no-unused-vars
   Loading = 'loading',
+  // eslint-disable-next-line no-unused-vars
+  Ready = 'ready',
   // eslint-disable-next-line no-unused-vars
   Loaded = 'loaded',
   // eslint-disable-next-line no-unused-vars
@@ -59,6 +64,7 @@ export type GameAction =
   | { type: 'start' }
   | { type: 'end' }
   | { type: 'continue'; choiceId?: number }
+  | { type: 'save_game' }
   | {
       type: 'animate_character';
       characterId: keyof typeof Characters;
@@ -104,6 +110,24 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
     }
   }
 
+  // In case we still have more contacts than already saved in the state. It probably
+  // means we're loading something or the state got messy. Refresh.
+  if (variables.known_contacts.Count !== state.contacts.length) {
+    variables.known_contacts.orderedItems.forEach(entry => {
+      const item = entry.Key;
+      const contactName = item.itemName as keyof typeof contacts;
+
+      const contact = contacts[contactName];
+
+      if (
+        contact &&
+        !previousState.contacts.find(el => el.characterId === contactName)
+      ) {
+        state.contacts.push(contact);
+      }
+    });
+  }
+
   // Do the same for the evidence
   if (
     variables.last_added_evidence &&
@@ -124,6 +148,24 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
     }
   }
 
+  // In case we still have more evidence than already saved in the state. It probably
+  // means we're loading something or the state got messy. Refresh.
+  if (variables.known_evidence.Count !== state.contacts.length) {
+    variables.known_evidence.orderedItems.forEach(entry => {
+      const item = entry.Key;
+      const evidenceName = item.itemName as keyof typeof piecesOfEvidence;
+
+      const evidence = piecesOfEvidence[evidenceName];
+
+      if (
+        evidence &&
+        !previousState.evidence.find(el => el.evidenceId === evidenceName)
+      ) {
+        state.evidence.push(evidence);
+      }
+    });
+  }
+
   return state;
 };
 
@@ -132,7 +174,7 @@ const generateCurrentScene = (
   previousState: SceneState | null,
   story: Story
 ): SceneState => {
-  const tags = story.currentTags;
+  const tags = story.state.currentTags;
 
   const characterTag = extractCharacterTags(tags);
   const placementTag = extractPlacementTags(tags);
@@ -260,13 +302,23 @@ const gameReducerFactory =
   (state: Game, action: GameAction): Game => {
     switch (action.type) {
       case 'start': {
-        // Run the story for the first time
-        const result = state.story.Continue();
+        // Ready means we haven't started the game, we need to boot it up and
+        // get ready to show content.
+        if (state.state === GameState.Ready) {
+          // Run the story for the first time if we've only loaded the content
+          const result = state.story.Continue();
 
+          return {
+            ...state,
+            state: GameState.Started,
+            currentScene: generateCurrentScene(result, null, state.story),
+          };
+        }
+
+        // If not ready, then we have a save already going. Set the game to started.
         return {
           ...state,
           state: GameState.Started,
-          currentScene: generateCurrentScene(result, null, state.story),
         };
       }
       case 'end': {
@@ -302,6 +354,18 @@ const gameReducerFactory =
                 : undefined,
             ...generateCurrentScene(result, state.currentScene, state.story),
           },
+        };
+      }
+      case 'save_game': {
+        localStorage.setItem(localstorageSaveKey, state.story.state.toJson());
+
+        // TODO: Make this translatable
+        toast.success('Partie sauvegardée avec succès', {
+          position: 'bottom-center',
+        });
+
+        return {
+          ...state,
         };
       }
       case 'animate_character': {
@@ -396,13 +460,6 @@ export const useGame = (
       .flat(),
   ];
 
-  if (save) {
-    game.story.state.LoadJson(save);
-    game.state = GameState.Started;
-  } else {
-    game.state = GameState.Loaded;
-  }
-
   const [state, dispatch] = useReducer<GameReducer>(
     gameReducerFactory(settings),
     game
@@ -432,6 +489,30 @@ export const useGame = (
       // Ignore exceptions here as hot-reloading can cause this effect to rerun
     }
   }, []);
+
+  useEffect(() => {
+    // FIXME: This is a ugly state mutation, cleanup
+    if (save) {
+      game.story.state.LoadJson(save);
+      game.state = GameState.Loaded;
+    } else {
+      // Check if we have a local storage save TODO: Remove
+      const localSave = localStorage.getItem(localstorageSaveKey);
+      if (localSave) {
+        game.story.state.LoadJson(localSave);
+        game.state = GameState.Loaded;
+      } else {
+        game.state = GameState.Ready;
+      }
+    }
+
+    if (game.state === GameState.Loaded && game.story.canContinue) {
+      const result = game.story.state.currentText;
+
+      game.pda = generatePDAState(game.pda, game.story);
+      game.currentScene = generateCurrentScene(result, null, game.story);
+    }
+  }, [save]);
 
   return [...usePreloader(images), state, dispatch];
 };

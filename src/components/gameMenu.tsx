@@ -1,99 +1,123 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
-import { theme } from 'styled-tools';
+import { theme, ifProp } from 'styled-tools';
 import { darken, transparentize } from 'polished';
 
 import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
 import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
+import SaveIcon from '../assets/ui/pda/Sauvegarder.svg?component';
+import MinimizeIcon from '../assets/ui/pda/Minimiser-maximiser.svg?component';
 
-const GameMenuContainer = styled.div`
+const GameMenuContainer = styled.div<{ open?: boolean }>`
   position: absolute;
   top: 5rem;
-  right: 0;
   background-color: transparent;
-  padding-left: 1.7rem;
   filter: drop-shadow(0 0.4rem 0.4rem ${theme('colors.gray')});
   z-index: 2;
-`;
+  transition: right ease-in-out 500ms;
+  width: 11rem;
 
-const GameMenuSide = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 1.7rem;
-  background: linear-gradient(
-    to right top,
-    transparent 48%,
-    ${theme('colors.secondary')} 49%,
-    ${theme('colors.secondary')} 51%,
-    ${theme('colors.secondary')} 52%
-  );
+  ${ifProp('open', 'right: 0;', 'right: -8.3rem;')}
 `;
 
 const GameMenuInnerContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0.5rem;
+  justify-content: center;
+  flex-direction: column;
   background-color: ${theme('colors.secondary')};
-
-  & a:first-child {
-    padding-right: 1rem;
-  }
-
-  & a:nth-child(2) {
-    margin-left: 0.5rem;
-    border-left: 2px solid
-      ${props =>
-        transparentize(
-          0.4,
-          theme('colors.lightGray')(props) as unknown as string
-        )};
-  }
 `;
 
 const GameMenuLink = styled.a`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   cursor: pointer;
   font-weight: bold;
   font-size: 0.8rem;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
-  padding: 0.4rem 0.4rem;
+  padding: 0.8rem 0.8rem;
+  border-bottom: 2px solid
+    ${props =>
+      transparentize(
+        0.4,
+        theme('colors.lightGray')(props) as unknown as string
+      )};
+  color: ${theme('colors.darkGreen')};
 
   & svg {
+    fill: ${theme('colors.darkGreen')};
+    width: 1.3rem;
     height: 1.3rem;
-    margin-right: 0.4rem;
-    margin-top: -0.2rem;
+    margin-right: 0.6rem;
   }
 
   &:hover,
   &:active {
     color: ${props =>
       darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+
+    & svg {
+      fill: ${props =>
+        darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+    }
+  }
+`;
+
+const MinimizeLink = styled.a<{ open?: boolean }>`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0.5rem 0.8rem;
+  background-color: ${theme('colors.darkGreen')};
+  color: ${theme('colors.secondary')};
+
+  & svg {
+    fill: ${theme('colors.secondary')};
+    width: 1.3rem;
+    height: 1.3rem;
+    margin-right: 0.6rem;
+
+    transition: transform ease-in-out 500ms;
+    ${ifProp('open', '', 'transform: rotate(180deg);')}
+  }
+
+  &:hover,
+  &:active {
+    color: ${props =>
+      darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+
+    & svg {
+      fill: ${props =>
+        darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+    }
   }
 `;
 
 export interface GameMenuProps {
   onPDAClick: () => void;
   onSettingsClick: () => void;
+  onSaveClick: () => void;
   showPDA?: boolean;
 }
 
 export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
   onPDAClick,
   onSettingsClick,
+  onSaveClick,
   showPDA,
 }) => {
   const [t] = useTranslation();
+  const [open, setOpen] = useState<boolean>(true);
 
   return (
-    <GameMenuContainer>
-      <GameMenuSide />
+    <GameMenuContainer open={open}>
       <GameMenuInnerContainer>
         {showPDA && (
           <GameMenuLink onClick={onPDAClick}>
@@ -105,6 +129,14 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
           <SettingsIcon />
           <span>{t('settings')}</span>
         </GameMenuLink>
+        <GameMenuLink onClick={onSaveClick}>
+          <SaveIcon />
+          <span>{t('menu_save')}</span>
+        </GameMenuLink>
+        <MinimizeLink onClick={() => setOpen(!open)} open={open}>
+          <MinimizeIcon />
+          <span>{t('menu_minimize')}</span>
+        </MinimizeLink>
       </GameMenuInnerContainer>
     </GameMenuContainer>
   );

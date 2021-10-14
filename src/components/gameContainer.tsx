@@ -6,4 +6,5 @@ export const GameContainer = styled.div`
   grid-column: 1 / span 3;
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 `;

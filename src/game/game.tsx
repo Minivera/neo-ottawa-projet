@@ -89,6 +89,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
           </GameContainer>
         </React.Fragment>
       );
+    case GameState.Ready:
     case GameState.Loaded:
       return (
         <React.Fragment>
@@ -107,7 +108,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
                 onClick={() => dispatch({ type: 'start' })}
                 icon={<StartIcon />}
               >
-                {t('start_game')}
+                {gameState.state === GameState.Ready ? t('start_game') : t('continue_game')}
               </BigButton>
               <BigButton
                 onClick={() => dispatchSettings({ type: 'open' })}
@@ -172,6 +173,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
               showPDA={gameState.pda.enabled}
               onPDAClick={() => dispatch({ type: 'open_pda' })}
               onSettingsClick={() => dispatchSettings({ type: 'open' })}
+              onSaveClick={() => dispatch({ type: 'save_game' })}
             />
             <Scene
               state={gameState.currentScene}

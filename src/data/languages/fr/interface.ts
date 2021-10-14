@@ -1,7 +1,13 @@
 export const interfaceTerms = {
   // Start screen
   start_game: 'Commencer le jeu',
+  continue_game: 'Continuer la partie',
   start_settings: 'Paramètres',
+
+  // Game menu
+  menu_minimize: 'minimiser',
+  menu_maximize: 'maximiser',
+  menu_save: 'sauvegarder',
 
   // Interface
   pda: 'Accéder le PDA',

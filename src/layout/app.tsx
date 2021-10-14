@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { jsx, css, Global, ThemeProvider } from '@emotion/react';
 import { theme as polishedTheme } from 'styled-tools';
 import { fontFace } from 'polished';
+import { Toaster } from 'react-hot-toast';
 
 import { Game } from '../game/game';
 import { theme } from '../theme';
@@ -43,6 +44,7 @@ export const App: React.FunctionComponent = () => (
         storyContent={storyContent}
         /* saveState={saveGame} */
       />
+      <Toaster />
     </Container>
   </ThemeProvider>
 );

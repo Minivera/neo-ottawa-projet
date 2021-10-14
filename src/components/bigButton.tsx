@@ -17,7 +17,7 @@ export const BigButtonInner = styled.button`
   border: none;
   cursor: pointer;
   text-align: center;
-  min-width: 28rem;
+  min-width: 31rem;
 
   & span {
     font-size: 2rem;
@@ -57,11 +57,11 @@ export const BigButtonInner = styled.button`
 
 const LeftSide = styled.div`
   position: absolute;
-  left: -11.5%;
-  width: 13%;
+  left: -10.5%;
+  width: 12%;
   height: 0;
-  padding-top: 12%;
-  padding-bottom: 12%;
+  padding-top: 11%;
+  padding-bottom: 10.5%;
   overflow: hidden;
 
   .outer {
@@ -95,13 +95,13 @@ const LeftSide = styled.div`
 
 const RightSide = styled.div`
   position: absolute;
-  right: -11.5%;
+  right: -10%;
   top: 0;
-  width: 13%;
+  width: 11.5%;
   height: 0;
-  padding-top: 12%;
-  padding-bottom: 12%;
-  padding-left: 12%;
+  padding-top: 11.5%;
+  padding-bottom: 10%;
+  padding-left: 11%;
   overflow: hidden;
 
   .outer {
