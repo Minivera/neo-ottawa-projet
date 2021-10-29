@@ -90,6 +90,7 @@ export const PDAEvidenceTab: React.FunctionComponent<PDAEvidenceTabProps> = ({
           inset: 0;
           opacity: 0.3;
           z-index: -2;
+        width: 100%;
         `}
       />
       <div

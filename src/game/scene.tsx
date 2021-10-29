@@ -21,8 +21,6 @@ import { NextButton } from '../components/nextButton';
 import { AudioPlayer } from '../components/audioPlayer';
 import {
   MultipleChoiceElement,
-  MultipleChoiceElementLeftArrow,
-  MultipleChoiceElementRightArrow,
   MultipleChoices,
 } from '../components/multipleChoices';
 import { Settings } from '../hooks/useSettings';
@@ -139,9 +137,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
                   key={choice.content}
                   onClick={() => onChoiceSelected(choice)}
                 >
-                  <MultipleChoiceElementLeftArrow />
                   <span dangerouslySetInnerHTML={{ __html: choice.content }}/>
-                  <MultipleChoiceElementRightArrow />
                 </MultipleChoiceElement>
               ))}
             </MultipleChoices>

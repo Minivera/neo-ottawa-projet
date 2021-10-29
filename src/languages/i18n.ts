@@ -6,17 +6,17 @@ import { charactersNames as frCharacterNames } from '../data/languages/fr/names'
 import { contactDescriptions as frContactDescriptions } from '../data/languages/fr/contacts';
 import { evidenceNames as frEvidenceNames } from '../data/languages/fr/evidence';
 import { notesMessages as frNotesMessages } from '../data/languages/fr/notes';
-import { generatedTranslations } from '../../__generated__/translations';
+import { documentsContent as frDocumentsContent } from '../data/languages/fr/documents';
 
 const resources = {
   fr: {
     translation: {
       ...frInterfaceTerms,
       ...frCharacterNames,
-      ...generatedTranslations.fr,
       ...frNotesMessages,
       ...frContactDescriptions,
       ...frEvidenceNames,
+      ...frDocumentsContent,
 
       // Game content
       'test_fullscreen_narration_1': `Ceci est une <s>narration</s> pleine écran traduite en temps réel. Tous les exemple suivants sont aussi traduis. La narration pleine écran s'affiche toujours au centre.`,

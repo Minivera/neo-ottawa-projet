@@ -8,6 +8,9 @@ import { PDADocumentsTab } from '../components/pda/pdaDocumentsTab';
 import { PDAMapTab } from '../components/pda/pdaMapTab';
 import { PDAContactsTab } from '../components/pda/pdaContactsTab';
 import { PDAEvidenceTab } from '../components/pda/pdaEvidenceTab';
+import { Choice, Quiz } from './event';
+import { PDAQuizTab } from '../components/pda/pdaQuizTab';
+import { Settings } from '../hooks/useSettings';
 
 export enum PDATab {
   HOME = 'home',
@@ -20,6 +23,7 @@ export enum PDATab {
 export interface Document {
   documentId: string;
   name: string;
+  description: string;
   path?: string;
 }
 
@@ -45,12 +49,6 @@ export interface PDA {
   evidence: Evidence[];
 }
 
-export interface PDAComponentProps {
-  pdaState: PDA;
-  onPDAClosed: () => void;
-  onPDATabChanged: (tab: PDATab) => void;
-}
-
 const PDAContainer = styled.div`
   position: absolute;
   top: 0;
@@ -63,10 +61,30 @@ const PDAContainer = styled.div`
   font-family: VCR-OSD-MONO;
 `;
 
+export interface PDAComponentProps {
+  pdaState: PDA;
+  settings: Settings;
+  onPDAClosed: () => void;
+  onPDATabChanged: (tab: PDATab) => void;
+  quiz?: Quiz;
+  onContinue: () => void;
+  onTextLoadingStart: () => void;
+  onTextLoadingEnd: () => void;
+  onChoiceSelected: (choice: Choice) => void;
+  skipAnimation?: boolean;
+}
+
 export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
   pdaState,
+  settings,
   onPDAClosed,
   onPDATabChanged,
+  quiz,
+  onContinue,
+  onTextLoadingStart,
+  onTextLoadingEnd,
+  onChoiceSelected,
+  skipAnimation,
 }) => {
   let Tab: React.FunctionComponent<{ pdaState: PDA }> | null = null;
   switch (pdaState.tab) {
@@ -87,12 +105,36 @@ export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
       break;
   }
 
+  if (quiz) {
+    return (
+      <PDAContainer style={{ display: 'block' }}>
+        <PDATabControl
+          onTabClick={onPDATabChanged}
+          selectedTab={PDATab.DOCUMENTS}
+          onReturnClick={onPDAClosed}
+          quizMode={!!quiz}
+        >
+          <PDAQuizTab
+            quiz={quiz}
+            settings={settings}
+            onContinue={onContinue}
+            onTextLoadingStart={onTextLoadingStart}
+            onTextLoadingEnd={onTextLoadingEnd}
+            onChoiceSelected={onChoiceSelected}
+            skipAnimation={skipAnimation}
+          />
+        </PDATabControl>
+      </PDAContainer>
+    );
+  }
+
   return (
     <PDAContainer style={{ display: pdaState.open ? 'block' : 'none' }}>
       <PDATabControl
         onTabClick={onPDATabChanged}
         selectedTab={pdaState.tab || PDATab.HOME}
         onReturnClick={onPDAClosed}
+        quizMode={!!quiz}
       >
         {Tab && <Tab pdaState={pdaState} />}
       </PDATabControl>

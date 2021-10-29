@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import { ifProp, theme } from 'styled-tools';
+import { ifNotProp, ifProp, theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
@@ -47,17 +47,18 @@ const PDANavigation = styled.div`
 
 interface PDANavigationLinkProps {
   selected?: boolean;
+  disabled?: boolean;
 }
 
 const PDANavigationLink = styled.a<PDANavigationLinkProps>`
   margin-right: 0.5rem;
   margin-left: 0.5rem;
   font-style: italic;
-  cursor: pointer;
+  ${ifNotProp('disabled', 'cursor: pointer;', '')}
   position: relative;
   white-space: nowrap;
   text-transform: uppercase;
-  
+
   &:first-of-type {
     margin-left: 0;
   }
@@ -73,14 +74,25 @@ const PDANavigationLink = styled.a<PDANavigationLinkProps>`
     fill: ${theme('colors.secondary')};
   }
 
-  &:hover,
-  &:active {
-    color: ${theme('colors.yellow')};
+  ${ifNotProp(
+    'disabled',
+    props => `
+    &:hover, &:active {
+      color: ${theme('colors.yellow')(props)};
+      
+      & svg {
+        fill: ${theme('colors.yellow')(props)};
+      }
+    }
+  `,
+    props => `
+    color: ${theme('colors.gray')(props)};
     
     & svg {
-      fill: ${theme('colors.yellow')};
+      fill: ${theme('colors.gray')(props)};
     }
-  }
+  `
+  )}
 
   ${ifProp(
     'selected',
@@ -163,10 +175,12 @@ const PDAReturnInner = styled.div`
 
   &:hover,
   &:active {
-    color: ${props => darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+    color: ${props =>
+      darken(0.2, theme('colors.yellow')(props) as unknown as string)};
 
     & svg {
-      fill: ${props => darken(0.2, theme('colors.yellow')(props) as unknown as string)};
+      fill: ${props =>
+        darken(0.2, theme('colors.yellow')(props) as unknown as string)};
     }
   }
 `;
@@ -237,51 +251,70 @@ export interface PDATabControlProps {
   onTabClick: (tab: PDATab) => void;
   onReturnClick: () => void;
   selectedTab: PDATab;
+  quizMode?: boolean;
 }
 
 export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
   onTabClick,
   onReturnClick,
   selectedTab,
+  quizMode,
   children,
 }) => {
   const [t] = useTranslation();
+
+  const clickTab = (tab: PDATab) => () => {
+    if (!quizMode) {
+      onTabClick(tab);
+    }
+  };
+
+  const handleReturnClick = () => {
+    if (!quizMode) {
+      onReturnClick();
+    }
+  };
 
   return (
     <PDAContainer>
       <PDABackgroundGrid>
         <PDANavigation>
           <PDANavigationLink
-            onClick={() => onTabClick(PDATab.HOME)}
+            onClick={clickTab(PDATab.HOME)}
             selected={selectedTab === PDATab.HOME}
+            disabled={quizMode}
           >
             <HomeIcon />
             {t('pda_home')}
           </PDANavigationLink>
           <PDANavigationLink
-            onClick={() => onTabClick(PDATab.DOCUMENTS)}
-            selected={selectedTab === PDATab.DOCUMENTS}
+            onClick={clickTab(PDATab.DOCUMENTS)}
+            selected={quizMode || selectedTab === PDATab.DOCUMENTS}
+            disabled={quizMode}
           >
             <DocumentsIcon />
             {t('pda_documents')}
           </PDANavigationLink>
           <PDANavigationLink
-            onClick={() => onTabClick(PDATab.MAP)}
+            onClick={clickTab(PDATab.MAP)}
             selected={selectedTab === PDATab.MAP}
+            disabled={quizMode}
           >
             <MapIcon />
             {t('pda_map')}
           </PDANavigationLink>
           <PDANavigationLink
-            onClick={() => onTabClick(PDATab.CONTACTS)}
+            onClick={clickTab(PDATab.CONTACTS)}
             selected={selectedTab === PDATab.CONTACTS}
+            disabled={quizMode}
           >
             <ContactIcon />
             {t('pda_contacts')}
           </PDANavigationLink>
           <PDANavigationLink
-            onClick={() => onTabClick(PDATab.EVIDENCE)}
+            onClick={clickTab(PDATab.EVIDENCE)}
             selected={selectedTab === PDATab.EVIDENCE}
+            disabled={quizMode}
           >
             <EvidenceIcon />
             {t('pda_evidence')}
@@ -291,11 +324,15 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           <img src={pdaBorderTopCenter} alt="side slant" />
         </PDATopLeftSide>
         <PDATopBorder />
-        <PDAReturnButton onClick={onReturnClick}>
+        <PDAReturnButton onClick={handleReturnClick}>
           <PDAReturnSide />
           <PDAReturnInner>
-            <CloseIcon />
-            <a>{t('pda_return')}</a>
+            {!quizMode && (
+              <React.Fragment>
+                <CloseIcon />
+                <a>{t('pda_return')}</a>
+              </React.Fragment>
+            )}
           </PDAReturnInner>
         </PDAReturnButton>
         <PDATopRightSide>
@@ -311,9 +348,7 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           <img src={pdaBorderBotRight} alt="side bottom triangle" />
         </PDABottomRightCorner>
         <PDABottomBorder />
-        <PDAContent>
-          {children}
-        </PDAContent>
+        <PDAContent>{children}</PDAContent>
       </PDABackgroundGrid>
     </PDAContainer>
   );

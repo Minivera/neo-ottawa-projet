@@ -10,7 +10,6 @@ export const BigButtonInner = styled.button`
   margin: 0.5rem 3.5rem;
   color: ${theme('colors.text')};
   font-family: VCR-OSD-MONO;
-  overflow: visible;
   text-transform: none;
   -webkit-appearance: button;
   background-color: transparent;
@@ -18,17 +17,31 @@ export const BigButtonInner = styled.button`
   cursor: pointer;
   text-align: center;
   min-width: 31rem;
+  min-height: 7rem;
+
+  & > svg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    fill: ${theme('colors.black')};
+
+    & > path {
+      stroke: ${theme('colors.secondary')};
+      stroke-width: 7;
+    }
+  }
 
   & span {
+    position: absolute;
     font-size: 2rem;
-    border-width: 0.2em;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-color: ${theme('colors.secondary')};
-    background-color: ${theme('colors.black')};
-    padding: 1.6rem 2rem;
     display: flex;
     align-items: center;
+    z-index: 2;
+    inset: 0;
+    margin-left: 2.5rem;
 
     & svg {
       fill: ${theme('colors.secondary')};
@@ -39,98 +52,16 @@ export const BigButtonInner = styled.button`
 
   &:hover,
   &:active {
-    & span {
-      background-color: ${theme('colors.secondary')};
-      color: ${theme('colors.white')};
+    color: ${theme('colors.white')};
 
-      & svg {
+    & > svg {
+      fill: ${theme('colors.secondary')};
+    }
+
+    & span > svg {
         fill: ${theme('colors.white')};
       }
     }
-
-    & div .inner, & div .outer {
-      border-right-color: ${theme('colors.secondary')};
-      border-left-color: ${theme('colors.secondary')};
-    }
-  }
-`;
-
-const LeftSide = styled.div`
-  position: absolute;
-  left: -10.5%;
-  width: 12%;
-  height: 0;
-  padding-top: 11%;
-  padding-bottom: 10.5%;
-  overflow: hidden;
-
-  .outer {
-    display: block;
-    content: ' ';
-    position: absolute;
-    left: 9%;
-    top: 48%;
-    width: 0;
-    height: 0;
-    margin-top: -500px;
-    border-top: 500px solid transparent;
-    border-bottom: 500px solid transparent;
-    border-right: 500px solid ${theme('colors.secondary')};
-  }
-  
-  .inner {
-    display: block;
-    content: ' ';
-    position: absolute;
-    left: 22%;
-    top: 48%;
-    width: 0;
-    height: 0;
-    margin-top: -500px;
-    border-top: 500px solid transparent;
-    border-bottom: 500px solid transparent;
-    border-right: 500px solid ${theme('colors.black')};
-  }
-`;
-
-const RightSide = styled.div`
-  position: absolute;
-  right: -10%;
-  top: 0;
-  width: 11.5%;
-  height: 0;
-  padding-top: 11.5%;
-  padding-bottom: 10%;
-  padding-left: 11%;
-  overflow: hidden;
-
-  .outer {
-    display: block;
-    content: ' ';
-    position: absolute;
-    right: 9%;
-    top: 49%;
-    width: 0;
-    height: 0;
-    margin-top: -500px;
-    border-top: 500px solid transparent;
-    border-bottom: 500px solid transparent;
-    border-left: 500px solid ${theme('colors.secondary')};
-  }
-
-  .inner {
-    display: block;
-    content: ' ';
-    position: absolute;
-    right: 22%;
-    top: 49%;
-    width: 0;
-    height: 0;
-    margin-top: -500px;
-    margin-left: -500px;
-    border-top: 500px solid transparent;
-    border-bottom: 500px solid transparent;
-    border-left: 500px solid ${theme('colors.black')};
   }
 `;
 
@@ -144,17 +75,15 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
   ...props
 }) => (
   <BigButtonInner {...props}>
-    <LeftSide>
-      <div className="outer" />
-      <div className="inner" />
-    </LeftSide>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path
+        d="M10,7 L90,7 99,50 90,93 10,93 1,50z"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
     <span>
       {icon}
       {children}
     </span>
-    <RightSide>
-      <div className="outer" />
-      <div className="inner" />
-    </RightSide>
   </BigButtonInner>
 );

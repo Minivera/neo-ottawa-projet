@@ -48,6 +48,11 @@ declare module '*.json?raw' {
   export default content;
 }
 
+declare module '*.pdf' {
+  const path: string;
+  export default path;
+}
+
 interface ImportMeta {
   glob<T, E extends Record<string, unknown> = Record<string, unknown>>(
     path: string

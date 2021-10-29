@@ -188,6 +188,13 @@ export const Game: React.FunctionComponent<GameProps> = ({
               pdaState={gameState.pda}
               onPDAClosed={() => dispatch({ type: 'close_pda' })}
               onPDATabChanged={tab => dispatch({ type: 'change_pda_tab', tab })}
+              settings={settings.settings}
+              skipAnimation={textLoading !== null && !textLoading}
+              onContinue={onContinue}
+              onTextLoadingStart={onTextLoadingStart}
+              onTextLoadingEnd={onTextLoadingEnd}
+              onChoiceSelected={onChoiceSelected}
+              quiz={gameState.currentQuiz}
             />
             <Settings settings={settings} dispatch={dispatchSettings} />
           </GameContainer>

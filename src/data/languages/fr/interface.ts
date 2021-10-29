@@ -14,6 +14,7 @@ export const interfaceTerms = {
   settings: 'Paramètres',
   loading: 'Chargement',
   preparing: 'Préparation',
+  pdf_page: 'Page {{pageNumber}} de {{numPages}}',
 
   // PDA
   pda_home: 'Le PDA',
@@ -23,6 +24,7 @@ export const interfaceTerms = {
   pda_evidence: 'Preuves',
   pda_return: 'Retour au jeu',
   pda_none: '[VIDE]',
+  pda_document_description: 'Description du document {{name}}',
 
   // PDA - Home tab
   pda_home_welcome: `

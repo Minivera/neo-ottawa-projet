@@ -1,4 +1,4 @@
-import { Dispatch, ReducerState, useReducer, useEffect } from 'react';
+import { Dispatch, ReducerState, useReducer, useEffect, useMemo } from 'react';
 import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
 import { toast } from 'react-hot-toast';
@@ -15,8 +15,9 @@ import { musics } from '../data/assets/musics';
 import { soundEffects } from '../data/assets/soundEffects';
 import { contacts } from '../data/contacts';
 import { piecesOfEvidence } from '../data/evidence';
-import { CharacterAnimation } from './event';
+import { CharacterAnimation, Quiz } from './event';
 import { Settings } from '../hooks/useSettings';
+import { documents } from '../data/documents';
 
 // Hardcoded images to preload
 import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
@@ -44,6 +45,7 @@ export interface Game {
   story: Story;
   state: GameState;
   currentScene?: SceneState;
+  currentQuiz?: Quiz;
   pda: PDA;
 }
 
@@ -56,7 +58,11 @@ interface GameVariables {
   last_added_evidence: InkList | boolean;
   known_contacts: InkList;
   last_added_contact: InkList | boolean;
+  known_documents: InkList;
+  last_added_document: InkList | boolean;
   pda_activated: boolean;
+  quiz_started: boolean;
+  current_document: InkList | boolean;
   /* eslint-enable camelcase */
 }
 
@@ -150,7 +156,7 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
 
   // In case we still have more evidence than already saved in the state. It probably
   // means we're loading something or the state got messy. Refresh.
-  if (variables.known_evidence.Count !== state.contacts.length) {
+  if (variables.known_evidence.Count !== state.evidence.length) {
     variables.known_evidence.orderedItems.forEach(entry => {
       const item = entry.Key;
       const evidenceName = item.itemName as keyof typeof piecesOfEvidence;
@@ -166,6 +172,44 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
     });
   }
 
+  // Do the same for the documents
+  if (
+    variables.last_added_document &&
+    typeof variables.last_added_document !== 'boolean'
+  ) {
+    const item = JSON.parse(
+      variables.last_added_document.entries().next().value[0]
+    ) as InkListItem;
+    const documentName = item.itemName as keyof typeof documents;
+
+    const document = documents[documentName];
+
+    if (
+      document &&
+      !previousState.documents.find(el => el.documentId === documentName)
+    ) {
+      state.documents.push(document);
+    }
+  }
+
+  // In case we still have more documents than already saved in the state. It probably
+  // means we're loading something or the state got messy. Refresh.
+  if (variables.known_documents.Count !== state.documents.length) {
+    variables.known_documents.orderedItems.forEach(entry => {
+      const item = entry.Key;
+      const documentName = item.itemName as keyof typeof documents;
+
+      const document = documents[documentName];
+
+      if (
+        document &&
+        !previousState.documents.find(el => el.documentId === documentName)
+      ) {
+        state.documents.push(document);
+      }
+    });
+  }
+
   return state;
 };
 
@@ -174,12 +218,15 @@ const generateCurrentScene = (
   previousState: SceneState | null,
   story: Story
 ): SceneState => {
+  const variables = story.variablesState as unknown as GameVariables;
+  if (variables.quiz_started && previousState) {
+    return previousState;
+  }
+
   const tags = story.state.currentTags;
 
   const characterTag = extractCharacterTags(tags);
   const placementTag = extractPlacementTags(tags);
-
-  const variables = story.variablesState as unknown as GameVariables;
 
   const currentScene: SceneState = {
     text: text || previousState?.text || '',
@@ -294,12 +341,107 @@ const generateCurrentScene = (
     variables.last_added_evidence = false;
   }
 
+  // Do the same for the documents
+  if (
+    variables.last_added_document &&
+    typeof variables.last_added_document !== 'boolean'
+  ) {
+    const item = JSON.parse(
+      variables.last_added_document.entries().next().value[0]
+    ) as InkListItem;
+    const document = item.itemName as keyof typeof documents;
+
+    currentScene.notes = {
+      lineId: 'document_added',
+      variables: { name: documents[document]?.name },
+    };
+
+    variables.last_added_document = false;
+  }
+
   return currentScene;
 };
 
-const gameReducerFactory =
-  (settings: Settings): GameReducer =>
-  (state: Game, action: GameAction): Game => {
+const generateQuizStep = (
+  text: string | null,
+  previousState: Quiz | undefined,
+  story: Story
+): undefined | Quiz => {
+  const variables = story.variablesState as unknown as GameVariables;
+  if (!variables.quiz_started) {
+    return undefined;
+  }
+
+  const quiz: Quiz = {
+    question: previousState?.question || '',
+    feedback: previousState?.feedback || '',
+    choices: [],
+  };
+
+  if (text && text.startsWith('Question : ')) {
+    quiz.question = text.replace('Question : ', '');
+    quiz.feedback = '';
+  } else {
+    quiz.feedback = text || '';
+  }
+
+  if (story.currentChoices.length) {
+    quiz.choices = [];
+
+    story.currentChoices.forEach(choice => {
+      quiz.choices?.push({
+        id: choice.index,
+        content: choice.text,
+      });
+    });
+  }
+
+  // Set which document should be shown on screen during this part of the quiz
+  if (
+    variables.current_document &&
+    typeof variables.current_document !== 'boolean'
+  ) {
+    const item = JSON.parse(
+      variables.current_document.entries().next().value[0]
+    ) as InkListItem;
+    const document = item.itemName as keyof typeof documents;
+
+    quiz.document = documents[document];
+  }
+
+  return quiz;
+};
+
+export const useGame = (
+  settings: Settings,
+  storyContent: string,
+  save?: string
+): [boolean, number, ReducerState<GameReducer>, Dispatch<GameAction>] => {
+  const game: Game = {
+    // JSON has invalid char at index 0 for some reason
+    story: new Story(storyContent.slice(1)),
+    state: GameState.Loading,
+    pda: {
+      open: false,
+      enabled: false,
+      tab: PDATab.HOME,
+      documents: [],
+      contacts: [],
+      evidence: [],
+    },
+  };
+  const images: string[] = [
+    pdaBorderTopCenter,
+    pdaBorderTopRight,
+    pdaBorderBotLeft,
+    pdaBorderBotRight,
+    cityMapImage,
+    ...Object.keys(backgrounds)
+      .map(key => backgrounds[key].asset)
+      .flat(),
+  ];
+
+  const gameReducerMemo = useMemo<GameReducer>(() => (state: Game, action: GameAction): Game => {
     switch (action.type) {
       case 'start': {
         // Ready means we haven't started the game, we need to boot it up and
@@ -341,6 +483,10 @@ const gameReducerFactory =
           state.story.Continue();
         }
 
+        if (!state.story.canContinue) {
+          return state;
+        }
+
         const result = state.story.Continue();
 
         return {
@@ -354,6 +500,7 @@ const gameReducerFactory =
                 : undefined,
             ...generateCurrentScene(result, state.currentScene, state.story),
           },
+          currentQuiz: generateQuizStep(result, state.currentQuiz, state.story),
         };
       }
       case 'save_game': {
@@ -429,39 +576,9 @@ const gameReducerFactory =
       default:
         return state;
     }
-  };
-
-export const useGame = (
-  settings: Settings,
-  storyContent: string,
-  save?: string
-): [boolean, number, ReducerState<GameReducer>, Dispatch<GameAction>] => {
-  const game: Game = {
-    // JSON has invalid char at index 0 for some reason
-    story: new Story(storyContent.slice(1)),
-    state: GameState.Loading,
-    pda: {
-      open: false,
-      enabled: false,
-      tab: PDATab.HOME,
-      documents: [],
-      contacts: [],
-      evidence: [],
-    },
-  };
-  const images: string[] = [
-    pdaBorderTopCenter,
-    pdaBorderTopRight,
-    pdaBorderBotLeft,
-    pdaBorderBotRight,
-    cityMapImage,
-    ...Object.keys(backgrounds)
-      .map(key => backgrounds[key].asset)
-      .flat(),
-  ];
-
+  }, [settings]);
   const [state, dispatch] = useReducer<GameReducer>(
-    gameReducerFactory(settings),
+    gameReducerMemo,
     game
   );
 
