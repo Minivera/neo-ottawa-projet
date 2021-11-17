@@ -6,7 +6,7 @@ INCLUDE quiz_logic.ink
 INCLUDE act1_quiz.ink
 INCLUDE act1.ink
 
--> act_1_quiz.pre_quiz
+-> act_1.prologue
 
 === fin ===
 
