@@ -133,21 +133,6 @@ export const PDAEvidenceTab: React.FunctionComponent<PDAEvidenceTabProps> = ({
                 display: flex;
                 flex-wrap: wrap;
 
-                &::-webkit-scrollbar {
-                  width: 0.5rem;
-                }
-
-                &::-webkit-scrollbar-track {
-                  background: ${theme.colors.lightGray};
-                  border-left: 5px solid transparent;
-                  border-right: 5px solid transparent;
-                  background-clip: padding-box;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                  background-color: ${theme.colors.yellow};
-                }
-
                 & > div {
                   border-bottom: 0.1rem solid ${theme.colors.lightGray};
                   border-right: 0.1rem solid ${theme.colors.lightGray};

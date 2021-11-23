@@ -7,6 +7,7 @@ import { darken, transparentize } from 'polished';
 import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
 import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
 import SaveIcon from '../assets/ui/pda/Sauvegarder.svg?component';
+import GameLogIcon from '../assets/ui/pda/Historique.svg?component';
 import MinimizeIcon from '../assets/ui/pda/Minimiser-maximiser.svg?component';
 
 const GameMenuContainer = styled.div<{ open?: boolean }>`
@@ -103,6 +104,7 @@ const MinimizeLink = styled.a<{ open?: boolean }>`
 export interface GameMenuProps {
   onPDAClick: () => void;
   onSettingsClick: () => void;
+  onGameLogClick: () => void;
   onSaveClick: () => void;
   showPDA?: boolean;
 }
@@ -110,6 +112,7 @@ export interface GameMenuProps {
 export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
   onPDAClick,
   onSettingsClick,
+  onGameLogClick,
   onSaveClick,
   showPDA,
 }) => {
@@ -128,6 +131,10 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
         <GameMenuLink onClick={onSettingsClick}>
           <SettingsIcon />
           <span>{t('settings')}</span>
+        </GameMenuLink>
+        <GameMenuLink onClick={onGameLogClick}>
+          <GameLogIcon />
+          <span>{t('game_log')}</span>
         </GameMenuLink>
         <GameMenuLink onClick={onSaveClick}>
           <SaveIcon />

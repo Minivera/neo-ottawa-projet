@@ -12,6 +12,7 @@ export const interfaceTerms = {
   // Interface
   pda: 'Accéder le PDA',
   settings: 'Paramètres',
+  game_log: 'Historique',
   loading: 'Chargement',
   preparing: 'Préparation',
   pdf_page: 'Page {{pageNumber}} de {{numPages}}',

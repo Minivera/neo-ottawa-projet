@@ -25,6 +25,7 @@ import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
 import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
+import { addSceneToGameLog, updateSceneFromGameLog } from './gameLog';
 
 const localstorageSaveKey = 'game-save';
 
@@ -65,6 +66,7 @@ interface GameVariables {
   quiz_name: string;
   quiz_question_count: number;
   current_document: InkList | boolean;
+  history: string;
   /* eslint-enable camelcase */
 }
 
@@ -449,6 +451,8 @@ export const useGame = (
       .flat(),
   ];
 
+  // FIXME: We have side effects in this reducer, that should not be the case. Convert
+  // to some pure hook or something like that.
   const gameReducerMemo = useMemo<GameReducer>(() => (state: Game, action: GameAction): Game => {
     switch (action.type) {
       case 'start': {
@@ -458,10 +462,15 @@ export const useGame = (
           // Run the story for the first time if we've only loaded the content
           const result = state.story.Continue();
 
+          const currentScene = generateCurrentScene(result, null, state.story);
+
+          // Also add it to start filling the game log
+          addSceneToGameLog(state.story, currentScene);
+
           return {
             ...state,
             state: GameState.Started,
-            currentScene: generateCurrentScene(result, null, state.story),
+            currentScene,
           };
         }
 
@@ -487,6 +496,12 @@ export const useGame = (
         if (typeof action.choiceId !== 'undefined') {
           state.story.ChooseChoiceIndex(action.choiceId);
 
+          // If we make a choice, also set that choice as chosen in the log
+          updateSceneFromGameLog(state.story, state.currentScene, {
+            ...state.currentScene,
+            chosenChoice: state.currentScene.choices?.find(choice => choice.id === action.choiceId),
+          });
+
           // Skip the interface showing chosen choice (TODO: Readd if we ever make use of that feature).
           state.story.Continue();
         }
@@ -497,18 +512,26 @@ export const useGame = (
 
         const result = state.story.Continue();
 
+        const currentScene: SceneState = {
+          // Show a message if the PDA has recently been activated. We can clear in the next continue.
+          notes:
+            isPDAActivated(state.story) !== state.pda.enabled
+              ? { lineId: 'pda_enabled', variables: {} }
+              : undefined,
+          ...generateCurrentScene(result, state.currentScene, state.story),
+        };
+        const currentQuiz = generateQuizStep(result, state.currentQuiz, state.story);
+
+        if (!currentQuiz) {
+          // Add the scene as is to the game log only if not processing a quiz.
+          addSceneToGameLog(state.story, currentScene);
+        }
+
         return {
           ...state,
           pda: generatePDAState(state.pda, state.story),
-          currentScene: {
-            // Show a message if the PDA has recently been activated. We can clear in the next continue.
-            notes:
-              isPDAActivated(state.story) !== state.pda.enabled
-                ? { lineId: 'pda_enabled', variables: {} }
-                : undefined,
-            ...generateCurrentScene(result, state.currentScene, state.story),
-          },
-          currentQuiz: generateQuizStep(result, state.currentQuiz, state.story),
+          currentScene,
+          currentQuiz,
         };
       }
       case 'save_game': {

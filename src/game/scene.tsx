@@ -32,6 +32,7 @@ export interface SceneState {
   background?: { type: 'video' | 'image'; asset: string };
   bgm?: string;
   choices?: Choice[];
+  chosenChoice?: Choice;
   notes?: { lineId: string; variables: Record<string, unknown> };
   currentCharacter?: Character;
   shownCharacters: Character[];

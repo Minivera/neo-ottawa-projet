@@ -32,8 +32,8 @@ export const ButtonInner = styled.button<ButtonColorProps>`
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     z-index: -1;
     fill: ${prop('backgroundColor', 'transparent')};
   }

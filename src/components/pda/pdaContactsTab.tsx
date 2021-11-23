@@ -63,25 +63,10 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
         </PDATitle>
         {pdaState.contacts.length > 0 ? (
           <div
-            css={theme => css`
+            css={css`
               height: 100%;
               width: 100%;
               overflow-y: auto;
-
-              &::-webkit-scrollbar {
-                width: 0.5rem;
-              }
-
-              &::-webkit-scrollbar-track {
-                background: ${theme.colors.lightGray};
-                border-left: 5px solid transparent;
-                border-right: 5px solid transparent;
-                background-clip: padding-box;
-              }
-
-              &::-webkit-scrollbar-thumb {
-                background-color: ${theme.colors.yellow};
-              }
             `}
           >
             <table

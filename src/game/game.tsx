@@ -15,6 +15,8 @@ import { GameBackground } from '../components/gameBackground';
 import { useSettings } from '../hooks/useSettings';
 import { Settings } from '../components/settings/settings';
 import { MenuContainer } from '../components/menuContainer';
+import { GameLog } from '../components/gameLog/gameLog';
+import { getGameLog } from './gameLog';
 
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 import StartIcon from '../assets/ui/pda/PowerResist.svg?component';
@@ -37,6 +39,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
     saveState
   );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
+  const [gameLogOpened, setGameLogOpened] = useState<boolean>(false);
 
   const globalCSS = (
     <Global
@@ -108,7 +111,9 @@ export const Game: React.FunctionComponent<GameProps> = ({
                 onClick={() => dispatch({ type: 'start' })}
                 icon={<StartIcon />}
               >
-                {gameState.state === GameState.Ready ? t('start_game') : t('continue_game')}
+                {gameState.state === GameState.Ready
+                  ? t('start_game')
+                  : t('continue_game')}
               </BigButton>
               <BigButton
                 onClick={() => dispatchSettings({ type: 'open' })}
@@ -173,6 +178,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
               showPDA={gameState.pda.enabled}
               onPDAClick={() => dispatch({ type: 'open_pda' })}
               onSettingsClick={() => dispatchSettings({ type: 'open' })}
+              onGameLogClick={() => setGameLogOpened(true)}
               onSaveClick={() => dispatch({ type: 'save_game' })}
             />
             <Scene
@@ -197,6 +203,11 @@ export const Game: React.FunctionComponent<GameProps> = ({
               quiz={gameState.currentQuiz}
             />
             <Settings settings={settings} dispatch={dispatchSettings} />
+            <GameLog
+              closeGameLog={() => setGameLogOpened(false)}
+              gameLog={getGameLog(gameState.story)}
+              opened={gameLogOpened}
+            />
           </GameContainer>
         </React.Fragment>
       );

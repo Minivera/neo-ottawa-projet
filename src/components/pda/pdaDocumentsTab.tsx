@@ -62,27 +62,12 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
         </PDATitle>
         {pdaState.documents.length > 0 ? (
           <ul
-            css={theme => css`
+            css={css`
               margin: 0;
               padding: 0;
               width: 100%;
               height: 100%;
               overflow-y: auto;
-
-              &::-webkit-scrollbar {
-                width: 0.5rem;
-              }
-
-              &::-webkit-scrollbar-track {
-                background: ${theme.colors.lightGray};
-                border-left: 5px solid transparent;
-                border-right: 5px solid transparent;
-                background-clip: padding-box;
-              }
-
-              &::-webkit-scrollbar-thumb {
-                background-color: ${theme.colors.yellow};
-              }
             `}
           >
             {pdaState.documents.map(document => (

@@ -248,6 +248,7 @@ const PDAContent = styled.div`
   overflow-y: auto;
 
   &::-webkit-scrollbar {
+    width: 0.5rem;
     margin-right: 5rem;
     position: relative;
   }
