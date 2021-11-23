@@ -6,6 +6,8 @@ VAR known_contacts = ()
 VAR last_added_contact = false
 VAR pda_activated = false
 
+VAR history = "[]"
+
 === function activer_pda() ===
     ~ pda_activated = true
 

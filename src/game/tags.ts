@@ -9,6 +9,7 @@ export interface CharacterTag {
 
 export interface PlacementTag {
   centered?: boolean;
+  phone?: boolean;
 }
 
 export interface QuizTags {
@@ -65,18 +66,23 @@ export const extractPlacementTags = (tags: string[] | null): PlacementTag => {
 
   const tag: PlacementTag = {};
 
-  tags.forEach(part => {
-    const subparts = part.split('=');
-    if (subparts.length < 1) {
-      throw new Error(`Invalid tag detected in story, ${part}`);
-    }
+  tags.forEach(element => {
+    element.split(' ').forEach(part => {
+      const subparts = part.split('=');
+      if (subparts.length < 1) {
+        throw new Error(`Invalid tag detected in story, ${part}`);
+      }
 
-    switch (subparts[0].trim()) {
-      // TODO: Rename to french
-      case 'center':
-        tag.centered = true;
-        break;
-    }
+      switch (subparts[0].trim()) {
+        // TODO: Rename to french
+        case 'center':
+          tag.centered = true;
+          break;
+        case 'phone':
+          tag.phone = true;
+          break;
+      }
+    });
   });
 
   return tag;

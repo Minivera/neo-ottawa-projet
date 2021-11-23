@@ -29,6 +29,7 @@ export interface SceneState {
   dialogName?: string;
   text: string;
   centered?: boolean;
+  isPhone?: boolean;
   background?: { type: 'video' | 'image'; asset: string };
   bgm?: string;
   choices?: Choice[];
@@ -86,6 +87,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
             <CharacterPortrait
               key={character.id}
               active={character.id === state.currentCharacter?.id}
+              inPhone={state.isPhone}
             >
               <AnimationContainer
                 animation={state.characterAnimation[character.id]}

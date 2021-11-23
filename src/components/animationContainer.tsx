@@ -45,6 +45,7 @@ export const AnimationContainer = styled.div<AnimationContainerProps>`
       animation: move-up 0.75s forwards;
     `,
       'fade_in': css`
+      bottom: 0;
       opacity: 0;
       animation: fade-in 0.75s forwards;
     `,

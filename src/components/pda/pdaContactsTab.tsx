@@ -26,8 +26,6 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
         inset: 0;
         opacity: 0.3;
         z-index: -2;
-        width: 100%;
-        height: 100%;
         overflow: hidden;
       `}
     >
@@ -45,14 +43,11 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
     <div
       css={css`
         width: calc(100% - 8rem);
-        margin: 4rem 4rem 1rem;
         padding: 0 10rem;
       `}
     >
       <div
         css={css`
-          height: 100%;
-          width: 100%;
           display: flex;
           flex-direction: column;
         `}

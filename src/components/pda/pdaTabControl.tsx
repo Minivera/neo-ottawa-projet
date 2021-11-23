@@ -19,14 +19,18 @@ import ContactIcon from '../../assets/ui/pda/PDA-Contacts.svg?component';
 import EvidenceIcon from '../../assets/ui/pda/PDA-Preuves.svg?component';
 
 const PDAContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  padding: 4rem;
+  max-height: calc(100% - 3.5rem);
+  max-width: 85vw;
+  margin: 1.75rem auto;
+  display: flex;
+  position: relative;
+  width: auto;
+  pointer-events: none;
 `;
 
 const PDABackgroundGrid = styled.div`
-  height: 100%;
-  width: 100%;
+  max-height: calc(100vh - 3.5rem);
+  overflow: hidden;
   display: grid;
   grid-template-columns: 50px min-content 33px auto min-content 42px 50px;
   grid-template-rows: 50px 127px 1fr 330px 50px 42px;
@@ -239,24 +243,31 @@ const PDAContent = styled.div`
   grid-column: 1 / span 7;
   z-index: 2;
   color: ${theme('colors.secondary')};
+  display: flex;
+  overflow: hidden;
+`;
+
+const PDAContentInner = styled.div`
   font-size: 1rem;
-  max-width: 100%;
-  max-height: 100%;
   display: flex;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
+  padding: 4rem;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
 
   &::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 1rem;
     margin-right: 5rem;
-    position: relative;
   }
 
   &::-webkit-scrollbar-track {
     background: ${theme('colors.lightGray')};
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
+    border-left: 3px solid transparent;
+    border-right: 10px solid transparent;
     background-clip: padding-box;
   }
 
@@ -366,7 +377,9 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           <img src={pdaBorderBotRight} alt="side bottom triangle" />
         </PDABottomRightCorner>
         <PDABottomBorder />
-        <PDAContent>{children}</PDAContent>
+        <PDAContent>
+          <PDAContentInner>{children}</PDAContentInner>
+        </PDAContent>
       </PDABackgroundGrid>
     </PDAContainer>
   );

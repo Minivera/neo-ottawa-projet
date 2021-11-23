@@ -66,7 +66,6 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
       css={css`
         display: flex;
         flex-direction: column;
-        height: 100%;
         width: 610px;
       `}
     >
@@ -105,6 +104,7 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
           overflow-y: scroll;
           overflow-x: hidden;
           margin-right: 0.5rem;
+          max-height: 650px;
 
           &::-webkit-scrollbar {
             width: 0.5rem;

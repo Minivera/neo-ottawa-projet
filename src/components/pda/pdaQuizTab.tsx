@@ -56,8 +56,6 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           inset: 0;
           opacity: 0.3;
           z-index: -2;
-          width: 100%;
-          height: 100%;
           overflow: hidden;
         `}
       >
@@ -68,7 +66,6 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           css={css`
             position: relative;
             inset: 0;
-            width: 100%;
           `}
         />
       </div>
@@ -76,9 +73,6 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
         css={css`
           display: flex;
           justify-content: space-around;
-          height: calc(100% - 6rem);
-          width: calc(100% - 4rem);
-          margin: 4rem 2rem 2rem;
           padding: 0 8rem;
         `}
       >
@@ -161,6 +155,8 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           <div
             css={css`
               margin-left: 1rem;
+              padding: 3rem 0;
+              height: 75%;
             `}
           >
             <PDFReader pdfPath={quiz.document.path} />

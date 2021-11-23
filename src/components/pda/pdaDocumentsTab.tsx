@@ -25,9 +25,6 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
         inset: 0;
         opacity: 0.3;
         z-index: -2;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
       `}
     >
       <video
@@ -43,15 +40,11 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
     </div>
     <div
       css={css`
-        width: calc(100% - 8rem);
-        margin: 4rem 4rem 1rem;
         padding: 0 10rem;
       `}
     >
       <div
         css={css`
-          height: 100%;
-          width: 100%;
           display: flex;
           flex-direction: column;
         `}
@@ -65,8 +58,6 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
             css={css`
               margin: 0;
               padding: 0;
-              width: 100%;
-              height: 100%;
               overflow-y: auto;
             `}
           >

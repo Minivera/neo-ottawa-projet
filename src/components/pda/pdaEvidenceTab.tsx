@@ -87,8 +87,6 @@ export const PDAEvidenceTab: React.FunctionComponent<PDAEvidenceTabProps> = ({
           inset: 0;
           opacity: 0.3;
           z-index: -2;
-          width: 100%;
-          height: 100%;
           overflow: hidden;
         `}
       >
@@ -99,21 +97,16 @@ export const PDAEvidenceTab: React.FunctionComponent<PDAEvidenceTabProps> = ({
           css={css`
             position: relative;
             inset: 0;
-            width: 100%;
           `}
         />
       </div>
       <div
         css={css`
-          width: calc(100% - 8rem);
-          margin: 4rem 4rem 1rem;
           padding: 0 10rem;
         `}
       >
         <div
           css={css`
-            height: 100%;
-            width: 100%;
             display: flex;
             flex-direction: column;
           `}
@@ -125,11 +118,8 @@ export const PDAEvidenceTab: React.FunctionComponent<PDAEvidenceTabProps> = ({
           {pdaState.evidence.length > 0 ? (
             <div
               css={theme => css`
-                width: 100%;
-                height: 100%;
                 margin: 0;
                 padding: 0;
-                overflow-y: auto;
                 display: flex;
                 flex-wrap: wrap;
 

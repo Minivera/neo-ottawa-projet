@@ -11,6 +11,7 @@ import { PDAEvidenceTab } from '../components/pda/pdaEvidenceTab';
 import { Choice, Quiz } from './event';
 import { PDAQuizTab } from '../components/pda/pdaQuizTab';
 import { Settings } from '../hooks/useSettings';
+import { Portal } from 'react-portal';
 
 export enum PDATab {
   HOME = 'home',
@@ -50,7 +51,7 @@ export interface PDA {
 }
 
 const PDAContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -59,6 +60,9 @@ const PDAContainer = styled.div`
   background: ${theme('colors.darkGreen')};
   font-size: 1rem;
   font-family: VCR-OSD-MONO;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export interface PDAComponentProps {
@@ -107,37 +111,41 @@ export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
 
   if (quiz) {
     return (
-      <PDAContainer style={{ display: 'block' }}>
-        <PDATabControl
-          onTabClick={onPDATabChanged}
-          selectedTab={PDATab.DOCUMENTS}
-          onReturnClick={onPDAClosed}
-          quizMode={!!quiz}
-        >
-          <PDAQuizTab
-            quiz={quiz}
-            settings={settings}
-            onContinue={onContinue}
-            onTextLoadingStart={onTextLoadingStart}
-            onTextLoadingEnd={onTextLoadingEnd}
-            onChoiceSelected={onChoiceSelected}
-            skipAnimation={skipAnimation}
-          />
-        </PDATabControl>
-      </PDAContainer>
+      <Portal>
+        <PDAContainer style={{ display: 'block' }}>
+          <PDATabControl
+            onTabClick={onPDATabChanged}
+            selectedTab={PDATab.DOCUMENTS}
+            onReturnClick={onPDAClosed}
+            quizMode={!!quiz}
+          >
+            <PDAQuizTab
+              quiz={quiz}
+              settings={settings}
+              onContinue={onContinue}
+              onTextLoadingStart={onTextLoadingStart}
+              onTextLoadingEnd={onTextLoadingEnd}
+              onChoiceSelected={onChoiceSelected}
+              skipAnimation={skipAnimation}
+            />
+          </PDATabControl>
+        </PDAContainer>
+      </Portal>
     );
   }
 
   return (
-    <PDAContainer style={{ display: pdaState.open ? 'block' : 'none' }}>
-      <PDATabControl
-        onTabClick={onPDATabChanged}
-        selectedTab={pdaState.tab || PDATab.HOME}
-        onReturnClick={onPDAClosed}
-        quizMode={!!quiz}
-      >
-        {Tab && <Tab pdaState={pdaState} />}
-      </PDATabControl>
-    </PDAContainer>
+    <Portal>
+      <PDAContainer style={{ display: pdaState.open ? 'block' : 'none' }}>
+        <PDATabControl
+          onTabClick={onPDATabChanged}
+          selectedTab={pdaState.tab || PDATab.HOME}
+          onReturnClick={onPDAClosed}
+          quizMode={!!quiz}
+        >
+          {Tab && <Tab pdaState={pdaState} />}
+        </PDATabControl>
+      </PDAContainer>
+    </Portal>
   );
 };

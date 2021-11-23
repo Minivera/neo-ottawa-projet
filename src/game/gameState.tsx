@@ -235,6 +235,7 @@ const generateCurrentScene = (
   const currentScene: SceneState = {
     text: text || previousState?.text || '',
     centered: placementTag.centered,
+    isPhone: placementTag.phone,
     choices: [],
     shownCharacters: [],
     characterExpressions: previousState
