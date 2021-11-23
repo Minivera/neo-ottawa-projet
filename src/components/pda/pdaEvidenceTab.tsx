@@ -81,21 +81,30 @@ export const PDAEvidenceTab: React.FunctionComponent<PDAEvidenceTabProps> = ({
 
   return (
     <React.Fragment>
-      <video
-        /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-        // @ts-ignore
-        src={pdaVideo}
+      <div
         css={css`
           position: absolute;
           inset: 0;
           opacity: 0.3;
           z-index: -2;
-        width: 100%;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
         `}
-      />
+      >
+        <video
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          src={pdaVideo}
+          css={css`
+            position: relative;
+            inset: 0;
+            width: 100%;
+          `}
+        />
+      </div>
       <div
         css={css`
-          height: calc(100% - 5rem);
           width: calc(100% - 8rem);
           margin: 4rem 4rem 1rem;
           padding: 0 10rem;

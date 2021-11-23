@@ -1,7 +1,11 @@
 VAR quiz_started = false
+VAR quiz_name = ""
+VAR quiz_question_count = 0
 
-=== function demarrer_quiz() ===
+=== function demarrer_quiz(name, count) ===
     ~ quiz_started = true
+    ~ quiz_name = name
+    ~ quiz_question_count = count
 
 === function terminer_quiz() === 
     ~ quiz_started = false

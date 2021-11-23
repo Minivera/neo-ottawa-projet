@@ -10,22 +10,31 @@ import pdaVideo from '../../assets/videos/videoblocks-hud-futuristic.mp4';
 
 export const PDAHomeTab: React.FunctionComponent = () => (
   <React.Fragment>
-    <video
-      /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-      // @ts-ignore
-      src={pdaVideo}
+    <div
       css={css`
         position: absolute;
         inset: 0;
         opacity: 0.3;
         z-index: -2;
         width: 100%;
+        height: 100%;
+        overflow: hidden;
       `}
-    />
+    >
+      <video
+        /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+        // @ts-ignore
+        src={pdaVideo}
+        css={css`
+          position: relative;
+          inset: 0;
+          width: 100%;
+        `}
+      />
+    </div>
     <div
       css={css`
         display: flex;
-        height: calc(100% - 8rem);
         width: calc(100% - 8rem);
         margin: 4rem;
         padding: 0 10rem;
@@ -38,6 +47,7 @@ export const PDAHomeTab: React.FunctionComponent = () => (
           & p {
             margin-top: 0;
             margin-bottom: 2rem;
+            font-size: 1.5rem;
           }
         `}
       >

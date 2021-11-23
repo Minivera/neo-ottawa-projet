@@ -7,7 +7,7 @@ import { SceneState } from './scene';
 import { PDA, PDATab } from './pda';
 import { usePreloader } from '../hooks/useLoading';
 import { Game } from './game';
-import { extractCharacterTags, extractPlacementTags } from './tags';
+import { extractCharacterTags, extractPlacementTags, extractQuizTags } from './tags';
 // TODO: Add lazy loading to make this more seamless
 import { Characters } from '../data/characters';
 import { backgrounds } from '../data/assets/backgrounds';
@@ -62,6 +62,8 @@ interface GameVariables {
   last_added_document: InkList | boolean;
   pda_activated: boolean;
   quiz_started: boolean;
+  quiz_name: string;
+  quiz_question_count: number;
   current_document: InkList | boolean;
   /* eslint-enable camelcase */
 }
@@ -373,13 +375,19 @@ const generateQuizStep = (
   }
 
   const quiz: Quiz = {
+    name: previousState?.name || variables.quiz_name,
+    questionCount: previousState?.questionCount || variables.quiz_question_count,
+    currentIndex: previousState?.currentIndex || 0,
     question: previousState?.question || '',
     feedback: previousState?.feedback || '',
     choices: [],
   };
 
-  if (text && text.startsWith('Question : ')) {
-    quiz.question = text.replace('Question : ', '');
+  const tags = extractQuizTags(story.currentTags);
+
+  if (text && tags.question && tags.index) {
+    quiz.question = text;
+    quiz.currentIndex = tags.index;
     quiz.feedback = '';
   } else {
     quiz.feedback = text || '';

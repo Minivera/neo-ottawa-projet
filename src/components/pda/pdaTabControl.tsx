@@ -244,7 +244,24 @@ const PDAContent = styled.div`
   max-height: 100%;
   display: flex;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    margin-right: 5rem;
+    position: relative;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${theme('colors.lightGray')};
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${theme('colors.yellow')};
+  }
 `;
 
 export interface PDATabControlProps {

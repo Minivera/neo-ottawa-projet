@@ -433,4 +433,4 @@ Fred Gallant: Qu’est-ce que tu as en tête? # character=FRED_GALLANT invisible
 Christopher Young: Une petite enquête. # character=CHRISTOPHER_YOUNG
 ~ ajouter_contact(CHRISTOPHER_YOUNG)
 
--> act_1_quiz.pre_quiz
+-> fin

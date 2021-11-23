@@ -11,6 +11,9 @@ export interface Choice {
 }
 
 export interface Quiz {
+  name: string;
+  questionCount: number;
+  currentIndex: number;
   question: string;
   choices: Choice[];
   feedback?: string;

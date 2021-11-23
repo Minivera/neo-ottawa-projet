@@ -24,7 +24,7 @@ export const interfaceTerms = {
   pda_evidence: 'Preuves',
   pda_return: 'Retour au jeu',
   pda_none: '[VIDE]',
-  pda_document_description: 'Description du document {{name}}',
+  pda_document_description: 'Pensées de Fred Gallant',
 
   // PDA - Home tab
   pda_home_welcome: `

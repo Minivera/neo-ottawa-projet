@@ -11,6 +11,11 @@ export interface PlacementTag {
   centered?: boolean;
 }
 
+export interface QuizTags {
+  question?: boolean;
+  index?: number;
+}
+
 export const extractCharacterTags = (tags: string[] | null): CharacterTag => {
   if (!tags) {
     return {};
@@ -72,6 +77,39 @@ export const extractPlacementTags = (tags: string[] | null): PlacementTag => {
         tag.centered = true;
         break;
     }
+  });
+
+  return tag;
+};
+
+export const extractQuizTags = (tags: string[] | null): QuizTags => {
+  if (!tags) {
+    return {};
+  }
+
+  const tag: QuizTags = {};
+
+  tags.forEach(element => {
+    element.split(' ').forEach(part => {
+      const subparts = part.split('=');
+      if (subparts.length < 1) {
+        throw new Error(`Invalid tag detected in story, ${part}`);
+      }
+
+      switch (subparts[0].trim()) {
+        case 'index': {
+          if (subparts.length < 2 || isNaN(parseInt(subparts[1].trim()))) {
+            throw new Error(`Invalid tag detected in story, ${part}`);
+          }
+
+          tag.index = parseInt(subparts[1].trim());
+          break;
+        }
+        case 'question':
+          tag.question = true;
+          break;
+      }
+    });
   });
 
   return tag;

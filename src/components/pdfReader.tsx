@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import React, { useState } from 'react';
-import { jsx, css } from '@emotion/react';
+import { jsx, css, Theme } from '@emotion/react';
 import { pdfjs, Document, Page } from 'react-pdf';
 import { useTranslation } from 'react-i18next';
+import { darken } from 'polished';
 
 import NextIcon from '../assets/ui/pda/FlecheNEXT.svg?component';
 import PreviousIcon from '../assets/ui/pda/FlechePREVIOUS.svg?component';
+
 import { IconButton } from './iconButton';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -34,6 +36,31 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
     setPageNumber(prevPageNumber => Math.min(numPages, prevPageNumber + 1));
   }
 
+  const buttonStyles = (theme: Theme, disabled: boolean) =>
+    css(`
+    color: ${
+      disabled ? theme.colors.text : theme.colors.darkGray
+    };
+  
+    ${
+      !disabled
+        ? `
+    &:hover {
+      color: ${darken(0.3, theme.colors.darkGray)};
+  
+      & svg {
+        fill: ${darken(0.3, theme.colors.darkGray)};
+      }
+    }
+  `
+        : ''
+    }
+
+  & svg {
+    fill: ${disabled ? theme.colors.text : theme.colors.darkGray};
+  }
+  `);
+
   return (
     <div
       css={css`
@@ -48,18 +75,25 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
           display: flex;
           justify-content: space-around;
           align-items: center;
-          background-color: ${theme.colors.darkGray};
+          background-color: ${theme.colors.secondary};
+          color: ${theme.colors.darkGray};
           margin-right: 0.5rem;
           padding: 0.5rem 0;
         `}
       >
-        <IconButton disabled={pageNumber <= 1} onClick={previousPage}>
+        <IconButton
+          disabled={pageNumber <= 1}
+          onClick={previousPage}
+          css={theme => buttonStyles(theme, pageNumber <= 1)}
+        >
           <PreviousIcon />
         </IconButton>
-        <div>
-          {t('pdf_page', { pageNumber, numPages })}
-        </div>
-        <IconButton disabled={pageNumber >= numPages} onClick={nextPage}>
+        <div>{t('pdf_page', { pageNumber, numPages })}</div>
+        <IconButton
+          disabled={pageNumber >= numPages}
+          onClick={nextPage}
+          css={theme => buttonStyles(theme, pageNumber >= numPages)}
+        >
           <NextIcon />
         </IconButton>
       </div>

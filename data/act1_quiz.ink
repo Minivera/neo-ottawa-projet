@@ -5,13 +5,13 @@ Un quiz va etre lancé, le PDA devrait s'ouvrir avec le premier document qui inc
 -> quiz_1
 
 = quiz_1
-~ demarrer_quiz()
+~ demarrer_quiz("Quiz 1", 6)
 -> question_1
 
 = question_1
 ~ afficher_document(JEUX_INTERDITS_WIKIPEDIA)
 
-Question : 1 - Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé ?
+Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé ? # question index=1
 
 *   Vrai
     Une très longue liste de jeux vidéo ont déjà fait l’objet d’interdictions à travers le monde. Plusieurs types de jeux vidéo sont représentés dans la liste : des jeux de tir à la première personne, des jeux de rôle ou encore des jeux d’aventure.
@@ -22,7 +22,7 @@ Question : 1 - Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de co
 -> question_1
 
 = question_2
-Question : 2 - La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo suivants lesquels ont déjà fait l'objet d'une interdiction ?
+La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo suivants lesquels ont déjà fait l'objet d'une interdiction ? # question index=2
 
 +   (2_a) [{(2_a % 2 == 1):ACTIF--}Counter-Strike] Counter-Strike
 +   (2_b) [{(2_b % 2 == 1):ACTIF--}Pokémon Go] Pokémon Go
@@ -43,7 +43,7 @@ Question : 2 - La liste des jeux ayant déjà été interdits est longue. Parmi 
 - -> question_2
 
 = question_3
-Question : 3 - On dirait bien que toutes mes destinations de vacances préférées ont déjà interdit au moyen un jeux vidéo… Cherchez l’intrus :
+On dirait bien que toutes mes destinations de vacances préférées ont déjà interdit au moyen un jeux vidéo… Cherchez l’intrus : # question index=3
 
 *   Japon
 *   Irlande
@@ -55,7 +55,7 @@ Question : 3 - On dirait bien que toutes mes destinations de vacances préféré
 -> question_3
 
 = question_4
-Question : 4 - Pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé ? C’est incensé.... Chercher l'intrus.
+Pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé ? C’est incensé.... Chercher l'intrus. # question index=4
 
 *   Ultraviolence
 *   Référence au nazisme
@@ -67,7 +67,7 @@ Question : 4 - Pour quelles raisons les États auraient-ils décidé d’interdi
 -> question_4
 
 = question_5
-Question : 5 - En tout cas, je suis certain que l’on peut conclure que seuls les régimes autoritaires interdisaient des jeux vidéo.
+En tout cas, je suis certain que l’on peut conclure que seuls les régimes autoritaires interdisaient des jeux vidéo. # question index=5
 
 *   Vrai
 *   Faux
@@ -77,7 +77,7 @@ Question : 5 - En tout cas, je suis certain que l’on peut conclure que seuls l
 -> question_5
 
 = question_6
-Question : 6 - Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada ?
+Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada ? # question index=6
 
 *   Oui
 *   Non
@@ -89,4 +89,4 @@ Question : 6 - Et tant que j’y suis, est-ce que des jeux ont déjà été inte
 = quiz_1_fin
 
 ~ terminer_quiz()
--> fin
+-> act_1.prologue

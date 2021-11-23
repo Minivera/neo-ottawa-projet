@@ -12,6 +12,8 @@ export const PDATitle = styled.h1`
 
   & svg {
     fill: ${theme('colors.yellow')};
+    height: 4.5rem;
+    width: auto;
   }
 
   & svg {
