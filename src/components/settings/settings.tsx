@@ -3,13 +3,15 @@ import styled from '@emotion/styled';
 import { transparentize } from 'polished';
 import { theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
+import { Portal } from 'react-portal';
 
 import { SettingsAction, SettingsState } from '../../hooks/useSettings';
 import { SettingsModals } from './settingsModal';
 import { SettingsSlider } from './settingsSlider';
 import { SettingsCheckbox } from './settingsCheckbox';
+import { AnimatedOpen } from '../animatedOpen';
 
-const SettingsContainer = styled.div`
+const SettingsContainer = styled(AnimatedOpen)`
   position: absolute;
   top: 0;
   left: 0;
@@ -50,7 +52,7 @@ const SettingsInputGroup = styled.div`
   display: flex;
   justify-content: stretch;
   align-items: center;
-  
+
   & > div:nth-child(1) {
     margin-right: 0.5rem;
   }
@@ -110,79 +112,81 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
       volume: newVal,
     });
 
-  return settings.opened ? (
-    <SettingsContainer>
-      <SettingsModals onReturnClick={() => dispatch({ type: 'close' })}>
-        <SettingsForm>
-          <SettingsLabel htmlFor="font-size">
-            {t('settings_font_size')}
-          </SettingsLabel>
-          <SettingsInput>
-            <SettingsSlider
-              min={12}
-              max={22}
-              step={1}
-              ariaLabelForHandle="font-size"
-              onChange={handleFontSizeChange}
-              value={settings.settings.fontSize}
-            />
-          </SettingsInput>
-          <SettingsLabel htmlFor="animation-speed">
-            {t('settings_animation_speed')}
-          </SettingsLabel>
-          <SettingsInputGroup>
-            <SettingsCheckbox
-              onChecked={handleAnimationToggle}
-              checked={settings.settings.textAnimationsEnabled}
-            />
-            <SettingsSlider
-              min={0.5}
-              max={1.0}
-              step={0.05}
-              ariaLabelForHandle="animation-speed"
-              onChange={handleAnimationSpeedChanged}
-              value={settings.settings.textAnimationSpeed}
-              disabled={!settings.settings.textAnimationsEnabled}
-            />
-          </SettingsInputGroup>
-          <SettingsLabel htmlFor="music-volume">
-            {t('settings_music')}
-          </SettingsLabel>
-          <SettingsInputGroup>
-            <SettingsCheckbox
-              onChecked={handleMusicToggle}
-              checked={settings.settings.musicEnabled}
-            />
-            <SettingsSlider
-              min={0}
-              max={100}
-              step={5}
-              ariaLabelForHandle="music-volume"
-              onChange={handleMusicVolumeChanged}
-              value={settings.settings.musicVolume}
-              disabled={!settings.settings.musicEnabled}
-            />
-          </SettingsInputGroup>
-          <SettingsLabel htmlFor="sound-effects-volume">
-            {t('settings_sound_effects')}
-          </SettingsLabel>
-          <SettingsInputGroup>
-            <SettingsCheckbox
-              onChecked={handleSoundEffectsToggle}
-              checked={settings.settings.soundEffectsEnabled}
-            />
-            <SettingsSlider
-              min={0}
-              max={100}
-              step={5}
-              ariaLabelForHandle="sound-effects-volume"
-              onChange={handleSoundEffectsVolumeChanged}
-              value={settings.settings.soundEffectsVolume}
-              disabled={!settings.settings.soundEffectsEnabled}
-            />
-          </SettingsInputGroup>
-        </SettingsForm>
-      </SettingsModals>
-    </SettingsContainer>
-  ) : null;
+  return (
+    <Portal>
+      <SettingsContainer open={settings.opened}>
+        <SettingsModals onReturnClick={() => dispatch({ type: 'close' })}>
+          <SettingsForm>
+            <SettingsLabel htmlFor="font-size">
+              {t('settings_font_size')}
+            </SettingsLabel>
+            <SettingsInput>
+              <SettingsSlider
+                min={12}
+                max={22}
+                step={1}
+                ariaLabelForHandle="font-size"
+                onChange={handleFontSizeChange}
+                value={settings.settings.fontSize}
+              />
+            </SettingsInput>
+            <SettingsLabel htmlFor="animation-speed">
+              {t('settings_animation_speed')}
+            </SettingsLabel>
+            <SettingsInputGroup>
+              <SettingsCheckbox
+                onChecked={handleAnimationToggle}
+                checked={settings.settings.textAnimationsEnabled}
+              />
+              <SettingsSlider
+                min={0.5}
+                max={1.0}
+                step={0.05}
+                ariaLabelForHandle="animation-speed"
+                onChange={handleAnimationSpeedChanged}
+                value={settings.settings.textAnimationSpeed}
+                disabled={!settings.settings.textAnimationsEnabled}
+              />
+            </SettingsInputGroup>
+            <SettingsLabel htmlFor="music-volume">
+              {t('settings_music')}
+            </SettingsLabel>
+            <SettingsInputGroup>
+              <SettingsCheckbox
+                onChecked={handleMusicToggle}
+                checked={settings.settings.musicEnabled}
+              />
+              <SettingsSlider
+                min={0}
+                max={100}
+                step={5}
+                ariaLabelForHandle="music-volume"
+                onChange={handleMusicVolumeChanged}
+                value={settings.settings.musicVolume}
+                disabled={!settings.settings.musicEnabled}
+              />
+            </SettingsInputGroup>
+            <SettingsLabel htmlFor="sound-effects-volume">
+              {t('settings_sound_effects')}
+            </SettingsLabel>
+            <SettingsInputGroup>
+              <SettingsCheckbox
+                onChecked={handleSoundEffectsToggle}
+                checked={settings.settings.soundEffectsEnabled}
+              />
+              <SettingsSlider
+                min={0}
+                max={100}
+                step={5}
+                ariaLabelForHandle="sound-effects-volume"
+                onChange={handleSoundEffectsVolumeChanged}
+                value={settings.settings.soundEffectsVolume}
+                disabled={!settings.settings.soundEffectsEnabled}
+              />
+            </SettingsInputGroup>
+          </SettingsForm>
+        </SettingsModals>
+      </SettingsContainer>
+    </Portal>
+  );
 };

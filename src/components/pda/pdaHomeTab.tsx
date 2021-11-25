@@ -16,8 +16,6 @@ export const PDAHomeTab: React.FunctionComponent = () => (
         inset: 0;
         opacity: 0.3;
         z-index: -2;
-        width: 100%;
-        height: 100%;
         overflow: hidden;
       `}
     >
@@ -28,7 +26,6 @@ export const PDAHomeTab: React.FunctionComponent = () => (
         css={css`
           position: relative;
           inset: 0;
-          width: 100%;
         `}
       />
     </div>

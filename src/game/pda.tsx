@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { theme } from 'styled-tools';
+/** @jsx jsx */
+import { css, jsx, Theme } from '@emotion/react';
+import { FunctionComponent } from 'react';
+import { Portal } from 'react-portal';
 
 import { PDATabControl } from '../components/pda/pdaTabControl';
 import { PDAHomeTab } from '../components/pda/pdaHomeTab';
@@ -11,7 +12,7 @@ import { PDAEvidenceTab } from '../components/pda/pdaEvidenceTab';
 import { Choice, Quiz } from './event';
 import { PDAQuizTab } from '../components/pda/pdaQuizTab';
 import { Settings } from '../hooks/useSettings';
-import { Portal } from 'react-portal';
+import { AnimatedOpen } from '../components/animatedOpen';
 
 export enum PDATab {
   HOME = 'home',
@@ -50,21 +51,6 @@ export interface PDA {
   evidence: Evidence[];
 }
 
-const PDAContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  background: ${theme('colors.darkGreen')};
-  font-size: 1rem;
-  font-family: VCR-OSD-MONO;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export interface PDAComponentProps {
   pdaState: PDA;
   settings: Settings;
@@ -78,7 +64,7 @@ export interface PDAComponentProps {
   skipAnimation?: boolean;
 }
 
-export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
+export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   pdaState,
   settings,
   onPDAClosed,
@@ -109,10 +95,25 @@ export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
       break;
   }
 
+  const containerCSS = (theme: Theme) => css(`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${theme.colors.darkGreen};
+    font-size: 1rem;
+    font-family: VCR-OSD-MONO;
+    display: flex;
+    flex-direction: column;
+    
+    ${pdaState.open ? '' : 'z-index: -10;'}
+  `);
+
   if (quiz) {
     return (
       <Portal>
-        <PDAContainer style={{ display: 'block' }}>
+        <AnimatedOpen css={containerCSS} open>
           <PDATabControl
             onTabClick={onPDATabChanged}
             selectedTab={PDATab.DOCUMENTS}
@@ -129,14 +130,14 @@ export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
               skipAnimation={skipAnimation}
             />
           </PDATabControl>
-        </PDAContainer>
+        </AnimatedOpen>
       </Portal>
     );
   }
 
   return (
     <Portal>
-      <PDAContainer style={{ display: pdaState.open ? 'block' : 'none' }}>
+      <AnimatedOpen css={containerCSS} open={pdaState.open}>
         <PDATabControl
           onTabClick={onPDATabChanged}
           selectedTab={pdaState.tab || PDATab.HOME}
@@ -145,7 +146,7 @@ export const PDAComponent: React.FunctionComponent<PDAComponentProps> = ({
         >
           {Tab && <Tab pdaState={pdaState} />}
         </PDATabControl>
-      </PDAContainer>
+      </AnimatedOpen>
     </Portal>
   );
 };

@@ -41,7 +41,7 @@ export const CharacterPortrait: FunctionComponent<CharacterPortraitProps> = ({
           margin-bottom: 10rem;
         
           & svg {
-            width: 200%;
+            width: 200% !important;
             margin-left: -50%;
           }
         `}

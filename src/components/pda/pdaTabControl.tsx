@@ -19,17 +19,15 @@ import ContactIcon from '../../assets/ui/pda/PDA-Contacts.svg?component';
 import EvidenceIcon from '../../assets/ui/pda/PDA-Preuves.svg?component';
 
 const PDAContainer = styled.div`
-  max-height: calc(100% - 3.5rem);
-  max-width: 85vw;
-  margin: 1.75rem auto;
+  flex: 1;
+  margin: 1.75rem 5rem;
   display: flex;
   position: relative;
-  width: auto;
   pointer-events: none;
 `;
 
 const PDABackgroundGrid = styled.div`
-  max-height: calc(100vh - 3.5rem);
+  flex: 1;
   overflow: hidden;
   display: grid;
   grid-template-columns: 50px min-content 33px auto min-content 42px 50px;
@@ -47,6 +45,7 @@ const PDANavigation = styled.div`
   padding: 0.5rem;
   color: ${theme('colors.secondary')};
   z-index: 3;
+  pointer-events: auto;
 `;
 
 interface PDANavigationLinkProps {
@@ -170,6 +169,7 @@ const PDAReturnInner = styled.div`
   background-color: ${theme('colors.secondary')};
   cursor: pointer;
   white-space: nowrap;
+  pointer-events: auto;
 
   & svg {
     margin-right: 0.4rem;

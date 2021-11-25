@@ -30,6 +30,9 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
           padding: 1.2rem;
           border: solid 0.4rem ${theme.colors.purple};
           background-color: ${transparentize(0.2, theme.colors.darkGray)};
+          overflow: hidden;
+          transition: max-height ease-in-out 500ms;
+          max-height: ${expanded ? '12rem' : '4.5rem'};
         `}
       >
         <div
@@ -40,7 +43,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            ${expanded ? 'padding-bottom: 1.2rem;' : ''}
+            padding-bottom: 1.2rem;
           `}
         >
           <h3
@@ -57,6 +60,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
               svg {
                 fill: ${theme.colors.yellow};
                 height: 1rem;
+                transition: transform ease-in-out 500ms;
                 transform: rotate(${expanded ? '-90deg' : '90deg'});
               }
             `}
@@ -64,18 +68,18 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
             <ExpandIcon />
           </span>
         </div>
-        {expanded && (
-          <div
-            css={theme => css`
-              border-top: 1px solid ${theme.colors.lightGray};
-              padding-top: 1.2rem;
-              font-size: 1.2rem;
-              color: ${theme.colors.lightGray};
-            `}
-          >
-            {children}
-          </div>
-        )}
+        <div
+          css={theme => css`
+            border-top: 1px solid ${theme.colors.lightGray};
+            padding-top: 1.2rem;
+            font-size: 1.2rem;
+            color: ${theme.colors.lightGray};
+            visibility: ${expanded ? 'visible' : 'hidden'};
+            transition: all ease-in-out 1000ms;
+          `}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -36,7 +36,6 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
         css={css`
           position: relative;
           inset: 0;
-          width: 100%;
         `}
       />
     </div>

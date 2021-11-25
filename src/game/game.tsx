@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 import { Scene } from './scene';
 import { Choice } from './event';
@@ -181,15 +182,25 @@ export const Game: React.FunctionComponent<GameProps> = ({
               onGameLogClick={() => setGameLogOpened(true)}
               onSaveClick={() => dispatch({ type: 'save_game' })}
             />
-            <Scene
-              state={gameState.currentScene}
-              settings={settings.settings}
-              skipAnimation={textLoading !== null && !textLoading}
-              onContinue={onContinue}
-              onTextLoadingStart={onTextLoadingStart}
-              onTextLoadingEnd={onTextLoadingEnd}
-              onChoiceSelected={onChoiceSelected}
-            />
+            <SwitchTransition>
+              <CSSTransition
+                key={gameState.currentScene?.background?.asset || ''}
+                addEndListener={(node, done) => {
+                  node.addEventListener('transitionend', done, false);
+                }}
+                classNames="fade"
+              >
+                <Scene
+                  state={gameState.currentScene}
+                  settings={settings.settings}
+                  skipAnimation={textLoading !== null && !textLoading}
+                  onContinue={onContinue}
+                  onTextLoadingStart={onTextLoadingStart}
+                  onTextLoadingEnd={onTextLoadingEnd}
+                  onChoiceSelected={onChoiceSelected}
+                />
+              </CSSTransition>
+            </SwitchTransition>
             <PDAComponent
               pdaState={gameState.pda}
               onPDAClosed={() => dispatch({ type: 'close_pda' })}

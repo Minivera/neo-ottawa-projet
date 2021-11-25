@@ -40,8 +40,8 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
     } else if (char === specialChars.strongEnd) {
       isStrong = false;
       continue;
-    } if (char === specialChars.strongEnd) {
-      letters.push(<br />);
+    } if (char === specialChars.lineBreak) {
+      letters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
       continue;
     }
 

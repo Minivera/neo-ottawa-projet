@@ -8,6 +8,7 @@ import { GameLogModal } from './gameLogModal';
 import { SceneState } from '../../game/scene';
 import { GameLogText } from './gameLogText';
 import { GameLogChoice } from './gameLogChoice';
+import { AnimatedOpen } from '../animatedOpen';
 
 export interface GameLogProps {
   opened?: boolean;
@@ -20,9 +21,10 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
   closeGameLog,
   gameLog,
 }) => {
-  return opened ? (
+  return (
     <Portal>
-      <div
+      <AnimatedOpen
+        open={opened}
         css={theme => css`
           position: fixed;
           top: 0;
@@ -49,7 +51,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
             })}
           </div>
         </GameLogModal>
-      </div>
+      </AnimatedOpen>
     </Portal>
-  ) : null;
+  );
 };

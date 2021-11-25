@@ -24,7 +24,7 @@ export const PDAMapTab: React.FunctionComponent<PDAMapTabProps> = () => (
         z-index: -1;
         content: "";
         position: absolute;
-        inset: 0;
+        inset: -4rem;
         opacity: 0.4;
         background-image: url(${CityMap});
         background-size: contain;
