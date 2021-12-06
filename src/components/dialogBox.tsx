@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { transparentize } from 'polished';
+import { lighten, transparentize } from 'polished';
 import { theme } from 'styled-tools';
 
 export interface DialogBoxProps {
@@ -13,7 +13,7 @@ export const DialogBox = styled.div<DialogBoxProps>`
   padding: 2rem 12rem;
   background-color: ${props =>
     transparentize(0.2, theme('colors.darkGray')(props) as unknown as string)};
-  color: ${theme('colors.text')};
+  color: ${props => lighten(0.2, theme('colors.text')(props) as unknown as string)};
   border-color: ${theme('colors.primary')};
   border-width: 0.4rem;
   border-top-style: solid;

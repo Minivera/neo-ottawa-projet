@@ -22,20 +22,20 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
       <h1
         css={theme => css`
           margin-top: 4rem;
-          font-size: 10rem;
+          font-size: 14rem;
           color: ${theme.colors.secondary};
           font-style: italic;
           text-shadow: 0.5rem 0.5rem 1.5rem ${theme.colors.darkGray};
         `}
       >
-        Neo-Ottawa
+        Reset
       </h1>
       <h2
         css={theme => css`
           margin-bottom: 4rem;
-          font-size: 14rem;
+          font-size: 10rem;
           color: ${theme.colors.primary};
-          margin-top: -16rem;
+          margin-top: -19rem;
           font-style: italic;
           text-shadow: 0.5rem 0.5rem 1.5rem ${theme.colors.darkGray};
         `}

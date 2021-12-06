@@ -13,11 +13,11 @@ Un quiz va etre lancé, le PDA devrait s'ouvrir avec le premier document qui inc
 
 Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé ? # question index=1
 
-*   Vrai
++   (1_a) [{1_a: VISITE--}Vrai] Vrai
     Une très longue liste de jeux vidéo ont déjà fait l’objet d’interdictions à travers le monde. Plusieurs types de jeux vidéo sont représentés dans la liste : des jeux de tir à la première personne, des jeux de rôle ou encore des jeux d’aventure.
     -> question_2
-*   Faux
-*   Impossible à déterminer
++   (1_b) [{1_b: VISITE--}Faux] Faux
++   (1_c) [{1_c: VISITE--}Impossible à déterminer] Impossible à déterminer
 - ~ generer_mauvaise_reponse_retroaction()
 -> question_1
 
@@ -45,10 +45,10 @@ La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo
 = question_3
 On dirait bien que toutes mes destinations de vacances préférées ont déjà interdit au moyen un jeux vidéo… Cherchez l’intrus : # question index=3
 
-*   Japon
-*   Irlande
-*   Émirats arabes unis
-*   France
++   (3_a) [{3_a: VISITE--}Japon] Japon
++   (3_b) [{3_b: VISITE--}Irlande] Irlande
++   (3_c) [{3_c: VISITE--}Émirats arabes unis] Émirats arabes unis
++   (3_d) [{3_d: VISITE--}France] France
     La France est le seul pays parmi mes destinations de vacances préférées qui n’a jamais interdit la vente d’un jeu vidéo.  
     -> question_4
 - ~ generer_mauvaise_reponse_retroaction()
@@ -57,10 +57,10 @@ On dirait bien que toutes mes destinations de vacances préférées ont déjà i
 = question_4
 Pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé ? C’est incensé.... Chercher l'intrus. # question index=4
 
-*   Ultraviolence
-*   Référence au nazisme
-*   Atteinte à l’image d’un État
-*   Difficulté extrême
++   (4_a) [{4_a: VISITE--}Ultraviolence] Ultraviolence
++   (4_b) [{4_b: VISITE--}Référence au nazisme] Référence au nazisme
++   (4_c) [{4_c: VISITE--}Atteinte à l’image d’un État] Atteinte à l’image d’un État
++   (4_d) [{4_d: VISITE--}Difficulté extrême] Difficulté extrême
     Les raisons invoquées par les États sont nombreuses et variées. La raison la plus souvent invoquée est l’ultraviolence. L’atteinte aux intérêts de l’État est aussi une raison invoquée. La difficulté extrême n’est jamais mentionnée comme une justification pour l’interdiction d’un jeu vidéo.  
     -> question_5
 - ~ generer_mauvaise_reponse_retroaction()
@@ -69,8 +69,8 @@ Pour quelles raisons les États auraient-ils décidé d’interdire les jeux vid
 = question_5
 En tout cas, je suis certain que l’on peut conclure que seuls les régimes autoritaires interdisaient des jeux vidéo. # question index=5
 
-*   Vrai
-*   Faux
+*   (5_a) [{5_a: VISITE--}Vrai] Vrai
+*   (5_b) [{5_b: VISITE--}Faux] Faux
     Parmi les États ayant déjà interdit des jeux vidéo on peut trouver des régimes autoritaires, mais également plusieurs démocraties. On y trouve également le Japon qui est pays où sont produits de nombreux jeux vidéo. Cette liste est vraiment surprenante.  
     -> question_6
 - ~ generer_mauvaise_reponse_retroaction()
@@ -79,8 +79,8 @@ En tout cas, je suis certain que l’on peut conclure que seuls les régimes aut
 = question_6
 Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada ? # question index=6
 
-*   Oui
-*   Non
+*   (6_a) [{6_a: VISITE--}Oui] Oui
+*   (6_b) [{6_b: VISITE--}Non] Non
     Le Canada ne figure pas sur la liste des pays ayant déjà interdit un jeu vidéo... Mais ça c’était avant la loi Game Over.    
     -> quiz_1_fin
 - ~ generer_mauvaise_reponse_retroaction()
@@ -89,4 +89,4 @@ Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada
 = quiz_1_fin
 
 ~ terminer_quiz()
--> act_1.prologue
+-> fin

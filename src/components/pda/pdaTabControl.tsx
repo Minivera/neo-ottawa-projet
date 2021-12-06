@@ -14,9 +14,9 @@ import pdaBorderBotRight from '../../assets/ui/pda/Border4-BotRight.png';
 import CloseIcon from '../../assets/ui/pda/PDA-RetourAuJeu.svg?component';
 import HomeIcon from '../../assets/ui/pda/PDA-LePDA.svg?component';
 import DocumentsIcon from '../../assets/ui/pda/PDA-Documents.svg?component';
-import MapIcon from '../../assets/ui/pda/PDA-PlanDeLaVille.svg?component';
+/* import MapIcon from '../../assets/ui/pda/PDA-PlanDeLaVille.svg?component'; */
 import ContactIcon from '../../assets/ui/pda/PDA-Contacts.svg?component';
-import EvidenceIcon from '../../assets/ui/pda/PDA-Preuves.svg?component';
+/* import EvidenceIcon from '../../assets/ui/pda/PDA-Preuves.svg?component'; */
 
 const PDAContainer = styled.div`
   flex: 1;
@@ -24,13 +24,14 @@ const PDAContainer = styled.div`
   display: flex;
   position: relative;
   pointer-events: none;
+  height: calc(100% - 3.5rem);
 `;
 
 const PDABackgroundGrid = styled.div`
   flex: 1;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 50px min-content 33px auto min-content 42px 50px;
+  grid-template-columns: 50px auto 33px 1fr auto 42px 50px;
   grid-template-rows: 50px 127px 1fr 330px 50px 42px;
 `;
 
@@ -324,14 +325,14 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
             <DocumentsIcon />
             {t('pda_documents')}
           </PDANavigationLink>
-          <PDANavigationLink
+          {/* <PDANavigationLink
             onClick={clickTab(PDATab.MAP)}
             selected={selectedTab === PDATab.MAP}
             disabled={quizMode}
           >
             <MapIcon />
             {t('pda_map')}
-          </PDANavigationLink>
+          </PDANavigationLink> */}
           <PDANavigationLink
             onClick={clickTab(PDATab.CONTACTS)}
             selected={selectedTab === PDATab.CONTACTS}
@@ -340,14 +341,14 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
             <ContactIcon />
             {t('pda_contacts')}
           </PDANavigationLink>
-          <PDANavigationLink
+          {/* <PDANavigationLink
             onClick={clickTab(PDATab.EVIDENCE)}
             selected={selectedTab === PDATab.EVIDENCE}
             disabled={quizMode}
           >
             <EvidenceIcon />
             {t('pda_evidence')}
-          </PDANavigationLink>
+          </PDANavigationLink> */}
         </PDANavigation>
         <PDATopLeftSide>
           <img src={pdaBorderTopCenter} alt="side slant" />

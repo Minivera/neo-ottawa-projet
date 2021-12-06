@@ -7,6 +7,7 @@ import { darken } from 'polished';
 
 import NextIcon from '../assets/ui/pda/FlecheNEXT.svg?component';
 import PreviousIcon from '../assets/ui/pda/FlechePREVIOUS.svg?component';
+import DownloadIcon from '../assets/ui/pda/Document.svg?component';
 
 import { IconButton } from './iconButton';
 
@@ -38,9 +39,7 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
 
   const buttonStyles = (theme: Theme, disabled: boolean) =>
     css(`
-    color: ${
-      disabled ? theme.colors.text : theme.colors.darkGray
-    };
+    color: ${disabled ? theme.colors.text : theme.colors.darkGray};
   
     ${
       !disabled
@@ -66,7 +65,7 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
       css={css`
         display: flex;
         flex-direction: column;
-        width: 610px;
+        width: 780px;
       `}
     >
       <div
@@ -99,12 +98,13 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
       <Document
         file={pdfPath}
         onLoadSuccess={onDocumentLoadSuccess}
+        renderMode="canvas"
         css={theme => css`
           flex: 1;
           overflow-y: scroll;
           overflow-x: hidden;
           margin-right: 0.5rem;
-          max-height: 650px;
+          max-height: calc(100vh - 17.5rem);
 
           &::-webkit-scrollbar {
             width: 0.5rem;
@@ -122,8 +122,29 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
           }
         `}
       >
-        <Page pageNumber={pageNumber} />
+        <Page pageNumber={pageNumber} scale={1.3} />
       </Document>
+      <div
+        css={theme => css`
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          background-color: ${theme.colors.secondary};
+          color: ${theme.colors.darkGray};
+          margin-right: 0.5rem;
+          padding: 0.5rem 0;
+        `}
+      >
+        <IconButton
+          target="_blank"
+          rel="noreferrer"
+          href={pdfPath}
+          css={theme => buttonStyles(theme, false)}
+        >
+          <DownloadIcon />
+          {t('pdf_download')}
+        </IconButton>
+      </div>
     </div>
   );
 };

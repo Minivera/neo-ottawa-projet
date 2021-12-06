@@ -74,6 +74,11 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           display: flex;
           justify-content: space-around;
           padding: 0 8rem;
+          
+          @media only screen and (max-width: 1600px) {
+            flex-direction: column;
+            align-items: center;
+          }
         `}
       >
         <div>
@@ -86,17 +91,9 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
               display: flex;
               flex-direction: column;
               margin-right: 1rem;
-              font-size: 1.2rem;
+              font-size: 1.5rem;
             `}
           >
-            <p
-              css={theme => css`
-                color: ${theme.colors.white};
-                padding-bottom: 0.8rem;
-              `}
-            >
-              {quiz.question}
-            </p>
             {quiz.document && (
               <Expander
                 title={t('pda_document_description')}
@@ -108,6 +105,14 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                 {t(quiz.document.description)}
               </Expander>
             )}
+            <p
+              css={theme => css`
+                color: ${theme.colors.white};
+                padding-bottom: 0.8rem;
+              `}
+            >
+              {quiz.question}
+            </p>
             <div
               css={css`
                 display: flex;
@@ -121,6 +126,11 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                 if (choice.content.includes('ACTIF--')) {
                   text = choice.content.replace('ACTIF--', '');
                   active = true;
+                }
+                let visited = false;
+                if (choice.content.includes('VISITE--')) {
+                  text = choice.content.replace('VISITE--', '');
+                  visited = true;
                 }
 
                 return (
@@ -142,6 +152,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                       hoverColor={theme.colors.white}
                       hoverBackgroundColor={theme.colors.secondary}
                       active={active}
+                      visited={visited}
                     >
                       {text}
                     </HexagonButton>
@@ -155,8 +166,6 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           <div
             css={css`
               margin-left: 1rem;
-              padding: 3rem 0;
-              height: 75%;
             `}
           >
             <PDFReader pdfPath={quiz.document.path} />

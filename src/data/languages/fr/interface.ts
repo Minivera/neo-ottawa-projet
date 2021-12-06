@@ -16,16 +16,17 @@ export const interfaceTerms = {
   loading: 'Chargement',
   preparing: 'Préparation',
   pdf_page: 'Page {{pageNumber}} de {{numPages}}',
+  pdf_download: 'Télécharger',
 
   // PDA
-  pda_home: 'Le PDA',
-  pda_documents: 'Documents',
+  pda_home: 'Acceuil',
+  pda_documents: 'Notes',
   pda_map: 'Plan de la ville',
   pda_contacts: 'Contacts',
   pda_evidence: 'Preuves',
   pda_return: 'Retour au jeu',
   pda_none: '[VIDE]',
-  pda_document_description: 'Pensées de Fred Gallant',
+  pda_document_description: 'Notes de Fred',
 
   // PDA - Home tab
   pda_home_welcome: `

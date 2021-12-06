@@ -3,6 +3,7 @@ import { jsx } from '@emotion/react';
 import styled from '@emotion/styled';
 import { ButtonHTMLAttributes, FunctionComponent } from 'react';
 import { ifProp, prop } from 'styled-tools';
+import { darken } from 'polished';
 
 export interface ButtonColorProps {
   color?: string;
@@ -11,6 +12,7 @@ export interface ButtonColorProps {
   hoverColor?: string;
   hoverBackgroundColor?: string;
   active?: boolean;
+  visited?: boolean;
 }
 
 export const ButtonInner = styled.button<ButtonColorProps>`
@@ -38,16 +40,17 @@ export const ButtonInner = styled.button<ButtonColorProps>`
     fill: ${prop('backgroundColor', 'transparent')};
   }
 
-  ${props => ifProp(
-    'active',
-    `
+  ${props =>
+    ifProp(
+      'active',
+      `
     color: ${prop('hoverColor', 'white')(props)};
 
     & svg {
       fill: ${prop('hoverBackgroundColor', 'transparent')(props)};
     }
   `,
-    `
+      `
   &:hover,
   &:active {
     color: ${prop('hoverColor', 'white')(props)};
@@ -57,12 +60,29 @@ export const ButtonInner = styled.button<ButtonColorProps>`
     }
   }
   `
-  )}
+    )}
 
   path {
     stroke: ${prop('borderColor', 'colors.text')};
     stroke-width: 2;
   }
+
+  ${props =>
+    ifProp(
+      'visited',
+      `
+    color: ${darken(0.4, prop('color', 'colors.text')(props))};
+
+    & svg {
+      fill: ${darken(0.4, prop('backgroundColor', 'background')(props))};
+    }
+
+    path {
+      stroke: ${darken(0.4, prop('borderColor', 'colors.text')(props))};
+    }
+  `,
+      ''
+    )}
 `;
 
 export const HexagonButton: FunctionComponent<
