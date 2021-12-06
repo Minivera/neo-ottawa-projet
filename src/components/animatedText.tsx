@@ -21,6 +21,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
   onTextLoadingStart,
   onTextLoadingEnd,
   skipAnimation,
+  animationSpeed,
 }) => {
   // TODO: Make this interpreter smarter
   text = text.replaceAll('<b>', specialChars.strongStart);
@@ -40,7 +41,8 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
     } else if (char === specialChars.strongEnd) {
       isStrong = false;
       continue;
-    } if (char === specialChars.lineBreak) {
+    }
+    if (char === specialChars.lineBreak) {
       letters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
       continue;
     }
@@ -55,7 +57,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
             ? ''
             : css`
                 opacity: 0;
-                animation: move-text 0.75s forwards;
+                animation: move-text ${animationSpeed}s forwards;
                 animation-delay: ${0.05 * index}s;
               `}
           ${isStrong ? 'font-weight: bold; color: white;' : ''}

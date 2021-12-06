@@ -23,7 +23,7 @@ Fred Gallant: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les c
 ~ activer_pda()
 ~ afficher_fond(police)
 ~ afficher_personnage(GABRIEL_SAND, "fade_in")
-???: Eh! Le (la) nouveau(elle)! # character=GABRIEL_SAND expression=joy phone
+???: Eh! Le (la) nouveau(elle)! # character=GABRIEL_SAND expression=joy
 Fred Gallant: Où dois-je me rapporter? # character=FRED_GALLANT invisible
 ???: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
 ???: Gallant, c’est ça? # character=GABRIEL_SAND expression=amusement

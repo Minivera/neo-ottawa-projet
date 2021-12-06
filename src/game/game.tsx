@@ -2,9 +2,8 @@
 import React, { useState } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
-import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
-import { Scene } from './scene';
+import { Scene, SceneState } from './scene';
 import { Choice } from './event';
 import { GameState, useGame } from './gameState';
 import { GameContainer } from '../components/gameContainer';
@@ -22,6 +21,7 @@ import { getGameLog } from './gameLog';
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 import StartIcon from '../assets/ui/pda/PowerResist.svg?component';
 import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 export interface GameProps {
   storyContent: string;
@@ -34,12 +34,13 @@ export const Game: React.FunctionComponent<GameProps> = ({
 }) => {
   const [t] = useTranslation();
   const [settings, dispatchSettings] = useSettings({});
-  const [loading, percentLoaded, gameState, dispatch] = useGame(
+  const [loading, percentLoaded, story, gameState, dispatch] = useGame(
     settings.settings,
     storyContent,
     saveState
   );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
+  const [transitioning, setTransitioning] = useState<boolean>(false);
   const [gameLogOpened, setGameLogOpened] = useState<boolean>(false);
 
   const globalCSS = (
@@ -141,12 +142,16 @@ export const Game: React.FunctionComponent<GameProps> = ({
       };
 
       const onContinue = () => {
+        if (transitioning) {
+          return;
+        }
+
         if (textLoading) {
           setTextLoading(false);
           return;
         }
 
-        if (!gameState.story.canContinue) {
+        if (!gameState.canContinue) {
           return;
         }
 
@@ -174,7 +179,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
                 loop
               />
             )}
-          <GameContainer>
+          <GameContainer animationSpeed={settings.settings.textAnimationSpeed}>
             <GameMenu
               showPDA={gameState.pda.enabled}
               onPDAClick={() => dispatch({ type: 'open_pda' })}
@@ -182,25 +187,46 @@ export const Game: React.FunctionComponent<GameProps> = ({
               onGameLogClick={() => setGameLogOpened(true)}
               onSaveClick={() => dispatch({ type: 'save_game' })}
             />
-            <SwitchTransition>
-              <CSSTransition
-                key={gameState.currentScene?.background?.asset || ''}
-                addEndListener={(node, done) => {
-                  node.addEventListener('transitionend', done, false);
-                }}
-                classNames="fade"
-              >
-                <Scene
-                  state={gameState.currentScene}
-                  settings={settings.settings}
-                  skipAnimation={textLoading !== null && !textLoading}
-                  onContinue={onContinue}
-                  onTextLoadingStart={onTextLoadingStart}
-                  onTextLoadingEnd={onTextLoadingEnd}
-                  onChoiceSelected={onChoiceSelected}
-                />
-              </CSSTransition>
-            </SwitchTransition>
+            {settings.settings.textAnimationsEnabled ? (
+              <SwitchTransition>
+                <CSSTransition
+                  timeout={{
+                    appear: settings.settings.textAnimationSpeed,
+                    enter: 0,
+                    exit: 0,
+                  }}
+                  key={gameState.currentScene.background?.asset || ''}
+                  classNames="fade"
+                  onEnter={() => {
+                    setTransitioning(true);
+                  }}
+                  addEndListener={(node, done) => {
+                    setTransitioning(false);
+                    node.addEventListener('transitionend', done, false);
+                  }}
+                >
+                  <Scene
+                    state={gameState.currentScene as SceneState}
+                    settings={settings.settings}
+                    skipAnimation={textLoading !== null && !textLoading}
+                    onContinue={onContinue}
+                    onTextLoadingStart={onTextLoadingStart}
+                    onTextLoadingEnd={onTextLoadingEnd}
+                    onChoiceSelected={onChoiceSelected}
+                  />
+                </CSSTransition>
+              </SwitchTransition>
+            ) : (
+              <Scene
+                state={gameState.currentScene as SceneState}
+                settings={settings.settings}
+                skipAnimation={textLoading !== null && !textLoading}
+                onContinue={onContinue}
+                onTextLoadingStart={onTextLoadingStart}
+                onTextLoadingEnd={onTextLoadingEnd}
+                onChoiceSelected={onChoiceSelected}
+              />
+            )}
             <PDAComponent
               pdaState={gameState.pda}
               onPDAClosed={() => dispatch({ type: 'close_pda' })}
@@ -216,7 +242,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
             <Settings settings={settings} dispatch={dispatchSettings} />
             <GameLog
               closeGameLog={() => setGameLogOpened(false)}
-              gameLog={getGameLog(gameState.story)}
+              gameLog={getGameLog(story)}
               opened={gameLogOpened}
             />
           </GameContainer>

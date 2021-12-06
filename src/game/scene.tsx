@@ -90,6 +90,8 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
               inPhone={state.isPhone}
             >
               <AnimationContainer
+                animate={settings.textAnimationsEnabled}
+                duration={settings.textAnimationSpeed}
                 animation={state.characterAnimation[character.id]}
               >
                 <PortraitImage>

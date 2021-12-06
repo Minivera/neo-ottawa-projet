@@ -1,4 +1,4 @@
-import { Dispatch, ReducerState, useReducer, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
 import { toast } from 'react-hot-toast';
@@ -7,7 +7,11 @@ import { SceneState } from './scene';
 import { PDA, PDATab } from './pda';
 import { usePreloader } from '../hooks/useLoading';
 import { Game } from './game';
-import { extractCharacterTags, extractPlacementTags, extractQuizTags } from './tags';
+import {
+  extractCharacterTags,
+  extractPlacementTags,
+  extractQuizTags,
+} from './tags';
 // TODO: Add lazy loading to make this more seamless
 import { Characters } from '../data/characters';
 import { backgrounds } from '../data/assets/backgrounds';
@@ -43,9 +47,9 @@ export enum GameState {
 }
 
 export interface Game {
-  story: Story;
   state: GameState;
   currentScene?: SceneState;
+  canContinue: boolean;
   currentQuiz?: Quiz;
   pda: PDA;
 }
@@ -87,7 +91,6 @@ export type GameAction =
   | { type: 'open_pda' }
   | { type: 'close_pda' }
   | { type: 'change_pda_tab'; tab: PDATab };
-type GameReducer = (state: Game, action: GameAction) => Game;
 
 const isPDAActivated = (story: Story) =>
   (story.variablesState as unknown as GameVariables).pda_activated;
@@ -379,7 +382,8 @@ const generateQuizStep = (
 
   const quiz: Quiz = {
     name: previousState?.name || variables.quiz_name,
-    questionCount: previousState?.questionCount || variables.quiz_question_count,
+    questionCount:
+      previousState?.questionCount || variables.quiz_question_count,
     currentIndex: previousState?.currentIndex || 0,
     question: previousState?.question || '',
     feedback: previousState?.feedback || '',
@@ -427,11 +431,15 @@ export const useGame = (
   settings: Settings,
   storyContent: string,
   save?: string
-): [boolean, number, ReducerState<GameReducer>, Dispatch<GameAction>] => {
-  const game: Game = {
-    // JSON has invalid char at index 0 for some reason
-    story: new Story(storyContent.slice(1)),
+): [boolean, number, Story, Game, (action: GameAction) => void] => {
+  // JSON has invalid char at index 0 for some reason
+  const story = useMemo<Story>(
+    () => new Story(storyContent.slice(1)),
+    [storyContent]
+  );
+  const [state, setState] = useState<Game>({
     state: GameState.Loading,
+    canContinue: false,
     pda: {
       open: false,
       enabled: false,
@@ -440,7 +448,7 @@ export const useGame = (
       contacts: [],
       evidence: [],
     },
-  };
+  });
   const images: string[] = [
     pdaBorderTopCenter,
     pdaBorderTopRight,
@@ -454,169 +462,173 @@ export const useGame = (
 
   // FIXME: We have side effects in this reducer, that should not be the case. Convert
   // to some pure hook or something like that.
-  const gameReducerMemo = useMemo<GameReducer>(() => (state: Game, action: GameAction): Game => {
-    switch (action.type) {
-      case 'start': {
-        // Ready means we haven't started the game, we need to boot it up and
-        // get ready to show content.
-        if (state.state === GameState.Ready) {
-          // Run the story for the first time if we've only loaded the content
-          const result = state.story.Continue();
+  const dispatch = (action: GameAction): void => {
+    setState(state => {
+      switch (action.type) {
+        case 'start': {
+          // Ready means we haven't started the game, we need to boot it up and
+          // get ready to show content.
+          if (state.state === GameState.Ready) {
+            // Run the story for the first time if we've only loaded the content
+            const result = story.Continue();
 
-          const currentScene = generateCurrentScene(result, null, state.story);
+            const currentScene = generateCurrentScene(result, null, story);
 
-          // Also add it to start filling the game log
-          addSceneToGameLog(state.story, currentScene);
+            // Also add it to start filling the game log
+            addSceneToGameLog(story, currentScene);
+
+            return {
+              ...state,
+              canContinue: story.canContinue,
+              state: GameState.Started,
+              currentScene,
+            };
+          }
+
+          // If not ready, then we have a save already going. Set the game to started.
+          return {
+            ...state,
+            canContinue: story.canContinue,
+            state: GameState.Started,
+          };
+        }
+        case 'end': {
+          return {
+            ...state,
+            state: GameState.Ended,
+          };
+        }
+        case 'continue': {
+          if (!state.currentScene) {
+            throw new Error(
+              'An error occurred, game was not started or has ended'
+            );
+          }
+
+          if (typeof action.choiceId !== 'undefined') {
+            story.ChooseChoiceIndex(action.choiceId);
+
+            // If we make a choice, also set that choice as chosen in the log
+            updateSceneFromGameLog(story, state.currentScene, {
+              ...state.currentScene,
+              chosenChoice: state.currentScene.choices?.find(
+                choice => choice.id === action.choiceId
+              ),
+            });
+
+            // Skip the interface showing chosen choice (TODO: Readd if we ever make use of that feature).
+            story.Continue();
+          }
+
+          if (!story.canContinue) {
+            return state;
+          }
+
+          const result = story.Continue();
+
+          const currentScene: SceneState = {
+            // Show a message if the PDA has recently been activated. We can clear in the next continue.
+            notes:
+              isPDAActivated(story) !== state.pda.enabled
+                ? { lineId: 'pda_enabled', variables: {} }
+                : undefined,
+            ...generateCurrentScene(result, state.currentScene, story),
+          };
+          const currentQuiz = generateQuizStep(result, state.currentQuiz, story);
+
+          if (!currentQuiz) {
+            // Add the scene as is to the game log only if not processing a quiz.
+            addSceneToGameLog(story, currentScene);
+          }
 
           return {
             ...state,
-            state: GameState.Started,
+            canContinue: story.canContinue,
+            pda: generatePDAState(state.pda, story),
             currentScene,
+            currentQuiz,
           };
         }
+        case 'save_game': {
+          localStorage.setItem(localstorageSaveKey, story.state.toJson());
 
-        // If not ready, then we have a save already going. Set the game to started.
-        return {
-          ...state,
-          state: GameState.Started,
-        };
-      }
-      case 'end': {
-        return {
-          ...state,
-          state: GameState.Ended,
-        };
-      }
-      case 'continue': {
-        if (!state.currentScene) {
-          throw new Error(
-            'An error occurred, game was not started or has ended'
-          );
-        }
-
-        if (typeof action.choiceId !== 'undefined') {
-          state.story.ChooseChoiceIndex(action.choiceId);
-
-          // If we make a choice, also set that choice as chosen in the log
-          updateSceneFromGameLog(state.story, state.currentScene, {
-            ...state.currentScene,
-            chosenChoice: state.currentScene.choices?.find(choice => choice.id === action.choiceId),
+          // TODO: Make this translatable
+          toast.success('Partie sauvegardée avec succès', {
+            position: 'bottom-center',
           });
 
-          // Skip the interface showing chosen choice (TODO: Readd if we ever make use of that feature).
-          state.story.Continue();
+          return {
+            ...state,
+          };
         }
+        case 'animate_character': {
+          if (!state.currentScene) {
+            throw new Error(
+              'An error occurred, game was not started or has ended'
+            );
+          }
 
-        if (!state.story.canContinue) {
-          return state;
-        }
-
-        const result = state.story.Continue();
-
-        const currentScene: SceneState = {
-          // Show a message if the PDA has recently been activated. We can clear in the next continue.
-          notes:
-            isPDAActivated(state.story) !== state.pda.enabled
-              ? { lineId: 'pda_enabled', variables: {} }
-              : undefined,
-          ...generateCurrentScene(result, state.currentScene, state.story),
-        };
-        const currentQuiz = generateQuizStep(result, state.currentQuiz, state.story);
-
-        if (!currentQuiz) {
-          // Add the scene as is to the game log only if not processing a quiz.
-          addSceneToGameLog(state.story, currentScene);
-        }
-
-        return {
-          ...state,
-          pda: generatePDAState(state.pda, state.story),
-          currentScene,
-          currentQuiz,
-        };
-      }
-      case 'save_game': {
-        localStorage.setItem(localstorageSaveKey, state.story.state.toJson());
-
-        // TODO: Make this translatable
-        toast.success('Partie sauvegardée avec succès', {
-          position: 'bottom-center',
-        });
-
-        return {
-          ...state,
-        };
-      }
-      case 'animate_character': {
-        if (!state.currentScene) {
-          throw new Error(
-            'An error occurred, game was not started or has ended'
-          );
-        }
-
-        return {
-          ...state,
-          currentScene: {
-            ...state.currentScene,
-            currentCharacter: Characters[action.characterId],
-            characterAnimation: {
-              ...state.currentScene.characterAnimation,
-              [action.characterId]: action.animation,
+          return {
+            ...state,
+            currentScene: {
+              ...(state.currentScene as SceneState),
+              currentCharacter: Characters[action.characterId],
+              characterAnimation: {
+                ...state.currentScene?.characterAnimation,
+                [action.characterId]: action.animation,
+              },
             },
-          },
-        };
-      }
-      case 'play_sound': {
-        const sound = soundEffects[action.soundId];
-
-        if (sound && settings.soundEffectsEnabled) {
-          sound.volume(settings.soundEffectsVolume / 100);
-          sound.play();
+            animating: true,
+          };
         }
+        case 'play_sound': {
+          const sound = soundEffects[action.soundId];
 
-        return {
-          ...state,
-        };
+          if (sound && settings.soundEffectsEnabled) {
+            sound.volume(settings.soundEffectsVolume / 100);
+            sound.play();
+          }
+
+          return {
+            ...state,
+          };
+        }
+        case 'open_pda': {
+          return {
+            ...state,
+            pda: {
+              ...state.pda,
+              open: true,
+            },
+          };
+        }
+        case 'close_pda': {
+          return {
+            ...state,
+            pda: {
+              ...state.pda,
+              open: false,
+            },
+          };
+        }
+        case 'change_pda_tab': {
+          return {
+            ...state,
+            pda: {
+              ...state.pda,
+              tab: action.tab,
+            },
+          };
+        }
+        default:
+          return state;
       }
-      case 'open_pda': {
-        return {
-          ...state,
-          pda: {
-            ...state.pda,
-            open: true,
-          },
-        };
-      }
-      case 'close_pda': {
-        return {
-          ...state,
-          pda: {
-            ...state.pda,
-            open: false,
-          },
-        };
-      }
-      case 'change_pda_tab': {
-        return {
-          ...state,
-          pda: {
-            ...state.pda,
-            tab: action.tab,
-          },
-        };
-      }
-      default:
-        return state;
-    }
-  }, [settings]);
-  const [state, dispatch] = useReducer<GameReducer>(
-    gameReducerMemo,
-    game
-  );
+    });
+  };
 
   useEffect(() => {
     try {
-      state.story.BindExternalFunction(
+      story.BindExternalFunction(
         'animate_character',
         (
           characterId: keyof typeof Characters,
@@ -627,7 +639,7 @@ export const useGame = (
         false
       );
 
-      state.story.BindExternalFunction(
+      story.BindExternalFunction(
         'play_sound',
         (soundId: keyof typeof soundEffects) => {
           dispatch({ type: 'play_sound', soundId });
@@ -637,31 +649,31 @@ export const useGame = (
     } catch {
       // Ignore exceptions here as hot-reloading can cause this effect to rerun
     }
-  }, []);
+  }, [storyContent]);
 
   useEffect(() => {
     // FIXME: This is a ugly state mutation, cleanup
     if (save) {
-      game.story.state.LoadJson(save);
-      game.state = GameState.Loaded;
+      story.state.LoadJson(save);
+      state.state = GameState.Loaded;
     } else {
       // Check if we have a local storage save TODO: Remove
       const localSave = localStorage.getItem(localstorageSaveKey);
       if (localSave) {
-        game.story.state.LoadJson(localSave);
-        game.state = GameState.Loaded;
+        story.state.LoadJson(localSave);
+        state.state = GameState.Loaded;
       } else {
-        game.state = GameState.Ready;
+        state.state = GameState.Ready;
       }
     }
 
-    if (game.state === GameState.Loaded && game.story.canContinue) {
-      const result = game.story.state.currentText;
+    if (state.state === GameState.Loaded && story.canContinue) {
+      const result = story.state.currentText;
 
-      game.pda = generatePDAState(game.pda, game.story);
-      game.currentScene = generateCurrentScene(result, null, game.story);
+      state.pda = generatePDAState(state.pda, story);
+      state.currentScene = generateCurrentScene(result, null, story);
     }
   }, [save]);
 
-  return [...usePreloader(images), state, dispatch];
+  return [...usePreloader(images), story, state, dispatch];
 };

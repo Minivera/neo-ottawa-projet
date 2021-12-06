@@ -3,6 +3,8 @@ import { Document } from './pda';
 export enum CharacterAnimation {
   MOVE_UP = 'move_up',
   FADE_IN = 'fade_in',
+  MOVE_DOWN = 'move_down',
+  FADE_OUT = 'fade_out',
 }
 
 export interface Choice {
