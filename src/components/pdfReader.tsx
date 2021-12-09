@@ -29,13 +29,13 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
     setPageNumber(1);
   };
 
-  function previousPage() {
+  const previousPage = () => {
     setPageNumber(prevPageNumber => Math.max(1, prevPageNumber - 1));
-  }
+  };
 
-  function nextPage() {
+  const nextPage = () => {
     setPageNumber(prevPageNumber => Math.min(numPages, prevPageNumber + 1));
-  }
+  };
 
   const buttonStyles = (theme: Theme, disabled: boolean) =>
     css(`

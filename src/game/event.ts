@@ -10,14 +10,19 @@ export enum CharacterAnimation {
 export interface Choice {
   id: number;
   content: string;
+  isGoodChoice?: boolean;
+}
+
+export interface QuizQuestion {
+  question: string;
+  choices: Choice[];
+  feedback?: string;
 }
 
 export interface Quiz {
   name: string;
   questionCount: number;
   currentIndex: number;
-  question: string;
-  choices: Choice[];
-  feedback?: string;
+  questions: QuizQuestion[];
   document?: Document;
 }

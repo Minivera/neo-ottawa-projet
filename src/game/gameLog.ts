@@ -1,9 +1,11 @@
 import { Story } from 'inkjs/engine/Story';
 
 import { SceneState } from './scene';
+import { Quiz } from './event';
 
 interface GameVariables {
   history: string;
+  quiz_save_data: string;
 }
 
 export const getGameLog = (story: Story): SceneState[] =>
@@ -20,11 +22,37 @@ export const addSceneToGameLog = (story: Story, scene: SceneState): void => {
   saveGameLog(story, log.concat(scene).slice(-50));
 };
 
-export const updateSceneFromGameLog = (story: Story, scene: SceneState, newScene: SceneState): void => {
+export const updateSceneFromGameLog = (
+  story: Story,
+  scene: SceneState,
+  newScene: SceneState
+): void => {
   const log = getGameLog(story);
-  const sceneIndex = log.findIndex(element => element.text === scene.text && element.dialogName === scene.dialogName);
+  const sceneIndex = log.findIndex(
+    element =>
+      element.text === scene.text && element.dialogName === scene.dialogName
+  );
   if (sceneIndex >= 0) {
     log[sceneIndex] = newScene;
     saveGameLog(story, log);
   }
+};
+
+export const getQuizHistory = (story: Story, quizID: string): Quiz | undefined => {
+  const quizes = JSON.parse(
+    (story.variablesState as unknown as GameVariables).quiz_save_data
+  );
+
+  return quizes[quizID];
+};
+
+export const saveQuizHistory = (story: Story, quiz: Quiz): void => {
+  const quizes = JSON.parse(
+    (story.variablesState as unknown as GameVariables).quiz_save_data
+  );
+
+  quizes[quiz.document?.documentId || quiz.name] = quiz;
+
+  (story.variablesState as unknown as GameVariables).quiz_save_data =
+    JSON.stringify(quizes);
 };

@@ -19,7 +19,7 @@ import { musics } from '../data/assets/musics';
 import { soundEffects } from '../data/assets/soundEffects';
 import { contacts } from '../data/contacts';
 import { piecesOfEvidence } from '../data/evidence';
-import { CharacterAnimation, Quiz } from './event';
+import { CharacterAnimation, Quiz, QuizQuestion } from './event';
 import { Settings } from '../hooks/useSettings';
 import { documents } from '../data/documents';
 
@@ -29,7 +29,7 @@ import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
 import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
-import { addSceneToGameLog, updateSceneFromGameLog } from './gameLog';
+import { addSceneToGameLog, saveQuizHistory, updateSceneFromGameLog } from './gameLog';
 
 const localstorageSaveKey = 'game-save';
 
@@ -385,28 +385,43 @@ const generateQuizStep = (
     questionCount:
       previousState?.questionCount || variables.quiz_question_count,
     currentIndex: previousState?.currentIndex || 0,
-    question: previousState?.question || '',
-    feedback: previousState?.feedback || '',
+    questions: previousState?.questions || [],
+  };
+
+  let currentQuestion: QuizQuestion = {
+    question: '',
     choices: [],
   };
 
   const tags = extractQuizTags(story.currentTags);
-
-  if (text && tags.question && tags.index) {
-    quiz.question = text;
+  if (tags.index) {
     quiz.currentIndex = tags.index;
-    quiz.feedback = '';
+  }
+
+  if (previousState?.currentIndex === quiz.currentIndex && quiz.questions.length >= quiz.currentIndex) {
+    currentQuestion = quiz.questions[quiz.currentIndex - 1];
   } else {
-    quiz.feedback = text || '';
+    quiz.questions.push(currentQuestion);
+  }
+
+  if (text && tags.question) {
+    currentQuestion.question = text;
+    currentQuestion.feedback = '';
+  } else if (tags.retroaction) {
+    currentQuestion.feedback = text || '';
   }
 
   if (story.currentChoices.length) {
-    quiz.choices = [];
+    currentQuestion.choices = [];
 
     story.currentChoices.forEach(choice => {
-      quiz.choices?.push({
+      const isGoodChoice = choice.text.startsWith('BON--');
+      const content = choice.text.replace('BON--', '');
+
+      currentQuestion.choices?.push({
         id: choice.index,
-        content: choice.text,
+        content,
+        isGoodChoice,
       });
     });
   }
@@ -460,8 +475,6 @@ export const useGame = (
       .flat(),
   ];
 
-  // FIXME: We have side effects in this reducer, that should not be the case. Convert
-  // to some pure hook or something like that.
   const dispatch = (action: GameAction): void => {
     setState(state => {
       switch (action.type) {
@@ -539,6 +552,9 @@ export const useGame = (
           if (!currentQuiz) {
             // Add the scene as is to the game log only if not processing a quiz.
             addSceneToGameLog(story, currentScene);
+          } else {
+            // Save the quiz in the quiz save data if we have an active quiz
+            saveQuizHistory(story, currentQuiz);
           }
 
           return {

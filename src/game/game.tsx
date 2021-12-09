@@ -228,6 +228,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
               />
             )}
             <PDAComponent
+              story={story}
               pdaState={gameState.pda}
               onPDAClosed={() => dispatch({ type: 'close_pda' })}
               onPDATabChanged={tab => dispatch({ type: 'change_pda_tab', tab })}

@@ -29,7 +29,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
         css={theme => css`
           padding: 1.2rem;
           border: solid 0.4rem ${theme.colors.purple};
-          background-color: ${transparentize(0.2, theme.colors.darkGray)};
+          background-color: ${transparentize(0.05, theme.colors.darkGray)};
           overflow: hidden;
           transition: max-height ease-in-out 500ms;
           max-height: ${expanded ? '12rem' : '4.5rem'};

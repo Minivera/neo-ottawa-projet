@@ -22,17 +22,18 @@ Fred Gallant: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les c
 = scene_2
 ~ activer_pda()
 ~ afficher_fond(police)
-~ afficher_personnage(GABRIEL_SAND, "fade_in")
 ???: Eh! Le (la) nouveau(elle)! # character=GABRIEL_SAND expression=joy
+~ afficher_personnage(GABRIEL_SAND, "fade_in")
 Fred Gallant: Où dois-je me rapporter? # character=FRED_GALLANT invisible
 ???: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
 ???: Gallant, c’est ça? # character=GABRIEL_SAND expression=amusement
 Fred Gallant: C’est ça. À qui ai-je l’honneur? # character=FRED_GALLANT invisible
 Gabriel Sand: Agent Sand. Gab. # character=GABRIEL_SAND expression=joy
 Ils se serrent la main
+~ afficher_personnage(GABRIEL_SAND, "fade_out")
 ~ ajouter_contact(GABRIEL_SAND)
-~ cacher_tout_personnages()
 <b>Fred</b> se dirige directement vers le bureau du <b>CHEF MILLER</b>.
+~ cacher_tout_personnages()
 Il (elle) frappe à la porte.
 -> scene_3
 

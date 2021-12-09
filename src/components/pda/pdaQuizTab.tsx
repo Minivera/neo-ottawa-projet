@@ -48,6 +48,28 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
     }
   };
 
+  const currentQuestion = quiz.questions[quiz.currentIndex - 1];
+  if (!currentQuestion) {
+    return (
+      <div>
+        <PDATitle>
+          <QuizIcon />
+          {quiz.name} - {quiz.currentIndex} / {quiz.questionCount}
+        </PDATitle>
+        <div
+          css={css`
+              display: flex;
+              flex-direction: column;
+              margin-right: 1rem;
+              font-size: 1.5rem;
+            `}
+        >
+          Something wrong happened
+        </div>
+      </div>
+    );
+  }
+
   return (
     <React.Fragment>
       <div
@@ -111,7 +133,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                 padding-bottom: 0.8rem;
               `}
             >
-              {quiz.question}
+              {currentQuestion.question}
             </p>
             <div
               css={css`
@@ -120,7 +142,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                 margin-top: 1rem;
               `}
             >
-              {quiz.choices.map(choice => {
+              {currentQuestion.choices.map(choice => {
                 let text = choice.content;
                 let active = false;
                 if (choice.content.includes('ACTIF--')) {
@@ -171,7 +193,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
             <PDFReader pdfPath={quiz.document.path} />
           </div>
         )}
-        {quiz.feedback && (
+        {currentQuestion.feedback && (
           <Portal>
             <div
               css={theme => css`
@@ -194,7 +216,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                 <DialogBox center>
                   <p>
                     <AnimatedText
-                      text={quiz.feedback}
+                      text={currentQuestion.feedback}
                       onTextLoadingStart={onTextLoadingStart}
                       onTextLoadingEnd={onTextLoadingEnd}
                       skipAnimation={

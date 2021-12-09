@@ -1,8 +1,6 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/react';
 import { ButtonHTMLAttributes, FunctionComponent } from 'react';
-import { ifProp, prop } from 'styled-tools';
 import { darken } from 'polished';
 
 export interface ButtonColorProps {
@@ -15,79 +13,12 @@ export interface ButtonColorProps {
   visited?: boolean;
 }
 
-export const ButtonInner = styled.button<ButtonColorProps>`
-  position: relative;
-  font-size: 100%;
-  line-height: 1.15;
-  font-family: inherit;
-  margin: 0.5rem 3.5rem;
-  padding: 1.5rem 10rem;
-  text-align: center;
-  color: ${prop('color', 'colors.text')};
-  text-transform: none;
-  -webkit-appearance: button;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-
-  & svg {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    fill: ${prop('backgroundColor', 'transparent')};
-  }
-
-  ${props =>
-    ifProp(
-      'active',
-      `
-    color: ${prop('hoverColor', 'white')(props)};
-
-    & svg {
-      fill: ${prop('hoverBackgroundColor', 'transparent')(props)};
-    }
-  `,
-      `
-  &:hover,
-  &:active {
-    color: ${prop('hoverColor', 'white')(props)};
-
-    & svg {
-      fill: ${prop('hoverBackgroundColor', 'transparent')(props)};
-    }
-  }
-  `
-    )}
-
-  path {
-    stroke: ${prop('borderColor', 'colors.text')};
-    stroke-width: 2;
-  }
-
-  ${props =>
-    ifProp(
-      'visited',
-      `
-    color: ${darken(0.4, prop('color', 'colors.text')(props))};
-
-    & svg {
-      fill: ${darken(0.4, prop('backgroundColor', 'background')(props))};
-    }
-
-    path {
-      stroke: ${darken(0.4, prop('borderColor', 'colors.text')(props))};
-    }
-  `,
-      ''
-    )}
-`;
-
 export const HexagonButton: FunctionComponent<
   ButtonColorProps & ButtonHTMLAttributes<HTMLButtonElement>
 > = ({
+  active,
+  visited,
+  disabled,
   color,
   backgroundColor,
   borderColor,
@@ -96,13 +27,73 @@ export const HexagonButton: FunctionComponent<
   children,
   ...props
 }) => (
-  <ButtonInner
+  <button
     {...props}
-    color={color}
-    backgroundColor={backgroundColor}
-    borderColor={borderColor}
-    hoverColor={hoverColor}
-    hoverBackgroundColor={hoverBackgroundColor}
+    css={theme => css`
+      position: relative;
+      font-size: 100%;
+      line-height: 1.15;
+      font-family: inherit;
+      margin: 0.5rem 3.5rem;
+      padding: 1.5rem 10rem;
+      text-align: center;
+      color: ${color || theme.colors.text};
+      text-transform: none;
+      -webkit-appearance: button;
+      background-color: transparent;
+      border: none;
+      cursor: ${disabled ? 'not-allowed' : 'pointer'};
+      pointer-events: ${disabled ? 'none' : 'auto'};
+
+      & svg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        fill: ${backgroundColor || 'transparent'};
+      }
+
+      ${active
+        ? `
+        color: ${hoverColor || theme.colors.white}!important;
+  
+        & svg {
+          fill: ${hoverBackgroundColor || 'transparent'}!important;
+        }
+      `
+        : `
+        &:hover,
+        &:active {
+          color: ${hoverColor || theme.colors.white}!important;
+      
+          & svg {
+            fill: ${hoverBackgroundColor || 'transparent'}!important;
+          }
+        }
+      `}
+
+      path {
+        stroke: ${borderColor || theme.colors.text};
+        stroke-width: 2;
+      }
+
+      ${visited
+        ? `
+      color: ${darken(0.4, color || theme.colors.text)}!important;
+  
+      & svg {
+        fill: ${darken(0.4, backgroundColor || 'transparent')}!important;
+      }
+  
+      path {
+        stroke: ${darken(0.4, borderColor || theme.colors.text)}!important;
+      }
+    `
+        : ''}
+    `}
+    disabled={disabled}
   >
     <svg viewBox="0 0 100 100" preserveAspectRatio="none">
       <path
@@ -111,5 +102,5 @@ export const HexagonButton: FunctionComponent<
       />
     </svg>
     <span>{children}</span>
-  </ButtonInner>
+  </button>
 );

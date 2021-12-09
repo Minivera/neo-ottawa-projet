@@ -14,6 +14,7 @@ export interface PlacementTag {
 
 export interface QuizTags {
   question?: boolean;
+  retroaction?: boolean;
   index?: number;
 }
 
@@ -113,6 +114,9 @@ export const extractQuizTags = (tags: string[] | null): QuizTags => {
         }
         case 'question':
           tag.question = true;
+          break;
+        case 'retroaction':
+          tag.retroaction = true;
           break;
       }
     });

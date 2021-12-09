@@ -27,6 +27,9 @@ export const interfaceTerms = {
   pda_return: 'Retour au jeu',
   pda_none: '[VIDE]',
   pda_document_description: 'Notes de Fred',
+  pda_document_feedback: 'Réponse de Fred',
+  pda_document_question_no: 'question {{number}}',
+  pda_prev_tab: 'Précédent',
 
   // PDA - Home tab
   pda_home_welcome: `
