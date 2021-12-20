@@ -1,7 +1,7 @@
 export const interfaceTerms = {
   // Start screen
   start_game: 'Commencer le jeu',
-  continue_game: 'Continuer la partie',
+  continue_game: 'Charger une partie',
   start_settings: 'Paramètres',
 
   // Game menu
@@ -13,6 +13,7 @@ export const interfaceTerms = {
   pda: 'Accéder le PDA',
   settings: 'Paramètres',
   game_log: 'Historique',
+  saveSlots: 'Sauvegardes',
   loading: 'Chargement',
   preparing: 'Préparation',
   pdf_page: 'Page {{pageNumber}} de {{numPages}}',
@@ -44,4 +45,9 @@ export const interfaceTerms = {
   settings_animation_speed: 'Vitesse des animations',
   settings_sound_effects: 'Volume des effets sonores',
   settings_music: 'Volume des musiques',
+
+  // Save slots
+  save_slot_name: 'sauvegarde {{number}}',
+  empty_save_slot: '[VIDE]',
+  save_slot_instruction: 'Cliquez sur un des emplacements de sauvegarde pour sauvegarder la partie.'
 };

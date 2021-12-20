@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import React, { KeyboardEventHandler, ReactElement } from 'react';
+import React, { KeyboardEventHandler, ReactElement, Ref } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
@@ -48,6 +48,7 @@ export interface SceneProps {
   onTextLoadingStart: () => void;
   onTextLoadingEnd: () => void;
   onChoiceSelected: (choice: Choice) => void;
+  sceneRef: Ref<HTMLDivElement>;
   skipAnimation?: boolean;
 }
 
@@ -58,6 +59,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   onTextLoadingStart,
   onTextLoadingEnd,
   onChoiceSelected,
+  sceneRef,
   skipAnimation,
 }) => {
   const [t] = useTranslation();
@@ -114,6 +116,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
       onClick={handleClickContinue}
       onKeyDown={handleKeyContinue}
       tabIndex={-1}
+      ref={sceneRef}
     >
       {portraits}
       {state.choices && state.choices.length ? (
@@ -142,7 +145,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
                   key={choice.content}
                   onClick={() => onChoiceSelected(choice)}
                 >
-                  <span dangerouslySetInnerHTML={{ __html: choice.content }}/>
+                  <span dangerouslySetInnerHTML={{ __html: choice.content }} />
                 </MultipleChoiceElement>
               ))}
             </MultipleChoices>

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
-import { toast } from 'react-hot-toast';
 
 import { SceneState } from './scene';
 import { PDA, PDATab } from './pda';
@@ -22,6 +21,12 @@ import { piecesOfEvidence } from '../data/evidence';
 import { CharacterAnimation, Quiz, QuizQuestion } from './event';
 import { Settings } from '../hooks/useSettings';
 import { documents } from '../data/documents';
+import {
+  addSceneToGameLog,
+  saveQuizHistory,
+  updateSceneFromGameLog,
+} from './gameLog';
+import { loadSaveSlots, saveSaveSlot, SaveSlot } from './saving';
 
 // Hardcoded images to preload
 import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
@@ -29,17 +34,12 @@ import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
 import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
-import { addSceneToGameLog, saveQuizHistory, updateSceneFromGameLog } from './gameLog';
-
-const localstorageSaveKey = 'game-save';
 
 export enum GameState {
   // eslint-disable-next-line no-unused-vars
-  Loading = 'loading',
+  Loaded = 'loaded',
   // eslint-disable-next-line no-unused-vars
   Ready = 'ready',
-  // eslint-disable-next-line no-unused-vars
-  Loaded = 'loaded',
   // eslint-disable-next-line no-unused-vars
   Started = 'started',
   // eslint-disable-next-line no-unused-vars
@@ -52,6 +52,7 @@ export interface Game {
   canContinue: boolean;
   currentQuiz?: Quiz;
   pda: PDA;
+  saveSlots: SaveSlot[];
 }
 
 interface GameVariables {
@@ -78,7 +79,8 @@ export type GameAction =
   | { type: 'start' }
   | { type: 'end' }
   | { type: 'continue'; choiceId?: number }
-  | { type: 'save_game' }
+  | { type: 'save_game'; slot: SaveSlot }
+  | { type: 'load_game'; slot: SaveSlot }
   | {
       type: 'animate_character';
       characterId: keyof typeof Characters;
@@ -398,7 +400,10 @@ const generateQuizStep = (
     quiz.currentIndex = tags.index;
   }
 
-  if (previousState?.currentIndex === quiz.currentIndex && quiz.questions.length >= quiz.currentIndex) {
+  if (
+    previousState?.currentIndex === quiz.currentIndex &&
+    quiz.questions.length >= quiz.currentIndex
+  ) {
     currentQuestion = quiz.questions[quiz.currentIndex - 1];
   } else {
     quiz.questions.push(currentQuestion);
@@ -444,8 +449,7 @@ const generateQuizStep = (
 
 export const useGame = (
   settings: Settings,
-  storyContent: string,
-  save?: string
+  storyContent: string
 ): [boolean, number, Story, Game, (action: GameAction) => void] => {
   // JSON has invalid char at index 0 for some reason
   const story = useMemo<Story>(
@@ -453,7 +457,7 @@ export const useGame = (
     [storyContent]
   );
   const [state, setState] = useState<Game>({
-    state: GameState.Loading,
+    state: GameState.Loaded,
     canContinue: false,
     pda: {
       open: false,
@@ -463,6 +467,7 @@ export const useGame = (
       contacts: [],
       evidence: [],
     },
+    saveSlots: [],
   });
   const images: string[] = [
     pdaBorderTopCenter,
@@ -475,7 +480,34 @@ export const useGame = (
       .flat(),
   ];
 
-  const dispatch = (action: GameAction): void => {
+  const dispatch = async (action: GameAction): Promise<void> => {
+    if (action.type === 'save_game') {
+      await saveSaveSlot(action.slot);
+      const slots = await loadSaveSlots();
+      setState(state => ({
+        ...state,
+        saveSlots: slots,
+      }));
+      return;
+    }
+
+    if (action.type === 'load_game') {
+      if (action.slot.save !== '{}') {
+        story.state.LoadJson(action.slot.save);
+
+        const result = story.state.currentText;
+
+        setState(state => ({
+          ...state,
+          canContinue: story.canContinue,
+          state: GameState.Started,
+          pda: generatePDAState(state.pda, story),
+          currentScene: generateCurrentScene(result, null, story),
+        }));
+      }
+      return;
+    }
+
     setState(state => {
       switch (action.type) {
         case 'start': {
@@ -547,7 +579,11 @@ export const useGame = (
                 : undefined,
             ...generateCurrentScene(result, state.currentScene, story),
           };
-          const currentQuiz = generateQuizStep(result, state.currentQuiz, story);
+          const currentQuiz = generateQuizStep(
+            result,
+            state.currentQuiz,
+            story
+          );
 
           if (!currentQuiz) {
             // Add the scene as is to the game log only if not processing a quiz.
@@ -563,18 +599,6 @@ export const useGame = (
             pda: generatePDAState(state.pda, story),
             currentScene,
             currentQuiz,
-          };
-        }
-        case 'save_game': {
-          localStorage.setItem(localstorageSaveKey, story.state.toJson());
-
-          // TODO: Make this translatable
-          toast.success('Partie sauvegardée avec succès', {
-            position: 'bottom-center',
-          });
-
-          return {
-            ...state,
           };
         }
         case 'animate_character': {
@@ -646,20 +670,21 @@ export const useGame = (
     try {
       story.BindExternalFunction(
         'animate_character',
-        (
-          characterId: keyof typeof Characters,
-          animation: CharacterAnimation
-        ) => {
-          dispatch({ type: 'animate_character', animation, characterId });
-        },
+        (characterId: keyof typeof Characters, animation: CharacterAnimation) =>
+          dispatch({ type: 'animate_character', animation, characterId }),
         false
       );
 
       story.BindExternalFunction(
         'play_sound',
-        (soundId: keyof typeof soundEffects) => {
-          dispatch({ type: 'play_sound', soundId });
-        },
+        (soundId: keyof typeof soundEffects) =>
+          dispatch({ type: 'play_sound', soundId }),
+        false
+      );
+
+      story.BindExternalFunction(
+        'show_pda',
+        () => dispatch({ type: 'open_pda' }),
         false
       );
     } catch {
@@ -668,28 +693,26 @@ export const useGame = (
   }, [storyContent]);
 
   useEffect(() => {
-    // FIXME: This is a ugly state mutation, cleanup
-    if (save) {
-      story.state.LoadJson(save);
-      state.state = GameState.Loaded;
-    } else {
-      // Check if we have a local storage save TODO: Remove
-      const localSave = localStorage.getItem(localstorageSaveKey);
-      if (localSave) {
-        story.state.LoadJson(localSave);
-        state.state = GameState.Loaded;
-      } else {
-        state.state = GameState.Ready;
-      }
-    }
-
     if (state.state === GameState.Loaded && story.canContinue) {
       const result = story.state.currentText;
 
-      state.pda = generatePDAState(state.pda, story);
-      state.currentScene = generateCurrentScene(result, null, story);
+      setState(state => ({
+        ...state,
+        state: GameState.Ready,
+        pda: generatePDAState(state.pda, story),
+        currentScene: generateCurrentScene(result, null, story),
+      }));
     }
-  }, [save]);
+  }, []);
+
+  useEffect(() => {
+    loadSaveSlots().then(saveSlots => {
+      setState(state => ({
+        ...state,
+        saveSlots,
+      }));
+    });
+  }, []);
 
   return [...usePreloader(images), story, state, dispatch];
 };

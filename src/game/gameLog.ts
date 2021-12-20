@@ -5,6 +5,7 @@ import { Quiz } from './event';
 
 interface GameVariables {
   history: string;
+  // eslint-disable-next-line camelcase
   quiz_save_data: string;
 }
 

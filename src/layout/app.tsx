@@ -4,7 +4,6 @@ import styled from '@emotion/styled';
 import { jsx, css, Global, ThemeProvider } from '@emotion/react';
 import { theme as polishedTheme } from 'styled-tools';
 import { fontFace } from 'polished';
-import { Toaster } from 'react-hot-toast';
 
 import { Game } from '../game/game';
 import { theme } from '../theme';
@@ -12,6 +11,8 @@ import { theme } from '../theme';
 import permanentMarkerFont from '../assets/fonts/PermanentMarker-Regular.ttf';
 import vcrOsdMonoFont from '../assets/fonts/VCR_OSD_MONO.ttf';
 import storyContent from '../../data/story.json?raw';
+
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const Container = styled.main`
   background-color: ${polishedTheme('colors.black')};
@@ -42,9 +43,7 @@ export const App: React.FunctionComponent = () => (
       />
       <Game
         storyContent={storyContent}
-        /* saveState={saveGame} */
       />
-      <Toaster />
     </Container>
   </ThemeProvider>
 );

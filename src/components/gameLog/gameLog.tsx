@@ -40,7 +40,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
           align-items: center;
         `}
       >
-        <GameLogModal onReturnClick={() => closeGameLog()}>
+        <GameLogModal onReturnClick={closeGameLog}>
           <div>
             {gameLog.map((el, index) => {
               if (el.choices?.length) {

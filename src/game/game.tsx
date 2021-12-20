@@ -1,7 +1,9 @@
 /** @jsx jsx */
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import html2canvas from 'html2canvas';
 
 import { Scene, SceneState } from './scene';
 import { Choice } from './event';
@@ -17,31 +19,31 @@ import { Settings } from '../components/settings/settings';
 import { MenuContainer } from '../components/menuContainer';
 import { GameLog } from '../components/gameLog/gameLog';
 import { getGameLog } from './gameLog';
+import { SaveSlot } from './saving';
+import { SaveSlots } from '../components/saveSlots/saveSlots';
 
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 import StartIcon from '../assets/ui/pda/PowerResist.svg?component';
 import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import SaveIcon from '../assets/ui/pda/Sauvegarder.svg?component';
 
 export interface GameProps {
   storyContent: string;
   saveState?: string;
 }
 
-export const Game: React.FunctionComponent<GameProps> = ({
-  storyContent,
-  saveState,
-}) => {
+export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
   const [t] = useTranslation();
+  const sceneRef = useRef<HTMLDivElement>(null);
   const [settings, dispatchSettings] = useSettings({});
   const [loading, percentLoaded, story, gameState, dispatch] = useGame(
     settings.settings,
-    storyContent,
-    saveState
+    storyContent
   );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
   const [transitioning, setTransitioning] = useState<boolean>(false);
   const [gameLogOpened, setGameLogOpened] = useState<boolean>(false);
+  const [savingOpened, setSavingOpened] = useState<boolean>(false);
 
   const globalCSS = (
     <Global
@@ -75,27 +77,16 @@ export const Game: React.FunctionComponent<GameProps> = ({
   }
 
   switch (gameState.state) {
-    case GameState.Loading:
-      return (
-        <React.Fragment>
-          {globalCSS}
-          <GameBackground
-            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-            // @ts-ignore
-            src={bgVideo}
-            autoPlay={true}
-            muted
-            loop
-          />
-          <GameContainer>
-            <MenuContainer>
-              <GameLoader />
-            </MenuContainer>
-          </GameContainer>
-        </React.Fragment>
-      );
     case GameState.Ready:
-    case GameState.Loaded:
+    case GameState.Loaded: {
+      const onLoad = async (slot: SaveSlot) => {
+        setSavingOpened(false);
+        return dispatch({
+          type: 'load_game',
+          slot,
+        });
+      };
+
       return (
         <React.Fragment>
           {globalCSS}
@@ -113,9 +104,13 @@ export const Game: React.FunctionComponent<GameProps> = ({
                 onClick={() => dispatch({ type: 'start' })}
                 icon={<StartIcon />}
               >
-                {gameState.state === GameState.Ready
-                  ? t('start_game')
-                  : t('continue_game')}
+                {t('start_game')}
+              </BigButton>
+              <BigButton
+                onClick={() => setSavingOpened(true)}
+                icon={<SaveIcon />}
+              >
+                {t('continue_game')}
               </BigButton>
               <BigButton
                 onClick={() => dispatchSettings({ type: 'open' })}
@@ -126,8 +121,15 @@ export const Game: React.FunctionComponent<GameProps> = ({
             </MenuContainer>
           </GameContainer>
           <Settings settings={settings} dispatch={dispatchSettings} />
+          <SaveSlots
+            closeSaveSlots={() => setSavingOpened(false)}
+            saveSlots={gameState.saveSlots}
+            opened={savingOpened}
+            onSaveClick={onLoad}
+          />
         </React.Fragment>
       );
+    }
     case GameState.Started: {
       if (!gameState.currentScene) {
         return <GameContainer>Could not load scene</GameContainer>;
@@ -165,6 +167,27 @@ export const Game: React.FunctionComponent<GameProps> = ({
         dispatch({ type: 'continue', choiceId: choice.id });
       };
 
+      const takeSceneScreenshot = async () => {
+        if (!sceneRef.current) {
+          return null;
+        }
+
+        const canvas = await html2canvas(sceneRef.current);
+        return canvas.toDataURL();
+      };
+
+      const onSave = async (slot: SaveSlot) => {
+        const screenshot = await takeSceneScreenshot();
+        return dispatch({
+          type: 'save_game',
+          slot: {
+            id: slot.id,
+            save: story.state.ToJson(),
+            image: screenshot,
+          },
+        });
+      };
+
       return (
         <React.Fragment>
           {globalCSS}
@@ -185,7 +208,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
               onPDAClick={() => dispatch({ type: 'open_pda' })}
               onSettingsClick={() => dispatchSettings({ type: 'open' })}
               onGameLogClick={() => setGameLogOpened(true)}
-              onSaveClick={() => dispatch({ type: 'save_game' })}
+              onSaveClick={() => setSavingOpened(true)}
             />
             {settings.settings.textAnimationsEnabled ? (
               <SwitchTransition>
@@ -213,6 +236,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
                     onTextLoadingStart={onTextLoadingStart}
                     onTextLoadingEnd={onTextLoadingEnd}
                     onChoiceSelected={onChoiceSelected}
+                    sceneRef={sceneRef}
                   />
                 </CSSTransition>
               </SwitchTransition>
@@ -225,6 +249,7 @@ export const Game: React.FunctionComponent<GameProps> = ({
                 onTextLoadingStart={onTextLoadingStart}
                 onTextLoadingEnd={onTextLoadingEnd}
                 onChoiceSelected={onChoiceSelected}
+                sceneRef={sceneRef}
               />
             )}
             <PDAComponent
@@ -245,6 +270,12 @@ export const Game: React.FunctionComponent<GameProps> = ({
               closeGameLog={() => setGameLogOpened(false)}
               gameLog={getGameLog(story)}
               opened={gameLogOpened}
+            />
+            <SaveSlots
+              closeSaveSlots={() => setSavingOpened(false)}
+              saveSlots={gameState.saveSlots}
+              opened={savingOpened}
+              onSaveClick={onSave}
             />
           </GameContainer>
         </React.Fragment>

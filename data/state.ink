@@ -1,3 +1,7 @@
+EXTERNAL show_pda()
+=== function show_pda() ===
+    ~ return ""
+
 LIST Evidence = DOSSIER_LEIGH_KANE, TELEPHONE_LEIGH_KANE
 
 VAR known_evidence = ()
@@ -10,6 +14,7 @@ VAR history = "[]"
 
 === function activer_pda() ===
     ~ pda_activated = true
+    ~ show_pda()
 
 === function desactiver_pda() ===
     ~ pda_activated = false
