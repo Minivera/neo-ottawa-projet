@@ -9,12 +9,7 @@ import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
 import { CharacterPortrait } from '../components/characterPortrait';
 import { PortraitImage } from '../components/portraitImage';
-import {
-  DialogBox,
-  DialogTitle,
-  DialogTitleLeftArrow,
-  DialogTitleRightArrow,
-} from '../components/dialogBox';
+import { DialogBox, DialogTitle } from '../components/dialogBox';
 import { AnimatedText } from '../components/animatedText';
 import { AnimationContainer } from '../components/animationContainer';
 import { NextButton } from '../components/nextButton';
@@ -123,9 +118,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
         <DialogBox center={!portraits}>
           {state.dialogName && (
             <DialogTitle>
-              <DialogTitleLeftArrow />
               <h1>{state.dialogName}</h1>
-              <DialogTitleRightArrow />
             </DialogTitle>
           )}
           <p>
@@ -155,9 +148,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
         <DialogBox center={!portraits}>
           {state.dialogName && (
             <DialogTitle>
-              <DialogTitleLeftArrow />
               <h1>{state.dialogName}</h1>
-              <DialogTitleRightArrow />
             </DialogTitle>
           )}
           <p>
