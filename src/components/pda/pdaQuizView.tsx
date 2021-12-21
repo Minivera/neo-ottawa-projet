@@ -168,35 +168,37 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
                 margin-bottom: 1.8rem;
               `}
             >
-              {currentQuestion.choices.map(choice => {
-                const text = choice.content.replace('ACTIF--', '');
-                const active = choice.isGoodChoice;
+              {currentQuestion.choices
+                .filter(choice => !choice.content.includes('CACHER--'))
+                .map(choice => {
+                  const text = choice.content.replace('ACTIF--', '');
+                  const active = choice.isGoodChoice;
 
-                return (
-                  <div
-                    key={choice.id}
-                    css={theme => css`
-                      & button {
-                        width: 100%;
-                        margin: 0;
-                        color: ${theme.colors.lightGray};
-                      }
-                    `}
-                  >
-                    <HexagonButton
-                      disabled
-                      color={lighten(0.4, theme.colors.text)}
-                      backgroundColor={theme.colors.black}
-                      borderColor={theme.colors.secondary}
-                      hoverColor={theme.colors.white}
-                      hoverBackgroundColor={theme.colors.secondary}
-                      active={active}
+                  return (
+                    <div
+                      key={choice.id}
+                      css={theme => css`
+                        & button {
+                          width: 100%;
+                          margin: 0;
+                          color: ${theme.colors.lightGray};
+                        }
+                      `}
                     >
-                      {text}
-                    </HexagonButton>
-                  </div>
-                );
-              })}
+                      <HexagonButton
+                        disabled
+                        color={lighten(0.4, theme.colors.text)}
+                        backgroundColor={theme.colors.black}
+                        borderColor={theme.colors.secondary}
+                        hoverColor={theme.colors.white}
+                        hoverBackgroundColor={theme.colors.secondary}
+                        active={active}
+                      >
+                        {text}
+                      </HexagonButton>
+                    </div>
+                  );
+                })}
             </div>
             {currentQuestion.feedback && (
               <Expander title={t('pda_document_feedback')}>

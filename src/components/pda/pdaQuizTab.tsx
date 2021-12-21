@@ -143,7 +143,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
               `}
             >
               {currentQuestion.choices.map(choice => {
-                let text = choice.content;
+                let text = choice.content.replace('CACHER--', '');
                 let active = false;
                 if (choice.content.includes('ACTIF--')) {
                   text = choice.content.replace('ACTIF--', '');

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { FunctionComponent, useState } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 import { jsx, css, Theme } from '@emotion/react';
 import { Interpolation } from '@emotion/serialize';
 import { transparentize } from 'polished';
@@ -16,6 +16,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
   children,
   ...rest
 }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
@@ -32,7 +33,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
           background-color: ${transparentize(0.05, theme.colors.darkGray)};
           overflow: hidden;
           transition: max-height ease-in-out 500ms;
-          max-height: ${expanded ? '12rem' : '4.5rem'};
+          max-height: ${expanded ? `calc(${contentRef.current?.getClientRects()[0].height}px + 4.5rem + 1.2rem)` : '4.5rem'};
         `}
       >
         <div
@@ -69,6 +70,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
           </span>
         </div>
         <div
+          ref={contentRef}
           css={theme => css`
             border-top: 1px solid ${theme.colors.lightGray};
             padding-top: 1.2rem;

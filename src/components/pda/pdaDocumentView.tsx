@@ -2,11 +2,10 @@
 import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
-import { darken } from 'polished';
+import { darken, transparentize } from 'polished';
 
 import { Document } from '../../game/pda';
 import { PDFReader } from '../pdfReader';
-import { Expander } from '../expander';
 import { PDATitle } from './pdaTitle';
 
 import DocumentIcon from '../../assets/ui/pda/Document.svg?component';
@@ -67,22 +66,37 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
             {t(document.name)}
           </PDATitle>
           <div
-            css={css`
+            css={theme => css`
               display: flex;
               flex-direction: column;
               margin-right: 1rem;
-              font-size: 1.5rem;
+              padding: 1.2rem;
+              border: solid 0.4rem ${theme.colors.purple};
+              background-color: ${transparentize(0.05, theme.colors.darkGray)};
+              overflow: hidden;
+              transition: max-height ease-in-out 500ms;
             `}
           >
-            <Expander
-              title={t('pda_document_description')}
-              css={css`
-                height: 80px;
-                z-index: 4;
+            <h3
+              css={theme => css`
+                font-size: 1.4rem;
+                margin: 0;
+                text-transform: uppercase;
+                color: ${theme.colors.yellow};
+              `}
+            >
+              {t('pda_document_description')}
+            </h3>
+            <p
+              css={theme => css`
+                border-top: 1px solid ${theme.colors.lightGray};
+                padding-top: 1.2rem;
+                font-size: 1.2rem;
+                color: ${theme.colors.lightGray};
               `}
             >
               {t(document.description)}
-            </Expander>
+            </p>
           </div>
         </div>
       </div>

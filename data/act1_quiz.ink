@@ -28,7 +28,7 @@ La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo
 +   (2_b) [BON--{(2_b % 2 == 1):ACTIF--}Pokémon Go] Pokémon Go
 +   (2_c) [BON--{(2_c % 2 == 1):ACTIF--}Football Manager] Football Manager
 +   (2_d) [{(2_d % 2 == 1):ACTIF--}Mario Odyssey] Mario Odyssey
-+   { 2_a || 2_b || 2_c || 2_d } Continuer
++   { 2_a || 2_b || 2_c || 2_d } CACHER--Continuer
     // % ici veut dire modulo. Si modulo 2 retourne 1, ça veut dire que le
     // nombre de sélections du choix est un nombre impaire 1, 3, 5, 7,...
     // donc logiquement, le choix est sélectionné (Ou reselectioner s'il a été

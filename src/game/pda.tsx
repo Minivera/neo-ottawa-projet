@@ -86,6 +86,12 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
 
+  const handleTabClick = (tab: PDATab) => {
+    setSelectedDocument(null);
+    setSelectedQuiz(null);
+    onPDATabChanged(tab);
+  };
+
   const onQuizClick = (quiz: QuizInfo) => {
     const quizState = getQuizHistory(story, quiz.name);
 
@@ -138,7 +144,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
       <Portal>
         <AnimatedOpen css={containerCSS} open>
           <PDATabControl
-            onTabClick={onPDATabChanged}
+            onTabClick={handleTabClick}
             selectedTab={PDATab.QUIZZES}
             onReturnClick={onPDAClosed}
             quizMode={!!quiz}
@@ -163,18 +169,14 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
       <Portal>
         <AnimatedOpen css={containerCSS} open>
           <PDATabControl
-            onTabClick={tab => {
-              setSelectedDocument(null);
-              onPDATabChanged(tab);
-            }}
+            onTabClick={handleTabClick}
             selectedTab={PDATab.DOCUMENTS}
             onReturnClick={onPDAClosed}
             quizMode={!!quiz}
           >
             <PDADocumentView
               onPrevClick={() => {
-                setSelectedDocument(null);
-                onPDATabChanged(PDATab.DOCUMENTS);
+                handleTabClick(PDATab.DOCUMENTS);
               }}
               document={selectedDocument}
             />
@@ -189,18 +191,14 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
       <Portal>
         <AnimatedOpen css={containerCSS} open>
           <PDATabControl
-            onTabClick={tab => {
-              setSelectedDocument(null);
-              onPDATabChanged(tab);
-            }}
+            onTabClick={handleTabClick}
             selectedTab={PDATab.QUIZZES}
             onReturnClick={onPDAClosed}
             quizMode={!!quiz}
           >
             <PDAQuizView
               onPrevClick={() => {
-                setSelectedQuiz(null);
-                onPDATabChanged(PDATab.QUIZZES);
+                handleTabClick(PDATab.QUIZZES);
               }}
               quiz={selectedQuiz}
             />
@@ -214,7 +212,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
     <Portal>
       <AnimatedOpen css={containerCSS} open={pdaState.open}>
         <PDATabControl
-          onTabClick={onPDATabChanged}
+          onTabClick={handleTabClick}
           selectedTab={pdaState.tab || PDATab.HOME}
           onReturnClick={onPDAClosed}
           quizMode={!!quiz}
