@@ -106,7 +106,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
         <div>
           <PDATitle>
             <QuizIcon />
-            {quiz.name} - {quiz.currentIndex} / {quiz.questionCount}
+            {t(quiz.name)} - {quiz.currentIndex} / {quiz.questionCount}
           </PDATitle>
           <div
             css={css`
@@ -116,7 +116,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
               font-size: 1.5rem;
             `}
           >
-            {quiz.document && (
+            {currentQuestion.document && (
               <Expander
                 title={t('pda_document_description')}
                 css={css`
@@ -124,7 +124,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                   z-index: 4;
                 `}
               >
-                {t(quiz.document.description)}
+                {t(currentQuestion.document.description)}
               </Expander>
             )}
             <p
@@ -184,13 +184,13 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
             </div>
           </div>
         </div>
-        {quiz.document && quiz.document.path && (
+        {currentQuestion.document && currentQuestion.document.path && (
           <div
             css={css`
               margin-left: 1rem;
             `}
           >
-            <PDFReader pdfPath={quiz.document.path} />
+            <PDFReader pdfPath={currentQuestion.document.path} />
           </div>
         )}
         {currentQuestion.feedback && (

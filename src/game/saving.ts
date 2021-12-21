@@ -42,22 +42,3 @@ export const loadSaveSlots = async (): Promise<SaveSlot[]> => {
 
   return Promise.all(promises);
 };
-
-export const loadSaveSlot = async (slotID: number): Promise<SaveSlot> => {
-  const save = localStorage.getItem(`${localstorageSaveKey}_${slotID}`);
-  const image = localStorage.getItem(`${localstorageSaveKey}_${slotID}_image`);
-
-  if (!save || !image) {
-    return {
-      id: slotID,
-      image: null,
-      save: '{}',
-    };
-  }
-
-  return {
-    id: slotID,
-    image: image !== '' ? image : null,
-    save,
-  };
-};

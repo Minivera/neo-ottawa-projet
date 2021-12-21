@@ -52,7 +52,7 @@ export const saveQuizHistory = (story: Story, quiz: Quiz): void => {
     (story.variablesState as unknown as GameVariables).quiz_save_data
   );
 
-  quizes[quiz.document?.documentId || quiz.name] = quiz;
+  quizes[quiz.name] = quiz;
 
   (story.variablesState as unknown as GameVariables).quiz_save_data =
     JSON.stringify(quizes);

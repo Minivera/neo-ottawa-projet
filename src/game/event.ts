@@ -17,6 +17,7 @@ export interface QuizQuestion {
   question: string;
   choices: Choice[];
   feedback?: string;
+  document?: Document;
 }
 
 export interface Quiz {
@@ -24,5 +25,4 @@ export interface Quiz {
   questionCount: number;
   currentIndex: number;
   questions: QuizQuestion[];
-  document?: Document;
 }

@@ -17,7 +17,7 @@ import { backgrounds } from '../data/assets/backgrounds';
 import { musics } from '../data/assets/musics';
 import { soundEffects } from '../data/assets/soundEffects';
 import { contacts } from '../data/contacts';
-import { piecesOfEvidence } from '../data/evidence';
+import { quizzesInfo } from '../data/quizzes';
 import { CharacterAnimation, Quiz, QuizQuestion } from './event';
 import { Settings } from '../hooks/useSettings';
 import { documents } from '../data/documents';
@@ -60,17 +60,15 @@ interface GameVariables {
   shown_characters: InkList;
   current_background: string;
   current_music: string;
-  known_evidence: InkList;
-  last_added_evidence: InkList | boolean;
   known_contacts: InkList;
   last_added_contact: InkList | boolean;
   known_documents: InkList;
   last_added_document: InkList | boolean;
   pda_activated: boolean;
-  quiz_started: boolean;
-  quiz_name: string;
+  current_quiz: string | boolean;
+  completed_quizzes: InkList;
   quiz_question_count: number;
-  current_document: InkList | boolean;
+  current_document: string | boolean;
   history: string;
   /* eslint-enable camelcase */
 }
@@ -143,44 +141,6 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
     });
   }
 
-  // Do the same for the evidence
-  if (
-    variables.last_added_evidence &&
-    typeof variables.last_added_evidence !== 'boolean'
-  ) {
-    const item = JSON.parse(
-      variables.last_added_evidence.entries().next().value[0]
-    ) as InkListItem;
-    const evidenceName = item.itemName as keyof typeof piecesOfEvidence;
-
-    const evidence = piecesOfEvidence[evidenceName];
-
-    if (
-      evidence &&
-      !previousState.evidence.find(el => el.evidenceId === evidenceName)
-    ) {
-      state.evidence.push(evidence);
-    }
-  }
-
-  // In case we still have more evidence than already saved in the state. It probably
-  // means we're loading something or the state got messy. Refresh.
-  if (variables.known_evidence.Count !== state.evidence.length) {
-    variables.known_evidence.orderedItems.forEach(entry => {
-      const item = entry.Key;
-      const evidenceName = item.itemName as keyof typeof piecesOfEvidence;
-
-      const evidence = piecesOfEvidence[evidenceName];
-
-      if (
-        evidence &&
-        !previousState.evidence.find(el => el.evidenceId === evidenceName)
-      ) {
-        state.evidence.push(evidence);
-      }
-    });
-  }
-
   // Do the same for the documents
   if (
     variables.last_added_document &&
@@ -219,6 +179,35 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
     });
   }
 
+  // Do the same for the quizzes
+  if (variables.current_quiz && variables.current_quiz.toString() !== 'none') {
+    const quizInfo =
+      quizzesInfo[variables.current_quiz as keyof typeof quizzesInfo];
+
+    if (
+      quizInfo &&
+      !previousState.quizzes.find(el => el.quizId === quizInfo.quizId)
+    ) {
+      state.quizzes.push(quizInfo);
+    }
+  }
+
+  // In case we still have more quizzes than already saved in the state. It probably
+  // means we're loading something or the state got messy. Refresh.
+  if (variables.completed_quizzes.Count !== state.quizzes.length) {
+    variables.completed_quizzes.orderedItems.forEach(entry => {
+      const item = entry.Key;
+      const quizInfo = quizzesInfo[item.itemName as keyof typeof quizzesInfo];
+
+      if (
+        quizInfo &&
+        !previousState.quizzes.find(el => el.quizId === quizInfo.quizId)
+      ) {
+        state.quizzes.push(quizInfo);
+      }
+    });
+  }
+
   return state;
 };
 
@@ -228,7 +217,11 @@ const generateCurrentScene = (
   story: Story
 ): SceneState => {
   const variables = story.variablesState as unknown as GameVariables;
-  if (variables.quiz_started && previousState) {
+  if (
+    variables.current_quiz &&
+    variables.current_quiz.toString() !== 'none' &&
+    previousState
+  ) {
     return previousState;
   }
 
@@ -292,14 +285,14 @@ const generateCurrentScene = (
 
   if (variables.current_music) {
     currentScene.bgm =
-      variables.current_music === 'none'
+      variables.current_music.toString() === 'none'
         ? undefined
         : musics[variables.current_music];
   }
 
   if (variables.current_background) {
     currentScene.background =
-      variables.current_background === 'none'
+      variables.current_background.toString() === 'none'
         ? undefined
         : backgrounds[variables.current_background];
   }
@@ -333,24 +326,6 @@ const generateCurrentScene = (
     variables.last_added_contact = false;
   }
 
-  // Do the same for the evidence
-  if (
-    variables.last_added_evidence &&
-    typeof variables.last_added_evidence !== 'boolean'
-  ) {
-    const item = JSON.parse(
-      variables.last_added_evidence.entries().next().value[0]
-    ) as InkListItem;
-    const evidence = item.itemName as keyof typeof piecesOfEvidence;
-
-    currentScene.notes = {
-      lineId: 'evidence_added',
-      variables: { name: evidence },
-    };
-
-    variables.last_added_evidence = false;
-  }
-
   // Do the same for the documents
   if (
     variables.last_added_document &&
@@ -378,12 +353,14 @@ const generateQuizStep = (
   story: Story
 ): undefined | Quiz => {
   const variables = story.variablesState as unknown as GameVariables;
-  if (!variables.quiz_started) {
+  if (!variables.current_quiz || variables.current_quiz.toString() === 'none') {
     return undefined;
   }
 
   const quiz: Quiz = {
-    name: previousState?.name || variables.quiz_name,
+    name:
+      previousState?.name ||
+      quizzesInfo[variables.current_quiz as keyof typeof quizzesInfo].name,
     questionCount:
       previousState?.questionCount || variables.quiz_question_count,
     currentIndex: previousState?.currentIndex || 0,
@@ -434,14 +411,10 @@ const generateQuizStep = (
   // Set which document should be shown on screen during this part of the quiz
   if (
     variables.current_document &&
-    typeof variables.current_document !== 'boolean'
+    variables.current_document.toString() !== 'none'
   ) {
-    const item = JSON.parse(
-      variables.current_document.entries().next().value[0]
-    ) as InkListItem;
-    const document = item.itemName as keyof typeof documents;
-
-    quiz.document = documents[document];
+    currentQuestion.document =
+      documents[variables.current_document as keyof typeof documents];
   }
 
   return quiz;
@@ -465,7 +438,7 @@ export const useGame = (
       tab: PDATab.HOME,
       documents: [],
       contacts: [],
-      evidence: [],
+      quizzes: [],
     },
     saveSlots: [],
   });
@@ -670,21 +643,28 @@ export const useGame = (
     try {
       story.BindExternalFunction(
         'animate_character',
-        (characterId: keyof typeof Characters, animation: CharacterAnimation) =>
-          dispatch({ type: 'animate_character', animation, characterId }),
+        (
+          characterId: keyof typeof Characters,
+          animation: CharacterAnimation
+        ) => {
+          dispatch({ type: 'animate_character', animation, characterId });
+        },
         false
       );
 
       story.BindExternalFunction(
         'play_sound',
-        (soundId: keyof typeof soundEffects) =>
-          dispatch({ type: 'play_sound', soundId }),
+        (soundId: keyof typeof soundEffects) => {
+          dispatch({ type: 'play_sound', soundId });
+        },
         false
       );
 
       story.BindExternalFunction(
         'show_pda',
-        () => dispatch({ type: 'open_pda' }),
+        () => {
+          dispatch({ type: 'open_pda' });
+        },
         false
       );
     } catch {

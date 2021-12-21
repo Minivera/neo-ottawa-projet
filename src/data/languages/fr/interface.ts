@@ -24,7 +24,7 @@ export const interfaceTerms = {
   pda_documents: 'Notes',
   pda_map: 'Plan de la ville',
   pda_contacts: 'Contacts',
-  pda_evidence: 'Preuves',
+  pda_evidence: 'Documents',
   pda_return: 'Retour au jeu',
   pda_none: '[VIDE]',
   pda_document_description: 'Notes de Fred',

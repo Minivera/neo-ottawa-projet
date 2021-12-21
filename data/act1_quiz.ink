@@ -5,7 +5,7 @@ Un quiz va etre lancé, le PDA devrait s'ouvrir avec le premier document qui inc
 -> quiz_1
 
 = quiz_1
-~ demarrer_quiz("Quiz 1", 6)
+~ demarrer_quiz(QUIZ_1, 6)
 -> question_1
 
 = question_1

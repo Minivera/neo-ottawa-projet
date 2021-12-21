@@ -16,7 +16,7 @@ import HomeIcon from '../../assets/ui/pda/PDA-LePDA.svg?component';
 import DocumentsIcon from '../../assets/ui/pda/PDA-Documents.svg?component';
 /* import MapIcon from '../../assets/ui/pda/PDA-PlanDeLaVille.svg?component'; */
 import ContactIcon from '../../assets/ui/pda/PDA-Contacts.svg?component';
-/* import EvidenceIcon from '../../assets/ui/pda/PDA-Preuves.svg?component'; */
+import EvidenceIcon from '../../assets/ui/pda/PDA-Preuves.svg?component';
 
 const PDAContainer = styled.div`
   flex: 1;
@@ -318,8 +318,8 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
             {t('pda_home')}
           </PDANavigationLink>
           <PDANavigationLink
-            onClick={clickTab(PDATab.DOCUMENTS)}
-            selected={quizMode || selectedTab === PDATab.DOCUMENTS}
+            onClick={clickTab(PDATab.QUIZZES)}
+            selected={quizMode || selectedTab === PDATab.QUIZZES}
             disabled={quizMode}
           >
             <DocumentsIcon />
@@ -341,14 +341,14 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
             <ContactIcon />
             {t('pda_contacts')}
           </PDANavigationLink>
-          {/* <PDANavigationLink
-            onClick={clickTab(PDATab.EVIDENCE)}
-            selected={selectedTab === PDATab.EVIDENCE}
+          <PDANavigationLink
+            onClick={clickTab(PDATab.DOCUMENTS)}
+            selected={selectedTab === PDATab.DOCUMENTS}
             disabled={quizMode}
           >
             <EvidenceIcon />
             {t('pda_evidence')}
-          </PDANavigationLink> */}
+          </PDANavigationLink>
         </PDANavigation>
         <PDATopLeftSide>
           <img src={pdaBorderTopCenter} alt="side slant" />

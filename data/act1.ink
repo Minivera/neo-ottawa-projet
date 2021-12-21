@@ -75,10 +75,8 @@ Le <b>Chef Miller</b> refuse l’appel sans regarder.
 Il tend un dossier à <b>Fred</b>, mais le laisse tomber sur le bureau.
 
 *   Vous choisissez de prendre le dossier immédiatement et de l’ouvrir devant le <b>chef Miller</b>.
-    ~ ajouter_preuve(DOSSIER_LEIGH_KANE)
     Chef Miller: Eh bien Fred? C’est mon bureau ici. Allez faire vos lectures ailleurs. # character=CHEF_MILLER
 *   Vous choisissez de prendre le dossier sans l’ouvrir.
-    ~ ajouter_preuve(DOSSIER_LEIGH_KANE)
     Chef Miller: Bien. Ce sera tout. # character=CHEF_MILLER
 *   (pas_pris_dossier) Vous choisissez de ne pas bouger et d’attendre d’autres ordres.
     Chef Miller: Qu’est-ce que vous attendez, Fred? Ma bénédiction? Des mots d’encouragement # character=CHEF_MILLER
@@ -212,7 +210,6 @@ Le joueur peut essayer d’obtenir l’accès aux conversations par message text
 Enquêteur du Ciminel: La chambre est à vous. # character=ENQUETEUR
 ~ ajouter_contact(ENQUETEUR)
 ~ cacher_tout_personnages()
-~ ajouter_preuve(TELEPHONE_LEIGH_KANE)
 -> scene_11
 
 = scene_11

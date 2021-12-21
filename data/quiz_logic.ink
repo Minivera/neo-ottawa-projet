@@ -1,16 +1,18 @@
-VAR quiz_started = false
-VAR quiz_name = ""
+LIST QUIZES = QUIZ_1
+
+VAR current_quiz = false
 VAR quiz_question_count = 0
+VAR completed_quizzes = ()
 
 VAR quiz_save_data = "\{\}"
 
 === function demarrer_quiz(name, count) ===
-    ~ quiz_started = true
-    ~ quiz_name = name
+    ~ current_quiz = name
     ~ quiz_question_count = count
 
 === function terminer_quiz() === 
-    ~ quiz_started = false
+    ~ completed_quizzes += current_quiz
+    ~ current_quiz = none
     ~ current_document = none
     
 === function generer_mauvaise_reponse_retroaction() ===

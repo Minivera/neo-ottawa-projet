@@ -4,7 +4,7 @@ import { initReactI18next } from 'react-i18next';
 import { interfaceTerms as frInterfaceTerms } from '../data/languages/fr/interface';
 import { charactersNames as frCharacterNames } from '../data/languages/fr/names';
 import { contactDescriptions as frContactDescriptions } from '../data/languages/fr/contacts';
-import { evidenceNames as frEvidenceNames } from '../data/languages/fr/evidence';
+import { quizzesNames as frQuizzesNames } from '../data/languages/fr/quizzes';
 import { notesMessages as frNotesMessages } from '../data/languages/fr/notes';
 import { documentsContent as frDocumentsContent } from '../data/languages/fr/documents';
 
@@ -15,7 +15,7 @@ const resources = {
       ...frCharacterNames,
       ...frNotesMessages,
       ...frContactDescriptions,
-      ...frEvidenceNames,
+      ...frQuizzesNames,
       ...frDocumentsContent,
 
       // Game content

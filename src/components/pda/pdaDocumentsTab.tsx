@@ -53,7 +53,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
       >
         <PDATitle>
           <DocumentsIcon />
-          <Trans i18nKey="pda_documents" />
+          <Trans i18nKey="pda_evidence" />
         </PDATitle>
         {pdaState.documents.length > 0 ? (
           <ul

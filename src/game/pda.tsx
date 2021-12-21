@@ -9,21 +9,22 @@ import { PDAHomeTab } from '../components/pda/pdaHomeTab';
 import { PDADocumentsTab } from '../components/pda/pdaDocumentsTab';
 import { PDAMapTab } from '../components/pda/pdaMapTab';
 import { PDAContactsTab } from '../components/pda/pdaContactsTab';
-import { PDAEvidenceTab } from '../components/pda/pdaEvidenceTab';
+import { PDAQuizzesTab } from '../components/pda/pdaQuizzesTab';
 import { Choice, Quiz } from './event';
 import { PDAQuizTab } from '../components/pda/pdaQuizTab';
 import { Settings } from '../hooks/useSettings';
 import { AnimatedOpen } from '../components/animatedOpen';
 import { getQuizHistory } from './gameLog';
 import { PDADocumentView } from '../components/pda/pdaDocumentView';
+import { PDAQuizView } from '../components/pda/pdaQuizView';
 
 /* eslint-disable no-unused-vars */
 export enum PDATab {
   HOME = 'home',
-  DOCUMENTS = 'documents',
+  QUIZZES = 'quizzes',
   MAP = 'map',
   CONTACTS = 'contacts',
-  EVIDENCE = 'evidence',
+  DOCUMENTS = 'documents',
 }
 /* eslint-enable no-unused-vars */
 
@@ -41,10 +42,9 @@ export interface Contact {
   type: 'police' | 'resistance';
 }
 
-export interface Evidence {
-  evidenceId: string;
+export interface QuizInfo {
+  quizId: string;
   name: string;
-  type: 'phone' | 'computer' | 'result' | 'disk';
 }
 
 export interface PDA {
@@ -53,7 +53,7 @@ export interface PDA {
   tab?: PDATab;
   documents: Document[];
   contacts: Contact[];
-  evidence: Evidence[];
+  quizzes: QuizInfo[];
 }
 
 export interface PDAComponentProps {
@@ -83,14 +83,19 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   onChoiceSelected,
   skipAnimation,
 }) => {
-  const [selectedDocument, setSelectedDocument] = useState<Quiz | null>(null);
+  const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
+  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
 
-  const onDocumentClick = (document: Document) => {
-    const quizState = getQuizHistory(story, document.documentId);
+  const onQuizClick = (quiz: QuizInfo) => {
+    const quizState = getQuizHistory(story, quiz.name);
 
     if (quizState) {
-      setSelectedDocument(quizState);
+      setSelectedQuiz(quizState);
     }
+  };
+
+  const onDocumentClick = (document: Document) => {
+    setSelectedDocument(document);
   };
 
   let tab: React.ReactElement | null = null;
@@ -98,8 +103,8 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
     case PDATab.HOME:
       tab = <PDAHomeTab />;
       break;
-    case PDATab.DOCUMENTS:
-      tab = <PDADocumentsTab pdaState={pdaState} onDocumentClick={onDocumentClick} />;
+    case PDATab.QUIZZES:
+      tab = <PDAQuizzesTab pdaState={pdaState} onQuizClick={onQuizClick} />;
       break;
     case PDATab.MAP:
       tab = <PDAMapTab pdaState={pdaState} />;
@@ -107,8 +112,8 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
     case PDATab.CONTACTS:
       tab = <PDAContactsTab pdaState={pdaState} />;
       break;
-    case PDATab.EVIDENCE:
-      tab = <PDAEvidenceTab pdaState={pdaState} />;
+    case PDATab.DOCUMENTS:
+      tab = <PDADocumentsTab pdaState={pdaState} onDocumentClick={onDocumentClick} />;
       break;
   }
 
@@ -134,7 +139,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
         <AnimatedOpen css={containerCSS} open>
           <PDATabControl
             onTabClick={onPDATabChanged}
-            selectedTab={PDATab.DOCUMENTS}
+            selectedTab={PDATab.QUIZZES}
             onReturnClick={onPDAClosed}
             quizMode={!!quiz}
           >
@@ -171,7 +176,33 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
                 setSelectedDocument(null);
                 onPDATabChanged(PDATab.DOCUMENTS);
               }}
-              quiz={selectedDocument}
+              document={selectedDocument}
+            />
+          </PDATabControl>
+        </AnimatedOpen>
+      </Portal>
+    );
+  }
+
+  if (selectedQuiz) {
+    return (
+      <Portal>
+        <AnimatedOpen css={containerCSS} open>
+          <PDATabControl
+            onTabClick={tab => {
+              setSelectedDocument(null);
+              onPDATabChanged(tab);
+            }}
+            selectedTab={PDATab.QUIZZES}
+            onReturnClick={onPDAClosed}
+            quizMode={!!quiz}
+          >
+            <PDAQuizView
+              onPrevClick={() => {
+                setSelectedQuiz(null);
+                onPDATabChanged(PDATab.QUIZZES);
+              }}
+              quiz={selectedQuiz}
             />
           </PDATabControl>
         </AnimatedOpen>
