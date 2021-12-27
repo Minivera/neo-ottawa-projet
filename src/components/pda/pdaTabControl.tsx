@@ -6,10 +6,10 @@ import { darken } from 'polished';
 
 import { PDATab } from '../../game/pda';
 
-import pdaBorderTopCenter from '../../assets/ui/pda/Border1-TopCenter.png';
-import pdaBorderTopRight from '../../assets/ui/pda/Border2-TopRight.png';
-import pdaBorderBotLeft from '../../assets/ui/pda/Border3-BotLeft.png';
-import pdaBorderBotRight from '../../assets/ui/pda/Border4-BotRight.png';
+import pdaBorderTopCenter from '../../assets/ui/modals/Border1-TopCenter.png';
+import pdaBorderTopRight from '../../assets/ui/modals/Border2-TopRight.png';
+import pdaBorderBotLeft from '../../assets/ui/modals/Border3-BotLeft.png';
+import pdaBorderBotRight from '../../assets/ui/modals/Border4-BotRight.png';
 
 import CloseIcon from '../../assets/ui/pda/PDA-RetourAuJeu.svg?component';
 import HomeIcon from '../../assets/ui/pda/PDA-LePDA.svg?component';

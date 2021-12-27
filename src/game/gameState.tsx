@@ -29,10 +29,10 @@ import {
 import { loadSaveSlots, saveSaveSlot, SaveSlot } from './saving';
 
 // Hardcoded images to preload
-import pdaBorderTopCenter from '../assets/ui/pda/Border1-TopCenter.png';
-import pdaBorderTopRight from '../assets/ui/pda/Border2-TopRight.png';
-import pdaBorderBotLeft from '../assets/ui/pda/Border3-BotLeft.png';
-import pdaBorderBotRight from '../assets/ui/pda/Border4-BotRight.png';
+import pdaBorderTopCenter from '../assets/ui/modals/Border1-TopCenter.png';
+import pdaBorderTopRight from '../assets/ui/modals/Border2-TopRight.png';
+import pdaBorderBotLeft from '../assets/ui/modals/Border3-BotLeft.png';
+import pdaBorderBotRight from '../assets/ui/modals/Border4-BotRight.png';
 import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
 
 export enum GameState {

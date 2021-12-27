@@ -23,14 +23,15 @@ Fred Gallant: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les c
 ~ activer_pda()
 ~ afficher_fond(police)
 ???: Eh! Le (la) nouveau(elle)! # character=GABRIEL_SAND expression=joy
-~ afficher_personnage(GABRIEL_SAND, "fade_in")
+~ afficher_personnage(GABRIEL_SAND, "fadeIn")
 Fred Gallant: Où dois-je me rapporter? # character=FRED_GALLANT invisible
 ???: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
+~ afficher_personnage(GABRIEL_SAND, "rubberBand")
 ???: Gallant, c’est ça? # character=GABRIEL_SAND expression=amusement
 Fred Gallant: C’est ça. À qui ai-je l’honneur? # character=FRED_GALLANT invisible
 Gabriel Sand: Agent Sand. Gab. # character=GABRIEL_SAND expression=joy
 Ils se serrent la main
-~ afficher_personnage(GABRIEL_SAND, "fade_out")
+~ afficher_personnage(GABRIEL_SAND, "fadeOut")
 ~ ajouter_contact(GABRIEL_SAND)
 <b>Fred</b> se dirige directement vers le bureau du <b>CHEF MILLER</b>.
 ~ cacher_tout_personnages()
@@ -39,7 +40,7 @@ Il (elle) frappe à la porte.
 
 = scene_3
 ~ afficher_fond(bureau_chef_miller)
-~ afficher_personnage(CHEF_MILLER, "move_up")
+~ afficher_personnage(CHEF_MILLER, "bounceInUp")
 ~ ajouter_contact(CHEF_MILLER)
 Chef Miller: Entrez. # character=CHEF_MILLER
 Fred Gallant: Agent Gallant, au rapport. # character=FRED_GALLANT invisible
@@ -110,8 +111,8 @@ Chef Miller: Je compte sur vous. Vous travaillerez seul(e) sur cette première m
 
 = scene_7
 ~ afficher_fond(bureaux_police)
-~ afficher_personnage(AGENT_LUCAS, "move_up")
-~ afficher_personnage(AGENT_MOORE, "move_up")
+~ afficher_personnage(AGENT_LUCAS, "bounceInUp")
+~ afficher_personnage(AGENT_MOORE, "bounceInUp")
 <b>Fred</b> est à son bureau.<br/>D’un côté il y a <b>l’AGENT MOORE</b> et de l’autre, <b>l’AGENT LUCAS</b>.
 Agent Lucas: Hey, le (la) nouveau(elle)! Tu as reçu un dossier? # character=AGENT_LUCAS
 Fred Gallant: Comme tu vois. # character=FRED_GALLANT invisible
@@ -146,7 +147,7 @@ Fred Gallant: Comme tu vois. # character=FRED_GALLANT invisible
 - ~ cacher_tout_personnages()
 ~ ajouter_contact(AGENT_LUCAS)
 ~ ajouter_contact(AGENT_MOORE)
-~ afficher_personnage(CHEF_MILLER, "move_up")
+~ afficher_personnage(CHEF_MILLER, "bounceInUp")
 Le <b>chef Miller</b> apparaît devant le bureau de Fred.
 Chef Miller: Il y a du nouveau. Viens. # character=CHEF_MILLER
 -> scene_8
@@ -171,7 +172,7 @@ Fred Gallant: Montre-moi ce que tu as dans le ventre! # character=FRED_GALLANT i
 Le joueur peut essayer d’obtenir l’accès aux conversations par message texte de <b>Kane</b> en conversant avec <b>L’ENQUÊTEUR DU CRIMINEL.</b>
 
 ~ afficher_fond(scene_crime)
-~ afficher_personnage(ENQUETEUR, "move_up")
+~ afficher_personnage(ENQUETEUR, "bounceInUp")
 *   Vous abordez directement l’enquêteur.
     Fred Gallant: "Fred Gallant, brigade anti-jeux vidéo." Se présentant à l’enquêteur. # character=FRED_GALLANT invisible
     Enquêteur du Ciminel: Rien à foutre que vous soyez le fils du premier ministre ou l’éboueur sur appel. Sortez de cette chambre ou je vous jure que vous le regretterez.	# character=ENQUETEUR
@@ -181,7 +182,7 @@ Le joueur peut essayer d’obtenir l’accès aux conversations par message text
     Enquêteur du Ciminel: Vous êtes nouveau(elle) c’est ça? # character=ENQUETEUR
 	Ne lui laisse pas le temps de répondre.
     Enquêteur du Ciminel: BRIGHTON? # character=ENQUETEUR
-    ~ afficher_personnage(BRIGHTON, "move_up")
+    ~ afficher_personnage(BRIGHTON, "bounceInUp")
     Brighton: Oui chef? # character=BRIGHTON
     ~ ajouter_contact(BRIGHTON)
     Enquêteur du Ciminel: Sors-moi ce(tte) clown d’ici tout de suite. # character=ENQUETEUR
@@ -200,8 +201,8 @@ Le joueur peut essayer d’obtenir l’accès aux conversations par message text
     Enquêteur du Ciminel: "J’aurais dû m’en douter. Tu attends sagement ton tour." Se tournant vers Fred. # character=ENQUETEUR
     Fred Gallant: Je n’ai besoin que d’un accès à son téléphone et à son ordinateur. Puis à sa chambre quand vous aurez terminé. # character=FRED_GALLANT invisible
     Enquêteur du Ciminel: Mais il (elle) est bien élevé(e) ce(tte) con(ne). Brighton? # character=ENQUETEUR
-    ~ afficher_personnage(BRIGHTON, "move_up")
-    Brighton: Oui chef? # character=BRIGHTON animation=move_up
+    ~ afficher_personnage(BRIGHTON, "bounceInUp")
+    Brighton: Oui chef? # character=BRIGHTON
     ~ ajouter_contact(BRIGHTON)
     Enquêteur du Ciminel: Donne-lui l’accès. Puis, qu’il (elle) dégage. # character=ENQUETEUR
     Il appelle Miller.
@@ -262,14 +263,14 @@ Au moment où il (elle) démarre la voiture, il (elle) voit une <b>JEUNE FEMME</
 = scene_13
 ~ afficher_fond(quartier)
 *   Vous décidez d’aborder la jeune femme.
-    ~ afficher_personnage(BONNIE_RANDLE, "move_up")
+    ~ afficher_personnage(BONNIE_RANDLE, "bounceInUp")
     Fred Gallant: Mademoiselle, arrêtez-vous s’il-vous-plaît. # character=FRED_GALLANT invisible
-    Ne me suivez pas! Ils vont nous voir. Attendez-moi au coin de la rue Arch. # character=BONNIE_RANGLE move_up
+    Ne me suivez pas! Ils vont nous voir. Attendez-moi au coin de la rue Arch. # character=BONNIE_RANGLE
 	<b>Fred</b> roule jusqu'à la rue Arch et attend la <b>jeune femme</b>.
 	Jeune Femme: Je m’appelle Bonnie. Je fais partie de la résistance. Mais là, j’en ai marre. C’est pour ça que vous êtes là? Coincer la résistance? # character=BONNIE_RANDLE
 *   Vous suivez discrètement la jeune femme.
     Elle s’en aperçoit et accélère le pas. Rendue au coin de la rue Arch, elle s’arrête et s’approche du véhicule.
-    ~ afficher_personnage(BONNIE_RANDLE, "move_up")
+    ~ afficher_personnage(BONNIE_RANDLE, "bounceInUp")
 	Jeune Femme: Je m’appelle Bonnie. Je fais partie de la résistance. Mais là, j’en ai marre. C’est pour ça que vous êtes là? Coincer la résistance? # character=BONNIE_RANDLE
 *   (pas_rencontre_bonnie) Vous notez une description physique de la jeune femme mais vous décidez de ne pas la poursuivre.
     À son retour au bureau, <b>Fred</b> a un message dans sa boîte vocale.
@@ -280,7 +281,7 @@ Au moment où il (elle) démarre la voiture, il (elle) voit une <b>JEUNE FEMME</
 = scene_14
 ~ afficher_fond(art_house_cafe)
 {pas_rencontre_bonnie: 
-    ~ afficher_personnage(BONNIE_RANDLE, "move_up")
+    ~ afficher_personnage(BONNIE_RANDLE, "bounceInUp")
 - else:
     ~ afficher_personnage(BONNIE_RANDLE, "none")
 }
@@ -330,7 +331,7 @@ Bonnie Randle: Non, jamais entendu parler. # character=BONNIE_RANDLE
 
 = scene_15
 ~ afficher_fond(bureaux_police)
-~ afficher_personnage(CHEF_MILLER, "move_up")
+~ afficher_personnage(CHEF_MILLER, "bounceInUp")
 Le <b>Chef Miller</b> arrive au bureau de <b>Fred</b>. # character=CHEF_MILLER
 ~ cacher_fond()
 ~ cacher_tout_personnages()
@@ -376,9 +377,9 @@ Fred Gallant: Jouer. # character=FRED_GALLANT invisible
 
 = scene_16
 ~ afficher_fond(universite)
-~ afficher_personnage(CHRISTOPHER_YOUNG, "move_up")
+~ afficher_personnage(CHRISTOPHER_YOUNG, "bounceInUp")
 <b>Fred</b> et <b>Christopher Young (l’homme au téléphone)</b> sont assis sur un banc et discutent.
-Christopher Young: Les jeux, ce n’est plus ce que c’était. # character=CHRISTOPHER_YOUNG animation=move_up
+Christopher Young: Les jeux, ce n’est plus ce que c’était. # character=CHRISTOPHER_YOUNG
 Fred Gallant: Je suis né après l’arrivée de la loi. # character=FRED_GALLANT invisible
 Christopher Young: Ha! Tu as tout manqué! Moi aussi, j'en ai seulement entendu parler. # character=CHRISTOPHER_YOUNG
 Fred Gallant: Je comprends. # character=FRED_GALLANT invisible

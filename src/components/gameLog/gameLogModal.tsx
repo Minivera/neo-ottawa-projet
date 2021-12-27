@@ -4,10 +4,10 @@ import { theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
-import pdaBorderTopCenter from '../../assets/ui/pda/Border1-TopCenter.png';
+import pdaBorderTopCenter from '../../assets/ui/modals/Border5-TopLeft.png';
 
 import CloseIcon from '../../assets/ui/pda/PDA-RetourAuJeu.svg?component';
-import GameLogIcon from '../../assets/ui/pda/Historique.svg?component';
+import GameLogIcon from '../../assets/ui/icons/Historique.svg?component';
 
 const GameLogContainer = styled.div`
   max-height: calc(100% - 3.5rem);
@@ -23,7 +23,7 @@ const GameLogBackgroundGrid = styled.div`
   max-height: calc(100vh - 3.5rem);
   overflow: hidden;
   display: grid;
-  grid-template-columns: min-content 33px auto 16rem;
+  grid-template-columns: min-content 42px auto 16rem;
   grid-template-rows: 50px auto;
 `;
 

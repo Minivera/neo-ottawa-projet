@@ -4,7 +4,7 @@ import { jsx, css, Theme } from '@emotion/react';
 import { Interpolation } from '@emotion/serialize';
 import { transparentize } from 'polished';
 
-import ExpandIcon from '../assets/ui/pda/FlecheNEXT.svg?component';
+import ExpandIcon from '../assets/ui/icons/FlecheNEXT.svg?component';
 
 export interface ExpanderProps {
   title: string;

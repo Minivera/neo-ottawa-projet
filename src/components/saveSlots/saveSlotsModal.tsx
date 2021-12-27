@@ -4,10 +4,10 @@ import { theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
-import pdaBorderTopCenter from '../../assets/ui/pda/Border1-TopCenter.png';
+import pdaBorderTopCenter from '../../assets/ui/modals/Border5-TopLeft.png';
 
 import CloseIcon from '../../assets/ui/pda/PDA-RetourAuJeu.svg?component';
-import SaveSlotsIcon from '../../assets/ui/pda/Historique.svg?component';
+import SaveSlotsIcon from '../../assets/ui/icons/Historique.svg?component';
 
 const SaveSlotsContainer = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const SaveSlotsContainer = styled.div`
 const SaveSlotsBackgroundGrid = styled.div`
   overflow: hidden;
   display: grid;
-  grid-template-columns: min-content 33px auto 16rem;
+  grid-template-columns: min-content 42px auto 16rem;
   grid-template-rows: 50px auto;
 `;
 
@@ -60,7 +60,7 @@ const SaveSlotsTopBorder = styled.div`
   grid-row: 1;
   grid-column: 3;
   border-top: 0.4em solid ${theme('colors.secondary')};
-  background: ${theme('colors.darkGray')};
+  background: ${theme('colors.darkGreen')};
   z-index: 3;
   pointer-events: none;
 `;
@@ -71,7 +71,7 @@ const SaveSlotsReturnButton = styled.div`
   padding-left: 1.7rem;
   position: relative;
   border-top: 0.4em solid ${theme('colors.secondary')};
-  background: ${theme('colors.darkGray')};
+  background: ${theme('colors.darkGreen')};
   z-index: 3;
   pointer-events: auto;
 `;
@@ -117,7 +117,7 @@ const SaveSlotsContent = styled.div`
   grid-row: 2;
   grid-column: 1 / span 4;
   z-index: 2;
-  background: ${theme('colors.darkGray')};
+  background: ${theme('colors.darkGreen')};
   color: ${theme('colors.secondary')};
   border-left: 0.4em solid ${theme('colors.secondary')};
   border-right: 0.4em solid ${theme('colors.secondary')};

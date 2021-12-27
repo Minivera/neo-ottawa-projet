@@ -20,7 +20,7 @@ export const interfaceTerms = {
   pdf_download: 'Télécharger',
 
   // PDA
-  pda_home: 'Acceuil',
+  pda_home: 'Accueil',
   pda_documents: 'Notes',
   pda_map: 'Plan de la ville',
   pda_contacts: 'Contacts',

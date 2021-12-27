@@ -34,6 +34,8 @@ const SettingsForm = styled.div`
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  margin-bottom: -30px;
+  margin-right: -30px;
 `;
 
 const SettingsLabel = styled.label`

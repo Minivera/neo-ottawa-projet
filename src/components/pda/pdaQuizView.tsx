@@ -12,10 +12,10 @@ import { PDATitle } from './pdaTitle';
 
 import { IconButton } from '../iconButton';
 
-import QuizIcon from '../../assets/ui/pda/QuizCompleted.svg?component';
-import ReturnArrow from '../../assets/ui/pda/Minimiser-maximiser.svg?component';
-import NextIcon from '../../assets/ui/pda/FlecheNEXT.svg?component';
-import PreviousIcon from '../../assets/ui/pda/FlechePREVIOUS.svg?component';
+import QuizIcon from '../../assets/ui/icons/QuizCompleted.svg?component';
+import ReturnArrow from '../../assets/ui/icons/Minimiser-maximiser.svg?component';
+import NextIcon from '../../assets/ui/icons/FlecheNEXT.svg?component';
+import PreviousIcon from '../../assets/ui/icons/FlechePREVIOUS.svg?component';
 
 export interface PDAQuizViewProps {
   quiz: Quiz;

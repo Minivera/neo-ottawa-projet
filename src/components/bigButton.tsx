@@ -26,6 +26,7 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
       border: none;
       cursor: pointer;
       text-align: center;
+      transition: all 150ms ease;
     
       & > svg {
         position: absolute;
@@ -35,10 +36,12 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
         left: 0px;
         z-index: 1;
         fill: ${theme.colors.black};
+        transition: inherit;
     
         & > path {
           stroke: ${theme.colors.secondary};
           stroke-width: 7;
+          transition: inherit;
         }
       }
     
@@ -49,11 +52,13 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
         align-items: center;
         z-index: 2;
         margin: 0 2.5em;
+        transition: inherit;
     
         & svg {
           fill: ${theme.colors.secondary};
           height: 2.5em;
           margin-right: 0.5em;
+          transition: inherit;
         }
       }
     

@@ -4,18 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { theme, ifProp } from 'styled-tools';
 import { darken, transparentize } from 'polished';
 
-import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
+import SettingsIcon from '../assets/ui/icons/Parametres.svg?component';
 import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
-import SaveIcon from '../assets/ui/pda/Sauvegarder.svg?component';
-import GameLogIcon from '../assets/ui/pda/Historique.svg?component';
-import MinimizeIcon from '../assets/ui/pda/Minimiser-maximiser.svg?component';
+import SaveIcon from '../assets/ui/icons/Sauvegarder.svg?component';
+import GameLogIcon from '../assets/ui/icons/Historique.svg?component';
+import MinimizeIcon from '../assets/ui/icons/Minimiser-maximiser.svg?component';
 
 const GameMenuContainer = styled.div<{ open?: boolean }>`
   position: absolute;
   top: 5rem;
   background-color: transparent;
   filter: drop-shadow(0 0.4rem 0.4rem ${theme('colors.gray')});
-  z-index: 2;
+  z-index: 5;
   transition: right ease-in-out 500ms;
   width: 11rem;
 

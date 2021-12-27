@@ -3,7 +3,7 @@ import Slider, { SliderProps } from 'rc-slider';
 import styled from '@emotion/styled';
 import { ifProp, theme } from 'styled-tools';
 
-import NextIcon from '../../assets/ui/pda/FlecheNEXT.svg?component';
+import NextIcon from '../../assets/ui/icons/FlecheNEXT.svg?component';
 
 const SliderContainer = styled.div<{ disabled?: boolean }>`
   ${ifProp('disabled', 'opacity: 0.3;', '')}

@@ -8,8 +8,8 @@ import { PDA } from '../../game/pda';
 import { PDATitle } from './pdaTitle';
 
 import ContactIcon from '../../assets/ui/pda/PDA-Contacts.svg?component';
-import PoliceContactIcon from '../../assets/ui/pda/ContactBrigade.svg?component';
-import ResistanceContactIcon from '../../assets/ui/pda/ContactResist.svg?component';
+import PoliceContactIcon from '../../assets/ui/icons/ContactBrigade.svg?component';
+import ResistanceContactIcon from '../../assets/ui/icons/ContactResist.svg?component';
 import pdaVideo from '../../assets/videos/videoblocks-hud-futuristic.mp4';
 
 export interface PDAContactsTabProps {

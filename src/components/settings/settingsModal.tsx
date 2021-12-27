@@ -4,11 +4,11 @@ import { theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
-import pdaBorderTopCenter from '../../assets/ui/pda/Border1-TopCenter.png';
-import pdaBorderBotRight from '../../assets/ui/pda/Border4-BotRight.png';
+import pdaBorderTopCenter from '../../assets/ui/modals/Border5-TopLeft.png';
+import pdaBorderBotRight from '../../assets/ui/modals/Border1-TopCenter.png';
 
 import CloseIcon from '../../assets/ui/pda/PDA-RetourAuJeu.svg?component';
-import SettingsIcon from '../../assets/ui/pda/Parametres.svg?component';
+import SettingsIcon from '../../assets/ui/icons/Parametres.svg?component';
 
 const SettingsContainer = styled.div`
   padding: 2rem;
@@ -19,7 +19,7 @@ const SettingsBackgroundGrid = styled.div`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: min-content 33px auto 2.5rem 30px;
+  grid-template-columns: min-content 42px auto 2.5rem 30px;
   grid-template-rows: 50px auto 30px;
 `;
 
@@ -123,6 +123,7 @@ const SettingsRightBorder = styled.div`
   border-right: 0.4em solid ${theme('colors.secondary')};
   z-index: 3;
   pointer-events: none;
+  background: ${theme('colors.darkGreen')};
 `;
 
 const SettingsBottomRightCorner = styled.div`
@@ -141,19 +142,19 @@ const SettingsBottomBorder = styled.div`
   grid-row: 3;
   grid-column: 1 / span 4;
   border-bottom: 0.4em solid ${theme('colors.secondary')};
+  border-left: 0.4em solid ${theme('colors.secondary')};
   z-index: 3;
   pointer-events: none;
+  background: ${theme('colors.darkGreen')};
 `;
 
 const SettingsContent = styled.div`
-  grid-row: 2 / span 2;
-  grid-column: 1 / span 5;
+  grid-row: 2;
+  grid-column: 1 / span 4;
   z-index: 2;
   background: ${theme('colors.darkGreen')};
   color: ${theme('colors.secondary')};
   font-size: 1rem;
-  max-width: 100%;
-  max-height: 100%;
   display: flex;
   position: relative;
   overflow: hidden;

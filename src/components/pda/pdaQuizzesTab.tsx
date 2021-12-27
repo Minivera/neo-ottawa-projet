@@ -8,7 +8,7 @@ import { PDA, QuizInfo } from '../../game/pda';
 import { PDATitle } from './pdaTitle';
 
 import QuizzesIcon from '../../assets/ui/pda/PDA-Quiz.svg?component';
-import CompletedQuizIcon from '../../assets/ui/pda/QuizCompleted.svg?component';
+import CompletedQuizIcon from '../../assets/ui/icons/QuizCompleted.svg?component';
 import pdaVideo from '../../assets/videos/videoblocks-hud-futuristic.mp4';
 
 export interface PDAQuizzesTabProps {

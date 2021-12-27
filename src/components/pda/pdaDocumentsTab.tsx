@@ -8,7 +8,7 @@ import { PDA, Document } from '../../game/pda';
 import { PDATitle } from './pdaTitle';
 
 import DocumentsIcon from '../../assets/ui/pda/PDA-Documents.svg?component';
-import DocumentIcon from '../../assets/ui/pda/Document.svg?component';
+import DocumentIcon from '../../assets/ui/icons/Document.svg?component';
 import pdaVideo from '../../assets/videos/videoblocks-hud-futuristic.mp4';
 
 export interface PDADocumentsTabProps {

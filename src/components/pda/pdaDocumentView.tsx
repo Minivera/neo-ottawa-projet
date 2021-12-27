@@ -8,8 +8,8 @@ import { Document } from '../../game/pda';
 import { PDFReader } from '../pdfReader';
 import { PDATitle } from './pdaTitle';
 
-import DocumentIcon from '../../assets/ui/pda/Document.svg?component';
-import ReturnArrow from '../../assets/ui/pda/Minimiser-maximiser.svg?component';
+import DocumentIcon from '../../assets/ui/icons/Document.svg?component';
+import ReturnArrow from '../../assets/ui/icons/Minimiser-maximiser.svg?component';
 
 export interface PDADocumentViewProps {
   document: Document;

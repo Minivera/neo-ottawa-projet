@@ -5,9 +5,9 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
-import NextIcon from '../assets/ui/pda/FlecheNEXT.svg?component';
-import PreviousIcon from '../assets/ui/pda/FlechePREVIOUS.svg?component';
-import DownloadIcon from '../assets/ui/pda/Document.svg?component';
+import NextIcon from '../assets/ui/icons/FlecheNEXT.svg?component';
+import PreviousIcon from '../assets/ui/icons/FlechePREVIOUS.svg?component';
+import DownloadIcon from '../assets/ui/icons/Document.svg?component';
 
 import { IconButton } from './iconButton';
 

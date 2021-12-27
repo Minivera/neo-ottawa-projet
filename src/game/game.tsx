@@ -23,9 +23,9 @@ import { SaveSlot } from './saving';
 import { SaveSlots } from '../components/saveSlots/saveSlots';
 
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
-import StartIcon from '../assets/ui/pda/PowerResist.svg?component';
-import SettingsIcon from '../assets/ui/pda/Parametres.svg?component';
-import SaveIcon from '../assets/ui/pda/Sauvegarder.svg?component';
+import StartIcon from '../assets/ui/icons/PowerResist.svg?component';
+import SettingsIcon from '../assets/ui/icons/Parametres.svg?component';
+import SaveIcon from '../assets/ui/icons/Sauvegarder.svg?component';
 
 export interface GameProps {
   storyContent: string;
