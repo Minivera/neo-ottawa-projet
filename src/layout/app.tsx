@@ -13,6 +13,7 @@ import vcrOsdMonoFont from '../assets/fonts/VCR_OSD_MONO.ttf';
 import storyContent from '../../data/story.json?raw';
 
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import 'animate.css';
 
 const Container = styled.main`
   background-color: ${polishedTheme('colors.black')};

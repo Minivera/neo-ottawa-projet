@@ -68,9 +68,16 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           loop
         />
         <GameContainer>
-          <MenuContainer>
+          <div
+            css={css`
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            `}
+          >
             <GameLoader percent={percentLoaded} />
-          </MenuContainer>
+          </div>
         </GameContainer>
       </React.Fragment>
     );
