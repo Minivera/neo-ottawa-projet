@@ -44,6 +44,7 @@ export const HexagonButton: FunctionComponent<
       border: none;
       cursor: ${disabled ? 'not-allowed' : 'pointer'};
       pointer-events: ${disabled ? 'none' : 'auto'};
+      transition: all 150ms ease;
 
       & svg {
         position: absolute;
@@ -53,6 +54,7 @@ export const HexagonButton: FunctionComponent<
         left: 0;
         z-index: -1;
         fill: ${backgroundColor || 'transparent'};
+        transition: inherit;
       }
 
       ${active
@@ -77,6 +79,7 @@ export const HexagonButton: FunctionComponent<
       path {
         stroke: ${borderColor || theme.colors.text};
         stroke-width: 2;
+        transition: inherit;
       }
 
       ${visited

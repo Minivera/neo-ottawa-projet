@@ -40,6 +40,7 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
   const buttonStyles = (theme: Theme, disabled: boolean) =>
     css(`
     color: ${disabled ? theme.colors.text : theme.colors.darkGray};
+    transition: all 150ms ease;
   
     ${
       !disabled
@@ -55,9 +56,10 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
         : ''
     }
 
-  & svg {
-    fill: ${disabled ? theme.colors.text : theme.colors.darkGray};
-  }
+    & svg {
+      fill: ${disabled ? theme.colors.text : theme.colors.darkGray};
+      transition: inherit;
+    }
   `);
 
   return (

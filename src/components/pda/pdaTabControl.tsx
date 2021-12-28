@@ -62,6 +62,7 @@ const PDANavigationLink = styled.a<PDANavigationLinkProps>`
   position: relative;
   white-space: nowrap;
   text-transform: uppercase;
+  transition: all 150ms ease;
 
   &:first-of-type {
     margin-left: 0;
@@ -76,6 +77,7 @@ const PDANavigationLink = styled.a<PDANavigationLinkProps>`
     margin-top: 0.2rem;
     height: 1.2rem;
     fill: ${theme('colors.secondary')};
+    transition: inherit;
   }
 
   ${ifNotProp(
@@ -171,11 +173,13 @@ const PDAReturnInner = styled.div`
   cursor: pointer;
   white-space: nowrap;
   pointer-events: auto;
+  transition: all 150ms ease;
 
   & svg {
     margin-right: 0.4rem;
     margin-top: 0.2rem;
     height: 1.2rem;
+    transition: inherit;
   }
 
   &:hover,

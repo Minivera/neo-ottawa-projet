@@ -95,9 +95,11 @@ const SettingsReturnInner = styled.div`
   padding: 0.5rem 0.5rem 1rem;
   background-color: ${theme('colors.secondary')};
   cursor: pointer;
+  transition: all 150ms ease;
 
   & svg {
     height: 2rem;
+    transition: inherit;
   }
 
   &:hover,

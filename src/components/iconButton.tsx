@@ -17,6 +17,7 @@ export const IconButton = styled.a<IconButtonProps>`
   cursor: ${ifProp('disabled', 'not-allowed', 'pointer')};
   display: flex;
   align-items: center;
+  transition: all 150ms ease;
 
   ${ifNotProp(
     'disabled',
@@ -47,5 +48,6 @@ export const IconButton = styled.a<IconButtonProps>`
     margin-left: 1rem;
     margin-top: 0.4rem;
     height: 1.3rem;
+    transition: inherit;
   }
 `;

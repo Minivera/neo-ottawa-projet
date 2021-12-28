@@ -46,12 +46,14 @@ const GameMenuLink = styled.a`
         theme('colors.lightGray')(props) as unknown as string
       )};
   color: ${theme('colors.darkGreen')};
+  transition: all 150ms ease;
 
   & svg {
     fill: ${theme('colors.darkGreen')};
     width: 1.3rem;
     height: 1.3rem;
     margin-right: 0.6rem;
+    transition: inherit;
   }
 
   &:hover,
@@ -78,6 +80,7 @@ const MinimizeLink = styled.a<{ open?: boolean }>`
   padding: 0.5rem 0.8rem;
   background-color: ${theme('colors.darkGreen')};
   color: ${theme('colors.secondary')};
+  transition: all 150ms ease;
 
   & svg {
     fill: ${theme('colors.secondary')};
@@ -85,7 +88,7 @@ const MinimizeLink = styled.a<{ open?: boolean }>`
     height: 1.3rem;
     margin-right: 0.6rem;
 
-    transition: transform ease-in-out 500ms;
+    transition: fill 150ms ease, transform ease-in-out 500ms;
     ${ifProp('open', '', 'transform: rotate(180deg);')}
   }
 
