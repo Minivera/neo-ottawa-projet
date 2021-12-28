@@ -16,7 +16,6 @@ import { NextButton } from '../nextButton';
 import { Expander } from '../expander';
 import { PDATitle } from './pdaTitle';
 
-import pdaVideo from '../../assets/videos/videoblocks-hud-futuristic.mp4';
 import QuizIcon from '../../assets/ui/pda/PDA-Quiz.svg?component';
 
 export interface PDAQuizTabProps {
@@ -58,11 +57,11 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
         </PDATitle>
         <div
           css={css`
-              display: flex;
-              flex-direction: column;
-              margin-right: 1rem;
-              font-size: 1.5rem;
-            `}
+            display: flex;
+            flex-direction: column;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+          `}
         >
           Something wrong happened
         </div>
@@ -71,169 +70,148 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
   }
 
   return (
-    <React.Fragment>
-      <div
-        css={css`
-          position: absolute;
-          inset: 0;
-          opacity: 0.3;
-          z-index: -2;
-          overflow: hidden;
-        `}
-      >
-        <video
-          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-          // @ts-ignore
-          src={pdaVideo}
+    <div
+      css={css`
+        display: flex;
+        justify-content: space-around;
+        padding: 0 8rem;
+
+        @media only screen and (max-width: 1600px) {
+          flex-direction: column;
+          align-items: center;
+        }
+      `}
+    >
+      <div>
+        <PDATitle>
+          <QuizIcon />
+          {t(quiz.name)} - {quiz.currentIndex} / {quiz.questionCount}
+        </PDATitle>
+        <div
           css={css`
-            position: relative;
-            inset: 0;
-          `}
-        />
-      </div>
-      <div
-        css={css`
-          display: flex;
-          justify-content: space-around;
-          padding: 0 8rem;
-          
-          @media only screen and (max-width: 1600px) {
+            display: flex;
             flex-direction: column;
-            align-items: center;
-          }
-        `}
-      >
-        <div>
-          <PDATitle>
-            <QuizIcon />
-            {t(quiz.name)} - {quiz.currentIndex} / {quiz.questionCount}
-          </PDATitle>
+            margin-right: 1rem;
+            font-size: 1.5rem;
+          `}
+        >
+          {currentQuestion.document && (
+            <Expander
+              title={t('pda_document_description')}
+              css={css`
+                height: 80px;
+                z-index: 4;
+              `}
+            >
+              {t(currentQuestion.document.description)}
+            </Expander>
+          )}
+          <p
+            css={theme => css`
+              color: ${theme.colors.white};
+              padding-bottom: 0.8rem;
+            `}
+          >
+            {currentQuestion.question}
+          </p>
           <div
             css={css`
               display: flex;
               flex-direction: column;
-              margin-right: 1rem;
-              font-size: 1.5rem;
+              margin-top: 1rem;
             `}
           >
-            {currentQuestion.document && (
-              <Expander
-                title={t('pda_document_description')}
-                css={css`
-                  height: 80px;
-                  z-index: 4;
-                `}
-              >
-                {t(currentQuestion.document.description)}
-              </Expander>
-            )}
-            <p
-              css={theme => css`
-                color: ${theme.colors.white};
-                padding-bottom: 0.8rem;
-              `}
-            >
-              {currentQuestion.question}
-            </p>
-            <div
-              css={css`
-                display: flex;
-                flex-direction: column;
-                margin-top: 1rem;
-              `}
-            >
-              {currentQuestion.choices.map(choice => {
-                let text = choice.content.replace('CACHER--', '');
-                let active = false;
-                if (choice.content.includes('ACTIF--')) {
-                  text = choice.content.replace('ACTIF--', '');
-                  active = true;
-                }
-                let visited = false;
-                if (choice.content.includes('VISITE--')) {
-                  text = choice.content.replace('VISITE--', '');
-                  visited = true;
-                }
+            {currentQuestion.choices.map(choice => {
+              let text = choice.content.replace('CACHER--', '');
+              let active = false;
+              if (choice.content.includes('ACTIF--')) {
+                text = choice.content.replace('ACTIF--', '');
+                active = true;
+              }
+              let visited = false;
+              if (choice.content.includes('VISITE--')) {
+                text = choice.content.replace('VISITE--', '');
+                visited = true;
+              }
 
-                return (
-                  <div
-                    key={choice.id}
-                    css={theme => css`
-                      & button {
-                        width: 100%;
-                        margin: 0;
-                        color: ${theme.colors.lightGray};
-                      }
-                    `}
+              return (
+                <div
+                  key={choice.id}
+                  css={theme => css`
+                    & button {
+                      width: 100%;
+                      margin: 0;
+                      color: ${theme.colors.lightGray};
+                    }
+                  `}
+                >
+                  <HexagonButton
+                    onClick={() => onChoiceSelected(choice)}
+                    color={lighten(0.4, theme.colors.text)}
+                    backgroundColor={theme.colors.black}
+                    borderColor={theme.colors.secondary}
+                    hoverColor={theme.colors.white}
+                    hoverBackgroundColor={theme.colors.secondary}
+                    active={active}
+                    visited={visited}
                   >
-                    <HexagonButton
-                      onClick={() => onChoiceSelected(choice)}
-                      color={lighten(0.4, theme.colors.text)}
-                      backgroundColor={theme.colors.black}
-                      borderColor={theme.colors.secondary}
-                      hoverColor={theme.colors.white}
-                      hoverBackgroundColor={theme.colors.secondary}
-                      active={active}
-                      visited={visited}
-                    >
-                      {text}
-                    </HexagonButton>
-                  </div>
-                );
-              })}
-            </div>
+                    {text}
+                  </HexagonButton>
+                </div>
+              );
+            })}
           </div>
         </div>
-        {currentQuestion.document && currentQuestion.document.path && (
+      </div>
+      {currentQuestion.document && currentQuestion.document.path && (
+        <div
+          css={css`
+            margin-left: 1rem;
+          `}
+        >
+          <PDFReader pdfPath={currentQuestion.document.path} />
+        </div>
+      )}
+      {currentQuestion.feedback && (
+        <Portal>
           <div
-            css={css`
-              margin-left: 1rem;
+            css={theme => css`
+              position: fixed;
+              inset: 0;
+              z-index: 7;
+              background-color: ${transparentize(0.4, theme.colors.darkGray)};
+
+              & div {
+                width: 100%;
+                height: 100%;
+              }
             `}
           >
-            <PDFReader pdfPath={currentQuestion.document.path} />
-          </div>
-        )}
-        {currentQuestion.feedback && (
-          <Portal>
-            <div
-              css={theme => css`
-                position: fixed;
-                inset: 0;
-                z-index: 7;
-                background-color: ${transparentize(0.4, theme.colors.darkGray)};
-
-                & div {
-                  width: 100%;
-                  height: 100%;
-                }
-              `}
+            <SceneContainer
+              onClick={handleClickContinue}
+              onKeyDown={handleKeyContinue}
+              tabIndex={-1}
             >
-              <SceneContainer
-                onClick={handleClickContinue}
-                onKeyDown={handleKeyContinue}
-                tabIndex={-1}
-              >
-                <DialogBox center>
-                  <p>
-                    <AnimatedText
-                      text={currentQuestion.feedback}
-                      onTextLoadingStart={onTextLoadingStart}
-                      onTextLoadingEnd={onTextLoadingEnd}
-                      skipAnimation={
-                        !settings.textAnimationsEnabled || skipAnimation
-                      }
-                      animationSpeed={settings.textAnimationSpeed}
-                    />
-                  </p>
-                  {(!settings.textAnimationsEnabled || skipAnimation) && (
-                    <NextButton />
-                  )}
-                </DialogBox>
-              </SceneContainer>
-            </div>
-          </Portal>
-        )}
-      </div>
-    </React.Fragment>
+              <DialogBox center>
+                <p>
+                  <AnimatedText
+                    text={currentQuestion.feedback}
+                    onTextLoadingStart={onTextLoadingStart}
+                    onTextLoadingEnd={onTextLoadingEnd}
+                    skipAnimation={
+                      !settings.textAnimationsEnabled || skipAnimation
+                    }
+                    animationSpeed={settings.textAnimationSpeed}
+                  />
+                </p>
+                {(!settings.textAnimationsEnabled || skipAnimation) && (
+                  <NextButton />
+                )}
+              </DialogBox>
+            </SceneContainer>
+          </div>
+        </Portal>
+      )}
+    </div>
   );
 };

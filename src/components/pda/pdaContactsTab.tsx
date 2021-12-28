@@ -10,7 +10,6 @@ import { PDATitle } from './pdaTitle';
 import ContactIcon from '../../assets/ui/pda/PDA-Contacts.svg?component';
 import PoliceContactIcon from '../../assets/ui/icons/ContactBrigade.svg?component';
 import ResistanceContactIcon from '../../assets/ui/icons/ContactResist.svg?component';
-import pdaVideo from '../../assets/videos/videoblocks-hud-futuristic.mp4';
 
 export interface PDAContactsTabProps {
   pdaState: PDA;
@@ -19,130 +18,109 @@ export interface PDAContactsTabProps {
 export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
   pdaState,
 }) => (
-  <React.Fragment>
+  <div
+    css={css`
+      width: calc(100% - 8rem);
+      padding: 0 10rem;
+    `}
+  >
     <div
       css={css`
-        position: absolute;
-        inset: 0;
-        opacity: 0.3;
-        z-index: -2;
-        overflow: hidden;
+        display: flex;
+        flex-direction: column;
       `}
     >
-      <video
-        /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-        // @ts-ignore
-        src={pdaVideo}
-        css={css`
-          position: relative;
-          inset: 0;
-        `}
-      />
-    </div>
-    <div
-      css={css`
-        width: calc(100% - 8rem);
-        padding: 0 10rem;
-      `}
-    >
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-        `}
-      >
-        <PDATitle>
-          <ContactIcon />
-          <Trans i18nKey="pda_contacts" />
-        </PDATitle>
-        {pdaState.contacts.length > 0 ? (
-          <div
+      <PDATitle>
+        <ContactIcon />
+        <Trans i18nKey="pda_contacts" />
+      </PDATitle>
+      {pdaState.contacts.length > 0 ? (
+        <div
+          css={css`
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+          `}
+        >
+          <table
             css={css`
-              height: 100%;
               width: 100%;
-              overflow-y: auto;
+              margin: 0;
+              padding: 0;
             `}
           >
-            <table
-              css={css`
-                width: 100%;
-                margin: 0;
-                padding: 0;
-              `}
-            >
-              <tbody>
-                {pdaState.contacts.map(contact => (
-                  <tr
-                    key={contact.name}
-                    css={theme => css`
-                      padding: 1rem 0;
-                      font-size: 1.8rem;
-                      cursor: pointer;
+            <tbody>
+              {pdaState.contacts.map(contact => (
+                <tr
+                  key={contact.name}
+                  css={theme => css`
+                    padding: 1rem 0;
+                    font-size: 1.8rem;
+                    cursor: pointer;
+
+                    & svg {
+                      fill: ${theme.colors.secondary};
+                    }
+
+                    &:last-of-type td {
+                      border-bottom: none;
+                    }
+
+                    &:hover {
+                      background-color: ${theme.colors.secondary};
+                      color: ${darken(0.2, theme.colors.yellow)};
 
                       & svg {
-                        fill: ${theme.colors.secondary};
+                        fill: ${darken(0.2, theme.colors.yellow)};
                       }
-
-                      &:last-of-type td {
-                        border-bottom: none;
-                      }
-
-                      &:hover {
-                        background-color: ${theme.colors.secondary};
-                        color: ${darken(0.2, theme.colors.yellow)};
-
-                        & svg {
-                          fill: ${darken(0.2, theme.colors.yellow)};
-                        }
-                      }
+                    }
+                  `}
+                >
+                  <td
+                    css={theme => css`
+                      border-right: 0.1rem solid ${theme.colors.lightGray};
+                      border-bottom: 0.1rem solid ${theme.colors.lightGray};
+                      padding: 1rem;
                     `}
                   >
-                    <td
-                      css={theme => css`
-                        border-right: 0.1rem solid ${theme.colors.lightGray};
-                        border-bottom: 0.1rem solid ${theme.colors.lightGray};
-                        padding: 1rem;
-                      `}
-                    >
-                      <div
-                        css={css`
-                          display: flex;
-                          align-items: center;
-                          font-size: 1.5rem;
+                    <div
+                      css={css`
+                        display: flex;
+                        align-items: center;
+                        font-size: 1.5rem;
 
-                          & svg {
-                            margin-right: 0.2rem;
-                            height: 2.5rem;
-                          }
-                        `}
-                      >
-                        {contact.type === 'police' ? (
-                          <PoliceContactIcon />
-                        ) : (
-                          <ResistanceContactIcon />
-                        )}
-                        <Trans i18nKey={contact.name} />
-                      </div>
-                    </td>
-                    <td
-                      css={theme => css`
-                        border-bottom: 0.1rem solid ${theme.colors.lightGray};
-                        padding: 1rem;
+                        & svg {
+                          margin-right: 0.2rem;
+                          height: 2.5rem;
+                        }
                       `}
                     >
-                      <Trans i18nKey={contact.description} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <div>
-            <Trans i18nKey="pda_none" />
-          </div>
-        )}
-      </div>
+                      {contact.type === 'police' ? (
+                        <PoliceContactIcon />
+                      ) : (
+                        <ResistanceContactIcon />
+                      )}
+                      <Trans i18nKey={contact.name} />
+                    </div>
+                  </td>
+                  <td
+                    css={theme => css`
+                      border-bottom: 0.1rem solid ${theme.colors.lightGray};
+                      padding: 1rem;
+                    `}
+                  >
+                    <Trans i18nKey={contact.description} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div>
+          <Trans i18nKey="pda_none" />
+        </div>
+      )}
     </div>
-  </React.Fragment>
+  </div>
 );

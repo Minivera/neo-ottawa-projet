@@ -61,7 +61,7 @@ const GameLogTopBorder = styled.div`
   grid-row: 1;
   grid-column: 3;
   border-top: 0.4em solid ${theme('colors.secondary')};
-  background: ${theme('colors.darkGray')};
+  background: ${theme('colors.darkGreen')};
   z-index: 3;
   pointer-events: none;
 `;
@@ -72,7 +72,7 @@ const GameLogReturnButton = styled.div`
   padding-left: 1.7rem;
   position: relative;
   border-top: 0.4em solid ${theme('colors.secondary')};
-  background: ${theme('colors.darkGray')};
+  background: ${theme('colors.darkGreen')};
   z-index: 3;
   pointer-events: auto;
 `;
@@ -118,7 +118,7 @@ const GameLogContent = styled.div`
   grid-row: 2;
   grid-column: 1 / span 4;
   z-index: 2;
-  background: ${theme('colors.darkGray')};
+  background: ${theme('colors.darkGreen')};
   color: ${theme('colors.secondary')};
   border-left: 0.4em solid ${theme('colors.secondary')};
   border-right: 0.4em solid ${theme('colors.secondary')};

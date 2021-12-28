@@ -3,7 +3,7 @@ import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
 
 import { SceneState } from './scene';
-import { PDA, PDATab } from './pda';
+import { PDA } from './pda';
 import { usePreloader } from '../hooks/useLoading';
 import { Game } from './game';
 import {
@@ -87,10 +87,7 @@ export type GameAction =
   | {
       type: 'play_sound';
       soundId: keyof typeof soundEffects;
-    }
-  | { type: 'open_pda' }
-  | { type: 'close_pda' }
-  | { type: 'change_pda_tab'; tab: PDATab };
+    };
 
 const isPDAActivated = (story: Story) =>
   (story.variablesState as unknown as GameVariables).pda_activated;
@@ -422,7 +419,8 @@ const generateQuizStep = (
 
 export const useGame = (
   settings: Settings,
-  storyContent: string
+  storyContent: string,
+  openPDA: () => void
 ): [boolean, number, Story, Game, (action: GameAction) => void] => {
   // JSON has invalid char at index 0 for some reason
   const story = useMemo<Story>(
@@ -433,9 +431,7 @@ export const useGame = (
     state: GameState.Loaded,
     canContinue: false,
     pda: {
-      open: false,
       enabled: false,
-      tab: PDATab.HOME,
       documents: [],
       contacts: [],
       quizzes: [],
@@ -606,33 +602,6 @@ export const useGame = (
             ...state,
           };
         }
-        case 'open_pda': {
-          return {
-            ...state,
-            pda: {
-              ...state.pda,
-              open: true,
-            },
-          };
-        }
-        case 'close_pda': {
-          return {
-            ...state,
-            pda: {
-              ...state.pda,
-              open: false,
-            },
-          };
-        }
-        case 'change_pda_tab': {
-          return {
-            ...state,
-            pda: {
-              ...state.pda,
-              tab: action.tab,
-            },
-          };
-        }
         default:
           return state;
       }
@@ -663,7 +632,7 @@ export const useGame = (
       story.BindExternalFunction(
         'show_pda',
         () => {
-          dispatch({ type: 'open_pda' });
+          openPDA();
         },
         false
       );

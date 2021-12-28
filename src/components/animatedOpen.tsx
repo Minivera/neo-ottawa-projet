@@ -1,29 +1,57 @@
 /** @jsx jsx */
 import { css, jsx, Theme } from '@emotion/react';
 import { FunctionComponent } from 'react';
-import { Transition } from 'react-transition-group';
+import { Transition, TransitionStatus } from 'react-transition-group';
 import { Interpolation } from '@emotion/serialize';
 
 export interface AnimatedOpenProps {
   open?: boolean;
   duration?: number;
-  css?: Interpolation<Theme>
+  css?: Interpolation<Theme>;
+  overrideStateCSS?: (status: TransitionStatus) => string;
 }
 
 export const AnimatedOpen: FunctionComponent<AnimatedOpenProps> = ({
   open,
-  duration = 300,
+  duration = 0.75,
   children,
+  overrideStateCSS,
   ...rest
 }) => (
-  <Transition in={open} timeout={duration}>
+  <Transition in={open} timeout={duration * 1000}>
     {state => (
       <div
         css={css`
-          transition: opacity ${duration}ms ease-in-out;
-          opacity: ${state === 'entered' || state === 'entering' ? 1 : 0};
-          ${state === 'entered' || state === 'entering' || state === 'exiting' ? 'z-index: 7 !important;' : ''}
-          ${state === 'exited' ? 'z-index: -3 !important;' : ''}
+          @keyframes unfoldIn {
+            0% {
+              transform: scaleY(0.005) scaleX(0);
+            }
+            50% {
+              transform: scaleY(0.005) scaleX(1);
+            }
+            100% {
+              transform: scaleY(1) scaleX(1);
+            }
+          }
+
+          @keyframes unfoldOut {
+            0% {
+              transform: scaleY(1) scaleX(1);
+            }
+            50% {
+              transform: scaleY(0.005) scaleX(1);
+            }
+            100% {
+              transform: scaleY(0.005) scaleX(0);
+            }
+          }
+
+          transform: scaleY(0.01) scaleX(0);
+          animation: ${state === 'entering' || state === 'entered'
+              ? 'unfoldIn'
+              : 'unfoldOut'}
+            ${duration}s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+          ${overrideStateCSS ? overrideStateCSS(state) : ''}
         `}
         {...rest}
       >

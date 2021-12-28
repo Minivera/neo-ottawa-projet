@@ -13,7 +13,7 @@ export interface Settings {
 }
 
 export interface SettingsState {
-  opened: boolean;
+  opened?: boolean;
   settings: Settings;
 }
 
@@ -114,7 +114,6 @@ export const useSettings = (savedSettings: Partial<Settings>): [SettingsState, D
   }
 
   const [state, dispatch] = useReducer<SettingsReducer>(settingsReducer, {
-    opened: false,
     settings: {
       ...defaultSettings,
       ...localStorageSettings,

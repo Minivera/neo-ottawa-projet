@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx, Theme } from '@emotion/react';
+import { css, jsx } from '@emotion/react';
 import React, { FunctionComponent, useState } from 'react';
 import { Portal } from 'react-portal';
 import { Story } from 'inkjs/engine/Story';
@@ -17,6 +17,9 @@ import { AnimatedOpen } from '../components/animatedOpen';
 import { getQuizHistory } from './gameLog';
 import { PDADocumentView } from '../components/pda/pdaDocumentView';
 import { PDAQuizView } from '../components/pda/pdaQuizView';
+import { PDAStaticTransition } from '../components/pda/pdaStaticTransition';
+
+import pdaVideo from '../assets/videos/videoblocks-hud-futuristic.mp4';
 
 /* eslint-disable no-unused-vars */
 export enum PDATab {
@@ -49,14 +52,14 @@ export interface QuizInfo {
 
 export interface PDA {
   enabled?: boolean;
-  open?: boolean;
-  tab?: PDATab;
   documents: Document[];
   contacts: Contact[];
   quizzes: QuizInfo[];
 }
 
 export interface PDAComponentProps {
+  opened?: boolean;
+  selectedTab?: PDATab;
   story: Story;
   pdaState: PDA;
   settings: Settings;
@@ -70,7 +73,59 @@ export interface PDAComponentProps {
   skipAnimation?: boolean;
 }
 
+const PDAContainer: FunctionComponent<{ opened?: boolean }> = ({
+  children,
+  opened,
+}) => (
+  <Portal>
+    <div
+      css={theme => css`
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        background: ${theme.colors.darkGreen};
+        font-size: 1rem;
+        font-family: VCR-OSD-MONO;
+        display: flex;
+        flex-direction: column;
+        z-index: ${opened ? '7' : '-1'};
+        transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s'};
+
+        pointer-events: ${opened ? 'all' : 'none'};
+
+        animation-name: ${opened ? 'zoomIn' : 'zoomOut'};
+        animation-duration: 0.25s;
+        animation-delay: ${opened ? '0s' : '0.50s'};
+        animation-fill-mode: both;
+      `}
+    >
+      <AnimatedOpen
+        css={css`
+          height: 100%;
+        `}
+        open={opened}
+        overrideStateCSS={state => `
+          & .noise, & .noise-wrapper, & .children-wrapper {
+            ${state === 'entering' ? 'animation: unset;' : ''}
+          }
+          
+          & .children-wrapper {
+            opacity: 0;
+          }
+        `}
+      >
+        {children}
+      </AnimatedOpen>
+    </div>
+  </Portal>
+);
+
 export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
+  opened,
+  selectedTab,
   story,
   pdaState,
   settings,
@@ -84,7 +139,9 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   skipAnimation,
 }) => {
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
-  const [selectedDocument, setSelectedDocument] = useState<Document | null>(null);
+  const [selectedDocument, setSelectedDocument] = useState<Document | null>(
+    null
+  );
 
   const handleTabClick = (tab: PDATab) => {
     setSelectedDocument(null);
@@ -105,121 +162,130 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   };
 
   let tab: React.ReactElement | null = null;
-  switch (pdaState.tab) {
+  switch (selectedTab) {
     case PDATab.HOME:
-      tab = <PDAHomeTab />;
+      tab = <PDAHomeTab key="home" />;
       break;
     case PDATab.QUIZZES:
-      tab = <PDAQuizzesTab pdaState={pdaState} onQuizClick={onQuizClick} />;
+      tab = (
+        <PDAQuizzesTab
+          pdaState={pdaState}
+          onQuizClick={onQuizClick}
+          key="quiz"
+        />
+      );
       break;
     case PDATab.MAP:
-      tab = <PDAMapTab pdaState={pdaState} />;
+      tab = <PDAMapTab pdaState={pdaState} key="map" />;
       break;
     case PDATab.CONTACTS:
-      tab = <PDAContactsTab pdaState={pdaState} />;
+      tab = <PDAContactsTab pdaState={pdaState} key="contacts" />;
       break;
     case PDATab.DOCUMENTS:
-      tab = <PDADocumentsTab pdaState={pdaState} onDocumentClick={onDocumentClick} />;
+      tab = (
+        <PDADocumentsTab
+          key="documents"
+          pdaState={pdaState}
+          onDocumentClick={onDocumentClick}
+        />
+      );
       break;
   }
 
-  const containerCSS = (theme: Theme) => css(`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100vh;
-    background: ${theme.colors.darkGreen};
-    font-size: 1rem;
-    font-family: VCR-OSD-MONO;
-    display: flex;
-    flex-direction: column;
-    
-    ${pdaState.open ? '' : 'z-index: -10;'}
-  `);
-
   if (quiz) {
     return (
-      <Portal>
-        <AnimatedOpen css={containerCSS} open>
-          <PDATabControl
-            onTabClick={handleTabClick}
-            selectedTab={PDATab.QUIZZES}
-            onReturnClick={onPDAClosed}
-            quizMode={!!quiz}
-          >
-            <PDAQuizTab
-              quiz={quiz}
-              settings={settings}
-              onContinue={onContinue}
-              onTextLoadingStart={onTextLoadingStart}
-              onTextLoadingEnd={onTextLoadingEnd}
-              onChoiceSelected={onChoiceSelected}
-              skipAnimation={skipAnimation}
-            />
-          </PDATabControl>
-        </AnimatedOpen>
-      </Portal>
+      <PDAContainer opened>
+        <PDATabControl
+          onTabClick={handleTabClick}
+          selectedTab={PDATab.QUIZZES}
+          onReturnClick={onPDAClosed}
+          quizMode={!!quiz}
+        >
+          <PDAQuizTab
+            quiz={quiz}
+            settings={settings}
+            onContinue={onContinue}
+            onTextLoadingStart={onTextLoadingStart}
+            onTextLoadingEnd={onTextLoadingEnd}
+            onChoiceSelected={onChoiceSelected}
+            skipAnimation={skipAnimation}
+          />
+        </PDATabControl>
+      </PDAContainer>
     );
   }
 
   if (selectedDocument) {
     return (
-      <Portal>
-        <AnimatedOpen css={containerCSS} open>
-          <PDATabControl
-            onTabClick={handleTabClick}
-            selectedTab={PDATab.DOCUMENTS}
-            onReturnClick={onPDAClosed}
-            quizMode={!!quiz}
-          >
-            <PDADocumentView
-              onPrevClick={() => {
-                handleTabClick(PDATab.DOCUMENTS);
-              }}
-              document={selectedDocument}
-            />
-          </PDATabControl>
-        </AnimatedOpen>
-      </Portal>
+      <PDAContainer opened>
+        <PDATabControl
+          onTabClick={handleTabClick}
+          selectedTab={PDATab.DOCUMENTS}
+          onReturnClick={onPDAClosed}
+          quizMode={!!quiz}
+        >
+          <PDADocumentView
+            onPrevClick={() => {
+              handleTabClick(PDATab.DOCUMENTS);
+            }}
+            document={selectedDocument}
+          />
+        </PDATabControl>
+      </PDAContainer>
     );
   }
 
   if (selectedQuiz) {
     return (
-      <Portal>
-        <AnimatedOpen css={containerCSS} open>
-          <PDATabControl
-            onTabClick={handleTabClick}
-            selectedTab={PDATab.QUIZZES}
-            onReturnClick={onPDAClosed}
-            quizMode={!!quiz}
-          >
-            <PDAQuizView
-              onPrevClick={() => {
-                handleTabClick(PDATab.QUIZZES);
-              }}
-              quiz={selectedQuiz}
-            />
-          </PDATabControl>
-        </AnimatedOpen>
-      </Portal>
+      <PDAContainer opened>
+        <PDATabControl
+          onTabClick={handleTabClick}
+          selectedTab={PDATab.QUIZZES}
+          onReturnClick={onPDAClosed}
+          quizMode={!!quiz}
+        >
+          <PDAQuizView
+            onPrevClick={() => {
+              handleTabClick(PDATab.QUIZZES);
+            }}
+            quiz={selectedQuiz}
+          />
+        </PDATabControl>
+      </PDAContainer>
     );
   }
 
   return (
-    <Portal>
-      <AnimatedOpen css={containerCSS} open={pdaState.open}>
-        <PDATabControl
-          onTabClick={handleTabClick}
-          selectedTab={pdaState.tab || PDATab.HOME}
-          onReturnClick={onPDAClosed}
-          quizMode={!!quiz}
+    <PDAContainer opened={opened}>
+      <PDATabControl
+        onTabClick={handleTabClick}
+        selectedTab={selectedTab || PDATab.HOME}
+        onReturnClick={onPDAClosed}
+        quizMode={!!quiz}
+      >
+        <div
+          css={css`
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+            z-index: -2;
+            overflow: hidden;
+          `}
         >
+          <video
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            src={pdaVideo}
+            css={css`
+              position: relative;
+              inset: 0;
+            `}
+          />
+        </div>
+        <PDAStaticTransition key={opened ? tab?.key : 'hidden'}>
           {tab}
-        </PDATabControl>
-      </AnimatedOpen>
-    </Portal>
+        </PDAStaticTransition>
+      </PDATabControl>
+    </PDAContainer>
   );
 };

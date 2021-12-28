@@ -23,13 +23,13 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
 }) => {
   return (
     <Portal>
-      <AnimatedOpen
-        open={opened}
+      <div
         css={theme => css`
           position: fixed;
           top: 0;
           left: 0;
-          z-index: 3;
+          z-index: ${opened ? '7' : '-1'};
+          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s'};
           width: 100%;
           height: 100%;
           background: ${transparentize('0.3', theme.colors.darkGreen)};
@@ -38,20 +38,34 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
           display: flex;
           justify-content: center;
           align-items: center;
+
+          pointer-events: ${opened ? 'all' : 'none'};
+
+          animation-name: ${opened ? 'zoomIn' : 'zoomOut'};
+          animation-duration: 0.25s;
+          animation-delay: ${opened ? '0s' : '0.50s'};
+          animation-fill-mode: both;
         `}
       >
-        <GameLogModal onReturnClick={closeGameLog}>
-          <div>
-            {gameLog.map((el, index) => {
-              if (el.choices?.length) {
-                return <GameLogChoice key={index} scene={el} />;
-              }
+        <AnimatedOpen
+          open={opened}
+          css={css`
+            height: 100%;
+          `}
+        >
+          <GameLogModal onReturnClick={closeGameLog}>
+            <div>
+              {gameLog.map((el, index) => {
+                if (el.choices?.length) {
+                  return <GameLogChoice key={index} scene={el} />;
+                }
 
-              return <GameLogText key={index} scene={el} />;
-            })}
-          </div>
-        </GameLogModal>
-      </AnimatedOpen>
+                return <GameLogText key={index} scene={el} />;
+              })}
+            </div>
+          </GameLogModal>
+        </AnimatedOpen>
+      </div>
     </Portal>
   );
 };

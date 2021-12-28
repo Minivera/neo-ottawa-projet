@@ -10,7 +10,7 @@ import { Choice } from './event';
 import { GameState, useGame } from './gameState';
 import { GameContainer } from '../components/gameContainer';
 import { GameMenu } from '../components/gameMenu';
-import { PDAComponent } from './pda';
+import { PDAComponent, PDATab } from './pda';
 import { GameLoader } from '../components/gameLoader';
 import { BigButton } from '../components/bigButton';
 import { GameBackground } from '../components/gameBackground';
@@ -36,14 +36,17 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
   const [t] = useTranslation();
   const sceneRef = useRef<HTMLDivElement>(null);
   const [settings, dispatchSettings] = useSettings({});
-  const [loading, percentLoaded, story, gameState, dispatch] = useGame(
-    settings.settings,
-    storyContent
-  );
   const [textLoading, setTextLoading] = useState<boolean | null>(null);
   const [transitioning, setTransitioning] = useState<boolean>(false);
-  const [gameLogOpened, setGameLogOpened] = useState<boolean>(false);
-  const [savingOpened, setSavingOpened] = useState<boolean>(false);
+  const [gameLogOpened, setGameLogOpened] = useState<boolean | undefined>();
+  const [savingOpened, setSavingOpened] = useState<boolean | undefined>();
+  const [pdaOpened, setPDAOpened] = useState<boolean | undefined>();
+  const [selectedPDATab, setSelectedPDATab] = useState<PDATab>(PDATab.HOME);
+  const [loading, percentLoaded, story, gameState, dispatch] = useGame(
+    settings.settings,
+    storyContent,
+    () => setPDAOpened(true)
+  );
 
   const globalCSS = (
     <Global
@@ -212,7 +215,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           <GameContainer animationSpeed={settings.settings.textAnimationSpeed}>
             <GameMenu
               showPDA={gameState.pda.enabled}
-              onPDAClick={() => dispatch({ type: 'open_pda' })}
+              onPDAClick={() => setPDAOpened(true)}
               onSettingsClick={() => dispatchSettings({ type: 'open' })}
               onGameLogClick={() => setGameLogOpened(true)}
               onSaveClick={() => setSavingOpened(true)}
@@ -260,10 +263,12 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               />
             )}
             <PDAComponent
+              opened={pdaOpened}
+              selectedTab={selectedPDATab}
               story={story}
               pdaState={gameState.pda}
-              onPDAClosed={() => dispatch({ type: 'close_pda' })}
-              onPDATabChanged={tab => dispatch({ type: 'change_pda_tab', tab })}
+              onPDAClosed={() => setPDAOpened(false)}
+              onPDATabChanged={tab => setSelectedPDATab(tab)}
               settings={settings.settings}
               skipAnimation={textLoading !== null && !textLoading}
               onContinue={onContinue}
