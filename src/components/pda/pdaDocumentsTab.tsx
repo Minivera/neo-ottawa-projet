@@ -45,10 +45,8 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
           {pdaState.documents.map(document => (
             <li
               key={document.name}
-              onClick={() => onDocumentClick(document)}
               css={theme => css`
                 border-bottom: 0.1rem solid ${theme.colors.lightGray};
-                padding: 1rem 0;
                 font-size: 1.8rem;
                 font-style: italic;
                 display: flex;
@@ -67,8 +65,17 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
               `}
             >
               <div
+                role="link"
+                onClick={() => onDocumentClick(document)}
+                onKeyPress={e => {
+                  if (e.code === 'Enter') {
+                    onDocumentClick(document);
+                  }
+                }}
+                tabIndex={0}
                 css={theme =>
                   css`
+                    padding: 1rem 0;
                     display: flex;
                     align-items: center;
                     font-size: 1.5rem;

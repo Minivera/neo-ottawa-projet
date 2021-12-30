@@ -48,10 +48,9 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
             {pdaState.quizzes.map(quiz => (
               <li
                 key={quiz.name}
-                onClick={() => onQuizClick(quiz)}
                 css={theme => css`
                   border-bottom: 0.1rem solid ${theme.colors.lightGray};
-                  padding: 1rem 0;
+
                   font-size: 1.8rem;
                   font-style: italic;
                   display: flex;
@@ -70,11 +69,20 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
                 `}
               >
                 <div
+                  role="link"
+                  onClick={() => onQuizClick(quiz)}
+                  onKeyPress={e => {
+                    if (e.code === 'Enter') {
+                      onQuizClick(quiz);
+                    }
+                  }}
+                  tabIndex={0}
                   css={theme =>
                     css`
                       display: flex;
                       align-items: center;
                       font-size: 1.5rem;
+                      padding: 1rem 0;
 
                       & svg {
                         fill: ${theme.colors.yellow};

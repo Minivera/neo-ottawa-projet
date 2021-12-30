@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/** @jsx jsx */
+import { useState } from 'react';
+import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 import { theme, ifProp } from 'styled-tools';
@@ -9,25 +11,6 @@ import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
 import SaveIcon from '../assets/ui/icons/Sauvegarder.svg?component';
 import GameLogIcon from '../assets/ui/icons/Historique.svg?component';
 import MinimizeIcon from '../assets/ui/icons/Minimiser-maximiser.svg?component';
-
-const GameMenuContainer = styled.div<{ open?: boolean }>`
-  position: absolute;
-  top: 5rem;
-  background-color: transparent;
-  filter: drop-shadow(0 0.4rem 0.4rem ${theme('colors.gray')});
-  z-index: 5;
-  transition: right ease-in-out 500ms;
-  width: 11rem;
-
-  ${ifProp('open', 'right: 0;', 'right: -8.3rem;')}
-`;
-
-const GameMenuInnerContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: ${theme('colors.secondary')};
-`;
 
 const GameMenuLink = styled.a`
   display: flex;
@@ -123,31 +106,96 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
   const [open, setOpen] = useState<boolean>(true);
 
   return (
-    <GameMenuContainer open={open}>
-      <GameMenuInnerContainer>
+    <div
+      css={theme => css`
+        position: absolute;
+        top: 5rem;
+        background-color: transparent;
+        filter: drop-shadow(0 0.4rem 0.4rem ${theme.colors.gray});
+        z-index: 5;
+        transition: right ease-in-out 500ms;
+        width: 11rem;
+
+        ${open ? 'right: 0;' : 'right: -8.3rem;'}
+      `}
+    >
+      <nav
+        css={theme => css`
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          background-color: ${theme.colors.secondary};
+        `}
+      >
         {showPDA && (
-          <GameMenuLink onClick={onPDAClick}>
+          <GameMenuLink
+            role="link"
+            onClick={onPDAClick}
+            onKeyPress={e => {
+              if (e.code === 'Enter') {
+                onPDAClick();
+              }
+            }}
+            tabIndex={0}
+          >
             <PDAIcon />
             <span>{t('pda')}</span>
           </GameMenuLink>
         )}
-        <GameMenuLink onClick={onSettingsClick}>
+        <GameMenuLink
+          role="link"
+          onClick={onSettingsClick}
+          onKeyPress={e => {
+            if (e.code === 'Enter') {
+              onSettingsClick();
+            }
+          }}
+          tabIndex={0}
+        >
           <SettingsIcon />
           <span>{t('settings')}</span>
         </GameMenuLink>
-        <GameMenuLink onClick={onGameLogClick}>
+        <GameMenuLink
+          role="link"
+          onClick={onGameLogClick}
+          onKeyPress={e => {
+            if (e.code === 'Enter') {
+              onGameLogClick();
+            }
+          }}
+          tabIndex={0}
+        >
           <GameLogIcon />
           <span>{t('game_log')}</span>
         </GameMenuLink>
-        <GameMenuLink onClick={onSaveClick}>
+        <GameMenuLink
+          role="link"
+          onClick={onSaveClick}
+          onKeyPress={e => {
+            if (e.code === 'Enter') {
+              onSaveClick();
+            }
+          }}
+          tabIndex={0}
+        >
           <SaveIcon />
           <span>{t('menu_save')}</span>
         </GameMenuLink>
-        <MinimizeLink onClick={() => setOpen(!open)} open={open}>
+        <MinimizeLink
+          role="link"
+          onClick={() => setOpen(!open)}
+          onKeyPress={e => {
+            if (e.code === 'Enter') {
+              setOpen(!open);
+            }
+          }}
+          tabIndex={0}
+          open={open}
+        >
           <MinimizeIcon />
           <span>{t('menu_minimize')}</span>
         </MinimizeLink>
-      </GameMenuInnerContainer>
-    </GameMenuContainer>
+      </nav>
+    </div>
   );
 };

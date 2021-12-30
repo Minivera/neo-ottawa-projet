@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import React, { Dispatch } from 'react';
+import React, { Dispatch, useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
 import { transparentize } from 'polished';
 import { useTranslation } from 'react-i18next';
@@ -48,6 +48,12 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
   dispatch,
 }) => {
   const [t] = useTranslation();
+  const focusRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (settings.opened && focusRef.current) {
+      focusRef.current.focus();
+    }
+  }, [settings.opened]);
 
   const handleFontSizeChange = (newVal: number) =>
     dispatch({ type: 'setFontSize', fontSize: newVal });
@@ -98,7 +104,7 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
           right: 0;
           bottom: 0;
           z-index: ${settings.opened ? '7' : '-1'};
-          transition: ${settings.opened ? 'unset' : 'z-index 0.1s 0.75s'};
+          transition: ${settings.opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
           background: ${transparentize('0.3', theme.colors.darkGreen)};
           font-size: 20px;
           font-family: VCR-OSD-MONO;
@@ -107,6 +113,7 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
           align-items: center;
 
           pointer-events: ${settings.opened ? 'all' : 'none'};
+          visibility: ${settings.opened ? 'unset' : 'hidden'};
 
           animation-name: ${settings.opened ? 'zoomIn' : 'zoomOut'};
           animation-duration: 0.25s;
@@ -117,6 +124,7 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
         <AnimatedOpen open={settings.opened}>
           <SettingsModals onReturnClick={() => dispatch({ type: 'close' })}>
             <div
+              ref={focusRef}
               css={css`
                 padding: 2rem;
                 display: flex;
@@ -125,7 +133,7 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                 margin-right: -30px;
               `}
             >
-              <SettingsLabel htmlFor="font-size">
+              <SettingsLabel htmlFor="font-size" id="font-size-label">
                 {t('settings_font_size')}
               </SettingsLabel>
               <SettingsInput>
@@ -133,16 +141,18 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                   min={12}
                   max={22}
                   step={1}
+                  ariaLabelledByForHandle="font-size-label"
                   ariaLabelForHandle="font-size"
                   onChange={handleFontSizeChange}
                   value={settings.settings.fontSize}
                 />
               </SettingsInput>
-              <SettingsLabel htmlFor="animation-speed">
+              <SettingsLabel htmlFor="animation-speed" id="animation-speed-label">
                 {t('settings_animation_speed')}
               </SettingsLabel>
               <SettingsInputGroup>
                 <SettingsCheckbox
+                  id="animation-speed-check"
                   onChecked={handleAnimationToggle}
                   checked={settings.settings.textAnimationsEnabled}
                 />
@@ -151,16 +161,18 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                   max={1.0}
                   step={0.05}
                   ariaLabelForHandle="animation-speed"
+                  ariaLabelledByForHandle="animation-speed-label"
                   onChange={handleAnimationSpeedChanged}
                   value={settings.settings.textAnimationSpeed}
                   disabled={!settings.settings.textAnimationsEnabled}
                 />
               </SettingsInputGroup>
-              <SettingsLabel htmlFor="music-volume">
+              <SettingsLabel htmlFor="music-volume" id="music-volume-label">
                 {t('settings_music')}
               </SettingsLabel>
               <SettingsInputGroup>
                 <SettingsCheckbox
+                  id="music-volume-check"
                   onChecked={handleMusicToggle}
                   checked={settings.settings.musicEnabled}
                 />
@@ -169,16 +181,18 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                   max={100}
                   step={5}
                   ariaLabelForHandle="music-volume"
+                  ariaLabelledByForHandle="music-volume-label"
                   onChange={handleMusicVolumeChanged}
                   value={settings.settings.musicVolume}
                   disabled={!settings.settings.musicEnabled}
                 />
               </SettingsInputGroup>
-              <SettingsLabel htmlFor="sound-effects-volume">
+              <SettingsLabel htmlFor="sound-effects-volume" id="sound-effects-volume-label">
                 {t('settings_sound_effects')}
               </SettingsLabel>
               <SettingsInputGroup>
                 <SettingsCheckbox
+                  id="sound-effects-check"
                   onChecked={handleSoundEffectsToggle}
                   checked={settings.settings.soundEffectsEnabled}
                 />
@@ -187,6 +201,7 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                   max={100}
                   step={5}
                   ariaLabelForHandle="sound-effects-volume"
+                  ariaLabelledByForHandle="sound-effects-volume-label"
                   onChange={handleSoundEffectsVolumeChanged}
                   value={settings.settings.soundEffectsVolume}
                   disabled={!settings.settings.soundEffectsEnabled}

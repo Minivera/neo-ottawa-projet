@@ -1,5 +1,5 @@
 /* @jsx jsx */
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { css, jsx } from '@emotion/react';
 import { transparentize } from 'polished';
 import { Portal } from 'react-portal';
@@ -24,6 +24,14 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
   onSaveClick,
 }) => {
   const [t] = useTranslation();
+
+  const focusRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (opened && focusRef.current) {
+      focusRef.current.focus();
+    }
+  }, [opened]);
+
   const [saving, setSaving] = useState<number | null>(null);
 
   const slots: [SaveSlot, () => Promise<void>][] = saveSlots.map(slot => [
@@ -57,6 +65,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
     ]);
   }
 
+  // TODO: Make it impossible to load empty slots
   return (
     <Portal>
       <div
@@ -65,7 +74,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
           top: 0;
           left: 0;
           z-index: ${opened ? '7' : '-1'};
-          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s'};
+          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
           width: 100%;
           height: 100%;
           background: ${transparentize('0.3', theme.colors.darkGreen)};
@@ -76,6 +85,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
           align-items: center;
 
           pointer-events: ${opened ? 'all' : 'none'};
+          visibility: ${opened ? 'unset' : 'hidden'};
 
           animation-name: ${opened ? 'zoomIn' : 'zoomOut'};
           animation-duration: 0.25s;
@@ -89,7 +99,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
             height: 100%;
           `}
         >
-          <SaveSlotsModal onReturnClick={closeSaveSlots}>
+          <SaveSlotsModal onReturnClick={closeSaveSlots} ref={focusRef}>
             <p
               css={css`
                 margin: 2rem;
@@ -99,7 +109,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
             >
               {t('save_slot_instruction')}
             </p>
-            <div
+            <ul
               css={css`
                 display: flex;
                 justify-content: center;
@@ -109,34 +119,57 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
               `}
             >
               {slots.map(el => (
-                <div
-                  css={theme => css`
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    position: relative;
-                    border: 0.2rem solid ${theme.colors.primary};
-                    margin: 1rem;
-                    height: calc(320px + 0.4rem);
-                    width: calc(480px + 0.4rem);
-                    cursor: pointer;
-
-                    &:hover {
-                      filter: drop-shadow(0 0 0.2rem ${theme.colors.yellow});
-                    }
+                <li
+                  css={css`
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
                   `}
                   key={el[0].id}
-                  onClick={el[1]}
                 >
                   {el[0].id === saving ? (
-                    <Loader
-                      type="Grid"
-                      color="#cfd047"
-                      height={80}
-                      width={80}
-                    />
+                    <div
+                      css={css`
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      `}
+                    >
+                      <Loader
+                        type="Grid"
+                        color="#cfd047"
+                        height={80}
+                        width={80}
+                      />
+                    </div>
                   ) : (
-                    <React.Fragment>
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={el[1]}
+                      onKeyPress={e => {
+                        if (e.code === 'Enter') {
+                          el[1]();
+                        }
+                      }}
+                      css={theme => css`
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                        border: 0.2rem solid ${theme.colors.primary};
+                        margin: 1rem;
+                        height: calc(320px + 0.4rem);
+                        width: calc(480px + 0.4rem);
+                        cursor: pointer;
+
+                        &:hover {
+                          filter: drop-shadow(
+                            0 0 0.2rem ${theme.colors.yellow}
+                          );
+                        }
+                      `}
+                    >
                       <div
                         css={css`
                           position: absolute;
@@ -175,11 +208,11 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                           {t('empty_save_slot')}
                         </div>
                       )}
-                    </React.Fragment>
+                    </div>
                   )}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </SaveSlotsModal>
         </AnimatedOpen>
       </div>

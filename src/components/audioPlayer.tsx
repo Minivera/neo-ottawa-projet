@@ -151,6 +151,7 @@ export const AudioPlayer: FunctionComponent<AudioPlayerProps> = ({
   ]);
 
   return (
+    // eslint-disable-next-line jsx-a11y/media-has-caption
     <audio
       autoPlay={autoPlay}
       controls={false}

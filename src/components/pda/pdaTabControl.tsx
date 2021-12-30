@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, Ref } from 'react';
 import styled from '@emotion/styled';
 import { ifNotProp, ifProp, theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
@@ -286,6 +286,7 @@ export interface PDATabControlProps {
   onReturnClick: () => void;
   selectedTab: PDATab;
   quizMode?: boolean;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
@@ -293,6 +294,7 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
   onReturnClick,
   selectedTab,
   quizMode,
+  ref,
   children,
 }) => {
   const [t] = useTranslation();
@@ -358,13 +360,22 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           <img src={pdaBorderTopCenter} alt="side slant" />
         </PDATopLeftSide>
         <PDATopBorder />
-        <PDAReturnButton onClick={handleReturnClick}>
+        <PDAReturnButton
+          role="button"
+          onClick={handleReturnClick}
+          onKeyPress={e => {
+            if (e.code === 'Enter') {
+              handleReturnClick();
+            }
+          }}
+          tabIndex={0}
+        >
           <PDAReturnSide />
           <PDAReturnInner>
             {!quizMode && (
               <React.Fragment>
                 <CloseIcon />
-                <a>{t('pda_return')}</a>
+                <span>{t('pda_return')}</span>
               </React.Fragment>
             )}
           </PDAReturnInner>
@@ -383,7 +394,7 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
         </PDABottomRightCorner>
         <PDABottomBorder />
         <PDAContent>
-          <PDAContentInner>{children}</PDAContentInner>
+          <PDAContentInner ref={ref}>{children}</PDAContentInner>
         </PDAContent>
       </PDABackgroundGrid>
     </PDAContainer>

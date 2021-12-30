@@ -84,13 +84,19 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
       `}
     >
       <div>
-        <div
+        <button
           onClick={onPrevClick}
           css={theme => css`
             position: absolute;
             left: -2rem;
             font-size: 1.2rem;
             cursor: pointer;
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: none;
+            color: inherit;
+            outline: inherit;
 
             svg {
               margin-right: 0.5rem;
@@ -111,7 +117,7 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
         >
           <ReturnArrow />
           {t('pda_prev_tab')}
-        </div>
+        </button>
         <div>
           <PDATitle>
             <QuizIcon />

@@ -1,5 +1,5 @@
 /* @jsx jsx */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { css, jsx } from '@emotion/react';
 import { transparentize } from 'polished';
 import { Portal } from 'react-portal';
@@ -21,6 +21,13 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
   closeGameLog,
   gameLog,
 }) => {
+  const focusRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (opened && focusRef.current) {
+      focusRef.current.focus();
+    }
+  }, [opened]);
+
   return (
     <Portal>
       <div
@@ -29,7 +36,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
           top: 0;
           left: 0;
           z-index: ${opened ? '7' : '-1'};
-          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s'};
+          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
           width: 100%;
           height: 100%;
           background: ${transparentize('0.3', theme.colors.darkGreen)};
@@ -40,6 +47,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
           align-items: center;
 
           pointer-events: ${opened ? 'all' : 'none'};
+          visibility: ${opened ? 'unset' : 'hidden'};
 
           animation-name: ${opened ? 'zoomIn' : 'zoomOut'};
           animation-duration: 0.25s;
@@ -54,7 +62,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
           `}
         >
           <GameLogModal onReturnClick={closeGameLog}>
-            <div>
+            <div ref={focusRef}>
               {gameLog.map((el, index) => {
                 if (el.choices?.length) {
                   return <GameLogChoice key={index} scene={el} />;

@@ -53,6 +53,10 @@ const StyledSlider = styled(Slider)`
     background-color: ${theme('colors.yellow')};
     border: none;
     border-radius: 0;
+
+    &:focus, &:active {
+      outline: ${theme('colors.secondary')} 2px solid;
+    }
   }
 `;
 

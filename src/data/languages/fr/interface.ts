@@ -18,6 +18,7 @@ export const interfaceTerms = {
   preparing: 'Préparation',
   pdf_page: 'Page {{pageNumber}} de {{numPages}}',
   pdf_download: 'Télécharger',
+  expander_expand: 'Ouvrir le contenu pour {{name}}',
 
   // PDA
   pda_home: 'Accueil',

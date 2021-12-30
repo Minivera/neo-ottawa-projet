@@ -19,10 +19,11 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
         font-family: Permanent Marker;
         text-align: center;
         flex: 1;
-        max-height: 45%;
+        max-height: 50%;
 
         @media only screen and (max-height: 800px) {
           font-size: 80%;
+          max-height: 45%;
         }
       `}
     >
@@ -34,10 +35,14 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
           font-style: italic;
           text-shadow: 0.5rem 0.5rem 1.5rem ${theme.colors.darkGray};
           position: relative;
-          top: -15%;
+          top: 5%;
 
           animation-name: bounceInDown;
           animation-duration: 1.5s;
+
+          @media only screen and (max-height: 800px) {
+            top: -15%;
+          }
         `}
       >
         Reset
@@ -50,7 +55,7 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
           font-style: italic;
           text-shadow: 0.5rem 0.5rem 1.5rem ${theme.colors.darkGray};
           position: relative;
-          top: -65%;
+          top: -25%;
 
           animation-name: bounceInDown;
           animation-duration: 1.5s;
@@ -69,16 +74,22 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
       css={css`
         flex: 1;
         min-width: 0;
-        max-height: 55%;
+        max-height: 50%;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         margin: 1em 0;
+        padding-bottom: 4rem;
         
         animation-name: fadeInUp;
         animation-duration: 0.5s;
         animation-delay: 2.25s;
         animation-fill-mode: both;
+
+        @media only screen and (max-height: 800px) {
+          max-height: 55%;
+          padding-bottom: 0;
+        }
       `}
     >
       {children}

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { Portal } from 'react-portal';
 import { Story } from 'inkjs/engine/Story';
 
@@ -92,9 +92,10 @@ const PDAContainer: FunctionComponent<{ opened?: boolean }> = ({
         display: flex;
         flex-direction: column;
         z-index: ${opened ? '7' : '-1'};
-        transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s'};
+        transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
 
         pointer-events: ${opened ? 'all' : 'none'};
+        visibility: ${opened ? 'unset' : 'hidden'};
 
         animation-name: ${opened ? 'zoomIn' : 'zoomOut'};
         animation-duration: 0.25s;
@@ -138,6 +139,13 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   onChoiceSelected,
   skipAnimation,
 }) => {
+  const focusRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (opened && focusRef.current) {
+      focusRef.current.focus();
+    }
+  }, [opened]);
+
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(
     null
@@ -200,6 +208,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           selectedTab={PDATab.QUIZZES}
           onReturnClick={onPDAClosed}
           quizMode={!!quiz}
+          ref={focusRef}
         >
           <PDAQuizTab
             quiz={quiz}
@@ -223,6 +232,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           selectedTab={PDATab.DOCUMENTS}
           onReturnClick={onPDAClosed}
           quizMode={!!quiz}
+          ref={focusRef}
         >
           <PDADocumentView
             onPrevClick={() => {
@@ -243,6 +253,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           selectedTab={PDATab.QUIZZES}
           onReturnClick={onPDAClosed}
           quizMode={!!quiz}
+          ref={focusRef}
         >
           <PDAQuizView
             onPrevClick={() => {
@@ -262,6 +273,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
         selectedTab={selectedTab || PDATab.HOME}
         onReturnClick={onPDAClosed}
         quizMode={!!quiz}
+        ref={focusRef}
       >
         <div
           css={css`
@@ -272,6 +284,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
             overflow: hidden;
           `}
         >
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             // @ts-ignore
