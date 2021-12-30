@@ -39,7 +39,7 @@ export const extractCharacterTags = (tags: string[] | null): CharacterTag => {
             throw new Error(`Invalid tag detected in story, ${part}`);
           }
 
-          tag.character = Characters[subparts[1].trim()];
+          tag.character = Characters[subparts[1].trim().toUpperCase()];
           break;
         }
         case 'expression': {
@@ -47,7 +47,7 @@ export const extractCharacterTags = (tags: string[] | null): CharacterTag => {
             throw new Error(`Invalid tag detected in story, ${part}`);
           }
 
-          tag.expression = subparts[1].trim();
+          tag.expression = subparts[1].trim().toLowerCase();
           break;
         }
         case 'invisible':

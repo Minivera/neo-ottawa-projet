@@ -8,7 +8,7 @@ const expressionImages = import.meta.glob<FunctionComponent>(
 );
 
 export const Teacher: Character = {
-  id: 'TEACHER',
+  id: 'TEACHER_V1',
   name: 'teacher',
   images: {},
 };

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import React, { KeyboardEventHandler, ReactElement, Ref } from 'react';
+import React, { KeyboardEventHandler, ReactElement, RefObject, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Character } from './character';
@@ -43,7 +43,7 @@ export interface SceneProps {
   onTextLoadingStart: () => void;
   onTextLoadingEnd: () => void;
   onChoiceSelected: (choice: Choice) => void;
-  sceneRef: Ref<HTMLDivElement>;
+  sceneRef: RefObject<HTMLDivElement>;
   skipAnimation?: boolean;
 }
 
@@ -58,6 +58,11 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   skipAnimation,
 }) => {
   const [t] = useTranslation();
+  useEffect(() => {
+    if (sceneRef && sceneRef.current) {
+      sceneRef.current.focus();
+    }
+  }, [state]);
 
   const handleClickContinue = () => onContinue();
   const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {
@@ -69,6 +74,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   // TODO: Bring back transitions
   let portraits: ReactElement | null = null;
   if (!state.centered) {
+    debugger;
     // Only show characters that have the loaded expression, never show empty images
     const characterPortraits = state.shownCharacters.filter(
       character => character.images[state.characterExpressions[character.id]]

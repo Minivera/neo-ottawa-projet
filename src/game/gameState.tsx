@@ -120,9 +120,11 @@ const generatePDAState = (previousState: PDA, story: Story): PDA => {
     }
   }
 
-  // In case we still have more contacts than already saved in the state. It probably
-  // means we're loading something or the state got messy. Refresh.
+  // In case we still have more or less contacts than already saved in the state. It probably
+  // means we're loading something, we have to remove contacts, or the state got messy. Refresh.
   if (variables.known_contacts.Count !== state.contacts.length) {
+    state.contacts = [];
+
     variables.known_contacts.orderedItems.forEach(entry => {
       const item = entry.Key;
       const contactName = item.itemName as keyof typeof contacts;

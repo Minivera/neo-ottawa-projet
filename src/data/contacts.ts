@@ -1,7 +1,8 @@
 import {
   AgentLucas,
   AgentMoore,
-  Bonnie,
+  BonnieV1,
+  BonnieV2,
   Brighton,
   ChefMillerCigar,
   ChristopherYoung,
@@ -9,6 +10,7 @@ import {
   Gabriel,
   LeighKane,
   Teacher,
+  Narrateur,
 } from './characters';
 import { Contact } from '../game/pda';
 
@@ -61,16 +63,28 @@ export const contacts: Record<string, Contact> = {
     name: Teacher.name,
     description: 'contact_teacher',
   },
-  [Bonnie.id]: {
+  [BonnieV1.id]: {
     type: 'resistance',
-    characterId: Bonnie.id,
-    name: Bonnie.name,
-    description: 'contact_bonnie_randle',
+    characterId: BonnieV1.id,
+    name: BonnieV1.name,
+    description: 'contact_bonnie_randle_v1',
+  },
+  [BonnieV2.id]: {
+    type: 'resistance',
+    characterId: BonnieV2.id,
+    name: BonnieV2.name,
+    description: 'contact_bonnie_randle_v2',
   },
   [ChristopherYoung.id]: {
     type: 'resistance',
     characterId: ChristopherYoung.id,
     name: ChristopherYoung.name,
-    description: 'contact_resistance',
+    description: 'contact_christopher_young',
+  },
+  [Narrateur.id]: {
+    type: 'resistance',
+    characterId: Narrateur.id,
+    name: Narrateur.name,
+    description: 'contact_narrateur',
   },
 } as const;

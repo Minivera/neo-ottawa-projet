@@ -47,17 +47,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
               key={document.name}
               css={theme => css`
                 border-bottom: 0.1rem solid ${theme.colors.lightGray};
-                font-size: 1.8rem;
-                font-style: italic;
-                display: flex;
                 list-style: none;
-                align-items: center;
-                cursor: pointer;
-
-                &:hover {
-                  background-color: ${theme.colors.secondary};
-                  color: ${darken(0.2, theme.colors.yellow)};
-                }
 
                 &:last-of-type {
                   border-bottom: none;
@@ -79,6 +69,14 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
                     display: flex;
                     align-items: center;
                     font-size: 1.5rem;
+                    font-style: italic;
+                    list-style: none;
+                    cursor: pointer;
+    
+                    &:hover {
+                      background-color: ${theme.colors.secondary};
+                      color: ${darken(0.2, theme.colors.yellow)};
+                    }
 
                     & svg {
                       fill: ${theme.colors.yellow};

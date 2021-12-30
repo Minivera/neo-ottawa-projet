@@ -13,6 +13,8 @@ export interface AnimatedTextProps {
 const specialChars = {
   strongStart: 'Ƶ',
   strongEnd: 'ƶ',
+  italicStart: 'Ʒ',
+  italicEnd: 'Ƹ',
   lineBreak: 'ƴ',
 };
 
@@ -26,11 +28,14 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
   // TODO: Make this interpreter smarter
   text = text.replaceAll('<b>', specialChars.strongStart);
   text = text.replaceAll('</b>', specialChars.strongEnd);
+  text = text.replaceAll('<i>', specialChars.italicStart);
+  text = text.replaceAll('</i>', specialChars.italicEnd);
   text = text.replaceAll('<br/>', specialChars.lineBreak);
 
   const parts = text.split('');
   const letters: ReactElement[] = [];
   let isStrong = false;
+  let isItalic = false;
   let index = 0;
   for (const charIndex in parts) {
     const char = parts[charIndex];
@@ -40,6 +45,13 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
       continue;
     } else if (char === specialChars.strongEnd) {
       isStrong = false;
+      continue;
+    }
+    if (char === specialChars.italicStart) {
+      isItalic = true;
+      continue;
+    } else if (char === specialChars.italicEnd) {
+      isItalic = false;
       continue;
     }
     if (char === specialChars.lineBreak) {
@@ -61,6 +73,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
                 animation-delay: ${0.05 * index}s;
               `}
           ${isStrong ? 'font-weight: bold; color: white;' : ''}
+          ${isItalic ? 'font-style: italic;' : ''}
         `}
       >
         {char}

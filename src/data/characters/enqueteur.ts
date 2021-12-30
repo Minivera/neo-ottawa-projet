@@ -4,11 +4,11 @@ import { Character } from '../../game/character';
 import { loadingHelper } from '../../helpers/asyncImagesLoading';
 
 const expressionImages = import.meta.glob<FunctionComponent>(
-  '../../components/__generated__/characters/07 - Enquêteur du criminel/*.tsx'
+  '../../components/__generated__/characters/07 - Enqueteur du criminel/*.tsx'
 );
 
 export const Enqueteur: Character = {
-  id: 'ENQUETEUR',
+  id: 'ENQUETEUR_BEAULIEU',
   name: 'enqueteur',
   images: {},
 };

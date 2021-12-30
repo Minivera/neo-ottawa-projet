@@ -89,4 +89,4 @@ Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada
 = quiz_1_fin
 
 ~ terminer_quiz()
--> act_1.prologue
+-> fin

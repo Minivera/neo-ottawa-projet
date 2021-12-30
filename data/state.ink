@@ -18,3 +18,6 @@ VAR history = "[]"
 === function ajouter_contact(personnage) ===
     ~ last_added_contact = personnage
     ~ known_contacts += personnage
+    
+=== function retirer_contact(personnage) ===
+    ~ known_contacts -= personnage

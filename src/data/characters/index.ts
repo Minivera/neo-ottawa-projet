@@ -8,7 +8,8 @@ import { LeighKane } from './leighKane';
 import { Enqueteur } from './enqueteur';
 import { Brighton } from './brighton';
 import { Teacher } from './teacher';
-import { Bonnie } from './bonnie';
+import { BonnieV1 } from './bonnieV1';
+import { BonnieV2 } from './bonnieV2';
 import { ChristopherYoung } from './christopherYoung';
 import { Vivian } from './vivian';
 import { Ronny } from './ronny';
@@ -23,6 +24,7 @@ import { PereLeighKane } from './pereLeighKane';
 import { Al } from './al';
 import { Administrateur } from './administrateur';
 import { Homme } from './homme';
+import { Narrateur } from './narrateur';
 
 export {
   FredGallant,
@@ -35,7 +37,8 @@ export {
   Enqueteur,
   Brighton,
   Teacher,
-  Bonnie,
+  BonnieV1,
+  BonnieV2,
   ChristopherYoung,
   Vivian,
   Ronny,
@@ -50,6 +53,7 @@ export {
   Al,
   Administrateur,
   Homme,
+  Narrateur,
 };
 
 export const Characters = {
@@ -63,7 +67,8 @@ export const Characters = {
   [Enqueteur.id]: Enqueteur,
   [Brighton.id]: Brighton,
   [Teacher.id]: Teacher,
-  [Bonnie.id]: Bonnie,
+  [BonnieV1.id]: BonnieV1,
+  [BonnieV2.id]: BonnieV2,
   [ChristopherYoung.id]: ChristopherYoung,
   [Vivian.id]: Vivian,
   [Ronny.id]: Ronny,
@@ -78,4 +83,5 @@ export const Characters = {
   [Al.id]: Al,
   [Administrateur.id]: Administrateur,
   [Homme.id]: Homme,
+  [Narrateur.id]: Narrateur,
 };

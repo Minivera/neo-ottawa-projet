@@ -17,9 +17,18 @@ export const PDAStaticTransition: FunctionComponent = ({ children }) => (
         overflow: hidden;
         z-index: 10;
 
-        animation: fadeOut 0.25s;
+        animation: fadeOut 0.25s, hide 0.25s;
         animation-delay: 0.50s;
         animation-fill-mode: both;
+        
+        @keyframes hide {
+            0% {
+              visibility: visible;
+            }
+            100% {
+              visibility: hidden;
+            }
+          }
 
         &:after {
           content: '';

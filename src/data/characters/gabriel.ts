@@ -18,5 +18,3 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Gabriel.images[key] = value)
 );
-
-load();
