@@ -135,6 +135,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
             closeSaveSlots={() => setSavingOpened(false)}
             saveSlots={gameState.saveSlots}
             opened={savingOpened}
+            loading
             onSaveClick={onLoad}
           />
         </React.Fragment>

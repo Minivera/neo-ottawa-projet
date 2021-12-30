@@ -12,6 +12,7 @@ import { SaveSlot } from '../../game/saving';
 
 export interface SaveSlotsProps {
   opened?: boolean;
+  loading?: boolean;
   closeSaveSlots: () => void;
   saveSlots: SaveSlot[];
   onSaveClick: (slot: SaveSlot) => Promise<void>;
@@ -19,6 +20,7 @@ export interface SaveSlotsProps {
 
 export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
   opened,
+  loading,
   closeSaveSlots,
   saveSlots,
   onSaveClick,
@@ -65,7 +67,6 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
     ]);
   }
 
-  // TODO: Make it impossible to load empty slots
   return (
     <Portal>
       <div
@@ -74,7 +75,9 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
           top: 0;
           left: 0;
           z-index: ${opened ? '7' : '-1'};
-          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
+          transition: ${opened
+            ? 'unset'
+            : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
           width: 100%;
           height: 100%;
           background: ${transparentize('0.3', theme.colors.darkGreen)};
@@ -100,119 +103,208 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
           `}
         >
           <SaveSlotsModal onReturnClick={closeSaveSlots} ref={focusRef}>
-            <p
-              css={css`
-                margin: 2rem;
-                font-weight: normal;
-                font-size: 1.4rem;
-              `}
-            >
-              {t('save_slot_instruction')}
-            </p>
-            <ul
+            <div
               css={css`
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-wrap: wrap;
-                max-width: 1100px;
+                flex-direction: column;
               `}
             >
-              {slots.map(el => (
-                <li
-                  css={css`
-                    margin: 0;
-                    padding: 0;
-                    list-style: none;
-                  `}
-                  key={el[0].id}
-                >
-                  {el[0].id === saving ? (
-                    <div
-                      css={css`
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                      `}
-                    >
-                      <Loader
-                        type="Grid"
-                        color="#cfd047"
-                        height={80}
-                        width={80}
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      role="button"
-                      tabIndex={0}
-                      onClick={el[1]}
-                      onKeyPress={e => {
-                        if (e.code === 'Enter') {
-                          el[1]();
-                        }
-                      }}
-                      css={theme => css`
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        position: relative;
-                        border: 0.2rem solid ${theme.colors.primary};
-                        margin: 1rem;
-                        height: calc(320px + 0.4rem);
-                        width: calc(480px + 0.4rem);
-                        cursor: pointer;
+              <p
+                css={css`
+                  margin: 2rem;
+                  font-weight: normal;
+                  font-size: 1.4rem;
+                  flex: 1;
+                  max-width: 1100px;
+                  text-align: justify;
+                `}
+              >
+                {t(
+                  loading
+                    ? 'save_slot_loading_instruction'
+                    : 'save_slot_saving_instruction'
+                )}
+              </p>
+              <ul
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-wrap: wrap;
+                  max-width: 1100px;
+                  padding: 0;
+                  margin: 0;
+                  flex: 1;
+                `}
+              >
+                {slots.map(el => {
+                  if (el[0].id === saving) {
+                    return (
+                      <li
+                        css={css`
+                          margin: 0;
+                          padding: 0;
+                          list-style: none;
+                        `}
+                        key={el[0].id}
+                      >
+                        <div
+                          css={css`
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                          `}
+                        >
+                          <Loader
+                            type="Grid"
+                            color="#cfd047"
+                            height={80}
+                            width={80}
+                          />
+                        </div>
+                      </li>
+                    );
+                  }
 
-                        &:hover {
-                          filter: drop-shadow(
-                            0 0 0.2rem ${theme.colors.yellow}
-                          );
-                        }
+                  if (!el[0].image && loading) {
+                    return (
+                      <li
+                        css={css`
+                          margin: 0;
+                          padding: 0;
+                          list-style: none;
+                        `}
+                        key={el[0].id}
+                      >
+                        <div
+                          role="none"
+                          tabIndex={-1}
+                          css={theme => css`
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: relative;
+                            border: 0.2rem solid
+                              ${transparentize(0.5, theme.colors.primary)};
+                            margin: 1rem;
+                            height: calc(320px + 0.4rem);
+                            width: calc(480px + 0.4rem);
+                          `}
+                        >
+                          <div
+                            css={css`
+                              position: absolute;
+                              inset: 0;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              text-transform: uppercase;
+                              font-size: 2rem;
+                              opacity: 0.3;
+                            `}
+                          >
+                            {t('save_slot_name', { number: el[0].id + 1 })}
+                          </div>
+                          <div
+                            css={css`
+                              position: absolute;
+                              inset: 0;
+                              margin-top: 4rem;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              text-transform: uppercase;
+                              font-size: 1.4rem;
+                              opacity: 0.3;
+                            `}
+                          >
+                            {t('empty_save_slot')}
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  }
+
+                  return (
+                    <li
+                      css={css`
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
                       `}
+                      key={el[0].id}
                     >
                       <div
-                        css={css`
-                          position: absolute;
-                          inset: 0;
+                        role="button"
+                        tabIndex={0}
+                        onClick={el[1]}
+                        onKeyPress={e => {
+                          if (e.code === 'Enter') {
+                            el[1]();
+                          }
+                        }}
+                        css={theme => css`
                           display: flex;
                           justify-content: center;
                           align-items: center;
-                          text-transform: uppercase;
-                          font-size: 2rem;
-                          opacity: 0.3;
+                          position: relative;
+                          border: 0.2rem solid ${theme.colors.primary};
+                          margin: 1rem;
+                          height: calc(320px + 0.4rem);
+                          width: calc(480px + 0.4rem);
+                          cursor: pointer;
+
+                          &:hover {
+                            filter: drop-shadow(
+                              0 0 0.2rem ${theme.colors.yellow}
+                            );
+                          }
                         `}
                       >
-                        {t('save_slot_name', { number: el[0].id + 1 })}
-                      </div>
-                      {el[0].image ? (
-                        <img
-                          height={320}
-                          width={480}
-                          src={el[0].image || undefined}
-                          alt={`save slot ${el[0].id}`}
-                        />
-                      ) : (
                         <div
                           css={css`
                             position: absolute;
                             inset: 0;
-                            margin-top: 4rem;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             text-transform: uppercase;
-                            font-size: 1.4rem;
+                            font-size: 2rem;
                             opacity: 0.3;
                           `}
                         >
-                          {t('empty_save_slot')}
+                          {t('save_slot_name', { number: el[0].id + 1 })}
                         </div>
-                      )}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
+                        {el[0].image ? (
+                          <img
+                            height={320}
+                            width={480}
+                            src={el[0].image || undefined}
+                            alt={`save slot ${el[0].id}`}
+                          />
+                        ) : (
+                          <div
+                            css={css`
+                              position: absolute;
+                              inset: 0;
+                              margin-top: 4rem;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                              text-transform: uppercase;
+                              font-size: 1.4rem;
+                              opacity: 0.3;
+                            `}
+                          >
+                            {t('empty_save_slot')}
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </SaveSlotsModal>
         </AnimatedOpen>
       </div>

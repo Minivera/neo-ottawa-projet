@@ -50,5 +50,6 @@ export const interfaceTerms = {
   // Save slots
   save_slot_name: 'sauvegarde {{number}}',
   empty_save_slot: '[VIDE]',
-  save_slot_instruction: 'Cliquez sur un des emplacements de sauvegarde pour sauvegarder la partie.'
+  save_slot_saving_instruction: 'Cliquez sur un des emplacements de sauvegarde pour sauvegarder la partie.',
+  save_slot_loading_instruction: 'Cliquez sur un des emplacements de sauvegarde pour charger la partie sauvegardée, vous reprendrez votre partie au moment exact de cette sauvegarde.'
 };
