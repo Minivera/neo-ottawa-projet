@@ -1,129 +1,76 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css, jsx } from '@emotion/react';
 import { FunctionComponent } from 'react';
-import { theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
 
 export interface GameLoaderProps {
   percent?: number;
 }
 
-export const LoadingArrow = styled.div<GameLoaderProps>`
-  position: relative;
-  line-height: 1.15;
-  margin: 0.5rem 3.5rem;
-  color: ${theme('colors.white')};
-  padding: 0 1.3rem;
-  min-width: 60vw;
-  text-align: center;
-  font-size: 22px;
-  font-family: VCR-OSD-MONO;
-
-  ${props =>
-    props.percent && props.percent >= 1
-      ? `
-    & div[data-direction="left"]:before {
-      border-right-color: ${
-        theme('colors.primary')(props) as unknown as string
-      };
-    }
-  `
-      : ''}
-
-  ${props =>
-    props.percent && props.percent >= 100
-      ? `
-    & div[data-direction="right"]:before {
-      border-left-color: ${theme('colors.primary')(props) as unknown as string};
-    }
-  `
-      : ''}
-
-  & span {
-    border-width: 0.2rem;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-color: ${theme('colors.primary')};
-    background-color: ${theme('colors.darkGray')};
-    display: block;
-    padding: 1rem 1rem;
-
-    ${props =>
-      props.percent
-        ? `
-      background: linear-gradient(
-        to right,
-        ${theme('colors.primary')(props) as unknown as string} 0%,
-        ${
-          theme('colors.primary')(props) as unknown as string
-        } ${props.percent.toFixed(0)}%,
-        ${
-          theme('colors.darkGray')(props) as unknown as string
-        } ${props.percent.toFixed(0)}%
-      );
-    `
-        : ''}
-  }
-`;
-
-const LeftSide = styled.div`
-  position: absolute;
-  left: -0.65rem;
-  width: 0;
-  height: 0;
-  border-top: 2rem solid transparent;
-  border-bottom: 2rem solid transparent;
-  border-right: 2rem solid ${theme('colors.primary')};
-
-  &:before {
-    display: block;
-    content: ' ';
-    position: relative;
-    left: 0.25rem;
-    top: -1.8rem;
-    width: 0;
-    height: 0;
-    border-top: 1.8rem solid transparent;
-    border-bottom: 1.8rem solid transparent;
-    border-right: 1.8rem solid ${theme('colors.black')};
-  }
-`;
-
-const RightSide = styled.div`
-  position: absolute;
-  right: -0.65rem;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-top: 2rem solid transparent;
-  border-bottom: 2rem solid transparent;
-  border-left: 2rem solid ${theme('colors.primary')};
-
-  &:before {
-    display: block;
-    content: ' ';
-    position: relative;
-    right: 2rem;
-    top: -1.8rem;
-    width: 0;
-    height: 0;
-    border-top: 1.75rem solid transparent;
-    border-bottom: 1.8rem solid transparent;
-    border-left: 1.8rem solid ${theme('colors.black')};
-  }
-`;
-
 export const GameLoader: FunctionComponent<GameLoaderProps> = ({ percent }) => {
   const [t] = useTranslation();
 
   return (
-    <LoadingArrow percent={percent}>
-      <LeftSide data-direction="left" />
-      <span>
+    <div
+      css={theme => css`
+        position: relative;
+        line-height: 1.15;
+        margin: 0.5rem 3.5rem;
+        color: ${theme.colors.white};
+        padding: 1.3rem 2rem;
+        min-width: 70vw;
+        text-align: center;
+        font-size: 22px;
+        font-family: VCR-OSD-MONO;
+        
+        @media only screen and (max-width: 768px) {
+          min-width: 90vw;
+        }
+      `}
+    >
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        css={theme => css`
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0px;
+          left: 0px;
+          fill: ${theme.colors.black};
+        `}
+      >
+        <defs>
+          <clipPath id="hexagon">
+            <path d="M5,7 L95,7 99,50 95,93 5,93 1,50z" />
+          </clipPath>
+        </defs>
+        <path
+          d="M5,7 L95,7 99,50 95,93 5,93 1,50z"
+          vectorEffect="non-scaling-stroke"
+          css={theme => css`
+            stroke: ${theme.colors.primary};
+            stroke-width: 3;
+          `}
+        />
+        <rect
+          x="0"
+          y="0"
+          width={percent + '%'}
+          height="100%"
+          clipPath="url(#hexagon)"
+          css={theme => css`
+            fill: ${theme.colors.primary};
+          `}
+        />
+      </svg>
+      <span
+        css={css`
+          position: relative;
+        `}
+      >
         {percent ? `${t('loading')} - ${percent.toFixed(0)}%` : t('preparing')}
       </span>
-      <RightSide data-direction="right" />
-    </LoadingArrow>
+    </div>
   );
 };

@@ -20,10 +20,15 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
         text-align: center;
         flex: 1;
         max-height: 50%;
+        font-size: 17px;
 
         @media only screen and (max-height: 800px) {
-          font-size: 80%;
           max-height: 45%;
+        }
+
+        @media only screen and (max-width: 436px) {
+          font-size: 12px;
+          max-height: 35%;
         }
       `}
     >
@@ -33,15 +38,24 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
           font-size: 14em;
           color: ${theme.colors.secondary};
           font-style: italic;
-          text-shadow: 0.5rem 0.5rem 1.5rem ${theme.colors.darkGray};
+          text-shadow: 5px 5px 12px ${theme.colors.darkGray};
           position: relative;
-          top: 5%;
 
           animation-name: bounceInDown;
           animation-duration: 1.5s;
 
           @media only screen and (max-height: 800px) {
-            top: -15%;
+            top: -0.3em;
+          }
+
+          @media only screen and (max-width: 436px) {
+            top: 0;
+            font-size: 10em;
+          }
+
+          @media only screen and (max-width: 320px) {
+            top: 0;
+            font-size: 8em;
           }
         `}
       >
@@ -53,9 +67,9 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
           font-size: 10em;
           color: ${theme.colors.primary};
           font-style: italic;
-          text-shadow: 0.5rem 0.5rem 1.5rem ${theme.colors.darkGray};
+          text-shadow: 5px 5px 12px ${theme.colors.darkGray};
           position: relative;
-          top: -25%;
+          top: -1em;
 
           animation-name: bounceInDown;
           animation-duration: 1.5s;
@@ -63,7 +77,17 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
           animation-fill-mode: both;
 
           @media only screen and (max-height: 800px) {
-            top: -55%;
+            top: -1.5em;
+          }
+
+          @media only screen and (max-width: 436px) {
+            top: -1em;
+            font-size: 7em;
+          }
+
+          @media only screen and (max-width: 320px) {
+            top: -1em;
+            font-size: 5em;
           }
         `}
       >
@@ -78,7 +102,7 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        margin: 1em 0;
+        margin: 1rem 0;
         padding-bottom: 4rem;
         
         animation-name: fadeInUp;
@@ -89,6 +113,11 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
         @media only screen and (max-height: 800px) {
           max-height: 55%;
           padding-bottom: 0;
+        }
+
+        @media only screen and (max-width: 436px) {
+          max-height: 65%;
+          padding-bottom: 5rem;
         }
       `}
     >

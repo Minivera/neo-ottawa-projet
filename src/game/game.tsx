@@ -53,6 +53,10 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       styles={css`
         html {
           font-size: ${settings.settings.fontSize}px;
+          
+          @media only screen and (max-width: 780px) {
+            font-size: ${Math.floor(settings.settings.fontSize * 0.7)}px;
+          }
         }
       `}
     />

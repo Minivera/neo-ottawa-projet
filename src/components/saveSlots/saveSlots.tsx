@@ -117,6 +117,10 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                   flex: 1;
                   max-width: 1100px;
                   text-align: justify;
+
+                  @media only screen and (max-width: 436px) {
+                    margin: 1rem 0.5rem 0.5rem;
+                  }
                 `}
               >
                 {t(
@@ -131,10 +135,27 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                   justify-content: center;
                   align-items: center;
                   flex-wrap: wrap;
-                  max-width: 1100px;
                   padding: 0;
                   margin: 0;
                   flex: 1;
+
+                  & li {
+                    width: 50%;
+                  }
+
+                  @media only screen and (max-width: 780px) {
+                    flex-direction: column;
+
+                    & li {
+                      width: 100%;
+                    }
+                  }
+                  
+                  @media only screen and (max-width: 650px) {
+                    & li > div {
+                      padding: 20rem 2rem;
+                    }
+                  }
                 `}
               >
                 {slots.map(el => {
@@ -149,10 +170,12 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                         key={el[0].id}
                       >
                         <div
-                          css={css`
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
+                          css={theme => css`
+                            display: grid;
+                            border: 2px solid ${theme.colors.primary};
+                            margin: 1rem;
+                            padding: 5rem 2rem;
+                            cursor: pointer;
                           `}
                         >
                           <Loader
@@ -180,21 +203,17 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                           role="none"
                           tabIndex={-1}
                           css={theme => css`
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            position: relative;
-                            border: 0.2rem solid
+                            display: grid;
+                            border: 2px solid
                               ${transparentize(0.5, theme.colors.primary)};
                             margin: 1rem;
-                            height: calc(320px + 0.4rem);
-                            width: calc(480px + 0.4rem);
+                            padding: 5rem 2rem;
                           `}
                         >
                           <div
                             css={css`
-                              position: absolute;
-                              inset: 0;
+                              grid-column: 1;
+                              grid-row: 1;
                               display: flex;
                               justify-content: center;
                               align-items: center;
@@ -207,8 +226,8 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                           </div>
                           <div
                             css={css`
-                              position: absolute;
-                              inset: 0;
+                              grid-column: 1;
+                              grid-row: 1;
                               margin-top: 4rem;
                               display: flex;
                               justify-content: center;
@@ -244,14 +263,11 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                           }
                         }}
                         css={theme => css`
-                          display: flex;
-                          justify-content: center;
-                          align-items: center;
                           position: relative;
-                          border: 0.2rem solid ${theme.colors.primary};
+                          display: grid;
+                          border: 2px solid ${theme.colors.primary};
                           margin: 1rem;
-                          height: calc(320px + 0.4rem);
-                          width: calc(480px + 0.4rem);
+                          padding: 5rem 2rem;
                           cursor: pointer;
 
                           &:hover {
@@ -263,8 +279,8 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                       >
                         <div
                           css={css`
-                            position: absolute;
-                            inset: 0;
+                            grid-column: 1;
+                            grid-row: 1;
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -277,16 +293,19 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                         </div>
                         {el[0].image ? (
                           <img
-                            height={320}
-                            width={480}
+                            css={css`
+                              position: absolute;
+                              height: 100%;
+                              width: 100%;
+                            `}
                             src={el[0].image || undefined}
                             alt={`save slot ${el[0].id}`}
                           />
                         ) : (
                           <div
                             css={css`
-                              position: absolute;
-                              inset: 0;
+                              grid-column: 1;
+                              grid-row: 1;
                               margin-top: 4rem;
                               display: flex;
                               justify-content: center;

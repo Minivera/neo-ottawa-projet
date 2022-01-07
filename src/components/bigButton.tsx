@@ -16,8 +16,7 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
     css={theme => css`
       position: relative;
       flex: 1;
-      line-height: 0.5;
-      margin: 0.5em 3.5em;
+      margin: 0.5rem 3.5rem;
       color: ${theme.colors.text};
       font-family: VCR-OSD-MONO;
       text-transform: none;
@@ -25,39 +24,30 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
       background-color: transparent;
       border: none;
       cursor: pointer;
-      text-align: center;
+      text-align: left;
       transition: all 150ms ease;
-    
-      & > svg {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0px;
-        left: 0px;
-        z-index: 1;
-        fill: ${theme.colors.black};
-        transition: inherit;
-    
-        & > path {
-          stroke: ${theme.colors.secondary};
-          stroke-width: 7;
-          transition: inherit;
-        }
+
+      @media only screen and (max-width: 436px) {
+        margin: 0.5rem 0.5rem;
       }
     
       & div {
         position: relative;
-        font-size: 2.5em;
+        font-size: 1.8rem;
         display: flex;
         align-items: center;
         z-index: 2;
-        margin: 0 2.5em;
+        margin: 0 2.5rem;
         transition: inherit;
+
+        @media only screen and (max-width: 436px) {
+          margin: 0 1.5rem;
+        }
     
         & svg {
           fill: ${theme.colors.secondary};
-          height: 2.5em;
-          margin-right: 0.5em;
+          height: 1.4rem;
+          margin-right: 0.5rem;
           transition: inherit;
         }
       }
@@ -82,10 +72,36 @@ export const BigButton: FunctionComponent<BigButtonProps> = ({
       {icon}
       {children}
     </div>
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      css={theme => css`
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        fill: ${theme.colors.black};
+        transition: inherit;
+      `}
+    >
       <path
-        d="M10,7 L90,7 99,50 90,93 10,93 1,50z"
+        d="M5,7 L95,7 99,50 95,93 5,93 1,50z"
         vectorEffect="non-scaling-stroke"
+        css={theme => css`
+          stroke: ${theme.colors.secondary};
+          stroke-width: 7;
+          transition: inherit;
+
+          @media only screen and (max-width: 436px) {
+            stroke-width: 5;
+          }
+
+          @media only screen and (max-width: 320px) {
+            stroke-width: 4;
+          }
+        `}
       />
     </svg>
   </button>

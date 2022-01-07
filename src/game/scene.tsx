@@ -71,10 +71,8 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     }
   };
 
-  // TODO: Bring back transitions
   let portraits: ReactElement | null = null;
   if (!state.centered) {
-    debugger;
     // Only show characters that have the loaded expression, never show empty images
     const characterPortraits = state.shownCharacters.filter(
       character => character.images[state.characterExpressions[character.id]]

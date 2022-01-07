@@ -25,8 +25,8 @@ Fred Gallant: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les c
 = scene_2
 ~ afficher_fond(brigade)
 ~ jouer_musique(theme_police)
-???: Eh! La nouvelle! # character=GABRIEL_SAND expression=amusement
 ~ afficher_personnage(GABRIEL_SAND, "slideInUp")
+???: Eh! La nouvelle! # character=GABRIEL_SAND expression=amusement
 Fred Gallant: Où dois-je me rapporter? # character=FRED_GALLANT invisible
 ???: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
 ???: Gallant, c’est ça? # character=GABRIEL_SAND expression=neutral

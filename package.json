@@ -66,6 +66,7 @@
     "react-loader-spinner": "^4.0.0",
     "react-pdf": "^5.5.0",
     "react-portal": "^4.2.1",
+    "react-responsive": "*",
     "react-transition-group": "^4.4.2",
     "styled-tools": "^1.7.2"
   }

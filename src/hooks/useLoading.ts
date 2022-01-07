@@ -64,7 +64,7 @@ export const usePreloader = (imagePaths: string[]): [boolean, number] => {
 
   const values = Object.values(loadedIndicators);
   const countLoaded = values.reduce((acc, val) => acc + (val ? 1 : 0), 0);
-  const percentLoaded = (countLoaded + assetsLoaded * 100) / (values.length + assetsToLoad);
+  const percentLoaded = ((countLoaded + assetsLoaded) * 100) / (values.length + assetsToLoad);
 
   return [values.some(indicator => !indicator) || assetLoading, percentLoaded];
 };

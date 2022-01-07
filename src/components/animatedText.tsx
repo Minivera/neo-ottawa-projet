@@ -105,7 +105,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
         styles={css`
           @keyframes move-text {
             0% {
-              left: 0.5em;
+              left: 0.5rem;
               opacity: 1;
             }
             100% {

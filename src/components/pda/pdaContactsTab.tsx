@@ -78,8 +78,8 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
                 >
                   <td
                     css={theme => css`
-                      border-right: 0.1rem solid ${theme.colors.lightGray};
-                      border-bottom: 0.1rem solid ${theme.colors.lightGray};
+                      border-right: 2px solid ${theme.colors.lightGray};
+                      border-bottom: 2px solid ${theme.colors.lightGray};
                       padding: 1rem;
                     `}
                   >
@@ -105,7 +105,7 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
                   </td>
                   <td
                     css={theme => css`
-                      border-bottom: 0.1rem solid ${theme.colors.lightGray};
+                      border-bottom: 2px solid ${theme.colors.lightGray};
                       padding: 1rem;
                     `}
                   >

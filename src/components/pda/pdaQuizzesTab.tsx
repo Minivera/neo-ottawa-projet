@@ -49,7 +49,7 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
               <li
                 key={quiz.name}
                 css={theme => css`
-                  border-bottom: 0.1rem solid ${theme.colors.lightGray};
+                  border-bottom: 2px solid ${theme.colors.lightGray};
 
                   font-size: 1.8rem;
                   font-style: italic;

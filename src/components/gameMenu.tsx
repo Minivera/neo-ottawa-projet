@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 import { theme, ifProp } from 'styled-tools';
 import { darken, transparentize } from 'polished';
+import { useMediaQuery } from 'react-responsive';
 
 import SettingsIcon from '../assets/ui/icons/Parametres.svg?component';
 import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
@@ -103,7 +104,8 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
   showPDA,
 }) => {
   const [t] = useTranslation();
-  const [open, setOpen] = useState<boolean>(true);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const [open, setOpen] = useState<boolean>(!isTabletOrMobile);
 
   return (
     <div

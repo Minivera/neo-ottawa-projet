@@ -17,7 +17,7 @@ export const DialogBox: FunctionComponent<DialogBoxProps> = ({ children }) => (
       background-color: ${transparentize(0.2, theme.colors.darkGray)};
       color: ${lighten(0.2, theme.colors.text)};
       border-color: ${theme.colors.primary};
-      border-width: 0.4rem;
+      border-width: 10px;
       border-top-style: solid;
       border-bottom-style: solid;
       z-index: 2;
@@ -34,6 +34,14 @@ export const DialogBox: FunctionComponent<DialogBoxProps> = ({ children }) => (
 
       & div + p {
         margin-top: 2rem;
+      }
+      
+      @media only screen and (max-width: 1024px) {
+        padding: 2rem 2rem;
+      }
+
+      @media only screen and (max-width: 436px) {
+        padding: 2rem 2rem;
       }
     `}
   >

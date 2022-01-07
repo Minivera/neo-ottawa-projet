@@ -12,8 +12,8 @@ export const MobilePhone: FunctionComponent<{
       width: 17rem;
       height: 37rem;
       padding: 0 0.5rem;
-      border: 0.25rem solid ${theme.colors.black};
-      border-radius: 1rem;
+      border: 2px solid ${theme.colors.black};
+      border-radius: 15px;
       display: flex;
       flex-direction: column;
       background-color: ${theme.colors.white};

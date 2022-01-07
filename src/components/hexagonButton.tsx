@@ -46,6 +46,11 @@ export const HexagonButton: FunctionComponent<
       pointer-events: ${disabled ? 'none' : 'auto'};
       transition: all 150ms ease;
 
+      @media only screen and (max-width: 1024px) {
+        margin: 0;
+        padding: 1.5rem 2rem;
+      }
+
       & svg {
         position: absolute;
         height: 100%;
@@ -78,7 +83,7 @@ export const HexagonButton: FunctionComponent<
 
       path {
         stroke: ${borderColor || theme.colors.text};
-        stroke-width: 2;
+        stroke-width: 5;
         transition: inherit;
       }
 

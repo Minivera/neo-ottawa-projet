@@ -39,7 +39,7 @@ const PDANavigation = styled.div`
   background: ${theme('colors.darkGreen')};
   grid-row: 1;
   grid-column: 1 / span 2;
-  border-bottom: 0.5rem solid ${theme('colors.secondary')};
+  border-bottom: 10px solid ${theme('colors.secondary')};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -114,9 +114,9 @@ const PDANavigationLink = styled.a<PDANavigationLinkProps>`
       display: block;
       width: 0; 
       height: 0; 
-      border-left: 0.7rem solid transparent;
-      border-right: 0.7rem solid transparent;
-      border-bottom: 1rem solid ${theme('colors.yellow')(props)};
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 15px solid ${theme('colors.yellow')(props)};
       position: absolute;
       bottom: -1.5rem;
       left: calc(50% - 0.5rem);
@@ -135,7 +135,7 @@ const PDATopLeftSide = styled.div`
 const PDATopBorder = styled.div`
   grid-row: 1;
   grid-column: 4;
-  border-top: 0.5rem solid ${theme('colors.secondary')};
+  border-top: 10px solid ${theme('colors.secondary')};
   z-index: 3;
 `;
 
@@ -144,7 +144,7 @@ const PDAReturnButton = styled.div`
   grid-column: 5 / span 2;
   padding-left: 1.7rem;
   position: relative;
-  border-top: 0.5rem solid ${theme('colors.secondary')};
+  border-top: 10px solid ${theme('colors.secondary')};
   z-index: 3;
 `;
 
@@ -203,14 +203,14 @@ const PDATopRightSide = styled.div`
 const PDALeftBorder = styled.div`
   grid-row: 2 / span 3;
   grid-column: 1;
-  border-left: 0.5rem solid ${theme('colors.secondary')};
+  border-left: 10px solid ${theme('colors.secondary')};
   z-index: 3;
 `;
 
 const PDARightBorder = styled.div`
   grid-row: 3 / span 2;
   grid-column: 7;
-  border-right: 0.5rem solid ${theme('colors.secondary')};
+  border-right: 10px solid ${theme('colors.secondary')};
   margin-top: -0.5rem;
   z-index: 3;
 `;
@@ -224,8 +224,8 @@ const PDABottomLeftSide = styled.div`
 const PDABottomLeftCorner = styled.div`
   grid-row: 6;
   grid-column: 1;
-  border-left: 0.5rem solid ${theme('colors.secondary')};
-  border-bottom: 0.5rem solid ${theme('colors.secondary')};
+  border-left: 10px solid ${theme('colors.secondary')};
+  border-bottom: 10px solid ${theme('colors.secondary')};
   margin-top: -0.5rem;
   z-index: 3;
 `;
@@ -239,7 +239,7 @@ const PDABottomRightCorner = styled.div`
 const PDABottomBorder = styled.div`
   grid-row: 6;
   grid-column: 2 / span 4;
-  border-bottom: 0.5rem solid ${theme('colors.secondary')};
+  border-bottom: 10px solid ${theme('colors.secondary')};
   z-index: 3;
 `;
 
@@ -370,15 +370,15 @@ export const PDATabControl: FunctionComponent<PDATabControlProps> = ({
           }}
           tabIndex={0}
         >
-          <PDAReturnSide />
-          <PDAReturnInner>
-            {!quizMode && (
-              <React.Fragment>
+          {!quizMode && (
+            <React.Fragment>
+              <PDAReturnSide />
+              <PDAReturnInner>
                 <CloseIcon />
                 <span>{t('pda_return')}</span>
-              </React.Fragment>
-            )}
-          </PDAReturnInner>
+              </PDAReturnInner>
+            </React.Fragment>
+          )}
         </PDAReturnButton>
         <PDATopRightSide>
           <img src={pdaBorderTopRight} alt="side right lines" />

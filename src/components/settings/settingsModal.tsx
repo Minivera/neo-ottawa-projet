@@ -40,7 +40,7 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
           css={theme => css`
             grid-row: 1;
             grid-column: 1;
-            border-bottom: 0.4em solid ${theme.colors.secondary};
+            border-bottom: 10px solid ${theme.colors.secondary};
             display: flex;
             align-items: center;
             padding-top: 0.5rem;
@@ -78,7 +78,7 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
           css={theme => css`
             grid-row: 1;
             grid-column: 3;
-            border-top: 0.4em solid ${theme.colors.secondary};
+            border-top: 10px solid ${theme.colors.secondary};
             background: ${theme.colors.darkGreen};
             z-index: 3;
             pointer-events: none;
@@ -98,7 +98,7 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
             grid-column: 4 / span 2;
             padding-left: 1.7rem;
             position: relative;
-            border-top: 0.4em solid ${theme.colors.secondary};
+            border-top: 10px solid ${theme.colors.secondary};
             background: ${theme.colors.darkGreen};
             z-index: 3;
           `}
@@ -150,7 +150,7 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
           css={theme => css`
             grid-row: 2 / span 2;
             grid-column: 1;
-            border-left: 0.4em solid ${theme.colors.secondary};
+            border-left: 10px solid ${theme.colors.secondary};
             z-index: 3;
             pointer-events: none;
           `}
@@ -159,7 +159,7 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
           css={theme => css`
             grid-row: 2;
             grid-column: 5;
-            border-right: 0.4em solid ${theme.colors.secondary};
+            border-right: 10px solid ${theme.colors.secondary};
             z-index: 3;
             pointer-events: none;
             background: ${theme.colors.darkGreen};
@@ -184,8 +184,8 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
           css={theme => css`
             grid-row: 3;
             grid-column: 1 / span 4;
-            border-bottom: 0.4em solid ${theme.colors.secondary};
-            border-left: 0.4em solid ${theme.colors.secondary};
+            border-bottom: 10px solid ${theme.colors.secondary};
+            border-left: 10px solid ${theme.colors.secondary};
             z-index: 3;
             pointer-events: none;
             background: ${theme.colors.darkGreen};

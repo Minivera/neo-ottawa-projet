@@ -13,7 +13,7 @@ export const SceneContainer = styled.div<SceneContainerProps>`
       ? `
     background-image: url(${prop('background')(props)});
     background-size: cover;
-    background-position: right;
+    background-position: center;
   `
       : ``}
 

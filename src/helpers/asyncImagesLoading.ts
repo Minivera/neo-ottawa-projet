@@ -19,16 +19,18 @@ export const loadingHelper =
           .replace(getFilenameRegex, '$2')
           .replace(cleanDotRegex, '');
 
+        const convertedExpressions = knownExpressions as {[s: string]: string[]};
+
         if (
           expressionName !== 'neutral' &&
-          knownExpressions[character.id] &&
-          !knownExpressions[character.id].includes(expressionName)
+          convertedExpressions[character.id] &&
+          !convertedExpressions[character.id].includes(expressionName)
         ) {
           // Ignore any expression not in the known expression
           return;
         }
 
-        if (expressionName !== 'neutral' && !knownExpressions[character.id]) {
+        if (expressionName !== 'neutral' && !convertedExpressions[character.id]) {
           // Ignore any character that are not known to have any expression
           return;
         }

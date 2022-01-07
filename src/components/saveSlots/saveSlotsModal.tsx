@@ -31,13 +31,24 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
         max-height: calc(100% - 3.5rem);
         max-width: 85vw;
         margin: 1.75rem auto;
+
+        @media only screen and (max-width: 800px) {
+          margin: 1rem;
+          max-height: calc(100% - 2rem);
+          max-width: 100%;
+        }
+
+        @media only screen and (max-width: 436px) {
+          margin: 0;
+          max-height: 100%;
+        }
       `}
     >
       <div
         css={css`
           overflow: hidden;
           display: grid;
-          grid-template-columns: min-content 42px auto 16rem;
+          grid-template-columns: auto 42px auto 16rem;
           grid-template-rows: 50px auto;
         `}
       >
@@ -45,7 +56,7 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
           css={theme => css`
             grid-row: 1;
             grid-column: 1;
-            border-bottom: 0.4em solid ${theme.colors.secondary};
+            border-bottom: 10px solid ${theme.colors.secondary};
             display: flex;
             align-items: center;
             padding-top: 0.5rem;
@@ -58,11 +69,25 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
             font-size: 1.2rem;
             margin: 0;
 
+            @media only screen and (max-width: 320px) {
+              padding-left: 0.5rem;
+            }
+
             & svg {
               margin-left: -0.5rem;
               margin-top: 0.2rem;
               height: 1.2rem;
               fill: ${theme.colors.yellow};
+
+              @media only screen and (max-width: 436px) {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+                width: 1.2rem;
+              }
+
+              @media only screen and (max-width: 320px) {
+                display: none;
+              }
             }
           `}
         >
@@ -83,7 +108,7 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
           css={theme => css`
             grid-row: 1;
             grid-column: 3;
-            border-top: 0.4em solid ${theme.colors.secondary};
+            border-top: 10px solid ${theme.colors.secondary};
             background: ${theme.colors.darkGreen};
             z-index: 3;
             pointer-events: none;
@@ -95,7 +120,7 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
             grid-column: 4;
             padding-left: 1.7rem;
             position: relative;
-            border-top: 0.4em solid ${theme.colors.secondary};
+            border-top: 10px solid ${theme.colors.secondary};
             background: ${theme.colors.darkGreen};
             z-index: 3;
             pointer-events: auto;
@@ -160,9 +185,9 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
             z-index: 2;
             background: ${theme.colors.darkGreen};
             color: ${theme.colors.secondary};
-            border-left: 0.4em solid ${theme.colors.secondary};
-            border-right: 0.4em solid ${theme.colors.secondary};
-            border-bottom: 0.4em solid ${theme.colors.secondary};
+            border-left: 10px solid ${theme.colors.secondary};
+            border-right: 10px solid ${theme.colors.secondary};
+            border-bottom: 10px solid ${theme.colors.secondary};
             display: flex;
             overflow: hidden;
           `}
@@ -180,6 +205,10 @@ export const SaveSlotsModal: FunctionComponent<SaveSlotsModalProps> = ({
               flex-direction: column;
               width: 100%;
               pointer-events: auto;
+
+              @media only screen and (max-width: 436px) {
+                padding: 1rem;
+              }
 
               &::-webkit-scrollbar {
                 width: 0.5rem;

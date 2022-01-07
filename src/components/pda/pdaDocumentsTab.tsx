@@ -46,7 +46,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
             <li
               key={document.name}
               css={theme => css`
-                border-bottom: 0.1rem solid ${theme.colors.lightGray};
+                border-bottom: 2px solid ${theme.colors.lightGray};
                 list-style: none;
 
                 &:last-of-type {

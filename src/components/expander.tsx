@@ -31,7 +31,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
       <div
         css={theme => css`
           padding: 1.2rem;
-          border: solid 0.4rem ${theme.colors.purple};
+          border: solid 10px ${theme.colors.purple};
           background-color: ${transparentize(0.05, theme.colors.darkGray)};
           overflow: hidden;
           transition: max-height ease-in-out 500ms;
@@ -89,7 +89,7 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
           id={`expander_${title}`}
           ref={contentRef}
           css={theme => css`
-            border-top: 1px solid ${theme.colors.lightGray};
+            border-top: 2px solid ${theme.colors.lightGray};
             padding-top: 1.2rem;
             font-size: 1.2rem;
             color: ${theme.colors.lightGray};
