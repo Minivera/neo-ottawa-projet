@@ -1,10 +1,12 @@
 import { Document } from './pda';
 
 export enum CharacterAnimation {
+  /* eslint-disable no-unused-vars */
   MOVE_UP = 'move_up',
   FADE_IN = 'fade_in',
   MOVE_DOWN = 'move_down',
   FADE_OUT = 'fade_out',
+  /* eslint-enable no-unused-vars */
 }
 
 export interface Choice {
@@ -14,6 +16,7 @@ export interface Choice {
 }
 
 export interface QuizQuestion {
+  perfectAnswer: boolean;
   question: string;
   choices: Choice[];
   feedback?: string;

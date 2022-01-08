@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { jsx, css, useTheme, Theme } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { darken, lighten, transparentize } from 'polished';
+import { FaStar } from 'react-icons/all';
 
 import { Quiz } from '../../game/event';
 import { PDFReader } from '../pdfReader';
 import { HexagonButton } from '../hexagonButton';
 import { Expander } from '../expander';
 import { PDATitle } from './pdaTitle';
-
 import { IconButton } from '../iconButton';
 
 import QuizIcon from '../../assets/ui/icons/QuizCompleted.svg?component';
@@ -128,6 +128,14 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
             >
               <PreviousIcon />
             </IconButton>
+            {currentQuestion.perfectAnswer && (
+              <FaStar
+                css={theme => `
+                  fill: ${theme.colors.yellow}
+                  margin-right: 0.5rem;
+                `}
+              />
+            )}
             {t(quiz.name)} - {selectedQuestion + 1} / {quiz.questionCount}
             <IconButton
               disabled={selectedQuestion >= quiz.questionCount - 1}

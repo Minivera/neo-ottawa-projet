@@ -349,6 +349,7 @@ const generateCurrentScene = (
 const generateQuizStep = (
   text: string | null,
   previousState: Quiz | undefined,
+  choiceId: number | undefined,
   story: Story
 ): undefined | Quiz => {
   const variables = story.variablesState as unknown as GameVariables;
@@ -367,6 +368,7 @@ const generateQuizStep = (
   };
 
   let currentQuestion: QuizQuestion = {
+    perfectAnswer: true,
     question: '',
     choices: [],
   };
@@ -381,6 +383,17 @@ const generateQuizStep = (
     quiz.questions.length >= quiz.currentIndex
   ) {
     currentQuestion = quiz.questions[quiz.currentIndex - 1];
+
+    if (typeof choiceId !== 'undefined') {
+      const foundChoice = currentQuestion.choices.find(
+        choice => choice.id === choiceId
+      );
+      // It should not be possible to get an undefined choice, but still
+      // cover the case not to cause a false positive.
+      if (!foundChoice || !foundChoice.isGoodChoice) {
+        currentQuestion.perfectAnswer = false;
+      }
+    }
   } else {
     quiz.questions.push(currentQuestion);
   }
@@ -553,6 +566,7 @@ export const useGame = (
           const currentQuiz = generateQuizStep(
             result,
             state.currentQuiz,
+            action.choiceId,
             story
           );
 
