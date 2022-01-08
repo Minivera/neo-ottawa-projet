@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { jsx, css, useTheme, Theme } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
-import { darken, lighten, transparentize } from 'polished';
+import { darken, lighten, rgba, transparentize } from 'polished';
 import { FaStar } from 'react-icons/all';
 
 import { Quiz } from '../../game/event';
@@ -130,9 +130,29 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
             </IconButton>
             {currentQuestion.perfectAnswer && (
               <FaStar
-                css={theme => `
+                css={theme => css`
                   fill: ${theme.colors.yellow}
                   margin-right: 0.5rem;
+                  
+                  box-shadow: 0 0 0 0 ${theme.colors.yellow};
+                  animation: pulse 2s infinite;
+                  
+                  @keyframes pulse-purple {
+                    0% {
+                      transform: scale(0.95);
+                      box-shadow: 0 0 0 0 ${rgba(theme.colors.yellow, 0.7)};
+                    }
+                    
+                    70% {
+                      transform: scale(1);
+                      box-shadow: 0 0 0 10px ${rgba(theme.colors.yellow, 0)};
+                    }
+                    
+                    100% {
+                      transform: scale(0.95);
+                      box-shadow: 0 0 0 0 ${rgba(theme.colors.yellow, 0)};
+                    }
+                  }
                 `}
               />
             )}
