@@ -29,6 +29,10 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
         justify-content: space-around;
         padding: 0 8rem;
         position: relative;
+
+        @media only screen and (max-width: 480px) {
+          padding: 0 1rem;
+        }
       `}
     >
       <div>

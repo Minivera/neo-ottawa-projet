@@ -14,6 +14,11 @@ export const PDAHomeTab: React.FunctionComponent = () => (
       width: calc(100% - 8rem);
       margin: 1rem;
       padding: 0 10rem;
+
+      @media only screen and (max-width: 480px) {
+        width: 100%;
+        padding: 0 1rem;
+      }
     `}
   >
     <div

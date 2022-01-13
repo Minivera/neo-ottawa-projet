@@ -3,6 +3,7 @@ import { css, jsx } from '@emotion/react';
 import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
 import { Portal } from 'react-portal';
 import { Story } from 'inkjs/engine/Story';
+import { useMediaQuery } from 'react-responsive';
 
 import { PDATabControl } from '../components/pda/pdaTabControl';
 import { PDAHomeTab } from '../components/pda/pdaHomeTab';
@@ -18,8 +19,7 @@ import { getQuizHistory } from './gameLog';
 import { PDADocumentView } from '../components/pda/pdaDocumentView';
 import { PDAQuizView } from '../components/pda/pdaQuizView';
 import { PDAStaticTransition } from '../components/pda/pdaStaticTransition';
-
-import pdaVideo from '../assets/videos/videoblocks-hud-futuristic.mp4';
+import { PDAMobileTabControl } from '../components/pda/pdaMobileTabControl';
 
 /* eslint-disable no-unused-vars */
 export enum PDATab {
@@ -150,6 +150,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   const [selectedDocument, setSelectedDocument] = useState<Document | null>(
     null
   );
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const handleTabClick = (tab: PDATab) => {
     setSelectedDocument(null);
@@ -168,6 +169,11 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   const onDocumentClick = (document: Document) => {
     setSelectedDocument(document);
   };
+
+  let PDAModal = PDATabControl;
+  if (isTabletOrMobile) {
+    PDAModal = PDAMobileTabControl;
+  }
 
   let tab: React.ReactElement | null = null;
   switch (selectedTab) {
@@ -203,7 +209,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   if (quiz) {
     return (
       <PDAContainer opened>
-        <PDATabControl
+        <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.QUIZZES}
           onReturnClick={onPDAClosed}
@@ -219,7 +225,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
             onChoiceSelected={onChoiceSelected}
             skipAnimation={skipAnimation}
           />
-        </PDATabControl>
+        </PDAModal>
       </PDAContainer>
     );
   }
@@ -227,7 +233,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   if (selectedDocument) {
     return (
       <PDAContainer opened>
-        <PDATabControl
+        <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.DOCUMENTS}
           onReturnClick={onPDAClosed}
@@ -240,7 +246,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
             }}
             document={selectedDocument}
           />
-        </PDATabControl>
+        </PDAModal>
       </PDAContainer>
     );
   }
@@ -248,7 +254,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   if (selectedQuiz) {
     return (
       <PDAContainer opened>
-        <PDATabControl
+        <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.QUIZZES}
           onReturnClick={onPDAClosed}
@@ -261,44 +267,24 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
             }}
             quiz={selectedQuiz}
           />
-        </PDATabControl>
+        </PDAModal>
       </PDAContainer>
     );
   }
 
   return (
     <PDAContainer opened={opened}>
-      <PDATabControl
+      <PDAModal
         onTabClick={handleTabClick}
         selectedTab={selectedTab || PDATab.HOME}
         onReturnClick={onPDAClosed}
         quizMode={!!quiz}
         ref={focusRef}
       >
-        <div
-          css={css`
-            position: absolute;
-            inset: 0;
-            opacity: 0.3;
-            z-index: -2;
-            overflow: hidden;
-          `}
-        >
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-          <video
-            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-            // @ts-ignore
-            src={pdaVideo}
-            css={css`
-              position: relative;
-              inset: 0;
-            `}
-          />
-        </div>
         <PDAStaticTransition key={opened ? tab?.key : 'hidden'}>
           {tab}
         </PDAStaticTransition>
-      </PDATabControl>
+      </PDAModal>
     </PDAContainer>
   );
 };

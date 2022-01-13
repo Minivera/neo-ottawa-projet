@@ -1,0 +1,10 @@
+<svg width="42" height="177" enable-background="new 0 0 108 360" version="1.1" viewBox="0 0 42 177" xmlns="http://www.w3.org/2000/svg">
+ <polygon transform="matrix(.52153 0 0 .61785 -7.1648 -22.714)" points="94.27 316.14 94.27 36.763 25.74 36.763 18.33 236.43 22.702 242.99" fill="#002626"/>
+ <g transform="scale(.52153 .61785)" fill="#09bcc5">
+  <polygon transform="translate(-13.738,-36.763)" points="40.213 195.3 94.27 249.69 94.27 284.16 40.213 229.77"/>
+  <polygon transform="translate(-13.738,-36.763)" points="40.211 142.45 94.268 196.85 94.268 231.32 40.211 176.92"/>
+  <polygon transform="translate(-13.738,-36.763)" points="40.211 89.442 94.268 143.84 94.268 178.31 40.211 123.91"/>
+  <polygon transform="translate(-13.738,-36.763)" points="40.211 36.764 94.268 91.157 94.268 125.63 40.211 71.235"/>
+  <polygon transform="translate(-13.738,-36.763)" points="13.738 240.4 94.268 323.24 94.268 306.02 25.74 235.54 25.74 36.764 13.738 36.764"/>
+ </g>
+</svg>

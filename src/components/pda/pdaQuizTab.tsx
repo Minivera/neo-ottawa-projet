@@ -80,6 +80,10 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           flex-direction: column;
           align-items: center;
         }
+
+        @media only screen and (max-width: 480px) {
+          padding: 0 1rem;
+        }
       `}
     >
       <div>

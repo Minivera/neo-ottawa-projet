@@ -21,6 +21,7 @@ export const interfaceTerms = {
   expander_expand: 'Ouvrir le contenu pour {{name}}',
 
   // PDA
+  pda_menu: 'Menu',
   pda_home: 'Accueil',
   pda_documents: 'Notes',
   pda_map: 'Plan de la ville',

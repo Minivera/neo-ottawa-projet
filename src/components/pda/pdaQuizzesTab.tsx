@@ -25,6 +25,10 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
     <div
       css={css`
         padding: 0 10rem;
+
+        @media only screen and (max-width: 480px) {
+          padding: 0 1rem;
+        }
       `}
     >
       <div
@@ -66,6 +70,11 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
                   &:last-of-type {
                     border-bottom: none;
                   }
+
+                  @media only screen and (max-width: 768px) {
+                    border-bottom: none;
+                    border-top: 2px solid ${theme.colors.lightGray};
+                  }
                 `}
               >
                 <div
@@ -87,8 +96,8 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
                       & svg {
                         fill: ${theme.colors.yellow};
                         margin-right: 1rem;
-                        height: 1.6rem;
-                        width: 1.6rem;
+                        height: 2.3rem;
+                        width: 2.3rem;
                       }
                     `
                   }

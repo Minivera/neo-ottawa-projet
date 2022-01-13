@@ -22,6 +22,10 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
   <div
     css={css`
       padding: 0 10rem;
+
+      @media only screen and (max-width: 480px) {
+        padding: 0 1rem;
+      }
     `}
   >
     <div
@@ -52,6 +56,11 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
                 &:last-of-type {
                   border-bottom: none;
                 }
+
+                @media only screen and (max-width: 768px) {
+                  border-bottom: none;
+                  border-top: 2px solid ${theme.colors.lightGray};
+                }
               `}
             >
               <div
@@ -72,7 +81,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
                     font-style: italic;
                     list-style: none;
                     cursor: pointer;
-    
+
                     &:hover {
                       background-color: ${theme.colors.secondary};
                       color: ${darken(0.2, theme.colors.yellow)};
@@ -80,8 +89,8 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
 
                     & svg {
                       fill: ${theme.colors.yellow};
-                      margin-right: 1rem;
-                      height: 1.6rem;
+                      height: 2.3rem;
+                      width: 2.3rem;
                     }
                   `
                 }
