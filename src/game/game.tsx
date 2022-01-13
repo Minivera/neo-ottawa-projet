@@ -217,11 +217,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
             {settings.settings.textAnimationsEnabled ? (
               <SwitchTransition>
                 <CSSTransition
-                  timeout={{
-                    appear: settings.settings.textAnimationSpeed,
-                    enter: 0,
-                    exit: 0,
-                  }}
+                  timeout={settings.settings.textAnimationSpeed * 1000}
                   key={gameState.currentScene.background?.asset || ''}
                   classNames="fade"
                   onEnter={() => {
