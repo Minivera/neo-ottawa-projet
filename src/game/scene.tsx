@@ -19,6 +19,7 @@ import {
   MultipleChoices,
 } from '../components/multipleChoices';
 import { Settings } from '../hooks/useSettings';
+import { GameBackground } from '../components/gameBackground';
 
 export interface SceneState {
   dialogName?: string;
@@ -193,6 +194,16 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           volume={settings.musicVolume / 100}
         />
       )}
+      {state.background?.type === 'video' && (
+          <GameBackground
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            src={state.background.asset}
+            autoPlay={true}
+            muted
+            loop
+          />
+        )}
     </SceneContainer>
   );
 };

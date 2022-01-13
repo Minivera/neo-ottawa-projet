@@ -1,4 +1,4 @@
-import React, { FunctionComponent, Ref } from 'react';
+import React, { PropsWithChildren, Ref } from 'react';
 import styled from '@emotion/styled';
 import { ifNotProp, ifProp, theme } from 'styled-tools';
 import { useTranslation } from 'react-i18next';
@@ -289,130 +289,130 @@ export interface PDATabControlProps {
   ref?: Ref<HTMLDivElement>;
 }
 
-export const PDATabControl: FunctionComponent<PDATabControlProps> =
-  React.forwardRef<HTMLDivElement, PDATabControlProps>(
-    ({ onTabClick, onReturnClick, selectedTab, quizMode, children }, ref) => {
-      const [t] = useTranslation();
+export const PDATabControl = React.forwardRef<
+  HTMLDivElement,
+  PropsWithChildren<PDATabControlProps>
+>(({ onTabClick, onReturnClick, selectedTab, quizMode, children }, ref) => {
+  const [t] = useTranslation();
 
-      const clickTab = (tab: PDATab) => () => {
-        if (!quizMode) {
-          onTabClick(tab);
-        }
-      };
-
-      const handleReturnClick = () => {
-        if (!quizMode) {
-          onReturnClick();
-        }
-      };
-
-      return (
-        <PDAContainer>
-          <PDABackgroundGrid>
-            <PDANavigation>
-              <PDANavigationLink
-                role="button"
-                onClick={clickTab(PDATab.HOME)}
-                onKeyPress={e => {
-                  if (e.code === 'Enter') {
-                    clickTab(PDATab.HOME);
-                  }
-                }}
-                tabIndex={0}
-                selected={selectedTab === PDATab.HOME}
-                disabled={quizMode}
-              >
-                <HomeIcon />
-                {t('pda_home')}
-              </PDANavigationLink>
-              <PDANavigationLink
-                role="button"
-                onClick={clickTab(PDATab.QUIZZES)}
-                onKeyPress={e => {
-                  if (e.code === 'Enter') {
-                    clickTab(PDATab.QUIZZES);
-                  }
-                }}
-                tabIndex={0}
-                selected={quizMode || selectedTab === PDATab.QUIZZES}
-                disabled={quizMode}
-              >
-                <DocumentsIcon />
-                {t('pda_documents')}
-              </PDANavigationLink>
-              <PDANavigationLink
-                role="button"
-                onClick={clickTab(PDATab.CONTACTS)}
-                onKeyPress={e => {
-                  if (e.code === 'Enter') {
-                    clickTab(PDATab.CONTACTS);
-                  }
-                }}
-                tabIndex={0}
-                selected={selectedTab === PDATab.CONTACTS}
-                disabled={quizMode}
-              >
-                <ContactIcon />
-                {t('pda_contacts')}
-              </PDANavigationLink>
-              <PDANavigationLink
-                role="button"
-                onClick={clickTab(PDATab.DOCUMENTS)}
-                onKeyPress={e => {
-                  if (e.code === 'Enter') {
-                    clickTab(PDATab.DOCUMENTS);
-                  }
-                }}
-                tabIndex={0}
-                selected={selectedTab === PDATab.DOCUMENTS}
-                disabled={quizMode}
-              >
-                <EvidenceIcon />
-                {t('pda_evidence')}
-              </PDANavigationLink>
-            </PDANavigation>
-            <PDATopLeftSide>
-              <img src={pdaBorderTopCenter} alt="side slant" />
-            </PDATopLeftSide>
-            <PDATopBorder />
-            <PDAReturnButton
-              role="button"
-              onClick={handleReturnClick}
-              onKeyPress={e => {
-                if (e.code === 'Enter') {
-                  handleReturnClick();
-                }
-              }}
-              tabIndex={0}
-            >
-              {!quizMode && (
-                <React.Fragment>
-                  <PDAReturnSide />
-                  <PDAReturnInner>
-                    <CloseIcon />
-                    <span>{t('pda_return')}</span>
-                  </PDAReturnInner>
-                </React.Fragment>
-              )}
-            </PDAReturnButton>
-            <PDATopRightSide>
-              <img src={pdaBorderTopRight} alt="side right lines" />
-            </PDATopRightSide>
-            <PDALeftBorder />
-            <PDARightBorder />
-            <PDABottomLeftSide>
-              <img src={pdaBorderBotLeft} alt="side left lines" />
-            </PDABottomLeftSide>
-            <PDABottomLeftCorner />
-            <PDABottomRightCorner>
-              <img src={pdaBorderBotRight} alt="side bottom triangle" />
-            </PDABottomRightCorner>
-            <PDABottomBorder />
-            <PDAContent>
-              <PDAContentInner ref={ref}>{children}</PDAContentInner>
-            </PDAContent>
-          </PDABackgroundGrid>
-        </PDAContainer>
-      );
+  const clickTab = (tab: PDATab) => () => {
+    if (!quizMode) {
+      onTabClick(tab);
     }
+  };
+
+  const handleReturnClick = () => {
+    if (!quizMode) {
+      onReturnClick();
+    }
+  };
+
+  return (
+    <PDAContainer>
+      <PDABackgroundGrid>
+        <PDANavigation>
+          <PDANavigationLink
+            role="button"
+            onClick={clickTab(PDATab.HOME)}
+            onKeyPress={e => {
+              if (e.code === 'Enter') {
+                clickTab(PDATab.HOME);
+              }
+            }}
+            tabIndex={0}
+            selected={selectedTab === PDATab.HOME}
+            disabled={quizMode}
+          >
+            <HomeIcon />
+            {t('pda_home')}
+          </PDANavigationLink>
+          <PDANavigationLink
+            role="button"
+            onClick={clickTab(PDATab.QUIZZES)}
+            onKeyPress={e => {
+              if (e.code === 'Enter') {
+                clickTab(PDATab.QUIZZES);
+              }
+            }}
+            tabIndex={0}
+            selected={quizMode || selectedTab === PDATab.QUIZZES}
+            disabled={quizMode}
+          >
+            <DocumentsIcon />
+            {t('pda_documents')}
+          </PDANavigationLink>
+          <PDANavigationLink
+            role="button"
+            onClick={clickTab(PDATab.CONTACTS)}
+            onKeyPress={e => {
+              if (e.code === 'Enter') {
+                clickTab(PDATab.CONTACTS);
+              }
+            }}
+            tabIndex={0}
+            selected={selectedTab === PDATab.CONTACTS}
+            disabled={quizMode}
+          >
+            <ContactIcon />
+            {t('pda_contacts')}
+          </PDANavigationLink>
+          <PDANavigationLink
+            role="button"
+            onClick={clickTab(PDATab.DOCUMENTS)}
+            onKeyPress={e => {
+              if (e.code === 'Enter') {
+                clickTab(PDATab.DOCUMENTS);
+              }
+            }}
+            tabIndex={0}
+            selected={selectedTab === PDATab.DOCUMENTS}
+            disabled={quizMode}
+          >
+            <EvidenceIcon />
+            {t('pda_evidence')}
+          </PDANavigationLink>
+        </PDANavigation>
+        <PDATopLeftSide>
+          <img src={pdaBorderTopCenter} alt="side slant" />
+        </PDATopLeftSide>
+        <PDATopBorder />
+        <PDAReturnButton
+          role="button"
+          onClick={handleReturnClick}
+          onKeyPress={e => {
+            if (e.code === 'Enter') {
+              handleReturnClick();
+            }
+          }}
+          tabIndex={0}
+        >
+          {!quizMode && (
+            <React.Fragment>
+              <PDAReturnSide />
+              <PDAReturnInner>
+                <CloseIcon />
+                <span>{t('pda_return')}</span>
+              </PDAReturnInner>
+            </React.Fragment>
+          )}
+        </PDAReturnButton>
+        <PDATopRightSide>
+          <img src={pdaBorderTopRight} alt="side right lines" />
+        </PDATopRightSide>
+        <PDALeftBorder />
+        <PDARightBorder />
+        <PDABottomLeftSide>
+          <img src={pdaBorderBotLeft} alt="side left lines" />
+        </PDABottomLeftSide>
+        <PDABottomLeftCorner />
+        <PDABottomRightCorner>
+          <img src={pdaBorderBotRight} alt="side bottom triangle" />
+        </PDABottomRightCorner>
+        <PDABottomBorder />
+        <PDAContent>
+          <PDAContentInner ref={ref}>{children}</PDAContentInner>
+        </PDAContent>
+      </PDABackgroundGrid>
+    </PDAContainer>
   );
+});

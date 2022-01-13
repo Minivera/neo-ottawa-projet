@@ -206,17 +206,6 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       return (
         <React.Fragment>
           {globalCSS}
-          {gameState.currentScene &&
-            gameState.currentScene.background?.type === 'video' && (
-              <GameBackground
-                /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-                // @ts-ignore
-                src={gameState.currentScene.background.asset}
-                autoPlay={true}
-                muted
-                loop
-              />
-            )}
           <GameContainer animationSpeed={settings.settings.textAnimationSpeed}>
             <GameMenu
               showPDA={gameState.pda.enabled}

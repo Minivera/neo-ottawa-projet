@@ -171,11 +171,13 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                       >
                         <div
                           css={theme => css`
-                            display: grid;
+                            display: flex;
                             border: 2px solid ${theme.colors.primary};
                             margin: 1rem;
-                            padding: 5rem 2rem;
+                            padding: 5.3rem 2rem;
                             cursor: pointer;
+                            align-items: center;
+                            justify-content: center;
                           `}
                         >
                           <Loader
@@ -287,6 +289,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                             text-transform: uppercase;
                             font-size: 2rem;
                             opacity: 0.3;
+                            ${el[0].image ? 'margin-bottom: 3.3rem;' : ''}
                           `}
                         >
                           {t('save_slot_name', { number: el[0].id + 1 })}
