@@ -25,6 +25,7 @@ import { Al } from './al';
 import { Administrateur } from './administrateur';
 import { Homme } from './homme';
 import { Narrateur } from './narrateur';
+import { JohnRandle } from './johnRandle';
 
 export {
   FredGallant,
@@ -54,6 +55,7 @@ export {
   Administrateur,
   Homme,
   Narrateur,
+  JohnRandle,
 };
 
 export const Characters = {
@@ -84,4 +86,5 @@ export const Characters = {
   [Administrateur.id]: Administrateur,
   [Homme.id]: Homme,
   [Narrateur.id]: Narrateur,
+  [JohnRandle.id]: JohnRandle,
 };

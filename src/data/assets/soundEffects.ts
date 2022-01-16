@@ -21,4 +21,34 @@ export const soundEffects: Record<string, Howl> = {
   composer_numero: new Howl({
     src: [bigExhale]
   }),
+  claquement_porte: new Howl({
+    src: [bigExhale]
+  }),
+  cogner_porte: new Howl({
+    src: [bigExhale]
+  }),
+  dossier_depose_bureau: new Howl({
+    src: [bigExhale]
+  }),
+  reveille_brusque: new Howl({
+    src: [bigExhale]
+  }),
+  raccrocher_telephone: new Howl({
+    src: [bigExhale]
+  }),
+  son_erreur: new Howl({
+    src: [bigExhale]
+  }),
+  son_demarrage_ordinateur: new Howl({
+    src: [bigExhale]
+  }),
+  sonnette_futuriste: new Howl({
+    src: [bigExhale]
+  }),
+  ouverture_trappe: new Howl({
+    src: [bigExhale]
+  }),
+  clic_souris: new Howl({
+    src: [bigExhale]
+  }),
 };

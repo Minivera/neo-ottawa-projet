@@ -15,6 +15,20 @@ import voitureFred from '../../assets/backgrounds/voiture_fred.png?w=1920&h=1024
 import corridorPostePolice from '../../assets/backgrounds/corridor_poste_police.jpg?w=1920&h=1024';
 import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.jpg?w=1920&h=1024';
 import telephone from '../../assets/backgrounds/phone.png?w=1920&h=1024';
+import rueMcLeod from '../../assets/backgrounds/rue_mcleod.jpg?w=1920&h=1024';
+import siegeESRB from '../../assets/backgrounds/siege_esrb.jpg?w=1920&h=1024';
+import siegeESRBInformatique from '../../assets/backgrounds/siege_esrb_informatique.jpg?w=1920&h=1024';
+import ecranOrdinateurESRB from '../../assets/backgrounds/ecran_ordinateur_esrb.jpg?w=1920&h=1024';
+import maisonOliviaExterieur from '../../assets/backgrounds/maison_olivia_exterieur.jpg?w=1920&h=1024';
+import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interieur.jpg?w=1920&h=1024';
+import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.jpg?w=1920&h=1024';
+import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1024';
+import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&h=1024';
+import newsRoom from '../../assets/backgrounds/news_room.jpg?w=1920&h=1024';
+import chapitre1Titre1 from '../../assets/backgrounds/chapitre_1_gros_titres_1.png?w=1920&h=1024';
+import chapitre1Titre2 from '../../assets/backgrounds/chapitre_1_gros_titres_2.png?w=1920&h=1024';
+import chapitre1Titre3 from '../../assets/backgrounds/chapitre_1_gros_titres_3.png?w=1920&h=1024';
+
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
 
 export type Backgrounds = Record<string, { type: 'image' | 'video', asset: string }>
@@ -40,4 +54,17 @@ export const backgrounds: Backgrounds = {
   rue_flemming_porte: { type: 'image', asset: rueFlemmingPorte },
   telephone_fred: { type: 'image', asset: telephone },
   britannia_park: { type: 'image', asset: britanniaPark },
+  rue_mcleod: { type: 'image', asset: rueMcLeod },
+  siege_esrb: { type: 'image', asset: siegeESRB },
+  siege_esrb_informatique: { type: 'image', asset: siegeESRBInformatique },
+  ecran_ordinateur_esrb: { type: 'image', asset: ecranOrdinateurESRB },
+  maison_olivia_exterieur: { type: 'image', asset: maisonOliviaExterieur },
+  maison_olivia_interieur: { type: 'image', asset: maisonOliviaInterieur },
+  maison_carl_white: { type: 'image', asset: maisonCarlWhite },
+  grenier: { type: 'image', asset: grenier },
+  ordinateur_fred: { type: 'image', asset: ordinateurFred },
+  news_room: { type: 'image', asset: newsRoom },
+  chapitre_1_gros_titres_1: { type: 'image', asset: chapitre1Titre1 },
+  chapitre_1_gros_titres_2: { type: 'image', asset: chapitre1Titre2 },
+  chapitre_1_gros_titres_3: { type: 'image', asset: chapitre1Titre3 },
 };

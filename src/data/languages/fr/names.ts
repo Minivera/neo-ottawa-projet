@@ -24,6 +24,7 @@ import {
   Administrateur,
   Homme,
   Narrateur,
+  JohnRandle,
 } from '../../characters';
 
 export const charactersNames = {
@@ -38,6 +39,7 @@ export const charactersNames = {
   [Teacher.name]: 'Teacher',
   [BonnieV1.name]: 'Jeune Femme',
   [BonnieV2.name]: 'Bonnie Randle',
+  [JohnRandle.name]: 'John Randle',
   [ChristopherYoung.name]: 'Christopher Young',
   [Vivian.name]: 'Vivian',
   [Ronny.name]: 'Ronny',

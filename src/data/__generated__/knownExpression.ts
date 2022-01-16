@@ -7,10 +7,10 @@ export const knownExpressions = {
   ],
   "CHEF_MILLER": [
     "sterness",
-    "aversion",
-    "satisfaction",
     "neutral",
     "wtf",
+    "aversion",
+    "satisfaction",
     "concern"
   ],
   "AGENT_LUCAS": [
@@ -18,18 +18,23 @@ export const knownExpressions = {
     "amusement",
     "concern",
     "sterness",
-    "aversion"
+    "aversion",
+    "wonder"
   ],
   "AGENT_MOORE": [
     "neutral",
     "laughing",
-    "sterness"
+    "sterness",
+    "amusement",
+    "cruel",
+    "concern",
+    "desperation"
   ],
   "ENQUETEUR_BEAULIEU": [
     "cruel",
     "aversion",
-    "rage",
-    "wtf"
+    "wtf",
+    "rage"
   ],
   "BRIGHTON": [
     "neutral"
@@ -44,7 +49,8 @@ export const knownExpressions = {
     "melancholy",
     "alertness",
     "wonder",
-    "disdain"
+    "disdain",
+    "aversion"
   ],
   "CHEF_MILLER_NO_CIGAR": [
     "neutral",
@@ -52,7 +58,13 @@ export const knownExpressions = {
     "sterness",
     "suprise",
     "omg",
-    "satisfaction"
+    "satisfaction",
+    "concern",
+    "joy",
+    "disdain",
+    "aversion",
+    "alertness",
+    "wtf"
   ],
   "CHRISTOPHER_YOUNG": [
     "neutral",
@@ -61,6 +73,64 @@ export const knownExpressions = {
     "indignation",
     "disdain",
     "wonder",
-    "satisfaction"
+    "satisfaction",
+    "joy",
+    "amusement",
+    "concern",
+    "alertness",
+    "laughing"
+  ],
+  "VIVIAN": [
+    "joy",
+    "dejection"
+  ],
+  "TOM": [
+    "disgust",
+    "joy",
+    "satisfaction",
+    "alertness"
+  ],
+  "RECEPTIONISTE": [
+    "neutral",
+    "surprise",
+    "concern"
+  ],
+  "RONNY": [
+    "shock",
+    "satisfaction",
+    "neutral"
+  ],
+  "OLIVIA_PAUL": [
+    "alertness",
+    "surprise",
+    "neutral",
+    "disdain",
+    "sterness",
+    "melancholy",
+    "indignation"
+  ],
+  "CARL_WHITE": [
+    "surprise",
+    "sterness",
+    "indignation",
+    "anger",
+    "neutral",
+    "laughing",
+    "amusement",
+    "wonder",
+    "concern",
+    "joy"
+  ],
+  "MERE_DE_LEIGH_KANE": [
+    "dejection",
+    "aversion",
+    "indignation",
+    "grief",
+    "sadness"
+  ],
+  "PERE_DE_LEIGH_KANE": [
+    "melancholy",
+    "concern",
+    "neutral"
   ]
 };

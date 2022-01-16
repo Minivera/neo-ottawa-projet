@@ -1,20 +1,18 @@
-=== act_1_quiz ===
+=== act_1_quiz_1 ===
 
-= pre_quiz
-Un quiz va etre lancé, le PDA devrait s'ouvrir avec le premier document qui inclus une liste de jeux interdits sur wikipédia.
--> quiz_1
 
 = quiz_1
 ~ demarrer_quiz(QUIZ_1, 6)
+~jouer_musique(theme_quiz)
+<b>Christopher</b> donne à <b>Fred</b> une liste de jeux interdits selon les pays en 2021.La liste est disponible dans le PDA. 
+~ afficher_document(JEUX_INTERDITS_WIKIPEDIA)
 -> question_1
 
 = question_1
-~ afficher_document(JEUX_INTERDITS_WIKIPEDIA)
-
-Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé ? # question index=1
+1- Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé ? # question index=1
 
 +   (1_a) [BON--{1_a: VISITE--}Vrai] Vrai
-    Une très longue liste de jeux vidéo ont déjà fait l’objet d’interdictions à travers le monde. Plusieurs types de jeux vidéo sont représentés dans la liste : des jeux de tir à la première personne, des jeux de rôle ou encore des jeux d’aventure. # retroaction
+    La liste est longue. De nombreux jeux vidéo ont déjà fait l’objet d’interdictions à travers le monde. Plusieurs types de jeux vidéo sont représentés dans la liste : des jeux de tir à la première personne, des jeux de rôle ou encore des jeux d’aventure.   # retroaction
     -> question_2
 +   (1_b) [{1_b: VISITE--}Faux] Faux
 +   (1_c) [{1_c: VISITE--}Impossible à déterminer] Impossible à déterminer
@@ -22,7 +20,7 @@ Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation
 -> question_1
 
 = question_2
-La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo suivants lesquels ont déjà fait l'objet d'une interdiction ? # question index=2
+2- La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo suivants, lesquels ont déjà fait l'objet d'une interdiction ? # question index=2
 
 +   (2_a) [BON--{(2_a % 2 == 1):ACTIF--}Counter-Strike] Counter-Strike
 +   (2_b) [BON--{(2_b % 2 == 1):ACTIF--}Pokémon Go] Pokémon Go
@@ -34,7 +32,7 @@ La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo
     // donc logiquement, le choix est sélectionné (Ou reselectioner s'il a été
     // déselectionné.
 	{ (2_a % 2 == 1 && 2_b % 2 == 1 && 2_c % 2 == 1 && 2_d % 2 == 0):
-    	Une grande variété de jeux vidéo ont fait l’objet d’interdictions avant la loi Game Over. Pami eux, je ne suis pas surpris de voir des jeux vidéo réputés comme violents (par exemple des jeux de tir à la première personne comme Counter-Strike). Par contre la présence d’autres jeux est plus surprenante, par exemple comme Pokémon Go (un jeu recommandé pour les enfants) ou encore Football Manager (un jeu de gestion de club de soccer). # retroaction
+    	Une grande variété de jeux vidéo ont fait l’objet d’interdictions avant la Loi Game Over. Parmi eux, je ne suis pas surprise de voir des jeux vidéo réputés comme violents (par exemple des jeux de tir à la première personne comme Counter Strike). Par contre, la présence d’autres jeux est plus surprenante... Pokémon Go est un jeu recommandé pour les enfants et Football Manager est un jeu de gestion d’un club de soccer.  # retroaction
     	-> question_3
     - else:
     	~ generer_mauvaise_reponse_retroaction()
@@ -43,32 +41,39 @@ La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo
 - -> question_2
 
 = question_3
-On dirait bien que toutes mes destinations de vacances préférées ont déjà interdit au moyen un jeux vidéo… Cherchez l’intrus : # question index=3
+ 3- On dirait bien que de nombreux pays ont déjà interdit au moins un jeu vidéo… Je me demande quel État n’a jamais interdit la vente d’un jeu vidéo ? # question index=3
 
 +   (3_a) [{3_a: VISITE--}Japon] Japon
 +   (3_b) [{3_b: VISITE--}Irlande] Irlande
 +   (3_c) [{3_c: VISITE--}Émirats arabes unis] Émirats arabes unis
 +   (3_d) [BON--{3_d: VISITE--}France] France
-    La France est le seul pays parmi mes destinations de vacances préférées qui n’a jamais interdit la vente d’un jeu vidéo. # retroaction
+    La France n’a jamais interdit la vente d’un jeu vidéo.  # retroaction
     -> question_4
 - ~ generer_mauvaise_reponse_retroaction()
 -> question_3
 
 = question_4
-Pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé ? C’est incensé.... Chercher l'intrus. # question index=4
+4- Tout cela paraît insensé… Mais pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé ? # question index=4
 
-+   (4_a) [{4_a: VISITE--}Ultraviolence] Ultraviolence
-+   (4_b) [{4_b: VISITE--}Référence au nazisme] Référence au nazisme
-+   (4_c) [{4_c: VISITE--}Atteinte à l’image d’un État] Atteinte à l’image d’un État
-+   (4_d) [BON--{4_d: VISITE--}Difficulté extrême] Difficulté extrême bon_choix
-    Les raisons invoquées par les États sont nombreuses et variées. La raison la plus souvent invoquée est l’ultraviolence. L’atteinte aux intérêts de l’État est aussi une raison invoquée. La difficulté extrême n’est jamais mentionnée comme une justification pour l’interdiction d’un jeu vidéo. # retroaction
-    -> question_5
-- ~ generer_mauvaise_reponse_retroaction()
--> question_4
-
++   (4_a) [BON--{(4_a % 2 == 1):ACTIF--}Ultraviolence] Ultraviolence
++   (4_b) [BON--{(4_b % 2 == 1):ACTIF--}Référence au nazisme] Référence au nazisme
++   (4_c) [BON--{(4_c % 2 == 1):ACTIF--}Atteinte à l’image d’un État] Atteinte à l’image d’un État
++   (4_d) [{(4_d % 2 == 1):ACTIF--}Difficulté extrême] Difficulté extrême
++   { 4_a || 4_b || 4_c || 4_d } CACHER--Continuer
+    // % ici veut dire modulo. Si modulo 2 retourne 1, ça veut dire que le
+    // nombre de sélections du choix est un nombre impaire 1, 3, 5, 7,...
+    // donc logiquement, le choix est sélectionné (Ou reselectioner s'il a été
+    // déselectionné.
+	{ (4_a % 2 == 1 && 4_b % 2 == 1 && 4_c % 2 == 1 && 4_d % 2 == 0):
+    	 Les raisons invoquées par les États sont nombreuses et variées. La raison la plus souvent invoquée est l’ultraviolence. L’atteinte aux intérêts de l’État est aussi une raison invoquée. La difficulté extrême n’est jamais mentionnée comme une justification pour l’interdiction d’un jeu vidéo. # retroaction
+    	-> question_5
+    - else:
+    	~ generer_mauvaise_reponse_retroaction()
+        -> question_4
+        }
+- -> question_4
 = question_5
-En tout cas, je suis certain que l’on peut conclure que seuls les régimes autoritaires interdisaient des jeux vidéo. # question index=5
-
+5- Je dois explorer si l’interdiction des jeux vidéo était une pratique propre aux régimes autoritaires... # question index=5
 *   (5_a) [{5_a: VISITE--}Vrai] Vrai
 *   (5_b) [BON--{5_b: VISITE--}Faux] Faux
     Parmi les États ayant déjà interdit des jeux vidéo on peut trouver des régimes autoritaires, mais également plusieurs démocraties. On y trouve également le Japon qui est pays où sont produits de nombreux jeux vidéo. Cette liste est vraiment surprenante. # retroaction
@@ -77,11 +82,11 @@ En tout cas, je suis certain que l’on peut conclure que seuls les régimes aut
 -> question_5
 
 = question_6
-Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada ? # question index=6
+6- Puisque j’y suis, est-ce que des jeux ont déjà été interdits au Canada ? # question index=6
 
 *   (6_a) [{6_a: VISITE--}Oui] Oui
 *   (6_b) [BON--{6_b: VISITE--}Non] Non
-    Le Canada ne figure pas sur la liste des pays ayant déjà interdit un jeu vidéo... Mais ça c’était avant la loi Game Over. # retroaction   
+    Le Canada ne figure pas sur la liste des pays ayant déjà interdit un jeu vidéo... Mais ça c’était avant la <i>Loi Game Over</i>. # retroaction   
     -> quiz_1_fin
 - ~ generer_mauvaise_reponse_retroaction()
 -> question_6
@@ -89,4 +94,5 @@ Et tant que j’y suis, est-ce que des jeux ont déjà été interdits au Canada
 = quiz_1_fin
 
 ~ terminer_quiz()
--> fin
+
+-> chapitre_1.scene_3_suite

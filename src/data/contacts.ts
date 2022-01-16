@@ -11,6 +11,14 @@ import {
   LeighKane,
   Teacher,
   Narrateur,
+  JohnRandle,
+  Vivian,
+  Ronny,
+  Tom,
+  OliviaPaul,
+  CarlWhite,
+  MereLeighKane,
+  PereLeighKane,
 } from './characters';
 import { Contact } from '../game/pda';
 
@@ -86,5 +94,53 @@ export const contacts: Record<string, Contact> = {
     characterId: Narrateur.id,
     name: Narrateur.name,
     description: 'contact_narrateur',
+  },
+  [JohnRandle.id]: {
+    type: 'resistance',
+    characterId: JohnRandle.id,
+    name: JohnRandle.name,
+    description: 'contact_john_randle',
+  },
+  [Vivian.id]: {
+    type: 'resistance',
+    characterId: Vivian.id,
+    name: Vivian.name,
+    description: 'contact_vivian',
+  },
+  [Ronny.id]: {
+    type: 'resistance',
+    characterId: Ronny.id,
+    name: Ronny.name,
+    description: 'contact_ronny',
+  },
+  [Tom.id]: {
+    type: 'resistance',
+    characterId: Tom.id,
+    name: Tom.name,
+    description: 'contact_tom',
+  },
+  [OliviaPaul.id]: {
+    type: 'resistance',
+    characterId: OliviaPaul.id,
+    name: OliviaPaul.name,
+    description: 'contact_olivia_paul',
+  },
+  [CarlWhite.id]: {
+    type: 'resistance',
+    characterId: CarlWhite.id,
+    name: CarlWhite.name,
+    description: 'contact_carl_white',
+  },
+  [MereLeighKane.id]: {
+    type: 'police',
+    characterId: MereLeighKane.id,
+    name: MereLeighKane.name,
+    description: 'contact_mere_leigh_kane',
+  },
+  [PereLeighKane.id]: {
+    type: 'police',
+    characterId: PereLeighKane.id,
+    name: PereLeighKane.name,
+    description: 'contact_pere_leigh_kane',
   },
 } as const;
