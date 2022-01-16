@@ -1,7 +1,7 @@
 import { Document } from '../game/pda';
 
 import jeuxInterditsList from '../assets/documents/jeux-interdits-wikipedia.pdf';
-import aboutERSB from '../assets/documents/about-ersb.pdf';
+import aboutERSB from '../assets/documents/about-esrb.pdf';
 import listeAnciensEmployes from '../assets/documents/liste-anciens-employes.pdf';
 import gamestopRespectRatings from '../assets/documents/gamestop-respect-ratings.pdf';
 import loi2005Classement from '../assets/documents/loi-2005-classement.pdf';
