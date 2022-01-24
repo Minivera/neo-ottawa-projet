@@ -11,6 +11,7 @@ export const ChefMillerNoCigar: Character = {
   id: 'CHEF_MILLER_NO_CIGAR',
   name: 'chef_miller',
   images: {},
+  theme: 'police',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

@@ -11,6 +11,7 @@ export const Teacher: Character = {
   id: 'TEACHER_V1',
   name: 'teacher',
   images: {},
+  theme: 'resistance',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

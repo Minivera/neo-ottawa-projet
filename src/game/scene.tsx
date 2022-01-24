@@ -1,9 +1,14 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
-import React, { KeyboardEventHandler, ReactElement, RefObject, useEffect } from 'react';
+import { css, jsx, useTheme } from '@emotion/react';
+import React, {
+  KeyboardEventHandler,
+  ReactElement,
+  RefObject,
+  useEffect,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Character } from './character';
+import { Character, CharacterThemes } from './character';
 import { CharacterAnimation, Choice } from './event';
 import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
@@ -20,6 +25,7 @@ import {
 } from '../components/multipleChoices';
 import { Settings } from '../hooks/useSettings';
 import { GameBackground } from '../components/gameBackground';
+import { Characters } from '../data/characters';
 
 export interface SceneState {
   dialogName?: string;
@@ -59,6 +65,8 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   skipAnimation,
 }) => {
   const [t] = useTranslation();
+  const theme = useTheme();
+
   useEffect(() => {
     if (sceneRef && sceneRef.current) {
       sceneRef.current.focus();
@@ -71,6 +79,16 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
       onContinue();
     }
   };
+
+  const activeCharacterTheme = state.currentCharacter && Characters[state.currentCharacter.id]?.theme;
+  const themeToCharacterColor: Record<CharacterThemes, string> = {
+    police: theme.colors.secondary,
+    resistance: theme.colors.primary,
+    other: theme.colors.white,
+    narrateur: theme.colors.lightGray,
+  };
+  const characterTheme =
+    activeCharacterTheme && themeToCharacterColor[activeCharacterTheme];
 
   let portraits: ReactElement | null = null;
   if (!state.centered) {
@@ -120,9 +138,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     >
       {portraits}
       {state.choices && state.choices.length ? (
-        <DialogBox center={!portraits}>
+        <DialogBox center={!portraits} characterTheme={characterTheme}>
           {state.dialogName && (
-            <DialogTitle>
+            <DialogTitle characterTheme={characterTheme}>
               <h1>{state.dialogName}</h1>
             </DialogTitle>
           )}
@@ -150,9 +168,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           )}
         </DialogBox>
       ) : (
-        <DialogBox center={!portraits}>
+        <DialogBox center={!portraits} characterTheme={characterTheme}>
           {state.dialogName && (
-            <DialogTitle>
+            <DialogTitle characterTheme={characterTheme}>
               <h1>{state.dialogName}</h1>
             </DialogTitle>
           )}
@@ -195,15 +213,15 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
         />
       )}
       {state.background?.type === 'video' && (
-          <GameBackground
-            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-            // @ts-ignore
-            src={state.background.asset}
-            autoPlay={true}
-            muted
-            loop
-          />
-        )}
+        <GameBackground
+          /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+          // @ts-ignore
+          src={state.background.asset}
+          autoPlay={true}
+          muted
+          loop
+        />
+      )}
     </SceneContainer>
   );
 };

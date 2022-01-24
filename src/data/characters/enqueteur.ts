@@ -11,6 +11,7 @@ export const Enqueteur: Character = {
   id: 'ENQUETEUR_BEAULIEU',
   name: 'enqueteur',
   images: {},
+  theme: 'police',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

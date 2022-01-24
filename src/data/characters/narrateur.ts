@@ -4,4 +4,5 @@ export const Narrateur: Character = {
   id: 'NARRATEUR',
   name: 'narrateur',
   images: {},
+  theme: 'narrateur',
 };

@@ -50,7 +50,7 @@ Chef Miller: Entrez. # character=CHEF_MILLER
 Fred: Agent Gallant, au rapport. # character=FRED_GALLANT invisible
 Chef Miller: Détendez-vous, Gallant. Le protocole, on s’y tiendra bien assez tôt. Comment vous sentez-vous? # character=CHEF_MILLER expression=sterness
 Fred: Prête. # character=FRED_GALLANT invisible
-Chef Miller: J’aime votre attitude, Gallant. Assoyez-vous. # character=CHEF MILLER expression=satisfaction
+Chef Miller: J’aime votre attitude, Gallant. Assoyez-vous. # character=CHEF_MILLER expression=satisfaction
 Fred: Merci # character=FRED_GALLANT invisible
 <b>Fred</b> s'assoit.
 Chef Miller: Un café? # character=CHEF_MILLER expression=neutral

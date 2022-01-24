@@ -11,6 +11,7 @@ export const PereLeighKane: Character = {
   id: 'PERE_DE_LEIGH_KANE',
   name: 'pere_leigh_kane',
   images: {},
+  theme: 'other',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

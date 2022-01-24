@@ -4,4 +4,5 @@ export const Homme: Character = {
   id: 'HOMME',
   name: 'homme',
   images: {},
+  theme: 'other',
 };

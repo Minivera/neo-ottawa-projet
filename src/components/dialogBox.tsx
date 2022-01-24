@@ -4,10 +4,14 @@ import { FunctionComponent } from 'react';
 import { lighten, transparentize } from 'polished';
 
 export interface DialogBoxProps {
+  characterTheme?: string;
   center?: boolean;
 }
 
-export const DialogBox: FunctionComponent<DialogBoxProps> = ({ children }) => (
+export const DialogBox: FunctionComponent<DialogBoxProps> = ({
+  characterTheme,
+  children,
+}) => (
   <div
     css={theme => css`
       position: relative;
@@ -16,7 +20,7 @@ export const DialogBox: FunctionComponent<DialogBoxProps> = ({ children }) => (
       padding: 2rem 12rem;
       background-color: ${transparentize(0.2, theme.colors.darkGray)};
       color: ${lighten(0.2, theme.colors.text)};
-      border-color: ${theme.colors.primary};
+      border-color: ${characterTheme || theme.colors.lightGray};
       border-width: 10px;
       border-top-style: solid;
       border-bottom-style: solid;
@@ -35,7 +39,7 @@ export const DialogBox: FunctionComponent<DialogBoxProps> = ({ children }) => (
       & div + p {
         margin-top: 2rem;
       }
-      
+
       @media only screen and (max-width: 1024px) {
         padding: 2rem 2rem;
       }
@@ -49,7 +53,10 @@ export const DialogBox: FunctionComponent<DialogBoxProps> = ({ children }) => (
   </div>
 );
 
-export const DialogTitle: FunctionComponent = ({ children }) => (
+export const DialogTitle: FunctionComponent<DialogBoxProps> = ({
+  characterTheme,
+  children,
+}) => (
   <div
     css={theme => css`
       position: absolute;
@@ -75,7 +82,7 @@ export const DialogTitle: FunctionComponent = ({ children }) => (
       }
 
       polygon {
-        stroke: ${theme.colors.primary};
+        stroke: ${characterTheme || theme.colors.black};
         stroke-width: 5;
         fill: ${theme.colors.darkGray};
       }

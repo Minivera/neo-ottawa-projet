@@ -11,6 +11,7 @@ export const ChristopherYoung: Character = {
   id: 'CHRISTOPHER_YOUNG',
   name: 'christopher_young',
   images: {},
+  theme: 'resistance',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

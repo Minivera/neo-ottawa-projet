@@ -11,6 +11,7 @@ export const Vivian: Character = {
   id: 'VIVIAN',
   name: 'vivian',
   images: {},
+  theme: 'resistance',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

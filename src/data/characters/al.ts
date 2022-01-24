@@ -11,6 +11,7 @@ export const Al: Character = {
   id: 'AL',
   name: 'al',
   images: {},
+  theme: 'other',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

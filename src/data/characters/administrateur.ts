@@ -11,6 +11,7 @@ export const Administrateur: Character = {
   id: 'ADMINISTRATEUR',
   name: 'administrateur',
   images: {},
+  theme: 'other',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(
