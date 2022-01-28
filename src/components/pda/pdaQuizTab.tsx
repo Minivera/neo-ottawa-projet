@@ -4,6 +4,7 @@ import { jsx, css, useTheme } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { lighten, transparentize } from 'polished';
 import { Portal } from 'react-portal';
+import { useMediaQuery } from 'react-responsive';
 
 import { Choice, Quiz } from '../../game/event';
 import { PDFReader } from '../pdfReader';
@@ -15,6 +16,7 @@ import { DialogBox } from '../dialogBox';
 import { NextButton } from '../nextButton';
 import { Expander } from '../expander';
 import { PDATitle } from './pdaTitle';
+import { PDFDownloadButton } from '../pdfDownload';
 
 import QuizIcon from '../../assets/ui/pda/PDA-Quiz.svg?component';
 
@@ -39,6 +41,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
 }) => {
   const [t] = useTranslation();
   const theme = useTheme();
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const handleClickContinue = () => onContinue();
   const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {
@@ -110,6 +113,37 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
               {t(currentQuestion.document.description)}
             </Expander>
           )}
+          {isTabletOrMobile &&
+            currentQuestion.document &&
+            currentQuestion.document.path && (
+              <div
+                css={css`
+                  padding-bottom: 1.8rem;
+                `}
+              >
+                <p
+                  css={theme => css`
+                    color: ${theme.colors.white};
+                    padding-bottom: 0.8rem;
+                  `}
+                >
+                  {t('pdf_download_mobile')}
+                </p>
+                <div
+                  css={theme => css`
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: ${theme.colors.secondary};
+                    color: ${theme.colors.darkGray};
+                    padding: 1.5rem 1rem;
+                    font-size: 1.6rem;
+                  `}
+                >
+                  <PDFDownloadButton pdfPath={currentQuestion.document.path} />
+                </div>
+              </div>
+            )}
           <p
             css={theme => css`
               color: ${theme.colors.white};
@@ -167,15 +201,22 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
           </div>
         </div>
       </div>
-      {currentQuestion.document && currentQuestion.document.path && (
-        <div
-          css={css`
-            margin-left: 1rem;
-          `}
-        >
-          <PDFReader pdfPath={currentQuestion.document.path} />
-        </div>
-      )}
+      {!isTabletOrMobile &&
+        currentQuestion.document &&
+        currentQuestion.document.path && (
+          <div
+            css={css`
+              margin-left: 1rem;
+
+              @media only screen and (max-width: 1600px) {
+                margin-left: 0;
+                margin-top: 2rem;
+              }
+            `}
+          >
+            <PDFReader pdfPath={currentQuestion.document.path} />
+          </div>
+        )}
       {currentQuestion.feedback && (
         <Portal>
           <div

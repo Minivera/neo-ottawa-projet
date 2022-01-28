@@ -10,10 +10,7 @@ INCLUDE act1.ink
 INCLUDE act1_quiz2.ink
 INCLUDE act2.ink
 
-
-
-// -> chapitre_1.scene_1
--> prologue.scene_0
+-> act_1_quiz_1.quiz_1
 
 === fin ===
 

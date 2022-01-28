@@ -3,10 +3,12 @@ import React from 'react';
 import { jsx, css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { darken, transparentize } from 'polished';
+import { useMediaQuery } from 'react-responsive';
 
 import { Document } from '../../game/pda';
 import { PDFReader } from '../pdfReader';
 import { PDATitle } from './pdaTitle';
+import { PDFDownloadButton } from '../pdfDownload';
 
 import DocumentIcon from '../../assets/ui/icons/Document.svg?component';
 import ReturnArrow from '../../assets/ui/icons/Minimiser-maximiser.svg?component';
@@ -21,6 +23,7 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
   onPrevClick,
 }) => {
   const [t] = useTranslation();
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   return (
     <div
@@ -29,6 +32,11 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
         justify-content: space-around;
         padding: 0 8rem;
         position: relative;
+
+        @media only screen and (max-width: 1600px) {
+          flex-direction: column;
+          align-items: center;
+        }
 
         @media only screen and (max-width: 480px) {
           padding: 0 1rem;
@@ -64,6 +72,26 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
               svg {
                 fill: ${darken(0.2, theme.colors.secondary)};
               }
+            }
+
+            &:active {
+              color: ${theme.colors.secondary};
+
+              svg {
+                fill: ${theme.colors.secondary};
+              }
+            }
+
+            @media only screen and (max-width: 768px) {
+              left: 10rem;
+              top: -3rem;
+              font-size: 1.8rem;
+            }
+
+            @media only screen and (max-width: 428px) {
+              position: unset;
+              font-size: 1.8rem;
+              margin-top: 1rem;
             }
           `}
         >
@@ -110,7 +138,29 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
           </div>
         </div>
       </div>
-      {document.path && (
+
+      {isTabletOrMobile && document.path && (
+        <div
+          css={css`
+            padding-top: 1.8rem;
+          `}
+        >
+          <div
+            css={theme => css`
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              background-color: ${theme.colors.secondary};
+              color: ${theme.colors.darkGray};
+              padding: 1.5rem 1rem;
+              font-size: 1.6rem;
+            `}
+          >
+            <PDFDownloadButton pdfPath={document.path} />
+          </div>
+        </div>
+      )}
+      {!isTabletOrMobile && document.path && (
         <div
           css={css`
             margin-left: 1rem;

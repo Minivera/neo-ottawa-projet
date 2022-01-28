@@ -92,6 +92,7 @@ export const PDAQuizzesTab: React.FunctionComponent<PDAQuizzesTabProps> = ({
                       align-items: center;
                       font-size: 1.5rem;
                       padding: 1rem 0;
+                      width: 100%;
 
                       & svg {
                         fill: ${theme.colors.yellow};

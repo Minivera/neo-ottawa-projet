@@ -50,6 +50,17 @@ const GameMenuLink = styled.a`
         darken(0.2, theme('colors.yellow')(props) as unknown as string)};
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    & span {
+      font-size: 1.2rem;
+    }
+
+    & svg {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
 `;
 
 const MinimizeLink = styled.a<{ open?: boolean }>`
@@ -86,6 +97,17 @@ const MinimizeLink = styled.a<{ open?: boolean }>`
         darken(0.2, theme('colors.yellow')(props) as unknown as string)};
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    & span {
+      font-size: 1.2rem;
+    }
+
+    & svg {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+  }
 `;
 
 export interface GameMenuProps {
@@ -118,7 +140,12 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
         transition: right ease-in-out 500ms;
         width: 11rem;
 
-        ${open ? 'right: 0;' : 'right: -8.3rem;'}
+        ${open ? 'right: 0' : 'right: -8.3rem'};
+
+        @media only screen and (max-width: 768px) {
+          width: 13rem;
+          ${open ? 'right: 0;' : 'right: -10.1rem;'}
+        }
       `}
     >
       <nav

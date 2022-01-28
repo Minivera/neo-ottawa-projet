@@ -28,7 +28,11 @@ export const App: React.FunctionComponent = () => (
   <ThemeProvider theme={theme}>
     <Container>
       <Global
-        styles={css`
+        styles={theme => css`
+          body {
+            background: ${theme.colors.darkGray};
+          }
+
           ${fontFace({
             fontFamily: 'VCR-OSD-MONO',
             fontFilePath: vcrOsdMonoFont.slice(0, -4),

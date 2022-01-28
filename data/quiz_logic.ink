@@ -1,4 +1,4 @@
-LIST QUIZES = QUIZ_1
+LIST QUIZES = QUIZ_1, QUIZ_2, QUIZ_3, QUIZ_4, QUIZ_5, QUIZ_6
 
 VAR current_quiz = false
 VAR quiz_question_count = 0

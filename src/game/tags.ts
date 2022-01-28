@@ -15,6 +15,7 @@ export interface PlacementTag {
 export interface QuizTags {
   question?: boolean;
   retroaction?: boolean;
+  mauvaiseRetroaction?: boolean;
   index?: number;
 }
 
@@ -117,6 +118,9 @@ export const extractQuizTags = (tags: string[] | null): QuizTags => {
           break;
         case 'retroaction':
           tag.retroaction = true;
+          break;
+        case 'mauvaise_retroaction':
+          tag.mauvaiseRetroaction = true;
           break;
       }
     });

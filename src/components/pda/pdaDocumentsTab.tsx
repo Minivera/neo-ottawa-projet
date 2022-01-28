@@ -81,6 +81,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
                     font-style: italic;
                     list-style: none;
                     cursor: pointer;
+                    width: 100%;
 
                     &:hover {
                       background-color: ${theme.colors.secondary};
@@ -89,6 +90,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
 
                     & svg {
                       fill: ${theme.colors.yellow};
+                      margin-right: 1rem;
                       height: 2.3rem;
                       width: 2.3rem;
                     }

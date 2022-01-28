@@ -182,6 +182,11 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
         dispatch({ type: 'continue', choiceId: choice.id });
       };
 
+      const onPDAClosed = () => {
+        sceneRef.current?.focus();
+        setPDAOpened(false);
+      };
+
       const takeSceneScreenshot = async () => {
         if (!sceneRef.current) {
           return null;
@@ -257,7 +262,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               selectedTab={selectedPDATab}
               story={story}
               pdaState={gameState.pda}
-              onPDAClosed={() => setPDAOpened(false)}
+              onPDAClosed={onPDAClosed}
               onPDATabChanged={tab => setSelectedPDATab(tab)}
               settings={settings.settings}
               skipAnimation={textLoading !== null && !textLoading}

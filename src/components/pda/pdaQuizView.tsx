@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { jsx, css, useTheme, Theme } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { darken, lighten, rgba, transparentize } from 'polished';
-import { FaStar } from 'react-icons/all';
+import { FaStar } from 'react-icons/fa';
+import { useMediaQuery } from 'react-responsive';
 
 import { Quiz } from '../../game/event';
 import { PDFReader } from '../pdfReader';
@@ -11,6 +12,7 @@ import { HexagonButton } from '../hexagonButton';
 import { Expander } from '../expander';
 import { PDATitle } from './pdaTitle';
 import { IconButton } from '../iconButton';
+import { PDFDownloadButton } from '../pdfDownload';
 
 import QuizIcon from '../../assets/ui/icons/QuizCompleted.svg?component';
 import ReturnArrow from '../../assets/ui/icons/Minimiser-maximiser.svg?component';
@@ -29,6 +31,7 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
   const [t] = useTranslation();
   const theme = useTheme();
   const [selectedQuestion, setSelectedQuestion] = useState<number>(0);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const previousQuestion = () => {
     setSelectedQuestion(selectedQuestion => Math.max(0, selectedQuestion - 1));
@@ -117,6 +120,26 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
                 fill: ${darken(0.2, theme.colors.secondary)};
               }
             }
+
+            &:active {
+              color: ${theme.colors.secondary};
+
+              svg {
+                fill: ${theme.colors.secondary};
+              }
+            }
+
+            @media only screen and (max-width: 768px) {
+              left: 10rem;
+              top: -3rem;
+              font-size: 1.8rem;
+            }
+
+            @media only screen and (max-width: 428px) {
+              position: unset;
+              font-size: 1.8rem;
+              margin-top: 1rem;
+            }
           `}
         >
           <ReturnArrow />
@@ -135,23 +158,24 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
             {currentQuestion.perfectAnswer && (
               <FaStar
                 css={theme => css`
-                  fill: ${theme.colors.yellow}
+                  fill: ${theme.colors.yellow};
                   margin-right: 0.5rem;
-                  
+                  height: 1.8rem !important;
+
                   box-shadow: 0 0 0 0 ${theme.colors.yellow};
                   animation: pulse 2s infinite;
-                  
+
                   @keyframes pulse-purple {
                     0% {
                       transform: scale(0.95);
                       box-shadow: 0 0 0 0 ${rgba(theme.colors.yellow, 0.7)};
                     }
-                    
+
                     70% {
                       transform: scale(1);
                       box-shadow: 0 0 0 10px ${rgba(theme.colors.yellow, 0)};
                     }
-                    
+
                     100% {
                       transform: scale(0.95);
                       box-shadow: 0 0 0 0 ${rgba(theme.colors.yellow, 0)};
@@ -190,6 +214,39 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
                 {t(currentQuestion.document.description)}
               </Expander>
             )}
+            {isTabletOrMobile &&
+              currentQuestion.document &&
+              currentQuestion.document.path && (
+                <div
+                  css={css`
+                    padding-bottom: 1.8rem;
+                  `}
+                >
+                  <p
+                    css={theme => css`
+                      color: ${theme.colors.white};
+                      padding-bottom: 0.8rem;
+                    `}
+                  >
+                    {t('pdf_download_mobile')}
+                  </p>
+                  <div
+                    css={theme => css`
+                      display: flex;
+                      justify-content: space-around;
+                      align-items: center;
+                      background-color: ${theme.colors.secondary};
+                      color: ${theme.colors.darkGray};
+                      padding: 1.5rem 1rem;
+                      font-size: 1.6rem;
+                    `}
+                  >
+                    <PDFDownloadButton
+                      pdfPath={currentQuestion.document.path}
+                    />
+                  </div>
+                </div>
+              )}
             <p
               css={theme => css`
                 color: ${theme.colors.white};
@@ -246,15 +303,22 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
           </div>
         </div>
       </div>
-      {currentQuestion.document && currentQuestion.document.path && (
-        <div
-          css={css`
-            margin-left: 1rem;
-          `}
-        >
-          <PDFReader pdfPath={currentQuestion.document.path} />
-        </div>
-      )}
+      {!isTabletOrMobile &&
+        currentQuestion.document &&
+        currentQuestion.document.path && (
+          <div
+            css={css`
+              margin-left: 1rem;
+
+              @media only screen and (max-width: 1600px) {
+                margin-left: 0;
+                margin-top: 2rem;
+              }
+            `}
+          >
+            <PDFReader pdfPath={currentQuestion.document.path} />
+          </div>
+        )}
     </div>
   );
 };

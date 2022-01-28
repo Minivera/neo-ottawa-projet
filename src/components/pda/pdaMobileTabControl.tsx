@@ -198,6 +198,7 @@ export const PDAMobileTabControl = React.forwardRef<
               grid-column: 1;
               background: ${theme.colors.darkGreen};
               border-bottom: 10px solid ${theme.colors.secondary};
+              width: 30px;
             `}
           />
         )}

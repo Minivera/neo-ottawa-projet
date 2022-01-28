@@ -17,7 +17,8 @@ export const interfaceTerms = {
   loading: 'Chargement',
   preparing: 'Préparation',
   pdf_page: 'Page {{pageNumber}} de {{numPages}}',
-  pdf_download: 'Télécharger',
+  pdf_download: 'Télécharger le document PDF',
+  pdf_download_mobile: 'Télécharger le document PDF sur votre tablette ou appreil mobile, le document sera référencé tout au cours de ce questionnaire.',
   expander_expand: 'Ouvrir le contenu pour {{name}}',
 
   // PDA
@@ -39,7 +40,7 @@ export const interfaceTerms = {
     <p>Bonjour <strong>Agent</strong>. Bienvenue dans la brigade.</p>
     <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>.</p>
     <p>Je vous guiderai dans vos recherches alors que vous entreprendrez la collecte de preuves et le suivi de pistes.</p>
-    <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions : <strong>Documents</strong>, <strong>Plan de la ville</strong>, <strong>Contacts</strong> et <strong>Éléments de preuve</strong>.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
   `,
 
   // Settings

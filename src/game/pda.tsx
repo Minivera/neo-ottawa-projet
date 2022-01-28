@@ -216,15 +216,17 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           quizMode={!!quiz}
           ref={focusRef}
         >
-          <PDAQuizTab
-            quiz={quiz}
-            settings={settings}
-            onContinue={onContinue}
-            onTextLoadingStart={onTextLoadingStart}
-            onTextLoadingEnd={onTextLoadingEnd}
-            onChoiceSelected={onChoiceSelected}
-            skipAnimation={skipAnimation}
-          />
+          <PDAStaticTransition key="quiz">
+            <PDAQuizTab
+              quiz={quiz}
+              settings={settings}
+              onContinue={onContinue}
+              onTextLoadingStart={onTextLoadingStart}
+              onTextLoadingEnd={onTextLoadingEnd}
+              onChoiceSelected={onChoiceSelected}
+              skipAnimation={skipAnimation}
+            />
+          </PDAStaticTransition>
         </PDAModal>
       </PDAContainer>
     );
@@ -232,7 +234,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
 
   if (selectedDocument) {
     return (
-      <PDAContainer opened>
+      <PDAContainer opened={opened}>
         <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.DOCUMENTS}
@@ -240,12 +242,14 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           quizMode={!!quiz}
           ref={focusRef}
         >
-          <PDADocumentView
-            onPrevClick={() => {
-              handleTabClick(PDATab.DOCUMENTS);
-            }}
-            document={selectedDocument}
-          />
+          <PDAStaticTransition key="document">
+            <PDADocumentView
+              onPrevClick={() => {
+                handleTabClick(PDATab.DOCUMENTS);
+              }}
+              document={selectedDocument}
+            />
+          </PDAStaticTransition>
         </PDAModal>
       </PDAContainer>
     );
@@ -253,7 +257,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
 
   if (selectedQuiz) {
     return (
-      <PDAContainer opened>
+      <PDAContainer opened={opened}>
         <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.QUIZZES}
@@ -261,12 +265,14 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           quizMode={!!quiz}
           ref={focusRef}
         >
-          <PDAQuizView
-            onPrevClick={() => {
-              handleTabClick(PDATab.QUIZZES);
-            }}
-            quiz={selectedQuiz}
-          />
+          <PDAStaticTransition key="quiz_view">
+            <PDAQuizView
+              onPrevClick={() => {
+                handleTabClick(PDATab.QUIZZES);
+              }}
+              quiz={selectedQuiz}
+            />
+          </PDAStaticTransition>
         </PDAModal>
       </PDAContainer>
     );

@@ -38,8 +38,8 @@ export const Expander: FunctionComponent<ExpanderProps> = ({
           max-height: ${expanded
             ? `calc(${
                 contentRef.current?.getClientRects()[0].height
-              }px + 4.5rem + 1.2rem)`
-            : '4.5rem'};
+              }px + 5rem + 1.2rem)`
+            : '5rem'};
         `}
       >
         <div
