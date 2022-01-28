@@ -32,6 +32,7 @@ export interface SceneState {
   text: string;
   centered?: boolean;
   isPhone?: boolean;
+  isTransition?: boolean;
   background?: { type: 'video' | 'image'; asset: string };
   bgm?: string;
   choices?: Choice[];
@@ -80,7 +81,8 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     }
   };
 
-  const activeCharacterTheme = state.currentCharacter && Characters[state.currentCharacter.id]?.theme;
+  const activeCharacterTheme =
+    state.currentCharacter && Characters[state.currentCharacter.id]?.theme;
   const themeToCharacterColor: Record<CharacterThemes, string> = {
     police: theme.colors.secondary,
     resistance: theme.colors.primary,
@@ -91,7 +93,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     activeCharacterTheme && themeToCharacterColor[activeCharacterTheme];
 
   let portraits: ReactElement | null = null;
-  if (!state.centered) {
+  if (!state.centered && !state.isTransition) {
     // Only show characters that have the loaded expression, never show empty images
     const characterPortraits = state.shownCharacters.filter(
       character => character.images[state.characterExpressions[character.id]]
@@ -128,7 +130,9 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   return (
     <SceneContainer
       background={
-        state.background?.type === 'image' ? state.background.asset : undefined
+        state.background?.type === 'image' && !state.isTransition
+          ? state.background.asset
+          : undefined
       }
       centerRow={!portraits}
       onClick={handleClickContinue}
@@ -168,8 +172,8 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           )}
         </DialogBox>
       ) : (
-        <DialogBox center={!portraits} characterTheme={characterTheme}>
-          {state.dialogName && (
+        <DialogBox center={!portraits} transition={state.isTransition} characterTheme={characterTheme}>
+          {state.dialogName && !state.isTransition && (
             <DialogTitle characterTheme={characterTheme}>
               <h1>{state.dialogName}</h1>
             </DialogTitle>

@@ -15,6 +15,10 @@ const specialChars = {
   strongEnd: 'ƶ',
   italicStart: 'Ʒ',
   italicEnd: 'Ƹ',
+  titleStart: 'ƺ',
+  titleEnd: 'ƻ',
+  centerStart: 'Ƽ',
+  centerEnd: 'ƽ',
   lineBreak: 'ƴ',
 };
 
@@ -30,12 +34,19 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
   text = text.replaceAll('</b>', specialChars.strongEnd);
   text = text.replaceAll('<i>', specialChars.italicStart);
   text = text.replaceAll('</i>', specialChars.italicEnd);
+  text = text.replaceAll('<titre>', specialChars.titleStart);
+  text = text.replaceAll('</titre>', specialChars.titleEnd);
+  text = text.replaceAll('<center>', specialChars.centerStart);
+  text = text.replaceAll('</center>', specialChars.centerEnd);
   text = text.replaceAll('<br/>', specialChars.lineBreak);
 
   const parts = text.split('');
   const letters: ReactElement[] = [];
   let isStrong = false;
   let isItalic = false;
+  let isTitle = false;
+  let isCenter = false;
+  let centerDivLetters: ReactElement[] = [];
   let index = 0;
   for (const charIndex in parts) {
     const char = parts[charIndex];
@@ -54,12 +65,36 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
       isItalic = false;
       continue;
     }
+    if (char === specialChars.titleStart) {
+      isTitle = true;
+      continue;
+    } else if (char === specialChars.titleEnd) {
+      isTitle = false;
+      continue;
+    }
+    if (char === specialChars.centerStart) {
+      isCenter = true;
+      centerDivLetters = [];
+      continue;
+    } else if (char === specialChars.centerEnd) {
+      isCenter = false;
+      letters.push(
+        <div
+          css={css`
+            text-align: center;
+          `}
+        >
+          {centerDivLetters}
+        </div>
+      );
+      continue;
+    }
     if (char === specialChars.lineBreak) {
       letters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
       continue;
     }
 
-    letters.push(
+    const letter = (
       <span
         aria-hidden="true"
         key={index}
@@ -74,11 +109,24 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
               `}
           ${isStrong ? 'font-weight: bold; color: white;' : ''}
           ${isItalic ? 'font-style: italic;' : ''}
+          ${isTitle
+            ? `
+            font-weight: bold;
+            color: white;
+            font-size: 3.4rem;
+          `
+            : ''}
         `}
       >
         {char}
       </span>
     );
+
+    if (isCenter) {
+      centerDivLetters.push(letter);
+    } else {
+      letters.push(letter);
+    }
     index++;
   }
 

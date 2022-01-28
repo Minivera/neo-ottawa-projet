@@ -233,6 +233,7 @@ const generateCurrentScene = (
     text: text || previousState?.text || '',
     centered: placementTag.centered,
     isPhone: placementTag.phone,
+    isTransition: placementTag.transition,
     choices: [],
     shownCharacters: [],
     characterExpressions: previousState

@@ -16,4 +16,4 @@ VAR quiz_save_data = "\{\}"
     ~ current_document = none
     
 === function generer_mauvaise_reponse_retroaction() ===
-    {~Ça me semble être la mauvaise réponse, je devrais revérifier le document|Non, ce n'est définitivement pas ça, je devrais revérifier le document|Hum, je ne suis pas certaine de cette réponse, je devrais revérifier le document} # retroaction
+    {~Ça me semble être la mauvaise réponse, je devrais revérifier le document|Non, ce n'est définitivement pas ça, je devrais revérifier le document|Hum, je ne suis pas certaine de cette réponse, je devrais revérifier le document} # retroaction mauvaise_retroaction

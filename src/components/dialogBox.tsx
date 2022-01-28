@@ -6,10 +6,12 @@ import { lighten, transparentize } from 'polished';
 export interface DialogBoxProps {
   characterTheme?: string;
   center?: boolean;
+  transition?: boolean;
 }
 
 export const DialogBox: FunctionComponent<DialogBoxProps> = ({
   characterTheme,
+  transition,
   children,
 }) => (
   <div
@@ -39,6 +41,12 @@ export const DialogBox: FunctionComponent<DialogBoxProps> = ({
       & div + p {
         margin-top: 2rem;
       }
+
+      ${transition ? `
+        border: none;
+        background: none;
+        color: ${theme.colors.white};
+      ` : ''}
 
       @media only screen and (max-width: 1024px) {
         padding: 2rem 2rem;

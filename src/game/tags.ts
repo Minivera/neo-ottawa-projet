@@ -10,6 +10,7 @@ export interface CharacterTag {
 export interface PlacementTag {
   centered?: boolean;
   phone?: boolean;
+  transition?: boolean;
 }
 
 export interface QuizTags {
@@ -82,6 +83,9 @@ export const extractPlacementTags = (tags: string[] | null): PlacementTag => {
           break;
         case 'phone':
           tag.phone = true;
+          break;
+        case 'transition':
+          tag.transition = true;
           break;
       }
     });

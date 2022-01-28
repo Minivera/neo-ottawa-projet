@@ -10,7 +10,8 @@ INCLUDE act1.ink
 INCLUDE act1_quiz2.ink
 INCLUDE act2.ink
 
--> act_1_quiz_1.quiz_1
+<center><titre>Prologue</titre></center><br/><center>Une transition de début de chapitre</center> # transition
+-> prologue.scene_0
 
 === fin ===
 
