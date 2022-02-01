@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
@@ -21,6 +21,7 @@ import { GameLog } from '../components/gameLog/gameLog';
 import { getGameLog } from './gameLog';
 import { SaveSlot } from './saving';
 import { SaveSlots } from '../components/saveSlots/saveSlots';
+import { musics } from '../data/assets/musics';
 
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 import StartIcon from '../assets/ui/icons/PowerResist.svg?component';
@@ -48,12 +49,23 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     () => setPDAOpened(true)
   );
 
+  useEffect(() => {
+    if (
+      settings.settings.soundEffectsEnabled &&
+      (gameState.state === GameState.Ready ||
+        gameState.state === GameState.Loaded)
+    ) {
+      musics.theme_menu.volume(settings.settings.soundEffectsVolume / 100);
+      musics.theme_menu.play();
+    }
+  }, [gameState.state]);
+
   const globalCSS = (
     <Global
       styles={css`
         html {
           font-size: ${settings.settings.fontSize}px;
-          
+
           @media only screen and (max-width: 780px) {
             font-size: ${Math.floor(settings.settings.fontSize * 0.7)}px;
           }

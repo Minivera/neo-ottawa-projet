@@ -14,7 +14,6 @@ import {
 // TODO: Add lazy loading to make this more seamless
 import { Characters } from '../data/characters';
 import { backgrounds } from '../data/assets/backgrounds';
-import { musics } from '../data/assets/musics';
 import { soundEffects } from '../data/assets/soundEffects';
 import { contacts } from '../data/contacts';
 import { quizzesInfo } from '../data/quizzes';
@@ -287,7 +286,7 @@ const generateCurrentScene = (
     currentScene.bgm =
       variables.current_music.toString() === 'none'
         ? undefined
-        : musics[variables.current_music];
+        : variables.current_music;
   }
 
   if (variables.current_background) {

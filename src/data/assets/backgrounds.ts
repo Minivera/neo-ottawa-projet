@@ -5,29 +5,30 @@ import brigade from '../../assets/backgrounds/brigade.png?w=1920&h=1024';
 import glitch from '../../assets/backgrounds/glitch.jpg?w=1920&h=1024';
 import brigadeOutside from '../../assets/backgrounds/brigade_outside.png?w=1920&h=1024';
 import quartier from '../../assets/backgrounds/quartier.jpg?w=1920&h=1024';
-import rueFlemming from '../../assets/backgrounds/rue_flemming.jpg?w=1920&h=1024';
+import rueFlemming from '../../assets/backgrounds/rue_flemming.png?w=1920&h=1024';
 import rueFlemmingPorte from '../../assets/backgrounds/rue_flemming_porte.png?w=1920&h=1024';
 import chambreLeighKane from '../../assets/backgrounds/chambre_leigh_kane.png?w=1920&h=1024';
 import universite from '../../assets/backgrounds/universite.jpg?w=1920&h=1024';
 import britanniaPark from '../../assets/backgrounds/britannia_park.png?w=1920&h=1024';
-import bureauFred from '../../assets/backgrounds/bureau_fred.jpg?w=1920&h=1024';
+import bureauFred from '../../assets/backgrounds/bureau_fred.png?w=1920&h=1024';
 import voitureFred from '../../assets/backgrounds/voiture_fred.png?w=1920&h=1024';
 import corridorPostePolice from '../../assets/backgrounds/corridor_poste_police.png?w=1920&h=1024';
-import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.jpg?w=1920&h=1024';
+import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.png?w=1920&h=1024';
 import telephone from '../../assets/backgrounds/phone.png?w=1920&h=1024';
-import rueMcLeod from '../../assets/backgrounds/rue_mcleod.jpg?w=1920&h=1024';
+import rueMcLeod from '../../assets/backgrounds/rue_mcleod.png?w=1920&h=1024';
 import siegeESRB from '../../assets/backgrounds/siege_esrb.png?w=1920&h=1024';
 import siegeESRBInformatique from '../../assets/backgrounds/siege_esrb_informatique.png?w=1920&h=1024';
 import ecranOrdinateurESRB from '../../assets/backgrounds/ecran_ordinateur_esrb.png?w=1920&h=1024';
 import maisonOliviaExterieur from '../../assets/backgrounds/maison_olivia_exterieur.png?w=1920&h=1024';
 import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interieur.png?w=1920&h=1024';
-import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.jpg?w=1920&h=1024';
+import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.png?w=1920&h=1024';
 import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1024';
-import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&h=1024';
+import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.png?w=1920&h=1024';
 import newsRoom from '../../assets/backgrounds/news_room.jpg?w=1920&h=1024';
 import chapitre1Titre1 from '../../assets/backgrounds/chapitre_1_gros_titres_1.png?w=1920&h=1024';
 import chapitre1Titre2 from '../../assets/backgrounds/chapitre_1_gros_titres_2.png?w=1920&h=1024';
 import chapitre1Titre3 from '../../assets/backgrounds/chapitre_1_gros_titres_3.png?w=1920&h=1024';
+import transition from '../../assets/backgrounds/transition.png?w=1920&h=1024';
 
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
 
@@ -67,4 +68,5 @@ export const backgrounds: Backgrounds = {
   chapitre_1_gros_titres_1: { type: 'image', asset: chapitre1Titre1 },
   chapitre_1_gros_titres_2: { type: 'image', asset: chapitre1Titre2 },
   chapitre_1_gros_titres_3: { type: 'image', asset: chapitre1Titre3 },
+  transition: { type: 'image', asset: transition },
 };

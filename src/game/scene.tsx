@@ -18,7 +18,6 @@ import { DialogBox, DialogTitle } from '../components/dialogBox';
 import { AnimatedText } from '../components/animatedText';
 import { AnimationContainer } from '../components/animationContainer';
 import { NextButton } from '../components/nextButton';
-import { AudioPlayer } from '../components/audioPlayer';
 import {
   MultipleChoiceElement,
   MultipleChoices,
@@ -26,6 +25,7 @@ import {
 import { Settings } from '../hooks/useSettings';
 import { GameBackground } from '../components/gameBackground';
 import { Characters } from '../data/characters';
+import { musics } from '../data/assets/musics';
 
 export interface SceneState {
   dialogName?: string;
@@ -73,6 +73,21 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
       sceneRef.current.focus();
     }
   }, [state]);
+  useEffect(() => {
+    Object.values(musics).forEach(music => {
+      music.pause();
+    });
+
+    if (!state.bgm) {
+      return;
+    }
+
+    const music = musics[state.bgm];
+    if (music && settings.soundEffectsEnabled) {
+      music.volume(settings.soundEffectsVolume / 100);
+      music.play();
+    }
+  }, [state.bgm]);
 
   const handleClickContinue = () => onContinue();
   const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {
@@ -207,14 +222,6 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
             </React.Fragment>
           )}
         </DialogBox>
-      )}
-      {state.bgm && settings.musicEnabled && (
-        <AudioPlayer
-          src={state.bgm}
-          autoPlay
-          loop
-          volume={settings.musicVolume / 100}
-        />
       )}
       {state.background?.type === 'video' && (
         <GameBackground

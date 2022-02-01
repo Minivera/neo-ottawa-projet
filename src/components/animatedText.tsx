@@ -80,6 +80,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
       isCenter = false;
       letters.push(
         <div
+          key={`${index}_container`}
           css={css`
             text-align: center;
           `}
