@@ -1,5 +1,7 @@
 import { Dispatch, useEffect, useReducer } from 'react';
 
+import { musics } from '../data/assets/musics';
+
 const settingsLocalStorageKey = 'settings';
 
 export interface Settings {
@@ -74,6 +76,13 @@ const settingsReducer: SettingsReducer = (
         },
       };
     case 'setMusic':
+      Object.values(musics).forEach(music => {
+        music.volume(action.volume / 100);
+        if (!action.enabled) {
+          music.stop();
+        }
+      });
+
       return {
         ...state,
         settings: {
