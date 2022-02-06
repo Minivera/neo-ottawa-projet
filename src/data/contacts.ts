@@ -19,6 +19,7 @@ import {
   CarlWhite,
   MereLeighKane,
   PereLeighKane,
+  Al,
 } from './characters';
 import { Contact } from '../game/pda';
 
@@ -142,5 +143,11 @@ export const contacts: Record<string, Contact> = {
     characterId: PereLeighKane.id,
     name: PereLeighKane.name,
     description: 'contact_pere_leigh_kane',
+  },
+  [Al.id]: {
+    type: 'police',
+    characterId: Al.id,
+    name: Al.name,
+    description: 'contact_al',
   },
 } as const;

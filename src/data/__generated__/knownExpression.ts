@@ -2,39 +2,45 @@
 export const knownExpressions = {
   "GABRIEL_SAND": [
     "amusement",
-    "neutral",
-    "joy"
+    "joy",
+    "neutral"
   ],
   "CHEF_MILLER": [
-    "sterness",
-    "neutral",
-    "wtf",
+    "anger",
+    "anxiety",
     "aversion",
+    "concern",
+    "cruel",
+    "disdain",
+    "joy",
+    "neutral",
     "satisfaction",
-    "concern"
+    "sterness",
+    "wtf"
   ],
   "AGENT_LUCAS": [
-    "neutral",
     "amusement",
-    "concern",
-    "sterness",
     "aversion",
+    "concern",
+    "neutral",
+    "sterness",
     "wonder"
   ],
   "AGENT_MOORE": [
-    "neutral",
-    "laughing",
-    "sterness",
     "amusement",
-    "cruel",
     "concern",
-    "desperation"
+    "cruel",
+    "desperation",
+    "laughing",
+    "neutral",
+    "sterness",
+    "surprise"
   ],
   "ENQUETEUR_BEAULIEU": [
-    "cruel",
     "aversion",
-    "wtf",
-    "rage"
+    "cruel",
+    "rage",
+    "wtf"
   ],
   "BRIGHTON": [
     "neutral"
@@ -43,94 +49,131 @@ export const knownExpressions = {
     "sterness"
   ],
   "BONNIE_RANDLE_V2": [
-    "sterness",
-    "default",
-    "neutral",
-    "melancholy",
     "alertness",
-    "wonder",
+    "aversion",
+    "default",
+    "dejection",
     "disdain",
-    "aversion"
+    "melancholy",
+    "neutral",
+    "shock",
+    "sterness",
+    "wonder"
   ],
   "CHEF_MILLER_NO_CIGAR": [
-    "neutral",
+    "alertness",
     "anger",
-    "sterness",
-    "suprise",
+    "aversion",
+    "concern",
+    "disdain",
+    "joy",
+    "neutral",
     "omg",
     "satisfaction",
-    "concern",
-    "joy",
-    "disdain",
-    "aversion",
-    "alertness",
+    "sterness",
+    "suprise",
     "wtf"
   ],
   "CHRISTOPHER_YOUNG": [
-    "neutral",
-    "aversion",
-    "sterness",
-    "indignation",
-    "disdain",
-    "wonder",
-    "satisfaction",
-    "joy",
-    "amusement",
-    "concern",
     "alertness",
-    "laughing"
+    "amusement",
+    "aversion",
+    "concern",
+    "disdain",
+    "indignation",
+    "joy",
+    "laughing",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "surprise",
+    "wonder"
   ],
   "VIVIAN": [
-    "joy",
-    "dejection"
+    "dejection",
+    "joy"
   ],
   "TOM": [
+    "alertness",
     "disgust",
     "joy",
-    "satisfaction",
-    "alertness"
+    "satisfaction"
   ],
   "RECEPTIONISTE": [
+    "concern",
     "neutral",
-    "surprise",
-    "concern"
+    "surprise"
   ],
   "RONNY": [
-    "shock",
+    "neutral",
     "satisfaction",
-    "neutral"
+    "shock"
   ],
   "OLIVIA_PAUL": [
     "alertness",
-    "surprise",
-    "neutral",
     "disdain",
-    "sterness",
+    "indignation",
     "melancholy",
-    "indignation"
+    "neutral",
+    "sterness",
+    "surprise"
   ],
   "CARL_WHITE": [
-    "surprise",
-    "sterness",
-    "indignation",
-    "anger",
-    "neutral",
-    "laughing",
     "amusement",
-    "wonder",
+    "anger",
     "concern",
-    "joy"
+    "cruel",
+    "indignation",
+    "joy",
+    "laughing",
+    "neutral",
+    "sterness",
+    "surprise",
+    "wonder"
   ],
   "MERE_DE_LEIGH_KANE": [
-    "dejection",
     "aversion",
-    "indignation",
+    "default",
+    "dejection",
     "grief",
+    "indignation",
     "sadness"
   ],
   "PERE_DE_LEIGH_KANE": [
+    "concern",
     "melancholy",
+    "neutral"
+  ],
+  "LEIGH_KANE": [
+    "anxiety",
+    "concern",
+    "dejection",
+    "disdain",
+    "horror",
+    "melancholy",
+    "neutral",
+    "sterness",
+    "surprise"
+  ],
+  "MEDECIN": [
     "concern",
     "neutral"
+  ],
+  "AL": [
+    "amusement",
+    "anger",
+    "anxiety",
+    "disdain",
+    "horror",
+    "indignation",
+    "melancholy",
+    "neutral",
+    "sterness",
+    "wonder"
+  ],
+  "INTERVENANT": [
+    "concern",
+    "neutral",
+    "wonder"
   ]
 };

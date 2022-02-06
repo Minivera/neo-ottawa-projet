@@ -55,6 +55,10 @@ const start = () => {
     knownExpressions[character].push(expression);
   }
 
+  Object.keys(knownExpressions).forEach(key => {
+    knownExpressions[key].sort();
+  });
+
   const savedContent = `
 export const knownExpressions = ${JSON.stringify(knownExpressions, null, 2)};
   `;

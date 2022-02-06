@@ -3,7 +3,7 @@
 =quiz_2
 ~ demarrer_quiz(QUIZ_2, 7)
 ~afficher_document(ABOUT_ESRB)
-~afficher_document(LISTE_ANCIENS_EMPLOYES)
+~ajouter_document(LISTE_ANCIENS_EMPLOYES)
 ~jouer_musique(theme_quiz)
 
 -> question_1

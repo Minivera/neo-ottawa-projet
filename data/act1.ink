@@ -57,7 +57,7 @@ Fred: Je sais. Mais c’est la seule que j’ai. # character=FRED_GALLANT invisi
  ~afficher_fond(bureau_fred)
 ~cacher_fond()
 ~jouer_musique(theme_narrateur)
-Narrateur: Entrez dans la résistance maintenant. Plongez, sans vous retourner. Parce que lorsque vous en sortirez, vous ne serez plus la même personne. Plus jamais la même. Allez au rendez-vous que Christopher a fixé. C’est l’heure. Il est temps. # character=NARRATEUR center
+Narrateur: Entrez dans la résistance maintenant. Plongez, sans vous retourner. Parce que lorsque vous en sortirez, vous ne serez plus la même personne. Plus jamais la même. Allez au rendez-vous que Christopher a fixé. C’est l’heure. Il est temps. # character=NARRATEUR invisible center
 <b>Fred</b> se réveille de sa torpeur.
 // TODO=(animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?)
 ~arreter_musique()
@@ -73,26 +73,27 @@ Fred, <i>à elle-même</i>: En route pour le 530 McLeod. # character=FRED_GALLAN
 
   = scene_3
 ~afficher_fond(rue_mcleod)
-// TODO= déterminer thème entre mcleod et résistance
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideUp")
+~jouer_musique(theme_general)
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 Christopher: Bienvenue Fred. Voici VIVIAN, RONNY et TOM. # character=CHRISTOPHER_YOUNG expression=joy
-~afficher_personnage(VIVIAN, "slideUp")
-~afficher_personnage(RONNY, "slideUp")
-~afficher_personnage(TOM, "slideUp")
+~afficher_personnage(VIVIAN, "slideInUp")
+~afficher_personnage(RONNY, "slideInUp")
+~afficher_personnage(TOM, "slideInUp")
 Fred: Bonjour. Fred. # character=FRED_GALLANT invisible
 Vivian: Salut. #character=VIVIAN expression=joy
 Christopher: Je veux te montrer quelque chose. # character=CHRISTOPHER_YOUNG expression=neutral
+~cacher_tout_personnages()
 -> act_1_quiz_1.quiz_1
 
 ->scene_3_suite
 
 =scene_3_suite
 ~afficher_fond(rue_mcleod)
-// TODO=déterminer thème entre mcleod et résistance
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideUp")
-~afficher_personnage(VIVIAN, "slideUp")
-~afficher_personnage(RONNY, "slideUp")
-~afficher_personnage(TOM, "slideUp")
+~jouer_musique(theme_general)
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+~afficher_personnage(VIVIAN, "slideInUp")
+~afficher_personnage(RONNY, "slideInUp")
+~afficher_personnage(TOM, "slideInUp")
 Fred: Mais ça signifie qu’il y avait déjà un certain contrôle sur le contenu des jeux même avant l’arrivée de la Loi Game Over?! # character=FRED_GALLANT invisible
 Christopher: Tu as tout compris!# character=CHRISTOPHER_YOUNG expression=satisfaction
 Christopher: As-tu déjà entendu parler de l'ESRB? # character=CHRISTOPHER_YOUNG expression=satisfaction
@@ -119,13 +120,13 @@ Fred: Je vois. Il y avait donc des classements. C’est extrêmement important.#
 =scene_4
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_police)
-~afficher_personnage(AGENT_MOORE,"slideUp")
+~afficher_personnage(AGENT_MOORE,"slideInUp")
 Agent Moore: Tu n’as pas une famille à aller voir? Un lit? # character=AGENT_MOORE expression=concern
 Fred: J’ai juste besoin de comprendre ceci. Je n’en ai plus pour longtemps. # character=FRED_GALLANT invisible
 Agent Moore: Ne commets pas les mêmes erreurs que nous, Gallant. Rien ne presse. On passe de fausse piste en fausse piste depuis toujours ici. Tu vas t’y habituer! # character=AGENT_MOORE expression=desperation
 Fred: Non, justement. Ce n’est pas mon genre. # character=FRED_GALLANT invisible
 <b>L’agent Moore</b> quitte le bureau.
-~cacher_personnage(AGENT_MOORE, "slideDown")
+~cacher_personnage(AGENT_MOORE, "slideOutDown")
 ~jouer_effet_sonore(claquement_porte)
 <b>Fred</b> téléphone immédiatement à <b>Bonnie</b>.
 ~jouer_effet_sonore(sonnerie_telephone)
@@ -158,7 +159,7 @@ Fred: Restez naturelle, continuez vos habitudes, je vais parler à mon chef auss
 =scene_5
 ~afficher_fond(siege_esrb)
 ~jouer_musique(theme_fred)
-~afficher_personnage(RECEPTIONISTE, "slideUp")
+~afficher_personnage(RECEPTIONISTE, "slideInUp")
 Fred, <i>à un réceptionniste</i>: Bonjour, Fred Gallant, brigade anti-jeux vidéo. Est-il possible d’obtenir de l’information sur ce que signifient ces codes? # character=FRED_GALLANT invisible
 Réceptionniste: L’ESRB n’a plus ce genre d’activité. #character=RECEPTIONISTE expression=neutral
 Fred: Mais y a-t-il un moyen d’avoir accès à de l’information d’avant la <i>Loi Game Over</i>? # character=FRED_GALLANT invisible
@@ -190,7 +191,7 @@ Le réceptionniste coopère à contrecœur. Il ne s’agirait pas que Fred déco
 <b>Fred</b> est désormais dans la salle informatique de l’ESRB.
 ~afficher_fond(ecran_ordinateur_esrb)
 Choisissez le mot de passe pour accéder à l’ordinateur : #center
-Mot de passe oublié ? L’année où tout a changé. #center
+Mot de passe oublié? L’année où tout a changé. #center
 <b>Fred</b> tape à l'écran <b>2021</b>
 Code bon #center
 ~jouer_effet_sonore(son_demarrage_ordinateur)
@@ -200,7 +201,7 @@ Code bon #center
 //TODO: [Transition - Image non définie encore]
 ~ afficher_fond(rue_mcleod)
 ~jouer_musique(theme_resistance)
-~afficher_personnage(RONNY, "slideUp")
+~afficher_personnage(RONNY, "slideInUp")
 Ronny: Eh bien! Je suis impressionné! On n’avait pas été autant en profondeur. Où as-tu eu ces documents? C’est évident que tu serais un bon élément, si tu voulais vraiment travailler avec nous. #character=RONNY expression=shock
 Fred: Je dois admettre que ce que j’ai trouvé m’intrigue encore plus. Je suis prête à poursuivre mes recherches pour vous. Mais j’ai tout simplement eu de la chance. # character=FRED_GALLANT invisible
 Ronny: Excellent. Qu’est-ce que tu as en tête? #character=RONNY expression=satisfaction
@@ -238,13 +239,13 @@ Fred: Aucun souci, je n’en ai pas pour longtemps. J’aurais juste quelques qu
 ~afficher_fond(maison_olivia_interieur)
 Olivia: Je ne sais pas grand-chose. Tout ce que je peux vous dire, c’est que du temps de l’ESRB, je luttais contre le monopole de l’organisation sur l’évaluation des jeux. #character=OLIVIA_PAUL expression=neutral
 Fred: Que voulez-vous dire? # character=FRED_GALLANT invisible
-Olivia: Je trouvais cela dangereux de confier l’évaluation des jeux vidéo à une seule et unique organisation. Tout monopole comporte des dangers. #character=OLIVIA_PAUL expression=concern
+Olivia: Je trouvais cela dangereux de confier l’évaluation des jeux vidéo à une seule et unique organisation. Tout monopole comporte des dangers. #character=OLIVIA_PAUL expression=alertness
 Fred: Mais il y avait bien une évaluation systématique de tous les jeux? # character=FRED_GALLANT invisible
 Olivia: En principe, oui. Mais je n’avais pas un poste de décision, pas de vue d’ensemble. #character=OLIVIA_PAUL expression=neutral
 Fred: Je comprends. Mais alors, il y avait des jeux qui étaient interdits, par exemple aux mineurs? # character=FRED_GALLANT invisible
 Olivia: Interdit, le mot est trop fort. Les évaluations sont de fortes recommandations. #character=OLIVIA_PAUL expression=disdain
 Fred: Je vois. # character=FRED_GALLANT invisible
-Olivia: Mais la raison pour laquelle j’ai accepté de vous rencontrer, c’est l’autre préoccupation que j’avais concernant les évaluations. Aujourd’hui, ça semble sans importance, mais si vous enquêtez là-dessus, c’est qu’il est probable que vous n’êtes pas la seule à mettre en doute les dires du gouvernement. #character=OLIVIA_PAUL expression=concern
+Olivia: Mais la raison pour laquelle j’ai accepté de vous rencontrer, c’est l’autre préoccupation que j’avais concernant les évaluations. Aujourd’hui, ça semble sans importance, mais si vous enquêtez là-dessus, c’est qu’il est probable que vous n’êtes pas la seule à mettre en doute les dires du gouvernement. #character=OLIVIA_PAUL expression=alertness
 Fred: Je ne fais que mon travail, je ne mets rien en doute. Mais de quelle préoccupation parlez-vous? # character=FRED_GALLANT invisible
 Olivia: Eh bien, vous savez, c’était très noble d’évaluer les jeux et de guider les parents sur le contenu. Cependant, les évaluateurs dont je faisais partie ne jouaient pas au jeu. #character=OLIVIA_PAUL expression=sterness
 Fred: Comment pouviez-vous l’évaluer? # character=FRED_GALLANT invisible
@@ -254,7 +255,7 @@ Olivia: Exact. Le système d’évaluation était gardé secret et l’identité
 Fred: Pourquoi? # character=FRED_GALLANT invisible
 Olivia: ESRB disait que c’était pour protéger les évaluateurs de pression indue. Mais la pression venait de l’interne. #character=OLIVIA_PAUL expression=sterness
 Fred: Comment? # character=FRED_GALLANT invisible
-Olivia: Eh bien, nous avions peu de temps pour évaluer les jeux, nous n’avions pas accès au jeu complet, mais la tendance était à la prudence. #character=OLIVIA_PAUL expression=concern
+Olivia: Eh bien, nous avions peu de temps pour évaluer les jeux, nous n’avions pas accès au jeu complet, mais la tendance était à la prudence. #character=OLIVIA_PAUL expression=alertness
 Fred: Je comprends. Et donc, vous me confirmez que tous les jeux étaient classés et que des recommandations étaient faites quant à leur utilisation? # character=FRED_GALLANT invisible
 Olivia: Ça vous surprend? #character=OLIVIA_PAUL expression=disdain
 Fred: Oui. # character=FRED_GALLANT invisible
@@ -264,7 +265,7 @@ Olivia: À mon humble avis, ça n’empêche pas que le système était pourri e
 Fred: Pourquoi dites-vous cela? # character=FRED_GALLANT invisible
 Olivia: Parce que ces entreprises étaient des compagnies à but lucratif et que la réglementation avait d’importantes lacunes. C’était un terreau parfait pour les exagérations. #character=OLIVIA_PAUL expression=indignation
 Fred: Je vois. Je vous remercie de m’avoir reçue. # character=FRED_GALLANT invisible
-Olivia: Ce n’est rien! Si quelqu’un vous le demande, vous n’êtes jamais venue ici. #character=OLIVIA_PAUL expression=concern
+Olivia: Ce n’est rien! Si quelqu’un vous le demande, vous n’êtes jamais venue ici. #character=OLIVIA_PAUL expression=alertness
 ~ajouter_contact(OLIVIA_PAUL)
 ~ajouter_document(ESRB_FLAWS)
 ~cacher_tout_personnages()
@@ -281,16 +282,16 @@ Olivia: Ce n’est rien! Si quelqu’un vous le demande, vous n’êtes jamais v
 
 = quiz_3_question_1
 
-1 - Les évaluateurs de l'ESRB jouent à l'intégralité d'un jeu vidéo avant de lui attribuer sa classification ?  # question index=1
+1 - Les évaluateurs de l'ESRB jouent à l'intégralité d'un jeu vidéo avant de lui attribuer sa classification?  # question index=1
 *   (3_1_a) [{3_1_a: VISITE--}Vrai] Vrai
 *   (3_1_b) [BON--{3_1_b: VISITE--}Faux] Faux
-    Les évaluateurs de l’ESRB ne jouaient pas à l’intégralité d’un jeu vidéo avant de lui attribuer sa classification. Cela me parait vraiment problématique... Imaginons qu’un élément particulièrement problématique échappe à un évaluateur ! Et puis pourquoi ne pas jouer à l’intégralité d’un jeu pour s’assurer de donner un avis éclairé ? # retroaction
+    Les évaluateurs de l’ESRB ne jouaient pas à l’intégralité d’un jeu vidéo avant de lui attribuer sa classification. Cela me parait vraiment problématique... Imaginons qu’un élément particulièrement problématique échappe à un évaluateur ! Et puis pourquoi ne pas jouer à l’intégralité d’un jeu pour s’assurer de donner un avis éclairé? # retroaction
     -> quiz_3_question_2
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_3_question_1
 
 = quiz_3_question_2
-2 - Si les évaluateurs ne jouaient pas à l’intégralité d’un jeux vidéo avant de lui attribuer une note, comment faisaient-ils selon le témoignage ? # question index=2
+2 - Si les évaluateurs ne jouaient pas à l’intégralité d’un jeux vidéo avant de lui attribuer une note, comment faisaient-ils selon le témoignage? # question index=2
 
 +   (3_2_a) [{3_2_a: VISITE--}Ils consultaient le projet de boîte du jeu comprenant des images et une description. ] Ils consultaient le projet de boîte du jeu comprenant des images et une description.
 +   (3_2_b) [BON--{3_2_b: VISITE--}Ils consultaient une vidéo présentant des phases de jeu.] Ils consultaient une vidéo présentant des phases de jeu.
@@ -303,10 +304,10 @@ Selon le témoignage, les évaluateurs consultaient des vidéos présentant des 
 
 = quiz_3_question_3
 
-3- Selon le témoignage de l’ancien employé de l’ESRB, pourquoi les évaluateurs ne jouent-ils pas aux jeux vidéo ? # question index=3
+3- Selon le témoignage de l’ancien employé de l’ESRB, pourquoi les évaluateurs ne jouent-ils pas aux jeux vidéo? # question index=3
 
 +   (3_3_a)[BON--{3_3_a: VISITE--}Ils n’avaient pas le temps de jouer aux jeux vidéo.] Ils n’avaient pas le temps de jouer aux jeux vidéo.
-Selon le témoignage, les évaluateurs n’avaient pas le temps de joueur à l’intégralité d’un jeu vidéo. C’est compréhensible. Un jeu vidéo est différent d’un film, le compléter peut prendre plusieurs dizaines d’heures. De plus, certains éléments peuvent être cachés et plus ou moins difficiles d’accès. Peut-être que l’ESRB n’avait pas le choix de fonctionner de cette manière. Mais imaginons que l’on découvre un élément problématique après l’évaluation d’un jeu et sa sortie, cela aurait pu être dramatique non ? # retroaction
+Selon le témoignage, les évaluateurs n’avaient pas le temps de joueur à l’intégralité d’un jeu vidéo. C’est compréhensible. Un jeu vidéo est différent d’un film, le compléter peut prendre plusieurs dizaines d’heures. De plus, certains éléments peuvent être cachés et plus ou moins difficiles d’accès. Peut-être que l’ESRB n’avait pas le choix de fonctionner de cette manière. Mais imaginons que l’on découvre un élément problématique après l’évaluation d’un jeu et sa sortie, cela aurait pu être dramatique non? # retroaction
 -> quiz_3_fin
 +   (3_3_b) [{3_3_b: VISITE--}La plupart d’entre eux n’aimaient pas jouer aux jeux vidéo. ] La plupart d’entre eux n’aimaient pas jouer aux jeux vidéo.
 +   (3_3_c) [{3_3_c: VISITE--}La plupart d’entre eux étaient trop mauvais pour compléter les premiers niveaux.] La plupart d’entre eux étaient trop mauvais pour compléter les premiers niveaux.
@@ -332,7 +333,7 @@ Carl: Je n’ai rien à voir là-dedans.  #character=CARL_WHITE expression=indig
 Fred: Non, je viens vous voir en tant qu’ancien employé de l’ESRB. # character=FRED_GALLANT invisible
 Carl: Ça fait plus de trente ans que je ne travaille plus dans cette boîte!  #character=CARL_WHITE expression=indignation
 Fred: Je sais. J’aurais juste quelques questions sur la manière dont les évaluations étaient faites… # character=FRED_GALLANT invisible
-Carl: Les évaluations étaient faites en analysant le contenu du jeu! Que voulez-vous savoir de plus?  #character=CARL_WHITE expression=sarcasm
+Carl: Les évaluations étaient faites en analysant le contenu du jeu! Que voulez-vous savoir de plus?  #character=CARL_WHITE expression=cruel
 Fred: Oui, mais comment exactement? # character=FRED_GALLANT invisible
 Carl: Ne jouez pas au plus malin avec moi. Qu’est-ce que vous voulez savoir? Je suis un citoyen honnête, moi. Et je n’ai pas de temps à perdre même si je suis à la retraite.  #character=CARL_WHITE expression=anger
 Fred: Non, bien sûr. Écoutez, dites-moi simplement comment les jeux étaient évalués. Svp? # character=FRED_GALLANT invisible
@@ -344,7 +345,7 @@ Carl: Attendez. Je me souviens d’une histoire avec GTA…  #character=CARL_WHI
 Carl: C’est pour des histoires comme celle-là qu’ils ont tout interdit vous savez.  #character=CARL_WHITE expression=laughing
 Fred: Quelle histoire? # character=FRED_GALLANT invisible
 Carl: GTA! Quel jeu stupide! Ce n’est pas moi qui l’ai évalué, ça non. Mais le scandale! Ça, tout le monde qui l’a vécu se le rappelle.  #character=CARL_WHITE expression=amusement
-Fred: Eh bien, pourriez-vous m’en parler ? # character=FRED_GALLANT invisible
+Fred: Eh bien, pourriez-vous m’en parler? # character=FRED_GALLANT invisible
 Carl: C’était en 2005, lorsque le jeu est sorti, il est arrivé en bonne et due forme avec le formulaire détaillé sur le contenu fourni par le concepteur et l’extrait de gameplay quoi, comme d’habitude. On l’a évalué et classé. Mais après que le jeu ait été en circulation un certain temps, des joueurs ont découvert une mission cachée, le hot coffee. On pouvait la débloquer avec un code et le personnage pouvait avoir une relation sexuelle avec une travailleuse du sexe.  #character=CARL_WHITE expression=neutral
 Fred: Ah bon? # character=FRED_GALLANT invisible
 Carl: Oui et oh! Ce qu’on en a bavé à l’ESRB. On nous a accusés d’être en conflit d’intérêts, mais ce n’était pas ça. On utilisait la même méthode pour tous les jeux.  #character=CARL_WHITE expression=wonder
@@ -413,7 +414,7 @@ Dans le cas du jeu GTA, il est probable que l’éditeur ait été sanctionné p
 TODO: [Transition - Image non définie encore]
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_commissariat)
-~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideUp")
+~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Eh bien? Qu’est-ce que vous avez? Il faut me donner quelque chose! #character=CHEF_MILLER_NO_CIGAR expression=concern
 
 Fred: Je cherche à relier la disparition du gamin au jeu qui est indiqué dans les messages, mais il n’y a pas de trace de ce jeu chez les Kane. # character=FRED_GALLANT invisible
@@ -445,10 +446,10 @@ Chef Miller: Vous voulez rire, Gallant? #character=CHEF_MILLER_NO_CIGAR expressi
 =scene_10
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_resistance)
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideUp")
-~afficher_personnage(VIVIAN, "slideUp")
-~afficher_personnage(RONNY, "slideUp")
-~afficher_personnage(TOM, "slideUp")
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+~afficher_personnage(VIVIAN, "slideInUp")
+~afficher_personnage(RONNY, "slideInUp")
+~afficher_personnage(TOM, "slideInUp")
 <b>Vivian</b>, <b>Tom</b>, <b>Christopher</b>, <b>Ronny</b> et <b>Fred</b> discutent.
 
 Tom: Tu fais vraiment un travail impeccable Fred. À ce rythme, on va bientôt pouvoir nous adresser aux médias! Tu te rends compte! # character=TOM expression=joy
@@ -474,19 +475,19 @@ TODO:Le joueur doit cliquer sur un bouton en surbrillance. Le bouton déclenche 
 ~jouer_effet_sonore(ouverture_trappe)
 ~afficher_fond(grenier)
 ~jouer_musique(theme_resistance)
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideUp")
-TODO=Vue du grenier pendant quelques secondes.
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+Fred se retrouve dans la salle de jeux clandestine de la résistance.
 
 ~cacher_fond()
 ~arreter_musique()
 ~jouer_musique(theme_narrateur)
-Narrateur: Comment Fred expliquera au chef Miller qu’elle a été en présence de joueurs, une mine d’or pour la brigade, et qu’elle n’a rien fait? Jusqu’où ira Fred avant de se questionner sur son éthique de travail? Comment expliquer la présence de Bonnie? Comment va-t-elle l’aider ? Et vous, que ferez-vous? # character=NARRATEUR invisible
+Narrateur: Comment Fred expliquera au chef Miller qu’elle a été en présence de joueurs, une mine d’or pour la brigade, et qu’elle n’a rien fait? Jusqu’où ira Fred avant de se questionner sur son éthique de travail? Comment expliquer la présence de Bonnie? Comment va-t-elle l’aider? Et vous, que ferez-vous? # character=NARRATEUR invisible
 
 TODO(Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?)
 
 ~afficher_fond(grenier)
 ~jouer_musique(theme_resistance)
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideUp")
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 Christopher: Ça va Fred? # character=CHRISTOPHER_YOUNG expression=concern
 
 Fred: Oui, désolée. Oui, ça va. Je suis juste un peu étourdie. # character=FRED_GALLANT invisible
@@ -545,16 +546,16 @@ Toutes les propositions sont pertinentes. Elles renvoient à des articles qui tr
 -> quiz_5_question_1
 
 =quiz_5_question_2
-2 - Le respect des règles de l’ESRB était-il obligatoire en Ontario ? # question index=2
+2 - Le respect des règles de l’ESRB était-il obligatoire en Ontario? # question index=2
 *   (5_2_a) [BON--{5_2_a: VISITE--}Vrai] Vrai
-Selon l’article 6(2) du règlement de l’Ontario, la classification de l’ESRB était obligatoire en Ontario. Mais était-ce le cas ailleurs au Canada ? # retroaction
+Selon l’article 6(2) du règlement de l’Ontario, la classification de l’ESRB était obligatoire en Ontario. Mais était-ce le cas ailleurs au Canada? # retroaction
 -> quiz_5_question_3
 *   (5_2_b) [{5_2_b: VISITE--}Faux] Faux
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_question_2
 
  = quiz_5_question_3
-3 - J’ai ma réponse pour l’Ontario, mais qu’est-ce qu’il en était de la province voisine au Québec ? Je n’ai aucun document sous la main pour le déterminer… Le respect des règles de l’ESRB était-il obligatoire au Québec ?  # question index=3
+3 - J’ai ma réponse pour l’Ontario, mais qu’est-ce qu’il en était de la province voisine au Québec? Je n’ai aucun document sous la main pour le déterminer… Le respect des règles de l’ESRB était-il obligatoire au Québec?  # question index=3
 *   (5_3_a) [{5_3_a: VISITE--}Oui] Oui
 *   (5_2_b) [BON--{5_2_b: VISITE--}Non] Non
 Je ne sais pas comment j’ai réussi à déterminer cela... Sûrement un coup de chance, mais effectivement les règles de l’ESRB n’étaient pas obligatoires au Québec. # retroaction
@@ -564,9 +565,9 @@ Je ne sais pas comment j’ai réussi à déterminer cela... Sûrement un coup d
 
  =quiz_5_fin
  ~ terminer_quiz()
- -> scene_10_5
+ -> scene_10_suite
 
- =scene_10_5
+ =scene_10_suite
 ~afficher_fond(grenier)
 ~jouer_musique(theme_resistance)
 ~afficher_personnage(CHRISTOPHER_YOUNG, "fadeIn")
@@ -682,7 +683,7 @@ TODO=Image non définie encore
 =scene_13
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_resistance)
-~afficher_personnage(TOM, "slideUp")
+~afficher_personnage(TOM, "slideInUp")
 Tom: Je suis heureux que tu restes. On a eu raison de te recruter et de te faire confiance. Ce que ça nous prend, ce sont des preuves qu’ils ont caché des informations, mais surtout les informations qu’ils ont cachées. On doit montrer que les jeux n’étaient pas tous dommageables et qu’il existait déjà des manières de contrôler ceux qui avaient le potentiel de l’être. # character=TOM expression=satisfaction
 
 Fred: Je comprends, mais crois-tu que s’ils ont vraiment fait ça, ils n’en ont pas complètement effacé les traces? # character=FRED_GALLANT invisible
@@ -714,7 +715,7 @@ Tom: On peut y trouver des informations croustillantes sur le passé. T’as pas
 -> quiz_6_question_1
 
 = quiz_6_question_1
-1- La compagnie GameStop imposait-elle le respect du système de l’ESRB ? # question index=1
+1- La compagnie GameStop imposait-elle le respect du système de l’ESRB? # question index=1
 *   (6_1_a) [BON--{6_1_a: VISITE--}Oui] Oui
  Selon le document de la compagnie, celle-ci avait bien décidé d’imposer le respect de la classification de l’ESRB dans ses magasins et ce sans être forcé de le faire par l’État. Encore un exemple d’autorégulation des acteurs de l’industrie des jeux vidéo. # retroaction
  -> quiz_6_question_2
@@ -725,7 +726,7 @@ Tom: On peut y trouver des informations croustillantes sur le passé. T’as pas
 
  = quiz_6_question_2
 ~afficher_document(STEAMWORKS)
-2 - Steam utilisait-il le système de l’ESRB pour classer les jeux vidéo ? # question index=2
+2 - Steam utilisait-il le système de l’ESRB pour classer les jeux vidéo? # question index=2
 *   (6_2_a) [{6_2_a: VISITE--}Oui] Oui
 
 *   (6_2_b) [BON--{6_2_b: VISITE--}Non] Non
@@ -735,10 +736,10 @@ Steam n’imposait pas le système de l’ESRB. Les jeux vidéo disposant d’un
  -> quiz_6_question_2
 
 =quiz_6_question_3
-3 - Quelle était l'approche préconisée par Steam pour la protection des consommateurs ?  # question index=3
+3 - Quelle était l'approche préconisée par Steam pour la protection des consommateurs?  # question index=3
  +   (6_3_a) [{6_3_a: VISITE--}Censure.] Censure.
 +   (6_3_b) [BON--{6_3_b: VISITE--}Transparence.] Transparence.
-Steam préconisait une approche basée sur la transparence vis-à-vis des consommateurs. Ces derniers étaient informés du caractère potentiellement choquant de certains jeux et devaient notamment confirmer leur âge avant de pouvoir accéder à certains contenus. Reste qu’il s’agissait d’une auto-déclaration et certains utilisateurs pouvaient mentir n’est-ce pas ? # retroaction
+Steam préconisait une approche basée sur la transparence vis-à-vis des consommateurs. Ces derniers étaient informés du caractère potentiellement choquant de certains jeux et devaient notamment confirmer leur âge avant de pouvoir accéder à certains contenus. Reste qu’il s’agissait d’une auto-déclaration et certains utilisateurs pouvaient mentir n’est-ce pas? # retroaction
   -> quiz_6_question_4
 +   (6_3_c) [{6_3_c: VISITE--} Laisse-faire.]  Laisse-faire.
 +   (6_4_d) [{6_4_d: VISITE--} Paternaliste.] Paternaliste.
@@ -746,7 +747,7 @@ Steam préconisait une approche basée sur la transparence vis-à-vis des consom
 -> quiz_6_question_3
 
  =quiz_6_question_4
-4 - L’approche de la plateforme Steam me paraît intéressante. Mais a-t-elle déjà conduit à la censure de jeux vidéo ? Je n’ai pas l’impression que l’information se trouve dans les documents…  # question index=4
+4 - L’approche de la plateforme Steam me paraît intéressante. Mais a-t-elle déjà conduit à la censure de jeux vidéo? Je n’ai pas l’impression que l’information se trouve dans les documents…  # question index=4
  *   (6_4_a) [BON--{6_4_a: VISITE--}Oui] Oui
  Steam a censuré par le passé un nombre très restreint de jeux vidéo. Selon les informations collectées, Steam ne souhaitait pas se positionner en censeur des productions vidéoludiques. Mais lorsque la situation l’imposait, Steam n’a pas hésité. # retroaction
 -> quiz_6_question_5
@@ -755,7 +756,7 @@ Steam préconisait une approche basée sur la transparence vis-à-vis des consom
  -> quiz_6_question_4
 
  =quiz_6_question_5
-5 - Si oui, quel jeu a déjà été interdit par Steam dans le passé ?  # question index=5
+5 - Si oui, quel jeu a déjà été interdit par Steam dans le passé?  # question index=5
  +   (6_5_a) [{6_5_a: VISITE--}Grand Theft Auto V.] Grand Theft Auto V.
 +   (6_5_b) [BON--{6_5_b: VISITE--}Active Shooter.] Active Shooter.
 Ces quatre jeux contenaient assurément des scènes ou des éléments violents. Mais seul le jeu Active Shooter a été interdit par la plateforme Steam. Le joueur incarnait un assaillant dans une école américaine et prenait pour cible ses camarades. Au-delà du jeu et de son contenu, les pratiques problématiques de son développeur ont également été prises en compte dans le cadre de la décision de censurer ce jeu.  # retroaction
@@ -773,7 +774,7 @@ TODO=Transition - Image non définie encore
 = scene_15
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_choix_finaux)
-~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideUp")
+~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Vous vouliez me voir? J’espère que vous avez de bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
 *Vous racontez ce qu’il en est de l’histoire de Leigh Kane, mais vous ne dites presque rien sur vos découvertes liées à la résistance.
  ~ points_fin_3 += 2

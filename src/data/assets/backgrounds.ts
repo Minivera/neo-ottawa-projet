@@ -8,7 +8,7 @@ import quartier from '../../assets/backgrounds/quartier.jpg?w=1920&h=1024';
 import rueFlemming from '../../assets/backgrounds/rue_flemming.png?w=1920&h=1024';
 import rueFlemmingPorte from '../../assets/backgrounds/rue_flemming_porte.png?w=1920&h=1024';
 import chambreLeighKane from '../../assets/backgrounds/chambre_leigh_kane.png?w=1920&h=1024';
-import universite from '../../assets/backgrounds/universite.jpg?w=1920&h=1024';
+import universite from '../../assets/backgrounds/universite.png?w=1920&h=1024';
 import britanniaPark from '../../assets/backgrounds/britannia_park.png?w=1920&h=1024';
 import bureauFred from '../../assets/backgrounds/bureau_fred.png?w=1920&h=1024';
 import voitureFred from '../../assets/backgrounds/voiture_fred.png?w=1920&h=1024';
@@ -24,10 +24,12 @@ import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interi
 import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.png?w=1920&h=1024';
 import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1024';
 import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.png?w=1920&h=1024';
-import newsRoom from '../../assets/backgrounds/news_room.jpg?w=1920&h=1024';
 import chapitre1Titre1 from '../../assets/backgrounds/chapitre_1_gros_titres_1.png?w=1920&h=1024';
 import chapitre1Titre2 from '../../assets/backgrounds/chapitre_1_gros_titres_2.png?w=1920&h=1024';
 import chapitre1Titre3 from '../../assets/backgrounds/chapitre_1_gros_titres_3.png?w=1920&h=1024';
+import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1024';
+import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1024';
+import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation_autre_piece.jpg?w=1920&h=1024';
 import transition from '../../assets/backgrounds/transition.png?w=1920&h=1024';
 
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
@@ -64,9 +66,16 @@ export const backgrounds: Backgrounds = {
   maison_carl_white: { type: 'image', asset: maisonCarlWhite },
   grenier: { type: 'image', asset: grenier },
   ordinateur_fred: { type: 'image', asset: ordinateurFred },
-  news_room: { type: 'image', asset: newsRoom },
   chapitre_1_gros_titres_1: { type: 'image', asset: chapitre1Titre1 },
   chapitre_1_gros_titres_2: { type: 'image', asset: chapitre1Titre2 },
   chapitre_1_gros_titres_3: { type: 'image', asset: chapitre1Titre3 },
+  telephone_photo_john_randle: { type: 'image', asset: telephone },
+  chambre_cousine_leigh_kane: { type: 'image', asset: chambreCousingLeighKane },
+  centre_rehabilitation_couloir: { type: 'image', asset: centreRehabilitationCouloir },
+  centre_rehabilitation_autre_piece: { type: 'image', asset: centreRehabilitationAutrePiece },
+  chapitre_2_gros_titres_1: { type: 'image', asset: chapitre1Titre1 },
+  chapitre_2_gros_titres_2: { type: 'image', asset: chapitre1Titre1 },
+  chapitre_2_gros_titres_3: { type: 'image', asset: chapitre1Titre1 },
+  chapitre_2_gros_titres_4: { type: 'image', asset: chapitre1Titre1 },
   transition: { type: 'image', asset: transition },
 };

@@ -99,6 +99,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   const activeCharacterTheme =
     state.currentCharacter && Characters[state.currentCharacter.id]?.theme;
   const themeToCharacterColor: Record<CharacterThemes, string> = {
+    player: theme.colors.yellow,
     police: theme.colors.secondary,
     resistance: theme.colors.primary,
     other: theme.colors.white,

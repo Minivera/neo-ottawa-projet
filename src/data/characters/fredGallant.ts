@@ -4,5 +4,5 @@ export const FredGallant: Character = {
   id: 'FRED_GALLANT',
   name: 'fred_gallant',
   images: {},
-  theme: 'police',
+  theme: 'player',
 };

@@ -43,10 +43,12 @@ export const musics: Record<string, Howl> = {
   theme_police: howlThemeGeneral,
   theme_fred: howlThemeGeneral,
   theme_narrateur: howlThemeCredits,
+  theme_enquete: howlThemeGeneral,
   theme_commissariat: howlThemeGeneral,
   theme_art_house_cafe: howlThemeGeneral,
   theme_choix_finaux: howlThemeChoixCruciaux,
   theme_quiz: howlThemeQuiz,
   theme_resistance: howlThemeGeneral,
   theme_news: howlThemeNews,
+  theme_general: howlThemeGeneral,
 };

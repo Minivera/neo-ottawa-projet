@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type CharacterThemes = 'police' | 'resistance' | 'other' | 'narrateur';
+export type CharacterThemes = 'player' | 'police' | 'resistance' | 'other' | 'narrateur';
 
 export interface Character {
   id: string;

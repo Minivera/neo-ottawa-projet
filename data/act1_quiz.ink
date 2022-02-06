@@ -4,12 +4,12 @@
 = quiz_1
 ~ demarrer_quiz(QUIZ_1, 6)
 ~jouer_musique(theme_quiz)
-<b>Christopher</b> donne à <b>Fred</b> une liste de jeux interdits selon les pays en 2021.La liste est disponible dans le PDA. 
+<b>Christopher</b> donne à <b>Fred</b> une liste de jeux interdits selon les pays en 2021.La liste est disponible dans le PDA.
 ~ afficher_document(JEUX_INTERDITS_WIKIPEDIA)
 -> question_1
 
 = question_1
-1- Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé ? # question index=1
+1- Des jeux vidéo ont-ils déjà fait l'objet d'interdictions de commercialisation par le passé? # question index=1
 
 +   (1_a) [BON--{1_a: VISITE--}Vrai] Vrai
     La liste est longue. De nombreux jeux vidéo ont déjà fait l’objet d’interdictions à travers le monde. Plusieurs types de jeux vidéo sont représentés dans la liste : des jeux de tir à la première personne, des jeux de rôle ou encore des jeux d’aventure.   # retroaction
@@ -20,7 +20,7 @@
 -> question_1
 
 = question_2
-2- La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo suivants, lesquels ont déjà fait l'objet d'une interdiction ? # question index=2
+2- La liste des jeux ayant déjà été interdits est longue. Parmi les jeux vidéo suivants, lesquels ont déjà fait l'objet d'une interdiction? # question index=2
 
 +   (2_a) [BON--{(2_a % 2 == 1):ACTIF--}Counter-Strike] Counter-Strike
 +   (2_b) [BON--{(2_b % 2 == 1):ACTIF--}Pokémon Go] Pokémon Go
@@ -41,7 +41,7 @@
 - -> question_2
 
 = question_3
- 3- On dirait bien que de nombreux pays ont déjà interdit au moins un jeu vidéo… Je me demande quel État n’a jamais interdit la vente d’un jeu vidéo ? # question index=3
+ 3- On dirait bien que de nombreux pays ont déjà interdit au moins un jeu vidéo… Je me demande quel État n’a jamais interdit la vente d’un jeu vidéo? # question index=3
 
 +   (3_a) [{3_a: VISITE--}Japon] Japon
 +   (3_b) [{3_b: VISITE--}Irlande] Irlande
@@ -53,7 +53,7 @@
 -> question_3
 
 = question_4
-4- Tout cela paraît insensé… Mais pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé ? # question index=4
+4- Tout cela paraît insensé… Mais pour quelles raisons les États auraient-ils décidé d’interdire les jeux vidéo par le passé? # question index=4
 
 +   (4_a) [BON--{(4_a % 2 == 1):ACTIF--}Ultraviolence] Ultraviolence
 +   (4_b) [BON--{(4_b % 2 == 1):ACTIF--}Référence au nazisme] Référence au nazisme
@@ -82,11 +82,11 @@
 -> question_5
 
 = question_6
-6- Puisque j’y suis, est-ce que des jeux ont déjà été interdits au Canada ? # question index=6
+6- Puisque j’y suis, est-ce que des jeux ont déjà été interdits au Canada? # question index=6
 
 *   (6_a) [{6_a: VISITE--}Oui] Oui
 *   (6_b) [BON--{6_b: VISITE--}Non] Non
-    Le Canada ne figure pas sur la liste des pays ayant déjà interdit un jeu vidéo... Mais ça c’était avant la <i>Loi Game Over</i>. # retroaction   
+    Le Canada ne figure pas sur la liste des pays ayant déjà interdit un jeu vidéo... Mais ça c’était avant la <i>Loi Game Over</i>. # retroaction
     -> quiz_1_fin
 - ~ generer_mauvaise_reponse_retroaction()
 -> question_6

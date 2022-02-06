@@ -11,7 +11,8 @@
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
     "predeploy": "rm -rf dist && npm run build",
     "deploy": "NODE_ENV=production sh scripts/deploy.sh",
-    "generate_assets": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generateSVGComponents.js"
+    "generate_assets": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generateSVGComponents.js",
+    "clean:expressions": "git clean -f src/components/__generated__/characters"
   },
   "repository": {
     "type": "git",
