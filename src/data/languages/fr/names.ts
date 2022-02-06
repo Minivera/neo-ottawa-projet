@@ -27,6 +27,7 @@ import {
   JohnRandle,
   Intervenant,
   Medecin,
+  Ron,
 } from '../../characters';
 
 export const charactersNames = {
@@ -55,6 +56,7 @@ export const charactersNames = {
   [Al.name]: 'Al',
   [Administrateur.name]: 'Administrateur',
   [Homme.name]: 'Homme',
+  [Ron.name]: 'Ron',
   [Narrateur.name]: 'Narrateur',
   [Intervenant.name]: 'Intervenant',
   [Medecin.name]: 'Médecin',

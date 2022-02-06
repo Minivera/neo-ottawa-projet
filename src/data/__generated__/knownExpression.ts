@@ -14,6 +14,7 @@ export const knownExpressions = {
     "disdain",
     "joy",
     "neutral",
+    "rage",
     "satisfaction",
     "sterness",
     "wtf"
@@ -175,5 +176,13 @@ export const knownExpressions = {
     "concern",
     "neutral",
     "wonder"
+  ],
+  "ADMINISTRATEUR": [
+    "alertness",
+    "default",
+    "joy",
+    "neutral",
+    "sterness"
   ]
 };
+  

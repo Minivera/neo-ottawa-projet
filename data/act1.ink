@@ -1,6 +1,8 @@
 === chapitre_1 ====
 
 = scene_1
+~afficher_fond(transition)
+<center><titre>Chapitre 1</titre></center><br/><center>Le contenu choquant des JV</center> # transition
 ~ afficher_fond(bureau_fred)
 ~ jouer_musique(theme_commissariat)
 ~ afficher_personnage(CHEF_MILLER, "slideInUp")
@@ -19,6 +21,7 @@ Agent Moore: On a tous essayé. Je veux juste que tu le saches. # character=AGEN
 Agent Lucas: Bah, laisse-le rêver! # character=AGENT_LUCAS expression=amusement
 Agent Moore: Quand tu seras brûlée toi aussi, ils recruteront d’autres jeunes ambitieux pour les jeter dans le feu à leur premier quart de travail. # character=AGENT_MOORE expression=amusement
 Agent Lucas: Qui est ton contact? # character=AGENT_LUCAS expression=neutral
+~ jouer_musique(theme_choix_cruciaux)
 *Fred ne répond rien et quitte le bureau
   ~ points_fin_3 += 1
   ~ cacher_tout_personnages()
@@ -94,12 +97,12 @@ Christopher: Je veux te montrer quelque chose. # character=CHRISTOPHER_YOUNG exp
 ~afficher_personnage(VIVIAN, "slideInUp")
 ~afficher_personnage(RONNY, "slideInUp")
 ~afficher_personnage(TOM, "slideInUp")
-Fred: Mais ça signifie qu’il y avait déjà un certain contrôle sur le contenu des jeux même avant l’arrivée de la Loi Game Over?! # character=FRED_GALLANT invisible
+Fred: Mais ça signifie qu’il y avait déjà un certain contrôle sur le contenu des jeux même avant l’arrivée de la <i>Loi Game Over</i>?! # character=FRED_GALLANT invisible
 Christopher: Tu as tout compris!# character=CHRISTOPHER_YOUNG expression=satisfaction
 Christopher: As-tu déjà entendu parler de l'ESRB? # character=CHRISTOPHER_YOUNG expression=satisfaction
 Fred: Qu’est-ce c’est que ça? # character=FRED_GALLANT invisible
 Christopher: Un organisme qui s’occupait d’évaluer le contenu des jeux avant leur commercialisation...# character=CHRISTOPHER_YOUNG expression=neutral
-Tom: Les jeux qui étaient commercialisés avant la Loi Game Over, ce n’est pas ce que les gens croient… Ils étaient contrôlés. De nombreux jeux non violents et grand public étaient acceptés par le gouvernement. #character=TOM expression=disgust
+Tom: Les jeux qui étaient commercialisés avant la <i>Loi Game Over</i>, ce n’est pas ce que les gens croient… Ils étaient contrôlés. De nombreux jeux non violents et grand public étaient acceptés par le gouvernement. #character=TOM expression=disgust
 Christopher: Regarde ça. # character=CHRISTOPHER_YOUNG expression=neutral
 <b>Christopher</b> montre à <b>Fred</b>, une dizaine de pochettes de jeux vidéo avec un classement de l’ESRB « pour tous ».
 ~afficher_document(POCHETTES_JEUX)
@@ -205,7 +208,7 @@ Code bon #center
 Ronny: Eh bien! Je suis impressionné! On n’avait pas été autant en profondeur. Où as-tu eu ces documents? C’est évident que tu serais un bon élément, si tu voulais vraiment travailler avec nous. #character=RONNY expression=shock
 Fred: Je dois admettre que ce que j’ai trouvé m’intrigue encore plus. Je suis prête à poursuivre mes recherches pour vous. Mais j’ai tout simplement eu de la chance. # character=FRED_GALLANT invisible
 Ronny: Excellent. Qu’est-ce que tu as en tête? #character=RONNY expression=satisfaction
-Fred: Si mon intuition est bonne, je pense que d’autres informations censurées pourraient révéler que le gouvernement ment à propos des vraies motivations de la Loi game-over. Mais je crains d’avoir besoin de beaucoup de temps. # character=FRED_GALLANT invisible
+Fred: Si mon intuition est bonne, je pense que d’autres informations censurées pourraient révéler que le gouvernement ment à propos des vraies motivations de la <i>Loi Game Over</i>. Mais je crains d’avoir besoin de beaucoup de temps. # character=FRED_GALLANT invisible
 Ronny: C’est une certitude que le gouvernement cache quelque chose. C’est ce sur quoi on travaille depuis des années. Tu aurais besoin de quoi? Tu veux commencer où? #character=RONNY expression=neutral
 Fred: J’ai mis la main sur une liste d’anciens employés de l’ESRB, je vais commencer par les contacter. # character=FRED_GALLANT invisible
 
@@ -328,7 +331,7 @@ Selon le témoignage, les évaluateurs n’avaient pas le temps de joueur à l�
 Carl: Qui êtes-vous? #character=CARL_WHITE expression=surprise
 Fred: Fred Gallant, brigade anti-jeux vidéo. # character=FRED_GALLANT invisible
 Carl: Qu’est-ce que vous me voulez?  #character=CARL_WHITE expression=sterness
-Fred: J’aurais juste quelques questions. Je fais une enquête spéciale sur les années qui ont précédé la Loi Game Over. # character=FRED_GALLANT invisible
+Fred: J’aurais juste quelques questions. Je fais une enquête spéciale sur les années qui ont précédé la <i>Loi Game Over</i>. # character=FRED_GALLANT invisible
 Carl: Je n’ai rien à voir là-dedans.  #character=CARL_WHITE expression=indignation
 Fred: Non, je viens vous voir en tant qu’ancien employé de l’ESRB. # character=FRED_GALLANT invisible
 Carl: Ça fait plus de trente ans que je ne travaille plus dans cette boîte!  #character=CARL_WHITE expression=indignation
@@ -773,10 +776,10 @@ TODO=Transition - Image non définie encore
 
 = scene_15
 ~afficher_fond(bureau_chef_miller)
-~jouer_musique(theme_choix_finaux)
+~jouer_musique(theme_choix_cruciaux)
 ~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Vous vouliez me voir? J’espère que vous avez de bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
-*Vous racontez ce qu’il en est de l’histoire de Leigh Kane, mais vous ne dites presque rien sur vos découvertes liées à la résistance.
+*Fred raconte ce qu’il en est de l’histoire de Leigh Kane, mais ne dit presque rien sur ces découvertes liées à la résistance.
  ~ points_fin_3 += 2
 Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
@@ -817,7 +820,7 @@ Fred: Pas pour l’instant. Je suis différentes pistes. # character=FRED_GALLAN
 
 Chef Miller: Je ne vous retiens donc pas. Bonne journée. # character=CHEF_MILLER_NO_CIGAR expression=neutral
 
-*Vous racontez l’histoire de Leigh Kane et une partie de ce que vous avez découvert.
+*Fred raconte l’histoire de Leigh Kane et une partie de ce qu'elle a découvert.
  ~ points_fin_2 += 2
  Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
@@ -875,7 +878,7 @@ Fred: Pas pour l’instant. Je suis différentes pistes.# character=FRED_GALLANT
 
 Chef Miller: Je ne vous retiens donc pas. Bonne journée.# character=CHEF_MILLER_NO_CIGAR expression=neutral
 
-*Vous racontez tout au Chef Miller.
+*Fred raconte tout au Chef Miller.
  ~ points_fin_1 += 2
  Fred: Oui, j’ai des nouvelles de Kane.# character=FRED_GALLANT invisible
 
@@ -938,7 +941,6 @@ TODO=Transition - Image non définie encore
 ->scene_16
 
 =scene_16
-~afficher_fond(news_room)
 ~jouer_musique(theme_news)
 
 {points_fin_1 > points_fin_2 and points_fin_1 > points_fin_3:

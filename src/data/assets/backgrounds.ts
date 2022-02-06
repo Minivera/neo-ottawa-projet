@@ -31,6 +31,7 @@ import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_le
 import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1024';
 import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation_autre_piece.jpg?w=1920&h=1024';
 import transition from '../../assets/backgrounds/transition.png?w=1920&h=1024';
+import maisonFred from '../../assets/backgrounds/maison_fred.png?w=1920&h=1024';
 
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
 
@@ -77,5 +78,6 @@ export const backgrounds: Backgrounds = {
   chapitre_2_gros_titres_2: { type: 'image', asset: chapitre1Titre1 },
   chapitre_2_gros_titres_3: { type: 'image', asset: chapitre1Titre1 },
   chapitre_2_gros_titres_4: { type: 'image', asset: chapitre1Titre1 },
-  transition: { type: 'image', asset: transition },
+  maison_fred: { type: 'image', asset: transition },
+  transition: { type: 'image', asset: maisonFred },
 };

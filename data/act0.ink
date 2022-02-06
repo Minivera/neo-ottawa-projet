@@ -1,7 +1,8 @@
 === prologue ===
 
 = scene_0
-
+~afficher_fond(transition)
+<center><titre>Chapitre 0</titre></center><br/><center>Prologue</center> # transition
 ~ afficher_fond(data_glitch)
 ~ jouer_musique(theme_intro)
 Néo-Ottawa, 2047. La <i>Loi Game Over</i> est en vigueur depuis 25 ans. Au Canada et dans de nombreux autres pays, il est interdit de concevoir, de distribuer, de vendre ou de jouer à quelque jeu vidéo que ce soit. # center
@@ -77,7 +78,7 @@ Chef Miller: Tenez Gallant, votre premier dossier. # character=CHEF_MILLER expre
 *   <b>Fred</b> choisit de ne pas bouger et d’attendre d’autres ordres.
     Chef Miller: Qu’est-ce que vous attendez, Fred? Ma bénédiction? Des mots d’encouragement # character=CHEF_MILLER expression=wtf
 - Chef Miller: Un instant Gallant. Avant que vous ne partiez, je veux vous préciser quelque chose sur ce dossier. Prenez-en rapidement connaissance. On a retrouvé un enfant de 13 ans en très mauvais état. # character=CHEF_MILLER expression=concern
-Chef Miller: On a examiné plusieurs avenues, mais les parents ont des soupçons quant à des jeux vidéo auxquels on l’aurait initié. Ils pensent qu’il a été exposé à un jeu conçu après l’entrée en vigueur de la Loi Game Over. Un jeu à forte dépendance. On pense qu’il est possible que les concepteurs de ce jeu l’aient sciemment programmé de façon à ce qu’il crée chez les joueurs une dépendance permanente, une pathologie. #character=CHEF_MILLER expression=concern
+Chef Miller: On a examiné plusieurs avenues, mais les parents ont des soupçons quant à des jeux vidéo auxquels on l’aurait initié. Ils pensent qu’il a été exposé à un jeu conçu après l’entrée en vigueur de la <i>Loi Game Over</i>. Un jeu à forte dépendance. On pense qu’il est possible que les concepteurs de ce jeu l’aient sciemment programmé de façon à ce qu’il crée chez les joueurs une dépendance permanente, une pathologie. #character=CHEF_MILLER expression=concern
 Fred: Comme les dépendances aux drogues dures. # character=FRED_GALLANT invisible
 Chef Miller: Exact. Sa vie est peut-être en danger. Et s’il arrivait un malheur, on nous en tiendrait probablement responsable. On doit mettre la main sur les créateurs du jeu. Mais d’abord, établissez hors de tout doute la responsabilité du jeu. Les parents ne sont pas toujours conscients de qui sont vraiment leurs enfants. # character=CHEF_MILLER expression=sterness
 Fred: Oui, Chef. # character=FRED_GALLANT invisible
@@ -117,7 +118,7 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond(ouverture_dossier_kane)
-    <b>Fred</b> ouvre le dossier, car elle n’a pas pris connaissance du nom encore. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
+    <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
     ~ ajouter_contact(LEIGH_KANE)
     ~ afficher_fond(bureau_fred)
     ~ jouer_musique(theme_fred)
@@ -126,14 +127,14 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     Agent Moore: Lucas, laisse-la tranquille. # character=AGENT_MOORE expression=neutral
     Agent Lucas: Tout ce que je dis, c’est que tu vas en baver. Un enfant catatonique, c’est du bonbon pour les médias. Si la corrélation est établie, bien sûr! # character=AGENT_LUCAS expression=sterness
     Fred: Je vois. # character=FRED_GALLANT invisible
-*   <b>Fred</b> ouvre son dossier et fait mine d’avoir besoin de toute sa concentration et donc, qu'elle ne peut pas socialiser.
+*   <b>Fred</b> ouvre son dossier et fait mine d’avoir besoin de toute sa concentration.
     Agent Lucas: Hey princesse! Ici, on travaille en équipe. Tu te crois meilleure que nous? Mais tu sais, on est gentil, on t’attendra. # character=AGENT_LUCAS expression=aversion
     Agent Moore: Laisse-la. Elle va apprendre. # character=AGENT_MOORE expression=neutral
     ~ ajouter_contact(AGENT_LUCAS)
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond (ouverture_dossier_kane)
-     <b>Fred</b> ouvre le dossier, car elle n’a pas pris connaissance du nom encore. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
+     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
     ~ ajouter_contact(LEIGH_KANE)
     ~ afficher_fond(bureau_fred)
     ~ jouer_musique(theme_fred)
@@ -147,7 +148,7 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond (ouverture_dossier_kane)
-     <b>Fred</b> ouvre le dossier, car elle n’a pas pris connaissance du nom encore. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
+     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
      ~ ajouter_contact(LEIGH_KANE)
      ~ afficher_fond(bureau_fred)
      ~ jouer_musique(theme_fred)
@@ -354,8 +355,8 @@ L'écran devient noir. #center
 ~ jouer_musique(theme_narrateur)
 Vous reconnaissez la croisée des chemins quand vous y faites face? Vous aimez sentir la pression jusque dans le battement de vos tempes? La sueur perle sur votre front. Le moment sera décisif. Serez-vous à la hauteur? Dors Fred, dors. Pendant qu’on s’occupe de ton avenir. # character=NARRATEUR invisible center
 ~ afficher_fond(bureau_fred)
-~jouer_musique(theme_choix_finaux)
-# Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?
+~jouer_musique(theme_choix_cruciaux)
+TODO Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?
 ~ afficher_personnage(CHEF_MILLER_NO_CIGAR, "none")
 Chef Miller: Fred? Fred? Est-ce que vous manquez de sommeil? Secouez-vous! Reprenez vos esprits! # character=CHEF_MILLER_NO_CIGAR expression=anger
 Chef Miller: Alors? Du nouveau? Qu’avez-vous trouvé sur les lieux?	# character=CHEF_MILLER_NO_CIGAR expression=sterness
@@ -454,9 +455,9 @@ Fred: Pourquoi le gouvernement se priverait d’un revenu aussi important si les
 Christopher: C’est plus compliqué que ça. Tu as connu John à l’université, tu disais? # character=CHRISTOPHER_YOUNG expression=neutral
 Fred: Oui. # character=FRED_GALLANT invisible
 Christopher: T’as étudié en quoi? # character=CHRISTOPHER_YOUNG expression=neutral
-*Sociologie avec mineure en droit
-*Histoire avec mineure en droit
-*Psychologie avec mineure en droit
+*<b>Fred</b> dit à Christopher qu’elle a étudié en sociologie avec mineure en droit
+*<b>Fred</b> dit à Christopher qu’elle a étudié en histoire avec mineure en droit
+*<b>Fred</b> dit à Christopher qu’elle a étudié en psychologie avec mineure en droit
 -Christopher: Ça t’intéresserait de nous aider? # character=CHRISTOPHER_YOUNG expression=sterness
 Fred: À quoi? # character=FRED_GALLANT invisible
 Christopher: Il nous manque des informations. Elles sont rares et difficiles à trouver. # character=CHRISTOPHER_YOUNG expression=neutral

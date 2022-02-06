@@ -9,7 +9,7 @@
 -> question_1
 
 = question_1
-1- Qu’est-ce que cet acronyme "ESRB" peut bien signifier ?  # question index=1
+1- Qu’est-ce que cet acronyme "ESRB" peut bien signifier?  # question index=1
 
 +   (1_a) [{1_a: VISITE--}Electronic Software Rating Board] Electronic Software Rating Board
 +   (1_b) [BON--{1_b: VISITE--}Entertainment Software Rating Board] Entertainment Software Rating Board
@@ -21,7 +21,7 @@
 -> question_1
 
 = question_2
- 2- Quel était le rôle de l'ESRB ? # question index=2
+ 2- Quel était le rôle de l'ESRB? # question index=2
 
  +   (2_a) [BON--{(2_a % 2 == 1):ACTIF--}Informer les consommateurs sur le contenu des jeux vidéo.] Informer les consommateurs sur le contenu des jeux vidéo.
 +   (2_b) [BON--{(2_b % 2 == 1):ACTIF--}Évaluer les jeux vidéo et leur attribuer une classification.] Évaluer les jeux vidéo et leur attribuer une classification.
@@ -42,7 +42,7 @@
 - -> question_2
 
 = question_3
-3- Hum... Un organisme d’évaluation des jeux vidéo, intéressant, mais quelle était son origine ? # question index=3
+3- Hum... Un organisme d’évaluation des jeux vidéo, intéressant, mais quelle était son origine? # question index=3
 
 +   (3_a) [{3_a: VISITE--}Entertainment Software Association - 1999] Entertainment Software Association - 1999
 +   (3_b) [{3_b: VISITE--}Electronic Software Association - 1994] Electronic Software Association - 1994
@@ -60,13 +60,13 @@ L’ESRB est une émanation de l’Entertainment Software Association (ESA). Cet
 +   (4_b) [{4_b: VISITE--}Riot Games. ] Riot Games.
 +   (4_c) [{4_c: VISITE--}Tencent.] Tencent.
 +   (4_d) [BON--{4_d: VISITE--}Steam.] Steam.
-Steam n’était pas membre de l’ESA et n’était donc pas associé à l’ESRB. C’est surprenant dans la mesure où Steam était un acteur majeur en matière de distribution des jeux vidéo. Est-ce que cela voudrait dire que Steam ne respectait pas le système de classification élaboré par l’ESRB ? #retroaction
+Steam n’était pas membre de l’ESA et n’était donc pas associé à l’ESRB. C’est surprenant dans la mesure où Steam était un acteur majeur en matière de distribution des jeux vidéo. Est-ce que cela voudrait dire que Steam ne respectait pas le système de classification élaboré par l’ESRB? #retroaction
 -> question_5
 - ~ generer_mauvaise_reponse_retroaction()
 -> question_4
 
 = question_5
-5 - Si je comprends bien, l’ESRB évaluait les jeux vidéo pour les consommateurs. Dans ce cas, quelles étaient les indications fournies par l'ESRB lors de la vente d'un jeu ? #question index=5
+5 - Si je comprends bien, l’ESRB évaluait les jeux vidéo pour les consommateurs. Dans ce cas, quelles étaient les indications fournies par l'ESRB lors de la vente d'un jeu? #question index=5
 
  +   (5_a) [BON--{(5_a % 2 == 1):ACTIF--}Recommandation en matière d’âge.] Recommandation en matière d’âge.
 +   (5_b) [BON--{(5_b % 2 == 1):ACTIF--}Description du contenu du jeu.] Description du contenu du jeu.
@@ -87,7 +87,7 @@ Steam n’était pas membre de l’ESA et n’était donc pas associé à l’ES
 - -> question_5
 
 = question_6
-6 - L’ESRB évaluait les jeux vidéo, c’est un élément intéressant, mais la commercialisation d’un jeux vidéo implique plusieurs choses. Est-ce que l’ESRB évaluait uniquement les jeux vidéo en tant que produit final ? #question index=6
+6 - L’ESRB évaluait les jeux vidéo, c’est un élément intéressant, mais la commercialisation d’un jeux vidéo implique plusieurs choses. Est-ce que l’ESRB évaluait uniquement les jeux vidéo en tant que produit final? #question index=6
 
 *   (6_a) [{6_a: VISITE--}Vrai] Vrai
 *   (6_b) [BON--{6_b: VISITE--}Faux] Faux
@@ -97,7 +97,7 @@ Steam n’était pas membre de l’ESA et n’était donc pas associé à l’ES
 -> question_6
 
 = question_7
-7 - Comment est-ce que je pourrais résumer en un mot le système mis en place par l'ESRB ? # question index=7
+7 - Comment est-ce que je pourrais résumer en un mot le système mis en place par l'ESRB? # question index=7
 
 +   (7_a) [BON--{7_a: VISITE--}Autorégulation.] Autorégulation.
 Le système proposé par l’ESRB n’était pas obligatoire. Il s’agit plutôt d’un dispositif proposé par certains des acteurs du secteur des jeux vidéo. Les États ne sont pas impliqués dans cette initiative même si certains s’appuient sur le système de l’ESRB. Dès lors, j’ai bien l’impression qu’il s’agissait d’un système qui peut être résumé par le terme “autorégulation”. # retroaction

@@ -1,7 +1,8 @@
 === chapitre_2 ===
 
 = scene_1
-
+~afficher_fond(transition)
+<center><titre>Chapitre 2</titre></center><br/><center>Les problèmes de dépendance aux JV</center> # transition
 ~ afficher_fond(art_house_cafe)
 <b>Fred</b> attend <b>Bonnie</b> dans un café.
 ~cacher_fond()
@@ -29,7 +30,7 @@ Bonnie: Ça commence à ne plus être suffisant comme réponse. # character=BONN
 Fred: Je sais. Il n’y a pas de possibilités de relocalisation ni de changement d’identité. # character=FRED_GALLANT invisible
 
 Bonnie: Mais je ne peux pas changer d’identité! Je veux que mon père ignore que j’ai fait partie de la résistance, mais je veux rester la même personne, sa fille. Je ne veux pas de casier judiciaire, mais je veux garder mon nom. Je veux juste être protégée au cas où ça tournerait mal avec la résistance. Vous n’allez pas faire de descente? # character=BONNIE_RANDLE_V2 expression=wonder
-
+~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> décide d’expliquer à Bonnie qu’il n’y aura pas de descente tant qu’elle sera en charge.
   ~ points_fin_2 += 2
 Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. Lorsque le moment sera venu, lorsque j’aurai assez d’informations, par exemple, je vous préviendrai. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
@@ -203,7 +204,7 @@ Agent Moore: Oui, j’ai déjà quelques dossiers qui mentionnent cette adresse.
 Fred: C’est un début. Quoi d’autre? # character=FRED_GALLANT invisible
 
 Agent Moore: Je pensais t’avoir posé une question. Comment va ton infiltration? # character=AGENT_MOORE expression=neutral
-
+~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> ne lui donne aucune information sur ses découvertes ni ses contacts.
 ~ points_fin_3 += 4
 
@@ -220,7 +221,7 @@ Agent Moore: On a tous essayé! # character=AGENT_MOORE expression=concern
 
 Fred: Ouais, mais tout de même, je gagne la confiance d’un membre qui est très convaincu et qui a accès à quelqu’un de plus haut placé que lui : justement, Teacher. # character=FRED_GALLANT invisible
 
-Agent Moore: Vraiment? # character=AGENT_MOORE expression=surprised
+Agent Moore: Vraiment? # character=AGENT_MOORE expression=surprise
 
 Fred: Oui. Et j’ai entendu parler du 530, mais ils ne m’y ont pas encore invitée…  # character=FRED_GALLANT invisible
 
@@ -473,7 +474,7 @@ L’OMS reconnaissait bien le trouble du jeu vidéo. L’OMS fournissait égalem
 = quiz_2_1_question_2
 2 – Si des troubles pouvaient être associés à la pratique des jeux vidéo, après combien de temps la dépendance pouvait-elle être diagnostiquée?
 +   (2_1_2_a) [BON--{2_1_2_a: VISITE--}1 an] 1 an
-Selon l’OMS, les pratiques problématiques devaient s’être déroulées sur une période d’un moins douze mois pour qu’un diagnostic soit établi. Néanmoins, cette période pouvait être plus courte si les tous les éléments de diagnostic étaient observables et si les symptômes étaient graves. Il me semble que 12 mois pour établir un diagnostic, c’est long... Je peux comprendre pourquoi le gouvernement a décidé de prendre les devants avec la Loi Game Over. # retroaction
+Selon l’OMS, les pratiques problématiques devaient s’être déroulées sur une période d’un moins douze mois pour qu’un diagnostic soit établi. Néanmoins, cette période pouvait être plus courte si les tous les éléments de diagnostic étaient observables et si les symptômes étaient graves. Il me semble que 12 mois pour établir un diagnostic, c’est long... Je peux comprendre pourquoi le gouvernement a décidé de prendre les devants avec la <i>Loi Game Over</i>. # retroaction
 -> quiz_2_1_question_3
 +   (2_1_2_b) [{2_1_2_b: VISITE--}6 mois] 6 mois
 +   (2_1_2_c) [{2_1_2_c: VISITE--}1 mois] 1 mois
@@ -592,7 +593,7 @@ Al: À l’école? Bah! Regardez-moi bien! Qu’est-ce que vous voyez? Un pauvre
 
 Fred: Oui, bien sûr! # character=FRED_GALLANT invisible
 
-Al: Eh bien, voilà! Je suis parti vivre avec ces gars, ils étaient comme moi, des paumés. On a fait notre vie, on est allé au bout de nos idées. Puis, elle est arrivée : la Loi Game Over. On a tous été arrêtés. # character=AL expression=melancholy
+Al: Eh bien, voilà! Je suis parti vivre avec ces gars, ils étaient comme moi, des paumés. On a fait notre vie, on est allé au bout de nos idées. Puis, elle est arrivée : la <i>Loi Game Over</i>. On a tous été arrêtés. # character=AL expression=melancholy
 
 Fred: Avez-vous fait de la prison? # character=FRED_GALLANT invisible
 
@@ -756,7 +757,7 @@ Intervenant: Vous êtes certaine? Vous n’en avez pas l’air? # character=INTE
 
 Fred: J’avoue, je ne suis pas certaine. Je voudrais savoir quels éléments rendent dépendants. Y a-t-il des éléments qui sont plus dangereux que d’autres? # character=FRED_GALLANT invisible
 
-Intervenant: Certainement! Écoutez, de nombreuses recherches ont été effectuées avant la <i>Loi Game-Over</i>. Voici une copie d’un document d’époque. # character=INTERVENANT expression=neutral
+Intervenant: Certainement! Écoutez, de nombreuses recherches ont été effectuées avant la <i>Loi Game Over</i>. Voici une copie d’un document d’époque. # character=INTERVENANT expression=neutral
 ~ajouter_document(GAME_PATENTS)
 Fred : Et les gouvernements n’ont rien tenté à l’époque pour endiguer ces phénomènes de dépendance? # character=FRED_GALLANT invisible
 
@@ -819,7 +820,7 @@ Selon l’article que j’ai réussi à obtenir (p. 138), ce qui distingue les m
 
 =scene_6
 ~afficher_fond(CHEF_MILLER)
-~jouer_musique(theme_choix_finaux)
+~jouer_musique(theme_choix_cruciaux)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 Chef Miller: Gallant, êtes-vous au courant? Le petit Leigh Kane est de retour! # character=CHEF_MILLER expression=joy
@@ -839,7 +840,6 @@ Chef Miller: Vous jouez les innocentes, mais je vous ai coincée, c’est inutil
 Fred: Coincée? # character=FRED_GALLANT invisible
 
 Chef Miller: Je m’attendais à plus de transparence de votre part, Gallant. Mais le pire, c’est que vous désobéissez à mes ordres. Je pourrais vous suspendre. Sur-le-champ! # character=CHEF_MILLER expression=anger
-
 *<b>Fred</b> reste stoïque et ne dit rien au chef Miller.
  ~ points_fin_2 += 1
 
@@ -959,7 +959,7 @@ Les documents nous permettent de constater que certains États avaient tenté d�
 +   (2_6_2_b) [{2_6_2_b: VISITE--}Belgique] Belgique
 +   (2_6_2_c) [{2_6_2_c: VISITE--}Hollande] Hollande
 +   (2_6_2_d) [BON--{2_6_2_d: VISITE--}Canada] Canada
-Selon les archives de l’époque, plusieurs pays d’Europe avaient décidé d’agir. Par contre le Canada, lui, n’avait rien prévu. Serait-ce l'absence d’action qui a obligé plus tard le gouvernement à adopter la Loi Game Over? # retroaction
+Selon les archives de l’époque, plusieurs pays d’Europe avaient décidé d’agir. Par contre le Canada, lui, n’avait rien prévu. Serait-ce l'absence d’action qui a obligé plus tard le gouvernement à adopter la <i>Loi Game Over</i>? # retroaction
 -> quiz_2_6_fin
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_2_6_question_2
@@ -1019,7 +1019,6 @@ Selon l’article sur lequel j’ai mis la main, trois types d’intervention ou
 -> scene_7
 
 = scene_7
-~afficher_fond(news_room)
 ~jouer_musique(theme_news)
 
 {points_fin_1 > points_fin_2 and points_fin_1 > points_fin_3 and points_fin_1 > points_fin_4:

@@ -19,6 +19,7 @@ import {
   CarlWhite,
   MereLeighKane,
   PereLeighKane,
+  Ron,
   Al,
 } from '../../characters';
 import { contacts } from '../../contacts';
@@ -55,5 +56,6 @@ export const contactDescriptions = {
     'Mère de Leigh Kane, le joueur disparu',
   [contacts[PereLeighKane.id].description]:
     'Père de Leigh Kane, le joueur disparu',
+  [contacts[Ron.id].description]: 'Père de Kevin',
   [contacts[Al.id].description]: 'Patient au centre de réhabilitation',
 };
