@@ -57,7 +57,13 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     ) {
       musics.theme_menu.volume(settings.settings.soundEffectsVolume / 100);
       musics.theme_menu.play();
+      return () => {
+        musics.theme_menu.stop();
+      };
     }
+
+    // eslint-disable-next-line no-useless-return
+    return;
   }, [gameState.state]);
 
   const globalCSS = (
