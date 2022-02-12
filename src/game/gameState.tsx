@@ -32,7 +32,7 @@ import pdaBorderTopCenter from '../assets/ui/modals/Border1-TopCenter.png';
 import pdaBorderTopRight from '../assets/ui/modals/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/modals/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/modals/Border4-BotRight.png';
-import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1920&h=1024';
+import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1400&h=750';
 
 export enum GameState {
   // eslint-disable-next-line no-unused-vars
@@ -585,7 +585,6 @@ export const useGame = (
             ...state,
             currentScene: {
               ...(state.currentScene as SceneState),
-              currentCharacter: Characters[action.characterId],
               characterAnimation: {
                 ...state.currentScene?.characterAnimation,
                 [action.characterId]: action.animation,

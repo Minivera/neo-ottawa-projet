@@ -10,7 +10,7 @@ export const interfaceTerms = {
   menu_save: 'sauvegarder',
 
   // Interface
-  pda: 'Accéder le PDA',
+  pda: 'Accéder au PDA',
   settings: 'Paramètres',
   game_log: 'Historique',
   saveSlots: 'Sauvegardes',
@@ -18,14 +18,14 @@ export const interfaceTerms = {
   preparing: 'Préparation',
   pdf_page: 'Page {{pageNumber}} de {{numPages}}',
   pdf_download: 'Télécharger le document PDF',
-  pdf_download_mobile: 'Télécharger le document PDF sur votre tablette ou appreil mobile, le document sera référencé tout au cours de ce questionnaire.',
+  pdf_download_mobile:
+    'Télécharger le document PDF sur votre tablette ou appreil mobile, le document sera référencé tout au cours de ce questionnaire.',
   expander_expand: 'Ouvrir le contenu pour {{name}}',
 
   // PDA
   pda_menu: 'Menu',
   pda_home: 'Accueil',
   pda_documents: 'Notes',
-  pda_map: 'Plan de la ville',
   pda_contacts: 'Contacts',
   pda_evidence: 'Documents',
   pda_return: 'Retour au jeu',
@@ -37,10 +37,36 @@ export const interfaceTerms = {
 
   // PDA - Home tab
   pda_home_welcome: `
-    <p>Bonjour <strong>Agent</strong>. Bienvenue dans la brigade.</p>
+    <p>Bonjour <strong>Agent</strong>.</p>
     <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>.</p>
     <p>Je vous guiderai dans vos recherches alors que vous entreprendrez la collecte de preuves et le suivi de pistes.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
+  `,
+  pda_home_first_visit: `
+    <p>Bonjour <strong>Agent</strong>. Bienvenue dans la brigade.</p>
+    <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>. J'ai pris l'initiative d'ouvrir automatiquement votre assistant virtuel afin de vous introduire ses fonctionalités.</p>
+    <p>Je vous guiderai dans vos recherches alors que vous entreprendrez la collecte de preuves et le suivi de pistes.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions en accédant au onglets : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
+  `,
+
+  // PDA - Quizzes
+  pda_documents_first_visit: `
+    <p>Cet onglet contiendra les <strong>notes</strong> prise sur les documents au cours de votre enquête. J'ajouterai automatiquement vos notes que vous aurez pris après une scéance de notes dans cette liste. Vous pouvez cliquer sur les éléments de cette liste pour accéder à un résumé de votre scéance.</p>
+    <p>Lors d'une scéance de prise de notes, vous aurez la chance de répondre à des questions sur les documents obtenus durant votre enquête. Chaque question affichera une liste de réponses possibles et il vous sera demander de répondre aux questions en utilisant ces choix. Si vous répondez à une question du premier coup, une <strong>étoile</strong> sera ajoutée au résumé de la scéance.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Contacts</strong> ou <strong>Documents</strong>.</p>
+  `,
+
+  // PDA - Contacts
+  pda_contacts_first_visit: `
+    <p>Cet onglet contiendra les <strong>contacts</strong> que vous aurez rencontrés durant votre enquête. J'ajouterai automatiquement les contact dans cette liste lorsque vous aurez recontré une personne important à votre enquête.</p>
+    <p>Chaque contact dans cette liste sera associé à vos <strong>contacts à la brigade</strong> ou à vos <strong>contacts de la résistance</strong>. Revisitez cet onglet si vous avez oublier un ou plusieurs contacts.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Notes</strong> ou <strong>Documents</strong>.</p>
+  `,
+
+  // PDA - Documents
+  pda_evidence_first_visit: `
+    <p>Cet onglet contiendra les <strong>documents</strong> obtenus au cours de votre enquête. J'ajouterai automatiquement les documents obtenus à la suite d'une scénace de prise des notes ou au fil de votre enquête à cette liste. Vous pouvez cliquer sur un de ces documents pour le visualiser et le relire.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Notes</strong> ou <strong>Contacts</strong>.</p>
   `,
 
   // Settings
@@ -52,6 +78,8 @@ export const interfaceTerms = {
   // Save slots
   save_slot_name: 'sauvegarde {{number}}',
   empty_save_slot: '[VIDE]',
-  save_slot_saving_instruction: 'Cliquez sur un des emplacements de sauvegarde pour sauvegarder la partie.',
-  save_slot_loading_instruction: 'Cliquez sur un des emplacements de sauvegarde pour charger la partie sauvegardée, vous reprendrez votre partie au moment exact de cette sauvegarde.'
+  save_slot_saving_instruction:
+    'Cliquez sur un des emplacements de sauvegarde pour sauvegarder la partie.',
+  save_slot_loading_instruction:
+    'Cliquez sur un des emplacements de sauvegarde pour charger la partie sauvegardée, vous reprendrez votre partie au moment exact de cette sauvegarde.',
 };

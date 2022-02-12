@@ -7,7 +7,13 @@ import { PDATitle } from './pdaTitle';
 
 import HomeIcon from '../../assets/ui/pda/PDA-LePDA.svg?component';
 
-export const PDAHomeTab: React.FunctionComponent = () => (
+export interface PDAHomeTabProps {
+  firstVisit?: boolean;
+}
+
+export const PDAHomeTab: React.FunctionComponent<PDAHomeTabProps> = ({
+  firstVisit,
+}) => (
   <div
     css={css`
       display: flex;
@@ -36,19 +42,35 @@ export const PDAHomeTab: React.FunctionComponent = () => (
         <HomeIcon />
         <Trans i18nKey="pda_home" />
       </PDATitle>
-      <Trans
-        i18nKey="pda_home_welcome"
-        components={{
-          strong: (
-            <strong
-              css={theme => css`
-                color: ${theme.colors.secondary};
-                font-weight: normal;
-              `}
-            />
-          ),
-        }}
-      />
+      {firstVisit ? (
+        <Trans
+          i18nKey="pda_home_first_visit"
+          components={{
+            strong: (
+              <strong
+                css={theme => css`
+                  color: ${theme.colors.secondary};
+                  font-weight: normal;
+                `}
+              />
+            ),
+          }}
+        />
+      ) : (
+        <Trans
+          i18nKey="pda_home_welcome"
+          components={{
+            strong: (
+              <strong
+                css={theme => css`
+                  color: ${theme.colors.secondary};
+                  font-weight: normal;
+                `}
+              />
+            ),
+          }}
+        />
+      )}
     </div>
   </div>
 );

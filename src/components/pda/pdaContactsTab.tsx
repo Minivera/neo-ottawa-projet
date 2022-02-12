@@ -14,10 +14,12 @@ import ResistanceContactIcon from '../../assets/ui/icons/ContactResist.svg?compo
 
 export interface PDAContactsTabProps {
   pdaState: PDA;
+  firstVisit?: boolean;
 }
 
 export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
   pdaState,
+  firstVisit,
 }) => {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
@@ -140,7 +142,6 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
                       css={theme => css`
                         padding: 1rem 0;
                         font-size: 1.8rem;
-                        cursor: pointer;
 
                         & svg {
                           fill: ${theme.colors.secondary};
@@ -148,15 +149,6 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
 
                         &:last-of-type td {
                           border-bottom: none;
-                        }
-
-                        &:hover {
-                          background-color: ${theme.colors.secondary};
-                          color: ${darken(0.2, theme.colors.yellow)};
-
-                          & svg {
-                            fill: ${darken(0.2, theme.colors.yellow)};
-                          }
                         }
                       `}
                     >
@@ -202,9 +194,39 @@ export const PDAContactsTab: React.FunctionComponent<PDAContactsTabProps> = ({
             )}
           </div>
         ) : (
-          <div>
-            <Trans i18nKey="pda_none" />
-          </div>
+          <React.Fragment>
+            {firstVisit ? (
+              <div
+                css={theme => css`
+                  color: ${theme.colors.yellow};
+
+                  & p {
+                    margin-top: 0;
+                    margin-bottom: 2rem;
+                    font-size: 1.5rem;
+                  }
+                `}
+              >
+                <Trans
+                  i18nKey="pda_contacts_first_visit"
+                  components={{
+                    strong: (
+                      <strong
+                        css={theme => css`
+                          color: ${theme.colors.secondary};
+                          font-weight: normal;
+                        `}
+                      />
+                    ),
+                  }}
+                />
+              </div>
+            ) : (
+              <div>
+                <Trans i18nKey="pda_none" />
+              </div>
+            )}
+          </React.Fragment>
         )}
       </div>
     </div>

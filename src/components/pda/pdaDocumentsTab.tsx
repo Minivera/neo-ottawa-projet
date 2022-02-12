@@ -2,7 +2,6 @@
 import React from 'react';
 import { Trans } from 'react-i18next';
 import { jsx, css } from '@emotion/react';
-import { darken } from 'polished';
 
 import { PDA, Document } from '../../game/pda';
 import { PDATitle } from './pdaTitle';
@@ -13,11 +12,13 @@ import DocumentIcon from '../../assets/ui/icons/Document.svg?component';
 export interface PDADocumentsTabProps {
   pdaState: PDA;
   onDocumentClick: (document: Document) => void;
+  firstVisit?: boolean;
 }
 
 export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
   pdaState,
   onDocumentClick,
+  firstVisit,
 }) => (
   <div
     css={css`
@@ -85,7 +86,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
 
                     &:hover {
                       background-color: ${theme.colors.secondary};
-                      color: ${darken(0.2, theme.colors.yellow)};
+                      color: ${theme.colors.yellow};
                     }
 
                     & svg {
@@ -104,9 +105,39 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
           ))}
         </ul>
       ) : (
-        <div>
-          <Trans i18nKey="pda_none" />
-        </div>
+        <React.Fragment>
+          {firstVisit ? (
+            <div
+              css={theme => css`
+                color: ${theme.colors.yellow};
+
+                & p {
+                  margin-top: 0;
+                  margin-bottom: 2rem;
+                  font-size: 1.5rem;
+                }
+              `}
+            >
+              <Trans
+                i18nKey="pda_evidence_first_visit"
+                components={{
+                  strong: (
+                    <strong
+                      css={theme => css`
+                        color: ${theme.colors.secondary};
+                        font-weight: normal;
+                      `}
+                    />
+                  ),
+                }}
+              />
+            </div>
+          ) : (
+            <div>
+              <Trans i18nKey="pda_none" />
+            </div>
+          )}
+        </React.Fragment>
       )}
     </div>
   </div>

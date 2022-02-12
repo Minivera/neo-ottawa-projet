@@ -8,7 +8,6 @@ import { useMediaQuery } from 'react-responsive';
 import { PDATabControl } from '../components/pda/pdaTabControl';
 import { PDAHomeTab } from '../components/pda/pdaHomeTab';
 import { PDADocumentsTab } from '../components/pda/pdaDocumentsTab';
-import { PDAMapTab } from '../components/pda/pdaMapTab';
 import { PDAContactsTab } from '../components/pda/pdaContactsTab';
 import { PDAQuizzesTab } from '../components/pda/pdaQuizzesTab';
 import { Choice, Quiz } from './event';
@@ -25,7 +24,6 @@ import { PDAMobileTabControl } from '../components/pda/pdaMobileTabControl';
 export enum PDATab {
   HOME = 'home',
   QUIZZES = 'quizzes',
-  MAP = 'map',
   CONTACTS = 'contacts',
   DOCUMENTS = 'documents',
 }
@@ -55,6 +53,15 @@ export interface PDA {
   documents: Document[];
   contacts: Contact[];
   quizzes: QuizInfo[];
+}
+
+interface PDAVariables {
+  /* eslint-disable camelcase */
+  premiere_visite_pda: boolean;
+  premiere_visite_quizzes: boolean;
+  premiere_visite_contacts: boolean;
+  premiere_visite_documents: boolean;
+  /* eslint-enable camelcase */
 }
 
 export interface PDAComponentProps {
@@ -139,6 +146,8 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   onChoiceSelected,
   skipAnimation,
 }) => {
+  const variables = story.variablesState as unknown as PDAVariables;
+
   const focusRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (opened && focusRef.current) {
@@ -152,9 +161,33 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   );
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
+  const handleFirstTabVisit = () => {
+    switch (selectedTab) {
+      case PDATab.HOME:
+        variables.premiere_visite_pda = true;
+        break;
+      case PDATab.QUIZZES:
+        variables.premiere_visite_quizzes = true;
+        break;
+      case PDATab.CONTACTS:
+        variables.premiere_visite_contacts = true;
+        break;
+      case PDATab.DOCUMENTS:
+        variables.premiere_visite_documents = true;
+        break;
+    }
+  };
+
+  const handlePDAClose = () => {
+    handleFirstTabVisit();
+    onPDAClosed();
+  };
+
   const handleTabClick = (tab: PDATab) => {
     setSelectedDocument(null);
     setSelectedQuiz(null);
+    handleFirstTabVisit();
+
     onPDATabChanged(tab);
   };
 
@@ -178,7 +211,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   let tab: React.ReactElement | null = null;
   switch (selectedTab) {
     case PDATab.HOME:
-      tab = <PDAHomeTab key="home" />;
+      tab = <PDAHomeTab key="home" firstVisit={!variables.premiere_visite_pda} />;
       break;
     case PDATab.QUIZZES:
       tab = (
@@ -186,14 +219,12 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           pdaState={pdaState}
           onQuizClick={onQuizClick}
           key="quiz"
+          firstVisit={!variables.premiere_visite_quizzes}
         />
       );
       break;
-    case PDATab.MAP:
-      tab = <PDAMapTab pdaState={pdaState} key="map" />;
-      break;
     case PDATab.CONTACTS:
-      tab = <PDAContactsTab pdaState={pdaState} key="contacts" />;
+      tab = <PDAContactsTab pdaState={pdaState} key="contacts" firstVisit={!variables.premiere_visite_contacts} />;
       break;
     case PDATab.DOCUMENTS:
       tab = (
@@ -201,6 +232,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
           key="documents"
           pdaState={pdaState}
           onDocumentClick={onDocumentClick}
+          firstVisit={!variables.premiere_visite_documents}
         />
       );
       break;
@@ -212,7 +244,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
         <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.QUIZZES}
-          onReturnClick={onPDAClosed}
+          onReturnClick={handlePDAClose}
           quizMode={!!quiz}
           ref={focusRef}
         >
@@ -238,7 +270,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
         <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.DOCUMENTS}
-          onReturnClick={onPDAClosed}
+          onReturnClick={handlePDAClose}
           quizMode={!!quiz}
           ref={focusRef}
         >
@@ -261,7 +293,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
         <PDAModal
           onTabClick={handleTabClick}
           selectedTab={PDATab.QUIZZES}
-          onReturnClick={onPDAClosed}
+          onReturnClick={handlePDAClose}
           quizMode={!!quiz}
           ref={focusRef}
         >
@@ -283,7 +315,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
       <PDAModal
         onTabClick={handleTabClick}
         selectedTab={selectedTab || PDATab.HOME}
-        onReturnClick={onPDAClosed}
+        onReturnClick={handlePDAClose}
         quizMode={!!quiz}
         ref={focusRef}
       >
