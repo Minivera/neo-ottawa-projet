@@ -48,7 +48,6 @@
     "vite": "^2.5.7",
     "vite-aliases": "^0.8.6",
     "vite-imagetools": "^3.6.8",
-    "vite-plugin-compress": "^2.1.0",
     "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-react-svg": "^0.2.0"
   },

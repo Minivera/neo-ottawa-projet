@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { ViteAliases } from 'vite-aliases';
 import { imagetools } from 'vite-imagetools';
-import compress from 'vite-plugin-compress';
 import viteImagemin from 'vite-plugin-imagemin';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -34,6 +33,5 @@ export default defineConfig({
         speed: 4,
       },
     }),
-    compress(),
   ],
 });
