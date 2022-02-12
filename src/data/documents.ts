@@ -15,6 +15,9 @@ import declarationsIndustries from '../assets/documents/declarations_industries.
 import gamePatents from '../assets/documents/game_patents.pdf';
 import reglementationLootBoxes from '../assets/documents/reglementation_loot_boxes.pdf';
 import policyResponses from '../assets/documents/policy_responses.pdf';
+import marcheJV2020 from '../assets/documents/marche_jv_2020.pdf';
+import impactJVEnvironment from '../assets/documents/impact_jv_environment.pdf';
+import playingForPlanet from '../assets/documents/playing_for_planet.pdf';
 
 export type documentsNames =
   | 'LOI_GAME_OVER'
@@ -33,7 +36,10 @@ export type documentsNames =
   | 'DECLARATIONS_INDUSTRIES'
   | 'GAME_PATENTS'
   | 'REGLEMENTATION_LOOT_BOXES'
-  | 'POLICY_RESPONSES';
+  | 'POLICY_RESPONSES'
+  | 'MARCHE_JV_2020'
+  | 'IMPACT_JV_ENVIRONNEMENT'
+  | 'PLAYING_FOR_PLANET';
 
 export const documents: Record<documentsNames, Document> = {
   LOI_GAME_OVER: {
@@ -137,5 +143,23 @@ export const documents: Record<documentsNames, Document> = {
     name: 'document-name-policy-responses',
     description: 'document-description-policy-responses',
     path: policyResponses,
+  },
+  MARCHE_JV_2020: {
+    documentId: 'MARCHE_JV_2020',
+    name: 'document-name-marche-jv',
+    description: 'document-description-marche-jv',
+    path: marcheJV2020,
+  },
+  IMPACT_JV_ENVIRONNEMENT: {
+    documentId: 'IMPACT_JV_ENVIRONNEMENT',
+    name: 'document-name-impact-jv-environment',
+    description: 'document-description-impact-jv-environment',
+    path: impactJVEnvironment,
+  },
+  PLAYING_FOR_PLANET: {
+    documentId: 'PLAYING_FOR_PLANET',
+    name: 'document-name-playing-planet',
+    description: 'document-description-playing-planet',
+    path: playingForPlanet,
   },
 };
