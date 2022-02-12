@@ -44,30 +44,30 @@ export const interfaceTerms = {
   `,
   pda_home_first_visit: `
     <p>Bonjour <strong>Agent</strong>. Bienvenue dans la brigade.</p>
-    <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>. J'ai pris l'initiative d'ouvrir automatiquement votre assistant virtuel afin de vous introduire ses fonctionalités.</p>
+    <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>. J'ai pris l'initiative d'ouvrir automatiquement votre assistant virtuel afin de vous introduire à ses fonctionnalités.</p>
     <p>Je vous guiderai dans vos recherches alors que vous entreprendrez la collecte de preuves et le suivi de pistes.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions en accédant au onglets : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
-  `,
+`,
 
   // PDA - Quizzes
   pda_documents_first_visit: `
-    <p>Cet onglet contiendra les <strong>notes</strong> prise sur les documents au cours de votre enquête. J'ajouterai automatiquement vos notes que vous aurez pris après une scéance de notes dans cette liste. Vous pouvez cliquer sur les éléments de cette liste pour accéder à un résumé de votre scéance.</p>
-    <p>Lors d'une scéance de prise de notes, vous aurez la chance de répondre à des questions sur les documents obtenus durant votre enquête. Chaque question affichera une liste de réponses possibles et il vous sera demander de répondre aux questions en utilisant ces choix. Si vous répondez à une question du premier coup, une <strong>étoile</strong> sera ajoutée au résumé de la scéance.</p>
+    <p>Cet onglet contiendra les <strong>notes</strong> prises sur les documents au cours de votre enquête. J'ajouterai automatiquement les notes que vous aurez prises après une séance de notes dans cette liste. Vous pouvez cliquer sur les éléments de cette liste pour accéder à un résumé de votre séance.</p>
+    <p>Lors d'une séance de prise de notes, vous aurez la chance de répondre à des questions reliées aux documents obtenus durant votre enquête. Chaque question affichera une liste de réponses possibles et il vous sera demandé de répondre aux questions en utilisant ces choix. Si vous répondez à une question du premier coup, une <strong>étoile</strong> sera ajoutée au résumé de la séance.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Contacts</strong> ou <strong>Documents</strong>.</p>
-  `,
+`,
 
   // PDA - Contacts
   pda_contacts_first_visit: `
-    <p>Cet onglet contiendra les <strong>contacts</strong> que vous aurez rencontrés durant votre enquête. J'ajouterai automatiquement les contact dans cette liste lorsque vous aurez recontré une personne important à votre enquête.</p>
-    <p>Chaque contact dans cette liste sera associé à vos <strong>contacts à la brigade</strong> ou à vos <strong>contacts de la résistance</strong>. Revisitez cet onglet si vous avez oublier un ou plusieurs contacts.</p>
+    <p>Cet onglet contiendra les <strong>contacts</strong> que vous aurez rencontrés durant votre enquête. J'ajouterai automatiquement les contacts dans cette liste lorsque vous aurez rencontré une personne important à votre enquête.</p>
+    <p>Chaque contact dans cette liste sera associé à vos <strong>contacts à la brigade</strong> ou à vos <strong>contacts de la résistance</strong>. Revisitez cet onglet si vous avez oublié un ou plusieurs contacts.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Notes</strong> ou <strong>Documents</strong>.</p>
-  `,
+`,
 
   // PDA - Documents
   pda_evidence_first_visit: `
-    <p>Cet onglet contiendra les <strong>documents</strong> obtenus au cours de votre enquête. J'ajouterai automatiquement les documents obtenus à la suite d'une scénace de prise des notes ou au fil de votre enquête à cette liste. Vous pouvez cliquer sur un de ces documents pour le visualiser et le relire.</p>
+    <p>Cet onglet contiendra les <strong>documents</strong> obtenus au cours de votre enquête. J'ajouterai automatiquement à cette liste les documents obtenus à la suite d'une séance de prise des notes ou au fil de votre enquête. Vous pouvez cliquer sur un de ces documents pour le visualiser et le relire.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Notes</strong> ou <strong>Contacts</strong>.</p>
-  `,
+`,
 
   // Settings
   settings_font_size: 'Taille de la police',
