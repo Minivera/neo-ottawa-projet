@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
+import { Path } from 'inkjs/engine/Path';
 
 import { SceneState } from './scene';
 import { PDA } from './pda';
@@ -442,6 +443,14 @@ export const useGame = (
     },
     saveSlots: [],
   });
+  const location = useMemo<Location>(() => window.location, []);
+  useEffect(() => {
+      const knot = new URLSearchParams(location.search).get('noeud');
+      if (knot && story.ContentAtPath(new Path(knot))) {
+        story.ChoosePathString(knot);
+      }
+  }, [location?.search]);
+
   const images: string[] = [
     pdaBorderTopCenter,
     pdaBorderTopRight,
