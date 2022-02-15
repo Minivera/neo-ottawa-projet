@@ -1,14 +1,15 @@
 === prologue ===
 
 = scene_0
-~afficher_fond(transition)
-<center><titre>Chapitre 0</titre></center><br/><center>Prologue</center> # transition
 ~ afficher_fond(data_glitch)
 ~ jouer_musique(theme_intro)
 Néo-Ottawa, 2047. La <i>Loi Game Over</i> est en vigueur depuis 25 ans. Au Canada et dans de nombreux autres pays, il est interdit de concevoir, de distribuer, de vendre ou de jouer à quelque jeu vidéo que ce soit. # center
 Que la loi soit vous semble justifiée ou non, vous devrez la défendre. Vous êtes maintenant l’agent FRED GALLANT, jeune recrue. # center
 C’est votre première journée. Vous êtes un peu nerveuse. #center
-Vous avez quelques appréhensions, mais vous devrez aller jusqu’au bout, prendre des risques. Faire des choix. Des choix qui changeront l’avenir. Des choix qui détermineront le type d’agent que vous serez. Un agent dont l’histoire se souviendra, peut-être. Vous devrez prendre des notes, effectuer des recherches. # center
+Vous avez quelques appréhensions, mais vous devrez aller jusqu’au bout, prendre des risques. # center
+Faire des choix. Des choix qui changeront l’avenir. # center
+Des choix qui détermineront le type d’agent que vous serez. # center
+Un agent dont l’histoire se souviendra, peut-être. # center
 ~ arreter_musique()
 ~ cacher_fond()
 Préparez-vous. Respirez. Inspirez. Expirez. Fermez les yeux. Ouvrez-les. Commencez. # center
@@ -18,24 +19,24 @@ Préparez-vous. Respirez. Inspirez. Expirez. Fermez les yeux. Ouvrez-les. Commen
 = scene_1
 ~ afficher_fond (brigade_outside)
 ~ jouer_musique(theme_police)
-Fred: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative. # character=FRED_GALLANT invisible
+Fred, <i>à elle-même</i>: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative. # character=FRED_GALLANT invisible
 ~ arreter_musique()
-~ activer_pda()
 -> scene_2
 
 = scene_2
 ~ afficher_fond(brigade)
 ~ jouer_musique(theme_police)
-???: Eh! La nouvelle! # character=GABRIEL_SAND expression=amusement
+Homme: Eh! La nouvelle! # character=GABRIEL_SAND expression=amusement
 ~ afficher_personnage(GABRIEL_SAND, "slideInUp")
 Fred: Où dois-je me rapporter? # character=FRED_GALLANT invisible
-???: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
-???: Gallant, c’est ça? # character=GABRIEL_SAND expression=neutral
+Homme: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
+Homme: Gallant, c’est ça? # character=GABRIEL_SAND expression=neutral
 Fred: C’est ça. À qui ai-je l’honneur? # character=FRED_GALLANT invisible
 Gabriel: Agent Sand. Gab. # character=GABRIEL_SAND expression=joy
 ~ afficher_personnage(GABRIEL_SAND, "slideOutDown")
 ~ ajouter_contact(GABRIEL_SAND)
 ~ cacher_tout_personnages()
+~ activer_pda()
 -> scene_3
 
 = scene_3
@@ -78,11 +79,17 @@ Chef Miller: Tenez Gallant, votre premier dossier. # character=CHEF_MILLER expre
 *   <b>Fred</b> choisit de ne pas bouger et d’attendre d’autres ordres.
     Chef Miller: Qu’est-ce que vous attendez, Fred? Ma bénédiction? Des mots d’encouragement # character=CHEF_MILLER expression=wtf
 - Chef Miller: Un instant Gallant. Avant que vous ne partiez, je veux vous préciser quelque chose sur ce dossier. Prenez-en rapidement connaissance. On a retrouvé un enfant de 13 ans en très mauvais état. # character=CHEF_MILLER expression=concern
-Chef Miller: On a examiné plusieurs avenues, mais les parents ont des soupçons quant à des jeux vidéo auxquels on l’aurait initié. Ils pensent qu’il a été exposé à un jeu conçu après l’entrée en vigueur de la <i>Loi Game Over</i>. Un jeu à forte dépendance. On pense qu’il est possible que les concepteurs de ce jeu l’aient sciemment programmé de façon à ce qu’il crée chez les joueurs une dépendance permanente, une pathologie. #character=CHEF_MILLER expression=concern
+Chef Miller: On a examiné plusieurs avenues, mais les parents ont des soupçons quant à des jeux vidéo auxquels on l’aurait initié. # character=CHEF_MILLER expression=concern
+Chef Miller: Ils pensent qu’il a été exposé à un jeu conçu après l’entrée en vigueur de la <i>Loi Game Over</i>. Un jeu à forte dépendance. # character=CHEF_MILLER expression=concern
+Chef Miller: On pense qu’il est possible que les concepteurs de ce jeu l’aient sciemment programmé de façon à ce qu’il crée chez les joueurs une dépendance permanente, une pathologie. #character=CHEF_MILLER expression=concern
 Fred: Comme les dépendances aux drogues dures. # character=FRED_GALLANT invisible
-Chef Miller: Exact. Sa vie est peut-être en danger. Et s’il arrivait un malheur, on nous en tiendrait probablement responsable. On doit mettre la main sur les créateurs du jeu. Mais d’abord, établissez hors de tout doute la responsabilité du jeu. Les parents ne sont pas toujours conscients de qui sont vraiment leurs enfants. # character=CHEF_MILLER expression=sterness
+Chef Miller: Exact. Sa vie est peut-être en danger. Et s’il arrivait un malheur, on nous en tiendrait probablement responsable. # character=CHEF_MILLER expression=sterness
+Chef Miller: On doit mettre la main sur les créateurs du jeu. Mais d’abord, établissez hors de tout doute la responsabilité du jeu. # character=CHEF_MILLER expression=concern
+Chef Miller: Les parents ne sont pas toujours conscients de qui sont vraiment leurs enfants. # character=CHEF_MILLER expression=concern
 Fred: Oui, Chef. # character=FRED_GALLANT invisible
-Chef Miller: On ne peut pas interroger l’enfant pour l’instant, il est médicamenté et hors-circuit à ce qu’il semble. Vous devrez vous débrouiller pour trouver une piste qui pourrait nous mener au distributeur, puis au concepteur. Avant que ce jeu ne fasse d’autres victimes. Commencez par les parents, mais méfiez-vous de ce qu’ils racontent. Selon mon expérience, les parents sont rarement des témoins fiables. # character=CHEF_MILLER expression=neutral
+Chef Miller: On ne peut pas interroger l’enfant pour l’instant, il est médicamenté et hors-circuit à ce qu’il semble. # character=CHEF_MILLER expression=neutral
+Chef Miller: Vous devrez vous débrouiller pour trouver une piste qui pourrait nous mener au distributeur, puis au concepteur. Avant que ce jeu ne fasse d’autres victimes. # character=CHEF_MILLER expression=neutral
+Chef Miller: Commencez par les parents, mais méfiez-vous de ce qu’ils racontent. Selon mon expérience, les parents sont rarement des témoins fiables. # character=CHEF_MILLER expression=neutral
 Fred: Oui, Chef. # character=FRED_GALLANT invisible
 Chef Miller: Je compte sur vous. Vous travaillerez seule sur cette première mission. Ensuite, vous aurez peut-être ma confiance. # character=CHEF_MILLER expression=aversion
 
@@ -165,7 +172,9 @@ Chef Miller: Il y a du nouveau. Viens. # character=CHEF_MILLER expression=neutra
 = scene_5
 ~ afficher_fond(corridor_poste_police)
 ~ jouer_musique (theme_police)
-Chef Miller: Écoute, ça va mal : le garçon est disparu. Jusqu’à nouvel ordre, c’est une fugue ou un enlèvement. Vous partez immédiatement. Vous devez trouver le moyen de fouiller sa chambre. Vous aurez les gars du criminel dans les pattes. Dépêchez-vous. On ignore comment il a pu se sauver avec tous les sédatifs qu’il a reçus! # character=CHEF_MILLER expression=concern
+Chef Miller: Écoute, ça va mal : le garçon est disparu. Jusqu’à nouvel ordre, c’est une fugue ou un enlèvement. # character=CHEF_MILLER expression=concern
+Chef Miller: Vous partez immédiatement. Vous devez trouver le moyen de fouiller sa chambre. Vous aurez les gars du criminel dans les pattes. # character=CHEF_MILLER expression=concern
+Chef Miller: Dépêchez-vous. On ignore comment il a pu se sauver avec tous les sédatifs qu’il a reçus! # character=CHEF_MILLER expression=concern
 ~ cacher_tout_personnages()
 -> scene_6
 
@@ -195,12 +204,12 @@ L’enquêteur du criminel est présent. # center
     Fred: J’ai une enquête à faire moi aussi. Je n’aurais besoin que de l’accès à son téléphone et à son ordinateur. # character=FRED_GALLANT invisible
     Enquêteur Beaulieu: Mais c’est merveilleux! Vous allez trouver le petit? Gallant vous avez dit? # character=ENQUETEUR_BEAULIEU expression=cruel
     Fred: Oui. # character=FRED_GALLANT invisible
-    Enquêteur Beaulieu: Vous êtes nouvelle) c’est ça? # character=ENQUETEUR_BEAULIEU expression=aversion
+    Enquêteur Beaulieu: Vous êtes nouvelle c’est ça? # character=ENQUETEUR_BEAULIEU expression=aversion
     Enquêteur Beaulieu: BRIGHTON? # character=ENQUETEUR_BEAULIEU
     ~ afficher_personnage(BRIGHTON, "slideInUp")
     Brighton: Oui chef? # character=BRIGHTON expression=neutral
      ~ ajouter_contact(BRIGHTON)
-    Enquêteur Beaulieu: Sors-moi cette clown d’ici tout de suite. J’appelle Miller ! #character=ENQUETEUR_BEAULIEU expression aversion
+    Enquêteur Beaulieu: Sors-moi cette clown d’ici tout de suite. J’appelle Miller ! #character=ENQUETEUR_BEAULIEU expression=aversion
      ~ jouer_effet_sonore(sonnerie_telephone)
     Enquêteur Beaulieu: Miller? Ton agent, là, Gallant, elle veut les accès au téléphone et quoi d’autre? Tu lui expliqueras comment ça marche si tu veux qu’elle survive dans le métier. # character=ENQUETEUR_BEAULIEU expression=wtf
 *   <b>Fred</b> tente d’être la plus discrète possible tout en observant le travail des agents présents.
@@ -363,7 +372,7 @@ Chef Miller: Alors? Du nouveau? Qu’avez-vous trouvé sur les lieux?	# characte
 Fred: Peu de choses. Il n’y a rien de frappant qui mène à la conclusion que cet enfant jouait de manière clandestine. Pas dans sa chambre. # character=FRED_GALLANT invisible
 Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordinateur? Rien là non plus? # character=CHEF_MILLER_NO_CIGAR
 *   <b>Fred</b> choisit de ne rien dire au <b>Chef Miller</b>.
-  ~ points_fin_3 += 2
+  ~ points_fin_A1 += 4
     Fred: Non, rien pour l’instant. # character=FRED_GALLANT invisible
     Chef Miller: Aucune piste? # character=CHEF_MILLER_NO_CIGAR expression=wtf
     Fred: Rien de sérieux. # character=FRED_GALLANT invisible
@@ -387,7 +396,7 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
      Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG invisible
      Fred: Jouer. # character=FRED_GALLANT invisible
 *   <b>Fred</b> choisit de parler au <b>Chef</b> Miller et de lui dire une partie de la vérité.
-~ points_fin_2 += 2
+~ points_fin_A2 += 4
     Fred: Il y a un groupe. # character=FRED_GALLANT invisible
     Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=suprise
     Fred: Qui semble fournir des jeux vidéo à ceux qui en cherchent. # character=FRED_GALLANT invisible

@@ -11,6 +11,8 @@ INCLUDE act1_quiz2.ink
 INCLUDE act2.ink
 INCLUDE act3.ink
 INCLUDE act4.ink
+INCLUDE act5.ink
+
 
 -> prologue.scene_0
 

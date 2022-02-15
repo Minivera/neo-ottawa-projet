@@ -2,7 +2,7 @@
 
 = scene_1
 ~afficher_fond(transition)
-<center><titre>Chapitre 1</titre></center><br/><center>Le contenu choquant des JV</center> # transition
+<center><titre>Chapitre 1</titre></center><br/><center>Connexions</center> # transition
 ~ afficher_fond(bureau_fred)
 ~ jouer_musique(theme_commissariat)
 ~ afficher_personnage(CHEF_MILLER, "slideInUp")
@@ -22,7 +22,7 @@ Agent Lucas: Bah, laisse-le rêver! # character=AGENT_LUCAS expression=amusement
 Agent Moore: Quand tu seras brûlée toi aussi, ils recruteront d’autres jeunes ambitieux pour les jeter dans le feu à leur premier quart de travail. # character=AGENT_MOORE expression=amusement
 Agent Lucas: Qui est ton contact? # character=AGENT_LUCAS expression=neutral
 ~ jouer_musique(theme_choix_cruciaux)
-*Fred ne répond rien et quitte le bureau
+*Fred ne répond rien et elle quitte le bureau
   ~ points_fin_3 += 1
   ~ cacher_tout_personnages()
   -> scene_2
@@ -194,7 +194,7 @@ Le réceptionniste coopère à contrecœur. Il ne s’agirait pas que Fred déco
 <b>Fred</b> est désormais dans la salle informatique de l’ESRB.
 ~afficher_fond(ecran_ordinateur_esrb)
 Choisissez le mot de passe pour accéder à l’ordinateur : #center
-Mot de passe oublié? L’année où tout a changé. #center
+Mot de passe oublié ? L’année où tout a changé. #center
 <b>Fred</b> tape à l'écran <b>2021</b>
 Code bon #center
 ~jouer_effet_sonore(son_demarrage_ordinateur)
@@ -285,16 +285,16 @@ Olivia: Ce n’est rien! Si quelqu’un vous le demande, vous n’êtes jamais v
 
 = quiz_3_question_1
 
-1 - Les évaluateurs de l'ESRB jouent à l'intégralité d'un jeu vidéo avant de lui attribuer sa classification?  # question index=1
+1 - Les évaluateurs de l'ESRB jouent à l'intégralité d'un jeu vidéo avant de lui attribuer sa classification ?  # question index=1
 *   (3_1_a) [{3_1_a: VISITE--}Vrai] Vrai
 *   (3_1_b) [BON--{3_1_b: VISITE--}Faux] Faux
-    Les évaluateurs de l’ESRB ne jouaient pas à l’intégralité d’un jeu vidéo avant de lui attribuer sa classification. Cela me parait vraiment problématique... Imaginons qu’un élément particulièrement problématique échappe à un évaluateur ! Et puis pourquoi ne pas jouer à l’intégralité d’un jeu pour s’assurer de donner un avis éclairé? # retroaction
+    Les évaluateurs de l’ESRB ne jouaient pas à l’intégralité d’un jeu vidéo avant de lui attribuer sa classification. Cela me parait vraiment problématique... Imaginons qu’un élément particulièrement problématique échappe à un évaluateur ! Et puis pourquoi ne pas jouer à l’intégralité d’un jeu pour s’assurer de donner un avis éclairé ? # retroaction
     -> quiz_3_question_2
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_3_question_1
 
 = quiz_3_question_2
-2 - Si les évaluateurs ne jouaient pas à l’intégralité d’un jeux vidéo avant de lui attribuer une note, comment faisaient-ils selon le témoignage? # question index=2
+2 - Si les évaluateurs ne jouaient pas à l’intégralité d’un jeux vidéo avant de lui attribuer une note, comment faisaient-ils selon le témoignage ? # question index=2
 
 +   (3_2_a) [{3_2_a: VISITE--}Ils consultaient le projet de boîte du jeu comprenant des images et une description. ] Ils consultaient le projet de boîte du jeu comprenant des images et une description.
 +   (3_2_b) [BON--{3_2_b: VISITE--}Ils consultaient une vidéo présentant des phases de jeu.] Ils consultaient une vidéo présentant des phases de jeu.
@@ -307,10 +307,10 @@ Selon le témoignage, les évaluateurs consultaient des vidéos présentant des 
 
 = quiz_3_question_3
 
-3- Selon le témoignage de l’ancien employé de l’ESRB, pourquoi les évaluateurs ne jouent-ils pas aux jeux vidéo? # question index=3
+3- Selon le témoignage de l’ancien employé de l’ESRB, pourquoi les évaluateurs ne jouent-ils pas aux jeux vidéo ? # question index=3
 
 +   (3_3_a)[BON--{3_3_a: VISITE--}Ils n’avaient pas le temps de jouer aux jeux vidéo.] Ils n’avaient pas le temps de jouer aux jeux vidéo.
-Selon le témoignage, les évaluateurs n’avaient pas le temps de joueur à l’intégralité d’un jeu vidéo. C’est compréhensible. Un jeu vidéo est différent d’un film, le compléter peut prendre plusieurs dizaines d’heures. De plus, certains éléments peuvent être cachés et plus ou moins difficiles d’accès. Peut-être que l’ESRB n’avait pas le choix de fonctionner de cette manière. Mais imaginons que l’on découvre un élément problématique après l’évaluation d’un jeu et sa sortie, cela aurait pu être dramatique non? # retroaction
+Selon le témoignage, les évaluateurs n’avaient pas le temps de joueur à l’intégralité d’un jeu vidéo. C’est compréhensible. Un jeu vidéo est différent d’un film, le compléter peut prendre plusieurs dizaines d’heures. De plus, certains éléments peuvent être cachés et plus ou moins difficiles d’accès. Peut-être que l’ESRB n’avait pas le choix de fonctionner de cette manière. Mais imaginons que l’on découvre un élément problématique après l’évaluation d’un jeu et sa sortie, cela aurait pu être dramatique non ? # retroaction
 -> quiz_3_fin
 +   (3_3_b) [{3_3_b: VISITE--}La plupart d’entre eux n’aimaient pas jouer aux jeux vidéo. ] La plupart d’entre eux n’aimaient pas jouer aux jeux vidéo.
 +   (3_3_c) [{3_3_c: VISITE--}La plupart d’entre eux étaient trop mauvais pour compléter les premiers niveaux.] La plupart d’entre eux étaient trop mauvais pour compléter les premiers niveaux.
@@ -348,7 +348,7 @@ Carl: Attendez. Je me souviens d’une histoire avec GTA…  #character=CARL_WHI
 Carl: C’est pour des histoires comme celle-là qu’ils ont tout interdit vous savez.  #character=CARL_WHITE expression=laughing
 Fred: Quelle histoire? # character=FRED_GALLANT invisible
 Carl: GTA! Quel jeu stupide! Ce n’est pas moi qui l’ai évalué, ça non. Mais le scandale! Ça, tout le monde qui l’a vécu se le rappelle.  #character=CARL_WHITE expression=amusement
-Fred: Eh bien, pourriez-vous m’en parler? # character=FRED_GALLANT invisible
+Fred: Eh bien, pourriez-vous m’en parler ? # character=FRED_GALLANT invisible
 Carl: C’était en 2005, lorsque le jeu est sorti, il est arrivé en bonne et due forme avec le formulaire détaillé sur le contenu fourni par le concepteur et l’extrait de gameplay quoi, comme d’habitude. On l’a évalué et classé. Mais après que le jeu ait été en circulation un certain temps, des joueurs ont découvert une mission cachée, le hot coffee. On pouvait la débloquer avec un code et le personnage pouvait avoir une relation sexuelle avec une travailleuse du sexe.  #character=CARL_WHITE expression=neutral
 Fred: Ah bon? # character=FRED_GALLANT invisible
 Carl: Oui et oh! Ce qu’on en a bavé à l’ESRB. On nous a accusés d’être en conflit d’intérêts, mais ce n’était pas ça. On utilisait la même méthode pour tous les jeux.  #character=CARL_WHITE expression=wonder
@@ -484,10 +484,8 @@ Fred se retrouve dans la salle de jeux clandestine de la résistance.
 ~cacher_fond()
 ~arreter_musique()
 ~jouer_musique(theme_narrateur)
-Narrateur: Comment Fred expliquera au chef Miller qu’elle a été en présence de joueurs, une mine d’or pour la brigade, et qu’elle n’a rien fait? Jusqu’où ira Fred avant de se questionner sur son éthique de travail? Comment expliquer la présence de Bonnie? Comment va-t-elle l’aider? Et vous, que ferez-vous? # character=NARRATEUR invisible
-
-TODO(Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?)
-
+Narrateur: Comment Fred expliquera au chef Miller qu’elle a été en présence de joueurs, une mine d’or pour la brigade, et qu’elle n’a rien fait? Jusqu’où ira Fred avant de se questionner sur son éthique de travail? Comment expliquer la présence de Bonnie? Comment va-t-elle l’aider ? Et vous, que ferez-vous? # character=NARRATEUR invisible
+<b>Fred</b> se réveille de sa torpeur. 
 ~afficher_fond(grenier)
 ~jouer_musique(theme_resistance)
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
@@ -549,16 +547,16 @@ Toutes les propositions sont pertinentes. Elles renvoient à des articles qui tr
 -> quiz_5_question_1
 
 =quiz_5_question_2
-2 - Le respect des règles de l’ESRB était-il obligatoire en Ontario? # question index=2
+2 - Le respect des règles de l’ESRB était-il obligatoire en Ontario ? # question index=2
 *   (5_2_a) [BON--{5_2_a: VISITE--}Vrai] Vrai
-Selon l’article 6(2) du règlement de l’Ontario, la classification de l’ESRB était obligatoire en Ontario. Mais était-ce le cas ailleurs au Canada? # retroaction
+Selon l’article 6(2) du règlement de l’Ontario, la classification de l’ESRB était obligatoire en Ontario. Mais était-ce le cas ailleurs au Canada ? # retroaction
 -> quiz_5_question_3
 *   (5_2_b) [{5_2_b: VISITE--}Faux] Faux
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_question_2
 
  = quiz_5_question_3
-3 - J’ai ma réponse pour l’Ontario, mais qu’est-ce qu’il en était de la province voisine au Québec? Je n’ai aucun document sous la main pour le déterminer… Le respect des règles de l’ESRB était-il obligatoire au Québec?  # question index=3
+3 - J’ai ma réponse pour l’Ontario, mais qu’est-ce qu’il en était de la province voisine au Québec ? Je n’ai aucun document sous la main pour le déterminer… Le respect des règles de l’ESRB était-il obligatoire au Québec ?  # question index=3
 *   (5_3_a) [{5_3_a: VISITE--}Oui] Oui
 *   (5_2_b) [BON--{5_2_b: VISITE--}Non] Non
 Je ne sais pas comment j’ai réussi à déterminer cela... Sûrement un coup de chance, mais effectivement les règles de l’ESRB n’étaient pas obligatoires au Québec. # retroaction
@@ -718,7 +716,7 @@ Tom: On peut y trouver des informations croustillantes sur le passé. T’as pas
 -> quiz_6_question_1
 
 = quiz_6_question_1
-1- La compagnie GameStop imposait-elle le respect du système de l’ESRB? # question index=1
+1- La compagnie GameStop imposait-elle le respect du système de l’ESRB ? # question index=1
 *   (6_1_a) [BON--{6_1_a: VISITE--}Oui] Oui
  Selon le document de la compagnie, celle-ci avait bien décidé d’imposer le respect de la classification de l’ESRB dans ses magasins et ce sans être forcé de le faire par l’État. Encore un exemple d’autorégulation des acteurs de l’industrie des jeux vidéo. # retroaction
  -> quiz_6_question_2
@@ -729,7 +727,7 @@ Tom: On peut y trouver des informations croustillantes sur le passé. T’as pas
 
  = quiz_6_question_2
 ~afficher_document(STEAMWORKS)
-2 - Steam utilisait-il le système de l’ESRB pour classer les jeux vidéo? # question index=2
+2 - Steam utilisait-il le système de l’ESRB pour classer les jeux vidéo ? # question index=2
 *   (6_2_a) [{6_2_a: VISITE--}Oui] Oui
 
 *   (6_2_b) [BON--{6_2_b: VISITE--}Non] Non
@@ -739,10 +737,10 @@ Steam n’imposait pas le système de l’ESRB. Les jeux vidéo disposant d’un
  -> quiz_6_question_2
 
 =quiz_6_question_3
-3 - Quelle était l'approche préconisée par Steam pour la protection des consommateurs?  # question index=3
+3 - Quelle était l'approche préconisée par Steam pour la protection des consommateurs ?  # question index=3
  +   (6_3_a) [{6_3_a: VISITE--}Censure.] Censure.
 +   (6_3_b) [BON--{6_3_b: VISITE--}Transparence.] Transparence.
-Steam préconisait une approche basée sur la transparence vis-à-vis des consommateurs. Ces derniers étaient informés du caractère potentiellement choquant de certains jeux et devaient notamment confirmer leur âge avant de pouvoir accéder à certains contenus. Reste qu’il s’agissait d’une auto-déclaration et certains utilisateurs pouvaient mentir n’est-ce pas? # retroaction
+Steam préconisait une approche basée sur la transparence vis-à-vis des consommateurs. Ces derniers étaient informés du caractère potentiellement choquant de certains jeux et devaient notamment confirmer leur âge avant de pouvoir accéder à certains contenus. Reste qu’il s’agissait d’une auto-déclaration et certains utilisateurs pouvaient mentir n’est-ce pas ? # retroaction
   -> quiz_6_question_4
 +   (6_3_c) [{6_3_c: VISITE--} Laisse-faire.]  Laisse-faire.
 +   (6_4_d) [{6_4_d: VISITE--} Paternaliste.] Paternaliste.
@@ -750,7 +748,7 @@ Steam préconisait une approche basée sur la transparence vis-à-vis des consom
 -> quiz_6_question_3
 
  =quiz_6_question_4
-4 - L’approche de la plateforme Steam me paraît intéressante. Mais a-t-elle déjà conduit à la censure de jeux vidéo? Je n’ai pas l’impression que l’information se trouve dans les documents…  # question index=4
+4 - L’approche de la plateforme Steam me paraît intéressante. Mais a-t-elle déjà conduit à la censure de jeux vidéo ? Je n’ai pas l’impression que l’information se trouve dans les documents…  # question index=4
  *   (6_4_a) [BON--{6_4_a: VISITE--}Oui] Oui
  Steam a censuré par le passé un nombre très restreint de jeux vidéo. Selon les informations collectées, Steam ne souhaitait pas se positionner en censeur des productions vidéoludiques. Mais lorsque la situation l’imposait, Steam n’a pas hésité. # retroaction
 -> quiz_6_question_5
@@ -759,7 +757,7 @@ Steam préconisait une approche basée sur la transparence vis-à-vis des consom
  -> quiz_6_question_4
 
  =quiz_6_question_5
-5 - Si oui, quel jeu a déjà été interdit par Steam dans le passé?  # question index=5
+5 - Si oui, quel jeu a déjà été interdit par Steam dans le passé ?  # question index=5
  +   (6_5_a) [{6_5_a: VISITE--}Grand Theft Auto V.] Grand Theft Auto V.
 +   (6_5_b) [BON--{6_5_b: VISITE--}Active Shooter.] Active Shooter.
 Ces quatre jeux contenaient assurément des scènes ou des éléments violents. Mais seul le jeu Active Shooter a été interdit par la plateforme Steam. Le joueur incarnait un assaillant dans une école américaine et prenait pour cible ses camarades. Au-delà du jeu et de son contenu, les pratiques problématiques de son développeur ont également été prises en compte dans le cadre de la décision de censurer ce jeu.  # retroaction
@@ -780,7 +778,7 @@ TODO=Transition - Image non définie encore
 ~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Vous vouliez me voir? J’espère que vous avez de bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
 *Fred raconte ce qu’il en est de l’histoire de Leigh Kane, mais ne dit presque rien sur ces découvertes liées à la résistance.
- ~ points_fin_3 += 2
+ ~ points_fin_A2 += 4
 Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
@@ -821,7 +819,7 @@ Fred: Pas pour l’instant. Je suis différentes pistes. # character=FRED_GALLAN
 Chef Miller: Je ne vous retiens donc pas. Bonne journée. # character=CHEF_MILLER_NO_CIGAR expression=neutral
 
 *Fred raconte l’histoire de Leigh Kane et une partie de ce qu'elle a découvert.
- ~ points_fin_2 += 2
+ ~ points_fin_A1 += 2
  Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
@@ -879,7 +877,7 @@ Fred: Pas pour l’instant. Je suis différentes pistes.# character=FRED_GALLANT
 Chef Miller: Je ne vous retiens donc pas. Bonne journée.# character=CHEF_MILLER_NO_CIGAR expression=neutral
 
 *Fred raconte tout au Chef Miller.
- ~ points_fin_1 += 2
+ ~ points_fin_A1 += 4
  Fred: Oui, j’ai des nouvelles de Kane.# character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern

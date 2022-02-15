@@ -2,9 +2,9 @@
 
 = scene_1
 ~afficher_fond(transition)
-<center><titre>Chapitre 2</titre></center><br/><center>Les problèmes de dépendance aux JV</center> # transition
+<center><titre>Chapitre 2</titre></center><br/><center>Au-delà des apparences - évidences</center> # transition
 ~ afficher_fond(art_house_cafe)
-<b>Fred</b> attend <b>Bonnie</b> dans un café.
+<b>Fred</b> attend <b>Bonnie</b> dans un café. 
 ~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
@@ -32,7 +32,7 @@ Fred: Je sais. Il n’y a pas de possibilités de relocalisation ni de changemen
 Bonnie: Mais je ne peux pas changer d’identité! Je veux que mon père ignore que j’ai fait partie de la résistance, mais je veux rester la même personne, sa fille. Je ne veux pas de casier judiciaire, mais je veux garder mon nom. Je veux juste être protégée au cas où ça tournerait mal avec la résistance. Vous n’allez pas faire de descente? # character=BONNIE_RANDLE_V2 expression=wonder
 ~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> décide d’expliquer à Bonnie qu’il n’y aura pas de descente tant qu’elle sera en charge.
-  ~ points_fin_2 += 2
+  ~ points_fin_A2 += 4
 Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. Lorsque le moment sera venu, lorsque j’aurai assez d’informations, par exemple, je vous préviendrai. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
 
 Bonnie: Peu importe. Je ne veux pas que mes parents le sachent et je veux étudier en droit, je vous l’ai dit. Donc, pas de trace. C’était ma condition. # character=BONNIE_RANDLE_V2 expression=neutral
@@ -107,7 +107,7 @@ Bonnie: Oui, agent Gallant, bien compris. # character=BONNIE_RANDLE_V2 expressio
 ~cacher_tout_personnages()
 
 *<b>Fred</b> rassure Bonnie sans lui donner d’information.
-  ~ points_fin_1 += 2
+  ~ points_fin_A2 += 2
 Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. Lorsque le moment sera venu de procéder à des arrestations, je vous préviendrai. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
 
 Bonnie: Peu importe. Je ne veux pas que mes parents le sachent et je veux étudier en droit, je vous l’ai dit. Donc, pas de trace. C’était ma condition. # character=BONNIE_RANDLE_V2 expression=neutral
@@ -153,8 +153,8 @@ Fred: Merci. Alors, jusqu’à nouvel ordre, ne faites rien d’inhabituel. Vous
 Bonnie: Oui, agent Gallant, bien compris. # character=BONNIE_RANDLE_V2 expression=neutral
 ~cacher_tout_personnages()
 
-*<b>Fred</b> ne dit rien à Bonnie à ce sujet.
-  ~ points_fin_4 += 5
+*<b>Fred</b> ne dit rien à Bonnie à ce sujet. 
+  ~ points_fin_A1 += 4
 
 Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
 
@@ -187,7 +187,7 @@ Bonnie: Oui, agent Gallant, bien compris.# character=BONNIE_RANDLE_V2 expression
 - ->scene_2
 
 = scene_2
-~afficher_fond(bureau_fred)
+~afficher_fond(bureau_fred) 
 ~jouer_musique(theme_general)
 ~afficher_personnage(AGENT_MOORE, "slideInUp")
 
@@ -206,20 +206,20 @@ Fred: C’est un début. Quoi d’autre? # character=FRED_GALLANT invisible
 Agent Moore: Je pensais t’avoir posé une question. Comment va ton infiltration? # character=AGENT_MOORE expression=neutral
 ~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> ne lui donne aucune information sur ses découvertes ni ses contacts.
-~ points_fin_3 += 4
+~ points_fin_A1 += 4
 
 Fred: Bah! Je n’arrive pas à rencontrer les personnes qui compteraient. # character=FRED_GALLANT invisible
 
 Agent Moore: On a tout essayé! # character=AGENT_MOORE expression=concern
 
 *<b>Fred</b> lui transmet certaines informations.
-~ points_fin_2 += 1
+~ points_fin_A1 += 2
 
 Fred: Bah! Je n’arrive pas à rencontrer les personnes qui compteraient. # character=FRED_GALLANT invisible
 
 Agent Moore: On a tous essayé! # character=AGENT_MOORE expression=concern
 
-Fred: Ouais, mais tout de même, je gagne la confiance d’un membre qui est très convaincu et qui a accès à quelqu’un de plus haut placé que lui : justement, Teacher. # character=FRED_GALLANT invisible
+Fred: Ouais, mais tout de même, je gagne la confiance d’un membre qui est très convaincu et qui a accès à quelqu’un de plus haut placé que lui : justement, Teacher. # character=FRED_GALLANT invisible 
 
 Agent Moore: Vraiment? # character=AGENT_MOORE expression=surprise
 
@@ -232,12 +232,12 @@ Fred: Je ne peux pas y aller, tu en es conscient? # character=FRED_GALLANT invis
 Agent Moore: Bien sûr. Je te tiens au courant! # character=AGENT_MOORE expression=neutral
 
 *<b>Fred</b> lui raconte ce qu’elle sait sur le 530 McLeod.
-~ points_fin_1 += 2
+~ points_fin_A1 += 4
 Fred: Bah! Je n’arrive pas à rencontrer les personnes qui compteraient. Mais ce n’est qu’une question de temps. # character=FRED_GALLANT invisible
 
 Agent Moore: On a tous essayé! # character=AGENT_MOORE expression=concern
 
-Fred: Ouais, mais tout de même, je gagne la confiance d’un membre qui est très convaincu et qui a accès à quelqu’un de plus haut placé que lui : justement, Teacher. # character=FRED_GALLANT invisible
+Fred: Ouais, mais tout de même, je gagne la confiance d’un membre qui est très convaincu et qui a accès à quelqu’un de plus haut placé que lui : justement, Teacher. # character=FRED_GALLANT invisible 
 
 Agent Moore: Vraiment? # character=AGENT_MOORE expression=surprise
 
@@ -253,7 +253,7 @@ Fred: Je ne peux pas y aller, tu en es conscient? # character=FRED_GALLANT invis
 
 Agent Moore: Bien sûr. Je te tiens au courant! # character=AGENT_MOORE expression=neutral
 
-- <b>L’agent Moore</b> quitte le bureau.
+- <b>L’agent Moore</b> quitte le bureau. 
 ~cacher_personnage(AGENT_MOORE, "slideOutDown")
 ~jouer_effet_sonore(claquement_porte)
 
@@ -334,7 +334,7 @@ Fred: Non. Je repars sans toi. Je te laisse rentrer tout seul. Ou alors, appelle
 
 Leigh: Pourquoi faites-vous ça? # character=LEIGH_KANE expression=neutral
 
-Fred: Je vois qu’on ne te la fait pas… En effet, j’ai une faveur à te demander. # character=FRED_GALLANT invisible
+Fred: Je vois qu’on ne te la fait pas… En effet, j’ai une faveur à te demander. # character=FRED_GALLANT invisible 
 
 Leigh: Quoi? # character=LEIGH_KANE expression=concern
 
@@ -453,7 +453,7 @@ Médecin: Oui, ma secrétaire va vous montrer le chemin. # character=MEDECIN exp
 Le <b>médecin</b> donne deux documents à <b>Fred</b> : l’un porte sur les troubles du jeu vidéo et l’autre sur la maximisation des revenus par l’industrie du jeu vidéo [document 1]
 ~cacher_tout_personnages()
 ~ajouter_document(GAMING_DISORDER)
-// Description: L’Organisation mondiale de la santé (OMS) s’était intéressée à la pratique des jeux vidéo. Mais quel est le rapport entre la santé et les jeux vidéo...?
+// Description: L’Organisation mondiale de la santé (OMS) s’était intéressée à la pratique des jeux vidéo. Mais quel est le rapport entre la santé et les jeux vidéo... ? 
 -> quiz_2_1
 
 =quiz_2_1
@@ -463,7 +463,7 @@ Le <b>médecin</b> donne deux documents à <b>Fred</b> : l’un porte sur les tr
 -> quiz_2_1_question_1
 
 = quiz_2_1_question_1
-1 – L'OMS reconnaissait-elle des troubles pouvant être associés à la pratique des jeux vidéo?
+1 – L'OMS reconnaissait-elle des troubles pouvant être associés à la pratique des jeux vidéo ? # question index=1
 *   (2_1_1_a) [BON--{2_1_1_a: VISITE--}Oui] Oui
 L’OMS reconnaissait bien le trouble du jeu vidéo. L’OMS fournissait également différents critères pour définir ce trouble. # retroaction
 -> quiz_2_1_question_2
@@ -472,7 +472,7 @@ L’OMS reconnaissait bien le trouble du jeu vidéo. L’OMS fournissait égalem
 -> quiz_2_1_question_1
 
 = quiz_2_1_question_2
-2 – Si des troubles pouvaient être associés à la pratique des jeux vidéo, après combien de temps la dépendance pouvait-elle être diagnostiquée?
+2 – Si des troubles pouvaient être associés à la pratique des jeux vidéo, après combien de temps la dépendance pouvait-elle être diagnostiquée? # question index=2
 +   (2_1_2_a) [BON--{2_1_2_a: VISITE--}1 an] 1 an
 Selon l’OMS, les pratiques problématiques devaient s’être déroulées sur une période d’un moins douze mois pour qu’un diagnostic soit établi. Néanmoins, cette période pouvait être plus courte si les tous les éléments de diagnostic étaient observables et si les symptômes étaient graves. Il me semble que 12 mois pour établir un diagnostic, c’est long... Je peux comprendre pourquoi le gouvernement a décidé de prendre les devants avec la <i>Loi Game Over</i>. # retroaction
 -> quiz_2_1_question_3
@@ -483,7 +483,7 @@ Selon l’OMS, les pratiques problématiques devaient s’être déroulées sur 
 -> quiz_2_1_question_2
 
 = quiz_2_1_question_3
-3 - Je me demande si la dépendance aux jeux vidéo ne concernait que les jeux qui se jouaient en ligne?
+3 - Je me demande si la dépendance aux jeux vidéo ne concernait que les jeux qui se jouaient en ligne ? # question index=3
 *   (2_1_3_a) [{2_1_3_a: VISITE--}Vrai] Vrai
 *   (2_1_3_b) [BON--{2_1_3_b: VISITE--}Faux] Faux
 Selon l’OMS, un trouble du jeu vidéo pouvait survenir aussi bien avec les jeux en ligne que les jeux hors ligne. On dirait bien qu’une interdiction de tous les jeux vidéo était donc légitime pour lutter contre les dépendances... # retroaction
@@ -492,7 +492,7 @@ Selon l’OMS, un trouble du jeu vidéo pouvait survenir aussi bien avec les jeu
 -> quiz_2_1_question_3
 
 = quiz_2_1_question_4
-4 – L’OMS avait apparemment défini un certain nombre de critères permettant d’établir un diagnostic de trouble du jeu vidéo. Je me demande si tous les critères suivants étaient reconnus… Il y a sûrement un intrus.
+4 – L’OMS avait apparemment défini un certain nombre de critères permettant d’établir un diagnostic de trouble du jeu vidéo. Je me demande si tous les critères suivants étaient reconnus… Il y a sûrement un intrus. # question index=4
 +   (2_1_4_a) [{2_1_4_a: VISITE--}Consommation excessive de jeux vidéo.] Consommation excessive de jeux vidéo.
 -> quiz_2_1_question_3
 +   (2_1_4_b) [{2_1_4_b: VISITE--}Priorité donnée au jeu face à d’autres activités quotidiennes.] Priorité donnée au jeu face à d’autres activités quotidiennes.
@@ -630,10 +630,10 @@ Fred: J’aurais encore besoin d’un petit renseignement… # character=FRED_GA
 -> quiz_2_2_question_1
 
 = quiz_2_2_question_1
-1- Il y avait de grosses productions, appelées les triples AAA. Mais un modèle d’exploitation alternatif aurait eu beaucoup de succès… Lequel?
-+   (2_2_1_a) [{2_2_1_a: VISITE--}Des productions AAAA (impliquant plus d’effets visuels saisissants).] Des productions AAAA (impliquant plus d’effets visuels saisissants).
+1- Il y avait de grosses productions, appelées les triples AAA. Mais un modèle d’exploitation alternatif aurait eu beaucoup de succès… Lequel ? # question index=1
++   (2_2_1_a) [{2_2_1_a: VISITE--}Des productions AAAA (impliquant plus d’effets visuels saisissants).] Des productions AAAA (impliquant plus d’effets visuels saisissants). 
 +   (2_2_1_b) [{2_2_1_b: VISITE--}Des jeux sérieux ou serious games.] Des jeux sérieux ou serious games.
-+   (2_2_1_c) [BON--{2_2_1_c: VISITE--}Des jeux gratuits ou Free-to-play.] Des jeux gratuits ou Free-to-play.
++   (2_2_1_c) [BON--{2_2_1_c: VISITE--}Des jeux gratuits ou Free-to-play.] Des jeux gratuits ou Free-to-play. 
 Les jeux gratuits ou Free-to-play étaient des jeux auxquels les joueurs avaient accès en général sans limites de durée sans payer quoique ce soit. Il était néanmoins proposé aux joueurs d’effectuer des achats une fois le jeu installé. Ses achats pouvaient concerner des éléments cosmétiques ne modifiant pas le gameplay. D’autres jeux proposaient des achats pouvant permettre aux joueurs d’obtenir des avantages dans le gameplay… On parlait alors du modèle pay-to-win. # retroaction
 -> quiz_2_2_question_2
 +   (2_2_1_d) [{2_2_1_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
@@ -641,8 +641,8 @@ Les jeux gratuits ou Free-to-play étaient des jeux auxquels les joueurs avaient
 -> quiz_2_2_question_1
 
 =quiz_2_2_question_2
-2 - Du point de vue de leur exploitation, les jeux vidéo pouvaient être décrits comme des produits. Il y avait-il une autre façon de les décrire?
-+   (2_2_2_a) [{2_2_2_a: VISITE--}Tentations] Tentations
+2 - Du point de vue de leur exploitation, les jeux vidéo pouvaient être décrits comme des produits. Il y avait-il une autre façon de les décrire? # question index=2
++   (2_2_2_a) [{2_2_2_a: VISITE--}Tentations] Tentations 
 +   (2_2_2_b) [BON--{2_2_2_b: VISITE--}Services] Services
 Certains jeux étaient vendus à l’unité et constituaient des œuvres achevées. Ils pouvaient parfois être complétés par des extensions. D’autres modèles ont émergé et certains jeux vidéo, en particulier en ligne, ont été considérés comme des services proposés aux joueurs. Les jeux évoluaient d’année en année ou de saison en saison. L’objectif des créateurs était alors de créer une communauté et de continuer à l'étendre. # retroaction
 -> quiz_2_2_question_3
@@ -652,7 +652,7 @@ Certains jeux étaient vendus à l’unité et constituaient des œuvres achevé
 -> quiz_2_2_question_2
 
 =quiz_2_2_question_3
-3- Je me demande si ces jeux vidéo gratuits ou free-to-play rapportaient beaucoup d'argent à leurs créateurs…
+3- Je me demande si ces jeux vidéo gratuits ou free-to-play rapportaient beaucoup d'argent à leurs créateurs… # question index=3
 +  (2_2_3_a) [BON--{2_2_3_a: VISITE--}Oui] Oui
 Les jeux gratuits ou free-to-play pouvaient rapporter beaucoup d’argent à leurs créateurs. Le développement de certains d’entre eux pouvait être moins coûteux que les jeux AAA. De plus, les micro-transactions, au cœur du modèle économique, étaient omniprésentes et offraient beaucoup de possibilités de renouvellement.  # retroaction
 -> quiz_2_2_question_4
@@ -662,18 +662,18 @@ Les jeux gratuits ou free-to-play pouvaient rapporter beaucoup d’argent à leu
 -> quiz_2_2_question_3
 
 = quiz_2_2_question_4
-4- Donc, de quelle manière les jeux gratuits pouvaient-ils rapporter de l’argent à leurs créateurs?
-+   (2_2_4_a) [{2_2_4_a: VISITE--}Par des subventions publiques en soutien au secteur des jeux vidéo.] Par des subventions publiques en soutien au secteur des jeux vidéo.
+4- Donc, de quelle manière les jeux gratuits pouvaient-ils rapporter de l’argent à leurs créateurs ? # question index=4
++   (2_2_4_a) [{2_2_4_a: VISITE--}Par des subventions publiques en soutien au secteur des jeux vidéo.] Par des subventions publiques en soutien au secteur des jeux vidéo. 
 +   (2_2_4_b) [{2_2_4_b: VISITE--}Par des dons de la part des joueurs.] Par des dons de la part des joueurs.
 +   (2_2_4_c) [BON--{2_2_4_c: VISITE--}Par des micro-transactions présentes dans le jeu.] Par des micro-transactions présentes dans le jeu.
-Certains joueurs (une minorité au sein des grandes communautés) pouvaient dépenser beaucoup d’argent en jouant à un jeu « gratuit » qu’il s’agisse d’obtenir des éléments graphiques qui leur permettaient de se distinguer des autres joueurs ou d’obtenir des avantages dans le jeu. # retroaction
+Certains joueurs (une minorité au sein des grandes communautés) pouvaient dépenser beaucoup d’argent en jouant à un jeu « gratuit » qu’il s’agisse d’obtenir des éléments graphiques qui leur permettaient de se distinguer des autres joueurs ou d’obtenir des avantages dans le jeu. # retroaction 
 -> quiz_2_2_question_5
 +   (2_2_4_d) [{2_2_4_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_2_2_question_4
 
 = quiz_2_2_question_5
-5- Est-ce que les jeux gratuits pouvaient coûter plus cher aux joueurs que les jeux dits AAA?
+5- Est-ce que les jeux gratuits pouvaient coûter plus cher aux joueurs que les jeux dits AAA? # question index=5
 *  (2_2_5_a) [BON--{2_2_5_a: VISITE--}Oui] Oui
 Pour certains jeux, débloquer l’ensemble du contenu payant pouvait coûter plusieurs milliers de dollars... Quand on pense qu’un jeu AAA était vendu à l’unité pour environ 80 dollars... Tous les joueurs ne dépensaient pas des sommes importantes pour les jeux gratuits. Seule une minorité de joueurs le faisait. # retroaction
 -> quiz_2_2_fin
@@ -690,14 +690,14 @@ Pour certains jeux, débloquer l’ensemble du contenu payant pouvait coûter pl
 ~afficher_document(LOOT_BOXES)
 ~jouer_musique(theme_quiz)
 
-//Description document: Qu’est-ce que c’est que cette histoire de loot boxes? Du contenu aléatoire parfois en vente? Les joueurs ont dû hurler au scandale…
+//Description document: Qu’est-ce que c’est que cette histoire de loot boxes ? Du contenu aléatoire parfois en vente ? Les joueurs ont dû hurler au scandale… 
 -> quiz_2_3_question_1
 
 =quiz_2_3_question_1
 
-1 - Les loot boxes étaient-elles populaires auprès des joueurs?
+1 - Les loot boxes étaient-elles populaires auprès des joueurs ? # question index=1
 *  (2_3_1_a) [BON--{2_3_1_a: VISITE--}Vrai] Vrai
-Selon les archives d’époque, les loot boxes étaient de plus en plus employées dans les jeux, et ce malgré plusieurs critiques. En particulier, leur similarité avec les jeux de hasard et les problèmes de dépendance qu’elles pouvaient potentiellement entraîner étaient largement pointés du doigt. # retroaction
+Selon les archives d’époque, les loot boxes étaient de plus en plus employées dans les jeux, et ce malgré plusieurs critiques. En particulier, leur similarité avec les jeux de hasard et les problèmes de dépendance qu’elles pouvaient potentiellement entraîner étaient largement pointés du doigt. # retroaction 
 -> quiz_2_3_fin
 *   (2_3_1_b) [{2_3_1_b: VISITE--}Faux] Faux
 - ~ generer_mauvaise_reponse_retroaction()
@@ -715,10 +715,10 @@ Selon les archives d’époque, les loot boxes étaient de plus en plus employé
 -> quiz_2_4_question_1
 
 = quiz_2_4_question_1
-1 - Quelle était la position des acteurs de l’industrie des jeux vidéo à propos des loot boxes et de leur réglementation?
+1 - Quelle était la position des acteurs de l’industrie des jeux vidéo à propos des loot boxes et de leur réglementation ? # question index=1
 +   (2_4_1_a) [{2_4_1_a: VISITE--}Les États devraient légiférer.] Les États devraient légiférer.
-+   (2_4_1_b) [BON--{2_4_1_b: VISITE--}Le choix appartient aux consommateurs.] Le choix appartient aux consommateurs.
-La réponse des acteurs de l’industrie des jeux vidéo peut paraître un peu cynique... Mais il semble que selon eux le choix appartenait aux consommateurs. Si les loot boxes étaient consommées par les joueurs, pourquoi les interdire? Je peux comprendre cette position, mais les consommateurs avaient vraiment le choix compte tenu des pratiques cherchant à les inciter à obtenir des loot boxes? # retroaction
++   (2_4_1_b) [BON--{2_4_1_b: VISITE--}Le choix appartient aux consommateurs.] Le choix appartient aux consommateurs. 
+La réponse des acteurs de l’industrie des jeux vidéo peut paraître un peu cynique... Mais il semble que selon eux le choix appartenait aux consommateurs. Si les loot boxes étaient consommées par les joueurs, pourquoi les interdire ? Je peux comprendre cette position, mais les consommateurs avaient vraiment le choix compte tenu des pratiques cherchant à les inciter à obtenir des loot boxes ? # retroaction
 -> quiz_2_4_fin
 +   (2_4_1_c) [{2_4_1_c: VISITE--}Les acteurs du milieu vidéoludiques devraient se concerter pour adopter des règles communes.] Les acteurs du milieu vidéoludiques devraient se concerter pour adopter des règles communes.
 +   (2_4_1_d) [{2_4_1_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
@@ -734,7 +734,7 @@ La réponse des acteurs de l’industrie des jeux vidéo peut paraître un peu c
 ~afficher_fond(centre_rehabilitation_couloir)
 ~jouer_musique(theme_general)
 Voyant que son interlocuteur s’est endormi, <b>Fred</b> quitte la chambre. Elle cherche à revoir le <b>médecin</b>, mais il est trop occupé pour la recevoir. Elle croise un intervenant en uniforme et l’apostrophe.
-~afficher_personnage(INTERVENANT, "zoomIn")
+~afficher_personnage(INTERVENANT, "zoomIn") 
 Fred: Bonjour, je m’excuse de vous déranger. # character=FRED_GALLANT invisible
 
 Intervenant: Oui? # character=INTERVENANT expression=wonder
@@ -759,7 +759,7 @@ Fred: J’avoue, je ne suis pas certaine. Je voudrais savoir quels éléments re
 
 Intervenant: Certainement! Écoutez, de nombreuses recherches ont été effectuées avant la <i>Loi Game Over</i>. Voici une copie d’un document d’époque. # character=INTERVENANT expression=neutral
 ~ajouter_document(GAME_PATENTS)
-Fred : Et les gouvernements n’ont rien tenté à l’époque pour endiguer ces phénomènes de dépendance? # character=FRED_GALLANT invisible
+Fred : Et les gouvernements n’ont rien tenté à l’époque pour endiguer ces phénomènes de dépendance ? # character=FRED_GALLANT invisible
 
 Intervenant: À ma connaissance, les gouvernements sont restés trop longtemps les bras croisés et la seule solution viable était l’interdiction pure et simple. # character=INTERVENANT expression=neutral
 ~cacher_tout_personnages()
@@ -773,9 +773,9 @@ Intervenant: À ma connaissance, les gouvernements sont restés trop longtemps l
 -> quiz_2_5_question_1
 
 = quiz_2_5_question_1
-1- Cet article sur lequel j’ai mis la main est une mine d’or… quelle était la méthode de vente la plus utilisée par les exploitants de jeux vidéo?
+1- Cet article sur lequel j’ai mis la main est une mine d’or… quelle était la méthode de vente la plus utilisée par les exploitants de jeux vidéo ? # question index=1
 +   (2_5_1_a) [{2_5_1_a: VISITE--}Divulgation limitée des produits.] Divulgation limitée des produits.
-+   (2_5_1_b) [{2_5_1_b: VISITE--}La manipulation des prix des éléments en vente.] La manipulation des prix des éléments en vente.
++   (2_5_1_b) [{2_5_1_b: VISITE--}La manipulation des prix des éléments en vente.] La manipulation des prix des éléments en vente. 
 +   (2_5_1_c) [BON--{2_5_1_c: VISITE--}L'exploitation des données des joueurs.] L'exploitation des données des joueurs.
 Plusieurs techniques étaient employées, mais selon l’article obtenu (p. 134-135), la plus utilisée était celle de l’exploitation des données des joueurs.Il semble donc que les joueurs étaient observés de près durant leurs sessions de jeu. # retroaction
 -> quiz_2_5_question_2
@@ -784,31 +784,31 @@ Plusieurs techniques étaient employées, mais selon l’article obtenu (p. 134-
 -> quiz_2_5_question_1
 
 = quiz_2_5_question_2
-2 – Maintenant que je connais la méthode la plus utilisée, je me demande quel était l’objectif principal des méthodes employées par les exploitants de jeux vidéo?
+2 – Maintenant que je connais la méthode la plus utilisée, je me demande quel était l’objectif principal des méthodes employées par les exploitants de jeux vidéo ? # question index=2
 +   (2_5_2_a) [BON--{2_5_2_a: VISITE--}Stimuler des achats répétés de la part des joueurs.] Stimuler des achats répétés de la part des joueurs.
 Les brevets analysés dans l’article visaient à stimuler des achats répétés de la part des joueurs (p. 138-189). Il s’agissait de faire en sorte de leur proposer les offres les plus adaptées à leur profil et à leur expérience de jeu. # retroaction
 -> quiz_2_5_question_3
-+   (2_5_2_b) [{2_5_2_b: VISITE--}Offrir la meilleure expérience de jeu possible aux joueurs. ] Offrir la meilleure expérience de jeu possible aux joueurs.
++   (2_5_2_b) [{2_5_2_b: VISITE--}Offrir la meilleure expérience de jeu possible aux joueurs. ] Offrir la meilleure expérience de jeu possible aux joueurs. 
 +   (2_5_2_c) [{2_5_2_c: VISITE--}Responsabiliser les joueurs.] Responsabiliser les joueurs.
 +   (2_5_2_d) [{2_5_2_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_2_5_question_2
 
 = quiz_2_5_question_3
-3 - Mais alors, qu’est-ce qui différencie les mécanismes employés dans les jeux vidéo des mécanismes employés dans les jeux de hasard?
-+   (2_5_3_a) [BON--{2_5_3_a: VISITE--}La possibilité de modifier l’expérience de jeu en fonction du comportement du joueur ou d’une population de joueurs.] La possibilité de modifier l’expérience de jeu en fonction du comportement du joueur ou d’une population de joueurs.
-Selon l’article que j’ai réussi à obtenir (p. 138), ce qui distingue les mécanismes identifiés dans les brevets et les mécanismes de jeux de hasard étaient : “the ability to modify the play experience based on individual player and/or population behavioral data”. Quels pouvaient être les effets de ces techniques? # retroaction
+3 - Mais alors, qu’est-ce qui différencie les mécanismes employés dans les jeux vidéo des mécanismes employés dans les jeux de hasard ? # question index=3
++   (2_5_3_a) [BON--{2_5_3_a: VISITE--}La possibilité de modifier l’expérience de jeu en fonction du comportement du joueur ou d’une population de joueurs.] La possibilité de modifier l’expérience de jeu en fonction du comportement du joueur ou d’une population de joueurs. 
+Selon l’article que j’ai réussi à obtenir (p. 138), ce qui distingue les mécanismes identifiés dans les brevets et les mécanismes de jeux de hasard étaient : “the ability to modify the play experience based on individual player and/or population behavioral data”. Quels pouvaient être les effets de ces techniques ? # retroaction
 -> quiz_2_5_question_4
 +   (2_5_3_b) [{2_5_3_b: VISITE--}Ils sont plus amusants.] Ils sont plus amusants.
-+   (2_5_3_c) [{2_5_3_c: VISITE--}Ils sont appréciés des joueurs.] Ils sont appréciés des joueurs.
++   (2_5_3_c) [{2_5_3_c: VISITE--}Ils sont appréciés des joueurs.] Ils sont appréciés des joueurs. 
 +   (2_5_3_d) [{2_5_3_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_2_5_question_3
 
 = quiz_2_5_question_4
-4 – Je comprends mieux ces méthodes maintenant… Mais quels pouvaient être les effets de ces techniques sur les joueurs? Les techniques employées étaient-elles de nature à entraîner une forme de dépendance?
+4 – Je comprends mieux ces méthodes maintenant… Mais quels pouvaient être les effets de ces techniques sur les joueurs ? Les techniques employées étaient-elles de nature à entraîner une forme de dépendance ? # question index=4
 *  (2_5_4_a) [BON--{2_5_4_a: VISITE--}Oui] Oui
- Selon l’article sur lequel j’ai mis la main, les systèmes identifiés peuvent entraîner une dépendance chez certains joueurs (p. 140). Fait intéressant pointé par les auteurs de l’article, l’OMS ne considérait pas les aspects financiers liés à la pratique des jeux vidéo comme un facteur permettant de diagnostiquer un trouble du jeu vidéo. # retroaction
+ Selon l’article sur lequel j’ai mis la main, les systèmes identifiés peuvent entraîner une dépendance chez certains joueurs (p. 140). Fait intéressant pointé par les auteurs de l’article, l’OMS ne considérait pas les aspects financiers liés à la pratique des jeux vidéo comme un facteur permettant de diagnostiquer un trouble du jeu vidéo. # retroaction 
 -> quiz_2_5_fin
 *   (2_5_4_b) [{2_5_4_b: VISITE--}Non] Non
 - ~ generer_mauvaise_reponse_retroaction()
@@ -841,7 +841,7 @@ Fred: Coincée? # character=FRED_GALLANT invisible
 
 Chef Miller: Je m’attendais à plus de transparence de votre part, Gallant. Mais le pire, c’est que vous désobéissez à mes ordres. Je pourrais vous suspendre. Sur-le-champ! # character=CHEF_MILLER expression=anger
 *<b>Fred</b> reste stoïque et ne dit rien au chef Miller.
- ~ points_fin_2 += 1
+ ~ points_fin_A2 += 4
 
 Fred: Chef, dites-moi ce qui se passe! # character=FRED_GALLANT invisible
 
@@ -852,7 +852,7 @@ Fred: Je ne comprends pas! # character=FRED_GALLANT invisible
 Chef Miller: Dans ce cas, Gallant, je vous retire l’enquête du 530 McLeod. Moore va s’en charger. Je veux un rapport demain matin sur mon bureau faisant état de vos progrès dans le dossier d’infiltration de la résistance. Et je vous conseille de ne rien oublier. # character=CHEF_MILLER expression=disdain
 
 *<b>Fred</b> fait l’innocente, mais tente de se justifier en expliquant au chef Miller que ça faisait partie de son plan d’infiltration.
- ~ points_fin_4 += 3
+ ~ points_fin_A2 += 2
 
 Fred: Je ne comprends pas pourquoi vous vous mettez dans tous ces états. J’ai simplement manqué de temps pour vous mettre au courant des développements! # character=FRED_GALLANT invisible
 
@@ -879,7 +879,7 @@ Fred: Merci chef. J’ai compris. # character=FRED_GALLANT invisible
 Chef Miller: Je vous retire tout de même l’enquête du 530 McLeod. Moore va s’en charger. Et je veux un rapport demain matin sur mon bureau faisant état de vos progrès dans le dossier d’infiltration de la résistance. Je vous conseille de ne rien oublier. # character=CHEF_MILLER expression=disdain
 
 *<b>Fred</b> craque et dit tout au chef Miller.
- ~ points_fin_1 += 2
+ ~ points_fin_A1 += 4
  Fred: Chef! Je suis désolée! J’ai cru bien faire! Je voulais simplement obtenir des informations sur Teacher, je crois qu’il est important dans la résistance. Il vend des jeux à n’importe qui, des enfants. J’ai cru que c’était la chose à faire. Ça n’avance pas assez vite avec la résistance. Pour tout vous dire, j’ai même des cas de conscience. # character=FRED_GALLANT invisible
 
 Chef Miller: Encore cette histoire d’informations cachées par le gouvernement? # character=CHEF_MILLER expression=disdain
@@ -892,23 +892,20 @@ Fred: Je… j’ai parlé à une personne qui a contribué à fonder la résista
 
 Chef Miller: Bien. Mais ça n’efface pas vos bourdes. Je vous retire l’enquête du 530 McLeod. Moore va s’en charger. Et je veux un rapport demain matin sur mon bureau faisant état de vos progrès dans le dossier d’infiltration de la résistance. Je vous conseille de ne rien oublier. Et tâchez de dormir un peu, bon sang! # character=CHEF_MILLER expression=disdain
 
-- ~cacher_tout_personnages()
+- ~cacher_tout_personnages() 
 ~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Qu’est-ce que l’agent Gallant va écrire dans son rapport? Est-ce que toute vérité est bonne à dire? Commencez-vous à comprendre les enjeux de cette mission? Est-ce qu’un loisir aussi controversé est un droit? Est-ce que l’état doit intervenir au nom de la santé publique? Les jeux vidéo sont-ils une menace? Vous avez la nuit pour y penser avant de découvrir de nouvelles informations qui pourraient bien être déterminantes. Prenez bien note de ce que vous découvrirez, vous aurez besoin de tous les éléments pour prendre votre décision finale, car un jour, il sera trop tard pour revenir en arrière. # character=NARRATEUR center
 
 <b>Fred</b> se réveille de sa torpeur.
-
-TODO:Transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?)
-
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
 Le téléphone de <b>Fred</b> sonne.
 ~jouer_effet_sonore(sonnerie_telephone)
 
 Fred: Allô? # character=FRED_GALLANT invisible
-~afficher_personnage(CHRISTOPHER_YOUNG, "fadeIn")
+~afficher_personnage(CHRISTOPHER_YOUNG, "fadeIn") 
 Christopher: Hey! Où es-tu? J’essaie de te joindre depuis des heures. # character=CHRISTOPHER_YOUNG expression=surprise phone
 
 Fred: Je suis un peu occupée là tout de suite. Qu’y a-t-il? # character=FRED_GALLANT invisible
@@ -927,7 +924,7 @@ Fred: Alors à plus, je te fais signe bientôt. Dès que je suis débarrassée d
 
 Christopher: Ouais. Écoute, je t’envoie des documents cryptés par courriel. Je n’arrive pas à les lire. Quelque chose les rend illisibles. Un code, une protection, je ne sais pas. Je ne m’y connais pas assez. Toi es-tu capable? # character=CHRISTOPHER_YOUNG expression=concern phone
 
-Christopher: Ouais. Écoute, on a mis la main sur des documents que le gouvernement gardait bien cachés… Ça donne une perspective différente du discours officiel. Peux-tu y jeter un coup d'œil et en faire l’analyse? C’est sensible, alors reste discrète. # character=CHRISTOPHER_YOUNG expression=concern phone
+Christopher: Ouais. Écoute, on a mis la main sur des documents que le gouvernement gardait bien cachés… Ça donne une perspective différente du discours officiel. Peux-tu y jeter un coup d'œil et en faire l’analyse ? C’est sensible, alors reste discrète. # character=CHRISTOPHER_YOUNG expression=concern phone
 
 Fred: Bien sûr, envoie-les-moi. # character=FRED_GALLANT invisible
 
@@ -945,7 +942,7 @@ Fred: Bien sûr, envoie-les-moi. # character=FRED_GALLANT invisible
 -> quiz_2_6_question_1
 
 = quiz_2_6_question_1
-1 – Certains États avaient-ils pris la décision d’interdire les loot boxes?
+1 – Certains États avaient-ils pris la décision d’interdire les loot boxes ? # question index=1 
 *  (2_6_1_a) [BON--{2_6_1_a: VISITE--}Oui] Oui
 Les documents nous permettent de constater que certains États avaient tenté d’agir. # retroaction
 -> quiz_2_6_question_2
@@ -954,12 +951,12 @@ Les documents nous permettent de constater que certains États avaient tenté d�
 -> quiz_2_6_question_1
 
 = quiz_2_6_question_2
-2 - Certains États avaient donc bien tenté de réglementer les loot boxes… Je me demande quel État de la liste suivante n’avait adopté aucune réglementation sur les loot boxes?
+2 - Certains États avaient donc bien tenté de réglementer les loot boxes… Je me demande quel État de la liste suivante n’avait adopté aucune réglementation sur les loot boxes ? # question index=2
 +   (2_6_2_a) [{2_6_2_a: VISITE--}Suisse] Suisse
 +   (2_6_2_b) [{2_6_2_b: VISITE--}Belgique] Belgique
 +   (2_6_2_c) [{2_6_2_c: VISITE--}Hollande] Hollande
 +   (2_6_2_d) [BON--{2_6_2_d: VISITE--}Canada] Canada
-Selon les archives de l’époque, plusieurs pays d’Europe avaient décidé d’agir. Par contre le Canada, lui, n’avait rien prévu. Serait-ce l'absence d’action qui a obligé plus tard le gouvernement à adopter la <i>Loi Game Over</i>? # retroaction
+Selon les archives de l’époque, plusieurs pays d’Europe avaient décidé d’agir. Par contre le Canada, lui, n’avait rien prévu. Serait-ce l'absence d’action qui a obligé plus tard le gouvernement à adopter la <i>Loi Game Over</i> ? # retroaction
 -> quiz_2_6_fin
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_2_6_question_2
@@ -972,11 +969,11 @@ Selon les archives de l’époque, plusieurs pays d’Europe avaient décidé d�
 ~ demarrer_quiz(QUIZ_2_7, 4)
 ~afficher_document(POLICY_RESPONSES)
 ~jouer_musique(theme_quiz)
-// Description document 7 : Tiens, tiens… On dirait bien que les États et les acteurs du milieu des jeux vidéo ne sont pas restés les bras croisés en ce qui concerne le phénomène de dépendance aux jeux vidéo. Quelles sont les stratégies qu’ils ont développées? Voir en particulier aux pp. 506 à 507 et 510 à 511.
+// Description document 7 : Tiens, tiens… On dirait bien que les États et les acteurs du milieu des jeux vidéo ne sont pas restés les bras croisés en ce qui concerne le phénomène de dépendance aux jeux vidéo. Quelles sont les stratégies qu’ils ont développées ? Voir en particulier aux pp. 506 à 507 et 510 à 511.
 -> quiz_2_7_question_1
 
 = quiz_2_7_question_1
-1 - Est-ce que les gouvernements sont restés inactifs dans le domaine de la lutte contre la dépendance aux jeux vidéo?
+1 - Est-ce que les gouvernements sont restés inactifs dans le domaine de la lutte contre la dépendance aux jeux vidéo ? # question index=1
 *  (2_7_1_a) [{2_7_1_a: VISITE--}Oui] Oui
 *   (2_7_1_b) [BON--{2_7_1_b: VISITE--}Non] Non
 Selon l’article que j’ai obtenu, tant les gouvernements que certains acteurs du milieu des jeux vidéo ont tenté d’agir pour limiter le phénomène de dépendance aux jeux vidéo (p. 507). # retroaction
@@ -985,19 +982,19 @@ Selon l’article que j’ai obtenu, tant les gouvernements que certains acteurs
 -> quiz_2_7_question_1
 
 = quiz_2_7_question_2
-2- Est-ce que cette lutte contre la dépendance était globalisée? Dans quelle région du monde des mesures visant à prévenir ou traiter les troubles liés aux jeux vidéo ont-elles été principalement adoptées?
+2- Est-ce que cette lutte contre la dépendance était globalisée? Dans quelle région du monde des mesures visant à prévenir ou traiter les troubles liés aux jeux vidéo ont-elles été principalement adoptées ? # question index=2
 +   (2_7_2_a) [BON--{2_7_2_a: VISITE--}En Asie.] En Asie.
 On dirait bien que, selon le tableau fourni à la page 507 de l’article, de nombreuses, sinon la plupart des initiatives ont été tentées en Asie. # retroaction
 -> quiz_2_7_question_3
-+   (2_7_2_b) [{2_7_2_b: VISITE--}En Europe.] En Europe.
-+   (2_7_2_c) [{2_7_2_c: VISITE--}En Océanie.] En Océanie.
++   (2_7_2_b) [{2_7_2_b: VISITE--}En Europe.] En Europe. 
++   (2_7_2_c) [{2_7_2_c: VISITE--}En Océanie.] En Océanie. 
 +   (2_7_2_d) [{2_7_2_d: VISITE--}En Amérique du Nord.] En Amérique du Nord.
 +   (2_7_2_e) [{2_7_2_e: VISITE--}Aucune de ces propositions.] Aucun de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_2_7_question_2
 
 = quiz_2_7_question_3
-3 - Quelle était donc la nature de ces initiatives? Est-ce que les seules mesures envisageables étaient des mesures de traitement des joueurs qui souffraient de dépendance avérée aux jeux vidéo?
+3 - Quelle était donc la nature de ces initiatives ? Est-ce que les seules mesures envisageables étaient des mesures de traitement des joueurs qui souffraient de dépendance avérée aux jeux vidéo ? # question index=3
 *  (2_7_3_a) [{2_7_3_a: VISITE--}Oui] Oui
 *   (2_7_3_b) [BON--{2_7_3_b: VISITE--}Non] Non
 Selon l’article sur lequel j’ai mis la main, trois types d’intervention ou de stratégies ont été tentées : (1) la limitation de l’accès aux jeux vidéo (par exemple, en limitant le temps de jeu par jour) (à la p. 506) ; (2) la réduction des risques et des dommages éventuels (par exemple, en prévoyant des messages d’avertissement) (à la p. 510) ; (3) et en fournissant des services aux joueurs (par exemple, des traitements dans des institutions spécialisées) (à la p. 511). Une panoplie d’actions, tant en amont qu’en aval, avait donc été envisagée. # retroaction
@@ -1006,7 +1003,7 @@ Selon l’article sur lequel j’ai mis la main, trois types d’intervention ou
 -> quiz_2_7_question_3
 
 = quiz_2_7_question_4
-4- Est-ce que les mesures envisagées ne concernaient que les mineurs?
+4- Est-ce que les mesures envisagées ne concernaient que les mineurs ? # question index=4
 *  (2_7_4_a) [{2_7_4_a: VISITE--}Oui] Oui
 *   (2_7_4_b) [BON--{2_7_4_b: VISITE--}Non] Non
  Selon le tableau à la page 507, certaines mesures visaient spécifiquement les mineurs, mais d’autres visaient tous les joueurs, quel que soit leur âge. # retroaction

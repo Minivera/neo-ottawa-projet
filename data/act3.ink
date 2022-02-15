@@ -2,7 +2,7 @@
 
 = scene_1
 ~afficher_fond(transition)
-<center><titre>Chapitre 3</titre></center><br/><center>L'impact environnemental des JV</center> # transition
+<center><titre>Chapitre 3</titre></center><br/><center>Entre deux mondes</center> # transition
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_general)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
@@ -53,15 +53,15 @@ Chef Miller: Ce sera tout. Hors de ma vue maintenant. # character=CHEF_MILLER ex
 ~ demarrer_quiz(QUIZ_3_1, 1)
 ~afficher_document(MARCHE_JV_2020)
 ~jouer_musique(theme_quiz)
-// Description document 1 : À ajouter
+// Description document 1 : Ce document devrait me permettre d’en apprendre sur l’ampleur du marché des jeux vidéo avant l’entrée en vigueur de la <i>Loi Game Over</i>.
 
 -> quiz_3_1_question_1
 =quiz_3_1_question_1
-1 - Je me demande combien il y avait de joueurs et de joueuses à travers le monde en 2021…
+1 - Je me demande combien il y avait de joueurs et de joueuses à travers le monde en 2021… # question index=1
 +   (3_1_1_a) [BON--{3_1_1_a: VISITE--}2,7 milliards.] 2,7 milliards.
 Et bien dites donc, selon les chiffres de 2021, il y avait près de la moitié de l’humanité qui s’adonnait aux jeux vidéo à travers le monde. Ça en fait des joueurs et des joueuses. Comme on dit, les temps changent…  # retroaction
 -> quiz_3_1_fin
-+   (3_1_1_b) [{3_1_1_b: VISITE--}4,5 milliards. ] 4,5 milliards.
++   (3_1_1_b) [{3_1_1_b: VISITE--}4,5 milliards. ] 4,5 milliards. 
 +   (3_1_1_c) [{3_1_1_c: VISITE--}1,2 milliard.] 1,2 milliard.
 +   (3_1_1_d) [{3_1_1_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
@@ -76,11 +76,11 @@ Et bien dites donc, selon les chiffres de 2021, il y avait près de la moitié d
 ~ demarrer_quiz(QUIZ_3_2, 4)
 ~afficher_document(IMPACT_JV_ENVIRONNEMENT)
 ~jouer_musique(theme_quiz)
-// Description document 2 : On dirait bien qu’avec les jeux vidéo tout n’était pas virtuel.... Ces documents devraient me permettre d’en savoir plus sur les impacts des jeux vidéo sur l’environnement.
+// Description document 2 : On dirait bien qu’avec les jeux vidéo tout n’était pas virtuel.... Ces documents devraient me permettre d’en savoir plus sur les impacts des jeux vidéo sur l’environnement. 
 -> quiz_3_2_question_1
 
 =quiz_3_2_question_1
-1 - Alors, les jeux vidéo avaient-ils un impact sur l'environnement?
+1 - Alors, les jeux vidéo avaient-ils un impact sur l'environnement ? # question index=1 
 +   (3_2_1_a) [BON--{3_2_1_a: VISITE--}Oui] Oui
 Selon les documents de l’époque, les impacts des jeux vidéo étaient très nombreux. # retroaction
 -> quiz_3_2_question_2
@@ -90,10 +90,10 @@ Selon les documents de l’époque, les impacts des jeux vidéo étaient très n
 -> quiz_3_2_question_1
 
 =quiz_3_2_question_2
-2 - Si les jeux vidéo avaient un impact environnemental, je devrais aller vérifier quels étaient ces impacts :
-+   (3_2_2_a) [{3_2_2_a: VISITE--}Émissions de gaz à effet de serre.] Émissions de gaz à effet de serre.
-+   (3_2_2_b) [{3_2_2_b: VISITE--}Production de déchets.] Production de déchets.
-+   (3_2_2_c) [{3_2_2_c: VISITE--}Pollutions.] Pollutions.
+2 - Si les jeux vidéo avaient un impact environnemental, je devrais aller vérifier quels étaient ces impacts : # question index=2
++   (3_2_2_a) [{3_2_2_a: VISITE--}Émissions de gaz à effet de serre.] Émissions de gaz à effet de serre. 
++   (3_2_2_b) [{3_2_2_b: VISITE--}Production de déchets.] Production de déchets.  
++   (3_2_2_c) [{3_2_2_c: VISITE--}Pollutions.] Pollutions. 
 +   (3_2_2_d) [BON--{3_2_2_d: VISITE--}Toutes ces propositions.] Toutes ces propositions.
 Apparemment, les impacts des jeux vidéo et de l’industrie en général étaient très variés. Les archives nous apprennent que la pratique des jeux vidéo entraînait des émissions de gaz à effet de serre, notamment en raison de l’énergie nécessaire à leur utilisation. Bon, les jeux vidéo c’était aussi beaucoup de déchets physiques (les boites de jeux, les supports, les consoles, etc.)... C’était à la source de pollutions diverses. # retroaction
 -> quiz_3_2_question_3
@@ -102,19 +102,19 @@ Apparemment, les impacts des jeux vidéo et de l’industrie en général étaie
 -> quiz_3_2_question_2
 
 =quiz_3_2_question_3
-3 - Donc il y avait beaucoup d’émissions de gaz à effet de serre en lien avec l’industrie des jeux vidéo… Je me demande quel était l'impact estimé de cette industrie en termes d'émissions de gaz à effet de serre (équivalent CO2)?
-+   (3_2_3_a) [BON--{3_2_3_a: VISITE--}Aucune étude ne permet de le déterminer.] Aucune étude ne permet de le déterminer.
+3 - Donc il y avait beaucoup d’émissions de gaz à effet de serre en lien avec l’industrie des jeux vidéo… Je me demande quel était l'impact estimé de cette industrie en termes d'émissions de gaz à effet de serre (équivalent CO2) ? # question index=3
++   (3_2_3_a) [BON--{3_2_3_a: VISITE--}Aucune étude ne permet de le déterminer.] Aucune étude ne permet de le déterminer. 
 Les archives ne permettent pas de déterminer cet impact. On sait que les jeux vidéo entrainaient des émissions de gaz à effet de serre, mais combien exactement est difficile à dire, même plusieurs années après… Ceci pourrait peut-être expliquer pourquoi l’élévation de température est proche de 2,5 degrés en 2047…  Nous avons une estimation des émissions correspondant au fonctionnement de certaines des machines utilisées pour jouer aux jeux vidéo, mais pas d’estimation globale. Les chiffres devaient probablement être vertigineux… # retroaction
 -> quiz_3_2_question_4
-+   (3_2_3_b) [{3_2_3_b: VISITE--}532 millions de tonnes d’équivalent CO2.] 532 millions de tonnes d’équivalent CO2.
-+   (3_2_3_c) [{3_2_3_c: VISITE--}912 582 kilos d’équivalent CO2.] 912 582 kilos d’équivalent CO2.
++   (3_2_3_b) [{3_2_3_b: VISITE--}532 millions de tonnes d’équivalent CO2.] 532 millions de tonnes d’équivalent CO2.  
++   (3_2_3_c) [{3_2_3_c: VISITE--}912 582 kilos d’équivalent CO2.] 912 582 kilos d’équivalent CO2. 
 +   (3_2_3_d) [{3_2_3_d: VISITE--}848 733 kilos d’équivalent CO2.] 848 733 kilos d’équivalent CO2.
 +   (3_2_2_e) [{3_2_2_e: VISITE--}Négligeable.] Négligeable.
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_3_2_question_3
 
 =quiz_3_2_question_4
-4 – Et de façon plus générale, disposait-on de données précises en ce qui concerne l'ensemble des impacts des jeux vidéo sur l'environnement?
+4 – Et de façon plus générale, disposait-on de données précises en ce qui concerne l'ensemble des impacts des jeux vidéo sur l'environnement ? # question index=4
 *  (3_2_4_a) [{3_2_4_a: VISITE--}Oui] Oui
 *  (3_2_4_b) [BON--{3_2_4_b: VISITE--}Non] Non
 Selon les archives, on ne disposait pas de données précises concernant l’ensemble des impacts du secteur des jeux vidéo sur l’environnement. On disposait d’informations précises pour certains impacts uniquement : par exemple, celui des ventes de jeux sur support physique, la consommation électrique de certains équipements, l’empreinte de certains acteurs du secteur, etc. Mais pas d’estimations globales. Ce manque d’information est problématique pour établir un bon diagnostic et imaginer des stratégies d’action. Une chose certaine, en 2021, les jeux vidéo n’étaient définitivement pas le secteur le plus polluant. # retroaction
@@ -291,9 +291,9 @@ Administrateur: D’accord, vous aurez une bonne idée de la prise conscience de
 -> quiz_3_3_question_1
 
 =quiz_3_3_question_1
-1 - Pour commencer, je vais essayer de déterminer quelles étapes de la vie d’un jeu vidéo ont un impact sur l’environnement?
-+   (3_3_1_a) [{3_3_1_a: VISITE--}Sa création.] Sa création.
-+   (3_3_1_b) [{3_3_1_b: VISITE--}Sa distribution.] Sa distribution.
+1 - Pour commencer, je vais essayer de déterminer quelles étapes de la vie d’un jeu vidéo ont un impact sur l’environnement ? # question index=1
++   (3_3_1_a) [{3_3_1_a: VISITE--}Sa création.] Sa création.  
++   (3_3_1_b) [{3_3_1_b: VISITE--}Sa distribution.] Sa distribution.   
 +   (3_3_1_c) [{3_3_1_c: VISITE--}Sa consommation par les joueurs et les joueuses.] Sa consommation par les joueurs et les joueuses.
 +   (3_3_1_d) [{3_3_1_d: VISITE--}Sa fin de vie.] Sa fin de vie.
 +   (3_3_1_e) [BON--{3_3_1_e: VISITE--}Toutes ces propositions.] Toutes ces propositions.
@@ -303,7 +303,7 @@ Selon le rapport <i>Playing for the Planet</i> (voir à la page 21), toutes les 
 -> quiz_3_3_question_1
 
 = quiz_3_3_question_2
-2 - Avec tout ça, il est à se demander si les acteurs des milieux des jeux vidéo prenaient en compte les impacts environnementaux des jeux vidéo?
+2 - Avec tout ça, il est à se demander si les acteurs des milieux des jeux vidéo prenaient en compte les impacts environnementaux des jeux vidéo ? # question index=2
 *  (3_3_2_a) [BON--{3_3_2_a: VISITE--}Oui] Oui
 L’initiative <i>Playing for the Planet</i> a été lancée par le programme des Nations Unies pour l’environnement en 2019. En consultant leur rapport, on peut s’apercevoir que cette institution avait réussi à regrouper certains acteurs majeurs du secteur des jeux vidéo (voir à la page 4). Ces acteurs n’étaient donc pas indifférents aux problématiques environnementales. # retroaction
 -> quiz_3_3_question_3
@@ -312,7 +312,7 @@ L’initiative <i>Playing for the Planet</i> a été lancée par le programme de
 -> quiz_3_3_question_2
 
 =quiz_3_3_question_3
-3 - Je vais aller fouiller davantage sur l'initiative <i>Playing for the Planet</i>. Je me demande si elle comptait plusieurs centaines d’acteurs de l’industrie des jeux vidéo parmi ses membres.
+3 - Je vais aller fouiller davantage sur l'initiative <i>Playing for the Planet</i>. Je me demande si elle comptait plusieurs centaines d’acteurs de l’industrie des jeux vidéo parmi ses membres. # question index=3
 *  (3_3_3_a) [{3_3_3_a: VISITE--}Vrai] Vrai
 *  (3_3_3_b) [BON--{3_3_3_b: VISITE--}Faux] Faux
 Malheureusement l’initiative <i>Playing for the Planet</i> ne comptait qu’environ une trentaine de membres et leur participation était à géométrie variable… Selon le rapport annuel de 2020, tous les membres n’avaient pas communiqué pour cette année leurs accomplissements en matière environnementale (voir à la page 23 du rapport annuel). Par contre, toujours selon ce rapport, les membres de cette initiative pouvaient toucher jusqu’à 1,2 milliard de joueurs à travers le monde. # retroaction
@@ -321,7 +321,7 @@ Malheureusement l’initiative <i>Playing for the Planet</i> ne comptait qu’en
 -> quiz_3_3_question_3
 
  =quiz_3_3_question_4
-4 - Mais alors, est- ce que tous les acteurs du milieu des jeux vidéo impliqués dans l'initiative <i>Playing for the Planet</i> se sont fixé des objectifs de réduction des gaz à effet de serre?
+4 - Mais alors, est- ce que tous les acteurs du milieu des jeux vidéo impliqués dans l'initiative <i>Playing for the Planet</i> se sont fixé des objectifs de réduction des gaz à effet de serre ? # question index=4
 *  (3_3_4_a) [{3_3_4_a: VISITE--}Oui] Oui
 *  (3_3_4_b) [BON--{3_3_4_b: VISITE--}Non] Non
 Selon ce même rapport annuel, tous les membres ne se sont pas fixé d'objectifs de réduction des gaz à effet de serre (voir aux pages 23 et suivantes). Néanmoins, huit membres s’étaient engagés à le faire en 2021 (en plus des membres disposant déjà de cibles). # retroaction
@@ -330,7 +330,7 @@ Selon ce même rapport annuel, tous les membres ne se sont pas fixé d'objectifs
 -> quiz_3_3_question_4
 
 = quiz_3_3_question_5
-5 - Je suis curieuse de savoir quel acteur de l’industrie des jeux vidéo s'était engagé à réduire ses émissions de gaz à effet de serre dans le cadre de l’initiative <i>Playing for the Planet</i>?
+5 - Je suis curieuse de savoir quel acteur de l’industrie des jeux vidéo s'était engagé à réduire ses émissions de gaz à effet de serre dans le cadre de l’initiative <i>Playing for the Planet</i> ? # question index=5
 +   (3_3_5_a) [{3_3_5_a: VISITE--}Pixelberry] Pixelberry
 +   (3_3_5_b) [{3_3_5_b: VISITE--}Niantic] Niantic
 +   (3_3_5_c) [BON--{3_3_5_c: VISITE--}Supercell] Supercell
@@ -341,7 +341,7 @@ Selon le rapport, la compagnie Supercell s’était engagée à réduire ses ém
 -> quiz_3_3_question_5
 
 = quiz_3_3_question_6
-6 - Bon, tous les membres de l'initiative <i>Playing for the Planet</i> ne se sont pas fixé des objectifs de réduction des gaz à effet de serre, mais est-ce qu’ils avaient l'obligation d'adopter de telles mesures?
+6 - Bon, tous les membres de l'initiative <i>Playing for the Planet</i> ne se sont pas fixé des objectifs de réduction des gaz à effet de serre, mais est-ce qu’ils avaient l'obligation d'adopter de telles mesures ? # question index=6
 *  (3_3_6_a) [{3_3_6_a: VISITE--}Vrai] Vrai
 *  (3_3_6_b) [BON--{3_3_6_b: VISITE--}Faux] Faux
  Selon le document, les membres se sont fixé des : « voluntary, specific, time-based and increasingly ambitious commitments for both people and planet » (voir à la page 5). Les membres n’avaient donc pas d’obligations spécifiques… Mais ils étaient encouragés à adopter des cibles et des stratégies en faveur de l’environnement. # retroaction
@@ -350,7 +350,7 @@ Selon le rapport, la compagnie Supercell s’était engagée à réduire ses ém
 -> quiz_3_3_question_6
 
 = quiz_3_3_question_7
-7 - Pas d’obligations… Mais est-ce que certains jeux vidéo ont par le passé permis de financer des actions de protection de l’environnement?
+7 - Pas d’obligations… Mais est-ce que certains jeux vidéo ont par le passé permis de financer des actions de protection de l’environnement ? # question index=7
 *  (3_3_7_a) [BON--{3_3_7_a: VISITE--}Vrai] Vrai
 Selon l’initiative <i>Playing for the Planet</i>, il faut croire que les jeux vidéo avaient permis de lever des fonds pour la protection de l’environnement. C’était le cas du jeu Pokémon Go par exemple (voir à la page 12). # retroaction
 -> quiz_3_3_question_8
@@ -359,7 +359,7 @@ Selon l’initiative <i>Playing for the Planet</i>, il faut croire que les jeux 
 -> quiz_3_3_question_7
 
 = quiz_3_3_question_8
-8 - Il semble qu’un événement avait été organisé à l’initiative de <i>Playing for the Planet</i> en 2019 afin de mobiliser le potentiel des jeux vidéo pour la protection de l’environnement… Quel type d'événement était-ce?
+8 - Il semble qu’un événement avait été organisé à l’initiative de <i>Playing for the Planet</i> en 2019 afin de mobiliser le potentiel des jeux vidéo pour la protection de l’environnement… Quel type d'événement était-ce ? # question index=8
 +   (3_3_8_a) [{3_3_8_a: VISITE--}Une journée mondiale sans jeux vidéo] Une journée mondiale sans jeux vidéo
 +   (3_3_8_b) [BON--{3_3_8_b: VISITE--}Un Game Jam] Un Game Jam
 Selon le document, un Game Jam a été organisé (voir les pages 15 et 16). Un Game Jam est un événement au cours duquel les participants sont invités à créer un prototype de jeu, parfois en lien avec un thème donné. Parmi les thèmes de ce Game Jam figuraient les changements climatiques, la reforestation et les énergies renouvelables. # retroaction
@@ -370,7 +370,7 @@ Selon le document, un Game Jam a été organisé (voir les pages 15 et 16). Un G
 -> quiz_3_3_question_8
 
 = quiz_3_3_question_9
-9 - Je devrais vérifier la posture des acteurs sur ce sujet. Est-il possible, selon, l'initiative <i>Playing for the Planet</i>, de contribuer à la protection de l'environnement en produisant des jeux?
+9 - Je devrais vérifier la posture des acteurs sur ce sujet. Est-il possible, selon, l'initiative <i>Playing for the Planet</i>, de contribuer à la protection de l'environnement en produisant des jeux ? # question index=9
 *  (3_3_9_a) [BON--{3_3_9_a: VISITE--}Vrai] Vrai
  Selon <i>Playing for the Planet</i>, il était possible de contribuer à la protection de l’environnement grâce au contenu même des jeux vidéo (voir les pages 11 à 17). Les jeux vidéo racontaient des histoires, comportaient des personnages et proposaient des perspectives variées. En ce sens, les jeux vidéo pouvaient d’après eux véhiculer des messages en lien avec la protection de l’environnement et pouvaient potentiellement encourager des changements. # retroaction
 -> quiz_3_3_fin
