@@ -22,7 +22,7 @@ Bonnie: Mais quoi encore? Et moi, quand est-ce que je pourrai quitter cette orga
 
 Fred: D’abord, vous allez me dire quels sont les dangers qui vous menacent, qui menacent votre frère et qui me menacent, moi, si nous quittons. Christopher et ses amis me semblent assez inoffensifs. # character=FRED_GALLANT invisible
 
-Bonnie: Il ne s’agit pas de cela. # character=BONNIE_RANDLE_V2 expression=neutral 
+Bonnie: Il ne s’agit pas de cela. # character=BONNIE_RANDLE_V2 expression=neutral
 
 Fred: Il s’agit de quoi? # character=FRED_GALLANT invisible
 
@@ -104,7 +104,7 @@ Fred: Pour cela, il faut me dire tout ce que vous savez. Chaque détail compte e
 
 Bonnie: Très bien. Très bien. # character=BONNIE_RANDLE_V2 expression=melancholy
 
-- Bonnie: Je voulais me venger parce que John menaçait de dire à mon père que je jouais. Il disait que c’était pour mon bien. John respecte Christopher parce qu’ils ont déjà sauvé une personne de la noyade ensemble, ce sont des amis d’enfance, vous comprenez? # character=BONNIE_RANDLE_V2 expression=melancholy 
+- Bonnie: Je voulais me venger parce que John menaçait de dire à mon père que je jouais. Il disait que c’était pour mon bien. John respecte Christopher parce qu’ils ont déjà sauvé une personne de la noyade ensemble, ce sont des amis d’enfance, vous comprenez? # character=BONNIE_RANDLE_V2 expression=melancholy
 
 Bonnie: Mais depuis quelques années, il a vraiment pris la décision de lutter contre les jeux vidéo et il ne voit plus Christopher que de loin en loin. Ils se respecteront toujours, mais ils ne sont plus très proches. # character=BONNIE_RANDLE_V2 expression=melancholy
 
@@ -118,9 +118,9 @@ Bonnie: Je vais lui en parler. # character=BONNIE_RANDLE_V2 expression=sterness
 
 Fred: Bon. Mais ça ne règle pas le problème. Je dois rencontrer Teacher. Ensuite, je m’organiserai. Finissez de vider votre sac. # character=FRED_GALLANT invisible
 
-Bonnie: Tout le monde connaît Teacher. C’est juste qu’il a quitté notre faction pour une autre, celle de la rue Flemming. Alors, un soir, pour faire peur à John, pour l’empêcher de parler, je suis allée avec Teacher en lui faisant croire que je passais dans l’autre camp moi aussi. # character=BONNIE_RANDLE_V2 expression=sterness 
+Bonnie: Tout le monde connaît Teacher. C’est juste qu’il a quitté notre faction pour une autre, celle de la rue Flemming. Alors, un soir, pour faire peur à John, pour l’empêcher de parler, je suis allée avec Teacher en lui faisant croire que je passais dans l’autre camp moi aussi. # character=BONNIE_RANDLE_V2 expression=sterness
 
-Bonnie: Je ne sais pas où en est Teacher avec eux. Je ne sais pas s’il sait quelque chose, s’il peut vous aider. Je ne sais rien. Je sais juste que ce soir-là, j’ai entendu des conversations à propos de la dépendance aux jeux et je n’ai pas aimé. # character=BONNIE_RANDLE_V2 expression=sterness 
+Bonnie: Je ne sais pas où en est Teacher avec eux. Je ne sais pas s’il sait quelque chose, s’il peut vous aider. Je ne sais rien. Je sais juste que ce soir-là, j’ai entendu des conversations à propos de la dépendance aux jeux et je n’ai pas aimé. # character=BONNIE_RANDLE_V2 expression=sterness
 
 Bonnie: J’ai décidé d’arrêter. Mais j’étais coincée parce qu’eux, ils ne rigolent pas. Ils risquent gros. Ils ont tous de doubles vies. On ne peut pas juste quitter l’organisation. Ils vont nous empêcher de parler. # character=BONNIE_RANDLE_V2 expression=sterness
 
@@ -252,7 +252,7 @@ Fred: Oui, enfin j’étudie encore. Je m’intéresse à vos modes de productio
 
 Teacher: Code de conduite? # character=TEACHER_V1 expression=concern
 
-*<b>Fred</b> affirme qu’elle est étudiante en sociologie pour poursuivre le même mensonge qu’elle a déjà dit à Christopher.  
+*<b>Fred</b> affirme qu’elle est étudiante en sociologie pour poursuivre le même mensonge qu’elle a déjà dit à Christopher.
 
 Fred: Non, j’étudie en sociologie. # character=FRED_GALLANT invisible
 
@@ -262,13 +262,13 @@ Fred: Écoute, je m’intéresse à vos modes de production. Ils ont beau être 
 
 Teacher: Code de conduite? # character=TEACHER_V1 expression=concern
 
-*<b>Fred</b> esquive la question le plus possible, car elle en a marre de mentir et craint de se mélanger dans ses histoires. 
+*<b>Fred</b> esquive la question le plus possible, car elle en a marre de mentir et craint de se mélanger dans ses histoires.
 
 Fred: Non, pas exactement. Écoute, je m’intéresse à vos modes de production. Ils ont beau être clandestins, vous devez suivre un certain… # character=FRED_GALLANT invisible
 
 Teacher: Code de conduite? # character=TEACHER_V1 expression=concern
 
-*<b>Fred</b> affirme qu’elle est juriste et se lance dans un mensonge élaboré. 
+*<b>Fred</b> affirme qu’elle est juriste et se lance dans un mensonge élaboré.
 
 Fred: Non. Juriste. # character=FRED_GALLANT invisible
 
@@ -298,7 +298,7 @@ Fred: Ça veut dire que je tenais à te rencontrer. # character=FRED_GALLANT inv
 
 Teacher: Écoute, je te dis que tu es aussi coupable. Qu’est-ce que tu veux au juste? # character=TEACHER_V1 expression=anger
 
-Fred: Je veux connaître ceux qui sont responsables de la conception de ce jeu parce que je veux contribuer. Je veux participer. Je m’intéresse à leurs droits. # character=FRED_GALLANT invisible 
+Fred: Je veux connaître ceux qui sont responsables de la conception de ce jeu parce que je veux contribuer. Je veux participer. Je m’intéresse à leurs droits. # character=FRED_GALLANT invisible
 
 Teacher: Quoi? Droit de quoi? Tu n’es pas au courant, c’est le marché noir. Tu viens de devenir une criminelle. Tu comprends? Y’a pas de droit à défendre! Tu penses que ces gens ne sont pas au courant de leurs intérêts? Tu te prends pour une sauveuse? C’est quoi ton idée? # character=TEACHER_V1 expression=concern
 
@@ -310,7 +310,7 @@ Teacher: Quel message? # character=TEACHER_V1 expression=neutral
 
 <b>Fred</b> griffonne sur un bout de papier.
 
-Message de <b>Fred</b> : <i>Je peux vous aider à protéger vos jeux. Vous devriez avoir des droits d’auteurs sur ces jeux. Même le marché noir devrait respecter la propriété intellectuelle et se préparer à un retour de la légalité. Contactez-moi si ça vous intéresse de savoir comment. </br> twitter.com@Fredgallant47</i>
+Message de <b>Fred</b> : <i>Je peux vous aider à protéger vos jeux. Vous devriez avoir des droits d’auteurs sur ces jeux. Même le marché noir devrait respecter la propriété intellectuelle et se préparer à un retour de la légalité. Contactez-moi si ça vous intéresse de savoir comment. <br/> twitter.com@Fredgallant47</i>
 
 ~ajouter_contact(TEACHER_V2)
 ~cacher_tout_personnages()
@@ -320,16 +320,16 @@ Message de <b>Fred</b> : <i>Je peux vous aider à protéger vos jeux. Vous devri
 ~afficher_fond(maison_fred)
 ~jouer_musique(theme_general)
 <b>Fred</b> reçoit un message sur son compte twitter.
-<i>Hey la justicière. Amène-toi demain 9h, 5567 rue Flemming. </br> Pas un mot à personne.</i>
+<i>Hey la justicière. Amène-toi demain 9h, 5567 rue Flemming. <br/> Pas un mot à personne.</i>
 
-Le lendemain, à l’heure convenue, <b>Fred</b> se présente au 5567 rue Flemming. 
+Le lendemain, à l’heure convenue, <b>Fred</b> se présente au 5567 rue Flemming.
 
 ~jouer_effet_sonore(cogner_porte)
 ~afficher_personnage(BORIS, "fadeIn")
 
 Homme: Entre. # character=BORIS expression=neutral
 
-<b>Fred</b> entre et voit rapidement que la maison est déserte à part l’homme qui lui a ouvert la porte. 
+<b>Fred</b> entre et voit rapidement que la maison est déserte à part l’homme qui lui a ouvert la porte.
 
 Boris: Je m’appelle Boris. Toi, c’est Fred? # character=BORIS expression=neutral
 
@@ -346,7 +346,7 @@ Boris: Voici l’adresse des deux concepteurs. <b>CHRISTIAN</b> et <b>JONATHAN</
 Fred: Anciens amis? # character=FRED_GALLANT invisible
 
 Boris: Je te laisse faire ta propre enquête. Ils ont conçu le jeu ensemble. Enfin, en partie. C’est à toi de voir ce qu’il faut faire. Je te confie des informations de base pour commencer ton enquête. # character=BORIS expression=neutral
- 
+
 Fred: Je m’en occupe. # character=FRED_GALLANT invisible
 
 ~ajouter_contact(BORIS)
@@ -377,18 +377,18 @@ TODO: Description document
 2- Mais cette agentivité, s’agissait-il d’une caractéristique que l'on ne retrouvait que dans les jeux vidéo ? # question index=2
 +  (4_1_2_a) [{4_1_2_a: VISITE--}Oui] Oui
 +  (4_1_2_b) [BON--{4_1_2_b: VISITE--}Non] Non
-  Non, je sais qu’il y a eu des exemples de vidéos interactives par le passé. Un certain <i>Bandersnatch</i> notamment… </br>En principe, qu’il s’agisse d’un film ou d’un jeu vidéo, le spectateur et le joueur étaient contraints par ce que le créateur avait prévu. Néanmoins, des aspects de certains jeux étaient parfois générés aléatoirement… Voilà une variable qui pouvait influencer l’agentivité. Le cas de <i>No Man Sky</i> par exemple. # retroaction
+  Non, je sais qu’il y a eu des exemples de vidéos interactives par le passé. Un certain <i>Bandersnatch</i> notamment… <br/>En principe, qu’il s’agisse d’un film ou d’un jeu vidéo, le spectateur et le joueur étaient contraints par ce que le créateur avait prévu. Néanmoins, des aspects de certains jeux étaient parfois générés aléatoirement… Voilà une variable qui pouvait influencer l’agentivité. Le cas de <i>No Man Sky</i> par exemple. # retroaction
 -> quiz_4_1_question_3
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_4_1_question_2
 
 = quiz_4_1_question_3
 3- Un jeu vidéo comprenait de nombreux éléments. Je me demande comment on pouvait qualifier le type d'œuvre dont il s’agissait ? # question index=3
-+   (4_1_3_a) [BON--{4_1_3_a: VISITE--}Une œuvre composite] Une œuvre composite 
++   (4_1_3_a) [BON--{4_1_3_a: VISITE--}Une œuvre composite] Une œuvre composite
  Les jeux vidéo n’étaient définitivement pas des œuvres unidimensionnelles. En effet, ils comprenaient différents éléments visuels et sonores. Qui dit différents éléments visuels et sonores dit potentiellement différents auteurs... Cela devait engendrer une grande complexité pour déterminer les auteurs et les propriétaires de l’œuvre finale. De plus, qui dit diversité d’éléments dit plusieurs outils différents pour les protéger. Quelle galère! # retroaction
 ->quiz_4_1_question_4
 +   (4_1_3_b) [{4_1_3_b: VISITE--}Une œuvre complexe] Une œuvre complexe
-+   (4_1_3_c) [{4_1_3_c: VISITE--}Une œuvre diversifiée] Une œuvre diversifiée 
++   (4_1_3_c) [{4_1_3_c: VISITE--}Une œuvre diversifiée] Une œuvre diversifiée
 +   (4_1_3_d) [{4_1_3_d: VISITE--}Une œuvre multiple] Une œuvre multiple
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_4_1_question_3
@@ -397,7 +397,7 @@ TODO: Description document
 4- Commençons par le commencement… Quel est l'outil qui permettait de protéger des phrases d’accroche (catch-phrases) associées à un jeu vidéo ? # question index=4
 +   (4_1_4_a) [{4_1_4_a: VISITE--}Le droit d’auteur] Le droit d’auteur
 +   (4_1_4_b) [{4_1_4_b: VISITE--}Le secret industriel] Le secret industriel
-+   (4_1_4_c) [BON--{4_1_4_c: VISITE--}Les marques] Les marques 
++   (4_1_4_c) [BON--{4_1_4_c: VISITE--}Les marques] Les marques
 Les phrases d’accroche sont des éléments distinctifs qui permettent d’identifier très rapidement un jeu vidéo. Elles pouvaient être protégées très efficacement sous forme de marques. De plus, les marques pouvaient être protégées indéfiniment pourvu qu’elles soient renouvelées régulièrement. # retroaction
 -> quiz_4_1_question_5
 +   (4_1_4_d) [{4_1_4_d: VISITE--}Les brevets] Les brevets
@@ -411,7 +411,7 @@ Les phrases d’accroche sont des éléments distinctifs qui permettent d’iden
 +   (4_1_5_b) [BON--{4_1_5_b: VISITE--}Le secret industriel] Le secret industriel
 Il s’agissait de données très sensibles et stratégiques d’un point de vue commercial. Les jeux vidéo ne sont ni d’une œuvre de l’esprit, ni d’innovations technologiques. Il n’y avait pas vraiment d’autre moyen que de protéger une liste comme celle-ci que par le secret industriel. # retroaction
 -> quiz_4_1_question_6
-+   (4_1_5_c) [{4_1_5_c: VISITE--}Les marques] Les marques 
++   (4_1_5_c) [{4_1_5_c: VISITE--}Les marques] Les marques
 +   (4_1_5_d) [{4_1_5_d: VISITE--}Les brevets] Les brevets
 +   (4_1_5_e) [{4_1_5_e: VISITE--}Aucune de ces réponses] Aucune de ces réponses
 - ~ generer_mauvaise_reponse_retroaction()
@@ -421,7 +421,7 @@ Il s’agissait de données très sensibles et stratégiques d’un point de vue
 6- Pour ce qui est de l’expérience de jeu, quel outil permettait de protéger des éléments innovants de gameplay ? # question index=6
 +   (4_1_6_a) [{4_1_6_a: VISITE--}Le droit d’auteur] Le droit d’auteur
 +   (4_1_6_b) [{4_1_6_b: VISITE--}Le secret industriel] Le secret industriel
-+   (4_1_6_c) [{4_1_6_c: VISITE--}Les marques] Les marques 
++   (4_1_6_c) [{4_1_6_c: VISITE--}Les marques] Les marques
 +   (4_1_6_d) [BON--{4_1_6_d: VISITE--}Les brevets] Les brevets
 Il s’agissait ici d’innovations technologiques (pouvant être virtuelles ou matérielles). Dans ce cas, les brevets protégeant les inventions étaient l’outil le plus répandu, même si la durée était limitée dans le temps (en général 20 ans). Mais cela semblait peu important dans ce domaine… La technologie évoluait très rapidement et certaines innovations pouvaient très  vite se retrouver obsolètes. # retroaction
 -> quiz_4_1_fin
@@ -458,7 +458,7 @@ Jonathan: Christian était mon ami, avant. # character=JONATHAN expression=dejec
 
 Fred: Depuis longtemps? # character=FRED_GALLANT invisible
 
-Jonathan: Depuis toujours. Nos parents étaient amis. On habitait le même quartier. On allait à la même école. On avait les mêmes goûts. # character=JONATHAN expression=dejection 
+Jonathan: Depuis toujours. Nos parents étaient amis. On habitait le même quartier. On allait à la même école. On avait les mêmes goûts. # character=JONATHAN expression=dejection
 
 Fred: Comment êtes-vous devenus concepteurs de jeux vidéo? Vous êtes trop jeunes pour l’avoir appris légalement… # character=FRED_GALLANT invisible
 
@@ -542,7 +542,7 @@ Jonathan: J’ai droit à la moitié. C’est ça la solution. # character=JONAT
 
 Fred: Je vous remercie de m’avoir raconté. Je vous tiens au courant rapidement. # character=FRED_GALLANT invisible
 
-<b>Jonathan</b> donne des documents à <b>Fred</b>. 
+<b>Jonathan</b> donne des documents à <b>Fred</b>.
 TODO confirmer ce que sont ces documents	Bestiaire de Jonathan (liste) au moment de la rupture de l’amitié; Photos de leur amitié passée et traces de leur travail commun sur ce projet
 ~cacher_tout_personnages()
 ~afficher_fond(bureau_fred)
@@ -586,13 +586,13 @@ Fred: Ça pourrait m’aider de le savoir. # character=FRED_GALLANT invisible
 
 Boris: Non, pas maintenant. # character=BORIS expression=sterness
 
-Fred: Bon. Christian m’a remis son journal de bord de la conception du jeu. Il dure longtemps après leur différend. Mais Jonathan m’a donné le script où il en était ce soir-là, avec leurs deux noms dessus. C’est Christian qui s’occupait de l’environnement et Jonathan des personnages. Ils écrivaient l’histoire ensemble. # character=FRED_GALLANT invisible 
+Fred: Bon. Christian m’a remis son journal de bord de la conception du jeu. Il dure longtemps après leur différend. Mais Jonathan m’a donné le script où il en était ce soir-là, avec leurs deux noms dessus. C’est Christian qui s’occupait de l’environnement et Jonathan des personnages. Ils écrivaient l’histoire ensemble. # character=FRED_GALLANT invisible
 
 Fred: Il y a des traces du travail de Jonathan, des dessins, des animations. Mais Christian dit qu’il n’a jamais insulté le travail de Jonathan. Il dit que Jonathan a inventé ça parce qu’il était bloqué et que son manque d’inspiration l’humiliait trop pour l’admettre. Le spoiler, c’était un prétexte. Il devait mettre un terme à leur entente. # character=FRED_GALLANT invisible
 
 Boris: Alors, il a des droits Jonathan, oui ou non? # character=BORIS expression=wtf
 
-Fred: J’examine tout ça. Il y a des bêtes qui semblent avoir été créées par Christian dans son journal de bord, mais elles ressemblent très fortement à des croquis de Jonathan qui sont datés et qui faisaient partie du prototype. # character=FRED_GALLANT invisible 
+Fred: J’examine tout ça. Il y a des bêtes qui semblent avoir été créées par Christian dans son journal de bord, mais elles ressemblent très fortement à des croquis de Jonathan qui sont datés et qui faisaient partie du prototype. # character=FRED_GALLANT invisible
 
 Boris: Bon. # character=BORIS expression=neutral
 
@@ -601,7 +601,7 @@ Fred: Je te donne des nouvelles. # character=FRED_GALLANT invisible
 Boris: Parfait. # character=BORIS expression=satisfaction
 ~cacher_tout_personnages()
 ~afficher_fond(voiture_fred)
-<b>Fred</b> retourne à sa voiture. 
+<b>Fred</b> retourne à sa voiture.
 ~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
@@ -652,7 +652,7 @@ Il s'agit de la bonne réponse. # retroaction
 +   (4_2_3_b) [BON--{4_2_3_b: VISITE--}toute œuvre littéraire, dramatique, musicale ou artistique originale] toute œuvre littéraire, dramatique, musicale ou artistique originale
 La Loi sur le droit d’auteur protégeait les jeux vidéo comme œuvre littéraire, dramatique, musicale ou artistique originale. Cette définition était si large qu’elle pouvait inclure les jeux vidéo sans qu’il soit nécessaire que ceux-ci soient explicitement mentionnés. Comme quoi, le droit était bien fait ! Même sans mention, les jeux vidéo étaient protégés. # retroaction
 -> quiz_4_2_question_4
-+   (4_2_3_c) [{4_2_3_c: VISITE--}toute œuvre] toute œuvre  
++   (4_2_3_c) [{4_2_3_c: VISITE--}toute œuvre] toute œuvre
 +   (4_2_3_d) [{4_2_3_d: VISITE--}Aucune de ces propositions] Aucune de ces propositions
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_4_2_question_3
@@ -704,14 +704,14 @@ Les jeux vidéo étaient le résultat de la combinaison de plusieurs éléments 
 =scene_7
 ~jouer_musique(theme_choix_cruciaux)
 
-* Vous penchez pour la solution suivante : Jonathan a des droits sur le jeu, malgré son départ hâtif et sa non-implication la dernière année. 
+* Vous penchez pour la solution suivante : Jonathan a des droits sur le jeu, malgré son départ hâtif et sa non-implication la dernière année.
 ~ points_fin_3 += 1
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
 ~afficher_personnage(JONATHAN, "slideInLeft")
 ~afficher_personnage(BORIS, "slideInUp")
 ~afficher_personnage(CHRISTIAN, "slideInRight")
-<b>Jonathan</b>, <b>Boris</b>, et <b>Christian</b> sont présents et attendent de voir ce que dira <b>Fred</b>. 
+<b>Jonathan</b>, <b>Boris</b>, et <b>Christian</b> sont présents et attendent de voir ce que dira <b>Fred</b>.
 
 Fred: Merci à tous d’être là. J’ai examiné le cas et j’ai déterminé que Jonathan a des droits sur le jeu. La jurisprudence indique que pour qu’il perde ses droits, il aurait fallu qu’il renonce à ses droits par écrit, ce qu’il n’a pas fait. # character=FRED_GALLANT invisible
 
@@ -721,7 +721,7 @@ Fred: Jonathan et Christian sont tous les deux les concepteurs du jeu. Maintenan
 
 Jonathan: Je sais que je n’y ai pas travaillé depuis un an. # character=JONATHAN expression=sterness
 
-Christian: Je suis désolé, vieux. # character=CHRISTIAN expression=melancholy 
+Christian: Je suis désolé, vieux. # character=CHRISTIAN expression=melancholy
 
 Jonathan: Ouais, maintenant que tu as perdu. # character=JONATHAN expression=disdain
 
@@ -748,7 +748,7 @@ Boris: Excellent. # character=BORIS expression=satisfaction
 Fred: Alors, c’est quoi l’événement? # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
 
-* Vous choisissez plutôt de n’accorder aucun droit de propriété intellectuelle à Jonathan parce que le travail de Christian a continué pendant l’année et le jeu a beaucoup évolué. 
+* Vous choisissez plutôt de n’accorder aucun droit de propriété intellectuelle à Jonathan parce que le travail de Christian a continué pendant l’année et le jeu a beaucoup évolué.
 ~ points_fin_4 += 1
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
@@ -779,7 +779,7 @@ Fred: Je vous en prie, gardez votre calme. # character=FRED_GALLANT invisible
 
 Jonathan: Je n’ai pas de leçons à recevoir de toi. # character=JONATHAN expression=sterness
 
-<b>Jonathan</b> quitte la maison. 
+<b>Jonathan</b> quitte la maison.
 
 Boris: On souhaitait un arrangement. Pas une aggravation. # character=BORIS expression=sterness
 

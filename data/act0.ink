@@ -125,7 +125,7 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond(ouverture_dossier_kane)
-    <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
+    <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. <br/> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
     ~ ajouter_contact(LEIGH_KANE)
     ~ afficher_fond(bureau_fred)
     ~ jouer_musique(theme_fred)
@@ -141,7 +141,7 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond (ouverture_dossier_kane)
-     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
+     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. <br/> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
     ~ ajouter_contact(LEIGH_KANE)
     ~ afficher_fond(bureau_fred)
     ~ jouer_musique(theme_fred)
@@ -155,7 +155,7 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond (ouverture_dossier_kane)
-     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. </br> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
+     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. <br/> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
      ~ ajouter_contact(LEIGH_KANE)
      ~ afficher_fond(bureau_fred)
      ~ jouer_musique(theme_fred)
