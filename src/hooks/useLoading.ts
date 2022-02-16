@@ -4,7 +4,7 @@ import { useLazyAssetLoading } from './useLazyAssetLoading';
 // Keep this in memory to prevent the window from dumping the images we preloaded
 const imageReferences: Record<string, HTMLImageElement> = {};
 
-const maxConcurrentLoading = 10;
+const maxConcurrentLoading = 20;
 
 export const usePreloader = (imagePaths: string[]): [boolean, number] => {
   const [loadedIndicators, setLoadedIndicators] = useState<Record<string, boolean>>({});
