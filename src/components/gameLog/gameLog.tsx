@@ -15,6 +15,7 @@ export interface GameLogProps {
   closeGameLog: () => void;
   gameLog: SceneState[];
   playClickSound: () => void;
+  onButtonHover: () => void;
 }
 
 export const GameLog: React.FunctionComponent<GameLogProps> = ({
@@ -22,6 +23,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
   closeGameLog,
   gameLog,
   playClickSound,
+  onButtonHover,
 }) => {
   const focusRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -70,6 +72,7 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
               playClickSound();
               closeGameLog();
             }}
+            onButtonHover={onButtonHover}
           >
             <div ref={focusRef}>
               {gameLog.map((el, index) => {

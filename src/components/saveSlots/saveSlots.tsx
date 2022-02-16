@@ -17,6 +17,7 @@ export interface SaveSlotsProps {
   saveSlots: SaveSlot[];
   onSaveClick: (slot: SaveSlot) => Promise<void>;
   playClickSound: () => void;
+  onButtonHover: () => void;
 }
 
 export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
@@ -26,6 +27,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
   saveSlots,
   onSaveClick,
   playClickSound,
+  onButtonHover,
 }) => {
   const [t] = useTranslation();
 
@@ -111,6 +113,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
               playClickSound();
               closeSaveSlots();
             }}
+            onButtonHover={onButtonHover}
             ref={focusRef}
           >
             <div

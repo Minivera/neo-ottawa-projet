@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { useState, FunctionComponent } from 'react';
 import { jsx, css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
@@ -117,15 +117,17 @@ export interface GameMenuProps {
   onSaveClick: () => void;
   showPDA?: boolean;
   playClickSound: () => void;
+  onButtonHover: () => void;
 }
 
-export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
+export const GameMenu: FunctionComponent<GameMenuProps> = ({
   onPDAClick,
   onSettingsClick,
   onGameLogClick,
   onSaveClick,
   showPDA,
   playClickSound,
+  onButtonHover,
 }) => {
   const [t] = useTranslation();
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -167,6 +169,8 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
                 onPDAClick();
               }
             }}
+            onMouseEnter={onButtonHover}
+            onFocus={onButtonHover}
             tabIndex={0}
           >
             <PDAIcon />
@@ -181,6 +185,8 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
               onSettingsClick();
             }
           }}
+          onMouseEnter={onButtonHover}
+          onFocus={onButtonHover}
           tabIndex={0}
         >
           <SettingsIcon />
@@ -194,6 +200,8 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
               onGameLogClick();
             }
           }}
+          onMouseEnter={onButtonHover}
+          onFocus={onButtonHover}
           tabIndex={0}
         >
           <GameLogIcon />
@@ -207,6 +215,8 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
               onSaveClick();
             }
           }}
+          onMouseEnter={onButtonHover}
+          onFocus={onButtonHover}
           tabIndex={0}
         >
           <SaveIcon />
@@ -224,6 +234,8 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
               setOpen(!open);
             }
           }}
+          onMouseEnter={onButtonHover}
+          onFocus={onButtonHover}
           tabIndex={0}
           open={open}
         >

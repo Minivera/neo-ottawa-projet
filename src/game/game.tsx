@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import html2canvas from 'html2canvas';
 import { Howl } from 'howler';
+import { throttle } from 'throttle-debounce';
 
 import { Scene, SceneState } from './scene';
 import { Choice } from './event';
@@ -31,9 +32,13 @@ import SaveIcon from '../assets/ui/icons/Sauvegarder.svg?component';
 import clickMetal from '../assets/sound/click-metal.mp3';
 import clickShimmer from '../assets/sound/click-shimmer.mp3';
 import pdaOpen from '../assets/sound/futuristic-login.mp3';
+import buttonBeep from '../assets/sound/beep-single.mp3';
 
 const clickSound = new Howl({
   src: [clickMetal],
+});
+const clickHover = new Howl({
+  src: [buttonBeep],
 });
 const pdaTabChangeSound = new Howl({
   src: [clickShimmer],
@@ -63,10 +68,19 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     () => setPDAOpened(true)
   );
 
+  const debouncedHover = useMemo<() => void>(
+    () =>
+      throttle(100, () => {
+        clickHover.play();
+      }),
+    []
+  );
+
   const handlePlaySoundEffect = (
-    effect: 'pdaOpen' | 'pdaClose' | 'pdaTabChange' | 'click'
+    effect: 'pdaOpen' | 'pdaClose' | 'pdaTabChange' | 'click' | 'hover'
   ) => {
     clickSound.volume(settings.settings.soundEffectsVolume / 100);
+    clickHover.volume((settings.settings.soundEffectsVolume * 0.25) / 100);
     pdaLoginSound.volume(settings.settings.soundEffectsVolume / 100);
     pdaTabChangeSound.volume(settings.settings.soundEffectsVolume / 100);
 
@@ -81,11 +95,14 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       case 'pdaClose':
         pdaLoginSound.play();
         break;
+      case 'pdaTabChange':
+        pdaTabChangeSound.play();
+        break;
       case 'click':
         clickSound.play();
         break;
-      case 'pdaTabChange':
-        pdaTabChangeSound.play();
+      case 'hover':
+        debouncedHover();
         break;
     }
   };
@@ -174,6 +191,8 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           <GameContainer>
             <MenuContainer>
               <BigButton
+                onMouseEnter={() => handlePlaySoundEffect('hover')}
+                onFocus={() => handlePlaySoundEffect('hover')}
                 onClick={() => {
                   handlePlaySoundEffect('click');
                   dispatch({ type: 'start' });
@@ -183,6 +202,8 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
                 {t('start_game')}
               </BigButton>
               <BigButton
+                onMouseEnter={() => handlePlaySoundEffect('hover')}
+                onFocus={() => handlePlaySoundEffect('hover')}
                 onClick={() => {
                   handlePlaySoundEffect('click');
                   setSavingOpened(true);
@@ -192,6 +213,8 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
                 {t('continue_game')}
               </BigButton>
               <BigButton
+                onMouseEnter={() => handlePlaySoundEffect('hover')}
+                onFocus={() => handlePlaySoundEffect('hover')}
                 onClick={() => {
                   handlePlaySoundEffect('click');
                   dispatchSettings({ type: 'open' });
@@ -205,6 +228,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           <Settings
             settings={settings}
             dispatch={dispatchSettings}
+            onButtonHover={() => handlePlaySoundEffect('hover')}
             playClickSound={() => handlePlaySoundEffect('click')}
           />
           <SaveSlots
@@ -213,6 +237,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
             opened={savingOpened}
             loading
             onSaveClick={onLoad}
+            onButtonHover={() => handlePlaySoundEffect('hover')}
             playClickSound={() => handlePlaySoundEffect('click')}
           />
         </React.Fragment>
@@ -259,6 +284,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
 
       const onPDAClosed = () => {
         sceneRef.current?.focus();
+        handlePlaySoundEffect('pdaClose');
         setPDAOpened(false);
       };
 
@@ -289,6 +315,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           <GameContainer animationSpeed={settings.settings.textAnimationSpeed}>
             <GameMenu
               showPDA={gameState.pda.enabled}
+              onButtonHover={() => handlePlaySoundEffect('hover')}
               onPDAClick={() => {
                 handlePlaySoundEffect('click');
                 handlePlaySoundEffect('pdaOpen');
@@ -366,12 +393,14 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               settings={settings}
               dispatch={dispatchSettings}
               playClickSound={() => handlePlaySoundEffect('click')}
+              onButtonHover={() => handlePlaySoundEffect('hover')}
             />
             <GameLog
               closeGameLog={() => setGameLogOpened(false)}
               gameLog={getGameLog(story)}
               opened={gameLogOpened}
               playClickSound={() => handlePlaySoundEffect('click')}
+              onButtonHover={() => handlePlaySoundEffect('hover')}
             />
             <SaveSlots
               closeSaveSlots={() => setSavingOpened(false)}
@@ -379,6 +408,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               opened={savingOpened}
               onSaveClick={onSave}
               playClickSound={() => handlePlaySoundEffect('click')}
+              onButtonHover={() => handlePlaySoundEffect('hover')}
             />
           </GameContainer>
         </React.Fragment>

@@ -11,12 +11,13 @@ import SaveSlotsIcon from '../../assets/ui/icons/Historique.svg?component';
 
 export interface SaveSlotsModalProps {
   onReturnClick: () => void;
+  onButtonHover: () => void;
 }
 
 export const SaveSlotsModal = forwardRef<
   HTMLDivElement,
   PropsWithChildren<SaveSlotsModalProps>
->(({ onReturnClick, children }, ref) => {
+>(({ onReturnClick, onButtonHover, children }, ref) => {
   const [t] = useTranslation();
 
   return (
@@ -148,6 +149,8 @@ export const SaveSlotsModal = forwardRef<
                 onReturnClick();
               }
             }}
+            onMouseOver={onButtonHover}
+            onFocus={onButtonHover}
             tabIndex={0}
             css={theme => css`
               display: flex;

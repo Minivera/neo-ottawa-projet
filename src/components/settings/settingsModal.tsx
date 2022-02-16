@@ -12,10 +12,12 @@ import SettingsIcon from '../../assets/ui/icons/Parametres.svg?component';
 
 export interface SettingsModalProps {
   onReturnClick: () => void;
+  onButtonHover: () => void;
 }
 
 export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
   onReturnClick,
+  onButtonHover,
   children,
 }) => {
   const [t] = useTranslation();
@@ -92,6 +94,8 @@ export const SettingsModals: FunctionComponent<SettingsModalProps> = ({
               onReturnClick();
             }
           }}
+          onMouseEnter={onButtonHover}
+          onFocus={onButtonHover}
           tabIndex={0}
           css={theme => css`
             grid-row: 1;

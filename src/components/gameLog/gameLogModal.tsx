@@ -11,10 +11,12 @@ import GameLogIcon from '../../assets/ui/icons/Historique.svg?component';
 
 export interface GameLogModalProps {
   onReturnClick: () => void;
+  onButtonHover: () => void;
 }
 
 export const GameLogModal: FunctionComponent<GameLogModalProps> = ({
   onReturnClick,
+  onButtonHover,
   children,
 }) => {
   const [t] = useTranslation();
@@ -122,6 +124,8 @@ export const GameLogModal: FunctionComponent<GameLogModalProps> = ({
               onReturnClick();
             }
           }}
+          onMouseOver={onButtonHover}
+          onFocus={onButtonHover}
           tabIndex={0}
           css={theme => css`
             grid-row: 1;

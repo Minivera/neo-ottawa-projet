@@ -42,12 +42,14 @@ export interface SettingsProps {
   settings: SettingsState;
   dispatch: Dispatch<SettingsAction>;
   playClickSound: () => void;
+  onButtonHover: () => void;
 }
 
 export const Settings: React.FunctionComponent<SettingsProps> = ({
   settings,
   dispatch,
   playClickSound,
+  onButtonHover,
 }) => {
   const [t] = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
@@ -133,6 +135,7 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
       >
         <AnimatedOpen open={settings.opened}>
           <SettingsModals
+            onButtonHover={onButtonHover}
             onReturnClick={() => {
               playClickSound();
               dispatch({ type: 'close' });
