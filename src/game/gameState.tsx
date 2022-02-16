@@ -460,6 +460,7 @@ export const useGame = (
     pdaBorderBotRight,
     pdaBorderTopLeft,
     ...Object.keys(backgrounds)
+      .filter(key => backgrounds[key].type === 'image')
       .map(key => backgrounds[key].asset)
       .flat(),
   ];
