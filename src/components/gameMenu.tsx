@@ -116,6 +116,7 @@ export interface GameMenuProps {
   onGameLogClick: () => void;
   onSaveClick: () => void;
   showPDA?: boolean;
+  playClickSound: () => void;
 }
 
 export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
@@ -124,6 +125,7 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
   onGameLogClick,
   onSaveClick,
   showPDA,
+  playClickSound,
 }) => {
   const [t] = useTranslation();
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -212,8 +214,12 @@ export const GameMenu: React.FunctionComponent<GameMenuProps> = ({
         </GameMenuLink>
         <MinimizeLink
           role="link"
-          onClick={() => setOpen(!open)}
+          onClick={() => {
+            playClickSound();
+            setOpen(!open);
+          }}
           onKeyPress={e => {
+            playClickSound();
             if (e.code === 'Enter') {
               setOpen(!open);
             }

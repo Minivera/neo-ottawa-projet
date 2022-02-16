@@ -306,6 +306,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
                 handlePlaySoundEffect('click');
                 setSavingOpened(true);
               }}
+              playClickSound={() => handlePlaySoundEffect('click')}
             />
             {settings.settings.textAnimationsEnabled ? (
               <SwitchTransition>
