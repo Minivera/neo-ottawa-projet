@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
@@ -68,13 +68,23 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     () => setPDAOpened(true)
   );
 
-  const debouncedHover = useMemo<() => void>(
-    () =>
-      throttle(100, () => {
-        clickHover.play();
-      }),
+  const debouncedHover = useCallback<() => void>(
+    throttle(100, () => {
+      clickHover.play();
+    }),
     []
   );
+  const debouncedDispatchContinue = useCallback<
+    throttle<(choiceId?: number) => void>
+  >(
+    throttle(300, (choiceId?: number) => {
+      dispatch({ type: 'continue', choiceId });
+    }),
+    []
+  );
+  useEffect(() => {
+    return () => debouncedDispatchContinue.cancel();
+  }, []);
 
   const handlePlaySoundEffect = (
     effect: 'pdaOpen' | 'pdaClose' | 'pdaTabChange' | 'click' | 'hover'
@@ -274,12 +284,12 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
         setTextLoading(null);
 
         handlePlaySoundEffect('click');
-        dispatch({ type: 'continue' });
+        debouncedDispatchContinue();
       };
 
       const onChoiceSelected = (choice: Choice) => {
         handlePlaySoundEffect('click');
-        dispatch({ type: 'continue', choiceId: choice.id });
+        debouncedDispatchContinue(choice.id);
       };
 
       const onPDAClosed = () => {
