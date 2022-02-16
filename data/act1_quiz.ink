@@ -2,9 +2,9 @@
 
 
 = quiz_1
-~ demarrer_quiz(QUIZ_1, 6)
 ~jouer_musique(theme_quiz)
 <b>Christopher</b> donne à <b>Fred</b> une liste de jeux interdits selon les pays en 2021.La liste est disponible dans le PDA. 
+~ demarrer_quiz(QUIZ_1, 6)
 ~ afficher_document(JEUX_INTERDITS_WIKIPEDIA)
 -> question_1
 

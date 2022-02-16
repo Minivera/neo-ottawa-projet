@@ -28,6 +28,7 @@ export interface PDAQuizTabProps {
   onTextLoadingEnd: () => void;
   onChoiceSelected: (choice: Choice) => void;
   skipAnimation?: boolean;
+  playClickSound: () => void;
 }
 
 export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
@@ -38,6 +39,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
   onTextLoadingEnd,
   onChoiceSelected,
   skipAnimation,
+  playClickSound,
 }) => {
   const [t] = useTranslation();
   const theme = useTheme();
@@ -140,7 +142,10 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
                     font-size: 1.6rem;
                   `}
                 >
-                  <PDFDownloadButton pdfPath={currentQuestion.document.path} />
+                  <PDFDownloadButton
+                    pdfPath={currentQuestion.document.path}
+                    playClickSound={playClickSound}
+                  />
                 </div>
               </div>
             )}
@@ -214,7 +219,10 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
               }
             `}
           >
-            <PDFReader pdfPath={currentQuestion.document.path} />
+            <PDFReader
+              pdfPath={currentQuestion.document.path}
+              playClickSound={playClickSound}
+            />
           </div>
         )}
       {currentQuestion.feedback && (

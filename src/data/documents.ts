@@ -1,5 +1,6 @@
 import { Document } from '../game/pda';
 
+import loiGameOver from '../assets/documents/loi-game-over.pdf';
 import jeuxInterditsList from '../assets/documents/jeux-interdits-wikipedia.pdf';
 import aboutERSB from '../assets/documents/about-esrb.pdf';
 import listeAnciensEmployes from '../assets/documents/liste-anciens-employes.pdf';
@@ -46,7 +47,7 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'LOI_GAME_OVER',
     name: 'document-name-loi-game-over',
     description: 'document-description-loi-game-over',
-    path: jeuxInterditsList,
+    path: loiGameOver,
   },
   JEUX_INTERDITS_WIKIPEDIA: {
     documentId: 'JEUX_INTERDITS_WIKIPEDIA',

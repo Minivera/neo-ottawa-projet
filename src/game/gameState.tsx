@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { InkList, Story } from 'inkjs/engine/Story';
 import { InkListItem } from 'inkjs/engine/InkList';
 import { Path } from 'inkjs/engine/Path';
+import { Howl } from 'howler';
 
 import { SceneState } from './scene';
 import { PDA } from './pda';
@@ -33,7 +34,8 @@ import pdaBorderTopCenter from '../assets/ui/modals/Border1-TopCenter.png';
 import pdaBorderTopRight from '../assets/ui/modals/Border2-TopRight.png';
 import pdaBorderBotLeft from '../assets/ui/modals/Border3-BotLeft.png';
 import pdaBorderBotRight from '../assets/ui/modals/Border4-BotRight.png';
-import cityMapImage from '../assets/ui/pda/Ottawa_map.png?w=1400&h=750';
+import pdaBorderTopLeft from '../assets/ui/modals/Border5-TopLeft.png';
+import pdaOpen from '../assets/sound/futuristic-login.mp3';
 
 export enum GameState {
   // eslint-disable-next-line no-unused-vars
@@ -456,7 +458,7 @@ export const useGame = (
     pdaBorderTopRight,
     pdaBorderBotLeft,
     pdaBorderBotRight,
-    cityMapImage,
+    pdaBorderTopLeft,
     ...Object.keys(backgrounds)
       .map(key => backgrounds[key].asset)
       .flat(),
@@ -644,6 +646,12 @@ export const useGame = (
       story.BindExternalFunction(
         'show_pda',
         () => {
+          if (settings.soundEffectsEnabled) {
+            new Howl({
+              src: [pdaOpen],
+              volume: settings.soundEffectsVolume / 100,
+            }).play();
+          }
           openPDA();
         },
         false

@@ -1,37 +1,39 @@
-import artHouseCafe from '../../assets/backgrounds/art_house_cafe.png?w=1400&h=750';
-import bureauChefMiller from '../../assets/backgrounds/bureau_chef_miller.png?w=1400&h=750';
-import porteChefMiller from '../../assets/backgrounds/porte_chef_miller.png?w=1400&h=750';
-import brigade from '../../assets/backgrounds/brigade.png?w=1400&h=750';
-import glitch from '../../assets/backgrounds/glitch.jpg?w=1400&h=750';
-import brigadeOutside from '../../assets/backgrounds/brigade_outside.png?w=1400&h=750';
-import quartier from '../../assets/backgrounds/quartier.jpg?w=1400&h=750';
-import rueFlemming from '../../assets/backgrounds/rue_flemming.png?w=1400&h=750';
-import rueFlemmingPorte from '../../assets/backgrounds/rue_flemming_porte.png?w=1400&h=750';
-import chambreLeighKane from '../../assets/backgrounds/chambre_leigh_kane.png?w=1400&h=750';
-import universite from '../../assets/backgrounds/universite.png?w=1400&h=750';
-import britanniaPark from '../../assets/backgrounds/britannia_park.png?w=1400&h=750';
-import bureauFred from '../../assets/backgrounds/bureau_fred.png?w=1400&h=750';
-import voitureFred from '../../assets/backgrounds/voiture_fred.png?w=1400&h=750';
-import corridorPostePolice from '../../assets/backgrounds/corridor_poste_police.png?w=1400&h=750';
-import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.png?w=1400&h=750';
-import telephone from '../../assets/backgrounds/phone.png?w=1400&h=750';
-import rueMcLeod from '../../assets/backgrounds/rue_mcleod.png?w=1400&h=750';
-import siegeESRB from '../../assets/backgrounds/siege_esrb.png?w=1400&h=750';
-import siegeESRBInformatique from '../../assets/backgrounds/siege_esrb_informatique.png?w=1400&h=750';
-import ecranOrdinateurESRB from '../../assets/backgrounds/ecran_ordinateur_esrb.png?w=1400&h=750';
-import maisonOliviaExterieur from '../../assets/backgrounds/maison_olivia_exterieur.png?w=1400&h=750';
-import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interieur.png?w=1400&h=750';
-import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.png?w=1400&h=750';
-import grenier from '../../assets/backgrounds/grenier.jpg?w=1400&h=750';
-import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.png?w=1400&h=750';
-import chapitre1Titre1 from '../../assets/backgrounds/chapitre_1_gros_titres_1.png?w=1400&h=750';
-import chapitre1Titre2 from '../../assets/backgrounds/chapitre_1_gros_titres_2.png?w=1400&h=750';
-import chapitre1Titre3 from '../../assets/backgrounds/chapitre_1_gros_titres_3.png?w=1400&h=750';
-import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1400&h=750';
-import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1400&h=750';
-import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation_autre_piece.jpg?w=1400&h=750';
-import transition from '../../assets/backgrounds/transition.png?w=1400&h=750';
-import maisonFred from '../../assets/backgrounds/maison_fred.png?w=1400&h=750';
+import artHouseCafe from '../../assets/backgrounds/art_house_cafe.jpg?w=1920&h=1080';
+import bureauChefMiller from '../../assets/backgrounds/bureau_chef_miller.jpg?w=1920&h=1080';
+import porteChefMiller from '../../assets/backgrounds/porte_chef_miller.png?w=1920&h=1080';
+import brigade from '../../assets/backgrounds/brigade.jpg?w=1920&h=1080';
+import glitch from '../../assets/backgrounds/glitch.jpg?w=1920&h=1080';
+import brigadeOutside from '../../assets/backgrounds/brigade_outside.jpg?w=1920&h=1080';
+import quartier from '../../assets/backgrounds/quartier.jpg?w=1920&h=1080';
+import rueFlemming from '../../assets/backgrounds/rue_flemming.jpg?w=1920&h=1080';
+import rueFlemmingPorte from '../../assets/backgrounds/rue_flemming_porte.jpg?w=1920&h=1080';
+import chambreLeighKane from '../../assets/backgrounds/chambre_leigh_kane.jpg?w=1920&h=1080';
+import universite from '../../assets/backgrounds/universite.jpg?w=1920&h=1080';
+import britanniaPark from '../../assets/backgrounds/britannia_park.jpg?w=1920&h=1080';
+import bureauFred from '../../assets/backgrounds/bureau_fred.jpg?w=1920&h=1080';
+import voitureFred from '../../assets/backgrounds/voiture_fred.jpg?w=1920&h=1080';
+import corridorPostePolice from '../../assets/backgrounds/corridor_poste_police.jpg?w=1920&h=1080';
+import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.jpg?w=1920&h=1080';
+import telephone from '../../assets/backgrounds/phone.png?w=1920&h=1080';
+import rueMcLeod from '../../assets/backgrounds/rue_mcleod.jpg?w=1920&h=1080';
+import siegeESRB from '../../assets/backgrounds/siege_esrb.jpg?w=1920&h=1080';
+import siegeESRBInformatique from '../../assets/backgrounds/siege_esrb_informatique.jpg?w=1920&h=1080';
+import ecranOrdinateurESRB from '../../assets/backgrounds/ecran_ordinateur_esrb.jpg?w=1920&h=1080';
+import maisonOliviaExterieur from '../../assets/backgrounds/maison_olivia_exterieur.jpg?w=1920&h=1080';
+import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interieur.jpg?w=1920&h=1080';
+import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.jpg?w=1920&h=1080';
+import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1080';
+import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&h=1080';
+import chapitre1Titre1 from '../../assets/backgrounds/chapitre_1_gros_titres_1.jpg?w=1920&h=1080';
+import chapitre1Titre2 from '../../assets/backgrounds/chapitre_1_gros_titres_2.jpg?w=1920&h=1080';
+import chapitre1Titre3 from '../../assets/backgrounds/chapitre_1_gros_titres_3.jpg?w=1920&h=1080';
+import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1080';
+import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1080';
+import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation.jpg?w=1920&h=1080';
+import transition from '../../assets/backgrounds/transition.png?w=1920&h=1080';
+import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=1080';
+import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
+import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
 
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
 
@@ -78,6 +80,9 @@ export const backgrounds: Backgrounds = {
   chapitre_2_gros_titres_2: { type: 'image', asset: chapitre1Titre1 },
   chapitre_2_gros_titres_3: { type: 'image', asset: chapitre1Titre1 },
   chapitre_2_gros_titres_4: { type: 'image', asset: chapitre1Titre1 },
-  maison_fred: { type: 'image', asset: transition },
-  transition: { type: 'image', asset: maisonFred },
+  maison_fred: { type: 'image', asset: maisonFred },
+  transition: { type: 'image', asset: transition },
+  maison_jonathan: { type: 'image', asset: maisonJonathan },
+  ecran_ordinateur_fred: { type: 'image', asset: ordinateurFred },
+  coin_flemming_arch: { type: 'image', asset: coinFlemmingArch },
 };

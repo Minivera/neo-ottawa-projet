@@ -5,20 +5,22 @@ import { pdfjs, Document, Page } from 'react-pdf';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
+import { IconButton } from './iconButton';
+
 import NextIcon from '../assets/ui/icons/FlecheNEXT.svg?component';
 import PreviousIcon from '../assets/ui/icons/FlechePREVIOUS.svg?component';
 import DownloadIcon from '../assets/ui/icons/Document.svg?component';
-
-import { IconButton } from './iconButton';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 export interface PDFReaderProps {
   pdfPath: string;
+  playClickSound: () => void;
 }
 
 export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
   pdfPath,
+  playClickSound,
 }) => {
   const [numPages, setNumPages] = useState<number>(0);
   const [pageNumber, setPageNumber] = useState(1);
@@ -30,10 +32,12 @@ export const PDFReader: React.FunctionComponent<PDFReaderProps> = ({
   };
 
   const previousPage = () => {
+    playClickSound();
     setPageNumber(prevPageNumber => Math.max(1, prevPageNumber - 1));
   };
 
   const nextPage = () => {
+    playClickSound();
     setPageNumber(prevPageNumber => Math.min(numPages, prevPageNumber + 1));
   };
 

@@ -29,7 +29,7 @@ export default defineConfig({
         quality: 10,
       },
       pngquant: {
-        quality: [0.5, 0.5],
+        quality: [0.7, 0.8],
         speed: 4,
       },
     }),

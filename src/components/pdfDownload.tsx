@@ -4,22 +4,24 @@ import { jsx, css } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { darken } from 'polished';
 
-import DownloadIcon from '../assets/ui/icons/Document.svg?component';
-
 import { IconButton } from './iconButton';
+
+import DownloadIcon from '../assets/ui/icons/Document.svg?component';
 
 export interface PDFDownloadButtonProps {
   pdfPath: string;
+  playClickSound: () => void;
 }
 
 export const PDFDownloadButton: React.FunctionComponent<PDFDownloadButtonProps> =
-  ({ pdfPath }) => {
+  ({ pdfPath, playClickSound }) => {
     const [t] = useTranslation();
 
     return (
       <IconButton
         target="_blank"
         rel="noreferrer"
+        onClick={() => playClickSound()}
         href={pdfPath}
         css={theme => css`
           color: ${theme.colors.darkGray};

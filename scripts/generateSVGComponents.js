@@ -71,7 +71,7 @@ const isExists = path => {
 
 const writeFile = (filePath, data) => {
   try {
-    const dirname = path.dirname(filePath);
+    const dirname = path.dirname(filePath.replace('é', 'e').replace('è', 'e'));
     const exist = isExists(dirname);
     if (!exist) {
       mkdirSync(dirname, { recursive: true });

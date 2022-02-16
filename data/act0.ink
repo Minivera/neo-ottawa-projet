@@ -398,7 +398,7 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
 *   <b>Fred</b> choisit de parler au <b>Chef</b> Miller et de lui dire une partie de la vérité.
 ~ points_fin_A2 += 4
     Fred: Il y a un groupe. # character=FRED_GALLANT invisible
-    Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=suprise
+    Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=surprise
     Fred: Qui semble fournir des jeux vidéo à ceux qui en cherchent. # character=FRED_GALLANT invisible
     Chef Miller: Vous avez trouvé des informations sur ce groupe? Ça fait une éternité qu’on en cherche! La résistance, c’est ça? # character=CHEF_MILLER_NO_CIGAR expression=suprise
     Fred: Oui, mais très peu. Leigh Kane avait une adresse dans ses messages texte. Une adresse qui mène à ce groupe. Il cherchait à se procurer un jeu. # character=FRED_GALLANT invisible

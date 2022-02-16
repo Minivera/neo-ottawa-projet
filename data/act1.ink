@@ -88,8 +88,6 @@ Christopher: Je veux te montrer quelque chose. # character=CHRISTOPHER_YOUNG exp
 ~cacher_tout_personnages()
 -> act_1_quiz_1.quiz_1
 
-->scene_3_suite
-
 =scene_3_suite
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)

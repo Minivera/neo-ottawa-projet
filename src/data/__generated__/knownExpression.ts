@@ -57,8 +57,10 @@ export const knownExpressions = {
     "disdain",
     "melancholy",
     "neutral",
+    "rage",
     "shock",
     "sterness",
+    "surprise",
     "wonder"
   ],
   "CHEF_MILLER_NO_CIGAR": [
@@ -73,6 +75,7 @@ export const knownExpressions = {
     "satisfaction",
     "sterness",
     "suprise",
+    "surprise",
     "wtf"
   ],
   "CHRISTOPHER_YOUNG": [
@@ -80,6 +83,7 @@ export const knownExpressions = {
     "amusement",
     "aversion",
     "concern",
+    "desperation",
     "disdain",
     "indignation",
     "joy",
@@ -88,11 +92,18 @@ export const knownExpressions = {
     "satisfaction",
     "sterness",
     "surprise",
-    "wonder"
+    "wonder",
+    "wtf"
   ],
   "VIVIAN": [
+    "alertness",
+    "amusement",
     "dejection",
-    "joy"
+    "disdain",
+    "joy",
+    "neutral",
+    "sterness",
+    "surprise"
   ],
   "TOM": [
     "alertness",
@@ -183,6 +194,59 @@ export const knownExpressions = {
     "joy",
     "neutral",
     "sterness"
+  ],
+  "TEACHER_V1": [
+    "anger",
+    "aversion",
+    "concern",
+    "neutral",
+    "sterness",
+    "wonder"
+  ],
+  "BORIS": [
+    "amusement",
+    "concern",
+    "disdain",
+    "disgust",
+    "melancholy",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "wonder",
+    "wtf"
+  ],
+  "JONATHAN": [
+    "amusement",
+    "anger",
+    "aversion",
+    "concern",
+    "dejection",
+    "disdain",
+    "disgust",
+    "melancholy",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "wonder",
+    "wtf"
+  ],
+  "CHRISTIAN": [
+    "aversion",
+    "concern",
+    "disdain",
+    "melancholy",
+    "neutral",
+    "satisfaction",
+    "sterness"
+  ],
+  "TEACHER_V2": [
+    "anxiety",
+    "concern",
+    "joy",
+    "neutral",
+    "sterness",
+    "surprise",
+    "wtf"
   ]
 };
   

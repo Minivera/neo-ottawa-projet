@@ -13,12 +13,12 @@ declare module '*.svg?component' {
   export default ReactComponent;
 }
 
-declare module '*.jpg?w=1400&h=750' {
+declare module '*.jpg?w=1920&h=1080' {
   const path: string;
   export default path;
 }
 
-declare module '*.png?w=1400&h=750' {
+declare module '*.png?w=1920&h=1080' {
   const path: string;
   export default path;
 }

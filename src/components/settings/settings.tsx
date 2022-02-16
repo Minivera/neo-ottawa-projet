@@ -41,11 +41,13 @@ const SettingsInputGroup = styled.div`
 export interface SettingsProps {
   settings: SettingsState;
   dispatch: Dispatch<SettingsAction>;
+  playClickSound: () => void;
 }
 
 export const Settings: React.FunctionComponent<SettingsProps> = ({
   settings,
   dispatch,
+  playClickSound,
 }) => {
   const [t] = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
@@ -57,36 +59,42 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
 
   const handleFontSizeChange = (newVal: number) =>
     dispatch({ type: 'setFontSize', fontSize: newVal });
-  const handleAnimationToggle = () =>
+  const handleAnimationToggle = () => {
+    playClickSound();
     dispatch({
       type: 'setAnimationSpeed',
       enabled: !settings.settings.textAnimationsEnabled,
       speed: settings.settings.textAnimationSpeed,
     });
+  };
   const handleAnimationSpeedChanged = (newVal: number) =>
     dispatch({
       type: 'setAnimationSpeed',
       enabled: settings.settings.textAnimationsEnabled,
       speed: newVal,
     });
-  const handleSoundEffectsToggle = () =>
+  const handleSoundEffectsToggle = () => {
+    playClickSound();
     dispatch({
       type: 'setSoundEffects',
       enabled: !settings.settings.soundEffectsEnabled,
       volume: settings.settings.soundEffectsVolume,
     });
+  };
   const handleSoundEffectsVolumeChanged = (newVal: number) =>
     dispatch({
       type: 'setSoundEffects',
       enabled: settings.settings.textAnimationsEnabled,
       volume: newVal,
     });
-  const handleMusicToggle = () =>
+  const handleMusicToggle = () => {
+    playClickSound();
     dispatch({
       type: 'setMusic',
       enabled: !settings.settings.musicEnabled,
       volume: settings.settings.musicVolume,
     });
+  };
   const handleMusicVolumeChanged = (newVal: number) =>
     dispatch({
       type: 'setMusic',
@@ -104,7 +112,9 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
           right: 0;
           bottom: 0;
           z-index: ${settings.opened ? '7' : '-1'};
-          transition: ${settings.opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
+          transition: ${settings.opened
+            ? 'unset'
+            : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
           background: ${transparentize('0.3', theme.colors.darkGreen)};
           font-size: 20px;
           font-family: VCR-OSD-MONO;
@@ -122,7 +132,12 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
         `}
       >
         <AnimatedOpen open={settings.opened}>
-          <SettingsModals onReturnClick={() => dispatch({ type: 'close' })}>
+          <SettingsModals
+            onReturnClick={() => {
+              playClickSound();
+              dispatch({ type: 'close' });
+            }}
+          >
             <div
               ref={focusRef}
               css={css`
@@ -147,7 +162,10 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                   value={settings.settings.fontSize}
                 />
               </SettingsInput>
-              <SettingsLabel htmlFor="animation-speed" id="animation-speed-label">
+              <SettingsLabel
+                htmlFor="animation-speed"
+                id="animation-speed-label"
+              >
                 {t('settings_animation_speed')}
               </SettingsLabel>
               <SettingsInputGroup>
@@ -187,7 +205,10 @@ export const Settings: React.FunctionComponent<SettingsProps> = ({
                   disabled={!settings.settings.musicEnabled}
                 />
               </SettingsInputGroup>
-              <SettingsLabel htmlFor="sound-effects-volume" id="sound-effects-volume-label">
+              <SettingsLabel
+                htmlFor="sound-effects-volume"
+                id="sound-effects-volume-label"
+              >
                 {t('settings_sound_effects')}
               </SettingsLabel>
               <SettingsInputGroup>

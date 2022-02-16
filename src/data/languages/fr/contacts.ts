@@ -6,7 +6,8 @@ import {
   LeighKane,
   Enqueteur,
   Brighton,
-  Teacher,
+  TeacherV1,
+  TeacherV2,
   BonnieV1,
   BonnieV2,
   ChristopherYoung,
@@ -19,8 +20,11 @@ import {
   CarlWhite,
   MereLeighKane,
   PereLeighKane,
-  Ron,
+  Rod,
   Al,
+  Boris,
+  Christian,
+  Jonathan,
 } from '../../characters';
 import { contacts } from '../../contacts';
 
@@ -35,7 +39,10 @@ export const contactDescriptions = {
   [contacts[LeighKane.id].description]: 'Joueur disparu',
   [contacts[Enqueteur.id].description]: 'Enquêteur du crime, très peu agréable',
   [contacts[Brighton.id].description]: `Assistant de l'enquêteur du crime`,
-  [contacts[Teacher.id].description]: 'Distributeur de jeux pour la résistance',
+  [contacts[TeacherV1.id].description]:
+    'Distributeur de jeux pour la résistance',
+  [contacts[TeacherV2.id].description]:
+      'Distributeur de jeux pour la résistance',
   [contacts[BonnieV1.id].description]:
     'Jeune femme ayant abordé Fred dans la rue',
   [contacts[BonnieV2.id].description]:
@@ -56,6 +63,9 @@ export const contactDescriptions = {
     'Mère de Leigh Kane, le joueur disparu',
   [contacts[PereLeighKane.id].description]:
     'Père de Leigh Kane, le joueur disparu',
-  [contacts[Ron.id].description]: 'Père de Kevin',
+  [contacts[Rod.id].description]: 'Père de Kevin',
   [contacts[Al.id].description]: 'Patient au centre de réhabilitation',
+  [contacts[Boris.id].description]: 'Développeur de jeu vidéo',
+  [contacts[Christian.id].description]: `Quelqu'un`,
+  [contacts[Jonathan.id].description]: `Quelqu'un`,
 };

@@ -9,7 +9,8 @@ import {
   Enqueteur,
   Gabriel,
   LeighKane,
-  Teacher,
+  TeacherV1,
+  TeacherV2,
   Narrateur,
   JohnRandle,
   Vivian,
@@ -19,8 +20,11 @@ import {
   CarlWhite,
   MereLeighKane,
   PereLeighKane,
-  Ron,
+  Rod,
   Al,
+  Boris,
+  Christian,
+  Jonathan,
 } from './characters';
 import { Contact } from '../game/pda';
 
@@ -67,11 +71,17 @@ export const contacts: Record<string, Contact> = {
     name: Brighton.name,
     description: 'contact_brighton',
   },
-  [Teacher.id]: {
+  [TeacherV1.id]: {
     type: 'resistance',
-    characterId: Teacher.id,
-    name: Teacher.name,
-    description: 'contact_teacher',
+    characterId: TeacherV1.id,
+    name: TeacherV1.name,
+    description: 'contact_teacher_v1',
+  },
+  [TeacherV2.id]: {
+    type: 'resistance',
+    characterId: TeacherV2.id,
+    name: TeacherV2.name,
+    description: 'contact_teacher_v2',
   },
   [BonnieV1.id]: {
     type: 'resistance',
@@ -145,16 +155,34 @@ export const contacts: Record<string, Contact> = {
     name: PereLeighKane.name,
     description: 'contact_pere_leigh_kane',
   },
-  [Ron.id]: {
+  [Rod.id]: {
     type: 'resistance',
-    characterId: Ron.id,
-    name: Ron.name,
-    description: 'contact_ron',
+    characterId: Rod.id,
+    name: Rod.name,
+    description: 'contact_rod',
   },
   [Al.id]: {
     type: 'police',
     characterId: Al.id,
     name: Al.name,
     description: 'contact_al',
+  },
+  [Boris.id]: {
+    type: 'police',
+    characterId: Boris.id,
+    name: Boris.name,
+    description: 'contact_boris',
+  },
+  [Christian.id]: {
+    type: 'resistance',
+    characterId: Christian.id,
+    name: Christian.name,
+    description: 'contact_christian',
+  },
+  [Jonathan.id]: {
+    type: 'police',
+    characterId: Jonathan.id,
+    name: Jonathan.name,
+    description: 'contact_jonathan',
   },
 } as const;

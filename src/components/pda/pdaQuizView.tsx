@@ -22,11 +22,13 @@ import PreviousIcon from '../../assets/ui/icons/FlechePREVIOUS.svg?component';
 export interface PDAQuizViewProps {
   quiz: Quiz;
   onPrevClick: () => void;
+  playClickSound: () => void;
 }
 
 export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
   quiz,
   onPrevClick,
+  playClickSound,
 }) => {
   const [t] = useTranslation();
   const theme = useTheme();
@@ -243,6 +245,7 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
                   >
                     <PDFDownloadButton
                       pdfPath={currentQuestion.document.path}
+                      playClickSound={playClickSound}
                     />
                   </div>
                 </div>
@@ -316,7 +319,10 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
               }
             `}
           >
-            <PDFReader pdfPath={currentQuestion.document.path} />
+            <PDFReader
+              pdfPath={currentQuestion.document.path}
+              playClickSound={playClickSound}
+            />
           </div>
         )}
     </div>

@@ -4,7 +4,7 @@ import { Character } from '../../game/character';
 import { loadingHelper } from '../../helpers/asyncImagesLoading';
 
 const expressionImages = import.meta.glob<FunctionComponent>(
-  '../../components/__generated__/characters/19 - Mère de Leigh Kane/*.tsx'
+  '../../components/__generated__/characters/19 - Mere de Leigh Kane/*.tsx'
 );
 
 export const MereLeighKane: Character = {

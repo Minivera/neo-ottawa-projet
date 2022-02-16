@@ -16,11 +16,13 @@ import ReturnArrow from '../../assets/ui/icons/Minimiser-maximiser.svg?component
 export interface PDADocumentViewProps {
   document: Document;
   onPrevClick: () => void;
+  playClickSound: () => void;
 }
 
 export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
   document,
   onPrevClick,
+  playClickSound,
 }) => {
   const [t] = useTranslation();
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -156,7 +158,10 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
               font-size: 1.6rem;
             `}
           >
-            <PDFDownloadButton pdfPath={document.path} />
+            <PDFDownloadButton
+              pdfPath={document.path}
+              playClickSound={playClickSound}
+            />
           </div>
         </div>
       )}
@@ -166,7 +171,7 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
             margin-left: 1rem;
           `}
         >
-          <PDFReader pdfPath={document.path} />
+          <PDFReader pdfPath={document.path} playClickSound={playClickSound} />
         </div>
       )}
     </div>

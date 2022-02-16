@@ -7,7 +7,8 @@ import { AgentMoore } from './agentMoore';
 import { LeighKane } from './leighKane';
 import { Enqueteur } from './enqueteur';
 import { Brighton } from './brighton';
-import { Teacher } from './teacher';
+import { TeacherV1 } from './teacherV1';
+import { TeacherV2 } from './teacherV2';
 import { BonnieV1 } from './bonnieV1';
 import { BonnieV2 } from './bonnieV2';
 import { ChristopherYoung } from './christopherYoung';
@@ -26,9 +27,12 @@ import { Administrateur } from './administrateur';
 import { Homme } from './homme';
 import { Narrateur } from './narrateur';
 import { JohnRandle } from './johnRandle';
-import { Ron } from './ron';
+import { Rod } from './rod';
 import { Intervenant } from './intervenant';
 import { Medecin } from './medecin';
+import { Boris } from './boris';
+import { Christian } from './christian';
+import { Jonathan } from './jonathan';
 
 export {
   FredGallant,
@@ -40,7 +44,8 @@ export {
   LeighKane,
   Enqueteur,
   Brighton,
-  Teacher,
+  TeacherV1,
+  TeacherV2,
   BonnieV1,
   BonnieV2,
   ChristopherYoung,
@@ -58,10 +63,13 @@ export {
   Administrateur,
   Homme,
   Narrateur,
-  Ron,
+  Rod,
   JohnRandle,
   Intervenant,
   Medecin,
+  Boris,
+  Christian,
+  Jonathan,
 };
 
 export const Characters = {
@@ -74,7 +82,8 @@ export const Characters = {
   [LeighKane.id]: LeighKane,
   [Enqueteur.id]: Enqueteur,
   [Brighton.id]: Brighton,
-  [Teacher.id]: Teacher,
+  [TeacherV1.id]: TeacherV1,
+  [TeacherV2.id]: TeacherV2,
   [BonnieV1.id]: BonnieV1,
   [BonnieV2.id]: BonnieV2,
   [ChristopherYoung.id]: ChristopherYoung,
@@ -93,7 +102,10 @@ export const Characters = {
   [Homme.id]: Homme,
   [Narrateur.id]: Narrateur,
   [JohnRandle.id]: JohnRandle,
-  [Ron.id]: Ron,
+  [Rod.id]: Rod,
   [Intervenant.id]: Intervenant,
   [Medecin.id]: Medecin,
+  [Boris.id]: Boris,
+  [Christian.id]: Christian,
+  [Jonathan.id]: Jonathan,
 };

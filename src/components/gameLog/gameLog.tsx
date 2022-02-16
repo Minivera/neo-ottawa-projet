@@ -14,12 +14,14 @@ export interface GameLogProps {
   opened?: boolean;
   closeGameLog: () => void;
   gameLog: SceneState[];
+  playClickSound: () => void;
 }
 
 export const GameLog: React.FunctionComponent<GameLogProps> = ({
   opened,
   closeGameLog,
   gameLog,
+  playClickSound,
 }) => {
   const focusRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -36,7 +38,9 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
           top: 0;
           left: 0;
           z-index: ${opened ? '7' : '-1'};
-          transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
+          transition: ${opened
+            ? 'unset'
+            : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
           width: 100%;
           height: 100%;
           background: ${transparentize('0.3', theme.colors.darkGreen)};
@@ -61,7 +65,12 @@ export const GameLog: React.FunctionComponent<GameLogProps> = ({
             height: 100%;
           `}
         >
-          <GameLogModal onReturnClick={closeGameLog}>
+          <GameLogModal
+            onReturnClick={() => {
+              playClickSound();
+              closeGameLog();
+            }}
+          >
             <div ref={focusRef}>
               {gameLog.map((el, index) => {
                 if (el.choices?.length) {

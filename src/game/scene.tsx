@@ -83,11 +83,17 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
     }
 
     const music = musics[state.bgm];
-    if (music && settings.soundEffectsEnabled) {
-      music.volume(settings.soundEffectsVolume / 100);
+    if (music && settings.musicEnabled) {
+      music.volume(settings.musicVolume / 100);
       music.play();
     }
   }, [state.bgm]);
+  useEffect(() => {
+    window.onbeforeunload = () => true;
+    return () => {
+      window.onbeforeunload = () => {};
+    };
+  }, []);
 
   const handleClickContinue = () => onContinue();
   const handleKeyContinue: KeyboardEventHandler<HTMLDivElement> = event => {

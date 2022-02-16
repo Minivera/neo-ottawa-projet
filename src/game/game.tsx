@@ -4,6 +4,7 @@ import { jsx, css, Global } from '@emotion/react';
 import { useTranslation } from 'react-i18next';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import html2canvas from 'html2canvas';
+import { Howl } from 'howler';
 
 import { Scene, SceneState } from './scene';
 import { Choice } from './event';
@@ -27,6 +28,19 @@ import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4'
 import StartIcon from '../assets/ui/icons/PowerResist.svg?component';
 import SettingsIcon from '../assets/ui/icons/Parametres.svg?component';
 import SaveIcon from '../assets/ui/icons/Sauvegarder.svg?component';
+import clickMetal from '../assets/sound/click-metal.mp3';
+import clickShimmer from '../assets/sound/click-shimmer.mp3';
+import pdaOpen from '../assets/sound/futuristic-login.mp3';
+
+const clickSound = new Howl({
+  src: [clickMetal],
+});
+const pdaTabChangeSound = new Howl({
+  src: [clickShimmer],
+});
+const pdaLoginSound = new Howl({
+  src: [pdaOpen],
+});
 
 export interface GameProps {
   storyContent: string;
@@ -49,13 +63,40 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     () => setPDAOpened(true)
   );
 
+  const handlePlaySoundEffect = (
+    effect: 'pdaOpen' | 'pdaClose' | 'pdaTabChange' | 'click'
+  ) => {
+    clickSound.volume(settings.settings.soundEffectsVolume / 100);
+    pdaLoginSound.volume(settings.settings.soundEffectsVolume / 100);
+    pdaTabChangeSound.volume(settings.settings.soundEffectsVolume / 100);
+
+    if (!settings.settings.soundEffectsEnabled) {
+      return;
+    }
+
+    switch (effect) {
+      case 'pdaOpen':
+        pdaLoginSound.play();
+        break;
+      case 'pdaClose':
+        pdaLoginSound.play();
+        break;
+      case 'click':
+        clickSound.play();
+        break;
+      case 'pdaTabChange':
+        pdaTabChangeSound.play();
+        break;
+    }
+  };
+
   useEffect(() => {
     if (
-      settings.settings.soundEffectsEnabled &&
+      settings.settings.musicEnabled &&
       (gameState.state === GameState.Ready ||
         gameState.state === GameState.Loaded)
     ) {
-      musics.theme_menu.volume(settings.settings.soundEffectsVolume / 100);
+      musics.theme_menu.volume(settings.settings.musicVolume / 100);
       musics.theme_menu.play();
       return () => {
         musics.theme_menu.stop();
@@ -133,32 +174,46 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           <GameContainer>
             <MenuContainer>
               <BigButton
-                onClick={() => dispatch({ type: 'start' })}
+                onClick={() => {
+                  handlePlaySoundEffect('click');
+                  dispatch({ type: 'start' });
+                }}
                 icon={<StartIcon />}
               >
                 {t('start_game')}
               </BigButton>
               <BigButton
-                onClick={() => setSavingOpened(true)}
+                onClick={() => {
+                  handlePlaySoundEffect('click');
+                  setSavingOpened(true);
+                }}
                 icon={<SaveIcon />}
               >
                 {t('continue_game')}
               </BigButton>
               <BigButton
-                onClick={() => dispatchSettings({ type: 'open' })}
+                onClick={() => {
+                  handlePlaySoundEffect('click');
+                  dispatchSettings({ type: 'open' });
+                }}
                 icon={<SettingsIcon />}
               >
                 {t('start_settings')}
               </BigButton>
             </MenuContainer>
           </GameContainer>
-          <Settings settings={settings} dispatch={dispatchSettings} />
+          <Settings
+            settings={settings}
+            dispatch={dispatchSettings}
+            playClickSound={() => handlePlaySoundEffect('click')}
+          />
           <SaveSlots
             closeSaveSlots={() => setSavingOpened(false)}
             saveSlots={gameState.saveSlots}
             opened={savingOpened}
             loading
             onSaveClick={onLoad}
+            playClickSound={() => handlePlaySoundEffect('click')}
           />
         </React.Fragment>
       );
@@ -193,10 +248,12 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
         // Clear the loading indicator so we know to animate the next event.
         setTextLoading(null);
 
+        handlePlaySoundEffect('click');
         dispatch({ type: 'continue' });
       };
 
       const onChoiceSelected = (choice: Choice) => {
+        handlePlaySoundEffect('click');
         dispatch({ type: 'continue', choiceId: choice.id });
       };
 
@@ -232,10 +289,23 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           <GameContainer animationSpeed={settings.settings.textAnimationSpeed}>
             <GameMenu
               showPDA={gameState.pda.enabled}
-              onPDAClick={() => setPDAOpened(true)}
-              onSettingsClick={() => dispatchSettings({ type: 'open' })}
-              onGameLogClick={() => setGameLogOpened(true)}
-              onSaveClick={() => setSavingOpened(true)}
+              onPDAClick={() => {
+                handlePlaySoundEffect('click');
+                handlePlaySoundEffect('pdaOpen');
+                setPDAOpened(true);
+              }}
+              onSettingsClick={() => {
+                handlePlaySoundEffect('click');
+                dispatchSettings({ type: 'open' });
+              }}
+              onGameLogClick={() => {
+                handlePlaySoundEffect('click');
+                setGameLogOpened(true);
+              }}
+              onSaveClick={() => {
+                handlePlaySoundEffect('click');
+                setSavingOpened(true);
+              }}
             />
             {settings.settings.textAnimationsEnabled ? (
               <SwitchTransition>
@@ -281,7 +351,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               story={story}
               pdaState={gameState.pda}
               onPDAClosed={onPDAClosed}
-              onPDATabChanged={tab => setSelectedPDATab(tab)}
+              onPDATabChanged={setSelectedPDATab}
               settings={settings.settings}
               skipAnimation={textLoading !== null && !textLoading}
               onContinue={onContinue}
@@ -289,18 +359,25 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               onTextLoadingEnd={onTextLoadingEnd}
               onChoiceSelected={onChoiceSelected}
               quiz={gameState.currentQuiz}
+              playSoundEffect={handlePlaySoundEffect}
             />
-            <Settings settings={settings} dispatch={dispatchSettings} />
+            <Settings
+              settings={settings}
+              dispatch={dispatchSettings}
+              playClickSound={() => handlePlaySoundEffect('click')}
+            />
             <GameLog
               closeGameLog={() => setGameLogOpened(false)}
               gameLog={getGameLog(story)}
               opened={gameLogOpened}
+              playClickSound={() => handlePlaySoundEffect('click')}
             />
             <SaveSlots
               closeSaveSlots={() => setSavingOpened(false)}
               saveSlots={gameState.saveSlots}
               opened={savingOpened}
               onSaveClick={onSave}
+              playClickSound={() => handlePlaySoundEffect('click')}
             />
           </GameContainer>
         </React.Fragment>

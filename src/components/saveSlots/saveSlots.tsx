@@ -16,6 +16,7 @@ export interface SaveSlotsProps {
   closeSaveSlots: () => void;
   saveSlots: SaveSlot[];
   onSaveClick: (slot: SaveSlot) => Promise<void>;
+  playClickSound: () => void;
 }
 
 export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
@@ -24,6 +25,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
   closeSaveSlots,
   saveSlots,
   onSaveClick,
+  playClickSound,
 }) => {
   const [t] = useTranslation();
 
@@ -41,6 +43,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
     async () => {
       setSaving(slot.id);
 
+      playClickSound();
       await onSaveClick(slot);
 
       setSaving(null);
@@ -56,6 +59,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
       async () => {
         setSaving(i);
 
+        playClickSound();
         await onSaveClick({
           id: i,
           save: '{}',
@@ -102,7 +106,13 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
             height: 100%;
           `}
         >
-          <SaveSlotsModal onReturnClick={closeSaveSlots} ref={focusRef}>
+          <SaveSlotsModal
+            onReturnClick={() => {
+              playClickSound();
+              closeSaveSlots();
+            }}
+            ref={focusRef}
+          >
             <div
               css={css`
                 display: flex;
@@ -150,7 +160,7 @@ export const SaveSlots: React.FunctionComponent<SaveSlotsProps> = ({
                       width: 100%;
                     }
                   }
-                  
+
                   @media only screen and (max-width: 650px) {
                     & li > div {
                       padding: 20rem 2rem;

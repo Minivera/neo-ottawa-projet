@@ -78,6 +78,9 @@ export interface PDAComponentProps {
   onTextLoadingEnd: () => void;
   onChoiceSelected: (choice: Choice) => void;
   skipAnimation?: boolean;
+  playSoundEffect: (
+    effect: 'pdaOpen' | 'pdaClose' | 'pdaTabChange' | 'click'
+  ) => void;
 }
 
 const PDAContainer: FunctionComponent<{ opened?: boolean }> = ({
@@ -99,7 +102,9 @@ const PDAContainer: FunctionComponent<{ opened?: boolean }> = ({
         display: flex;
         flex-direction: column;
         z-index: ${opened ? '7' : '-1'};
-        transition: ${opened ? 'unset' : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
+        transition: ${opened
+          ? 'unset'
+          : 'z-index 0.1s 0.75s, visibility 0.1s 0.75s'};
 
         pointer-events: ${opened ? 'all' : 'none'};
         visibility: ${opened ? 'unset' : 'hidden'};
@@ -145,6 +150,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   onTextLoadingEnd,
   onChoiceSelected,
   skipAnimation,
+  playSoundEffect,
 }) => {
   const variables = story.variablesState as unknown as PDAVariables;
 
@@ -180,6 +186,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
 
   const handlePDAClose = () => {
     handleFirstTabVisit();
+    playSoundEffect('click');
     onPDAClosed();
   };
 
@@ -188,6 +195,8 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
     setSelectedQuiz(null);
     handleFirstTabVisit();
 
+    playSoundEffect('click');
+    requestAnimationFrame(() => playSoundEffect('pdaTabChange'));
     onPDATabChanged(tab);
   };
 
@@ -195,11 +204,15 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
     const quizState = getQuizHistory(story, quiz.name);
 
     if (quizState) {
+      playSoundEffect('click');
+      requestAnimationFrame(() => playSoundEffect('pdaTabChange'));
       setSelectedQuiz(quizState);
     }
   };
 
   const onDocumentClick = (document: Document) => {
+    playSoundEffect('click');
+    requestAnimationFrame(() => playSoundEffect('pdaTabChange'));
     setSelectedDocument(document);
   };
 
@@ -211,7 +224,9 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
   let tab: React.ReactElement | null = null;
   switch (selectedTab) {
     case PDATab.HOME:
-      tab = <PDAHomeTab key="home" firstVisit={!variables.premiere_visite_pda} />;
+      tab = (
+        <PDAHomeTab key="home" firstVisit={!variables.premiere_visite_pda} />
+      );
       break;
     case PDATab.QUIZZES:
       tab = (
@@ -224,7 +239,13 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
       );
       break;
     case PDATab.CONTACTS:
-      tab = <PDAContactsTab pdaState={pdaState} key="contacts" firstVisit={!variables.premiere_visite_contacts} />;
+      tab = (
+        <PDAContactsTab
+          pdaState={pdaState}
+          key="contacts"
+          firstVisit={!variables.premiere_visite_contacts}
+        />
+      );
       break;
     case PDATab.DOCUMENTS:
       tab = (
@@ -257,6 +278,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
               onTextLoadingEnd={onTextLoadingEnd}
               onChoiceSelected={onChoiceSelected}
               skipAnimation={skipAnimation}
+              playClickSound={() => playSoundEffect('click')}
             />
           </PDAStaticTransition>
         </PDAModal>
@@ -280,6 +302,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
                 handleTabClick(PDATab.DOCUMENTS);
               }}
               document={selectedDocument}
+              playClickSound={() => playSoundEffect('click')}
             />
           </PDAStaticTransition>
         </PDAModal>
@@ -303,6 +326,7 @@ export const PDAComponent: FunctionComponent<PDAComponentProps> = ({
                 handleTabClick(PDATab.QUIZZES);
               }}
               quiz={selectedQuiz}
+              playClickSound={() => playSoundEffect('click')}
             />
           </PDAStaticTransition>
         </PDAModal>

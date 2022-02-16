@@ -7,7 +7,8 @@ import {
   LeighKane,
   Enqueteur,
   Brighton,
-  Teacher,
+  TeacherV1,
+  TeacherV2,
   BonnieV1,
   BonnieV2,
   ChristopherYoung,
@@ -27,7 +28,10 @@ import {
   JohnRandle,
   Intervenant,
   Medecin,
-  Ron,
+  Rod,
+  Boris,
+  Christian,
+  Jonathan
 } from '../../characters';
 
 export const charactersNames = {
@@ -39,7 +43,8 @@ export const charactersNames = {
   [LeighKane.name]: 'Leigh Kane',
   [Enqueteur.name]: 'Enquêteur beaulieu',
   [Brighton.name]: 'Brighton',
-  [Teacher.name]: 'Teacher',
+  [TeacherV1.name]: 'Teacher',
+  [TeacherV2.name]: 'Teacher',
   [BonnieV1.name]: 'Jeune Femme',
   [BonnieV2.name]: 'Bonnie Randle',
   [JohnRandle.name]: 'John Randle',
@@ -56,8 +61,11 @@ export const charactersNames = {
   [Al.name]: 'Al',
   [Administrateur.name]: 'Administrateur',
   [Homme.name]: 'Homme',
-  [Ron.name]: 'Ron',
+  [Rod.name]: 'Rod',
   [Narrateur.name]: 'Narrateur',
   [Intervenant.name]: 'Intervenant',
   [Medecin.name]: 'Médecin',
+  [Boris.name]: 'Boris',
+  [Christian.name]: 'Christian',
+  [Jonathan.name]: 'Jonathan',
 };
