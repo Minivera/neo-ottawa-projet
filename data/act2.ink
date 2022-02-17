@@ -2,7 +2,7 @@
 
 = scene_1
 ~afficher_fond(transition)
-<center><titre>Chapitre 2</titre></center><br/><center>Au-delà des apparences - évidences</center> # transition
+<center><titre>Chapitre 2</titre></center><br/><center>Au-delà des évidences</center> # transition
 ~ afficher_fond(art_house_cafe)
 <b>Fred</b> attend <b>Bonnie</b> dans un café. 
 ~cacher_fond()
@@ -11,7 +11,6 @@
 Narrateur: L’agent Gallant s’enfonce. Qui croire? Qui a raison, qui a tort? Est-ce que la vérité réside entre les deux camps? Le gouvernement ou la résistance? À qui pouvez-vous faire confiance? Vous devrez continuer d’investiguer et de tirer vos propres conclusions. Ne perdez pas une minute, allez voir par vous-mêmes. Ne vous perdez pas en chemin, restez concentré sur votre objectif. Gallant, réveille-toi maintenant et ne triche pas. # character=NARRATEUR invisible center
 ~arreter_musique()
 <b>Fred</b> se réveille de sa torpeur.
-TODO=(animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?)
 ~afficher_fond(art_house_cafe)
 ~jouer_musique(theme_general)
 
@@ -450,7 +449,7 @@ Fred: Al? Il est ici? # character=FRED_GALLANT invisible
 
 Médecin: Oui, ma secrétaire va vous montrer le chemin. # character=MEDECIN expression=neutral
 
-Le <b>médecin</b> donne deux documents à <b>Fred</b> : l’un porte sur les troubles du jeu vidéo et l’autre sur la maximisation des revenus par l’industrie du jeu vidéo [document 1]
+Le <b>médecin</b> donne deux documents à <b>Fred</b>. L’un porte sur les troubles du jeu vidéo et l’autre sur la maximisation des revenus par l’industrie du jeu vidéo. # center
 ~cacher_tout_personnages()
 ~ajouter_document(GAMING_DISORDER)
 // Description: L’Organisation mondiale de la santé (OMS) s’était intéressée à la pratique des jeux vidéo. Mais quel est le rapport entre la santé et les jeux vidéo... ? 
@@ -878,7 +877,7 @@ Fred: Merci chef. J’ai compris. # character=FRED_GALLANT invisible
 
 Chef Miller: Je vous retire tout de même l’enquête du 530 McLeod. Moore va s’en charger. Et je veux un rapport demain matin sur mon bureau faisant état de vos progrès dans le dossier d’infiltration de la résistance. Je vous conseille de ne rien oublier. # character=CHEF_MILLER expression=disdain
 
-*<b>Fred</b> craque et dit tout au chef Miller.
+*<b>Fred</b> fait un rapport circonstancié au <b>chef Miller</b>.
  ~ points_fin_A1 += 4
  Fred: Chef! Je suis désolée! J’ai cru bien faire! Je voulais simplement obtenir des informations sur Teacher, je crois qu’il est important dans la résistance. Il vend des jeux à n’importe qui, des enfants. J’ai cru que c’était la chose à faire. Ça n’avance pas assez vite avec la résistance. Pour tout vous dire, j’ai même des cas de conscience. # character=FRED_GALLANT invisible
 
@@ -1016,22 +1015,12 @@ Selon l’article sur lequel j’ai mis la main, trois types d’intervention ou
 -> scene_7
 
 = scene_7
+~afficher_fond(news_room)
 ~jouer_musique(theme_news)
+Quel avenir pour les centres de traitement des dépendances aux jeux? La politique de l’autruche # center
 
-{points_fin_1 > points_fin_2 and points_fin_1 > points_fin_3 and points_fin_1 > points_fin_4:
-          ~ afficher_fond(chapitre_2_gros_titres_1)
-          }
+Le petit Leigh Kane retrouvé. Les jeux vidéo n’étaient pas en cause! # center
 
-{points_fin_2 > points_fin_1 and points_fin_2 > points_fin_3 and points_fin_2 > points_fin_4:
-          ~ afficher_fond(chapitre_2_gros_titres_2)
-          }
-
-{points_fin_3 > points_fin_1 and points_fin_3 > points_fin_2 and points_fin_3 > points_fin_4:
-          ~ afficher_fond(chapitre_2_gros_titres_3)
-          }
-
-{points_fin_4 > points_fin_1 and points_fin_4 > points_fin_2 and points_fin_4 > points_fin_3:
-          ~ afficher_fond(chapitre_2_gros_titres_4)
-          }
+Quand les coupables se défilent : les nouveaux jeux vidéo du marché noir. Comment exercer plus de contrôle? # center
 
 -> chapitre_3.scene_1

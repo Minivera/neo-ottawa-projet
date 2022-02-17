@@ -168,13 +168,13 @@ TODO: vérifier comment le mettre flou
 ~jouer_musique(theme_narrateur)
 
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
-Chef Miller, <i>au téléphone</i>: Merci, je te revaudrai ça. L’info que tu m’as donnée m’a vraiment aidé. Gallant va se compromettre, je le sens. Cependant, elle est quand même très habile. Est-ce que je peux te demander de continuer la surveillance pour moi? Quelques jours seulement. Soit, elle va me donner quelque chose, soit je vais la coincer. # character=CHEF_MILLER expression=joy
+Chef Miller, au téléphone: Merci, je te revaudrai ça. L’info que tu m’as donnée m’a vraiment aidé. Gallant va se compromettre, je le sens. Cependant, elle est quand même très habile. Est-ce que je peux te demander de continuer la surveillance pour moi? Quelques jours seulement. Soit, elle va me donner quelque chose, soit je vais la coincer. # character=CHEF_MILLER expression=joy
 
-Enquêteur Beaulieu , <i>au téléphone</i>: Je vais affecter Brighton à cette mission pendant encore quelques jours. À la moindre suspicion, on l’embarque. # character=ENQUETEUR_BEAULIEU invisible
+Enquêteur Beaulieu , au téléphone: Je vais affecter Brighton à cette mission pendant encore quelques jours. À la moindre suspicion, on l’embarque. # character=ENQUETEUR_BEAULIEU invisible
 
-Chef Miller, <i>au téléphone</i>: J’avais bien besoin de ça, une agente corrompue. # character=CHEF_MILLER expression=aversion
+Chef Miller, au téléphone: J’avais bien besoin de ça, une agente corrompue. # character=CHEF_MILLER expression=aversion
 
-Enquêteur Beaulieu, <i>au téléphone</i>: On n’est jamais à l’abri! # character=ENQUETEUR_BEAULIEU invisible
+Enquêteur Beaulieu, au téléphone: On n’est jamais à l’abri! # character=ENQUETEUR_BEAULIEU invisible
 ~cacher_tout_personnages()
 ->scene_2
 
@@ -184,7 +184,7 @@ Enquêteur Beaulieu, <i>au téléphone</i>: On n’est jamais à l’abri! # cha
 
 <b>Fred</b> se réveille de sa torpeur.
 
-Fred <i>à elle-même</i>: Il ne manquait plus que ça! Qu’est-ce qui m’arrive encore? J’en ai marre de me faire manipuler. Est-ce qu’il y avait quelque chose dans ce café? Qui tient les ficelles? Où dois-je aller maintenant? # character=FRED_GALLANT invisible
+Fred à elle-même: Il ne manquait plus que ça! Qu’est-ce qui m’arrive encore? J’en ai marre de me faire manipuler. Est-ce qu’il y avait quelque chose dans ce café? Qui tient les ficelles? Où dois-je aller maintenant? # character=FRED_GALLANT invisible
 -> scene_3
 
 =scene_3
@@ -614,7 +614,7 @@ Narrateur: L’heure a sonné! Fred n’est pas une juriste, vous vous rappelez?
 ~ajouter_document(STATUT_LEGAL_JEUX_VIDEO)
 ~ajouter_document(SEGGIE_ROOFDOG)
 
-Fred, <i>à elle-même</i>: Je suis narcoleptique- somnambule ou quoi? La jurisprudence… je n’y aurais pas pensé. Merci, pour ces indices, qui que vous soyez… il faut vraiment que je consulte un médecin! # character=FRED_GALLANT invisible
+Fred, à elle-même: Je suis narcoleptique- somnambule ou quoi? La jurisprudence… je n’y aurais pas pensé. Merci, pour ces indices, qui que vous soyez… il faut vraiment que je consulte un médecin! # character=FRED_GALLANT invisible
 -> quiz_4_2
 
 =quiz_4_2

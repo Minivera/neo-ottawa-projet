@@ -24,9 +24,7 @@ import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interi
 import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.jpg?w=1920&h=1080';
 import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1080';
 import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&h=1080';
-import chapitre1Titre1 from '../../assets/backgrounds/chapitre_1_gros_titres_1.jpg?w=1920&h=1080';
-import chapitre1Titre2 from '../../assets/backgrounds/chapitre_1_gros_titres_2.jpg?w=1920&h=1080';
-import chapitre1Titre3 from '../../assets/backgrounds/chapitre_1_gros_titres_3.jpg?w=1920&h=1080';
+import newsRoom from '../../assets/backgrounds/news_room.jpg?w=1920&h=1080';
 import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1080';
 import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1080';
 import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation.jpg?w=1920&h=1080';
@@ -69,17 +67,11 @@ export const backgrounds: Backgrounds = {
   maison_carl_white: { type: 'image', asset: maisonCarlWhite },
   grenier: { type: 'image', asset: grenier },
   ordinateur_fred: { type: 'image', asset: ordinateurFred },
-  chapitre_1_gros_titres_1: { type: 'image', asset: chapitre1Titre1 },
-  chapitre_1_gros_titres_2: { type: 'image', asset: chapitre1Titre2 },
-  chapitre_1_gros_titres_3: { type: 'image', asset: chapitre1Titre3 },
+  news_room: { type: 'image', asset: newsRoom },
   telephone_photo_john_randle: { type: 'image', asset: telephone },
   chambre_cousine_leigh_kane: { type: 'image', asset: chambreCousingLeighKane },
   centre_rehabilitation_couloir: { type: 'image', asset: centreRehabilitationCouloir },
   centre_rehabilitation_autre_piece: { type: 'image', asset: centreRehabilitationAutrePiece },
-  chapitre_2_gros_titres_1: { type: 'image', asset: chapitre1Titre1 },
-  chapitre_2_gros_titres_2: { type: 'image', asset: chapitre1Titre1 },
-  chapitre_2_gros_titres_3: { type: 'image', asset: chapitre1Titre1 },
-  chapitre_2_gros_titres_4: { type: 'image', asset: chapitre1Titre1 },
   maison_fred: { type: 'image', asset: maisonFred },
   transition: { type: 'image', asset: transition },
   maison_jonathan: { type: 'image', asset: maisonJonathan },

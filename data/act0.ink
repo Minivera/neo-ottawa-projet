@@ -19,7 +19,7 @@ Préparez-vous. Respirez. Inspirez. Expirez. Fermez les yeux. Ouvrez-les. Commen
 = scene_1
 ~ afficher_fond (brigade_outside)
 ~ jouer_musique(theme_police)
-Fred, <i>à elle-même</i>: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative. # character=FRED_GALLANT invisible
+Fred, à elle-même: Tiens-t’en à ton plan : suivre les ordres; avancer; faire les choses proprement; avoir de l’initiative. # character=FRED_GALLANT invisible
 ~ arreter_musique()
 -> scene_2
 
@@ -205,7 +205,7 @@ L’enquêteur du criminel est présent. # center
     Enquêteur Beaulieu: Mais c’est merveilleux! Vous allez trouver le petit? Gallant vous avez dit? # character=ENQUETEUR_BEAULIEU expression=cruel
     Fred: Oui. # character=FRED_GALLANT invisible
     Enquêteur Beaulieu: Vous êtes nouvelle c’est ça? # character=ENQUETEUR_BEAULIEU expression=aversion
-    Enquêteur Beaulieu: BRIGHTON? # character=ENQUETEUR_BEAULIEU
+    Enquêteur Beaulieu: BRIGHTON? # character=ENQUETEUR_BEAULIEU expression=outrage
     ~ afficher_personnage(BRIGHTON, "slideInUp")
     Brighton: Oui chef? # character=BRIGHTON expression=neutral
      ~ ajouter_contact(BRIGHTON)
@@ -243,7 +243,7 @@ L’enquêteur du criminel est présent. # center
 ~ jouer_musique(theme_fred)
 <b>Fred</b> parcourt les données du téléphone de <b>Leigh Kane</b>. Elle découvre deux conversations. L’une entre <b>Leigh Kane</b> et sa <b>cousine</b>. L’autre, avec un pseudo mystérieux… <b>TEACHER</b>.
 ~ afficher_fond(telephone_kane)
-<b>Lundi, 18h37:</b>
+<b>Lundi, 18h37</b>:
 TEACHER: Tu vas adorer # character=TEACHER_V1 invisible
 Leigh Kane: Bah vous dites toujours ça # character=LEIGH_KANE invisible
 TEACHER: Cette fois, il est au point. On est tous à fond sur le jeu. Tu pourras plus t’arrêter. Il est immersif, complexe, on s’y croirait, on oublie tout. # character=TEACHER_V1 invisible
@@ -254,7 +254,7 @@ TEACHER: 400 # character=TEACHER_V1 invisible
 Leigh Kane: Où # character=LEIGH_KANE invisible
 TEACHER: Je t’indique le lieu et l’heure plus tard # character=TEACHER_V1 invisible
 Leigh Kane: (pouce en l'air) # character=LEIGH_KANE invisible
-<b>Mercredi, 11h02:</b>
+<b>Mercredi, 11h02</b>:
 TEACHER: 23h, 5567 Flemming<br/>Tu cognes 4 coups secs<br/>Mot de passe : ratata02 # character=TEACHER_V1 invisible
 Leigh Kane: (pouce en l’air) # character=LEIGH_KANE invisible
 ~ ajouter_contact(TEACHER_V1)
@@ -297,53 +297,53 @@ Au moment de démarrer la voiture, <b>Fred</b> voit une jeune femme sortir à l�
 -> scene_11
 
 = scene_11
-~ afficher_fond(art_house_cafe)
-~ jouer_musique(theme_art_house_cafe)
+~ afficher_fond(voiture_fred)
+~ jouer_musique(theme_general)
 ~ afficher_personnage(BONNIE_RANDLE_V1, "fadeIn")
 Fred: Qu’est-ce que je peux faire pour vous? # character=FRED_GALLANT invisible
-Bonnie: Je voudrais sortir de la résistance. Je voudrais aussi qu’ils ne puissent plus me rejoindre. Je voudrais que mes parents ne sachent pas que j’en aie fait partie.  # character=BONNIE_RANDLE_V2 expression=sterness
+Bonnie: Je voudrais sortir de la résistance. Je voudrais aussi qu’ils ne puissent plus me rejoindre. Je voudrais que mes parents ne sachent pas que j’en aie fait partie.  # character=BONNIE_RANDLE_V1 expression=sterness
 Fred: Connaissez-vous Leigh Kane? # character=FRED_GALLANT invisible
-Bonnie: Non. Je n’ai jamais entendu ce nom.  # character=BONNIE_RANDLE_V2 expression=default
+Bonnie: Non. Je n’ai jamais entendu ce nom.  # character=BONNIE_RANDLE_V1 expression=default
 <b>Fred</b> lui montre la photo de <b>Leigh Kane</b>.
-Bonnie: Jamais vu. # character=BONNIE_RANDLE_V2 expression=default
+Bonnie: Jamais vu. # character=BONNIE_RANDLE_V1 expression=default
 Fred: Étiez-vous au 5567, Flemming le soir du 10 juillet dernier? # character=FRED_GALLANT invisible
-Bonnie: Je ne sais pas, c’était quand ça, quel jour? # character=BONNIE_RANDLE_V2 expression=neutral
+Bonnie: Je ne sais pas, c’était quand ça, quel jour? # character=BONNIE_RANDLE_V1 expression=neutral
 Fred: C’était un mercredi. # character=FRED_GALLANT invisible
-Bonnie Randle, <i>mal à l'aise</i> : Peut-être, j’y traînais de temps en temps. # character=BONNIE_RANDLE_V2 expression=melancholy
+Bonnie Randle, mal à l'aise: Peut-être, j’y traînais de temps en temps. # character=BONNIE_RANDLE_V1 expression=melancholy
 Fred: Parlez-moi des activités de la résistance. # character=FRED_GALLANT invisible
-Bonnie: Je ne sais presque rien. Ils ne veulent pas que des mineurs soient au courant de leurs manigances. J’avais seulement le droit de me trouver avec eux, mais ils parlent à mots couverts.  # character=BONNIE_RANDLE_V2 expression=neutral
+Bonnie: Je ne sais presque rien. Ils ne veulent pas que des mineurs soient au courant de leurs manigances. J’avais seulement le droit de me trouver avec eux, mais ils parlent à mots couverts.  # character=BONNIE_RANDLE_V1 expression=neutral
 Fred: Quel est leur but?  # character=FRED_GALLANT invisible
-Bonnie: Jouer et faire en sorte que plus de monde continue à jouer. Et puis, ils croient qu’ils vont arriver à faire reculer le gouvernement  et à faire abroger la <i>Loi Game Over</i>. Ils préparent quelque chose, mais je ne sais pas quoi.  # character=BONNIE_RANDLE_V2 expression=neutral
+Bonnie: Jouer et faire en sorte que plus de monde continue à jouer. Et puis, ils croient qu’ils vont arriver à faire reculer le gouvernement  et à faire abroger la <i>Loi Game Over</i>. Ils préparent quelque chose, mais je ne sais pas quoi.  # character=BONNIE_RANDLE_V1 expression=neutral
 Fred: D’accord, mais jouer à quoi? À des jeux dangereux?  # character=FRED_GALLANT invisible
-Bonnie: Je croyais que tous les jeux étaient potentiellement dangereux selon vous. Écoutez, je rentre à la faculté de droit à l’automne. Si on apprend que j’ai côtoyé des gens qui ont une activité illégale, mon père va me tuer.  # character=BONNIE_RANDLE_V2 expression=sterness
+Bonnie: Je croyais que tous les jeux étaient potentiellement dangereux selon vous. Écoutez, je rentre à la faculté de droit à l’automne. Si on apprend que j’ai côtoyé des gens qui ont une activité illégale, mon père va me tuer.  # character=BONNIE_RANDLE_V1 expression=sterness
 Fred: Avez-vous joué? # character=FRED_GALLANT invisible
-Bonnie: Non, jamais. Je n’arrive pas à contrôler les manettes! # character=BONNIE_RANDLE_V2 expression=alertness
+Bonnie: Non, jamais. Je n’arrive pas à contrôler les manettes! # character=BONNIE_RANDLE_V1 expression=alertness
 *   <b>Fred</b> ne croit pas <b>Bonnie</b>.
     Fred: Si vous voulez que je vous aide, vous allez devoir me dire la vérité. J’ai besoin de savoir ce qui est arrivé au garçon dont je vous ai montré la photo.<br/>Ça urge. # character=FRED_GALLANT invisible
-    Bonnie: D’accord, j’ai joué une ou deux fois, mais je ne connais pas ce garçon. Je vous jure que je ne l’ai jamais vu! # character=BONNIE_RANDLE_V2 expression=wonder
+    Bonnie: D’accord, j’ai joué une ou deux fois, mais je ne connais pas ce garçon. Je vous jure que je ne l’ai jamais vu! # character=BONNIE_RANDLE_V1 expression=wonder
     Fred: Quel genre de jeux? # character=FRED_GALLANT invisible
-    Bonnie: Des vieux jeux. Des jeux pour enfants. Ils les appellent les jeux d’arcade. Ça me semblait inoffensif! # character=BONNIE_RANDLE_V2 expression=neutral
+    Bonnie: Des vieux jeux. Des jeux pour enfants. Ils les appellent les jeux d’arcade. Ça me semblait inoffensif! # character=BONNIE_RANDLE_V1 expression=neutral
     Fred: Vous allez m’aider. # character=FRED_GALLANT invisible
-    Bonnie: Comment? # character=BONNIE_RANDLE_V2 expression=default
+    Bonnie: Comment? # character=BONNIE_RANDLE_V1 expression=default
     Fred: Je vais infiltrer la résistance. # character=FRED_GALLANT invisible
 *   <b>Fred</b> ne confronte pas <b>Bonnie</b> davantage, mais tente de l’amadouer autrement.
     Fred: Tu peux me dire tout ce que tu as sur le cœur. C’est mon travail de venir en aide aux gens qui ont des contacts avec des jeux. Je m’occupe de faire respecter la <i>Loi Game Over</i>, mais ça veut aussi dire apporter du soutien aux personnes qui sont prisonnières d’une dépendance. # character=FRED_GALLANT invisible
-    Bonnie: Je ne peux pas avoir un casier judiciaire et je ne suis pas dépendante. # character=BONNIE_RANDLE_V2 expression=disdain
+    Bonnie: Je ne peux pas avoir un casier judiciaire et je ne suis pas dépendante. # character=BONNIE_RANDLE_V1 expression=disdain
     Fred: J’ai compris. Mais pourquoi m’as-tu contactée réellement? Pourquoi tu veux quitter le groupe? # character=FRED_GALLANT invisible
-    Bonnie: D’accord, j’ai joué une ou deux fois, mais je ne connais pas ce garçon. Je vous jure que je ne l’ai jamais vu! # character=BONNIE_RANDLE_V2 expression=wonder
+    Bonnie: D’accord, j’ai joué une ou deux fois, mais je ne connais pas ce garçon. Je vous jure que je ne l’ai jamais vu! # character=BONNIE_RANDLE_V1 expression=wonder
     Fred: Quel genre de jeux? # character=FRED_GALLANT invisible
-    Bonnie: Des vieux jeux. Des jeux pour enfants. Ils les appellent les jeux d’arcade. Ça me semblait inoffensif! # character=BONNIE_RANDLE_V2 expression=neutral
+    Bonnie: Des vieux jeux. Des jeux pour enfants. Ils les appellent les jeux d’arcade. Ça me semblait inoffensif! # character=BONNIE_RANDLE_V1 expression=neutral
     Fred: Vous allez m’aider. # character=FRED_GALLANT invisible
-    Bonnie: Comment? # character=BONNIE_RANDLE_V2 expression=default
+    Bonnie: Comment? # character=BONNIE_RANDLE_V1 expression=default
     Fred: Je vais infiltrer la résistance. # character=FRED_GALLANT invisible
 *   <b>Fred</b> abandonne. Ce témoin ne lui sera pas utile. Sauf pour l’idée qu’elle a désormais en tête. Celle d’infiltrer la résistance.
     Fred: Vous allez m’aider. # character=FRED_GALLANT invisible
-Bonnie: Comment? # character=BONNIE_RANDLE_V2 expression=default
+Bonnie: Comment? # character=BONNIE_RANDLE_V1 expression=default
 Fred: Je vais infiltrer la résistance. # character=FRED_GALLANT invisible
 - <b>Bonnie</b> donne le nom et le numéro de téléphone d’une personne que <b>Fred</b> peut appeler en prétendant vouloir se procurer un jeu.
-Bonnie: Vous pouvez dire que vous avez eu ces infos de moi. Dites que vous connaissez mon grand frère, <b>John Randle</b>, de l’Université d’Ottawa. Il a votre âge, il est nouvellement ingénieur. Ils le connaissent. Ce type, Young, lui fait entièrement confiance et c’est pour ça qu’ils me laissent jouer dans leurs locaux, même si je suis mineure. Mais ensuite vous m’aiderez? # character=BONNIE_RANDLE_V2 expression=default
+Bonnie: Vous pouvez dire que vous avez eu ces infos de moi. Dites que vous connaissez mon grand frère, <b>John Randle</b>, de l’Université d’Ottawa. Il a votre âge, il est nouvellement ingénieur. Ils le connaissent. Ce type, Young, lui fait entièrement confiance et c’est pour ça qu’ils me laissent jouer dans leurs locaux, même si je suis mineure. Mais ensuite vous m’aiderez? # character=BONNIE_RANDLE_V1 expression=default
 Fred: Connaissez-vous quelqu’un qui utilise le pseudo de Teacher? # character=FRED_GALLANT invisible
-Bonnie: Non, jamais entendu parler. # character=BONNIE_RANDLE_V2 expression=default
+Bonnie: Non, jamais entendu parler. # character=BONNIE_RANDLE_V1 expression=default
 
 ~ retirer_contact(BONNIE_RANDLE_V1)
 ~ ajouter_contact(BONNIE_RANDLE_V2)
@@ -362,17 +362,19 @@ Chef Miller: Gallant, j’ai… # character=CHEF_MILLER_NO_CIGAR expression=neut
 ~ arreter_musique()
 L'écran devient noir. #center
 ~ jouer_musique(theme_narrateur)
-Vous reconnaissez la croisée des chemins quand vous y faites face? Vous aimez sentir la pression jusque dans le battement de vos tempes? La sueur perle sur votre front. Le moment sera décisif. Serez-vous à la hauteur? Dors Fred, dors. Pendant qu’on s’occupe de ton avenir. # character=NARRATEUR invisible center
+Narrateur: Vous reconnaissez la croisée des chemins quand vous y faites face? Vous aimez sentir la pression jusque dans le battement de vos tempes? La sueur perle sur votre front. Le moment sera décisif. Serez-vous à la hauteur? Dors Fred, dors. Pendant qu’on s’occupe de ton avenir. # character=NARRATEUR invisible center
 ~ afficher_fond(bureau_fred)
-~jouer_musique(theme_choix_cruciaux)
+~jouer_musique(theme_general)
 TODO Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?
 ~ afficher_personnage(CHEF_MILLER_NO_CIGAR, "none")
-Chef Miller: Fred? Fred? Est-ce que vous manquez de sommeil? Secouez-vous! Reprenez vos esprits! # character=CHEF_MILLER_NO_CIGAR expression=anger
+Chef Miller: Gallant? Gallant? Est-ce que vous manquez de sommeil? Secouez-vous! Reprenez vos esprits! # character=CHEF_MILLER_NO_CIGAR expression=anger
 Chef Miller: Alors? Du nouveau? Qu’avez-vous trouvé sur les lieux?	# character=CHEF_MILLER_NO_CIGAR expression=sterness
 Fred: Peu de choses. Il n’y a rien de frappant qui mène à la conclusion que cet enfant jouait de manière clandestine. Pas dans sa chambre. # character=FRED_GALLANT invisible
 Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordinateur? Rien là non plus? # character=CHEF_MILLER_NO_CIGAR
+~jouer_musique(theme_choix_cruciaux)
 *   <b>Fred</b> choisit de ne rien dire au <b>Chef Miller</b>.
   ~ points_fin_A1 += 4
+  ~jouer_musique(theme_general)
     Fred: Non, rien pour l’instant. # character=FRED_GALLANT invisible
     Chef Miller: Aucune piste? # character=CHEF_MILLER_NO_CIGAR expression=wtf
     Fred: Rien de sérieux. # character=FRED_GALLANT invisible
@@ -397,21 +399,22 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
      Fred: Jouer. # character=FRED_GALLANT invisible
 *   <b>Fred</b> choisit de parler au <b>Chef</b> Miller et de lui dire une partie de la vérité.
 ~ points_fin_A2 += 4
+ ~jouer_musique(theme_general)
     Fred: Il y a un groupe. # character=FRED_GALLANT invisible
     Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=surprise
     Fred: Qui semble fournir des jeux vidéo à ceux qui en cherchent. # character=FRED_GALLANT invisible
-    Chef Miller: Vous avez trouvé des informations sur ce groupe? Ça fait une éternité qu’on en cherche! La résistance, c’est ça? # character=CHEF_MILLER_NO_CIGAR expression=suprise
+    Chef Miller: Vous avez trouvé des informations sur ce groupe? Ça fait une éternité qu’on en cherche! La résistance, c’est ça? # character=CHEF_MILLER_NO_CIGAR expression=surprise
     Fred: Oui, mais très peu. Leigh Kane avait une adresse dans ses messages texte. Une adresse qui mène à ce groupe. Il cherchait à se procurer un jeu. # character=FRED_GALLANT invisible
     Chef Miller: Eh merde! Gallant, vous allez contacter ce groupe et voir ce que vous pouvez trouver au sujet de Kane. Vous allez vous faire passer pour quelqu’un qui veut un jeu. Vous allez pouvoir le faire? On ne fait pas souvent dans l’agent double ici, même si presque tous vos collègues ont déjà essayé. Tentez le coup. Convainquez-les, endormez-les. # character=CHEF_MILLER_NO_CIGAR expression=omg
     Fred: Oui, chef. Je peux les contacter et me faire passer pour une joueuse. # character=FRED_GALLANT invisible
     Chef Miller: Bien, j’espérais que je pouvais compter sur vous, Gallant. On avait besoin de sang neuf ici. Vous êtes jeune et vous pouvez encore passer pour une étudiante. Ne perdez pas une minute. # character=CHEF_MILLER_NO_CIGAR expression=satisfaction
     Fred: J’appelle immédiatement. # character=FRED_GALLANT invisible
-- Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR
+- Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR expression=neutral
 ~ cacher_tout_personnages()
 ~ afficher_fond(telephone_fred)
 <b>Fred</b> compose au numéro que <b>Bonnie</b> lui a donné.
 ~ jouer_effet_sonore(composer_numero)
-???: Qui est-ce? # character=CHRISTOPHER_YOUNG invisible
+Homme: Qui est-ce? # character=CHRISTOPHER_YOUNG invisible
 Fred: Je m’appelle Fred. C’est John Randle qui m’a donné votre numéro. # character=FRED_GALLANT invisible
   Christopher: John qui? # character=CHRISTOPHER_YOUNG invisible
 Fred: Euuh...Randle. # character=FRED_GALLANT invisible

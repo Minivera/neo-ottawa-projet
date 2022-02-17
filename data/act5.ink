@@ -16,9 +16,9 @@ Narrateur: Fred est en train de perdre la confiance de ses collaborateurs de tou
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
 
-Fred, <i>à elle-même</i>: Les mods de jeux! Bien sûr! # character=FRED_GALLANT invisible
+Fred, à elle-même: Les mods de jeux! Bien sûr! # character=FRED_GALLANT invisible
 
-Fred, <i>à elle-même</i>: Il faudrait quand même que je pense à consulter sur ces moments d’absences… # character=FRED_GALLANT invisible
+Fred, à elle-même: Il faudrait quand même que je pense à consulter sur ces moments d’absences… # character=FRED_GALLANT invisible
 
 <b>Vivian</b> ouvre la porte. 
 ~afficher_personnage(VIVIAN, "slideInUp")
@@ -53,8 +53,7 @@ Vivian: Ce sont des réponses qu’on voulait. # character=VIVIAN expression=ste
 
 Fred: Je sais. J’ai quand même une info à te partager. # character=FRED_GALLANT invisible
 
-Vivian [disdain]
-Laquelle? # character=VIVIAN expression=disdain
+Vivian: Laquelle? # character=VIVIAN expression=disdain
 
 Fred: Concernant l’événement. # character=FRED_GALLANT invisible
 
@@ -66,13 +65,13 @@ Fred: Je sais qu’ils planifient un événement pour convaincre le public que l
 
 Vivian: D’accord, Sherlock. # character=VIVIAN expression=amusement
 
-*Fred demeure très vague sur ce qu’elle sait. Elle se méfie.
+*<b>Fred</b> demeure très vague sur ce qu’elle sait. Elle se méfie.
 
  Fred: Rien, personne ne semble me faire confiance. # character=FRED_GALLANT invisible
 
 Vivian: Il y a certainement une raison à cela. # character=VIVIAN expression=disdain
 
-*Fred explique ce qu’elle sait.
+*<b>Fred</b> explique ce qu’elle sait.
 
 Fred: Je sais qu’ils planifient un événement pour convaincre le public que les jeux ne devraient pas rester illégaux. # character=FRED_GALLANT invisible
 
@@ -80,8 +79,7 @@ Vivian: D’accord, Sherlock. # character=VIVIAN expression=amusement
 
 Fred: Je ne blague pas. Je connais le jeu qui sera utilisé pour le lancement. # character=FRED_GALLANT invisible
 
-- Vivian [sterness]
-C’est quoi ta question au juste? # character=VIVIAN expression=sterness
+- Vivian: C’est quoi ta question au juste? # character=VIVIAN expression=sterness
 
 Fred: Tu connais les mods de jeux? Est-ce que c’est bien ou pas? # character=FRED_GALLANT invisible
 
@@ -474,7 +472,7 @@ Fred: Mais Boris, ça va le devenir. Ça donne des armes à la loi! Au gouvernem
 Boris: Ils ne vont pas gagner cette fois. # character=BORIS expression=sterness
 
 Fred: Mais pour combien de temps? # character=FRED_GALLANT invisible
-
+~cacher_personnage(BORIS, "slideOutDown")
 ~jouer_musique(theme_choix_cruciaux)
 
 * Fred décide de parler à Christopher pour connaître son avis à ce sujet et peut-être obtenir des informations sur les dépenses et le phénomène de dépendance.
@@ -513,6 +511,7 @@ Fred: Bon, alors, lorsque vous l’aurez? # character=FRED_GALLANT invisible
 Christopher: Est-ce que c’est à leur insu? # character=CHRISTOPHER_YOUNG expression=concern
 
 Fred: Non, bien sûr que non. Je leur ai parlé. # character=FRED_GALLANT invisible
+~cacher_tout_personnages()
 
 * Fred repense à Al, l’ancien dépendant interné… Mais elle est convaincue qu’il s’agit d’un cas isolé et qu’il n’est pas de la responsabilité des concepteurs de s’assurer que leur jeu n’entraîne pas de dépendances. Elle laisse tomber cette partie de l’enquête. 
 ~ points_fin_B2 += 4
@@ -524,629 +523,431 @@ Fred: Non, bien sûr que non. Je leur ai parlé. # character=FRED_GALLANT invisi
 
 * <b>Fred</b> regrette sa décision et décide d’examiner encore quelques éléments du jeu avant de clore l’affaire. 
 ~points_fin_A2 += 4
-[BUREAU DE FRED]
-[Thème général]
-Fred travaille sur des dossiers en lien avec la dépendance aux jeux vidéo. Ses inquiétudes sont confirmées. Avec le rapport de jeu de l’équipe de Christopher, plusieurs éléments du jeu peuvent mener à la dépendance. 
-Rapport de l’équipe de Christopher.
-[Thème quiz]
-1- Le jeu de la résistance comprend des éléments problématiques du point de vue de la dépendance, mais lesquels en particulier ? 
--	Le jeu est entièrement gratuit.
--	Les joueurs peuvent personnaliser leur avatar. 
--	Des offres d’achat adaptées à chaque joueur en fonction de ses habitudes de jeu sont faites chaque jour.
--	Des graphismes jamais vus grâce à un moteur graphique révolutionnaire. 
--	Un système de récompenses aléatoire auquel tous les joueurs ont accès. 
--	Aucun de ces éléments
 
-Rétroaction : 
+~afficher_fond(bureau_fred)
+~jouer_musique(theme_general)
+<b>Fred</b> travaille sur des dossiers en lien avec la dépendance aux jeux vidéo. Ses inquiétudes sont confirmées. Avec le rapport de jeu de l’équipe de <b>Christopher</b>, plusieurs éléments du jeu peuvent mener à la dépendance.
+~ajouter_document(RAPPORT_CHRISTOPHER)
 
-La personnalisation des offres dans les jeux gratuits ou payants était très courante. Elle permettait de fortement encourager les joueurs à dépenser de l’argent. Avant la Loi Game Over, les développeurs avaient de plus en plus tendance à utiliser cette technique pour maximiser leurs profits. Il est très problématique de trouver cet élément dans le jeu de la résistance. Des critiques pourraient être formulées à l’égard du jeu. 
+* <b>Fred</b> décide de parler de ses découvertes au <b>chef Miller</b>.
+~points_fin_A1 += 4
+~afficher_fond(bureau_chef_miller)
+~jouer_musique(theme_general)
+~afficher_personnage(CHEF_MILLER, "slideInUp")
+Fred: Chef, j’ai des informations à vous donner. # character=FRED_GALLANT invisible
 
-2- Et que penser de ces autres éléments, peuvent-ils être problématiques du point de vue de la dépendance aux jeux vidéo ? 
--	Un jeu sans fin avec des environnements générés aléatoirement.
--	Un gameplay très facile d’accès, mais aussi très profond pour les joueurs les plus perfectionnistes. 
--	Une limite de temps de jeu journalier, sans quoi le joueur perd des ressources. 
--	La possibilité d’acheter des bonus afin d’augmenter son niveau. 
--	Aucune de ces propositions
+Chef Miller: Ce n’était pas dans votre rapport? # character=CHEF_MILLER expression=sterness
 
-Rétroaction : Certains jeux permettaient aux joueurs de payer pour obtenir des bonus leur conférant un avantage sur les autres. Pour certains joueurs, cette possibilité pouvait les encourager à dépenser beaucoup d’argent pour obtenir de meilleurs résultats. Il est problématique de trouver cet élément dans le jeu de la résistance. Des critiques pourraient être formulées à l’égard du jeu en raison de sa présence. 
+Fred: Non, je viens d’obtenir ces informations. # character=FRED_GALLANT invisible
 
-Fred téléphone à Teacher.
+Chef Miller: Très bien, je vous écoute. # character=CHEF_MILLER expression=neutral
+
+Fred: Voilà, j’ai entendu de la bouche d’une personne sûre qu’il se prépare quelque chose à la résistance. # character=FRED_GALLANT invisible
+
+Chef Miller: Quoi donc? # character=CHEF_MILLER expression=concern
+
+Fred: En fait, leur but est de provoquer le retour légal des jeux. # character=FRED_GALLANT invisible
+
+Chef Miller: Oui, ça, je savais. # character=CHEF_MILLER expression=cruel
+
+Fred: Bon, et bien leur carte maîtresse est de rendre public un jeu gratuit, comme avant. # character=FRED_GALLANT invisible
+
+Chef Miller: En ligne? # character=CHEF_MILLER expression=neutral
+
+Fred: Oui. # character=FRED_GALLANT invisible
+
+Chef Miller: Quand? # character=CHEF_MILLER expression=concern
+
+Fred: Je ne sais pas encore. Mais c’est dangereux. # character=FRED_GALLANT invisible
+
+Chef Miller: Mais dites-moi quelque chose que je ne sais pas déjà, Gallant! # character=CHEF_MILLER expression=wtf
+
+Fred: Ils ont conçu un jeu qui est extrêmement addictif. # character=FRED_GALLANT invisible
+
+Chef Miller: Et puis? # character=CHEF_MILLER expression=neutral
+
+Fred: Eh bien, même s’ils réussissent leur coup, il ne serait pas très difficile de faire pencher l’opinion publique de notre côté. Le jeu est mauvais, néfaste. Vous voyez? # character=FRED_GALLANT invisible
+
+Chef Miller: Si, je pense que je vois où vous voulez en venir. Merci Gallant, j’appelle l’attaché politique du premier ministre. Allez donc explorer davantage ces questions de dépendance à propos du jeu de la résistance. # character=CHEF_MILLER expression=satisfaction
+~cacher_tout_personnages()
+~afficher_fond(bureau_fred)
+~jouer_musique(theme_general)
+<b>Fred</b> travaille sur des dossiers en lien avec la dépendance aux jeux vidéo. Ses inquiétudes sont confirmées. Avec le rapport de jeu de l’équipe de <b>Christopher</b>, plusieurs éléments du jeu peuvent mener à la dépendance. 
+~ajouter_document(RAPPORT_CHRISTOPHER)
+- -> act_5_quiz_2.quiz_5_2 
+
+= scene_3_suite
+~afficher_fond(bureau_fred)
+~jouer_musique(theme_general)
+
+<b>Fred</b> téléphone à <b>Teacher</b>.
+~afficher_personnage(TEACHER_V2, "fadeIn")
 
 Fred, au téléphone: Salut. Tu as une minute? # character=FRED_GALLANT invisible
 
-Teacher, au téléphone [neutral]
-Qu’est-ce qu’il y a?
+Teacher, au téléphone: Qu’est-ce qu’il y a? # character=TEACHER_V2 expression=neutral phone
 
 Fred, au téléphone: Je pense que vous ne devriez pas aller de l’avant avec le jeu tel qu’il est. # character=FRED_GALLANT invisible
 
-Teacher, au téléphone [surprise]
-Pourquoi?
+Teacher, au téléphone: Pourquoi? # character=TEACHER_V2 expression=surprise phone
 
 Fred, au téléphone: Parce qu’il comporte des éléments qui ont été identifiés comme pouvant causer de la dépendance chez les joueurs. # character=FRED_GALLANT invisible
 
-Teacher, au téléphone [wtf]
-Mais pourquoi ça devrait nous préoccuper?
+Teacher, au téléphone: Mais pourquoi ça devrait nous préoccuper? # character=TEACHER_V2 expression=wtf phone
 
 Fred, au téléphone: Je l’ai expliqué à plusieurs reprises déjà : si vous n’êtes pas prêts à affronter les critiques, comment pensez-vous convaincre les gens qui ont des réticences à cause de la dépendance au jeu si vous forcez sur le marché un jeu qui crée des dépendances? # character=FRED_GALLANT invisible
 
-Teacher, au téléphone [anxiety]
-Qu’est-ce que tu suggères?
+Teacher, au téléphone: Qu’est-ce que tu suggères? # character=TEACHER_V2 expression=anxiety phone
 
 Fred, au téléphone: Écoute : il faut que vous diminuiez la qualité en quelque sorte. Les jeux qui ont un univers qui n’a pas de fin, des mondes qui se génèrent à l’infini, c’est risqué. Le gameplay est trop raffiné aussi. Les gens perfectionnistes peuvent s’y perdre. Il est simple, mais s’améliorer est aussi sans fin…les bonus, les systèmes de récompenses. Vous avez tout prévu! C’est vraiment intense! # character=FRED_GALLANT invisible
 
-Teacher, au téléphone [concern]
-Il faut enlever tout ça?
+Teacher, au téléphone: Il faut enlever tout ça? # character=TEACHER_V2 expression=concern phone
 
 Fred, au téléphone: Il faut diminuer les risques de dépendance et surtout, montrer que vous comprenez les risques, qu’ils ont été étudiés, mesurés. Que vous êtes responsables et que les erreurs du passé ne seront pas répétées. # character=FRED_GALLANT invisible
 
 Fred, au téléphone: Ça me surprendrait énormément que vous puissiez remettre les jeux vidéo sur la carte de la légalité sans montrer pattes blanches. Il faut remédier aux problèmes qui étaient déjà connus avant la loi. Il faut gagner la confiance des gens qui craignent que leurs enfants sombrent dans le jeu. # character=FRED_GALLANT invisible
 
-Teacher, au téléphone [neutral]
-Je te rappelle.
+Teacher, au téléphone: Je te rappelle. # character=TEACHER_V2 expression=neutral phone
 
-[BLACKOUT]
-[Thème narrateur]
+~cacher_tout_personnages()
+~cacher_fond()
+~jouer_musique(theme_narrateur)
 
-Narrateur
-Cette fois, Fred a perdu le contrôle. Voici un choix devant lequel vous êtes seuls. 
+Narrateur: Cette fois, Fred a perdu le contrôle. Voici un choix devant lequel vous êtes seuls. # character=NARRATEUR invisible
 
-SOUS CHOIX DU CHOIX 4-A
-1-	La résistance va écouter les recommandations de Fred et diminuer les risques de dépendance du jeu. 1 POINT FIN 3
-2-	La résistance va ignorer les recommandations de Fred. 1 POINT FIN 4
+* La résistance va écouter les recommandations de <b>Fred</b> et diminuer les risques de dépendance du jeu. 
+~points_fin_B1 += 4
+* La résistance va ignorer les recommandations de <b>Fred</b>.
+~points_fin_B2 += 4
+- <b>Fred</b> se réveille de sa torpeur 
+->scene_4
 
-* <b>Fred</b> décide de parler de ses découvertes au <b>chef Miller</b>.
-~points_fin_A1 += 4
+ =scene_4 
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+~afficher_personnage(TEACHER_V2, "slideInLeft")
+~afficher_personnage(BORIS, "slideInRight")
 
-[BUREAU DU CHEF MILLER]
-[Thème général]
-
-Fred: Chef, j’ai des informations à vous donner. # character=FRED_GALLANT invisible
-
-Chef Miller [sterness]
-Ce n’était pas dans votre rapport?
-
-Fred: Non, je viens d’obtenir ces informations. # character=FRED_GALLANT invisible
-
-Chef Miller [neutral]
-Très bien, je vous écoute.
-
-Fred: Voilà, j’ai entendu de la bouche d’une personne sûre qu’il se prépare quelque chose à la résistance. # character=FRED_GALLANT invisible
-
-Chef Miller [concern]
-Quoi donc?
-
-Fred: En fait, leur but est de provoquer le retour légal des jeux. # character=FRED_GALLANT invisible
-
-Chef Miller [cruel]
-Oui, ça, je savais.
-
-Fred: Bon, et bien leur carte maîtresse est de rendre public un jeu gratuit, comme avant. # character=FRED_GALLANT invisible
-
-Chef Miller [neutral]
-En ligne?
-
-Fred
-Oui.
-
-Chef Miller [concern]
-Quand?
-
-Fred
-Je ne sais pas encore. Mais c’est dangereux.
-
-Chef Miller [wtf]
-Mais dites-moi quelque chose que je ne sais pas déjà, Gallant!
-
-Fred: Ils ont conçu un jeu qui est extrêmement addictif. # character=FRED_GALLANT invisible
-
-Chef Miller [neutral]
-Et puis?
-
-Fred: Eh bien, même s’ils réussissent leur coup, il ne serait pas très difficile de faire pencher l’opinion publique de notre côté. Le jeu est mauvais, néfaste. Vous voyez? # character=FRED_GALLANT invisible
-
-Chef Miller [satisfaction]
-Si, je pense que je vois où vous voulez en venir. Merci Gallant, j’appelle l’attaché politique du premier ministre. Allez donc explorer davantage ces questions de dépendance à propos du jeu de la résistance.
-
-[BUREAU DE FRED]
-[Thème général]
-Fred travaille sur des dossiers en lien avec la dépendance aux jeux vidéo. Ses inquiétudes sont confirmées. Avec le rapport de jeu de l’équipe de Christopher, plusieurs éléments du jeu peuvent mener à la dépendance. Fred téléphone à Teacher.
-
-Rapport de l’équipe de Christopher.
-Quiz
-
-[Thème quiz]
-1- Le jeu de la résistance comprend des éléments problématiques du point de vue de la dépendance, mais lesquels en particulier ? 
--	Le jeu est entièrement gratuit.
--	Les joueurs peuvent personnaliser leur avatar. 
--	Des offres d’achat adaptées à chaque joueur en fonction de ses habitudes de jeu sont faites chaque jour.
--	Des graphismes jamais vus grâce à un moteur graphique révolutionnaire. 
--	Un système de récompenses aléatoire auquel tous les joueurs ont accès. 
--	Aucun de ces éléments
-
-Rétroaction : 
-
-La personnalisation des offres dans les jeux gratuits ou payants était très courante. Elle permettait de fortement encourager les joueurs à dépenser de l’argent. Avant la Loi Game Over, les développeurs avaient de plus en plus tendance à utiliser cette technique pour maximiser leurs profits. Il est très problématique de trouver cet élément dans le jeu de la résistance. Des critiques pourraient être formulées à l’égard du jeu. 
-
-2- Et que penser de ces autres éléments, peuvent-ils être problématiques du point de vue de la dépendance aux jeux vidéo ? 
--	Un jeu sans fin avec des environnements générés aléatoirement.
--	Un gameplay très facile d’accès, mais aussi très profond pour les joueurs les plus perfectionnistes. 
--	Une limite de temps de jeu journalier, sans quoi le joueur perd des ressources. 
--	La possibilité d’acheter des bonus afin d’augmenter son niveau. 
--	Aucune de ces propositions
-
-Rétroaction : Certains jeux permettaient aux joueurs de payer pour obtenir des bonus leur conférant un avantage sur les autres. Pour certains joueurs, cette possibilité pouvait les encourager à dépenser beaucoup d’argent pour obtenir de meilleurs résultats. Il est problématique de trouver cet élément dans le jeu de la résistance. Des critiques pourraient être formulées à l’égard du jeu en raison de sa présence. 
-
-Fred, au téléphone
-Salut. Tu as une minute?
-
-Teacher, au téléphone [neutral]
-Oui. Qu’est-ce qu’il y a?
-
-Fred, au téléphone
-Je pense que vous ne devriez pas aller de l’avant avec le jeu tel qu’il est.
-
-Teacher, au téléphone [surprise]
-Pourquoi?
-
-Fred, au téléphone
-Parce qu’il comporte des éléments qui ont été identifiés comme causant de la dépendance.
-
-Teacher, au téléphone [wtf]
-Mais pourquoi ça devrait nous préoccuper?
-
-Fred, au téléphone
-Je l’ai expliqué à plusieurs reprises déjà : si vous n’êtes pas prêts à affronter les critiques, comment pensez-vous convaincre les gens qui ont des réticences à cause de la dépendance au jeu si vous forcez sur le marché un jeu qui crée des dépendances?
-
-Teacher, au téléphone [anxiety]
-Qu’est-ce que tu suggères?
-
-Fred, au téléphone
-Écoute : il faut que vous diminuiez la qualité en quelque sorte. Les jeux qui ont un univers qui n’a pas de fin, des mondes qui se génèrent à l’infini, c’est risqué. Le gameplay est trop raffiné aussi. Les gens perfectionnistes peuvent s’y perdre. Il est simple, mais s’améliorer est aussi sans fin…les bonus, les systèmes de récompenses. Vous avez tout prévu! C’est vraiment intense!
-
-Teacher, au téléphone [concern]
-Il faut enlever tout ça?
-
-Fred, au téléphone
-Il faut diminuer les risques de dépendance et surtout, montrer que vous comprenez les risques, qu’ils ont été étudiés, mesurés. Que vous êtes responsables et que les erreurs du passé ne seront pas répétées. 
-
-Fred, au téléphone
-Ça me surprendrait énormément que vous puissiez remettre les jeux vidéo sur la carte de la légalité sans montrer patte blanche. Il faut remédier aux problèmes qui étaient déjà connus avant la loi. Il faut gagner la confiance des gens qui craignent que leurs enfants sombrent dans le jeu.
-
-Teacher, au téléphone [neutral]
-Je te rappelle.
-
-[BLACKOUT]
-[Thème narrateur]
-
-Narrateur
-Cette fois, Fred a perdu le contrôle. Voici un choix devant lequel vous êtes seuls. 
-
-SOUS CHOIX DU CHOIX 4-B
-1-	La résistance va écouter les recommandations de Fred et diminuer les risques de dépendances du jeu. 1 POINT FIN 3
-2-	La résistance va ignorer les recommandations de Fred. 1 POINT FIN 4
-
-- Fred se réveille de sa torpeur
-
-
-[5567 RUE FLEMMING]
-[Thème général]
-Teacher [joy]
-On est prêt du but.
+Teacher: On est prêt du but. # character=TEACHER_V2 expression=joy
 
 Boris: Tout est en place, on va y arriver. Mais on a besoin d’une dernière chose. # character=BORIS expression=satisfaction
 
-Fred
-Comment je peux vous être utile?
+Fred: Comment je peux vous être utile? # character=FRED_GALLANT invisible
 
 Boris: Il faut classer le jeu. # character=BORIS expression=neutral
 
-Fred
-Ah oui? Vous tenez à le faire?
+Fred: Ah oui? Vous tenez à le faire? # character=FRED_GALLANT invisible
 
 Boris: Oui, c’est une directive qui vient d’en haut. Ils ont aimé tes dernières interventions. On te confie cette mission. Mais ne nous déçois plus. # character=BORIS expression=sterness
 
-Fred
-Je suis contente que vous le fassiez.
+Fred: Je suis contente que vous le fassiez. # character=FRED_GALLANT invisible
 
 Boris: C’est toi qui vas le faire. # character=BORIS expression=satisfaction
 
-Fred
-Très bien, je vais avoir besoin d’informations.
+Fred: Très bien, je vais avoir besoin d’informations. # character=FRED_GALLANT invisible
 
-Teacher [neutral]
-Oui, je suis affecté à t’aider. De quoi auras-tu besoin?
+Teacher: Oui, je suis affecté à t’aider. De quoi auras-tu besoin? # character=TEACHER_V2 expression=neutral 
 
-Fred
-Il me faut des informations sur le jeu. Des informations très précises. 
+Fred: Il me faut des informations sur le jeu. Des informations très précises. # character=FRED_GALLANT invisible
 
-Fred
-Et aussi…
+Fred: Et aussi… # character=FRED_GALLANT invisible
 
-Teacher [concern]
-Oui?
+Teacher: Oui? # character=TEACHER_V2 expression=concern
 
-Fred
-J’ai besoin d’assistance. Je peux contacter quelqu’un?
+Fred: J’ai besoin d’assistance. Je peux contacter quelqu’un? # character=FRED_GALLANT invisible
 
-Teacher [sterness]
-C’est secret tout ça. Tu le sais. Qui veux-tu impliquer?
+Teacher: C’est secret tout ça. Tu le sais. Qui veux-tu impliquer? # character=TEACHER_V2 expression=sterness 
 
-Fred
-Une ancienne employée de l’ESRB…
+Fred: Une ancienne employée de l’ESRB… # character=FRED_GALLANT invisible
 
-[BLACKOUT]
-[Thème narrateur]
+~cacher_tout_personnages()
+~cacher_fond()
+~jouer_musique(theme_narrateur)
+Narrateur: À vous de prendre les commandes. Croyez-vous que Fred devrait consulter quelqu’un? La laisserez-vous se débrouiller seule? # character=NARRATEUR invisible
 
-Narrateur
-À vous de prendre les commandes. Croyez-vous que Fred devrait consulter quelqu’un? La laisserez-vous se débrouiller seule? 
+~jouer_musique(theme_choix_cruciaux)
+* <b>Fred</b> réussit à convaincre <b>Teacher</b> et <b>Boris</b> de consulter <b>Olivia Paul</b>. 
+~points_fin_B1 += 4
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+~afficher_personnage(TEACHER_V2, "slideInLeft")
+~afficher_personnage(BORIS, "slideInRight")
 
-[Thème choix cruciaux]
-CHOIX 5 DU CHAPITRE 5
-
-5- A 1 POINT FIN 3
-Fred réussit à convaincre Teacher et Boris de consulter Olivia Paul. 
-
-5-B 2 POINTS FIN 2
-La résistance n’accepte pas que Fred consulte une professionnelle de la classification, ils trouvent cela trop risqué. Fred devra se débrouiller seule.
-
-5-C 1 POINT FIN 4
-La résistance fait comprendre à Fred qu’il s’agit d’une simple formalité et qu’ils ne s’attendent pas à ce que la classification soit infaillible. Inutile de consulter quelqu’un. 
-
-SUITE DU CHOIX 5 DU CHAPITRE 5
-5-A
 Boris: C’est une personne de confiance? # character=BORIS expression=concern
 
-Fred
-Oui, j’ai confiance en elle. Et elle connaît vraiment son métier. Elle serait un atout important pour nous. Elle voulait justement militer pour que la classification soit moins… arbitraire. Elle va nous faire gagner des points pour l’opinion publique.
+Fred: Oui, j’ai confiance en elle. Et elle connaît vraiment son métier. Elle serait un atout important pour nous. Elle voulait justement militer pour que la classification soit moins… arbitraire. Elle va nous faire gagner des points pour l’opinion publique. # character=FRED_GALLANT invisible
 
-Teacher [amusement]
-Tu es sûre que tu n’es pas conseillère en communication stratégique, toi? Hahaha!
+Teacher: Tu es sûre que tu n’es pas conseillère en communication stratégique, toi? Hahaha! # character=TEACHER_V2 expression=amusement
 
-Fred
-Très certaine.
+Fred: Très certaine. # character=FRED_GALLANT invisible
 
 Boris: Bon, c’est d’accord, mais tu lui en dis le moins possible. # character=BORIS expression=sterness
 
-Fred
-Bien entendu.
+Fred: Bien entendu. # character=FRED_GALLANT invisible
+-> scene_5
 
-5-B
+* La résistance n’accepte pas que <b>Fred</b> consulte une professionnelle de la classification, ils trouvent cela trop risqué. <b>Fred</b> devra se débrouiller seule.
+~points_fin_B1 += 1
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+~afficher_personnage(TEACHER_V2, "slideInLeft")
+~afficher_personnage(BORIS, "slideInRight")
+
 Boris: Je veux bien croire que tu nous proposes cela de bonne foi et que tu penses vraiment que tu as besoin de son expertise, mais c’est trop risqué. Fais-toi confiance, Fred. On croit que tu vas y arriver. # character=BORIS expression=amusement
 
-Fred
-Je vais faire de mon mieux, mais je ne suis pas une experte dans ce domaine.
+Fred: Je vais faire de mon mieux, mais je ne suis pas une experte dans ce domaine. # character=FRED_GALLANT invisible
 
-Teacher [satisfaction]
-C’est une occasion d’apprendre.
+Teacher: C’est une occasion d’apprendre. # character=TEACHER_V2 expression=satisfaction
+~cacher_tout_personnages()
+~afficher_fond(maison_olivia_exterieur)
+~jouer_musique(theme_general)
 
-5-C
+<b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>. 
+~cacher_fond() 
+~jouer_musique(theme_narrateur)
+
+Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
+-> scene_5
+
+* La résistance fait comprendre à <b>Fred</b> qu’il s’agit d’une simple formalité et qu’ils ne s’attendent pas à ce que la classification soit infaillible. Inutile de consulter quelqu’un. 
+~points_fin_B2 += 4
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+~afficher_personnage(TEACHER_V2, "slideInLeft")
+~afficher_personnage(BORIS, "slideInRight")
+
 Boris: Écoute Fred, j’aime ton enthousiasme, mais vraiment, non. Tu fais comme tu penses et ça va aller. Nous, ce qu’on te demande, c’est juste que ça soit fait, qu’il y ait quelque chose de proposé. On veut montrer qu’on y a pensé et qu’on agit respectueusement envers le public. Tu comprends? # character=BORIS expression=sterness
 
-Fred
-Oui, alors, pourquoi ne pas le faire vraiment?
+Fred: Oui, alors, pourquoi ne pas le faire vraiment? # character=FRED_GALLANT invisible
 
-Teacher [sterness]
-C’est dans tes mains. Mais toi seule, compris?
+Teacher: C’est dans tes mains. Mais toi seule, compris? # character=TEACHER_V2 expression=sterness
 
-Fred
-Oui, compris.
+Fred: Oui, compris. # character=FRED_GALLANT invisible
 
-SUITE 2 DU CHOIX 5-B et 5-C
+~cacher_tout_personnages()
+~afficher_fond(maison_olivia_exterieur)
+~jouer_musique(theme_general)
 
-[MAISON D’OLIVIA PAUL - EXTÉRIEUR]
-[Thème général]
+<b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>. 
+~cacher_fond() 
+~jouer_musique(theme_narrateur)
 
-[BLACKOUT] 
-[Thème narrateur]
+Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
+-> scene_5
 
-Narrateur
-Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets!
+= scene_5
+- ~afficher_fond(maison_olivia_exterieur)
+~afficher_personnage(OLIVIA_PAUL, "fadeIn")
+<b>Fred</b> se réveille de sa torpeur au moment où <b>Olivia Paul</b> ouvre la porte.
+~cacher_tout_personnages()
 
-Fred se réveille de sa torpeur au moment où Olivia Paul ouvre la porte. 
+~afficher_fond(maison_olivia_interieur)
+~afficher_personnage(OLIVIA_PAUL, "slideInUp")
+~jouer_musique(theme_general)
 
-[MAISON D’OLIVIA PAUL - EXTÉRIEUR]
+Fred: Je suis vraiment désolée de vous déranger à nouveau. # character=FRED_GALLANT invisible
 
-RETOUR À L’INTRIGUE POUR TOUS LES CHOIX
+Olivia Paul: J’avoue que votre appel m’a passablement surprise. Vous m’excuserez, la maison est bien vide maintenant. Vous m’avez attrapée à la dernière minute. # character=OLIVIA_PAUL expression=surprise
 
-[MAISON D’OLIVIA PAUL - INTÉRIEUR] 
-[Thème général]
+Fred: J’ai de la chance. Madame Paul, j’ai besoin de votre aide. # character=FRED_GALLANT invisible
 
-Fred
-Je suis vraiment désolée de vous déranger à nouveau.
+Olivia Paul: À quel sujet? # character=OLIVIA_PAUL expression=wonder
 
-Olivia Paul [surprise]
-J’avoue que votre appel m’a passablement surprise. Vous m’excuserez, la maison est bien vide maintenant. Vous m’avez attrapée à la dernière minute. 
+Fred: Je dois classer un jeu. # character=FRED_GALLANT invisible
 
-Fred
-J’ai de la chance. Madame Paul, j’ai besoin de votre aide.
+Olivia Paul: Mais… quel jeu? Vous trafiquez des jeux illégaux? Je croyais que… # character=OLIVIA_PAUL expression=alertness
 
-Olivia Paul [wonder]
-À quel sujet?
+Fred: Non, je ne peux pas vous donner tous les détails, mais le jeu sera légal. C’est, disons, de la désobéissance civile pour le moment, mais le jeu sera légal ou ne sera pas. Il faut se préparer. # character=FRED_GALLANT invisible
 
-Fred
-Je dois classer un jeu.
+Olivia Paul: Je n’ai nullement l’intention de m’impliquer dans ce projet. # character=OLIVIA_PAUL expression=sterness
 
-Olivia Paul [alertness]
-Mais… quel jeu? Vous trafiquez des jeux illégaux? Je croyais que…
+Fred: Je ne vous le demande pas. Je veux juste votre avis…officieusement. # character=FRED_GALLANT invisible
 
-Fred
-Non, je ne peux pas vous donner tous les détails, mais le jeu sera légal. C’est, disons, de la désobéissance civile pour le moment, mais le jeu sera légal ou ne sera pas. Il faut se préparer.
+Olivia Paul: À propos de quoi? # character=OLIVIA_PAUL expression=alertness
 
-Olivia Paul [sterness]
-Je n’ai nullement l’intention de m’impliquer dans ce projet.
+Fred: Voilà : j’ai en ma possession un questionnaire qui comprend une description du jeu, une vidéo de présentation d’éléments du jeu et maintenant, je dois le tester. # character=FRED_GALLANT invisible
 
-Fred
-Je ne vous le demande pas. Je veux juste votre avis…officieusement. 
+Olivia Paul: Vous avez une version beta du jeu? # character=OLIVIA_PAUL expression=neutral
 
-Olivia Paul [alertness]
-À propos de quoi?
+Fred: Exactement. # character=FRED_GALLANT invisible
 
-Fred
-Voilà : j’ai en ma possession un questionnaire qui comprend une description du jeu, une vidéo de présentation d’éléments du jeu et maintenant, je dois le tester.
+Olivia Paul: D’accord. Mais je ne veux pas que mon nom figure où que ce soit. # character=OLIVIA_PAUL expression=sterness
 
-Olivia Paul [neutral]
-Vous avez une version beta du jeu?
+Fred: C’est compréhensible. Je vous le confirme. Il n’apparaîtra pas. # character=FRED_GALLANT invisible
 
-Fred
-Exactement.
+<b>Olivia Paul</b> et <b>Fred</b> jouent un peu au prototype du jeu que la résistance a préparé pour le grand événement. 
 
-Olivia Paul [sterness]
-D’accord. Mais je ne veux pas que mon nom figure où que ce soit.
+Olivia Paul: Écoutez Fred, voici mes recommandations. Ce jeu contient du sang, de l’alcool, de la violence, de l’humour cru, un langage offensant et des simulations de jeux de hasard. La liste est longue! C’est du 16 ans et plus. Êtes-vous bien certain de vouloir utiliser ce jeu pour le retour de la légalité, ça me paraît très risqué. Je veux dire, comment rallier l’opinion publique avec un pareil contenu? # character=OLIVIA_PAUL expression=disdain
 
-Fred
-C’est compréhensible. Je vous le confirme. Il n’apparaîtra pas.
+Fred: Je suis d’accord avec vous Olivia. Je vous remercie de votre aide. Je vais faire mes recommandations aux décideurs. J’espère qu’ils comprendront les enjeux. # character=FRED_GALLANT invisible
 
-Accès à :
--	Documents décrivant des systèmes de jeu et une partie de son contenu.
--	Une vidéo de présentation d’éléments du jeu (cut-scènes)
-Quiz
+Olivia Paul: Je ne tiens pas à ce que les jeux vidéo reviennent, je ne retournerai jamais travailler pour l’ESRB, mais je vous aime bien, vous. J’espère que vous réussirez à atteindre vos objectifs, quels qu’ils soient! # character=OLIVIA_PAUL expression=neutral
 
-Olivia Paul et Fred jouent un peu au prototype du jeu que la résistance a préparé pour le grand événement. 
+Fred: Merci encore Olivia. Je vous revaudrai cela. # character=FRED_GALLANT invisible
+~cacher_tout_personnages()
 
-Olivia Paul [disdain]
-Écoutez Fred, voici mes recommandations. Ce jeu contient du sang, de l’alcool, de la violence, de l’humour cru, un langage offensant et des simulations de jeux de hasard. La liste est longue! C’est du 16 ans et plus. Êtes-vous bien certain de vouloir utiliser ce jeu pour le retour de la légalité, ça me paraît très risqué. Je veux dire, comment rallier l’opinion publique avec un pareil contenu?
+-> scene_6
 
-Fred
-Je suis d’accord avec vous Olivia. Je vous remercie de votre aide. Je vais faire mes recommandations aux décideurs. J’espère qu’ils comprendront les enjeux.
+=scene_6
+~afficher_fond(maison_olivia_exterieur)
 
-Olivia Paul [neutral]
-Je ne tiens pas à ce que les jeux vidéo reviennent, je ne retournerai jamais travailler pour l’ESRB, mais je vous aime bien, vous. J’espère que vous réussirez à atteindre vos objectifs, quels qu’ils soient!
+* <b>Fred</b> décide de suivre les recommandations d’<b>Olivia Paul</b>.
+~points_fin_B1 += 4
 
-Fred
-Merci encore Olivia. Je vous revaudrai cela.
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+Teacher: Eh bien? Qu’en dis-tu finalement? # character=TEACHER_V2 expression=concern
 
-[Thème choix cruciaux]
+Fred: Je sais que vous ne serez pas contents, mais il faut absolument que vous fassiez le bon choix aujourd’hui. De cela dépend le retour de la légalité à mon avis. # character=FRED_GALLANT invisible
 
-CHOIX 6 DU CHAPITRE 5
-6-A 1 POINT FIN 3
-Fred décide de suivre les recommandations d’Olivia Paul.
+Teacher: Explique-toi! # character=TEACHER_V2 expression=wtf
 
-6-B 1 POINT FIN 4
-Fred décide de voir ce que la résistance a en tête avant de faire ses recommandations.
+Fred: Le jeu devrait être classé 16 ans et plus. Il faut aussi être honnête et prévenir le public qu’il contient des éléments qui peuvent choquer. # character=FRED_GALLANT invisible
 
-6-C 3 POINTS FIN 2
-Fred propose un compromis.  
+Teacher: Aussi bien dire qu’on leur donne raison! Aussi bien oublier le projet! # character=TEACHER_V2 expression=aversion
 
-SUITE DU CHOIX 6 DU CHAPITRE 5
-6-A
-[5567 RUE FLEMMING]
-[Thème général]
-Teacher [concern]
-Eh bien? Qu’en dis-tu finalement?
+Fred: Non, écoute. J’ai réfléchi. Si on sort ce jeu en étant honnête et transparent, on va gagner des points. Pourquoi ne pas demander à Christian et Jonathan de concevoir un autre jeu qui serait pour tous et disponible en même temps? On pourrait l’offrir en alternative pour ceux qui ne veulent pas du contenu violent et sanglant. # character=FRED_GALLANT invisible
 
-Fred
-Je sais que vous ne serez pas contents, mais il faut absolument que vous fassiez le bon choix aujourd’hui. De cela dépend le retour de la légalité à mon avis.
+Fred: On montrerait notre bonne volonté et on prouverait qu’il est possible de jouer sans les risques, et que, quand il y a des risques, on exerce quand même un contrôle. # character=FRED_GALLANT invisible
 
-Teacher [wtf]
-Explique-toi!
+Teacher: Ouais… ce n’est pas fou. Je vais plaider ta cause auprès des patrons. Tu t’en es bien sortie sur ce coup, Fred. # character=TEACHER_V2 expression=satisfaction
+~cacher_tout_personnages()
 
-Fred
-Le jeu devrait être classé 16 ans et plus. Il faut aussi être honnête et prévenir le public qu’il contient des éléments qui peuvent choquer.
+* <b>Fred</b> décide de voir ce que la résistance a en tête avant de faire ses recommandations.
+~points_fin_B1 += 1
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+Teacher: Eh bien? Qu’en dis-tu finalement? # character=TEACHER_V2 expression=concern
 
-Teacher [aversion]
-Aussi bien dire qu’on leur donne raison! Aussi bien oublier le projet!
+Fred: Je ne sais trop quoi recommander. # character=FRED_GALLANT invisible
 
-Fred
-Non, écoute. J’ai réfléchi. Si on sort ce jeu en étant honnête et transparent, on va gagner des points. Pourquoi ne pas demander à Christian et Jonathan de concevoir un autre jeu qui serait pour tous et disponible en même temps? On pourrait l’offrir en alternative pour ceux qui ne veulent pas du contenu violent et sanglant. 
+Teacher: Explique-toi! # character=TEACHER_V2 expression=wtf
 
-Fred
-On montrerait notre bonne volonté et on prouverait qu’il est possible de jouer sans les risques, et que, quand il y a des risques, on exerce quand même un contrôle.
+Fred: Il y a des éléments qui pourraient être jugés inopportuns. # character=FRED_GALLANT invisible
 
-Teacher [satsifaction]
-Ouais… ce n’est pas fou. Je vais plaider ta cause auprès des patrons. Tu t’en es bien sortie sur ce coup, Fred.
+Teacher: Quel âge tu recommandes? # character=TEACHER_V2 expression=concern
 
-6-B
-Teacher [concern]
-Eh bien? Qu’en dis-tu finalement?
+Fred: Quel âge, crois-tu, conviendrait à l’événement? # character=FRED_GALLANT invisible
 
-Fred
-Je ne sais trop quoi recommander.
+Teacher: Pas trop restrictif, c’est certain. # character=TEACHER_V2 expression=sterness
 
-Teacher [wtf]
-Explique-toi!
+Fred: C’est ce que je craignais. # character=FRED_GALLANT invisible
 
-Fred
-Il y a des éléments qui pourraient être jugés inopportuns.
+Teacher: Pourquoi? # character=TEACHER_V2 expression=surprise
 
-Teacher [concern]
-Quel âge tu recommandes? 
+Fred: Parce qu’il y a des éléments, je te dis, des éléments qui demandent une classification adéquate, mais je comprends que c’est délicat de sortir un jeu 16 ans et plus quand on veut vendre l’idée du retour de la légalité. # character=FRED_GALLANT invisible
 
-Fred
-Quel âge, crois-tu, conviendrait à l’événement?
+Teacher: Non, 16 ans et plus, c’est trop. # character=TEACHER_V2 expression=sterness
 
-Teacher [sterness]
-Pas trop restrictif, c’est certain.
+Fred: Je sais. # character=FRED_GALLANT invisible
 
-Fred
-C’est ce que je craignais.
+Teacher: Bon. Je vais en parler aux patrons. Mais je pense qu’on va tout simplement laisser tomber l’idée.# character=TEACHER_V2 expression=disdain
 
-Teacher [surprise]
-Pourquoi?
+Fred: Ça me semble trop risqué. # character=FRED_GALLANT invisible
 
-Fred
-Parce qu’il y a des éléments, je te dis, des éléments qui demandent une classification adéquate, mais je comprends que c’est délicat de sortir un jeu 16 ans et plus quand on veut vendre l’idée du retour de la légalité.
+Teacher: Laisse-les en juger, si tu veux bien. # character=TEACHER_V2 expression=sterness
 
-Teacher [sterness]
-Non, 16 ans et plus, c’est trop. 
+Fred: Peut-être que Christian et Jonathan pourraient revoir au moins la simulation de jeux de hasard? Ça aiderait la cause je pense. # character=FRED_GALLANT invisible
 
-Fred
-Je sais.
+Teacher: Merci pour tes recommandations Fred, mais je vais régler ça. # character=TEACHER_V2 expression=sterness
 
-Teacher [disdain]
-Bon. Je vais en parler aux patrons. Mais je pense qu’on va tout simplement laisser tomber l’idée.
+Fred: Comme tu veux. # character=FRED_GALLANT invisible
+~cacher_tout_personnages()
 
-Fred
-Ça me semble trop risqué.
+* <b>Fred</b> propose un compromis. 
+~points_fin_B2 += 4
 
-Teacher [sterness]
-Laisse-les en juger, si tu veux bien.
+~afficher_fond(rue_flemming)
+~jouer_musique(theme_general)
+Teacher: Eh bien? Qu’en dis-tu finalement? # character=TEACHER_V2 expression=sterness
 
-Fred
-Peut-être que Christian et Jonathan pourraient revoir au moins la simulation de jeux de hasard? Ça aiderait la cause je pense.
+Fred: J’ai le mandat difficile de t’informer que le jeu comporte plusieurs éléments qui exigent qu’on les mentionne. # character=FRED_GALLANT invisible
 
-Teacher [sterness]
-Merci pour tes recommandations Fred, mais je vais régler ça.
+Teacher: Ce qui veut dire? # character=TEACHER_V2 expression=concern
 
-Fred
-Comme tu veux.
+Fred: Il devrait être classé 16 ans et plus. 
 
-6-C
-Teacher [concern]
-Eh bien? Qu’en dis-tu finalement?
+Teacher: Tu veux rire! # character=TEACHER_V2 expression=disdain
 
-Fred
-J’ai le mandat difficile de t’informer que le jeu comporte plusieurs éléments qui exigent qu’on les mentionne. 
+Fred: Non, malheureusement. # character=FRED_GALLANT invisible
 
-Teacher [concern]
-Ce qui veut dire?
+Teacher: Il n’en est pas question! # character=TEACHER_V2 expression=dejection
 
-Fred
-Il devrait être classé 16 ans et plus. 
+Fred: Je sais. Puis-je te proposer une solution? # character=FRED_GALLANT invisible
 
-Teacher [disdain]
-Tu veux rire!
+Teacher: Laquelle? # character=TEACHER_V2 expression=sterness
 
-Fred
-Non, malheureusement.
+Fred: Si Christian et Jonathan retiraient quelques éléments comme la simulation de jeux de hasard et le langage offensant, par exemple, je pense qu’on pourrait risquer le 13 ans et plus. # character=FRED_GALLANT invisible
 
-Teacher [dejection]
-Il n’en est pas question!
+Teacher: 13 ans… mais tu sais que tu nous en demandes beaucoup? Il va falloir revoir beaucoup de choses! # character=TEACHER_V2 expression=wtf
 
-Fred
-Je sais. Puis-je te proposer une solution?
+Fred: Je sais, mais je ne comprends pas comment vous avez pu laisser passer ça! # character=FRED_GALLANT invisible
 
-Teacher [sterness]
-Laquelle?
+Teacher: C’est un jeu vidéo, pas un conte pour enfants. # character=TEACHER_V2 expression=disdain
 
-Fred
-Si Christian et Jonathan retiraient quelques éléments comme la simulation de jeux de hasard et le langage offensant, par exemple, je pense qu’on pourrait risquer le 13 ans et plus.
+Fred: Oui, mais le jeu qui doit être à l’origine du retour de la légalité ne peut pas contenir tous les défauts qu’on reproche aux jeux vidéo! # character=FRED_GALLANT invisible
 
-Teacher [wtf]
-13 ans… mais tu sais que tu nous en demandes beaucoup? Il va falloir revoir beaucoup de choses!
+Teacher: On ne voulait pas céder sur ce chantage! On voulait faire une déclaration claire. On est contre la censure. # character=TEACHER_V2 expression=dejection
 
-Fred
-Je sais, mais je ne comprends pas comment vous avez pu laisser passer ça!
+Fred: Je comprends. Mais si au moins il n’y avait pas de jeux de hasard, ce serait peut-être moins difficile à retirer et moins risqué pour la suite. # character=FRED_GALLANT invisible
 
-Teacher [disdain]
-C’est un jeu vidéo, pas un conte pour enfants.
+Teacher: Je vais faire part de tes recommandations aux patrons. # character=TEACHER_V2 expression=neutral
+~cacher_tout_personnages()
 
-Fred
-Oui, mais le jeu qui doit être à l’origine du retour de la légalité ne peut pas contenir tous les défauts qu’on reproche aux jeux vidéo!
+- -> scene_7
 
-Teacher [dejection]
-On ne voulait pas céder sur ce chantage! On voulait faire une déclaration claire. On est contre la censure.
+=scene_7
+~afficher_fond(rue_mcleod)
+~jouer_musique(theme_general) 
+<b>Tom</b>, <b>Christopher</b> et <b>Fred</b> sont ensemble. # center 
+~afficher_personnage(TOM, "slideInLeft")
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInRight")
 
-Fred
-Je comprends. Mais si au moins il n’y avait pas de jeux de hasard, ce serait peut-être moins difficile à retirer et moins risqué pour la suite.
+Christopher: Oui! Je viens de recevoir le go! # character=CHRISTOPHER_YOUNG expression=joy
 
-Teacher [neutral]
-Je vais faire part de tes recommandations aux patrons.
+Fred: Le go pour? # character=FRED_GALLANT invisible
 
-[530 RUE MCLEOD]
-[Thème général]
-Tom, Christopher et Fred sont ensemble. 
+Christopher: Il semble que tu as été bien utile. J’ai entendu parler de ce que tu as fait. # character=CHRISTOPHER_YOUNG expression=satisfaction
 
-Christopher [joy]
-Oui! Je viens de recevoir le go!
+Fred: Je fais de mon mieux. # character=FRED_GALLANT invisible
 
-Fred
-Le go pour?
+Christopher: Ce soir, on célèbre! # character=CHRISTOPHER_YOUNG expression=joy
 
-Christopher [satisfaction]
-Il semble que tu as été bien utile. J’ai entendu parler de ce que tu as fait.
+Fred: Qu’est-ce qu’on célèbre? # character=FRED_GALLANT invisible
 
-Fred
-Je fais de mon mieux.
+Christopher: On est mandaté pour mettre sur pied l’événement sur la plateforme qu’on prépare depuis des mois : Only Gamers!! # character=CHRISTOPHER_YOUNG expression=joy
 
-Christopher [joy]
-Ce soir, on célèbre!
+Tom: Tu es certain qu’on peut lui dire? # character=TOM expression=concern
 
-Fred
-Qu’est-ce qu’on célèbre?
+Christopher: Oui! Elle est approuvée par l’autre faction! # character=CHRISTOPHER_YOUNG expression=satisfaction
 
-Christopher [joy]
-On est mandaté pour mettre sur pied l’événement sur la plateforme qu’on prépare depuis des mois : Only Gamers!!
+Tom: Si tu le dis! # character=TOM expression=neutral
 
-Tom [concern]
-Tu es certain qu’on peut lui dire?
+Fred: C’est quoi cette plateforme? # character=FRED_GALLANT invisible
 
-Christopher [satisfaction]
-Oui! Elle est approuvée par l’autre faction!
+Christopher: C’est celle dont on va se servir pour diffuser le jeu le moment venu! # character=CHRISTOPHER_YOUNG expression=satisfaction
 
-Tom [neutral]
-Si tu le dis!
+Fred: Et quel est le moment venu? # character=FRED_GALLANT invisible
 
-Fred
-C’est quoi cette plateforme?
+Christopher: Ah ça! Top secret! Je ne le sais même pas moi-même. Moi, mon rôle, c’est de m’assurer que la plateforme soit prête. # character=CHRISTOPHER_YOUNG expression=amusement
 
-Christopher [satisfaction]
-C’est celle dont on va se servir pour diffuser le jeu le moment venu!
+Tom: Et recruter des joueurs pros! # character=TOM expression=satisfaction
 
-Fred
-Et quel est le moment venu?
+Christopher: Oui, ça, j’y arrive! # character=CHRISTOPHER_YOUNG expression=satisfaction
 
-Christopher [amusement]
-Ah ça! Top secret! Je ne le sais même pas moi-même. Moi, mon rôle, c’est de m’assurer que la plateforme soit prête.
+-> scene_8
 
-Tom [satisfaction]
-Et recruter des joueurs pros!
+= scene_8
+~afficher_fond(news_room)
+~jouer_musique(theme_news)
 
-Christopher [satisfaction]
-Oui, ça, j’y arrive!
+<b>GROS TITRES</b> # center
 
-GROS TITRES
-[NEWS ROOM]
-[Thème news]
+La tension monte : des fuites indiquent qu’une organisation tente un retour des jeux vidéo sur le marché légal # center
 
-FIN 1 :
-La tension monte : des fuites indiquent qu’une organisation tente un retour des jeux vidéo sur le marché légal
+« Nos enfants ne comptent-ils plus? » Le cri déchirant d’une mère devant les rumeurs du retour des jeux vidéo. # center
 
-Interdire, surveiller et punir, l’héritage de Foucault et les jeux vidéo
-
-Les jeux vidéo redeviendront-ils légaux? Assisterons-nous au retour des dépendances à la violence et au jeu?
-
-FIN 2 : 
-Y a-t-il un retour possible des jeux vidéo? Ce qu’en disent les experts.
-
-Jeux vidéo : un assouplissement de la loi est-il envisageable?
-
-Scandale! Les jeux vidéo seraient bientôt de retour sur le marché!
-
-FIN 3 :
-Une réconciliation est-elle possible? Les jeux vidéo et leur retour triomphant
-
-Un contrôle raisonnable des jeux vidéo est-il possible? Un avenir ouvert pour des jeunes responsables
-
-« Nos enfants ne comptent-ils plus? » Le cri déchirant d’une mère devant les rumeurs du retour des jeux vidéo.
-
-FIN 4 :
-Les débordements sont inévitables : la population préoccupée par les rumeurs du retour des jeux vidéo
-
-Du pain et des jeux : quelle issue pour l’humanité ?
-
-Dossier choc : les adeptes de jeux vidéo encore actifs malgré l’interdiction!
-
-
+Dossier choc : les adeptes de jeux vidéo encore actifs malgré l’interdiction! # center
 
 
 ->fin

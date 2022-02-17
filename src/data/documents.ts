@@ -19,6 +19,15 @@ import policyResponses from '../assets/documents/policy_responses.pdf';
 import marcheJV2020 from '../assets/documents/marche_jv_2020.pdf';
 import impactJVEnvironment from '../assets/documents/impact_jv_environment.pdf';
 import playingForPlanet from '../assets/documents/playing_for_planet.pdf';
+import definitionJeuVideo from '../assets/documents/definition-jeu-video.pdf';
+import loiDroitAuteur from '../assets/documents/loi-droit-auteur.pdf';
+import statutLegalJeuxVideo from '../assets/documents/statut-legal-jeux-video.pdf';
+import seggieRoofdog from '../assets/documents/seggie-roofdog.pdf';
+import definitionMod from '../assets/documents/description-mod.pdf';
+import licenceJeuVideo from '../assets/documents/licence-jeu-video.pdf';
+import modCounterStrike from '../assets/documents/mod-counter-strike.pdf';
+import modDota from '../assets/documents/mode-dota.pdf';
+import avantageInconvenientsMod from '../assets/documents/avantages-inconvenients-mod.pdf';
 
 export type documentsNames =
   | 'LOI_GAME_OVER'
@@ -40,7 +49,17 @@ export type documentsNames =
   | 'POLICY_RESPONSES'
   | 'MARCHE_JV_2020'
   | 'IMPACT_JV_ENVIRONNEMENT'
-  | 'PLAYING_FOR_PLANET';
+  | 'PLAYING_FOR_PLANET'
+  | 'DEFINITION_JEU_VIDEO'
+  | 'LOI_DROIT_AUTEUR'
+  | 'STATUT_LEGAL_JEUX_VIDEO'
+  | 'SEGGIE_ROOFDOG'
+  | 'DEFINITION_MOD'
+  | 'LICENCE_JEU_VIDEO'
+  | 'MOD_COUNTER_STRIKE'
+  | 'MOD_DOTA'
+  | 'AVANTAGES_INCONVENIENTS_MOD'
+  | 'RAPPORT_CHRISTOPHER';
 
 export const documents: Record<documentsNames, Document> = {
   LOI_GAME_OVER: {
@@ -162,5 +181,65 @@ export const documents: Record<documentsNames, Document> = {
     name: 'document-name-playing-planet',
     description: 'document-description-playing-planet',
     path: playingForPlanet,
+  },
+  DEFINITION_JEU_VIDEO: {
+    documentId: 'DEFINITION_JEU_VIDEO',
+    name: 'document-name-definition-jeu-video',
+    description: 'document-description-definition-jeu-video',
+    path: definitionJeuVideo,
+  },
+  LOI_DROIT_AUTEUR: {
+    documentId: 'LOI_DROIT_AUTEUR',
+    name: 'document-name-loi-droit-auteur',
+    description: 'document-description-loi-droit-auteur',
+    path: loiDroitAuteur,
+  },
+  STATUT_LEGAL_JEUX_VIDEO: {
+    documentId: 'STATUT_LEGAL_JEUX_VIDEO',
+    name: 'document-name-statut-legal-jeu-video',
+    description: 'document-description-statut-legal-jeu-video',
+    path: statutLegalJeuxVideo,
+  },
+  SEGGIE_ROOFDOG: {
+    documentId: 'SEGGIE_ROOFDOG',
+    name: 'document-name-seggie-roofdog',
+    description: 'document-description-seggie-roofdog',
+    path: seggieRoofdog,
+  },
+  DEFINITION_MOD: {
+    documentId: 'DEFINITION_MOD',
+    name: 'document-name-definition-mod',
+    description: 'document-description-definition-mod',
+    path: definitionMod,
+  },
+  LICENCE_JEU_VIDEO: {
+    documentId: 'LICENCE_JEU_VIDEO',
+    name: 'document-name-licence-jeu-video',
+    description: 'document-description-licence-jeu-video',
+    path: licenceJeuVideo,
+  },
+  MOD_COUNTER_STRIKE: {
+    documentId: 'MOD_COUNTER_STRIKE',
+    name: 'document-name-mod-counter-strike',
+    description: 'document-description-mod-counter-strike',
+    path: modCounterStrike,
+  },
+  MOD_DOTA: {
+    documentId: 'MOD_DOTA',
+    name: 'document-name-mod-dota',
+    description: 'document-description-mod-dota',
+    path: modDota,
+  },
+  AVANTAGES_INCONVENIENTS_MOD: {
+    documentId: 'AVANTAGES_INCONVENIENTS_MOD',
+    name: 'document-name-avantages-inconvenients-mod',
+    description: 'document-description-avantages-inconvenients-mod',
+    path: avantageInconvenientsMod,
+  },
+  RAPPORT_CHRISTOPHER: {
+    documentId: 'RAPPORT_CHRISTOPHER',
+    name: 'document-name-rapport-christopher',
+    description: 'document-description-rapport-christopher',
+    path: avantageInconvenientsMod,
   },
 };

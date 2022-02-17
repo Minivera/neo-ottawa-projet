@@ -12,7 +12,7 @@ INCLUDE act2.ink
 INCLUDE act3.ink
 INCLUDE act4.ink
 INCLUDE act5.ink
-
+INCLUDE act_5_quiz2
 
 -> prologue.scene_0
 

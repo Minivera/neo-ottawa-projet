@@ -384,34 +384,11 @@ Selon le document, un Game Jam a été organisé (voir les pages 15 et 16). Un G
 -> scene_5
 
 =scene_5
+~afficher_fond(news_room)
 ~jouer_musique(theme_news)
 
-TODO Les fins
-FIN 1
-La colère monte : les jeux vidéo illicites occupent encore une grande part de marché selon les experts
+La colère monte : les jeux vidéo illicites occupent encore une grande part de marché selon les experts # center
 
-Pourquoi l’empreinte écologique des Canadiens ne diminue pas
-
-Les activités illégales responsables d’une partie importante des déchets produits au pays
-
-FIN 2
-Plus ça change… l’industrie du jeu vidéo se porte à merveille!
-
-Dossier : la situation depuis la Loi Game Over
-
-Le coût astronomique de la gestion des déchets : les responsables devraient-ils payer?
-
-FIN 3
-L’illégalité des jeux vidéo serait responsable de l’augmentation des déchets
-
-Une saine gestion du jeu est-elle possible?
-
-Des tonnes de déchets : l’industrie illicite des jeux vidéo pointe le gouvernement du doigt
-
-FIN 4 :
-Les réponses tardent à venir. Qui est responsable de l’augmentation de la production des déchets?
-L’ambivalence des interdictions : les jeux vidéo et les dérives de la loi
-
-Jeux vidéo : une industrie illicite responsable de l’empreinte écologique trop élevée au Canada
+L’empreinte environnementale du marché illicite des jeux vidéo pointé du doigt # center
 
 -> chapitre_4.scene_1

@@ -10,7 +10,7 @@ Chef Miller: C’est une excellente nouvelle, Gallant. # character=CHEF_MILLER e
 Fred: Ça a peut-être été un peu trop facile. Ça m’inquiète. Je ne crierais pas victoire tout de suite. # character=FRED_GALLANT invisible
 Chef Miller: Vous n’avez pas beaucoup de temps. Les médias ne tarderont pas à s’emparer de l’affaire Kane et on va être dans l’eau chaude. Je vais être clair : je veux voir mon budget renouveler l’an prochain. Trouvez un coupable, Fred. # character=CHEF_MILLER expression=concern
 Fred: J’y travaille! # character=FRED_GALLANT invisible
-Le chef Miller quitte le bureau de Fred.
+Le <b>chef Miller</b> quitte le bureau de <b>Fred</b>.
 ~cacher_personnage(CHEF_MILLER, "slideOutDown")
 ~jouer_effet_sonore(claquement_porte)
 ~ jouer_effet_sonore(cogner_porte)
@@ -18,7 +18,7 @@ Le chef Miller quitte le bureau de Fred.
 Agent Lucas: Eh ben! Tu veux lui en mettre plein la vue au chef Miller! Infiltrer la résistance. # character=AGENT_LUCAS expression=amusement
 ~afficher_personnage(AGENT_MOORE, "slideInRight")
 Agent Moore: On a tous essayé. Je veux juste que tu le saches. # character=AGENT_MOORE expression=neutral
-Agent Lucas: Bah, laisse-le rêver! # character=AGENT_LUCAS expression=amusement
+Agent Lucas: Bah, laisse-la rêver! # character=AGENT_LUCAS expression=amusement
 Agent Moore: Quand tu seras brûlée toi aussi, ils recruteront d’autres jeunes ambitieux pour les jeter dans le feu à leur premier quart de travail. # character=AGENT_MOORE expression=amusement
 Agent Lucas: Qui est ton contact? # character=AGENT_LUCAS expression=neutral
 ~ jouer_musique(theme_choix_cruciaux)
@@ -37,7 +37,8 @@ Agent Moore: Oui, c’était l’affaire MORRIS. Non résolue. # character=AGENT
 Fred: Je peux lire ça? # character=FRED_GALLANT invisible
 Agent Lucas: Absolument! # character=AGENT_LUCAS expression=neutral
 ~jouer_effet_sonore(dossier_depose_bureau)
-<b>L’Agent Lucas</b> donne le dossier <b>Morris</b>. Aucune information n’est déterminante, <b>Teacher</b> est aussi insaisissable que dans les messages sur le téléphone de <b>Kane</b>. Cependant, une autre adresse potentiellement liée à la résistance apparaît : le 530 rue McLeod. C’est le point de rendez-vous que <b>Christopher</b> vous a donné pour vous présenter aux autres.
+<b>L’Agent Lucas</b> donne le dossier <b>Morris</b>. Aucune information n’est déterminante, <b>Teacher</b> est aussi insaisissable que dans les messages sur le téléphone de <b>Kane</b>. # center
+Cependant, une autre adresse potentiellement liée à la résistance apparaît : le 530 rue McLeod. C’est le point de rendez-vous que <b>Christopher</b> vous a donné pour vous présenter aux autres. # center
 *Fred donne le nom de son contact, la fille, pas <b>Christopher</b>
   ~ points_fin_1 += 1
 Fred: Il y a une fille, Bonnie. # character=FRED_GALLANT invisible
@@ -69,9 +70,8 @@ Narrateur: Entrez dans la résistance maintenant. Plongez, sans vous retourner. 
 ~jouer_musique(theme_fred)
 Fred, <i>à elle-même</i>: Ces absences sont de plus en plus fréquentes.  # character=FRED_GALLANT invisible
 Elle vérifie son PDA.
-Fred, <i>à elle-même</i>: Aucune nouvelle info. Étrange. # character=FRED_GALLANT invisible
-Fred, <i>à elle-même</i>: En route pour le 530 McLeod. # character=FRED_GALLANT invisible
-// TODO= Transition - Image non définie encore
+Fred, à elle-même: Aucune nouvelle info. Étrange. # character=FRED_GALLANT invisible
+Fred, à elle-même: En route pour le 530 McLeod. # character=FRED_GALLANT invisible
 -> scene_3
 
   = scene_3
@@ -87,6 +87,8 @@ Vivian: Salut. #character=VIVIAN expression=joy
 Christopher: Je veux te montrer quelque chose. # character=CHRISTOPHER_YOUNG expression=neutral
 ~cacher_tout_personnages()
 -> act_1_quiz_1.quiz_1
+
+->scene_3_suite
 
 =scene_3_suite
 ~afficher_fond(rue_mcleod)
@@ -224,8 +226,7 @@ Olivia: C’est moi. #character=OLIVIA_PAUL expression=alertness phone
 Fred: J’aimerais vous rencontrer, j’aurais quelques questions à vous poser. # character=FRED_GALLANT invisible
 Olivia: De quoi suis-je soupçonnée? #character=OLIVIA_PAUL expression=alertness phone
 Fred: De rien. C’est au sujet de votre ancien poste de testeuse de l’ESRB. # character=FRED_GALLANT invisible
-Olivia [Surprise]
-Qu’est-ce que vous voulez savoir? Ça fait une éternité. C’était légal à l’époque. #character=OLIVIA_PAUL expression=surprise phone
+Olivia: Qu’est-ce que vous voulez savoir? Ça fait une éternité. C’était légal à l’époque. #character=OLIVIA_PAUL expression=surprise phone
 Fred: Je sais, j’ai simplement besoin de quelques informations. # character=FRED_GALLANT invisible
 Olivia: Passez me voir. Je ne sors pas aujourd’hui. #character=OLIVIA_PAUL expression=neutral phone
 Fred: Merci, à toute à l’heure. # character=FRED_GALLANT invisible
@@ -511,13 +512,11 @@ Fred: Alors, c’est quoi votre plan? # character=FRED_GALLANT invisible
 
 Christopher: Nous voulons lever l’interdiction et recréer une réglementation encadrant tout ce qui aurait trait aux jeux vidéo. Comme avant, mais en mieux. # character=CHRISTOPHER_YOUNG expression=alertness
 
-Fred
-C’est-à-dire? # character=FRED_GALLANT invisible
+Fred: C’est-à-dire? # character=FRED_GALLANT invisible
 
 Christopher: Une réglementation claire, reconnue et comprise pourrait éliminer bien des problèmes que le début des années 2000 a connus. Regarde ce qui se faisait avant, c’est un bon point de départ : respecter les évaluations et restreindre l’accès des jeux à contenu explicite est la clé. # character=CHRISTOPHER_YOUNG expression=neutral
 
-Fred
-Je vais la lire, merci. # character=FRED_GALLANT invisible
+Fred: Je vais la lire, merci. # character=FRED_GALLANT invisible
 
 ~ajouter_document(LOI_2005_CLASSEMENT)
 ~cacher_tout_personnages()
@@ -933,24 +932,14 @@ Fred: Pas pour l’instant. Je suis différentes pistes. Mais cette adresse est 
 Chef Miller: Parfait. Je ne vous retiens donc pas. Bonne journée. # character=CHEF_MILLER_NO_CIGAR expression=neutral
 -
 ~cacher_tout_personnages()
-TODO=Transition - Image non définie encore
 ->scene_16
 
 =scene_16
+~afficher_fond(news_room)
 ~jouer_musique(theme_news)
+L’affaire Kane : enlèvement ou fugue? Les parents sont catégoriques « notre fils n’est pas un fugueur » # center
 
-{points_fin_1 > points_fin_2 and points_fin_1 > points_fin_3:
-          ~ afficher_fond(chapitre_1_gros_titres_1)
-          }
+ « On a exploité la naïveté de mon fils » rapporte la mère de Kane. Des trafiquants de jeux vidéo derrière la disparition de l’enfant # center
 
-{points_fin_2 > points_fin_1 and points_fin_2 > points_fin_3:
-          ~ afficher_fond(chapitre_1_gros_titres_2)
-          }
-
-{points_fin_3 > points_fin_1 and points_fin_3 > points_fin_2:
-          ~ afficher_fond(chapitre_1_gros_titres_3)
-          }
-
-TODO=Transition - Image non définie encore
 
 -> chapitre_2.scene_1

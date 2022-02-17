@@ -40,6 +40,7 @@ export const knownExpressions = {
   "ENQUETEUR_BEAULIEU": [
     "aversion",
     "cruel",
+    "outrage",
     "rage",
     "wtf"
   ],
@@ -47,20 +48,12 @@ export const knownExpressions = {
     "neutral"
   ],
   "BONNIE_RANDLE_V1": [
-    "sterness"
-  ],
-  "BONNIE_RANDLE_V2": [
     "alertness",
-    "aversion",
     "default",
-    "dejection",
     "disdain",
     "melancholy",
     "neutral",
-    "rage",
-    "shock",
     "sterness",
-    "surprise",
     "wonder"
   ],
   "CHEF_MILLER_NO_CIGAR": [
@@ -74,7 +67,6 @@ export const knownExpressions = {
     "omg",
     "satisfaction",
     "sterness",
-    "suprise",
     "surprise",
     "wtf"
   ],
@@ -107,9 +99,24 @@ export const knownExpressions = {
   ],
   "TOM": [
     "alertness",
+    "concern",
     "disgust",
     "joy",
+    "neutral",
     "satisfaction"
+  ],
+  "BONNIE_RANDLE_V2": [
+    "aversion",
+    "default",
+    "dejection",
+    "disdain",
+    "melancholy",
+    "neutral",
+    "rage",
+    "shock",
+    "sterness",
+    "surprise",
+    "wonder"
   ],
   "RECEPTIONISTE": [
     "concern",
@@ -128,7 +135,8 @@ export const knownExpressions = {
     "melancholy",
     "neutral",
     "sterness",
-    "surprise"
+    "surprise",
+    "wonder"
   ],
   "CARL_WHITE": [
     "amusement",
@@ -240,10 +248,15 @@ export const knownExpressions = {
     "sterness"
   ],
   "TEACHER_V2": [
+    "amusement",
     "anxiety",
+    "aversion",
     "concern",
+    "dejection",
+    "disdain",
     "joy",
     "neutral",
+    "satisfaction",
     "sterness",
     "surprise",
     "wtf"

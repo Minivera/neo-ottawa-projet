@@ -120,7 +120,8 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
   useEffect(() => {
     if (
       settings.settings.musicEnabled &&
-      (gameState.state === GameState.Ready ||
+      (loading ||
+        gameState.state === GameState.Ready ||
         gameState.state === GameState.Loaded)
     ) {
       musics.theme_menu.volume(settings.settings.musicVolume / 100);
@@ -130,9 +131,8 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       };
     }
 
-    // eslint-disable-next-line no-useless-return
-    return;
-  }, [gameState.state]);
+    return () => {};
+  }, [settings.settings.musicEnabled, settings.settings.musicVolume]);
 
   const globalCSS = (
     <Global
