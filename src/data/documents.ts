@@ -28,6 +28,7 @@ import licenceJeuVideo from '../assets/documents/licence-jeu-video.pdf';
 import modCounterStrike from '../assets/documents/mod-counter-strike.pdf';
 import modDota from '../assets/documents/mode-dota.pdf';
 import avantageInconvenientsMod from '../assets/documents/avantages-inconvenients-mod.pdf';
+import rapportChristopher from '../assets/documents/rapport-christopher.pdf';
 import bestiaire from '../assets/documents/bestiaire.pdf';
 import conceptsArtistiquesChristian from '../assets/documents/concepts-artistiques-christian.pdf';
 import journalConceptionChristian from '../assets/documents/journal-conception-christian.pdf';
@@ -248,12 +249,11 @@ export const documents: Record<documentsNames, Document> = {
     description: 'document-description-avantages-inconvenients-mod',
     path: avantageInconvenientsMod,
   },
-  // TODO: Missing
   RAPPORT_CHRISTOPHER: {
     documentId: 'RAPPORT_CHRISTOPHER',
     name: 'document-name-rapport-christopher',
     description: 'document-description-rapport-christopher',
-    path: avantageInconvenientsMod,
+    path: rapportChristopher,
   },
   // TODO: Missing
   SPORT_ELECTRONIQUE: {
