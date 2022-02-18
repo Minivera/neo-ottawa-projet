@@ -3,6 +3,8 @@
 
 = quiz_1
 <b>Christopher</b> donne à <b>Fred</b> une liste de jeux interdits selon les pays en 2021.La liste est disponible dans le PDA. 
+
+Il est désormais l’heure d’aider <b>Fred</b> à mettre de l’ordre dans ses idées et à tirer des conclusions grâce aux documents recueillis. Consultez ses notes, pensées et réflexions, et aidez la à valider les informations pertinentes qui peuvent être extraites des documents collectés. # center
 ~ demarrer_quiz(QUIZ_1, 6)
 ~jouer_musique(theme_quiz)
 ~ afficher_document(JEUX_INTERDITS_WIKIPEDIA)

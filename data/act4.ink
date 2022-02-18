@@ -163,8 +163,7 @@ Narrateur: Fred à elle seule n’y arrivera pas. Soyez très attentif, parce qu
 
 Narrateur: Êtes-vous prêts? # character=NARRATEUR center
 
-~afficher_fond(bureau_chef_miller)
-TODO: vérifier comment le mettre flou
+~afficher_fond(bureau_chef_miller_reve)
 ~jouer_musique(theme_narrateur)
 
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
@@ -252,9 +251,9 @@ Fred: Oui, enfin j’étudie encore. Je m’intéresse à vos modes de productio
 
 Teacher: Code de conduite? # character=TEACHER_V1 expression=concern
 
-*<b>Fred</b> affirme qu’elle est étudiante en sociologie pour poursuivre le même mensonge qu’elle a déjà dit à Christopher.
+*<b>Fred</b> affirme qu’elle est étudiante avec une mineure en droit pour poursuivre le même mensonge qu’elle a déjà dit à <b>Christopher</b>.
 
-Fred: Non, j’étudie en sociologie. # character=FRED_GALLANT invisible
+Fred: Non, j’étudie avec une mineure en droit. # character=FRED_GALLANT invisible
 
 Teacher: Ah ouais, d’accord. Et puis? Tu veux aller où avec ça? # character=TEACHER_V1 expression=concern
 
@@ -292,7 +291,7 @@ Teacher: Tu poses trop de questions. # character=TEACHER_V1 expression=concern
 
 Fred: Le jeu, c’était un prétexte. Je joue peu. # character=FRED_GALLANT invisible
 
-Teacher, <i>nerveux</i>: Un prétexte? Ça veut dire? # character=TEACHER_V1 expression=concern
+Teacher, nerveux: Un prétexte? Ça veut dire? # character=TEACHER_V1 expression=concern
 
 Fred: Ça veut dire que je tenais à te rencontrer. # character=FRED_GALLANT invisible
 
@@ -310,7 +309,7 @@ Teacher: Quel message? # character=TEACHER_V1 expression=neutral
 
 <b>Fred</b> griffonne sur un bout de papier.
 
-Message de <b>Fred</b> : <i>Je peux vous aider à protéger vos jeux. Vous devriez avoir des droits d’auteurs sur ces jeux. Même le marché noir devrait respecter la propriété intellectuelle et se préparer à un retour de la légalité. Contactez-moi si ça vous intéresse de savoir comment. <br/> twitter.com@Fredgallant47</i>
+Message de Fred: <i>Je peux vous aider à protéger vos jeux. Vous devriez avoir des droits d’auteurs sur ces jeux. Même le marché noir devrait respecter la propriété intellectuelle et se préparer à un retour de la légalité. Contactez-moi si ça vous intéresse de savoir comment. <br/> twitter.com@Fredgallant47</i>
 
 ~ajouter_contact(TEACHER_V2)
 ~cacher_tout_personnages()
@@ -543,7 +542,8 @@ Jonathan: J’ai droit à la moitié. C’est ça la solution. # character=JONAT
 Fred: Je vous remercie de m’avoir raconté. Je vous tiens au courant rapidement. # character=FRED_GALLANT invisible
 
 <b>Jonathan</b> donne des documents à <b>Fred</b>.
-TODO confirmer ce que sont ces documents	Bestiaire de Jonathan (liste) au moment de la rupture de l’amitié; Photos de leur amitié passée et traces de leur travail commun sur ce projet
+~ajouter_document(BESTIAIRE)
+~ajouter_document(PHOTO_JONATHAN_CHRISTIAN)
 ~cacher_tout_personnages()
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
@@ -552,15 +552,10 @@ Après sa rencontre avec <b>Jonathan</b>, <b>Fred</b> retourne à son bureau pou
 ~jouer_effet_sonore(reception_courriel)
 ~afficher_fond(ecran_ordinateur_fred)
 
-Texte du courriel : <i>Bonjour agent Gallant,
+Texte du courriel : <i>Bonjour agent Gallant, <br/>J’ai entendu dire que vous aviez eu une rencontre avec ce traître de Jonathan au sujet des créations artistiques. Je ne sais pas ce qu’il a pu vous dire, mais tout m’appartient. J’ai retravaillé et modifié ces créations. Il n’y a plus rien à lui dans le jeu final. Je vous envoie les preuves que j’ai à l’appui.<br/>Merci,</br>Christian</i>
 
-J’ai entendu dire que vous aviez eu une rencontre avec ce traître de Jonathan au sujet des créations artistiques. Je ne sais pas ce qu’il a pu vous dire, mais tout m’appartient. J’ai retravaillé et modifié ces créations. Il n’y a plus rien à lui dans le jeu final. Je vous envoie les preuves que j’ai à l’appui.
-
-Merci,
-
-Christian</i>
-
-TODO confirmer si ces documents existent: Journal de bord de conception de Christian; Dessins de l’environnement (liste) de Christian; Nouveau Bestiaire (liste - contenant certaines des bêtes de Jonathan)
+~ajouter_document(JOURNAL_CONCEPTION_CHRISTIAN)
+~ajouter_contact(CONCEPTS_ARTISTIQUES_CHRISTIAN)
 -> scene_6
 
 = scene_6

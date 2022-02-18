@@ -28,6 +28,11 @@ import licenceJeuVideo from '../assets/documents/licence-jeu-video.pdf';
 import modCounterStrike from '../assets/documents/mod-counter-strike.pdf';
 import modDota from '../assets/documents/mode-dota.pdf';
 import avantageInconvenientsMod from '../assets/documents/avantages-inconvenients-mod.pdf';
+import bestiaire from '../assets/documents/bestiaire.pdf';
+import conceptsArtistiquesChristian from '../assets/documents/concepts-artistiques-christian.pdf';
+import journalConceptionChristian from '../assets/documents/journal-conception-christian.pdf';
+import photoJonathanChristian from '../assets/documents/photo-jonathan-christian.pdf';
+import contratEsport from '../assets/documents/contrat-esport.pdf';
 
 export type documentsNames =
   | 'LOI_GAME_OVER'
@@ -59,7 +64,14 @@ export type documentsNames =
   | 'MOD_COUNTER_STRIKE'
   | 'MOD_DOTA'
   | 'AVANTAGES_INCONVENIENTS_MOD'
-  | 'RAPPORT_CHRISTOPHER';
+  | 'RAPPORT_CHRISTOPHER'
+  | 'SPORT_ELECTRONIQUE'
+  | 'BESTIAIRE'
+  | 'PHOTO_JONATHAN_CHRISTIAN'
+  | 'JOURNAL_CONCEPTION_CHRISTIAN'
+  | 'CONCEPTS_ARTISTIQUES_CHRISTIAN'
+  | 'PRATIQUE_SPORT_ELECTRONIQUE'
+  | 'CONTRAT_ESPORT';
 
 export const documents: Record<documentsNames, Document> = {
   LOI_GAME_OVER: {
@@ -236,10 +248,55 @@ export const documents: Record<documentsNames, Document> = {
     description: 'document-description-avantages-inconvenients-mod',
     path: avantageInconvenientsMod,
   },
+  // TODO: Missing
   RAPPORT_CHRISTOPHER: {
     documentId: 'RAPPORT_CHRISTOPHER',
     name: 'document-name-rapport-christopher',
     description: 'document-description-rapport-christopher',
     path: avantageInconvenientsMod,
+  },
+  // TODO: Missing
+  SPORT_ELECTRONIQUE: {
+    documentId: 'SPORT_ELECTRONIQUE',
+    name: 'document-name-sport-electronique',
+    description: 'document-description-sport-electronique',
+    path: avantageInconvenientsMod,
+  },
+  BESTIAIRE: {
+    documentId: 'BESTIAIRE',
+    name: 'document-name-bestiaire',
+    description: 'document-description-bestiaire',
+    path: bestiaire,
+  },
+  PHOTO_JONATHAN_CHRISTIAN: {
+    documentId: 'PHOTO_JONATHAN_CHRISTIAN',
+    name: 'document-name-photo-jonathan-christopher',
+    description: 'document-description-photo-jonathan-christopher',
+    path: photoJonathanChristian,
+  },
+  JOURNAL_CONCEPTION_CHRISTIAN: {
+    documentId: 'JOURNAL_CONCEPTION_CHRISTIAN',
+    name: 'document-name-journal-christopher',
+    description: 'document-description-journal-christopher',
+    path: journalConceptionChristian,
+  },
+  CONCEPTS_ARTISTIQUES_CHRISTIAN: {
+    documentId: 'CONCEPTS_ARTISTIQUES_CHRISTIAN',
+    name: 'document-name-concepts-christopher',
+    description: 'document-description-concepts-christopher',
+    path: conceptsArtistiquesChristian,
+  },
+  // TODO: Missing
+  PRATIQUE_SPORT_ELECTRONIQUE: {
+    documentId: 'PRATIQUE_SPORT_ELECTRONIQUE',
+    name: 'document-name-pratique-sport-electronique',
+    description: 'document-description-pratique-sport-electronique',
+    path: avantageInconvenientsMod,
+  },
+  CONTRAT_ESPORT: {
+    documentId: 'CONTRAT_ESPORT',
+    name: 'document-name-contrat-esport',
+    description: 'document-description-contrat-esport',
+    path: contratEsport,
   },
 };

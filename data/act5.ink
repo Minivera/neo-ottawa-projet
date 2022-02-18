@@ -949,5 +949,4 @@ La tension monte : des fuites indiquent qu’une organisation tente un retour de
 
 Dossier choc : les adeptes de jeux vidéo encore actifs malgré l’interdiction! # center
 
-
-->fin
+->chapitre_6.scene_1

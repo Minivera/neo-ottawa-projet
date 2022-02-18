@@ -17,6 +17,7 @@ export const knownExpressions = {
     "rage",
     "satisfaction",
     "sterness",
+    "wonder",
     "wtf"
   ],
   "AGENT_LUCAS": [
@@ -107,6 +108,7 @@ export const knownExpressions = {
     "satisfaction"
   ],
   "BONNIE_RANDLE_V2": [
+    "alertness",
     "aversion",
     "default",
     "dejection",
@@ -261,6 +263,36 @@ export const knownExpressions = {
     "sterness",
     "surprise",
     "wtf"
+  ],
+  "JOHN_RANDLE": [
+    "alertness",
+    "concern",
+    "disdain",
+    "melancholy",
+    "neutral",
+    "sterness",
+    "wtf"
+  ],
+  "TREVOR": [
+    "disdain",
+    "neutral",
+    "satisfaction",
+    "sterness"
+  ],
+  "JEN": [
+    "melancholy",
+    "wonder"
+  ],
+  "ANDREA": [
+    "joy",
+    "neutral",
+    "wonder"
+  ],
+  "BRAD": [
+    "joy",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "wtf"
   ]
 };
-  

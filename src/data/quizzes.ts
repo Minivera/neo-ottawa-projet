@@ -13,7 +13,17 @@ type quizzesKeys =
   | 'QUIZ_2_4'
   | 'QUIZ_2_5'
   | 'QUIZ_2_6'
-  | 'QUIZ_2_7';
+  | 'QUIZ_2_7'
+  | 'QUIZ_3_1'
+  | 'QUIZ_3_2'
+  | 'QUIZ_3_3'
+  | 'QUIZ_4_1'
+  | 'QUIZ_4_2'
+  | 'QUIZ_5_1'
+  | 'QUIZ_5_2'
+  | 'QUIZ_6_1'
+  | 'QUIZ_6_2'
+  | 'QUIZ_6_3';
 
 export const quizzesInfo: Record<quizzesKeys, QuizInfo> = {
   QUIZ_1: {
@@ -67,5 +77,45 @@ export const quizzesInfo: Record<quizzesKeys, QuizInfo> = {
   QUIZ_2_7: {
     quizId: 'QUIZ_2_7',
     name: 'QUIZ_2_7_NAME',
+  },
+  QUIZ_3_1: {
+    quizId: 'QUIZ_3_1',
+    name: 'QUIZ_3_1_NAME',
+  },
+  QUIZ_3_2: {
+    quizId: 'QUIZ_3_2',
+    name: 'QUIZ_3_2_NAME',
+  },
+  QUIZ_3_3: {
+    quizId: 'QUIZ_3_3',
+    name: 'QUIZ_3_3_NAME',
+  },
+  QUIZ_4_1: {
+    quizId: 'QUIZ_4_1',
+    name: 'QUIZ_4_1_NAME',
+  },
+  QUIZ_4_2: {
+    quizId: 'QUIZ_4_2',
+    name: 'QUIZ_4_2_NAME',
+  },
+  QUIZ_5_1: {
+    quizId: 'QUIZ_5_1',
+    name: 'QUIZ_5_1_NAME',
+  },
+  QUIZ_5_2: {
+    quizId: 'QUIZ_5_2',
+    name: 'QUIZ_5_2_NAME',
+  },
+  QUIZ_6_1: {
+    quizId: 'QUIZ_6_1',
+    name: 'QUIZ_6_1_NAME',
+  },
+  QUIZ_6_2: {
+    quizId: 'QUIZ_6_2',
+    name: 'QUIZ_6_2_NAME',
+  },
+  QUIZ_6_3: {
+    quizId: 'QUIZ_6_3',
+    name: 'QUIZ_6_3_NAME',
   },
 } as const;

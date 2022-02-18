@@ -25,6 +25,10 @@ import {
   Boris,
   Christian,
   Jonathan,
+  Jen,
+  Trevor,
+  Andrea,
+  Brad,
 } from '../../characters';
 import { contacts } from '../../contacts';
 
@@ -68,4 +72,8 @@ export const contactDescriptions = {
   [contacts[Boris.id].description]: 'Développeur de jeu vidéo',
   [contacts[Christian.id].description]: `Quelqu'un`,
   [contacts[Jonathan.id].description]: `Quelqu'un`,
+  [contacts[Jen.id].description]: `Quelqu'un`,
+  [contacts[Trevor.id].description]: `Quelqu'un`,
+  [contacts[Andrea.id].description]: `Quelqu'un`,
+  [contacts[Brad.id].description]: `Quelqu'un`,
 };

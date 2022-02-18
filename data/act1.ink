@@ -913,7 +913,7 @@ Chef Miller: Vous me les remettrez en même temps que votre rapport sur votre pr
 
 Fred: Bien sûr, chef. # character=FRED_GALLANT invisible
 
-Chef Miller: J’aime mieux ça. Je peux même vous dire ce qu’ils vous ont servi à la résistance : il y avait des règlements qui limitaient l’utilisation des jeux, etc., etc. Le gouvernement maintient que non, ils mentent… bla bla bla.# character=CHEF_MILLER_NO_CIGAR expression=disdain
+Chef Miller: J’aime mieux ça. Je peux même vous dire ce qu’ils vous ont servi à la résistance : il y avait des règlements qui limitaient l’utilisation des jeux, etc., etc. Le gouvernement maintient que non, ils mentent… bla bla bla. # character=CHEF_MILLER_NO_CIGAR expression=disdain
 
 Fred: Ça ressemble à ça, en effet. # character=FRED_GALLANT invisible
 

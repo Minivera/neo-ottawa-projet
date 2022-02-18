@@ -1,5 +1,6 @@
 import artHouseCafe from '../../assets/backgrounds/art_house_cafe.jpg?w=1920&h=1080';
 import bureauChefMiller from '../../assets/backgrounds/bureau_chef_miller.jpg?w=1920&h=1080';
+import bureauChefMillerReve from '../../assets/backgrounds/bureau_chef_miller_flou.jpg?w=1920&h=1080';
 import porteChefMiller from '../../assets/backgrounds/porte_chef_miller.png?w=1920&h=1080';
 import brigade from '../../assets/backgrounds/brigade.jpg?w=1920&h=1080';
 import glitch from '../../assets/backgrounds/glitch.jpg?w=1920&h=1080';
@@ -31,6 +32,7 @@ import transition from '../../assets/backgrounds/transition.png?w=1920&h=1080';
 import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=1080';
 import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
 import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
+import appartementChristopher from '../../assets/backgrounds/apparement_christopher.jpg?w=1920&h=1080';
 
 // Fins
 import newsRoom1 from '../../assets/backgrounds/news_room_1.jpg?w=1920&h=1080';
@@ -51,6 +53,7 @@ export const backgrounds: Backgrounds = {
   data_glitch: { type: 'video', asset: dataGlitch },
   synthwave_noise: { type: 'video', asset: '' },
   bureau_chef_miller: { type: 'image', asset: bureauChefMiller },
+  bureau_chef_miller_reve: { type: 'image', asset: bureauChefMillerReve },
   voiture_fred: { type: 'image', asset: voitureFred },
   glitch: { type: 'video', asset: glitch },
   rue_flemming: { type: 'image', asset: rueFlemming },
@@ -86,7 +89,9 @@ export const backgrounds: Backgrounds = {
   maison_jonathan: { type: 'image', asset: maisonJonathan },
   ecran_ordinateur_fred: { type: 'image', asset: ordinateurFred },
   coin_flemming_arch: { type: 'image', asset: coinFlemmingArch },
+  appartement_christopher: { type: 'image', asset: appartementChristopher },
   // Fins
+  news_room: { type: 'image', asset: newsRoom1 },
   news_room_1: { type: 'image', asset: newsRoom1 },
   news_room_2: { type: 'image', asset: newsRoom2 },
   news_room_3: { type: 'image', asset: newsRoom3 },

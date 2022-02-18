@@ -105,7 +105,7 @@ Chef Miller: Je compte sur vous. Vous travaillerez seule sur cette première mis
 *   <b>Fred</b> remercie le chef Miller.
     Chef Miller: Allez faire ce pour quoi on vous paye. # character=CHEF_MILLER expression=sterness
 *   <b>Fred</b> décide de sortir du bureau sans rien dire.
-    Chef Miller: ... # character CHEF_MILLER expression=sterness
+    Chef Miller: ... # character=CHEF_MILLER expression=sterness
 
 - Chef Miller: Vous passerez au bureau 403 pour récupérer votre badge et votre arme. Bonne chance et bienvenue. # character=CHEF_MILLER expression=neutral
 ~ ajouter_contact(CHEF_MILLER)
@@ -263,6 +263,7 @@ Leigh Kane: (pouce en l'air) # character=LEIGH_KANE invisible
 <b>Mercredi, 11h02</b>:
 TEACHER: 23h, 5567 Flemming<br/>Tu cognes 4 coups secs<br/>Mot de passe : ratata02 # character=TEACHER_V1 invisible
 Leigh Kane: (pouce en l’air) # character=LEIGH_KANE invisible
+~cacher_tout_personnages()
 ~ ajouter_contact(TEACHER_V1)
 -> scene_9
 
@@ -371,7 +372,6 @@ L'écran devient noir. #center
 Narrateur: Vous reconnaissez la croisée des chemins quand vous y faites face? Vous aimez sentir la pression jusque dans le battement de vos tempes? La sueur perle sur votre front. Le moment sera décisif. Serez-vous à la hauteur? Dors Fred, dors. Pendant qu’on s’occupe de ton avenir. # character=NARRATEUR invisible center
 ~ afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
-TODO Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?
 ~ afficher_personnage(CHEF_MILLER_NO_CIGAR, "none")
 Chef Miller: Gallant? Gallant? Est-ce que vous manquez de sommeil? Secouez-vous! Reprenez vos esprits! # character=CHEF_MILLER_NO_CIGAR expression=anger
 Chef Miller: Alors? Du nouveau? Qu’avez-vous trouvé sur les lieux?	# character=CHEF_MILLER_NO_CIGAR expression=sterness
@@ -388,21 +388,6 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
     Fred: Certainement. Je vérifie encore quelques possibilités. # character=FRED_GALLANT invisible
     Chef Miller: Ne me laissez pas tomber sur ce coup, Gallant. C’est votre période d’essai, vous me suivez?	# character=CHEF_MILLER_NO_CIGAR expression=sterness
     Fred: Oui, chef. # character=FRED_GALLANT invisible
-    Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR expression=neutral
-~ cacher_tout_personnages()
-~ afficher_fond(telephone_fred)
-<b>Fred</b> compose au numéro que <b>Bonnie</b> lui a donné.
-~ jouer_effet_sonore(composer_numero)
-     ???: Qui est-ce? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Bonjour Young, je m’appelle Fred. C’est John Randle qui m’a donné votre numéro. # character=FRED_GALLANT invisible
-     Christopher: John qui? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Euh… Randle. # character=FRED_GALLANT invisible
-     Christopher: Ah. Vous connaissez Randle? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Oui. # character=FRED_GALLANT invisible
-     Christopher: Comment? # character=CHRISTOPHER_YOUNG invisible
-     Fred: L’université. # character=FRED_GALLANT invisible
-     Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Jouer. # character=FRED_GALLANT invisible
 *   <b>Fred</b> choisit de parler au <b>Chef</b> Miller et de lui dire une partie de la vérité.
 ~ points_fin_A2 += 4
  ~jouer_musique(theme_general)
@@ -430,14 +415,14 @@ Fred: Oui. # character=FRED_GALLANT invisible
 Fred: L’université. # character=FRED_GALLANT invisible
   Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG invisible
 Fred: Jouer. # character=FRED_GALLANT invisible
--
+
 -> scene_13
 
 = scene_13
 ~ afficher_fond(britannia_park)
 ~ jouer_musique(theme_fred)
 ~ afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
-Christopher: Les jeux, ce n’est plus ce que c’était. # character=CHRISTOPHER_YOUNG expression=melancholy
+Christopher: Les jeux, ce n’est plus ce que c’était. # character=CHRISTOPHER_YOUNG animation=slideInUp expression=melancholy
 Fred: Je suis née après l’arrivée de la loi. # character=FRED_GALLANT invisible
 Christopher: Ha! Tu as tout manqué! Moi aussi, j'en ai seulement entendu parler. # character=CHRISTOPHER_YOUNG  expression=neutral
 Fred: Je comprends. # character=FRED_GALLANT invisible

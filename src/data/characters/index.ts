@@ -33,6 +33,10 @@ import { Medecin } from './medecin';
 import { Boris } from './boris';
 import { Christian } from './christian';
 import { Jonathan } from './jonathan';
+import { Jen } from './jen';
+import { Trevor } from './trevor';
+import { Andrea } from './andrea';
+import { Brad } from './brad';
 
 export {
   FredGallant,
@@ -70,6 +74,10 @@ export {
   Boris,
   Christian,
   Jonathan,
+  Jen,
+  Trevor,
+  Andrea,
+  Brad,
 };
 
 export const Characters = {
@@ -108,4 +116,8 @@ export const Characters = {
   [Boris.id]: Boris,
   [Christian.id]: Christian,
   [Jonathan.id]: Jonathan,
+  [Jen.id]: Jen,
+  [Trevor.id]: Trevor,
+  [Andrea.id]: Andrea,
+  [Brad.id]: Brad,
 };
