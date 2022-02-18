@@ -1,5 +1,11 @@
 === prologue ===
 
+= tutoriel
+<center>Bienvenue dans le monde de <b>RESET 2047</b>. Cette histoire est racontée sous la forme d'une histoire interactive où vos choix décideront du futur d'une nation entière.<br/><br/>Pour faire avancer l'histoire, cliquez sur le bouton <b>continuer</b> en bas des fenêtre de dialogue (Comme celle-ci) ou pesez sur la barre d'espace. Vous pouvez cliquer n'importe où dans l'écran ou utiliser la barre d'espace pour accélérer les animations.<br/><br/>Si jamais vous manquez une boite de dialogue ou vous voulez vous rafraichir l'esprit, l'<b>historique</b> dans le menu de droite contiens un journal des dernières interactions. Vous pouvez l'ouvrir maintenant pour voir ce texte en entier!</center> # transition
+<center>Mais ce n'est pas tout. Le menu à droite de l'écran contiens aussi deux commandes très utiles.<br/><br/>L'option <b>paramètres</b> affichera la fenêtre des paramètres du jeu, où vous pourrez configurer des options comme la vitesse des animation ou le volume du jeu.<br/><br/>L'option <b>sauvegardes</b> affichera la fenêtre des sauvegardes. Vous pouvez y sauvegarder votre partie en tout temps en cliquant sur un des quatre emplacements de sauvegardes. N'oubliez pas de sauvegarder après un moment important!</center> # transition
+<center>Bonne chance, nous comptons tous sur vous...</center> # transition
+-> scene_0
+
 = scene_0
 ~ afficher_fond(data_glitch)
 ~ jouer_musique(theme_intro)
@@ -382,6 +388,21 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
     Fred: Certainement. Je vérifie encore quelques possibilités. # character=FRED_GALLANT invisible
     Chef Miller: Ne me laissez pas tomber sur ce coup, Gallant. C’est votre période d’essai, vous me suivez?	# character=CHEF_MILLER_NO_CIGAR expression=sterness
     Fred: Oui, chef. # character=FRED_GALLANT invisible
+    Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR expression=neutral
+~ cacher_tout_personnages()
+~ afficher_fond(telephone_fred)
+<b>Fred</b> compose au numéro que <b>Bonnie</b> lui a donné.
+~ jouer_effet_sonore(composer_numero)
+     ???: Qui est-ce? # character=CHRISTOPHER_YOUNG invisible
+     Fred: Bonjour Young, je m’appelle Fred. C’est John Randle qui m’a donné votre numéro. # character=FRED_GALLANT invisible
+     Christopher: John qui? # character=CHRISTOPHER_YOUNG invisible
+     Fred: Euh… Randle. # character=FRED_GALLANT invisible
+     Christopher: Ah. Vous connaissez Randle? # character=CHRISTOPHER_YOUNG invisible
+     Fred: Oui. # character=FRED_GALLANT invisible
+     Christopher: Comment? # character=CHRISTOPHER_YOUNG invisible
+     Fred: L’université. # character=FRED_GALLANT invisible
+     Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG invisible
+     Fred: Jouer. # character=FRED_GALLANT invisible
 *   <b>Fred</b> choisit de parler au <b>Chef</b> Miller et de lui dire une partie de la vérité.
 ~ points_fin_A2 += 4
  ~jouer_musique(theme_general)

@@ -91,7 +91,11 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
       continue;
     }
     if (char === specialChars.lineBreak) {
-      letters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
+      if (isCenter) {
+        centerDivLetters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
+      } else {
+        letters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
+      }
       continue;
     }
 
