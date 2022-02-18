@@ -62,28 +62,21 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
   const [savingOpened, setSavingOpened] = useState<boolean | undefined>();
   const [pdaOpened, setPDAOpened] = useState<boolean | undefined>();
   const [selectedPDATab, setSelectedPDATab] = useState<PDATab>(PDATab.HOME);
+  const lastContinueDate = useRef<Date>(new Date());
   const [loading, percentLoaded, story, gameState, dispatch] = useGame(
     settings.settings,
     storyContent,
     () => setPDAOpened(true)
   );
 
-  const debouncedHover = useCallback<() => void>(
+  const debouncedHover = useCallback<throttle<() => void>>(
     throttle(100, () => {
       clickHover.play();
     }),
     []
   );
-  const debouncedDispatchContinue = useCallback<
-    throttle<(choiceId?: number) => void>
-  >(
-    throttle(300, (choiceId?: number) => {
-      dispatch({ type: 'continue', choiceId });
-    }),
-    []
-  );
   useEffect(() => {
-    return () => debouncedDispatchContinue.cancel();
+    return () => debouncedHover.cancel();
   }, []);
 
   const handlePlaySoundEffect = (
@@ -267,7 +260,9 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       };
 
       const onContinue = () => {
-        if (transitioning) {
+        const now = new Date();
+        // If transitioning or still waiting for the timeout
+        if (transitioning || (now.getTime() - lastContinueDate.current.getTime()) < 300) {
           return;
         }
 
@@ -280,16 +275,17 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           return;
         }
 
-        // Clear the loading indicator so we know to animate the next event.
+        // Clear the loading indicator, so we know to animate the next event.
         setTextLoading(null);
 
-        handlePlaySoundEffect('click');
-        debouncedDispatchContinue();
+        lastContinueDate.current = now;
+        dispatch({ type: 'continue' });
       };
 
       const onChoiceSelected = (choice: Choice) => {
         handlePlaySoundEffect('click');
-        debouncedDispatchContinue(choice.id);
+        lastContinueDate.current = new Date();
+        dispatch({ type: 'continue', choiceId: choice.id });
       };
 
       const onPDAClosed = () => {
@@ -327,20 +323,20 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               showPDA={gameState.pda.enabled}
               onButtonHover={() => handlePlaySoundEffect('hover')}
               onPDAClick={() => {
-                handlePlaySoundEffect('click');
+                handlePlaySoundEffect('hover');
                 handlePlaySoundEffect('pdaOpen');
                 setPDAOpened(true);
               }}
               onSettingsClick={() => {
-                handlePlaySoundEffect('click');
+                handlePlaySoundEffect('hover');
                 dispatchSettings({ type: 'open' });
               }}
               onGameLogClick={() => {
-                handlePlaySoundEffect('click');
+                handlePlaySoundEffect('hover');
                 setGameLogOpened(true);
               }}
               onSaveClick={() => {
-                handlePlaySoundEffect('click');
+                handlePlaySoundEffect('hover');
                 setSavingOpened(true);
               }}
               playClickSound={() => handlePlaySoundEffect('click')}

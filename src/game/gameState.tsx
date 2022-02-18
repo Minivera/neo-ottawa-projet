@@ -450,6 +450,13 @@ export const useGame = (
       const knot = new URLSearchParams(location.search).get('noeud');
       if (knot && story.ContentAtPath(new Path(knot))) {
         story.ChoosePathString(knot);
+        setState({
+          ...state,
+          pda: {
+            ...state.pda,
+            enabled: true,
+          }
+        });
       }
   }, [location?.search]);
 

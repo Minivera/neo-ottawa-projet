@@ -37,35 +37,42 @@ export const interfaceTerms = {
 
   // PDA - Home tab
   pda_home_welcome: `
-    <p>Bonjour <strong>Agent</strong>.</p>
-    <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>.</p>
-    <p>Je vous guiderai dans vos recherches alors que vous entreprendrez la collecte de preuves et le suivi de pistes.</p>
-    <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
+    <p>Bienvenue sur le <strong>PDA de l’agent Fred Gallant</strong>.</p>
+    <p>Cet appareil est un outil essentiel pour mener à bien sa mission.</p>
+    <p>Il lui permet de conserver les preuves collectées, de guider ses recherches, de bâtir un registre des individus rencontrés et de mettre de l’ordre dans ses pensées et réflexions.</p>
+    <p>Plusieurs fonctions sont disponibles : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
+    <p>Vous et l’agent Gallant êtes ici en sécurité.</p>
   `,
   pda_home_first_visit: `
-    <p>Bonjour <strong>Agent</strong>. Bienvenue dans la brigade.</p>
-    <p>Je suis l'assistant virtuel de votre <strong>appareil PDA</strong>. J'ai pris l'initiative d'ouvrir automatiquement votre assistant virtuel afin de vous introduire à ses fonctionnalités.</p>
-    <p>Je vous guiderai dans vos recherches alors que vous entreprendrez la collecte de preuves et le suivi de pistes.</p>
-    <p>Veuillez prendre quelques instants pour vous familiariser avec mes fonctions en accédant au onglets : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
-`,
+    <p>Bienvenue sur le <strong>PDA de l’agent Fred Gallant</strong>.</p>
+    <p>Cet appareil est un outil essentiel pour mener à bien sa mission.</p>
+    <p>Il lui permet de conserver les preuves collectées, de guider ses recherches, de bâtir un registre des individus rencontrés et de mettre de l’ordre dans ses pensées et réflexions.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec ses fonctions en accédant au onglets : <strong>Notes</strong>, <strong>Contacts</strong> et <strong>Documents</strong>.</p>
+    <p>Vous et l’agent Gallant êtes ici en sécurité.</p>
+    `,
 
   // PDA - Quizzes
   pda_documents_first_visit: `
-    <p>Cet onglet contiendra les <strong>notes</strong> prises sur les documents au cours de votre enquête. J'ajouterai automatiquement les notes que vous aurez prises après une séance de notes dans cette liste. Vous pouvez cliquer sur les éléments de cette liste pour accéder à un résumé de votre séance.</p>
-    <p>Lors d'une séance de prise de notes, vous aurez la chance de répondre à des questions reliées aux documents obtenus durant votre enquête. Chaque question affichera une liste de réponses possibles et il vous sera demandé de répondre aux questions en utilisant ces choix. Si vous répondez à une question du premier coup, une <strong>étoile</strong> sera ajoutée au résumé de la séance.</p>
-    <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Contacts</strong> ou <strong>Documents</strong>.</p>
+    <p>C’est ici que l’agent Gallant prend ses notes. On y retrouve les questions qu’elle se pose et les réflexions qui lui viennent à l’esprit. Vous y aurez un accès direct et privilégié. Un privilège qui vous permettra de l’assister dans ses choix et dans ses conclusions.</p>
+    <p>À l’appui des documents collectés, l’agent Gallant et vous-même pourront acquérir des connaissances précieuses sur les jeux vidéo et leur passé glorieux avant l’entrée en vigueur de la <i>Loi Game Over.</i></p>
+    <p>Les pensées de l’agent Gallant s’inscriront au fur et à mesure de son enquête. Vous devrez parfois l’aider à répondre à ses interrogations afin qu’elle puisse poursuivre ses recherches de terrains. Les réponses formulées seront basées sur les documents et informations collectées par l’agent Gallant. Chacune de ces interrogations sera accompagnée d’une liste de réponses possibles à partir de laquelle vous devrez faire votre choix. Pas d'inquiétude : toutes les pensées de l’agent Gallant seront résumées et disponibles ici, tout au long de son aventure.</p>
+    <p>Si l’aide que vous apportée à l’agent Gallant est irréprochable, vos efforts seront récompensés par une étoile qui sera ajoutée au résumé.</p>
+    <p>Veuillez prendre quelques instants pour vous familiariser avec les autres fonctions en accédant au onglets : <strong>Contacts</strong> ou <strong>Documents</strong>.</p>
 `,
 
   // PDA - Contacts
   pda_contacts_first_visit: `
-    <p>Cet onglet contiendra les <strong>contacts</strong> que vous aurez rencontrés durant votre enquête. J'ajouterai automatiquement les contacts dans cette liste lorsque vous aurez rencontré une personne important à votre enquête.</p>
-    <p>Chaque contact dans cette liste sera associé à vos <strong>contacts à la brigade</strong> ou à vos <strong>contacts de la résistance</strong>. Revisitez cet onglet si vous avez oublié un ou plusieurs contacts.</p>
+    <p>Lors de son enquête, l’agent Gallant intéragira avec de nombreux individus. Rigoureuse et méthodique, elle fait un suivi minutieux de ses rencontres.</p>
+    <p>Ici, vous trouverez les renseignements compilés par l’agent Gallant sur les différentes personnes qu’elle a croisé. Ils seront automatiquement ajoutés au fur et à mesure de son enquête.</p>
+    <p>L’accès à cette information vous permettra de vous rafraîchir la mémoire et d’en apprendre plus sur ces personnages.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Notes</strong> ou <strong>Documents</strong>.</p>
 `,
 
   // PDA - Documents
   pda_evidence_first_visit: `
-    <p>Cet onglet contiendra les <strong>documents</strong> obtenus au cours de votre enquête. J'ajouterai automatiquement à cette liste les documents obtenus à la suite d'une séance de prise des notes ou au fil de votre enquête. Vous pouvez cliquer sur un de ces documents pour le visualiser et le relire.</p>
+    <p>Les informations et documents compilés par l’agent Gallant lors de son enquête sont disponibles ici.</p>
+    <p>Ils seront automatiquement ajoutés à une liste lorsque vous aurez assisté l’agent Gallant dans sa prise de note ou au fil de son enquête.</p>
+    <p>Une fois les documents collectés, vous pourrez y revenir en tout temps et les consulter à nouveau si besoin. Il vous suffit de cliquer sur un document pour le visualiser et le relire.</p>
     <p>Veuillez prendre quelques instants pour vous familiariser avec mes autres fonctions en accédant au onglets : <strong>Notes</strong> ou <strong>Contacts</strong>.</p>
 `,
 

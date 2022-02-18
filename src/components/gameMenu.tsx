@@ -127,7 +127,6 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
   onSaveClick,
   showPDA,
   playClickSound,
-  onButtonHover,
 }) => {
   const [t] = useTranslation();
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -169,8 +168,6 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
                 onPDAClick();
               }
             }}
-            onMouseEnter={onButtonHover}
-            onFocus={onButtonHover}
             tabIndex={0}
           >
             <PDAIcon />
@@ -185,8 +182,6 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
               onSettingsClick();
             }
           }}
-          onMouseEnter={onButtonHover}
-          onFocus={onButtonHover}
           tabIndex={0}
         >
           <SettingsIcon />
@@ -200,8 +195,6 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
               onGameLogClick();
             }
           }}
-          onMouseEnter={onButtonHover}
-          onFocus={onButtonHover}
           tabIndex={0}
         >
           <GameLogIcon />
@@ -215,8 +208,6 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
               onSaveClick();
             }
           }}
-          onMouseEnter={onButtonHover}
-          onFocus={onButtonHover}
           tabIndex={0}
         >
           <SaveIcon />
@@ -234,8 +225,6 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
               setOpen(!open);
             }
           }}
-          onMouseEnter={onButtonHover}
-          onFocus={onButtonHover}
           tabIndex={0}
           open={open}
         >

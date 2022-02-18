@@ -24,7 +24,6 @@ import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interi
 import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.jpg?w=1920&h=1080';
 import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1080';
 import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&h=1080';
-import newsRoom from '../../assets/backgrounds/news_room.jpg?w=1920&h=1080';
 import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1080';
 import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1080';
 import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation.jpg?w=1920&h=1080';
@@ -32,6 +31,17 @@ import transition from '../../assets/backgrounds/transition.png?w=1920&h=1080';
 import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=1080';
 import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
 import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
+
+// Fins
+import newsRoom1 from '../../assets/backgrounds/news_room_1.jpg?w=1920&h=1080';
+import newsRoom2 from '../../assets/backgrounds/news_room_2.jpg?w=1920&h=1080';
+import newsRoom3 from '../../assets/backgrounds/news_room_3.jpg?w=1920&h=1080';
+import newsRoom4 from '../../assets/backgrounds/news_room_4.jpg?w=1920&h=1080';
+import newsRoom5 from '../../assets/backgrounds/news_room_5.jpg?w=1920&h=1080';
+import newsRoom6 from '../../assets/backgrounds/news_room_6.jpg?w=1920&h=1080';
+import newsRoom7 from '../../assets/backgrounds/news_room_7.jpg?w=1920&h=1080';
+import newsRoom8 from '../../assets/backgrounds/news_room_8.jpg?w=1920&h=1080';
+import newsRoom9 from '../../assets/backgrounds/news_room_9.jpg?w=1920&h=1080';
 
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
 
@@ -67,7 +77,6 @@ export const backgrounds: Backgrounds = {
   maison_carl_white: { type: 'image', asset: maisonCarlWhite },
   grenier: { type: 'image', asset: grenier },
   ordinateur_fred: { type: 'image', asset: ordinateurFred },
-  news_room: { type: 'image', asset: newsRoom },
   telephone_photo_john_randle: { type: 'image', asset: telephone },
   chambre_cousine_leigh_kane: { type: 'image', asset: chambreCousingLeighKane },
   centre_rehabilitation_couloir: { type: 'image', asset: centreRehabilitationCouloir },
@@ -77,4 +86,14 @@ export const backgrounds: Backgrounds = {
   maison_jonathan: { type: 'image', asset: maisonJonathan },
   ecran_ordinateur_fred: { type: 'image', asset: ordinateurFred },
   coin_flemming_arch: { type: 'image', asset: coinFlemmingArch },
+  // Fins
+  news_room_1: { type: 'image', asset: newsRoom1 },
+  news_room_2: { type: 'image', asset: newsRoom2 },
+  news_room_3: { type: 'image', asset: newsRoom3 },
+  news_room_4: { type: 'image', asset: newsRoom4 },
+  news_room_5: { type: 'image', asset: newsRoom5 },
+  news_room_6: { type: 'image', asset: newsRoom6 },
+  news_room_7: { type: 'image', asset: newsRoom7 },
+  news_room_8: { type: 'image', asset: newsRoom8 },
+  news_room_9: { type: 'image', asset: newsRoom9 },
 };

@@ -382,21 +382,6 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
     Fred: Certainement. Je vérifie encore quelques possibilités. # character=FRED_GALLANT invisible
     Chef Miller: Ne me laissez pas tomber sur ce coup, Gallant. C’est votre période d’essai, vous me suivez?	# character=CHEF_MILLER_NO_CIGAR expression=sterness
     Fred: Oui, chef. # character=FRED_GALLANT invisible
-    Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR expression=neutral
-~ cacher_tout_personnages()
-~ afficher_fond(telephone_fred)
-<b>Fred</b> compose au numéro que <b>Bonnie</b> lui a donné.
-~ jouer_effet_sonore(composer_numero)
-     ???: Qui est-ce? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Bonjour Young, je m’appelle Fred. C’est John Randle qui m’a donné votre numéro. # character=FRED_GALLANT invisible
-     Christopher: John qui? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Euh… Randle. # character=FRED_GALLANT invisible
-     Christopher: Ah. Vous connaissez Randle? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Oui. # character=FRED_GALLANT invisible
-     Christopher: Comment? # character=CHRISTOPHER_YOUNG invisible
-     Fred: L’université. # character=FRED_GALLANT invisible
-     Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG invisible
-     Fred: Jouer. # character=FRED_GALLANT invisible
 *   <b>Fred</b> choisit de parler au <b>Chef</b> Miller et de lui dire une partie de la vérité.
 ~ points_fin_A2 += 4
  ~jouer_musique(theme_general)
@@ -431,7 +416,7 @@ Fred: Jouer. # character=FRED_GALLANT invisible
 ~ afficher_fond(britannia_park)
 ~ jouer_musique(theme_fred)
 ~ afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
-Christopher: Les jeux, ce n’est plus ce que c’était. # character=CHRISTOPHER_YOUNG animation=slideInUp expression=melancholy
+Christopher: Les jeux, ce n’est plus ce que c’était. # character=CHRISTOPHER_YOUNG expression=melancholy
 Fred: Je suis née après l’arrivée de la loi. # character=FRED_GALLANT invisible
 Christopher: Ha! Tu as tout manqué! Moi aussi, j'en ai seulement entendu parler. # character=CHRISTOPHER_YOUNG  expression=neutral
 Fred: Je comprends. # character=FRED_GALLANT invisible

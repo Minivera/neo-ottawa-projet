@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { jsx, css, Global, ThemeProvider } from '@emotion/react';
 import { theme as polishedTheme } from 'styled-tools';
 import { fontFace } from 'polished';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { Game } from '../game/game';
 import { theme } from '../theme';
@@ -46,9 +47,41 @@ export const App: React.FunctionComponent = () => (
           })}
         `}
       />
-      <Game
-        storyContent={storyContent}
-      />
+      <ErrorBoundary
+        fallbackRender={({ error, resetErrorBoundary }) => (
+          <div
+            css={css`
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            `}
+          >
+            <div>
+              <h1>Erreur!</h1>
+              <h2>
+                Une erreur à eu lieu dans le jeu, voici les détails à nous
+                tansmettre
+              </h2>
+              <pre>
+                {error.name}
+                {error.message}
+                {error.stack}
+              </pre>
+              <button
+                onClick={() => {
+                  resetErrorBoundary();
+                }}
+              >
+                Redémarrer le jeu
+              </button>
+            </div>
+          </div>
+        )}
+      >
+        <Game storyContent={storyContent} />
+      </ErrorBoundary>
     </Container>
   </ThemeProvider>
 );

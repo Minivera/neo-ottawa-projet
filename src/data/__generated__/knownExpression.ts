@@ -80,6 +80,7 @@ export const knownExpressions = {
     "indignation",
     "joy",
     "laughing",
+    "melancholy",
     "neutral",
     "satisfaction",
     "sterness",
