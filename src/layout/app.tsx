@@ -50,12 +50,14 @@ export const App: React.FunctionComponent = () => (
       <ErrorBoundary
         fallbackRender={({ error, resetErrorBoundary }) => (
           <div
-            css={css`
+            css={theme => css`
               height: 100%;
               width: 100%;
               display: flex;
               justify-content: center;
               align-items: center;
+              color: ${theme.colors.white};
+              margin: 4rem;
             `}
           >
             <div>

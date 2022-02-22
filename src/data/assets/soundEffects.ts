@@ -1,7 +1,7 @@
 import { Howl } from 'howler';
 
 import aboiements from '../../assets/sound/aboiements.mp3';
-import bigExhale from '../../assets/sound/big-exhale.mp3';
+// import bigExhale from '../../assets/sound/big-exhale.mp3';
 import clavierOrdinateur from '../../assets/sound/clavier-ordinateur.mp3';
 import courrielRecu from '../../assets/sound/courriel-recu.mp3';
 import crisLointains from '../../assets/sound/cris-lointains.mp3';
@@ -11,7 +11,7 @@ import dossierDeposeBureau from '../../assets/sound/dossier-depose-bureau.mp3';
 import numerotationTelephone from '../../assets/sound/numerotation-telephne.mp3';
 import porteClaque from '../../assets/sound/porte-claque.mp3';
 import porteOuvre from '../../assets/sound/porte-ouvre.mp3';
-// import respirationFemme from '../../assets/sound/respiration-femme.mp3';
+import respirationFemme from '../../assets/sound/respiration-femme.mp3';
 import respirationReveilleBrusque from '../../assets/sound/respiration-reveille-brusque.mp3';
 import sonnerieTelephone from '../../assets/sound/sonnerie-telephone.mp3';
 // import sonnerieTelephone01 from '../../assets/sound/sonnerie-telephone-01.mp3';
@@ -23,7 +23,7 @@ import trappeOuvre from '../../assets/sound/trappe-ouvre.mp3';
 
 export const soundEffects: Record<string, Howl> = {
   respiration: new Howl({
-    src: [bigExhale]
+    src: [respirationFemme]
   }),
   opening_door: new Howl({
     src: [porteOuvre]

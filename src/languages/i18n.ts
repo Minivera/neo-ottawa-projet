@@ -7,6 +7,7 @@ import { contactDescriptions as frContactDescriptions } from '../data/languages/
 import { quizzesNames as frQuizzesNames } from '../data/languages/fr/quizzes';
 import { notesMessages as frNotesMessages } from '../data/languages/fr/notes';
 import { documentsContent as frDocumentsContent } from '../data/languages/fr/documents';
+import { backgroundNames as frLocations } from '../data/languages/fr/locations';
 
 const resources = {
   fr: {
@@ -17,6 +18,7 @@ const resources = {
       ...frContactDescriptions,
       ...frQuizzesNames,
       ...frDocumentsContent,
+      ...frLocations,
 
       // Game content
       'test_fullscreen_narration_1': `Ceci est une <s>narration</s> pleine écran traduite en temps réel. Tous les exemple suivants sont aussi traduis. La narration pleine écran s'affiche toujours au centre.`,

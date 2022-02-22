@@ -47,9 +47,7 @@ import newsRoom9 from '../../assets/backgrounds/news_room_9.jpg?w=1920&h=1080';
 
 import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
 
-export type Backgrounds = Record<string, { type: 'image' | 'video', asset: string }>
-
-export const backgrounds: Backgrounds = {
+export const backgrounds = {
   data_glitch: { type: 'video', asset: dataGlitch },
   synthwave_noise: { type: 'video', asset: '' },
   bureau_chef_miller: { type: 'image', asset: bureauChefMiller },
@@ -101,4 +99,4 @@ export const backgrounds: Backgrounds = {
   news_room_7: { type: 'image', asset: newsRoom7 },
   news_room_8: { type: 'image', asset: newsRoom8 },
   news_room_9: { type: 'image', asset: newsRoom9 },
-};
+} as const;

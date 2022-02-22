@@ -234,13 +234,15 @@ const generateCurrentScene = (
   const currentScene: SceneState = {
     text: text || previousState?.text || '',
     centered: placementTag.centered,
-    isPhone: placementTag.phone,
     isTransition: placementTag.transition,
     choices: [],
     shownCharacters: [],
     characterExpressions: previousState
       ? previousState.characterExpressions
       : {},
+    characterStates: previousState
+        ? previousState.characterStates
+        : {},
     characterAnimation: previousState ? previousState.characterAnimation : {},
   };
 
@@ -283,6 +285,12 @@ const generateCurrentScene = (
       currentScene.characterExpressions[characterTag.character.id] =
         characterTag.expression;
     }
+
+    if (placementTag.phone) {
+      currentScene.characterStates[characterTag.character.id] = 'phone';
+    } else {
+      delete currentScene.characterStates[characterTag.character.id];
+    }
   }
 
   if (variables.current_music) {
@@ -296,7 +304,8 @@ const generateCurrentScene = (
     currentScene.background =
       variables.current_background.toString() === 'none'
         ? undefined
-        : backgrounds[variables.current_background];
+        : backgrounds[variables.current_background as keyof typeof backgrounds];
+    currentScene.location = `${variables.current_background}_name`;
   }
 
   if (story.currentChoices.length) {
@@ -394,7 +403,7 @@ const generateQuizStep = (
     currentQuestion.feedback = '';
   } else if (tags.retroaction) {
     currentQuestion.feedback = text || '';
-    currentQuestion.perfectAnswer = !tags.mauvaiseRetroaction;
+    currentQuestion.perfectAnswer = currentQuestion.perfectAnswer && !tags.mauvaiseRetroaction;
   }
 
   if (story.currentChoices.length) {
@@ -467,8 +476,8 @@ export const useGame = (
     pdaBorderBotRight,
     pdaBorderTopLeft,
     ...Object.keys(backgrounds)
-      .filter(key => backgrounds[key].type === 'image')
-      .map(key => backgrounds[key].asset)
+      .filter(key => backgrounds[key as keyof typeof backgrounds].type === 'image')
+      .map(key => backgrounds[key as keyof typeof backgrounds].asset)
       .flat(),
   ];
 

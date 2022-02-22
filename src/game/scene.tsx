@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Character, CharacterThemes } from './character';
+import { Character, CharacterState, CharacterThemes } from './character';
 import { CharacterAnimation, Choice } from './event';
 import { SceneContainer } from '../components/sceneContainer';
 import { PortraitsContainer } from '../components/portraitsContainer';
@@ -31,9 +31,9 @@ export interface SceneState {
   dialogName?: string;
   text: string;
   centered?: boolean;
-  isPhone?: boolean;
   isTransition?: boolean;
   background?: { type: 'video' | 'image'; asset: string };
+  location?: string;
   bgm?: string;
   choices?: Choice[];
   chosenChoice?: Choice;
@@ -41,6 +41,7 @@ export interface SceneState {
   currentCharacter?: Character;
   shownCharacters: Character[];
   characterExpressions: Record<string, string>;
+  characterStates: Record<string, CharacterState>;
   characterAnimation: Record<string, CharacterAnimation>;
 }
 
@@ -131,7 +132,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
             <CharacterPortrait
               key={character.id}
               active={character.id === state.currentCharacter?.id}
-              inPhone={state.isPhone}
+              inPhone={state.characterStates[character.id] === 'phone'}
             >
               <AnimationContainer
                 animate={settings.textAnimationsEnabled}

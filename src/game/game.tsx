@@ -262,7 +262,10 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       const onContinue = () => {
         const now = new Date();
         // If transitioning or still waiting for the timeout
-        if (transitioning || (now.getTime() - lastContinueDate.current.getTime()) < 300) {
+        if (
+          transitioning ||
+          now.getTime() - lastContinueDate.current.getTime() < 300
+        ) {
           return;
         }
 
@@ -279,12 +282,19 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
         setTextLoading(null);
 
         lastContinueDate.current = now;
+        handlePlaySoundEffect('click');
         dispatch({ type: 'continue' });
       };
 
       const onChoiceSelected = (choice: Choice) => {
+        const now = new Date();
+        // Wait for a long-ish time to avoid double click
+        if (now.getTime() - lastContinueDate.current.getTime() < 800) {
+          return;
+        }
+
         handlePlaySoundEffect('click');
-        lastContinueDate.current = new Date();
+        lastContinueDate.current = now;
         dispatch({ type: 'continue', choiceId: choice.id });
       };
 
@@ -320,6 +330,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
           {globalCSS}
           <GameContainer animationSpeed={settings.settings.textAnimationSpeed}>
             <GameMenu
+              locationName={gameState.currentScene.location}
               showPDA={gameState.pda.enabled}
               onButtonHover={() => handlePlaySoundEffect('hover')}
               onPDAClick={() => {
@@ -341,44 +352,31 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
               }}
               playClickSound={() => handlePlaySoundEffect('click')}
             />
-            {settings.settings.textAnimationsEnabled ? (
-              <SwitchTransition>
-                <CSSTransition
-                  timeout={settings.settings.textAnimationSpeed * 1000}
-                  key={gameState.currentScene.background?.asset || ''}
-                  classNames="fade"
-                  onEnter={() => {
-                    setTransitioning(true);
-                  }}
-                  addEndListener={(node, done) => {
-                    setTransitioning(false);
-                    node.addEventListener('transitionend', done, false);
-                  }}
-                >
-                  <Scene
-                    state={gameState.currentScene as SceneState}
-                    settings={settings.settings}
-                    skipAnimation={textLoading !== null && !textLoading}
-                    onContinue={onContinue}
-                    onTextLoadingStart={onTextLoadingStart}
-                    onTextLoadingEnd={onTextLoadingEnd}
-                    onChoiceSelected={onChoiceSelected}
-                    sceneRef={sceneRef}
-                  />
-                </CSSTransition>
-              </SwitchTransition>
-            ) : (
-              <Scene
-                state={gameState.currentScene as SceneState}
-                settings={settings.settings}
-                skipAnimation={textLoading !== null && !textLoading}
-                onContinue={onContinue}
-                onTextLoadingStart={onTextLoadingStart}
-                onTextLoadingEnd={onTextLoadingEnd}
-                onChoiceSelected={onChoiceSelected}
-                sceneRef={sceneRef}
-              />
-            )}
+            <SwitchTransition>
+              <CSSTransition
+                timeout={600}
+                key={gameState.currentScene.background?.asset || ''}
+                classNames="fade"
+                onEnter={() => {
+                  setTransitioning(true);
+                }}
+                addEndListener={(node, done) => {
+                  setTransitioning(false);
+                  node.addEventListener('transitionend', done, false);
+                }}
+              >
+                <Scene
+                  state={gameState.currentScene as SceneState}
+                  settings={settings.settings}
+                  skipAnimation={textLoading !== null && !textLoading}
+                  onContinue={onContinue}
+                  onTextLoadingStart={onTextLoadingStart}
+                  onTextLoadingEnd={onTextLoadingEnd}
+                  onChoiceSelected={onChoiceSelected}
+                  sceneRef={sceneRef}
+                />
+              </CSSTransition>
+            </SwitchTransition>
             <PDAComponent
               opened={pdaOpened}
               selectedTab={selectedPDATab}
