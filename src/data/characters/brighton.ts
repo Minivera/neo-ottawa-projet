@@ -11,6 +11,7 @@ export const Brighton: Character = {
   id: 'BRIGHTON',
   name: 'brighton',
   images: {},
+  imagePaths: {},
   theme: 'police',
 };
 
@@ -20,3 +21,4 @@ export const load: () => Promise<void[]> = loadingHelper(
   (key, value) => (Brighton.images[key] = value)
 );
 
+export default Brighton;

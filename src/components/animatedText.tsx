@@ -88,6 +88,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
           {centerDivLetters}
         </div>
       );
+      index++;
       continue;
     }
     if (char === specialChars.lineBreak) {
@@ -96,6 +97,7 @@ export const AnimatedText: FunctionComponent<AnimatedTextProps> = ({
       } else {
         letters.push(<br key={`${index}_1`} />, <br key={`${index}_2`} />);
       }
+      index++;
       continue;
     }
 

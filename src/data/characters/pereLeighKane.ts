@@ -11,6 +11,7 @@ export const PereLeighKane: Character = {
   id: 'PERE_DE_LEIGH_KANE',
   name: 'pere_leigh_kane',
   images: {},
+  imagePaths: {},
   theme: 'other',
 };
 
@@ -20,3 +21,4 @@ export const load: () => Promise<void[]> = loadingHelper(
   (key, value) => (PereLeighKane.images[key] = value)
 );
 
+export default PereLeighKane;

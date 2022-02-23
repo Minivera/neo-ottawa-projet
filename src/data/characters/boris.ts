@@ -11,6 +11,7 @@ export const Boris: Character = {
   id: 'BORIS',
   name: 'boris',
   images: {},
+  imagePaths: {},
   theme: 'resistance',
 };
 
@@ -20,3 +21,4 @@ export const load: () => Promise<void[]> = loadingHelper(
   (key, value) => (Boris.images[key] = value)
 );
 
+export default Boris;

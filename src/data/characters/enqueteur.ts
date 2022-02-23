@@ -11,6 +11,7 @@ export const Enqueteur: Character = {
   id: 'ENQUETEUR_BEAULIEU',
   name: 'enqueteur',
   images: {},
+  imagePaths: {},
   theme: 'police',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Enqueteur.images[key] = value)
 );
+
+export default Enqueteur;

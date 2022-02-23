@@ -4,7 +4,7 @@ export const PortraitImage = styled.div`
   height: 200%;
   max-height: 140vh;
   
-  & svg {
+  & img, & svg {
     height: 100%;
     width: auto;
   }

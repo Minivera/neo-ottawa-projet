@@ -11,6 +11,7 @@ export const Receptioniste: Character = {
   id: 'RÉCEPTIONISTE',
   name: 'receptioniste',
   images: {},
+  imagePaths: {},
   theme: 'other',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Receptioniste.images[key] = value)
 );
+
+export default Receptioniste;

@@ -11,6 +11,7 @@ export const TeacherV2: Character = {
   id: 'TEACHER_V2',
   name: 'teacher',
   images: {},
+  imagePaths: {},
   theme: 'resistance',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (TeacherV2.images[key] = value)
 );
+
+export default TeacherV2;

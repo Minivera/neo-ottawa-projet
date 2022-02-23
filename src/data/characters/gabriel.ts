@@ -11,6 +11,7 @@ export const Gabriel: Character = {
   id: 'GABRIEL_SAND',
   name: 'gabriel_sand',
   images: {},
+  imagePaths: {},
   theme: 'police',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Gabriel.images[key] = value)
 );
+
+export default Gabriel;

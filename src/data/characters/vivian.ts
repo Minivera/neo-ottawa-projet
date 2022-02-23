@@ -11,6 +11,7 @@ export const Vivian: Character = {
   id: 'VIVIAN',
   name: 'vivian',
   images: {},
+  imagePaths: {},
   theme: 'resistance',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Vivian.images[key] = value)
 );
+
+export default Vivian;

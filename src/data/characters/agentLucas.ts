@@ -11,6 +11,7 @@ export const AgentLucas: Character = {
   id: 'AGENT_LUCAS',
   name: 'agent_lucas',
   images: {},
+  imagePaths: {},
   theme: 'police',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (AgentLucas.images[key] = value)
 );
+
+export default AgentLucas;

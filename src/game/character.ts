@@ -8,5 +8,6 @@ export interface Character {
   id: string;
   name: string;
   images: Record<string, React.FunctionComponent>;
+  imagePaths: Record<string, string>;
   theme?: CharacterThemes;
 }

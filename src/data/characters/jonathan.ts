@@ -11,12 +11,14 @@ export const Jonathan: Character = {
   id: 'JONATHAN',
   name: 'jonathan',
   images: {},
+  imagePaths: {},
   theme: 'resistance',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(
-    Jonathan,
+  Jonathan,
   expressionImages,
   (key, value) => (Jonathan.images[key] = value)
 );
 
+export default Jonathan;

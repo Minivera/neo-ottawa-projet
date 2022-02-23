@@ -11,6 +11,7 @@ export const ChefMillerNoCigar: Character = {
   id: 'CHEF_MILLER_NO_CIGAR',
   name: 'chef_miller',
   images: {},
+  imagePaths: {},
   theme: 'police',
 };
 
@@ -20,4 +21,4 @@ export const load: () => Promise<void[]> = loadingHelper(
   (key, value) => (ChefMillerNoCigar.images[key] = value)
 );
 
-
+export default ChefMillerNoCigar;

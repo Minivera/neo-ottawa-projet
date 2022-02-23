@@ -11,6 +11,7 @@ export const CarlWhiteNoCigarette: Character = {
   id: 'CARL_WHITE_NO_CIGARETTE',
   name: 'carl_white',
   images: {},
+  imagePaths: {},
   theme: 'other',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (CarlWhiteNoCigarette.images[key] = value)
 );
+
+export default CarlWhiteNoCigarette;

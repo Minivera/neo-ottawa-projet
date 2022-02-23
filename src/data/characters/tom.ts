@@ -11,6 +11,7 @@ export const Tom: Character = {
   id: 'TOM',
   name: 'tom',
   images: {},
+  imagePaths: {},
   theme: 'resistance',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Tom.images[key] = value)
 );
+
+export default Tom;

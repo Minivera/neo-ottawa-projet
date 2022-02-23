@@ -11,6 +11,7 @@ export const ChristopherYoung: Character = {
   id: 'CHRISTOPHER_YOUNG',
   name: 'christopher_young',
   images: {},
+  imagePaths: {},
   theme: 'resistance',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (ChristopherYoung.images[key] = value)
 );
+
+export default ChristopherYoung;

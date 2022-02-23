@@ -11,6 +11,7 @@ export const OliviaPaul: Character = {
   id: 'OLIVIA_PAUL',
   name: 'olivia_paul',
   images: {},
+  imagePaths: {},
   theme: 'other',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (OliviaPaul.images[key] = value)
 );
+
+export default OliviaPaul;

@@ -11,6 +11,7 @@ export const Al: Character = {
   id: 'AL',
   name: 'al',
   images: {},
+  imagePaths: {},
   theme: 'other',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (Al.images[key] = value)
 );
+
+export default Al;

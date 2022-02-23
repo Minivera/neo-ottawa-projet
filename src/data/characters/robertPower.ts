@@ -11,6 +11,7 @@ export const RobertPower: Character = {
   id: 'ROBERT_POWER',
   name: 'robert_power',
   images: {},
+  imagePaths: {},
   theme: 'other',
 };
 
@@ -19,3 +20,5 @@ export const load: () => Promise<void[]> = loadingHelper(
   expressionImages,
   (key, value) => (RobertPower.images[key] = value)
 );
+
+export default RobertPower;
