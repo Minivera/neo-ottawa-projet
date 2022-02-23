@@ -20,8 +20,9 @@ export const MenuContainer: FunctionComponent = ({ children }) => (
         text-align: center;
         font-size: 17px;
         display: grid;
-        grid-template-rows: 20% 35% 35% 10%;
+        grid-template-rows: 1fr 8em 2em 4em auto;
         grid-template-columns: auto;
+        margin-bottom: 4em;
 
         @media only screen and (max-width: 436px) {
           font-size: 12px;

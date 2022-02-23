@@ -80,6 +80,14 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
         display: flex;
         justify-content: space-around;
         padding: 0 8rem;
+        flex: 1;
+
+        @media only screen and (min-width: 1600px) {
+          & > div {
+            width: 50%;
+            min-height: 100%;
+          }
+        }
 
         @media only screen and (max-width: 1600px) {
           flex-direction: column;
@@ -91,7 +99,11 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
         }
       `}
     >
-      <div>
+      <div
+        css={css`
+          flex: 1;
+        `}
+      >
         <PDATitle>
           <QuizIcon />
           {t(quiz.name)} - {quiz.currentIndex} / {quiz.questionCount}
@@ -99,6 +111,7 @@ export const PDAQuizTab: React.FunctionComponent<PDAQuizTabProps> = ({
         <div
           css={css`
             display: flex;
+            flex: 1;
             flex-direction: column;
             margin-right: 1rem;
             font-size: 1.5rem;

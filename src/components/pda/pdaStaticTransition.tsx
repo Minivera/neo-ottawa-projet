@@ -5,7 +5,12 @@ import { FunctionComponent } from 'react';
 import noiseBackground from '../../assets/backgrounds/noise.png';
 
 export const PDAStaticTransition: FunctionComponent = ({ children }) => (
-  <div>
+  <div
+    css={css`
+      display: flex;
+      flex: 1;
+    `}
+  >
     <div
       className="noise-wrapper"
       css={css`
@@ -18,17 +23,17 @@ export const PDAStaticTransition: FunctionComponent = ({ children }) => (
         z-index: 10;
 
         animation: fadeOut 0.25s, hide 0.25s;
-        animation-delay: 0.50s;
+        animation-delay: 0.5s;
         animation-fill-mode: both;
-        
+
         @keyframes hide {
-            0% {
-              visibility: visible;
-            }
-            100% {
-              visibility: hidden;
-            }
+          0% {
+            visibility: visible;
           }
+          100% {
+            visibility: hidden;
+          }
+        }
 
         &:after {
           content: '';
@@ -100,6 +105,8 @@ export const PDAStaticTransition: FunctionComponent = ({ children }) => (
     <div
       className="children-wrapper"
       css={css`
+        display: flex;
+        flex: 1;
         animation-name: fadeIn;
         animation-duration: 0.15s;
         animation-delay: 0.6s;

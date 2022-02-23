@@ -16,10 +16,6 @@ Narrateur: L’agent Gallant s’enfonce. Qui croire? Qui a raison, qui a tort? 
 
 <b>Bonnie</b> arrive au rendez-vous.
 ~afficher_personnage(BONNIE_RANDLE_V2, "zoomIn")
-Bonnie: Je préfère qu’on ne se voie plus ici. # character=BONNIE_RANDLE_V2 expression=default
-
-Fred: Je suis d’accord. Mais j’ai quelques questions à vous poser. # character=FRED_GALLANT invisible
-
 Bonnie: Qu’en est-il de l’aide que vous m’avez promise? # character=BONNIE_RANDLE_V2 expression=default
 
 Fred: J’y travaille. # character=FRED_GALLANT invisible
@@ -32,7 +28,8 @@ Bonnie: Mais je ne peux pas changer d’identité! Je veux que mon père ignore 
 ~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> décide d’expliquer à Bonnie qu’il n’y aura pas de descente tant qu’elle sera en charge.
   ~ points_fin_A2 += 4
-Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. Lorsque le moment sera venu, lorsque j’aurai assez d’informations, par exemple, je vous préviendrai. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
+  ~jouer_musique(theme_general)
+Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. Lorsque le moment sera venu, lorsque j’aurai assez d’informations, par exemple, je vous préviendrai. De toute façon, vous êtes mineure et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
 
 Bonnie: Peu importe. Je ne veux pas que mes parents le sachent et je veux étudier en droit, je vous l’ai dit. Donc, pas de trace. C’était ma condition. # character=BONNIE_RANDLE_V2 expression=neutral
 
@@ -93,13 +90,13 @@ Fred: Est-ce que votre frère va parfois au 530 McLeod? # character=FRED_GALLANT
 Bonnie: Non, pas depuis longtemps. Mon frère ne joue pas. Il voit Christopher et parfois Ronny, mais il ne se mêle plus des activités de la résistance. # character=BONNIE_RANDLE_V2 expression=default
 
 Fred: Si jamais il avait l’intention d’y aller, il faudra me prévenir au plus tôt. Avez-vous une photo de lui sur vous? # character=FRED_GALLANT invisible
-
+~ cacher_tout_personnages()
 ~afficher_fond(telephone_photo_john_randle)
 
-Bonnie: Oui, en voici une. # character=BONNIE_RANDLE_V2 expression=neutral
+Bonnie: Oui, en voici une. # character=BONNIE_RANDLE_V2 invisible
 
 ~afficher_fond(art_house_cafe)
-
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp") 
 Fred: Merci. Alors, jusqu’à nouvel ordre, ne faites rien d’inhabituel. Vous pouvez espacer vos visites au 530, mais pas trop, rien de suspect. # character=FRED_GALLANT invisible
 
 Bonnie: Oui, agent Gallant, bien compris. # character=BONNIE_RANDLE_V2 expression=neutral
@@ -107,6 +104,7 @@ Bonnie: Oui, agent Gallant, bien compris. # character=BONNIE_RANDLE_V2 expressio
 
 *<b>Fred</b> rassure Bonnie sans lui donner d’information.
   ~ points_fin_A2 += 2
+  ~jouer_musique(theme_general)
 Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. Lorsque le moment sera venu de procéder à des arrestations, je vous préviendrai. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
 
 Bonnie: Peu importe. Je ne veux pas que mes parents le sachent et je veux étudier en droit, je vous l’ai dit. Donc, pas de trace. C’était ma condition. # character=BONNIE_RANDLE_V2 expression=neutral
@@ -154,6 +152,7 @@ Bonnie: Oui, agent Gallant, bien compris. # character=BONNIE_RANDLE_V2 expressio
 
 *<b>Fred</b> ne dit rien à Bonnie à ce sujet. 
   ~ points_fin_A1 += 4
+   ~jouer_musique(theme_general)
 
 Fred: Ça n’arrivera pas tant que je serai en train d’étudier la résistance. De toute façon, vous êtes mineures et n’aurez aucune charge contre vous. # character=FRED_GALLANT invisible
 
@@ -206,14 +205,14 @@ Agent Moore: Je pensais t’avoir posé une question. Comment va ton infiltratio
 ~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> ne lui donne aucune information sur ses découvertes ni ses contacts.
 ~ points_fin_A1 += 4
-
+ ~jouer_musique(theme_general)
 Fred: Bah! Je n’arrive pas à rencontrer les personnes qui compteraient. # character=FRED_GALLANT invisible
 
 Agent Moore: On a tout essayé! # character=AGENT_MOORE expression=concern
 
 *<b>Fred</b> lui transmet certaines informations.
 ~ points_fin_A1 += 2
-
+ ~jouer_musique(theme_general)
 Fred: Bah! Je n’arrive pas à rencontrer les personnes qui compteraient. # character=FRED_GALLANT invisible
 
 Agent Moore: On a tous essayé! # character=AGENT_MOORE expression=concern
@@ -232,6 +231,7 @@ Agent Moore: Bien sûr. Je te tiens au courant! # character=AGENT_MOORE expressi
 
 *<b>Fred</b> lui raconte ce qu’elle sait sur le 530 McLeod.
 ~ points_fin_A1 += 4
+ ~jouer_musique(theme_general)
 Fred: Bah! Je n’arrive pas à rencontrer les personnes qui compteraient. Mais ce n’est qu’une question de temps. # character=FRED_GALLANT invisible
 
 Agent Moore: On a tous essayé! # character=AGENT_MOORE expression=concern
@@ -253,15 +253,16 @@ Fred: Je ne peux pas y aller, tu en es conscient? # character=FRED_GALLANT invis
 Agent Moore: Bien sûr. Je te tiens au courant! # character=AGENT_MOORE expression=neutral
 
 - <b>L’agent Moore</b> quitte le bureau. 
-~cacher_personnage(AGENT_MOORE, "slideOutDown")
+~afficher_personnage(AGENT_MOORE, "slideOutDown")
+~cacher_tout_personnages()
 ~jouer_effet_sonore(claquement_porte)
 
 ~jouer_effet_sonore(composer_numero)
 <b>Fred</b> en profite pour téléphoner aux parents du petit <b>Leigh Kane</b>, malgré les ordres de son chef. <b>Madame Kane</b> apparaît sur le téléphone de <b>Fred</b>.
-~afficher_personnage(MERE_DE_LEIGH_KANE, "fadeIn")
 
 Fred: Madame Kane? Agent Gallant. # character=FRED_GALLANT invisible
 
+~afficher_personnage(MERE_DE_LEIGH_KANE, "fadeIn")
 Madame Kane: Je n’ai pas eu l’occasion de vous remercier pour la lettre. # character=MERE_DE_LEIGH_KANE expression=default phone
 
 Fred: C’est inutile. J’aurais aimé faire plus. Mais j’ai une dernière piste à explorer… Est-ce que vous pouvez me donner l’adresse de la cousine à Leigh? # character=FRED_GALLANT invisible
@@ -416,10 +417,8 @@ Fred: Oui? # character=FRED_GALLANT invisible
 Leigh: Merci. # character=LEIGH_KANE expression=neutral
 
 Fred: C’est bon, je fais juste mon boulot. # character=FRED_GALLANT invisible
-
-Leigh: Son père, c’est Rod, je crois. Il est au centre de détention Ottawa-Carleton. # character=LEIGH_KANE expression=neutral
 ~cacher_tout_personnages()
-~ajouter_contact(ROD)
+
 
 -> scene_4
 
@@ -682,6 +681,12 @@ Pour certains jeux, débloquer l’ensemble du contenu payant pouvait coûter pl
 
 =quiz_2_2_fin
 ~ terminer_quiz()
+-> scene_4_1
+
+=scene_4_1
+~afficher_fond(centre_rehabilitation_autre_piece)
+~jouer_musique(theme_general)
+Fred, à elle-même: Je vais maintenant examiner l'autre document. # character=FRED_GALLANT invisible
 -> quiz_2_3
 
 = quiz_2_3
@@ -704,6 +709,12 @@ Selon les archives d’époque, les loot boxes étaient de plus en plus employé
 
 =quiz_2_3_fin
 ~ terminer_quiz()
+-> scene_4_2
+
+=scene_4_2
+~afficher_fond(centre_rehabilitation_autre_piece)
+~jouer_musique(theme_general)
+Fred, à elle-même: Je vais maintenant examiner le dernier document. # character=FRED_GALLANT invisible
 
 -> quiz_2_4
 =quiz_2_4
@@ -818,8 +829,8 @@ Selon l’article que j’ai réussi à obtenir (p. 138), ce qui distingue les m
 -> scene_6
 
 =scene_6
-~afficher_fond(CHEF_MILLER)
-~jouer_musique(theme_choix_cruciaux)
+~afficher_fond(bureau_chef_miller)
+ ~jouer_musique(theme_general)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 Chef Miller: Gallant, êtes-vous au courant? Le petit Leigh Kane est de retour! # character=CHEF_MILLER expression=joy
@@ -839,9 +850,10 @@ Chef Miller: Vous jouez les innocentes, mais je vous ai coincée, c’est inutil
 Fred: Coincée? # character=FRED_GALLANT invisible
 
 Chef Miller: Je m’attendais à plus de transparence de votre part, Gallant. Mais le pire, c’est que vous désobéissez à mes ordres. Je pourrais vous suspendre. Sur-le-champ! # character=CHEF_MILLER expression=anger
+~jouer_musique(theme_choix_cruciaux)
 *<b>Fred</b> reste stoïque et ne dit rien au chef Miller.
  ~ points_fin_A2 += 4
-
+ ~jouer_musique(theme_general)
 Fred: Chef, dites-moi ce qui se passe! # character=FRED_GALLANT invisible
 
 Chef Miller: Ah vous voulez jouer à ça! Et votre appel à la mère de Kane? Et votre petit voyage clandestin à l’Université de Waterloo? # character=CHEF_MILLER expression=anger
@@ -852,7 +864,7 @@ Chef Miller: Dans ce cas, Gallant, je vous retire l’enquête du 530 McLeod. Mo
 
 *<b>Fred</b> fait l’innocente, mais tente de se justifier en expliquant au chef Miller que ça faisait partie de son plan d’infiltration.
  ~ points_fin_A2 += 2
-
+ ~jouer_musique(theme_general)
 Fred: Je ne comprends pas pourquoi vous vous mettez dans tous ces états. J’ai simplement manqué de temps pour vous mettre au courant des développements! # character=FRED_GALLANT invisible
 
 Chef Miller: Des développements? Déballez! Ça presse! # character=CHEF_MILLER expression=anxiety
@@ -879,6 +891,7 @@ Chef Miller: Je vous retire tout de même l’enquête du 530 McLeod. Moore va s
 
 *<b>Fred</b> fait un rapport circonstancié au <b>chef Miller</b>.
  ~ points_fin_A1 += 4
+  ~jouer_musique(theme_general)
  Fred: Chef! Je suis désolée! J’ai cru bien faire! Je voulais simplement obtenir des informations sur Teacher, je crois qu’il est important dans la résistance. Il vend des jeux à n’importe qui, des enfants. J’ai cru que c’était la chose à faire. Ça n’avance pas assez vite avec la résistance. Pour tout vous dire, j’ai même des cas de conscience. # character=FRED_GALLANT invisible
 
 Chef Miller: Encore cette histoire d’informations cachées par le gouvernement? # character=CHEF_MILLER expression=disdain
@@ -962,6 +975,12 @@ Selon les archives de l’époque, plusieurs pays d’Europe avaient décidé d�
 
 = quiz_2_6_fin
 ~terminer_quiz()
+-> scene_6_1
+
+=scene_6_1
+~afficher_fond(bureau_fred)
+~jouer_musique(theme_general)
+Fred, à elle-même: Je vais maintenant examiner l'autre document. # character=FRED_GALLANT invisible
 -> quiz_2_7
 
 =quiz_2_7
@@ -1015,12 +1034,7 @@ Selon l’article sur lequel j’ai mis la main, trois types d’intervention ou
 -> scene_7
 
 = scene_7
-~afficher_fond(news_room)
+~afficher_fond(news_room_chapitre_2)
 ~jouer_musique(theme_news)
-Quel avenir pour les centres de traitement des dépendances aux jeux? La politique de l’autruche # center
-
-Le petit Leigh Kane retrouvé. Les jeux vidéo n’étaient pas en cause! # center
-
-Quand les coupables se défilent : les nouveaux jeux vidéo du marché noir. Comment exercer plus de contrôle? # center
 
 -> chapitre_3.scene_1

@@ -195,11 +195,11 @@ Les jeux vidéo dont on ne connaissait pas les auteurs étaient tout de même pr
 // Description document: La créativité de certains joueurs était tout bonnement extraordinaire! Certains mods de jeu créés par des passionnés sont devenus des jeux à part entière…
 
 = quiz_5_1_question_8
-8- Est-ce que l’un de ces jeux était à l'origine un mod créé par des joueurs passionnés? # question index=8
+8- Lequel de ces jeux n'était pas à l'origine un mod créé par des joueurs passionnés? # question index=8
 +   (5_1_8_a) [{5_1_8_a: VISITE--}Counter-Strike] Counter-Strike
-+   (5_1_8_b) [{5_1_8_b: VISITE--}Defense of the Ancients] Defense of the Ancients
++   (5_1_8_b) [{5_1_8_b: VISITE--}DOTA] DOTA
 +   (5_1_8_c) [BON--{5_1_8_c: VISITE--}Grand Theft Auto] Grand Theft Auto
-  Selon les archives d’époque, les jeux Counter-Strike et Defense of the Ancients étaient des créations de moddeurs. Les joueurs ont donc utilisé les outils fournis avec le jeu leur permettant de le modifier pour créer du contenu original. Ces « mods » sont devenus des jeux vidéo très prisés des joueurs. # retroaction
+  Selon les archives d’époque, les jeux Counter-Strike et DOTA étaient des créations de moddeurs. Les joueurs ont donc utilisé les outils fournis avec le jeu leur permettant de le modifier pour créer du contenu original. Ces « mods » sont devenus des jeux vidéo très prisés des joueurs. # retroaction
 -> quiz_5_1_question_9
  +  (5_1_4_d) [{5_1_4_d: VISITE--}Aucune de ces propositions] Aucune de ces propositions
 - ~ generer_mauvaise_reponse_retroaction()
@@ -344,7 +344,7 @@ Teacher: Ça implique de renégocier avec Jonathan et Christian, ça n’a pas �
 Fred: Je sais, mais je pense que ça en vaut la peine. Si vous voulez, je peux leur parler, voir ce qu’ils en pensent. Peut-être qu’ils seront d’accord. # character=FRED_GALLANT invisible
 
 Teacher: Je serais surpris. Mais j’aime ton courage. Tu prends des risques. J’aurais conseillé de ne pas s’en occuper et de voir après la sortie comment le public réagit. Tu m’as fait changer d’avis. Je vais t’appuyer sur ce coup-là.# character=TEACHER_V2 expression=joy
-~cacher_personnage(TEACHER_V2, "slideOutDown")
+~cacher_tout_personnages()
 
 *<b>Fred</b> recommande de ne pas permettre le modage pour des raisons de propriété intellectuelle.
 ~afficher_personnage(TEACHER_V2, "slideInUp")
@@ -376,7 +376,7 @@ Fred: J’imagine. # character=FRED_GALLANT invisible
 Teacher: Alors, tu es certain, c’est ça ta recommandation? On refuse? # character=TEACHER_V2 expression=wtf
 
 Fred: Oui, je crois que c’est mieux. # character=FRED_GALLANT invisible
-~cacher_personnage(TEACHER_V2, "slideOutDown")
+~cacher_tout_personnages()
 
 - ~afficher_personnage(CHRISTIAN, "slideInUp")
 Fred: Je suis vraiment très contente de ta réaction pour le modage. # character=FRED_GALLANT invisible
@@ -444,7 +444,7 @@ Fred: Bien. Tu as des photos? Des extraits de gameplay? # character=FRED_GALLANT
 Christian: Tu vois ça avec Teacher d’accord? # character=CHRISTIAN expression=sterness
 
 Fred: D’accord. # character=FRED_GALLANT invisible
-~cacher_personnage(CHRISTIAN, "slideOutDown")
+~cacher_tout_personnages()
 TODO:Accès document décrivant les systèmes de jeu 
 
 ~afficher_personnage(BORIS, "slideInUp")
@@ -472,7 +472,7 @@ Fred: Mais Boris, ça va le devenir. Ça donne des armes à la loi! Au gouvernem
 Boris: Ils ne vont pas gagner cette fois. # character=BORIS expression=sterness
 
 Fred: Mais pour combien de temps? # character=FRED_GALLANT invisible
-~cacher_personnage(BORIS, "slideOutDown")
+~cacher_tout_personnages()
 ~jouer_musique(theme_choix_cruciaux)
 
 * Fred décide de parler à Christopher pour connaître son avis à ce sujet et peut-être obtenir des informations sur les dépenses et le phénomène de dépendance.
@@ -520,6 +520,7 @@ Fred: Non, bien sûr que non. Je leur ai parlé. # character=FRED_GALLANT invisi
 =scene_3
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_choix_cruciaux)
+<b>Fred doit décider quelle sera la prochaine étape de son enquête</b>.
 
 * <b>Fred</b> regrette sa décision et décide d’examiner encore quelques éléments du jeu avant de clore l’affaire. 
 ~points_fin_A2 += 4
@@ -581,10 +582,9 @@ Chef Miller: Si, je pense que je vois où vous voulez en venir. Merci Gallant, j
 ~jouer_musique(theme_general)
 
 <b>Fred</b> téléphone à <b>Teacher</b>.
-~afficher_personnage(TEACHER_V2, "fadeIn")
 
 Fred, au téléphone: Salut. Tu as une minute? # character=FRED_GALLANT invisible
-
+~afficher_personnage(TEACHER_V2, "fadeIn")
 Teacher, au téléphone: Qu’est-ce qu’il y a? # character=TEACHER_V2 expression=neutral phone
 
 Fred, au téléphone: Je pense que vous ne devriez pas aller de l’avant avec le jeu tel qu’il est. # character=FRED_GALLANT invisible
@@ -684,6 +684,7 @@ Fred: Très certaine. # character=FRED_GALLANT invisible
 Boris: Bon, c’est d’accord, mais tu lui en dis le moins possible. # character=BORIS expression=sterness
 
 Fred: Bien entendu. # character=FRED_GALLANT invisible
+~cacher_tout_personnages()
 -> scene_5
 
 * La résistance n’accepte pas que <b>Fred</b> consulte une professionnelle de la classification, ils trouvent cela trop risqué. <b>Fred</b> devra se débrouiller seule.
@@ -934,19 +935,12 @@ Christopher: Ah ça! Top secret! Je ne le sais même pas moi-même. Moi, mon rô
 Tom: Et recruter des joueurs pros! # character=TOM expression=satisfaction
 
 Christopher: Oui, ça, j’y arrive! # character=CHRISTOPHER_YOUNG expression=satisfaction
+~cacher_tout_personnages()
 
 -> scene_8
 
 = scene_8
-~afficher_fond(news_room)
+~afficher_fond(news_room_chapitre_5)
 ~jouer_musique(theme_news)
-
-<b>GROS TITRES</b> # center
-
-La tension monte : des fuites indiquent qu’une organisation tente un retour des jeux vidéo sur le marché légal # center
-
-« Nos enfants ne comptent-ils plus? » Le cri déchirant d’une mère devant les rumeurs du retour des jeux vidéo. # center
-
-Dossier choc : les adeptes de jeux vidéo encore actifs malgré l’interdiction! # center
 
 ->chapitre_6.scene_1

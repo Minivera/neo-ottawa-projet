@@ -1,9 +1,9 @@
 === prologue ===
-
 = tutoriel
-<center>Bienvenue dans le monde de <b>RESET 2047</b>. Cette histoire est racontée sous la forme d'une histoire interactive où vos choix décideront du futur d'une nation entière.<br/><br/>Pour faire avancer l'histoire, cliquez sur le bouton <b>continuer</b> en bas des fenêtre de dialogue (Comme celle-ci) ou pesez sur la barre d'espace. Vous pouvez cliquer n'importe où dans l'écran ou utiliser la barre d'espace pour accélérer les animations.<br/><br/>Si jamais vous manquez une boite de dialogue ou vous voulez vous rafraichir l'esprit, l'<b>historique</b> dans le menu de droite contiens un journal des dernières interactions. Vous pouvez l'ouvrir maintenant pour voir ce texte en entier!</center> # transition
-<center>Mais ce n'est pas tout. Le menu à droite de l'écran contiens aussi deux commandes très utiles.<br/><br/>L'option <b>paramètres</b> affichera la fenêtre des paramètres du jeu, où vous pourrez configurer des options comme la vitesse des animation ou le volume du jeu.<br/><br/>L'option <b>sauvegardes</b> affichera la fenêtre des sauvegardes. Vous pouvez y sauvegarder votre partie en tout temps en cliquant sur un des quatre emplacements de sauvegardes. N'oubliez pas de sauvegarder après un moment important!</center> # transition
+<center>Bienvenue dans le monde de RESET 2047. Cette histoire est racontée sous la forme d'une histoire interactive où vos choix décideront du futur d'une nation entière.<br/><br/>Pour évoluer dans cette histoire, cliquez sur le bouton <b>continuer</b> en bas des fenêtre de dialogue ou appuyez sur la barre espace. Vous pouvez également cliquer n'importe où, ou utiliser la barre d'espace pour accélérer les animations.<br/><br/>Si jamais vous manquez une boite de dialogue ou vous voulez vous rafraichir la mémoire, une des options dans le menu de droite contient un historique des dernières interactions. Vous pouvez l'ouvrir maintenant pour voir ce texte en entier!</center> # transition
+<center>Mais ce n'est pas tout. Le menu à droite de l'écran contient aussi deux commandes très utiles.<br/><br/>L'option paramètres affichera la fenêtre des paramètres du jeu, où vous pourrez configurer des options comme la vitesse des animation ou le volume du jeu.<br/><br/>L'option sauvegarde affichera la fenêtre des sauvegardes. Vous pouvez y sauvegarder votre partie en tout temps en cliquant sur un des quatre emplacements de sauvegardes. N'oubliez pas de sauvegarder après un moment important!</center> # transition
 <center>Bonne chance, nous comptons tous sur vous...</center> # transition
+<center> AVERTISSEMENT - La première scène de ce jeu contient des images qui clignotent rapidement. Il pourrait provoquer des inconforts ou déclencher des crises chez les personnes souffrant d'épilepsie photosensible.</center> # transition
 -> scene_0
 
 = scene_0
@@ -39,8 +39,8 @@ Homme: Directement au CHEF MILLER. # character=GABRIEL_SAND expression=neutral
 Homme: Gallant, c’est ça? # character=GABRIEL_SAND expression=neutral
 Fred: C’est ça. À qui ai-je l’honneur? # character=FRED_GALLANT invisible
 Gabriel: Agent Sand. Gab. # character=GABRIEL_SAND expression=joy
-~ afficher_personnage(GABRIEL_SAND, "slideOutDown")
 ~ ajouter_contact(GABRIEL_SAND)
+~ afficher_personnage(GABRIEL_SAND, "slideOutDown")
 ~ cacher_tout_personnages()
 ~ activer_pda()
 -> scene_3
@@ -99,8 +99,7 @@ Chef Miller: Commencez par les parents, mais méfiez-vous de ce qu’ils raconte
 Fred: Oui, Chef. # character=FRED_GALLANT invisible
 Chef Miller: Je compte sur vous. Vous travaillerez seule sur cette première mission. Ensuite, vous aurez peut-être ma confiance. # character=CHEF_MILLER expression=aversion
 
-*   <b>Fred</b> pose la question suivante au chef Miller :
-    Fred: Pourquoi me confier une mission si importante dès mon premier jour? # character=FRED_GALLANT invisible
+*   <b>Fred</b> demande au <b>chef Miller</b> pourquoi il lui confie cette mission. # character=FRED_GALLANT invisible
     Chef Miller: Vous avez une occasion de faire vos preuves. Une seule occasion. Ne la bousillez pas. # character=CHEF_MILLER expression=sterness
 *   <b>Fred</b> remercie le chef Miller.
     Chef Miller: Allez faire ce pour quoi on vous paye. # character=CHEF_MILLER expression=sterness
@@ -124,11 +123,11 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
 *   <b>Fred</b> entame une conversation spontanément avec ses collègues.
     Fred: Alors, vos noms? # character=FRED_GALLANT invisible
     Agent Lucas: Lucas. Lui, c’est Moore. Attention, il n’est pas très bavard, mais il entend tout. # character=AGENT_LUCAS expression=amusement
+    ~ ajouter_contact(AGENT_LUCAS)
     Agent Moore: Regarde qui parle. Ne fais pas confiance à Lucas. On ne sait pas toujours où il traîne. # character=AGENT_MOORE expression=neutral
+     ~ ajouter_contact(AGENT_MOORE)
     Agent Lucas: On t’a confié le dossier du petit Leigh Kane? # character=AGENT_LUCAS expression=concern
     Fred: Je… # character=FRED_GALLANT invisible
-    ~ ajouter_contact(AGENT_LUCAS)
-    ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond(ouverture_dossier_kane)
     <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. <br/> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
@@ -138,13 +137,13 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
     Fred: Oui, Leigh Kane. # character=FRED_GALLANT invisible
     Agent Lucas: Merde! # character=AGENT_LUCAS expression=concern
     Agent Moore: Lucas, laisse-la tranquille. # character=AGENT_MOORE expression=neutral
+      ~ ajouter_contact(AGENT_MOORE)
     Agent Lucas: Tout ce que je dis, c’est que tu vas en baver. Un enfant catatonique, c’est du bonbon pour les médias. Si la corrélation est établie, bien sûr! # character=AGENT_LUCAS expression=sterness
+     ~ ajouter_contact(AGENT_LUCAS)
     Fred: Je vois. # character=FRED_GALLANT invisible
 *   <b>Fred</b> ouvre son dossier et fait mine d’avoir besoin de toute sa concentration.
     Agent Lucas: Hey princesse! Ici, on travaille en équipe. Tu te crois meilleure que nous? Mais tu sais, on est gentil, on t’attendra. # character=AGENT_LUCAS expression=aversion
     Agent Moore: Laisse-la. Elle va apprendre. # character=AGENT_MOORE expression=neutral
-    ~ ajouter_contact(AGENT_LUCAS)
-    ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond (ouverture_dossier_kane)
      <b>Fred</b> ouvre le dossier, car elle n’a pas encore pris connaissance du nom. <br/> Elle aperçoit la photo d’un jeune homme cerné et maigre, blême à faire peur avec un regard complètement vide et maladif. #center
@@ -156,8 +155,8 @@ Fred: Comme tu vois. # character=FRED_GALLANT invisible
 *   Fred ne souhaite pas parler à vos collègues.
     Fred: Je ne me cherche pas d’amis. Et vous m’excuserez, mais j’ai du travail. # character=FRED_GALLANT invisible
     Agent Lucas: Tu as entendu, Moore? On a affaire à une mal élevée. # character=AGENT_LUCAS expression=aversion
-    Agent Moore: J’ai entendu. # character=AGENT_MOORE expression=sterness
     ~ ajouter_contact(AGENT_LUCAS)
+    Agent Moore: J’ai entendu. # character=AGENT_MOORE expression=sterness
     ~ ajouter_contact(AGENT_MOORE)
     ~ arreter_musique()
     ~ afficher_fond (ouverture_dossier_kane)
@@ -247,9 +246,10 @@ L’enquêteur du criminel est présent. # center
 = scene_8
 ~ afficher_fond(bureau_fred)
 ~ jouer_musique(theme_fred)
-<b>Fred</b> parcourt les données du téléphone de <b>Leigh Kane</b>. Elle découvre deux conversations. L’une entre <b>Leigh Kane</b> et sa <b>cousine</b>. L’autre, avec un pseudo mystérieux… <b>TEACHER</b>.
+De retour au bureau, <b>Fred</b> parcourt les données du téléphone de <b>Leigh Kane</b>. Elle découvre deux conversations. L’une entre <b>Leigh Kane</b> et sa <b>cousine</b>. L’autre, avec un pseudo mystérieux… <b>TEACHER</b>.
 ~ afficher_fond(telephone_kane)
-<b>Lundi, 18h37</b>:
+~ ajouter_contact(TEACHER_V1)
+<b>Lundi, 18h37</b> # center
 TEACHER: Tu vas adorer # character=TEACHER_V1 invisible
 Leigh Kane: Bah vous dites toujours ça # character=LEIGH_KANE invisible
 TEACHER: Cette fois, il est au point. On est tous à fond sur le jeu. Tu pourras plus t’arrêter. Il est immersif, complexe, on s’y croirait, on oublie tout. # character=TEACHER_V1 invisible
@@ -260,11 +260,14 @@ TEACHER: 400 # character=TEACHER_V1 invisible
 Leigh Kane: Où # character=LEIGH_KANE invisible
 TEACHER: Je t’indique le lieu et l’heure plus tard # character=TEACHER_V1 invisible
 Leigh Kane: (pouce en l'air) # character=LEIGH_KANE invisible
-<b>Mercredi, 11h02</b>:
+<b>Mercredi, 11h02</b> # center
 TEACHER: 23h, 5567 Flemming<br/>Tu cognes 4 coups secs<br/>Mot de passe : ratata02 # character=TEACHER_V1 invisible
 Leigh Kane: (pouce en l’air) # character=LEIGH_KANE invisible
 ~cacher_tout_personnages()
-~ ajouter_contact(TEACHER_V1)
+~afficher_fond(bureau_fred)
+~jouer_musique(theme_general) 
+
+Fred, à elle-même: Je vais aller me rendre au 5567 rue Flemming, voir ce qu’il y a. # character=FRED_GALLANT invisible
 -> scene_9
 
 = scene_9
@@ -298,7 +301,11 @@ Au moment de démarrer la voiture, <b>Fred</b> voit une jeune femme sortir à l�
     <b>La jeune femme</b> s’en aperçoit et accélère le pas. Rendue au coin de la rue Arch, elle s’arrête et s’approche du véhicule.
     ~ afficher_personnage(BONNIE_RANDLE_V1, "zoomIn")
 - <b>La jeune femme</b> monte dans le véhicule.
-	Jeune Femme: Je m’appelle Bonnie. Je fais partie de la résistance. Mais là, j’en ai marre. C’est pour ça que vous êtes là? Coincer la résistance? # character=BONNIE_RANDLE_V1 expression=sterness
+Jeune femme: Vous êtes flic, non? Vous vous croyez discrète dans votre voiture?  # character=BONNIE_RANDLE_V1 expression=sterness
+Fred: Mais comment… # character=FRED_GALLANT invisible
+Bonnie: Écoutez, je m’appelle Bonnie. Je fais partie de la résistance. Mais là, j’en ai marre. C’est pour ça que vous êtes là? Coincer la résistance? Vous faites partie de la brigade anti jeux vidéo? # character=BONNIE_RANDLE_V1 expression=sterness
+Fred: Oui c’est ça. # character=FRED_GALLANT invisible
+
 ~ ajouter_contact(BONNIE_RANDLE_V1)
 ~ cacher_tout_personnages()
 -> scene_11
@@ -361,7 +368,7 @@ Bonnie: Non, jamais entendu parler. # character=BONNIE_RANDLE_V1 expression=defa
 
 = scene_12
 ~ afficher_fond(bureau_fred)
-~ jouer_musique(theme_police)
+~ jouer_musique(theme_general)
 ~ afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Gallant, j’ai… # character=CHEF_MILLER_NO_CIGAR expression=neutral
 ~ cacher_fond()
@@ -392,7 +399,7 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
 ~ points_fin_A2 += 4
  ~jouer_musique(theme_general)
     Fred: Il y a un groupe. # character=FRED_GALLANT invisible
-    Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=surprise
+    Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=suprise
     Fred: Qui semble fournir des jeux vidéo à ceux qui en cherchent. # character=FRED_GALLANT invisible
     Chef Miller: Vous avez trouvé des informations sur ce groupe? Ça fait une éternité qu’on en cherche! La résistance, c’est ça? # character=CHEF_MILLER_NO_CIGAR expression=surprise
     Fred: Oui, mais très peu. Leigh Kane avait une adresse dans ses messages texte. Une adresse qui mène à ce groupe. Il cherchait à se procurer un jeu. # character=FRED_GALLANT invisible

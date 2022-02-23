@@ -69,7 +69,12 @@ Et bien dites donc, selon les chiffres de 2021, il y avait près de la moitié d
 
 = quiz_3_1_fin
 ~ terminer_quiz()
+-> scene_1_1
 
+=scene_1_1
+~afficher_fond(bureau_fred)
+~jouer_musique(theme_general)
+Fred, à elle-même: Je vais maintenant examiner l'autre document. # character=FRED_GALLANT invisible
 -> quiz_3_2
 
 =quiz_3_2
@@ -384,11 +389,7 @@ Selon le document, un Game Jam a été organisé (voir les pages 15 et 16). Un G
 -> scene_5
 
 =scene_5
-~afficher_fond(news_room)
+~afficher_fond(news_room_chapitre_3)
 ~jouer_musique(theme_news)
-
-La colère monte : les jeux vidéo illicites occupent encore une grande part de marché selon les experts # center
-
-L’empreinte environnementale du marché illicite des jeux vidéo pointé du doigt # center
 
 -> chapitre_4.scene_1

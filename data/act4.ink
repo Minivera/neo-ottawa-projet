@@ -331,7 +331,7 @@ Homme: Entre. # character=BORIS expression=neutral
 <b>Fred</b> entre et voit rapidement que la maison est déserte à part l’homme qui lui a ouvert la porte.
 
 Boris: Je m’appelle Boris. Toi, c’est Fred? # character=BORIS expression=neutral
-
+~ajouter_contact(BORIS)
 Fred: Oui. # character=FRED_GALLANT invisible
 
 Boris: Bon, Teacher m’a donné ton message. J’aurais peut-être un cas à te présenter. Tu sais qu’on fabrique des jeux, mais on prépare quelque chose de gros. On a un jeu… un jeu nouveau, bien conçu. # character=BORIS expression=concern
@@ -341,16 +341,12 @@ Boris: On le garde en réserve pour … Le gros événement. Mais on a un souci.
 Fred: Oui, quel est le cas? # character=FRED_GALLANT invisible
 
 Boris: Voici l’adresse des deux concepteurs. <b>CHRISTIAN</b> et <b>JONATHAN</b>. Des anciens amis. # character=BORIS expression=neutral
-
+~ajouter_contact(JONATHAN)
 Fred: Anciens amis? # character=FRED_GALLANT invisible
-
+~ajouter_contact(CHRISTIAN)
 Boris: Je te laisse faire ta propre enquête. Ils ont conçu le jeu ensemble. Enfin, en partie. C’est à toi de voir ce qu’il faut faire. Je te confie des informations de base pour commencer ton enquête. # character=BORIS expression=neutral
 
 Fred: Je m’en occupe. # character=FRED_GALLANT invisible
-
-~ajouter_contact(BORIS)
-~ajouter_contact(JONATHAN)
-~ajouter_contact(CHRISTIAN)
 ~ajouter_document(DEFINITION_JEU_VIDEO)
 ~cacher_tout_personnages()
 -> quiz_4_1
@@ -552,10 +548,10 @@ Après sa rencontre avec <b>Jonathan</b>, <b>Fred</b> retourne à son bureau pou
 ~jouer_effet_sonore(reception_courriel)
 ~afficher_fond(ecran_ordinateur_fred)
 
-Texte du courriel : <i>Bonjour agent Gallant, <br/>J’ai entendu dire que vous aviez eu une rencontre avec ce traître de Jonathan au sujet des créations artistiques. Je ne sais pas ce qu’il a pu vous dire, mais tout m’appartient. J’ai retravaillé et modifié ces créations. Il n’y a plus rien à lui dans le jeu final. Je vous envoie les preuves que j’ai à l’appui.<br/>Merci,</br>Christian</i>
+<i>Bonjour agent Gallant, <br/>J’ai entendu dire que vous aviez eu une rencontre avec ce traître de Jonathan au sujet des créations artistiques. Je ne sais pas ce qu’il a pu vous dire, mais tout m’appartient. J’ai retravaillé et modifié ces créations. Il n’y a plus rien à lui dans le jeu final. Je vous envoie les preuves que j’ai à l’appui.<br/>Merci,</br>Christian</i> # center
 
 ~ajouter_document(JOURNAL_CONCEPTION_CHRISTIAN)
-~ajouter_contact(CONCEPTS_ARTISTIQUES_CHRISTIAN)
+~ajouter_document(CONCEPTS_ARTISTIQUES_CHRISTIAN)
 -> scene_6
 
 = scene_6
@@ -697,9 +693,10 @@ Les jeux vidéo étaient le résultat de la combinaison de plusieurs éléments 
 -> scene_7
 
 =scene_7
+<b>Fred</b> doit déterminer si Jonathan a des droits de propriété intellectuelle sur le jeu. # center
 ~jouer_musique(theme_choix_cruciaux)
 
-* Vous penchez pour la solution suivante : Jonathan a des droits sur le jeu, malgré son départ hâtif et sa non-implication la dernière année.
+* Fred penche pour la solution suivante : Jonathan a des droits sur le jeu, malgré son départ hâtif et sa non-implication la dernière année.
 ~ points_fin_3 += 1
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
@@ -743,7 +740,7 @@ Boris: Excellent. # character=BORIS expression=satisfaction
 Fred: Alors, c’est quoi l’événement? # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
 
-* Vous choisissez plutôt de n’accorder aucun droit de propriété intellectuelle à Jonathan parce que le travail de Christian a continué pendant l’année et le jeu a beaucoup évolué.
+* Fred choisit plutôt de n’accorder aucun droit de propriété intellectuelle à Jonathan parce que le travail de Christian a continué pendant l’année et le jeu a beaucoup évolué.
 ~ points_fin_4 += 1
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
@@ -786,5 +783,8 @@ Fred: Quel avocat? Tant que ce n’est pas légal, on ne risque rien. # characte
 
 Boris: On ne peut toujours pas lancer le jeu et on n’est même pas certain que tu aies raison? C’est le plan Fred, le retour de la légalité. Je veux plus te voir ici pour l’instant, Fred. Quitte les lieux. Je vais devoir en parler à mes patrons. # character=BORIS expression=disgust
 ~cacher_tout_personnages()
+
+~afficher_fond(news_room_chapitre_4)
+~jouer_musique(theme_news)
 
 - -> chapitre_5.scene_1

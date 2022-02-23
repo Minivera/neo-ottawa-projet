@@ -95,11 +95,11 @@ Fred: Je vous en prie. Ne jouez pas les imbéciles. # character=FRED_GALLANT inv
 
 Fred: Je sais. Mais justement, tout n’est pas noir et blanc. Lisez-vous les journaux? On sent qu’il se passe quelque chose, non? # character=FRED_GALLANT invisible
 
-John: Je ne sais pas. Ce que je sais, c’est que je veux que ma sœur sorte de cette organisation et arrête de jouer. Légal ou pas, je préfère ne pas jouer et qu’elle ne joue pas. # character=JOHN_RANDLE expression=melancholy
+John: Je ne sais pas. Ce que je sais, c’est que je veux que ma soeur sorte de cette organisation et arrête de jouer. Légal ou pas, je préfère ne pas jouer et qu’elle ne joue pas. # character=JOHN_RANDLE expression=melancholy
 
 Fred: C’est votre droit, c’est votre droit. Mais juste un dernier soir? Je n’ai plus de temps, vous comprenez? Je vais agir, très bientôt. # character=FRED_GALLANT invisible
 
-John: Un soir. Je vais prétendre vous connaître, mais je ne jouerai pas. Et si ma sœur est toujours coincée dans une semaine… Comptez les jours, une semaine, je porte plainte contre vous et je dis tout ce que je sais. # character=JOHN_RANDLE expression=sterness
+John: Un soir. Je vais prétendre vous connaître, mais je ne jouerai pas. Et si ma soeur est toujours coincée dans une semaine… Comptez les jours, une semaine, je porte plainte contre vous et je dis tout ce que je sais. # character=JOHN_RANDLE expression=sterness
 
 Fred: Entendu. Bonnie, merci. John, à tout à l’heure. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
@@ -172,6 +172,8 @@ Fred: Ça promet. # character=FRED_GALLANT invisible
 John: Ce n’est plus mon rêve. # character=JOHN_RANDLE expression=melancholy
 
 Christopher: Rabat-joie! # character=CHRISTOPHER_YOUNG expression=sterness
+~cacher_tout_personnages()
+
 -> quiz_6_1
 
 =quiz_6_1
@@ -239,18 +241,22 @@ Selon les archives, les trois plus grands marchés étaient l’Asie, l’Europe
 Fred: Merci beaucoup d’être venus. Je suis très heureuse de faire votre connaissance. # character=FRED_GALLANT invisible
 
 Trevor: Tout le plaisir est pour nous! # character=TREVOR expression=satisfaction
+~ajouter_contact(TREVOR)
 
 Fred: Vous savez pourquoi je vous ai convoqués? # character=FRED_GALLANT invisible
 
 Jen: C’est vrai ces rumeurs sur le retour des jeux vidéo? # character=JEN expression=wonder
+~ajouter_contact(JEN)
 
 Fred: Je ne sais pas à quoi vous faites référence exactement, mais il y a des groupes de personnes qui essaient de concrétiser ce projet, en effet. # character=FRED_GALLANT invisible
 
 Andrea: Ce sont eux qui veulent nous engager? # character=ANDREA expression=wonder
+~ajouter_contact(ANDREA)
 
 Fred: Peu importe. Ce qui m’intéresse c’est d’abord de comprendre ce qu’est la pratique compétitive. # character=FRED_GALLANT invisible
 
 Brad: C’est le bonheur! # character=BRAD expression=joy
+~ajouter_contact(BRAD)
 
 Fred: Mais encore? J’avoue ne pas comprendre l’engouement. D’abord, l’idée de regarder des gens jouer me semble bizarre. Ensuite, vous, que retirez-vous en tant que joueurs professionnels? Il me semble que ça n’est pas sérieux et j’ai du mal à imaginer ce que ça pouvait être avant la loi. # character=FRED_GALLANT invisible
 
@@ -337,10 +343,6 @@ Brad: Quel est le jeu qu’ils veulent mettre sur leur plateforme? # character=B
 Fred: C’est un nouveau jeu. # character=FRED_GALLANT invisible
 
 Trevor: Donnez-nous le prototype. Dans une semaine, on le maîtrise. # character=TREVOR expression=satisfaction
-~ajouter_contact(TREVOR)
-~ajouter_contact(BRAD)
-~ajouter_contact(ANDREA)
-~ajouter_contact(JEN)
 ~cacher_tout_personnages()
 -> scene_4
 
@@ -515,7 +517,7 @@ Le thème n’est pas traité dans ce contrat. Les joueurs peuvent néanmoins ê
 = scene_6
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_choix_cruciaux)
-
+<b>Fred</b> doit décider si elle va parler des clauses potentiellement abusives à Christopher. # center
 * <b>Fred</b> décide de ne pas parler des clauses potentiellement abusives à <b>Christopher</b>.
 ~points_fin_B2 += 4
 ~jouer_musique(theme_general)
@@ -526,7 +528,6 @@ Christopher: Alors Fred, ce contrat, qu’en penses-tu? On peut aller de l’ava
 Fred: J’ai relu tout ça en détail et pour moi tout est bon. La résistance, comme les joueurs, sont très bien protégés. Je ne vois pas ce qui pourrait déraper. # character=FRED_GALLANT invisible
 
 Christopher: Formidable! Merci Fred pour ce coup de main dans l’urgence. Nous préférons ne rien laisser au hasard. # character=CHRISTOPHER_YOUNG expression=satisfaction
-~cacher_tout_personnages()
 
 * <b>Fred</b> décide d’avertir <b>Christopher</b> de la présence de clauses potentiellement abusives dans le contrat.
 ~points_fin_B1 += 4
@@ -546,8 +547,8 @@ Christopher: Mais ça ne va pas du tout ça! On ne peut se permettre aucun accro
 Fred: Il faut réécrire en partie le contrat et rééquilibrer les relations entre les joueurs et l’équipe. Pour le moment la balance penche trop en faveur de l’équipe. # character=FRED_GALLANT invisible
 
 Christopher: Merci pour ta vigilance et tes conseils Fred, je remets l’équipe là-dessus immédiatement. # character=CHRISTOPHER_YOUNG expression=satisfaction
-~cacher_tout_personnages()
-- ~afficher_fond(maison_fred)
+- ~cacher_tout_personnages()
+ ~afficher_fond(maison_fred)
 ~jouer_musique(theme_choix_cruciaux)
 
 * <b>Fred</b> envoie des messages textes au chef <b>Miller</b> pour le mettre au courant de la tentative de la résistance de remettre des équipes d’esport sur la carte. 
@@ -591,4 +592,6 @@ Fred: Non. Ce sont de nouvelles pistes. # character=FRED_GALLANT invisible
 
 Chef Miller: Bon boulot, Gallant. # character=CHEF_MILLER expression=satisfaction
 
-- -> chapitre_7.scene_1
+- ~afficher_fond(news_room_chapitre_6)
+~jouer_musique(theme_news)
+-> chapitre_7.scene_1

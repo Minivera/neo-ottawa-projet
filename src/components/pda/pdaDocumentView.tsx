@@ -34,6 +34,14 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
         justify-content: space-around;
         padding: 0 8rem;
         position: relative;
+        flex: 1;
+
+        @media only screen and (min-width: 1600px) {
+          & > div {
+            width: 50%;
+            min-height: 100%;
+          }
+        }
 
         @media only screen and (max-width: 1600px) {
           flex-direction: column;
@@ -45,7 +53,11 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
         }
       `}
     >
-      <div>
+      <div
+          css={css`
+          flex: 1;
+        `}
+      >
         <button
           onClick={onPrevClick}
           css={theme => css`
@@ -140,7 +152,6 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
           </div>
         </div>
       </div>
-
       {isTabletOrMobile && document.path && (
         <div
           css={css`
@@ -169,6 +180,7 @@ export const PDADocumentView: React.FunctionComponent<PDADocumentViewProps> = ({
         <div
           css={css`
             margin-left: 1rem;
+            flex: 1;
           `}
         >
           <PDFReader pdfPath={document.path} playClickSound={playClickSound} />

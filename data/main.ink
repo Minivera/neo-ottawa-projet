@@ -16,7 +16,7 @@ INCLUDE act_5_quiz2
 INCLUDE act6.ink
 INCLUDE act7.ink
 
--> prologue.tutoriel
+-> prologue.scene_0
 
 === fin ===
 

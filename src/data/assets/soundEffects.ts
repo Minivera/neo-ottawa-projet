@@ -20,6 +20,7 @@ import telechargementComplet from '../../assets/sound/telechargement-complet.mp3
 import telephoneRaccroche from '../../assets/sound/telephone-raccroche.mp3';
 import tocToc from '../../assets/sound/toc-toc.mp3';
 import trappeOuvre from '../../assets/sound/trappe-ouvre.mp3';
+import typewriter from '../../assets/sound/typewriter.mp3';
 
 export const soundEffects: Record<string, Howl> = {
   respiration: new Howl({
@@ -69,5 +70,8 @@ export const soundEffects: Record<string, Howl> = {
   }),
   clic_souris: new Howl({
     src: [clavierOrdinateur]
+  }),
+  typewriter: new Howl({
+    src: [typewriter]
   }),
 };

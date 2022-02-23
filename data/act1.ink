@@ -11,9 +11,8 @@ Fred: Ça a peut-être été un peu trop facile. Ça m’inquiète. Je ne criera
 Chef Miller: Vous n’avez pas beaucoup de temps. Les médias ne tarderont pas à s’emparer de l’affaire Kane et on va être dans l’eau chaude. Je vais être clair : je veux voir mon budget renouveler l’an prochain. Trouvez un coupable, Fred. # character=CHEF_MILLER expression=concern
 Fred: J’y travaille! # character=FRED_GALLANT invisible
 Le <b>chef Miller</b> quitte le bureau de <b>Fred</b>.
-~cacher_personnage(CHEF_MILLER, "slideOutDown")
-~jouer_effet_sonore(claquement_porte)
-~ jouer_effet_sonore(cogner_porte)
+~afficher_personnage(CHEF_MILLER, "slideOutDown")
+~cacher_tout_personnages()
 ~afficher_personnage(AGENT_LUCAS, "slideInLeft")
 Agent Lucas: Eh ben! Tu veux lui en mettre plein la vue au chef Miller! Infiltrer la résistance. # character=AGENT_LUCAS expression=amusement
 ~afficher_personnage(AGENT_MOORE, "slideInRight")
@@ -38,7 +37,7 @@ Fred: Je peux lire ça? # character=FRED_GALLANT invisible
 Agent Lucas: Absolument! # character=AGENT_LUCAS expression=neutral
 ~jouer_effet_sonore(dossier_depose_bureau)
 <b>L’Agent Lucas</b> donne le dossier <b>Morris</b>. Aucune information n’est déterminante, <b>Teacher</b> est aussi insaisissable que dans les messages sur le téléphone de <b>Kane</b>. # center
-Cependant, une autre adresse potentiellement liée à la résistance apparaît : le 530 rue McLeod. C’est le point de rendez-vous que <b>Christopher</b> vous a donné pour vous présenter aux autres. # center
+Cependant, une autre adresse potentiellement liée à la résistance apparaît, le 530 rue McLeod. C’est le point de rendez-vous que <b>Christopher</b> vous a donné pour vous présenter aux autres. # center
 *Fred donne le nom de son contact, la fille, pas <b>Christopher</b>
   ~ points_fin_1 += 1
 Fred: Il y a une fille, Bonnie. # character=FRED_GALLANT invisible
@@ -65,10 +64,9 @@ Narrateur: Entrez dans la résistance maintenant. Plongez, sans vous retourner. 
 <b>Fred</b> se réveille de sa torpeur.
 // TODO=(animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux?)
 ~arreter_musique()
-~jouer_effet_sonore(reveille_brusque)
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_fred)
-Fred, <i>à elle-même</i>: Ces absences sont de plus en plus fréquentes.  # character=FRED_GALLANT invisible
+Fred, à elle-même: Ces absences sont de plus en plus fréquentes.  # character=FRED_GALLANT invisible
 Elle vérifie son PDA.
 Fred, à elle-même: Aucune nouvelle info. Étrange. # character=FRED_GALLANT invisible
 Fred, à elle-même: En route pour le 530 McLeod. # character=FRED_GALLANT invisible
@@ -101,8 +99,10 @@ Fred: Mais ça signifie qu’il y avait déjà un certain contrôle sur le conte
 Christopher: Tu as tout compris!# character=CHRISTOPHER_YOUNG expression=satisfaction
 Christopher: As-tu déjà entendu parler de l'ESRB? # character=CHRISTOPHER_YOUNG expression=satisfaction
 Fred: Qu’est-ce c’est que ça? # character=FRED_GALLANT invisible
+~ajouter_contact(RONNY)
 Christopher: Un organisme qui s’occupait d’évaluer le contenu des jeux avant leur commercialisation...# character=CHRISTOPHER_YOUNG expression=neutral
 Tom: Les jeux qui étaient commercialisés avant la <i>Loi Game Over</i>, ce n’est pas ce que les gens croient… Ils étaient contrôlés. De nombreux jeux non violents et grand public étaient acceptés par le gouvernement. #character=TOM expression=disgust
+~ajouter_contact(TOM)
 Christopher: Regarde ça. # character=CHRISTOPHER_YOUNG expression=neutral
 <b>Christopher</b> montre à <b>Fred</b>, une dizaine de pochettes de jeux vidéo avec un classement de l’ESRB « pour tous ».
 ~afficher_document(POCHETTES_JEUX)
@@ -112,12 +112,10 @@ Fred: Oui, mais ça veut dire quoi? # character=FRED_GALLANT invisible
 Christopher: Si tu veux comprendre, cherche. # character=CHRISTOPHER_YOUNG expression=neutral
 Fred: Pourquoi tu ne me le dis pas? # character=FRED_GALLANT invisible
 Christopher: Parce que je ne sais pas avec certitude. Ça date d’avant l’interdiction. C’était un système de classement je crois. Pourquoi ça a de l’importance? # character=CHRISTOPHER_YOUNG expression=sterness
-Fred: Je vois. Il y avait donc des classements. C’est extrêmement important.# character=FRED_GALLANT invisible
-~ajouter_contact(TOM)
 ~ajouter_contact(VIVIAN)
-~ajouter_contact(RONNY)
+Fred: Je vois. Il y avait donc des classements. C’est extrêmement important.# character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
-//TODO=Transition - Image non définie encore
+
 ->scene_4
 
 =scene_4
@@ -130,11 +128,9 @@ Agent Moore: Ne commets pas les mêmes erreurs que nous, Gallant. Rien ne presse
 Fred: Non, justement. Ce n’est pas mon genre. # character=FRED_GALLANT invisible
 <b>L’agent Moore</b> quitte le bureau.
 ~cacher_personnage(AGENT_MOORE, "slideOutDown")
-~jouer_effet_sonore(claquement_porte)
 <b>Fred</b> téléphone immédiatement à <b>Bonnie</b>.
-~jouer_effet_sonore(sonnerie_telephone)
-~afficher_personnage(BONNIE_RANDLE_V2, "fadeIn")
 Fred: Bonsoir. Désolée pour l’heure. # character=FRED_GALLANT invisible
+~afficher_personnage(BONNIE_RANDLE_V2, "fadeIn")
 Bonnie: Ça va, je ne suis pas couchée. #character=BONNIE_RANDLE_V2 expression=neutral phone
 Fred: Bien. As-tu parlé à ton frère? # character=FRED_GALLANT invisible
 Bonnie: Oui. Il est d’accord pour vous couvrir, mais il ne veut pas mentir. Il va éviter le sujet et répondre de manière évasive si Christopher parle de vous le plus longtemps possible. Il vous conseille de vous dépêcher d’obtenir les infos dont vous avez besoin avant que ça se complique avec Christopher. Il ne veut pas le trahir, c’est un ami. Il le fait seulement parce qu’il n’aime pas que je joue. #character=BONNIE_RANDLE_V2 expression=aversion phone
@@ -157,6 +153,7 @@ Bonnie: Non. Si je cesse de venir du jour au lendemain, mon frère, vous et moi,
 Fred: Je ne crois pas que ce soit quelque chose de courant à la brigade, mais laissez-moi voir ce que je peux faire. # character=FRED_GALLANT invisible
 Bonnie: Faites vite. J’ai peur de me trahir.#character=BONNIE_RANDLE_V2 expression=wonder phone
 Fred: Restez naturelle, continuez vos habitudes, je vais parler à mon chef aussitôt que possible. # character=FRED_GALLANT invisible
+~cacher_tout_personnages()
 ->scene_5
 
 =scene_5
@@ -190,7 +187,6 @@ Le réceptionniste coopère à contrecœur. Il ne s’agirait pas que Fred déco
 
 =scene_6
 ~afficher_fond(siege_esrb_informatique)
-//TODO: si la technologie le permet,Le joueur accède ainsi à une salle qui contient des ordinateurs auxquels il peut accéder. Pour y accéder, le joueur clique sur l’ordinateur en surbrillance.
 <b>Fred</b> est désormais dans la salle informatique de l’ESRB.
 ~afficher_fond(ecran_ordinateur_esrb)
 Choisissez le mot de passe pour accéder à l’ordinateur : #center
@@ -201,7 +197,6 @@ Code bon #center
 ->act_1_quiz_2.quiz_2
 
 =scene_7
-//TODO: [Transition - Image non définie encore]
 ~ afficher_fond(rue_mcleod)
 ~jouer_musique(theme_resistance)
 ~afficher_personnage(RONNY, "slideInUp")
@@ -210,16 +205,14 @@ Fred: Je dois admettre que ce que j’ai trouvé m’intrigue encore plus. Je su
 Ronny: Excellent. Qu’est-ce que tu as en tête? #character=RONNY expression=satisfaction
 Fred: Si mon intuition est bonne, je pense que d’autres informations censurées pourraient révéler que le gouvernement ment à propos des vraies motivations de la <i>Loi Game Over</i>. Mais je crains d’avoir besoin de beaucoup de temps. # character=FRED_GALLANT invisible
 Ronny: C’est une certitude que le gouvernement cache quelque chose. C’est ce sur quoi on travaille depuis des années. Tu aurais besoin de quoi? Tu veux commencer où? #character=RONNY expression=neutral
+~ajouter_document(LISTE_ANCIENS_EMPLOYES)
 Fred: J’ai mis la main sur une liste d’anciens employés de l’ESRB, je vais commencer par les contacter. # character=FRED_GALLANT invisible
-
+~cacher_tout_personnages()
 ~ afficher_fond(bureau_fred)
 ~jouer_musique(theme_fred)
-~afficher_document(LISTE_ANCIENS_EMPLOYES)
-TODO: Quand le document est fermé par le joueur, le message suivant s’affiche:
 Après avoir consulté la liste, <b>Fred</b> tente de rejoindre les trois employés qui y figurent. L’un d’eux, <b>ROBERT POWER</b>, a été arrêté en 2032, mais après sa sortie de prison pour bonne conduite, il a disparu, la police a perdu sa trace.
 Les deux autres, <b>OLIVIA PAUL</b>, testeuse de l’ESRB et <b>CARL</b> WHITE du département du contentieux ne possèdent pas de dossiers, mais habitent tous les deux à Ottawa.
 <b>Fred</b> contacte d’abord <b>Olivia Paul</b> au téléphone.
-~jouer_effet_sonore(composer_numero)
 Fred: Fred Gallant, brigade anti-jeux vidéo. J’aimerais parler à Olivia Paul. # character=FRED_GALLANT invisible
 ~afficher_personnage(OLIVIA_PAUL, "fadeIn")
 Olivia: C’est moi. #character=OLIVIA_PAUL expression=alertness phone
@@ -234,7 +227,6 @@ Fred: Merci, à toute à l’heure. # character=FRED_GALLANT invisible
 
 ~afficher_fond(maison_olivia_exterieur)
 ~jouer_musique(theme_fred)
-~jouer_effet_sonore(sonnette_futuriste)
 ~afficher_personnage(OLIVIA_PAUL, "fadeIn")
 Olivia: Entrez. Je n’ai pas grand-chose à vous offrir, je suis dans les rénovations depuis une éternité, mais comme c’est bientôt terminé, j’ai concentré mes efforts à maintenir la maison le moins encombrée possible. Je vends! #character=OLIVIA_PAUL expression=neutral
 Fred: Aucun souci, je n’en ai pas pour longtemps. J’aurais juste quelques questions à vous poser. # character=FRED_GALLANT invisible
@@ -479,7 +471,7 @@ TODO:Le joueur doit cliquer sur un bouton en surbrillance. Le bouton déclenche 
 ~jouer_musique(theme_resistance)
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 Fred se retrouve dans la salle de jeux clandestine de la résistance.
-
+~cacher_tout_personnages()
 ~cacher_fond()
 ~arreter_musique()
 ~jouer_musique(theme_narrateur)
@@ -520,8 +512,6 @@ Fred: Je vais la lire, merci. # character=FRED_GALLANT invisible
 
 ~ajouter_document(LOI_2005_CLASSEMENT)
 ~cacher_tout_personnages()
-→ Affichage des questions dans la section « Notes ». Les notes doivent être complétées avant que le jeu et les dialogues reprennent.
-
 -> quiz_5
 
 =quiz_5
@@ -588,8 +578,7 @@ Christopher: Ok alors regarde, approche, regarde à quoi ils jouent et dis-moi c
 Fred: Je ne dis pas que ces jeux sont néfastes. # character=FRED_GALLANT invisible
 
 Christopher: Eh bien? Alors? Tu nous aides? # character=CHRISTOPHER_YOUNG expression=alertness
-
-TODO=Transition - Image non définie encore
+~cacher_tout_personnages()
 
 ->scene_11
 
@@ -600,43 +589,41 @@ TODO=Transition - Image non définie encore
 ~afficher_personnage(PERE_DE_LEIGH_KANE, "slideInRight")
 Fred: Mais n’avez-vous jamais eu connaissance que votre fils…que Leigh jouait à des jeux vidéo? # character=FRED_GALLANT invisible
 
-Mère: Non! Mais ça ne veut rien dire! On n’a plus connaissance de tout ce que font nos enfants avec tous les appareils auxquels ils ont accès! # character=MERE_DE_LEIGH_KANE expression=dejection
+Mère de Leigh Kane: Non! Mais ça ne veut rien dire! On n’a plus connaissance de tout ce que font nos enfants avec tous les appareils auxquels ils ont accès! # character=MERE_DE_LEIGH_KANE expression=dejection
 
 Fred: D’ailleurs, on a trouvé le téléphone de votre fils, mais aucun signe de son ordinateur… # character=FRED_GALLANT invisible
 
-Mère: On avait peur… On ne savait pas quoi faire. Nous avons caché son ordinateur avant que la police n’arrive sur place. On ne sait pas ce que la police aurait pu trouver dessus. # character=MERE_DE_LEIGH_KANE expression=aversion
+Mère de Leigh Kane: On avait peur… On ne savait pas quoi faire. Nous avons caché son ordinateur avant que la police n’arrive sur place. On ne sait pas ce que la police aurait pu trouver dessus. # character=MERE_DE_LEIGH_KANE expression=aversion
 
 Fred: Vous avez caché une pièce à conviction? Le contenu de son ordinateur pourrait peut-être nous aider à le retrouver et à mieux comprendre ces activités. # character=FRED_GALLANT invisible
 
-Mère: Mais Leigh n’y est pour rien! # character=MERE_DE_LEIGH_KANE expression=indignation
+Mère de Leigh Kane: Mais Leigh n’y est pour rien! # character=MERE_DE_LEIGH_KANE expression=indignation
 
 Fred: Je comprends, mais pour porter des accusations, il faut avoir des éléments de preuve. # character=FRED_GALLANT invisible
 
-Mère: Je suis certaine que ce sont ces monstres qui vendent des jeux sur le marché noir qui l’ont influencé. # character=MERE_DE_LEIGH_KANE expression=grief
+Mère de Leigh Kane: Je suis certaine que ce sont ces monstres qui vendent des jeux sur le marché noir qui l’ont influencé. # character=MERE_DE_LEIGH_KANE expression=grief
 
 Fred: Comment? Comment était-il? Depuis quand? Connaissez-vous ceux qui lui auraient vendu des jeux et où sont ces jeux? # character=FRED_GALLANT invisible
 
-Mère: Non! Non! Il était un bon garçon, un bon garçon. Tranquille, tranquille. # character=MERE_DE_LEIGH_KANE expression=grief
+Mère de Leigh Kane: Non! Non! Il était un bon garçon, un bon garçon. Tranquille, tranquille. # character=MERE_DE_LEIGH_KANE expression=grief
 
-Père: On n’a pas la moindre preuve. Juste cette conversation sur son téléphone et… son ordinateur qu’on a caché. Alors on a cru. Enfin, notre fils pouvait être influençable. Et à son âge! # character=PERE_DE_LEIGH_KANE expression=melancholy
+Père de Leigh Kane: On n’a pas la moindre preuve. Juste cette conversation sur son téléphone et… son ordinateur qu’on a caché. Alors on a cru. Enfin, notre fils pouvait être influençable. Et à son âge! # character=PERE_DE_LEIGH_KANE expression=melancholy
 
 Fred: Je comprends. Mais est-ce que vous savez au moins s’il est allé à ce rendez-vous? # character=FRED_GALLANT invisible
 
-Père: Non. On… on n’a pas de preuve qu’il y est allé. # character=PERE_DE_LEIGH_KANE expression=melancholy
+Père de Leigh Kane: Non. On… on n’a pas de preuve qu’il y est allé. # character=PERE_DE_LEIGH_KANE expression=melancholy
 
 Fred: Mais pourquoi vous avez cru que c’était lié à un jeu? # character=FRED_GALLANT invisible
 
-Père: Parce qu’on n’a pas d’autres pistes. # character=PERE_DE_LEIGH_KANE expression=melancholy
+Père de Leigh Kane: Parce qu’on n’a pas d’autres pistes. # character=PERE_DE_LEIGH_KANE expression=melancholy
 
-Mère: C’est ce jeu! J’en suis sûre! Un cœur de mère ne se trompe pas! # character=MERE_DE_LEIGH_KANE expression=grief
+Mère de Leigh Kane: C’est ce jeu! J’en suis sûre! Un cœur de mère ne se trompe pas! # character=MERE_DE_LEIGH_KANE expression=grief
 ~cacher_tout_personnages()
 ~arreter_musique()
 ~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
 Narrateur: L’agent Gallant est pleine de zèle. Aidez-la donc à coincer les monstres de la résistance. Qu’attendez-vous? # character=NARRATEUR invisible
-
-TODO=Animation: transition du fond noir vers le lieu avec “des yeux qui s’ouvrent” / cligner des yeux
 ~ afficher_fond(chambre_leigh_kane)
 ~jouer_musique(theme_police)
 ~afficher_personnage(MERE_DE_LEIGH_KANE, "slideInLeft")
@@ -648,12 +635,7 @@ Fred: Oui, désolée. Ça va. Est-ce que vous pouvez me confier l’ordinateur d
 Mère: Il ne se serait jamais enfui, Leigh. Jamais. Il y a quelqu’un qui le manipule! # character=MERE_DE_LEIGH_KANE expression=sadness
 
 Père: Allez, laisse-la faire son travail. # character=PERE_DE_LEIGH_KANE expression=neutral
-
-~ajouter_contact(MERE_DE_LEIGH_KANE)
-~ajouter_contact(PERE_DE_LEIGH_KANE)
-
-TODO=Transition - Image non définie encore
-
+~cacher_tout_personnages()
 ->scene_12
 
 =scene_12
@@ -663,16 +645,15 @@ TODO=Transition - Image non définie encore
 
 Fred: Montre-moi ce que tu as dans le ventre. # character=FRED_GALLANT invisible
 
-Après une analyse minutieuse, <b>Fred</b> identifie deux fichiers qui semblent pertinents: un <b>log d'activité</b> et un <b>ficher texte</b>.
+Après une analyse minutieuse, <b>Fred</b> identifie deux fichiers qui semblent pertinents: un <b>log d'activité</b> et un <b>ficher texte</b>. # center
 
-<b>Fred</b> ouvre le <b>log d’activité</b>.
-~jouer_effet_sonore(clic_souris)
-Il n’y a rien qui relie la fugue à des jeux vidéo. Selon l’historique d’utilisation, <b>Leigh</b> a joué 25 minutes sur une plateforme qui s’appelle <i>Friv</i> et qui est en ligne sur le <i>Dark Web</i>. Il a joué à <i>Baskatball</i> et <i>RioRex</i>.
+Elle trouve d’abord un log d’activité. # center
 
-<b>Fred</b> ouvre le <b>fichier texte</b>.
-~jouer_effet_sonore(clic_souris)
+Selon celui-ci, il n’y a rien qui relie la fugue à des jeux vidéo. Selon l’historique d’utilisation, <b>Leigh</b> a joué 25 minutes sur une plateforme qui s’appelle <i>Friv</i> et qui est en ligne sur le Dark Web. Il a joué à <i>Baskatball</i> et <i>RioRex</i>. # center
+
+<b>Fred</b> trouve également le fichier texte suivant # center
 <i>Maman, papa,
-Je suis désolé de vous infliger ça. Si je dois partir, c’est que je sais que je suis un poids pour vous. J’ai raté mes examens de fin d’année et je vais devoir reprendre la plupart de mes cours de 7e année. J’ai trop honte. Ne cherchez pas à savoir où je suis. Je vais trouver du travail et quand j’aurai moins honte je reviendrai peut-être. Leigh</i>
+Je suis désolé de vous infliger ça. Si je dois partir, c’est que je sais que je suis un poids pour vous. J’ai raté mes examens de fin d’année et je vais devoir reprendre la plupart de mes cours de 7e année. J’ai trop honte. Ne cherchez pas à savoir où je suis. Je vais trouver du travail et quand j’aurai moins honte je reviendrai peut-être. Leigh</i> # center
 
 TODO=Image non définie encore
 
@@ -701,8 +682,9 @@ Tom: On peut y trouver des informations croustillantes sur le passé. T’as pas
 = scene_14
 ~afficher_fond(ordinateur_fred)
 ~jouer_musique(theme_commissariat)
-~jouer_effet_sonore(clic_souris)
 ~ajouter_document(STEAMWORKS)
+
+De retour à son bureau, <b>Fred</b> consulte le lien que <b>Tom</b> lui a envoyé. # center
 
 -> quiz_6
 
@@ -771,11 +753,13 @@ TODO=Transition - Image non définie encore
 
 = scene_15
 ~afficher_fond(bureau_chef_miller)
-~jouer_musique(theme_choix_cruciaux)
+~jouer_musique(theme_general)
 ~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Vous vouliez me voir? J’espère que vous avez de bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
+~jouer_musique(theme_choix_cruciaux)
 *Fred raconte ce qu’il en est de l’histoire de Leigh Kane, mais ne dit presque rien sur ces découvertes liées à la résistance.
  ~ points_fin_A2 += 4
+ ~jouer_musique(theme_general)
 Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
@@ -817,6 +801,7 @@ Chef Miller: Je ne vous retiens donc pas. Bonne journée. # character=CHEF_MILLE
 
 *Fred raconte l’histoire de Leigh Kane et une partie de ce qu'elle a découvert.
  ~ points_fin_A1 += 2
+ ~jouer_musique(theme_general)
  Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
@@ -875,6 +860,7 @@ Chef Miller: Je ne vous retiens donc pas. Bonne journée.# character=CHEF_MILLER
 
 *Fred raconte tout au Chef Miller.
  ~ points_fin_A1 += 4
+ ~jouer_musique(theme_general)
  Fred: Oui, j’ai des nouvelles de Kane.# character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
@@ -935,11 +921,9 @@ Chef Miller: Parfait. Je ne vous retiens donc pas. Bonne journée. # character=C
 ->scene_16
 
 =scene_16
-~afficher_fond(news_room)
+~afficher_fond(news_room_chapitre_1)
 ~jouer_musique(theme_news)
-L’affaire Kane : enlèvement ou fugue? Les parents sont catégoriques « notre fils n’est pas un fugueur » # center
 
- « On a exploité la naïveté de mon fils » rapporte la mère de Kane. Des trafiquants de jeux vidéo derrière la disparition de l’enfant # center
 
 
 -> chapitre_2.scene_1

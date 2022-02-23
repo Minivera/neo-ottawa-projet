@@ -33,6 +33,7 @@ import clickMetal from '../assets/sound/click-metal.mp3';
 import clickShimmer from '../assets/sound/click-shimmer.mp3';
 import pdaOpen from '../assets/sound/futuristic-login.mp3';
 import buttonBeep from '../assets/sound/beep-single.mp3';
+import typewriter from '../assets/sound/typewriter.mp3';
 
 const clickSound = new Howl({
   src: [clickMetal],
@@ -45,6 +46,10 @@ const pdaTabChangeSound = new Howl({
 });
 const pdaLoginSound = new Howl({
   src: [pdaOpen],
+});
+const transitionWriting = new Howl({
+  src: [typewriter],
+  loop: true,
 });
 
 export interface GameProps {
@@ -126,6 +131,29 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
 
     return () => {};
   }, [settings.settings.musicEnabled, settings.settings.musicVolume]);
+
+  useEffect(() => {
+    if (
+      textLoading &&
+      settings.settings.soundEffectsEnabled &&
+      gameState.currentScene?.isTransition
+    ) {
+      transitionWriting.volume(settings.settings.musicVolume / 100);
+      transitionWriting.play();
+      return () => {
+        transitionWriting.stop();
+      };
+    } else {
+      transitionWriting.stop();
+    }
+
+    return () => {};
+  }, [
+    textLoading,
+    settings.settings.soundEffectsEnabled,
+    settings.settings.soundEffectsVolume,
+    gameState.currentScene?.isTransition,
+  ]);
 
   const globalCSS = (
     <Global

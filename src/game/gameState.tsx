@@ -171,7 +171,18 @@ const generateCurrentScene = (
     variables.current_quiz.toString() !== 'none' &&
     previousState
   ) {
-    return previousState;
+    const currentScene: SceneState = {
+      ...previousState,
+    };
+
+    if (variables.current_music) {
+      currentScene.bgm =
+        variables.current_music.toString() === 'none'
+          ? undefined
+          : variables.current_music;
+    }
+
+    return currentScene;
   }
 
   const tags = story.state.currentTags;
@@ -406,13 +417,13 @@ export const useGame = (
     const knot = new URLSearchParams(location.search).get('noeud');
     if (knot && story.ContentAtPath(new Path(knot))) {
       story.ChoosePathString(knot);
-      setState({
+      setState(state => ({
         ...state,
         pda: {
           ...state.pda,
           enabled: true,
         },
-      });
+      }));
     }
   }, [location?.search]);
 
