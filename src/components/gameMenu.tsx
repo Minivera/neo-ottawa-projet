@@ -161,6 +161,7 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
               padding: 0.6rem 1.2rem;
               font-family: Arial, Helvetica, sans-serif;
               margin-left: 2rem;
+              height: 3rem;
 
               &:after {
                 right: -3rem;

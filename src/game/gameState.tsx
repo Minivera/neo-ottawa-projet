@@ -97,88 +97,36 @@ const isPDAActivated = (story: Story) =>
 const generatePDAState = (previousState: PDA, story: Story): PDA => {
   const variables = story.variablesState as unknown as GameVariables;
 
-  const state = {
+  const state: PDA = {
     ...previousState,
     enabled: isPDAActivated(story),
+    contacts: [],
+    documents: [],
   };
 
-  // Check the recently added contact variable for the most recently added contact
-  if (
-    variables.last_added_contact &&
-    typeof variables.last_added_contact !== 'boolean'
-  ) {
-    const item = JSON.parse(
-      variables.last_added_contact.entries().next().value[0]
-    ) as InkListItem;
+  // Refresh the contacts based on the contacts in the ink
+  variables.known_contacts.orderedItems.forEach(entry => {
+    const item = entry.Key;
     const contactName = item.itemName as keyof typeof contacts;
 
     const contact = contacts[contactName];
 
-    if (
-      contact &&
-      !previousState.contacts.find(el => el.characterId === contactName)
-    ) {
+    if (contact) {
       state.contacts.push(contact);
     }
-  }
+  });
 
-  // In case we still have more or less contacts than already saved in the state. It probably
-  // means we're loading something, we have to remove contacts, or the state got messy. Refresh.
-  if (variables.known_contacts.Count !== state.contacts.length) {
-    state.contacts = [];
-
-    variables.known_contacts.orderedItems.forEach(entry => {
-      const item = entry.Key;
-      const contactName = item.itemName as keyof typeof contacts;
-
-      const contact = contacts[contactName];
-
-      if (
-        contact &&
-        !previousState.contacts.find(el => el.characterId === contactName)
-      ) {
-        state.contacts.push(contact);
-      }
-    });
-  }
-
-  // Do the same for the documents
-  if (
-    variables.last_added_document &&
-    typeof variables.last_added_document !== 'boolean'
-  ) {
-    const item = JSON.parse(
-      variables.last_added_document.entries().next().value[0]
-    ) as InkListItem;
+  // Refresh the documents based on the documents in the ink
+  variables.known_documents.orderedItems.forEach(entry => {
+    const item = entry.Key;
     const documentName = item.itemName as keyof typeof documents;
 
     const document = documents[documentName];
 
-    if (
-      document &&
-      !previousState.documents.find(el => el.documentId === documentName)
-    ) {
+    if (document) {
       state.documents.push(document);
     }
-  }
-
-  // In case we still have more documents than already saved in the state. It probably
-  // means we're loading something or the state got messy. Refresh.
-  if (variables.known_documents.Count !== state.documents.length) {
-    variables.known_documents.orderedItems.forEach(entry => {
-      const item = entry.Key;
-      const documentName = item.itemName as keyof typeof documents;
-
-      const document = documents[documentName];
-
-      if (
-        document &&
-        !previousState.documents.find(el => el.documentId === documentName)
-      ) {
-        state.documents.push(document);
-      }
-    });
-  }
+  });
 
   // Do the same for the quizzes
   if (variables.current_quiz && variables.current_quiz.toString() !== 'none') {
@@ -240,9 +188,7 @@ const generateCurrentScene = (
     characterExpressions: previousState
       ? previousState.characterExpressions
       : {},
-    characterStates: previousState
-        ? previousState.characterStates
-        : {},
+    characterStates: previousState ? previousState.characterStates : {},
     characterAnimation: previousState ? previousState.characterAnimation : {},
   };
 
@@ -403,7 +349,8 @@ const generateQuizStep = (
     currentQuestion.feedback = '';
   } else if (tags.retroaction) {
     currentQuestion.feedback = text || '';
-    currentQuestion.perfectAnswer = currentQuestion.perfectAnswer && !tags.mauvaiseRetroaction;
+    currentQuestion.perfectAnswer =
+      currentQuestion.perfectAnswer && !tags.mauvaiseRetroaction;
   }
 
   if (story.currentChoices.length) {
@@ -456,17 +403,17 @@ export const useGame = (
   });
   const location = useMemo<Location>(() => window.location, []);
   useEffect(() => {
-      const knot = new URLSearchParams(location.search).get('noeud');
-      if (knot && story.ContentAtPath(new Path(knot))) {
-        story.ChoosePathString(knot);
-        setState({
-          ...state,
-          pda: {
-            ...state.pda,
-            enabled: true,
-          }
-        });
-      }
+    const knot = new URLSearchParams(location.search).get('noeud');
+    if (knot && story.ContentAtPath(new Path(knot))) {
+      story.ChoosePathString(knot);
+      setState({
+        ...state,
+        pda: {
+          ...state.pda,
+          enabled: true,
+        },
+      });
+    }
   }, [location?.search]);
 
   const images: string[] = [
@@ -476,7 +423,9 @@ export const useGame = (
     pdaBorderBotRight,
     pdaBorderTopLeft,
     ...Object.keys(backgrounds)
-      .filter(key => backgrounds[key as keyof typeof backgrounds].type === 'image')
+      .filter(
+        key => backgrounds[key as keyof typeof backgrounds].type === 'image'
+      )
       .map(key => backgrounds[key as keyof typeof backgrounds].asset)
       .flat(),
   ];
