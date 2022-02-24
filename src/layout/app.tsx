@@ -63,8 +63,8 @@ export const App: React.FunctionComponent = () => (
             <div>
               <h1>Erreur!</h1>
               <h2>
-                Une erreur à eu lieu dans le jeu, voici les détails à nous
-                tansmettre
+                Une erreur a eu lieu dans le jeu, voici les détails à nous
+                transmettre
               </h2>
               <pre>
                 {error.name}

@@ -14,7 +14,7 @@ export const loadingHelper =
       Object.keys(images).map(async key => {
         const getFilenameRegex = /(.+)\/(.+)$/;
         const cleanDotRegex = /\..+$/;
-        const getCharacterImagePage = /\.\.\/\.\.\/components\/([^.]*)/;
+        const getCharacterImagePage = /\.\.\/\.\.\/components\/__generated__\/characters([^.]*)/;
 
         const expressionName = key
           .replace(getFilenameRegex, '$2')
@@ -39,7 +39,7 @@ export const loadingHelper =
         const pathMatch = key.match(getCharacterImagePage);
         if (pathMatch) {
             const relativeFilePath = pathMatch[1];
-            character.imagePaths[expressionName] = `/src/assets/${relativeFilePath}.png`;
+            character.imagePaths[expressionName] = relativeFilePath;
         }
 
         const importFunc = images[key];

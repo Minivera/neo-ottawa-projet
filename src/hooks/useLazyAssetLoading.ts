@@ -40,11 +40,13 @@ export const useLazyAssetLoading = (): [boolean, number, number] => {
 
           // Load all the character images in addition to the normal images
           await Promise.all(
-            Object.values(character.imagePaths).map(path => {
-              const imagePath = new URL(path, import.meta.url);
-              return loadImage(imagePath.href, () => {
-                setLoadedCount(count => count + 1);
-              });
+            Object.values(character.imagePaths).map(async path => {
+              import(`../assets/__generated__/characters/${path}.png`).then(
+                async module =>
+                  loadImage(new URL(module.default, import.meta.url).href, () => {
+                    setLoadedCount(count => count + 1);
+                  })
+              );
             })
           );
         });

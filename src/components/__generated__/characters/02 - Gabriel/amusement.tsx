@@ -1,6 +1,6 @@
 import React, { ImgHTMLAttributes } from 'react';
 
-import image from '/src/assets/__generated__/characters/02 - Gabriel/amusement.png';
+import image from '../../../../assets/__generated__/characters/02 - Gabriel/amusement.png';
 
 export const CharacterImage: React.FunctionComponent<
   ImgHTMLAttributes<HTMLImageElement>

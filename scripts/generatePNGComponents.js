@@ -8,11 +8,13 @@ const { listSvgFiles, writeFile } = require('./utils');
 const directory = './src/assets/characters';
 const generatedDirectory = './src/assets/__generated__/characters';
 const componentsDirectory = './src/components/__generated__/characters';
-const relativeImageDirectory = '/src/assets/__generated__/characters';
 const countPerBatch = 20;
 
 const convertToPNG = async (source, destination) =>
-  sharp(source, { density: 800 }).resize({ height: 1080 }).png().toFile(destination);
+  sharp(source, { density: 600 })
+    .resize({ height: 1080 })
+    .png()
+    .toFile(destination);
 
 const start = async () => {
   const files = listSvgFiles(directory);
@@ -38,11 +40,7 @@ const start = async () => {
           ext: '.tsx',
         });
         const relativeImageFilePath = path
-          .format({
-            ...path.parse(path.join(relativeImageDirectory, file)),
-            base: undefined,
-            ext: '.png',
-          })
+          .relative(path.dirname(componentFilePath), imageFilePath)
           .replace(/é/g, 'e')
           .replace(/è/g, 'e');
 

@@ -68,6 +68,7 @@ export const knownExpressions = {
     "omg",
     "satisfaction",
     "sterness",
+    "suprise",
     "surprise",
     "wtf"
   ],
