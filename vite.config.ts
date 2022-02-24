@@ -8,7 +8,7 @@ import viteImagemin from 'vite-plugin-imagemin';
 import reactSvgPlugin from 'vite-plugin-react-svg';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/neo-ottawa-projet/' : '',
+  base: process.env.DEPLOY_ENV === 'gh_pages' ? '/neo-ottawa-projet/' : '',
   plugins: [
     reactRefresh({
       exclude: /__generated__/,

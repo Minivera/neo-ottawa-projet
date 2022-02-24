@@ -7,6 +7,9 @@ const characterModules = import.meta.glob<
   Character,
   { load: () => Promise<void> }
 >('../data/characters/*.ts');
+const characterImages = import.meta.glob<string>(
+  '../assets/__generated__/characters/**/*.png'
+);
 
 export const useLazyAssetLoading = (): [boolean, number, number] => {
   const [loadingCount, setLoadingCount] = useState<number>(0);
@@ -41,12 +44,16 @@ export const useLazyAssetLoading = (): [boolean, number, number] => {
           // Load all the character images in addition to the normal images
           await Promise.all(
             Object.values(character.imagePaths).map(async path => {
-              import(`../assets/__generated__/characters/${path}.png`).then(
-                async module =>
-                  loadImage(new URL(module.default, import.meta.url).href, () => {
-                    setLoadedCount(count => count + 1);
-                  })
+              const imageModule = Object.entries(characterImages).find(
+                ([key]) => key.includes(path)
               );
+
+              if (imageModule) {
+                const imagePath = (await imageModule[1]()).default;
+                await loadImage(imagePath, () => {
+                  setLoadedCount(count => count + 1);
+                });
+              }
             })
           );
         });

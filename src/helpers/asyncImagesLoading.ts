@@ -14,13 +14,16 @@ export const loadingHelper =
       Object.keys(images).map(async key => {
         const getFilenameRegex = /(.+)\/(.+)$/;
         const cleanDotRegex = /\..+$/;
-        const getCharacterImagePage = /\.\.\/\.\.\/components\/__generated__\/characters([^.]*)/;
+        const getCharacterImagePage =
+          /\.\.\/\.\.\/components\/__generated__\/characters([^.]*)/;
 
         const expressionName = key
           .replace(getFilenameRegex, '$2')
           .replace(cleanDotRegex, '');
 
-        const convertedExpressions = knownExpressions as {[s: string]: string[]};
+        const convertedExpressions = knownExpressions as {
+          [s: string]: string[];
+        };
 
         if (
           expressionName !== 'neutral' &&
@@ -31,15 +34,17 @@ export const loadingHelper =
           return;
         }
 
-        if (expressionName !== 'neutral' && !convertedExpressions[character.id]) {
+        if (
+          expressionName !== 'neutral' &&
+          !convertedExpressions[character.id]
+        ) {
           // Ignore any character that are not known to have any expression
           return;
         }
 
         const pathMatch = key.match(getCharacterImagePage);
         if (pathMatch) {
-            const relativeFilePath = pathMatch[1];
-            character.imagePaths[expressionName] = relativeFilePath;
+          character.imagePaths[expressionName] = pathMatch[1];
         }
 
         const importFunc = images[key];

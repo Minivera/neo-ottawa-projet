@@ -11,6 +11,7 @@
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
     "predeploy": "rm -rf dist && npm run build",
     "deploy": "NODE_ENV=production sh scripts/deploy.sh",
+    "deploy:gh_pages": "NODE_ENV=production DEPLOY_ENV=gh_pages sh scripts/deploy.sh",
     "generate:assets": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generatePNGComponents.js",
     "generate:assets:svg": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generateSVGComponents.js",
     "clean:expressions": "git clean -f src/components/__generated__/characters"
@@ -75,6 +76,7 @@
     "react-portal": "^4.2.1",
     "react-responsive": "^9.0.0-beta.5",
     "react-transition-group": "^4.4.2",
+    "serve": "^13.0.2",
     "styled-tools": "^1.7.2",
     "throttle-debounce": "^3.0.1"
   }

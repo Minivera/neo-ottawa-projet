@@ -11,7 +11,7 @@ const componentsDirectory = './src/components/__generated__/characters';
 const countPerBatch = 20;
 
 const convertToPNG = async (source, destination) =>
-  sharp(source, { density: 600 })
+  sharp(source, { density: 300 })
     .resize({ height: 1080 })
     .png()
     .toFile(destination);
