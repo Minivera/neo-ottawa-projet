@@ -3,39 +3,35 @@ import React, {
   FunctionComponent,
   useState,
   useContext,
+  ReactElement,
 } from 'react';
-import { loadImage } from '../helpers/loadImage';
 
 export interface CharacterImagesContextType {
-  imagesToLoad: number;
-  imagesLoaded: number;
-  loadImage: (image: string) => void;
+  images: Record<string, HTMLImageElement>;
+  loadImage: (image: string, element: HTMLImageElement) => void;
 }
 
 const CharacterImagesContext = createContext<CharacterImagesContextType>({
-  imagesLoaded: 0,
-  imagesToLoad: 0,
+  images: {},
   loadImage: () => {},
 });
 
-export const CharacterImageLoadingProvider: FunctionComponent = ({
-  children,
-}) => {
-  const [toLoad, setToLoad] = useState<number>(0);
-  const [loaded, setLoaded] = useState<number>(0);
+export const CharacterImageProvider: FunctionComponent = ({ children }) => {
+  const [imageRefs, setImageRef] = useState<Record<string, HTMLImageElement>>(
+    {}
+  );
 
-  const handleLoadImage = (image: string) => {
-    setToLoad(toLoad => toLoad + 1);
-    loadImage(image, () => {
-      setLoaded(loaded => loaded + 1);
-    });
+  const handleLoadImage = (image: string, element: HTMLImageElement) => {
+    setImageRef(imageRefs => ({
+      ...imageRefs,
+      [image]: element,
+    }));
   };
 
   return (
     <CharacterImagesContext.Provider
       value={{
-        imagesLoaded: loaded,
-        imagesToLoad: toLoad,
+        images: imageRefs,
         loadImage: handleLoadImage,
       }}
     >
@@ -44,17 +40,21 @@ export const CharacterImageLoadingProvider: FunctionComponent = ({
   );
 };
 
-export const useCharacterImagesLoading = (): [boolean, number, number] => {
+export const useCharacterImage = (imagePath: string): ReactElement | null => {
   const values = useContext(CharacterImagesContext);
 
-  return [
-    values.imagesToLoad === values.imagesLoaded,
-    values.imagesLoaded,
-    values.imagesToLoad,
-  ];
+  const imageElement = values.images[imagePath];
+  if (!imageElement) {
+    return null;
+  }
+
+  return <img src={imageElement.src} alt={imageElement.alt} />;
 };
 
-export const useLoadCharacterImage = (): ((image: string) => void) => {
+export const useLoadCharacterImage = (): ((
+  image: string,
+  imageElement: HTMLImageElement
+) => void) => {
   const values = useContext(CharacterImagesContext);
 
   return values.loadImage;

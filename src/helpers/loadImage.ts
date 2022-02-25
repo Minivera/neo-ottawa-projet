@@ -1,7 +1,7 @@
 // Keep this in memory to prevent the window from dumping the images we preloaded
 const imageReferences: Record<string, HTMLImageElement> = {};
 
-export const loadImage = async (path: string, onComplete: () => void): Promise<void> => {
+export const loadImage = async (path: string, onComplete: (element: HTMLImageElement) => void): Promise<void> => {
     const image = new Image();
     image.src = path;
     imageReferences[path] = image;
@@ -10,7 +10,7 @@ export const loadImage = async (path: string, onComplete: () => void): Promise<v
 
     const finalize = (resolve: () => void) => {
         if (image.complete) {
-            onComplete();
+            onComplete(image);
             resolve();
             return;
         }

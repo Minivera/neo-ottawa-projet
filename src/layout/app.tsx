@@ -15,6 +15,7 @@ import storyContent from '../../data/story.json?raw';
 
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import 'animate.css';
+import { CharacterImageProvider } from '../hooks/useCharacterImageLoading';
 
 const Container = styled.main`
   background-color: ${polishedTheme('colors.black')};
@@ -82,7 +83,9 @@ export const App: React.FunctionComponent = () => (
           </div>
         )}
       >
-        <Game storyContent={storyContent} />
+        <CharacterImageProvider>
+          <Game storyContent={storyContent} />
+        </CharacterImageProvider>
       </ErrorBoundary>
     </Container>
   </ThemeProvider>

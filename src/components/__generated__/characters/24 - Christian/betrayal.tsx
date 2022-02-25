@@ -1,0 +1,10 @@
+import React, { ImgHTMLAttributes } from 'react';
+
+import image from '../../../../assets/__generated__/characters/24 - Christian/betrayal.png';
+
+export const CharacterImage: React.FunctionComponent<
+  ImgHTMLAttributes<HTMLImageElement>
+> = props => <img {...props} src={image} alt="betrayal" />;
+
+export default CharacterImage;
+        
