@@ -164,7 +164,7 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
               height: 3rem;
 
               &:after {
-                right: -3rem;
+                right: -3.1rem;
                 position: absolute;
                 content: ' ';
                 width: 0;
