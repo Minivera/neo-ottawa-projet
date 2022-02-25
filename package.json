@@ -9,9 +9,8 @@
     "preview": "vite preview",
     "dev": "vite --port 4002",
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
-    "predeploy": "rm -rf dist && npm run build",
-    "deploy": "NODE_ENV=production sh scripts/deploy.sh",
-    "deploy:gh_pages": "NODE_ENV=production DEPLOY_ENV=gh_pages rm -rf dist && npm run build && sh scripts/deploy.sh",
+    "predeploy": "rm -rf dist && DEPLOY_ENV=gh_pages npm run build",
+    "deploy": "sh scripts/deploy.sh",
     "generate:assets": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generatePNGComponents.js",
     "generate:assets:svg": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generateSVGComponents.js",
     "clean:expressions": "git clean -f src/components/__generated__/characters"

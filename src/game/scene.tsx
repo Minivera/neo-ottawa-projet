@@ -153,9 +153,7 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
   return (
     <SceneContainer
       background={
-        state.background?.type === 'image' && !state.isTransition
-          ? state.background.asset
-          : undefined
+        state.background?.type === 'image' ? state.background.asset : undefined
       }
       centerRow={!portraits}
       onClick={handleClickContinue}
@@ -195,7 +193,11 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
           )}
         </DialogBox>
       ) : (
-        <DialogBox center={!portraits} transition={state.isTransition} characterTheme={characterTheme}>
+        <DialogBox
+          center={!portraits}
+          transition={state.isTransition}
+          characterTheme={characterTheme}
+        >
           {state.dialogName && !state.isTransition && (
             <DialogTitle characterTheme={characterTheme}>
               <h1>{state.dialogName}</h1>

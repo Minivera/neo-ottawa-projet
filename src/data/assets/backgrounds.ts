@@ -28,11 +28,20 @@ import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&
 import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1080';
 import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1080';
 import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation.jpg?w=1920&h=1080';
-import transition from '../../assets/backgrounds/transition.png?w=1920&h=1080';
 import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=1080';
 import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
 import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
 import appartementChristopher from '../../assets/backgrounds/apparement_christopher.jpg?w=1920&h=1080';
+
+// Transitions
+import transition1 from '../../assets/backgrounds/transition_1.jpg?w=1920&h=1080';
+import transition2 from '../../assets/backgrounds/transition_2.jpg?w=1920&h=1080';
+import transition3 from '../../assets/backgrounds/transition_3.jpg?w=1920&h=1080';
+import transition4 from '../../assets/backgrounds/transition_4.jpg?w=1920&h=1080';
+import transition5 from '../../assets/backgrounds/transition_5.jpg?w=1920&h=1080';
+import transition6 from '../../assets/backgrounds/transition_6.jpg?w=1920&h=1080';
+import transition7 from '../../assets/backgrounds/transition_7.jpg?w=1920&h=1080';
+import transition8 from '../../assets/backgrounds/transition_8.jpg?w=1920&h=1080';
 
 // Fins
 import newsRoom1 from '../../assets/backgrounds/news_room_1.jpg?w=1920&h=1080';
@@ -83,11 +92,19 @@ export const backgrounds = {
   centre_rehabilitation_couloir: { type: 'image', asset: centreRehabilitationCouloir },
   centre_rehabilitation_autre_piece: { type: 'image', asset: centreRehabilitationAutrePiece },
   maison_fred: { type: 'image', asset: maisonFred },
-  transition: { type: 'image', asset: transition },
   maison_jonathan: { type: 'image', asset: maisonJonathan },
   ecran_ordinateur_fred: { type: 'image', asset: ordinateurFred },
   coin_flemming_arch: { type: 'image', asset: coinFlemmingArch },
   appartement_christopher: { type: 'image', asset: appartementChristopher },
+  // Transitions
+  transition_1: { type: 'image', asset: transition1 },
+  transition_2: { type: 'image', asset: transition2 },
+  transition_3: { type: 'image', asset: transition3 },
+  transition_4: { type: 'image', asset: transition4 },
+  transition_5: { type: 'image', asset: transition5 },
+  transition_6: { type: 'image', asset: transition6 },
+  transition_7: { type: 'image', asset: transition7 },
+  transition_8: { type: 'image', asset: transition8 },
   // Fins
   news_room: { type: 'image', asset: newsRoom1 },
   news_room_1: { type: 'image', asset: newsRoom1 },
