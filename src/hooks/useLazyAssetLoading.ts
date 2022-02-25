@@ -47,7 +47,7 @@ export const useLazyAssetLoading = (): [boolean, number, number] => {
           await Promise.all(
             Object.values(character.imagePaths).map(async path => {
               const imageModule = Object.entries(characterImages).find(
-                ([key]) => key.includes(path)
+                ([key]) => key.toLowerCase().includes(path.toLowerCase())
               );
 
               if (imageModule) {

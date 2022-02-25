@@ -4,7 +4,7 @@ import { Character } from '../../game/character';
 import { loadingHelper } from '../../helpers/asyncImagesLoading';
 
 const expressionImages = import.meta.glob<FunctionComponent>(
-  '../../components/__generated__/characters/03 - Chef Miller/No Cigar/*.tsx'
+  '../../components/__generated__/characters/03 - Chef Miller/No cigar/*.tsx'
 );
 
 export const ChefMillerNoCigar: Character = {
