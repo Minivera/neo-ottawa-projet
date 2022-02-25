@@ -60,4 +60,5 @@ interface ImportMeta {
   globEager<T, E extends Record<string, unknown> = Record<string, unknown>>(
       path: string
   ): Record<string, { default: T } & E>;
+  env: Record<string, unknown>
 }
