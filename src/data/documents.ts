@@ -64,12 +64,11 @@ export const documents: Record<documentsNames, Document> = {
     description: 'document-description-liste-anciens-employes',
     path: `${import.meta.env.BASE_URL}documents/liste-anciens-employes.pdf`,
   },
-  // FIXME: MISSING
   POCHETTES_JEUX: {
     documentId: 'POCHETTES_JEUX',
     name: 'document-name-pochettes-jeux',
     description: 'document-description-pochettes-jeux',
-    path: `${import.meta.env.BASE_URL}documents/liste-anciens-employes.pdf`,
+    path: `${import.meta.env.BASE_URL}documents/pochette-jeux.pdf`,
   },
   GAME_STOP_RESPECT_RATINGS: {
     documentId: 'GAME_STOP_RESPECT_RATINGS',
