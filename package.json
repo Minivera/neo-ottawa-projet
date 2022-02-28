@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "dev": "vite --port 4002",
     "lint": "eslint src/ --ext .tsx,.ts,.jsx,.js",
-    "predeploy": "rm -rf dist && DEPLOY_ENV=gh_pages npm run build",
+    "predeploy": "rm -rf dist && npm run build",
     "deploy": "sh scripts/deploy.sh",
     "generate:assets": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generatePNGComponents.js",
     "generate:assets:svg": "node ./scripts/generateLoadedExpressions.js && node ./scripts/generateSVGComponents.js",
