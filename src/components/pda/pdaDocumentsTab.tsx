@@ -23,6 +23,8 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
   <div
     css={css`
       padding: 0 10rem;
+      display: flex;
+      width: 100%;
 
       @media only screen and (max-width: 480px) {
         padding: 0 1rem;
@@ -33,6 +35,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
       css={css`
         display: flex;
         flex-direction: column;
+        flex: 1;
       `}
     >
       <PDATitle>
@@ -45,6 +48,7 @@ export const PDADocumentsTab: React.FunctionComponent<PDADocumentsTabProps> = ({
             margin: 0;
             padding: 0;
             overflow-y: auto;
+            flex: 1;
           `}
         >
           {pdaState.documents.map(document => (

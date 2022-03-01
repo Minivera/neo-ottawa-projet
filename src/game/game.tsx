@@ -67,6 +67,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
   const [savingOpened, setSavingOpened] = useState<boolean | undefined>();
   const [pdaOpened, setPDAOpened] = useState<boolean | undefined>();
   const [selectedPDATab, setSelectedPDATab] = useState<PDATab>(PDATab.HOME);
+  const [choiceClicked, setChoiceClicked] = useState<boolean | undefined>();
   const lastContinueDate = useRef<Date>(new Date());
   const [loading, percentLoaded, story, gameState, dispatch] = useGame(
     settings.settings,
@@ -83,6 +84,13 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
   useEffect(() => {
     return () => debouncedHover.cancel();
   }, []);
+
+  // reset the choice clicked on a scene changed
+  useEffect(() => {
+    if (choiceClicked) {
+      setChoiceClicked(false);
+    }
+  }, [gameState.currentScene]);
 
   const handlePlaySoundEffect = (
     effect: 'pdaOpen' | 'pdaClose' | 'pdaTabChange' | 'click' | 'hover'
@@ -315,14 +323,12 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       };
 
       const onChoiceSelected = (choice: Choice) => {
-        const now = new Date();
-        // Wait for a long-ish time to avoid double click
-        if (now.getTime() - lastContinueDate.current.getTime() < 800) {
+        if (choiceClicked) {
           return;
         }
 
         handlePlaySoundEffect('click');
-        lastContinueDate.current = now;
+        setChoiceClicked(true);
         dispatch({ type: 'continue', choiceId: choice.id });
       };
 

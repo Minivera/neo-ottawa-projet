@@ -4,11 +4,11 @@ import { Character } from '../../game/character';
 import { loadingHelper } from '../../helpers/asyncImagesLoading';
 
 const expressionImages = import.meta.glob<FunctionComponent>(
-  '../../components/__generated__/characters/18 - Carl White/no cigarette/*.tsx'
+  '../../components/__generated__/characters/18 - Carl White/with cigarette/*.tsx'
 );
 
-export const CarlWhiteNoCigarette: Character = {
-  id: 'CARL_WHITE_NO_CIGARETTE',
+export const CarlWhiteWithCigarette: Character = {
+  id: 'CARL_WHITE_WITH_CIGARETTE',
   name: 'carl_white',
   images: {},
   imagePaths: {},
@@ -16,9 +16,9 @@ export const CarlWhiteNoCigarette: Character = {
 };
 
 export const load: () => Promise<void[]> = loadingHelper(
-  CarlWhiteNoCigarette,
+  CarlWhiteWithCigarette,
   expressionImages,
-  (key, value) => (CarlWhiteNoCigarette.images[key] = value)
+  (key, value) => (CarlWhiteWithCigarette.images[key] = value)
 );
 
-export default CarlWhiteNoCigarette;
+export default CarlWhiteWithCigarette;

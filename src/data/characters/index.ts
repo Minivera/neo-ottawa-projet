@@ -19,7 +19,7 @@ import { Receptioniste } from './receptioniste';
 import { RobertPower } from './robertPower';
 import { OliviaPaul } from './oliviaPaul';
 import { CarlWhite } from './carlWhite';
-import { CarlWhiteNoCigarette } from './carlWhiteNoCigarette';
+import { CarlWhiteWithCigarette } from './carlWhiteWithCigarette';
 import { MereLeighKane } from './mereLeighKane';
 import { PereLeighKane } from './pereLeighKane';
 import { Al } from './al';
@@ -60,7 +60,7 @@ export {
   RobertPower,
   OliviaPaul,
   CarlWhite,
-  CarlWhiteNoCigarette,
+  CarlWhiteWithCigarette,
   MereLeighKane,
   PereLeighKane,
   Al,
@@ -102,7 +102,7 @@ export const Characters = {
   [RobertPower.id]: RobertPower,
   [OliviaPaul.id]: OliviaPaul,
   [CarlWhite.id]: CarlWhite,
-  [CarlWhiteNoCigarette.id]: CarlWhiteNoCigarette,
+  [CarlWhiteWithCigarette.id]: CarlWhiteWithCigarette,
   [MereLeighKane.id]: MereLeighKane,
   [PereLeighKane.id]: PereLeighKane,
   [Al.id]: Al,

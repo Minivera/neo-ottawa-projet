@@ -8,8 +8,8 @@ Chapitre 6 - Le sens des responsabilités
 ~jouer_musique(theme_general)
 ~afficher_personnage(JOHN_RANDLE, "slideInLeft")
 ~afficher_personnage(BONNIE_RANDLE_V2, "slideInRight")
-
-John: Si ma sœur m’avait parlé de ça plus en détail et plus tôt, je lui aurais conseillé de ne pas vous faire confiance. # character=JOHN_RANDLE expression=sterness
+<b>Fred</b> rencontre <b>John</b> et <b>Bonnie</b> au Art House Café.
+John: Si ma soeur m’avait parlé de ça plus en détail et plus tôt, je lui aurais conseillé de ne pas vous faire confiance. # character=JOHN_RANDLE expression=sterness
 
 Fred: Alors, je m’estime chanceuse qu’elle ne l’ait pas fait. # character=FRED_GALLANT invisible
 
@@ -177,7 +177,7 @@ Christopher: Rabat-joie! # character=CHRISTOPHER_YOUNG expression=sterness
 -> quiz_6_1
 
 =quiz_6_1
-~ demarrer_quiz(QUIZ_6_1, 4)
+~ demarrer_quiz(QUIZ_6_1, 3)
 ~jouer_musique(theme_quiz)
 ~afficher_document(SPORT_ELECTRONIQUE)
 //Description du document : On dirait bien que par le passé, le marché des sports électroniques était très important. Je devrais essayer d’en retenir les éléments principaux si je suis amené à travailler pour la résistance dans ce domaine. <br/> Alors il y avait des joueurs professionnels de jeux vidéo… Voyons voir quel était leur rythme de vie et leur quotidien dans la pratique des sports électroniques.
@@ -209,20 +209,9 @@ Selon les archives, les premières compétitions de sport électronique majeures
 +  (6_1_3_a) [{6_1_3_a: VISITE--}Vrai] Vrai
 +  (6_1_3_b) [BON--{6_1_3_b: VISITE--}Faux] Faux
  Bien au contraire, les compétitions de sports électroniques étaient très populaires à travers le monde. Les chiffres ont régulièrement augmenté d’année en année et ont même atteint plusieurs millions de spectateurs. # retroaction
--> quiz_6_1_question_4
+-> quiz_6_1_fin
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_6_1_question_3
-
-= quiz_6_1_question_4
-4- Quels étaient les 3 marchés les plus importants en matière de sport électronique? # question index=4
-+   (6_1_4_a) [{6_1_4_a: VISITE--}L'Europe, l’Amérique du Nord et l’Amérique du Sud] L'Europe, l’Amérique du Nord et l’Amérique du Sud
-+   (6_1_4_b) [{6_1_4_b: VISITE--}L’Amérique du Nord, l’Amérique du Sud et l’Asie] L’Amérique du Nord, l’Amérique du Sud et l’Asie
-+   (6_1_4_c) [BON--{6_1_4_c: VISITE--}L'Asie, l’Europe et l’Amérique du Nord] L'Asie, l’Europe et l’Amérique du Nord
-Selon les archives, les trois plus grands marchés étaient l’Asie, l’Europe et l’Amérique du Nord. C’est là où l’on trouvait les plus grandes compétitions, les meilleurs joueurs et le public le plus nombreux. # retroaction
--> quiz_6_1_fin
-+   (6_1_4_d) [{6_1_4_d: VISITE--}L'Asie, l’Amérique du Nord et l’Amérique du Sud] L'Asie, l’Amérique du Nord et l’Amérique du Sud
-- ~ generer_mauvaise_reponse_retroaction()
--> quiz_6_1_question_4
 
 = quiz_6_1_fin
 ~terminer_quiz()
@@ -236,7 +225,7 @@ Selon les archives, les trois plus grands marchés étaient l’Asie, l’Europe
 ~afficher_personnage(ANDREA, "slideInUp")
 ~afficher_personnage(JEN, "slideInUp")
 
-<b>Fred</b> rencontre de potentiels joueurs d’esport : <b>TREVOR</b>, <b>BRAD</b>, <b>ANDREA</b> et <b>JEN</b>.
+<b>Fred</b> rencontre de potentiels joueurs d’esport; <b>TREVOR</b>, <b>BRAD</b>, <b>ANDREA</b> et <b>JEN</b>.
 
 Fred: Merci beaucoup d’être venus. Je suis très heureuse de faire votre connaissance. # character=FRED_GALLANT invisible
 
@@ -264,6 +253,7 @@ Brad: Ne nous insulte pas! # character=BRAD expression=wtf
 
 Trevor: Qui es-tu d’abord? Pourquoi ils nous ont envoyé quelqu’un qui ne sait pas de quoi il parle? # character=TREVOR expression=disdain
 ~jouer_musique(theme_choix_cruciaux)
+<b>Fred</b> doit réagir.
 
 * <b>Fred</b> tente de sauver la situation tant bien que mal.
 ~points_fin_B1 += 4
@@ -358,7 +348,7 @@ Fred, à elle même: Ce dernier a fait une importante dépression et c’est pen
 
 Fred, à elle même: Il y a encore les documents saisis à l’époque dans le dossier. # character=FRED_GALLANT invisible
 ~ajouter_document(PRATIQUE_SPORT_ELECTRONIQUE)
-Il semble que les informations sur l’esport ne soient pas aussi roses que celles partagées par les passionnés… Allons explorer tout ça.
+Fred, à elle même: Il semble que les informations sur l’esport ne soient pas aussi roses que celles partagées par les passionnés… Allons explorer tout ça. # character=FRED_GALLANT invisible
 -> quiz_6_2
 
 = quiz_6_2
@@ -548,7 +538,7 @@ Fred: Il faut réécrire en partie le contrat et rééquilibrer les relations en
 
 Christopher: Merci pour ta vigilance et tes conseils Fred, je remets l’équipe là-dessus immédiatement. # character=CHRISTOPHER_YOUNG expression=satisfaction
 - ~cacher_tout_personnages()
- ~afficher_fond(maison_fred)
+ ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_choix_cruciaux)
 
 * <b>Fred</b> envoie des messages textes au chef <b>Miller</b> pour le mettre au courant de la tentative de la résistance de remettre des équipes d’esport sur la carte. 
@@ -591,7 +581,7 @@ Chef Miller: Sont-ils liés au 530? # character=CHEF_MILLER expression=wonder
 Fred: Non. Ce sont de nouvelles pistes. # character=FRED_GALLANT invisible
 
 Chef Miller: Bon boulot, Gallant. # character=CHEF_MILLER expression=satisfaction
-
+~cacher_tout_personnages()
 - ~afficher_fond(news_room_chapitre_6)
 ~jouer_musique(theme_news)
 -> chapitre_7.scene_1

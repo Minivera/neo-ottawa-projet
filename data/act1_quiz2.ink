@@ -13,7 +13,7 @@
 
 +   (1_a) [{1_a: VISITE--}Electronic Software Rating Board] Electronic Software Rating Board
 +   (1_b) [BON--{1_b: VISITE--}Entertainment Software Rating Board] Entertainment Software Rating Board
-    Correct # retroaction
+    Bonne réponse # retroaction
   -> question_2
 +   (1_c) [{1_c: VISITE--}Entertainment Software Rating Business] Entertainment Software Rating Business
 +   (1_d) [{1_d: VISITE--}Aucune de ces propositions] Aucune de ces propositions.

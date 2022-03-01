@@ -605,7 +605,7 @@ Fred: Êtes-vous retenu ici? # character=FRED_GALLANT invisible
 
 Al: Vous me prenez pour qui? J’ai été traité comme un être humain par les thérapeutes fédéraux. Je ne me plains de rien. Les jeux vidéo étaient un fléau, il ne faut pas l’oublier. On m’a rendu ma dignité, on m’a redonné de l’espoir. # character=AL expression=melancholy
 
-Al: Bien que je sois toujours un pauvre type, j’ai eu de meilleures années. Ça fait 3 ans que je n’ai pas joué. Mais ce n’est pas ma plus longue période sans jeu. J’ai passé 24 ans sans jouer après l’arrivée de la loi. # character=AL expression=melancholy
+Al: Bien que je sois toujours un pauvre type, j’ai eu de meilleures années. Ça fait 3 ans que je n’ai pas joué. Mais ce n’est pas ma plus longue période sans jeu. J’ai passé 13 ans sans jouer après l’arrivée de la loi. # character=AL expression=melancholy
 
 Fred: Félicitations. # character=FRED_GALLANT invisible
 
@@ -779,7 +779,7 @@ Intervenant: À ma connaissance, les gouvernements sont restés trop longtemps l
 ~ demarrer_quiz(QUIZ_2_5, 4)
 ~afficher_document(GAME_PATENTS)
 ~jouer_musique(theme_quiz)
-// Description du document 3 : On dirait bien que les acteurs de l’industrie des jeux vidéo cherchaient des méthodes pour maximiser les revenus tirés de leur production...  (voir en particulier aux pp. 134-135 et 138 à 14).
+// Description du document 3 : On dirait bien que les acteurs de l’industrie des jeux vidéo cherchaient des méthodes pour maximiser les revenus tirés de leur production (voir en particulier aux pages 134-135 et 138 à 140). Et si ces méthodes de ventes avaient un impact sur la dépendance aux jeux vidéo? 
 -> quiz_2_5_question_1
 
 = quiz_2_5_question_1
@@ -787,7 +787,7 @@ Intervenant: À ma connaissance, les gouvernements sont restés trop longtemps l
 +   (2_5_1_a) [{2_5_1_a: VISITE--}Divulgation limitée des produits.] Divulgation limitée des produits.
 +   (2_5_1_b) [{2_5_1_b: VISITE--}La manipulation des prix des éléments en vente.] La manipulation des prix des éléments en vente. 
 +   (2_5_1_c) [BON--{2_5_1_c: VISITE--}L'exploitation des données des joueurs.] L'exploitation des données des joueurs.
-Plusieurs techniques étaient employées, mais selon l’article obtenu (p. 134-135), la plus utilisée était celle de l’exploitation des données des joueurs.Il semble donc que les joueurs étaient observés de près durant leurs sessions de jeu. # retroaction
+Plusieurs techniques étaient employées, mais selon l’article obtenu (voir les pages 134 et 135), la plus utilisée était celle de l’exploitation des données des joueurs.Il semble donc que les joueurs étaient observés de près durant leurs sessions de jeu. # retroaction
 -> quiz_2_5_question_2
 +   (2_5_1_d) [{2_5_1_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
@@ -796,7 +796,7 @@ Plusieurs techniques étaient employées, mais selon l’article obtenu (p. 134-
 = quiz_2_5_question_2
 2 – Maintenant que je connais la méthode la plus utilisée, je me demande quel était l’objectif principal des méthodes employées par les exploitants de jeux vidéo ? # question index=2
 +   (2_5_2_a) [BON--{2_5_2_a: VISITE--}Stimuler des achats répétés de la part des joueurs.] Stimuler des achats répétés de la part des joueurs.
-Les brevets analysés dans l’article visaient à stimuler des achats répétés de la part des joueurs (p. 138-189). Il s’agissait de faire en sorte de leur proposer les offres les plus adaptées à leur profil et à leur expérience de jeu. # retroaction
+Les brevets analysés dans l’article visaient à stimuler des achats répétés de la part des joueurs (voir les pages 138 et 139). Il s’agissait de faire en sorte de leur proposer les offres les plus adaptées à leur profil et à leur expérience de jeu. # retroaction
 -> quiz_2_5_question_3
 +   (2_5_2_b) [{2_5_2_b: VISITE--}Offrir la meilleure expérience de jeu possible aux joueurs. ] Offrir la meilleure expérience de jeu possible aux joueurs. 
 +   (2_5_2_c) [{2_5_2_c: VISITE--}Responsabiliser les joueurs.] Responsabiliser les joueurs.
@@ -807,7 +807,7 @@ Les brevets analysés dans l’article visaient à stimuler des achats répété
 = quiz_2_5_question_3
 3 - Mais alors, qu’est-ce qui différencie les mécanismes employés dans les jeux vidéo des mécanismes employés dans les jeux de hasard ? # question index=3
 +   (2_5_3_a) [BON--{2_5_3_a: VISITE--}La possibilité de modifier l’expérience de jeu en fonction du comportement du joueur ou d’une population de joueurs.] La possibilité de modifier l’expérience de jeu en fonction du comportement du joueur ou d’une population de joueurs. 
-Selon l’article que j’ai réussi à obtenir (p. 138), ce qui distingue les mécanismes identifiés dans les brevets et les mécanismes de jeux de hasard étaient : “the ability to modify the play experience based on individual player and/or population behavioral data”. Quels pouvaient être les effets de ces techniques ? # retroaction
+Selon l’article que j’ai réussi à obtenir (voir la page 138), ce qui distingue les mécanismes identifiés dans les brevets et les mécanismes de jeux de hasard étaient : “the ability to modify the play experience based on individual player and/or population behavioral data”. Quels pouvaient être les effets de ces techniques ? # retroaction
 -> quiz_2_5_question_4
 +   (2_5_3_b) [{2_5_3_b: VISITE--}Ils sont plus amusants.] Ils sont plus amusants.
 +   (2_5_3_c) [{2_5_3_c: VISITE--}Ils sont appréciés des joueurs.] Ils sont appréciés des joueurs. 
@@ -818,7 +818,7 @@ Selon l’article que j’ai réussi à obtenir (p. 138), ce qui distingue les m
 = quiz_2_5_question_4
 4 – Je comprends mieux ces méthodes maintenant… Mais quels pouvaient être les effets de ces techniques sur les joueurs ? Les techniques employées étaient-elles de nature à entraîner une forme de dépendance ? # question index=4
 *  (2_5_4_a) [BON--{2_5_4_a: VISITE--}Oui] Oui
- Selon l’article sur lequel j’ai mis la main, les systèmes identifiés peuvent entraîner une dépendance chez certains joueurs (p. 140). Fait intéressant pointé par les auteurs de l’article, l’OMS ne considérait pas les aspects financiers liés à la pratique des jeux vidéo comme un facteur permettant de diagnostiquer un trouble du jeu vidéo. # retroaction 
+ Selon l’article sur lequel j’ai mis la main, les systèmes identifiés peuvent entraîner une dépendance chez certains joueurs (voir la page 140). Fait intéressant pointé par les auteurs de l’article, l’OMS ne considérait pas les aspects financiers liés à la pratique des jeux vidéo comme un facteur permettant de diagnostiquer un trouble du jeu vidéo. # retroaction 
 -> quiz_2_5_fin
 *   (2_5_4_b) [{2_5_4_b: VISITE--}Non] Non
 - ~ generer_mauvaise_reponse_retroaction()
@@ -854,11 +854,10 @@ Chef Miller: Je m’attendais à plus de transparence de votre part, Gallant. Ma
 *<b>Fred</b> reste stoïque et ne dit rien au chef Miller.
  ~ points_fin_A2 += 4
  ~jouer_musique(theme_general)
-Fred: Chef, dites-moi ce qui se passe! # character=FRED_GALLANT invisible
-
-Chef Miller: Ah vous voulez jouer à ça! Et votre appel à la mère de Kane? Et votre petit voyage clandestin à l’Université de Waterloo? # character=CHEF_MILLER expression=anger
 
 Fred: Je ne comprends pas! # character=FRED_GALLANT invisible
+
+Chef Miller: Ah vous voulez jouer à ça! # character=CHEF_MILLER expression=disdain
 
 Chef Miller: Dans ce cas, Gallant, je vous retire l’enquête du 530 McLeod. Moore va s’en charger. Je veux un rapport demain matin sur mon bureau faisant état de vos progrès dans le dossier d’infiltration de la résistance. Et je vous conseille de ne rien oublier. # character=CHEF_MILLER expression=disdain
 
@@ -934,8 +933,6 @@ Christopher: T’inquiètes, je te taquine. Je ne force personne. # character=CH
 
 Fred: Alors à plus, je te fais signe bientôt. Dès que je suis débarrassée de ce rap…travail. # character=FRED_GALLANT invisible
 
-Christopher: Ouais. Écoute, je t’envoie des documents cryptés par courriel. Je n’arrive pas à les lire. Quelque chose les rend illisibles. Un code, une protection, je ne sais pas. Je ne m’y connais pas assez. Toi es-tu capable? # character=CHRISTOPHER_YOUNG expression=concern phone
-
 Christopher: Ouais. Écoute, on a mis la main sur des documents que le gouvernement gardait bien cachés… Ça donne une perspective différente du discours officiel. Peux-tu y jeter un coup d'œil et en faire l’analyse ? C’est sensible, alors reste discrète. # character=CHRISTOPHER_YOUNG expression=concern phone
 
 Fred: Bien sûr, envoie-les-moi. # character=FRED_GALLANT invisible
@@ -950,7 +947,7 @@ Fred: Bien sûr, envoie-les-moi. # character=FRED_GALLANT invisible
 ~afficher_document(REGLEMENTATION_LOOT_BOXES)
 ~jouer_musique(theme_quiz)
 
-// Description document 5 : On dirait que j’ai tout ce qu’il faut pour déterminer les États qui ont réagi au phénomène des loot boxes, mais aussi ceux qui n’ont rien fait. Allons y jeter un œil.
+// Description document 5 :  On dirait un document qui montre comment les États ont réagi au phénomène des loot boxes. Je vais essayer d’analyser tout ça pour Christopher.
 -> quiz_2_6_question_1
 
 = quiz_2_6_question_1

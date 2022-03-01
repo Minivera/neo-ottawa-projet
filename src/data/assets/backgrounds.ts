@@ -72,6 +72,7 @@ export const backgrounds = {
   porte_chef_miller: { type: 'image', asset: porteChefMiller },
   bureau_fred: { type: 'image', asset: bureauFred },
   ouverture_dossier_kane: { type: 'image', asset: ouvertureDossierKane },
+  bureau_fred_ordinateur_kane: { type: 'image', asset: ouvertureDossierKane },
   corridor_poste_police: { type: 'image', asset: corridorPostePolice },
   telephone_kane: { type: 'image', asset: telephone },
   chambre_leigh_kane: { type: 'image', asset: chambreLeighKane },

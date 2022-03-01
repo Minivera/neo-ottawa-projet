@@ -160,7 +160,7 @@ Fred: Restez naturelle, continuez vos habitudes, je vais parler à mon chef auss
 ~afficher_fond(siege_esrb)
 ~jouer_musique(theme_fred)
 ~afficher_personnage(RECEPTIONISTE, "slideInUp")
-Fred, <i>à un réceptionniste</i>: Bonjour, Fred Gallant, brigade anti-jeux vidéo. Est-il possible d’obtenir de l’information sur ce que signifient ces codes? # character=FRED_GALLANT invisible
+Fred, à un réceptionniste: Bonjour, Fred Gallant, brigade anti-jeux vidéo. Est-il possible d’obtenir de l’information sur ce que signifient ces codes? # character=FRED_GALLANT invisible
 Réceptionniste: L’ESRB n’a plus ce genre d’activité. #character=RECEPTIONISTE expression=neutral
 Fred: Mais y a-t-il un moyen d’avoir accès à de l’information d’avant la <i>Loi Game Over</i>? # character=FRED_GALLANT invisible
 Réceptionniste: Vous voulez fouiller dans les archives?  #character=RECEPTIONISTE expression=surprise
@@ -169,11 +169,9 @@ Réceptionniste: Il vous faut une permission spéciale. Avez-vous un mandat, que
 Fred: Non. Simple routine. Il faut que je vérifie certaines informations. # character=FRED_GALLANT invisible
 Réceptionniste: Laissez-moi m’informer.  #character=RECEPTIONISTE expression=neutral
 Le réceptionniste téléphone à un responsable.
-~jouer_effet_sonore(sonnerie_telephone)
 Réceptionniste: Oui, j’ai quelqu’un à la réception de la brigade anti-jeux vidéo pour consulter des archives d’avant la <i>Loi Game Over</i>. (pause) Votre nom déjà?  #character=RECEPTIONISTE expression=neutral
 Fred: Fred Gallant. # character=FRED_GALLANT invisible
 Réceptionniste: Fred Gallant. (pause) Hum hum. Je vois. Oui. Merci.  #character=RECEPTIONISTE expression=concern
-~jouer_effet_sonore(raccrocher_telephone)
 Réceptioniste: Je suis désolé, je ne pourrai pas vous donner l’accès, ce sont des informations qui sont classées secrètes et ça prend une autorisation. Vous pouvez remplir ce formulaire et vous aurez une réponse d’ici 15 jours ouvrables. Ça ne dépend pas de nous.  #character=RECEPTIONISTE expression=concern
 Fred, à elle-même: Je ne suis pas venu pour rien… Il faut que je fasse mes preuves le plus rapidement possible. Il doit bien y avoir un moyen de faire changer d’avis le réceptionniste. # character=FRED_GALLANT invisible
 *Fred tente de convaincre le réceptionniste en lui expliquant que sa carrière est en jeu et que son chef ne tolèrera pas l’échec.
@@ -189,10 +187,15 @@ Le réceptionniste coopère à contrecœur. Il ne s’agirait pas que Fred déco
 ~afficher_fond(siege_esrb_informatique)
 <b>Fred</b> est désormais dans la salle informatique de l’ESRB.
 ~afficher_fond(ecran_ordinateur_esrb)
-Choisissez le mot de passe pour accéder à l’ordinateur : #center
-Mot de passe oublié ? L’année où tout a changé. #center
-<b>Fred</b> tape à l'écran <b>2021</b>
-Code bon #center
+L'ordinateur est bloqué par un mot de passe.
+
+<b>Fred</b> clique sur "Mot de passe oublié".
+
+L'indice "L'année où tout a changé" apparaît à l'écran.
+
+<b>Fred</b>  tape "2021" à l'écran.
+
+Le message "Code bon" apparaît à l'écran. 
 ~jouer_effet_sonore(son_demarrage_ordinateur)
 ->act_1_quiz_2.quiz_2
 
@@ -316,8 +319,7 @@ Selon le témoignage, les évaluateurs n’avaient pas le temps de joueur à l�
  =scene_8
 ~afficher_fond(maison_carl_white)
 ~jouer_musique(theme_fred)
-<b>Fred</b> décide d’arriver à l’improviste chez <b>Carl White</b>.
-~jouer_effet_sonore(sonnette_futuriste)
+<b>Fred</b> décide d’arriver à l’improviste chez <b>Carl White</b>. Elle sonne et ce dernier la reçoit.
 ~afficher_personnage(CARL_WHITE, "fadeIn")
 Carl: Qui êtes-vous? #character=CARL_WHITE expression=surprise
 Fred: Fred Gallant, brigade anti-jeux vidéo. # character=FRED_GALLANT invisible
@@ -331,7 +333,7 @@ Carl: Les évaluations étaient faites en analysant le contenu du jeu! Que voule
 Fred: Oui, mais comment exactement? # character=FRED_GALLANT invisible
 Carl: Ne jouez pas au plus malin avec moi. Qu’est-ce que vous voulez savoir? Je suis un citoyen honnête, moi. Et je n’ai pas de temps à perdre même si je suis à la retraite.  #character=CARL_WHITE expression=anger
 Fred: Non, bien sûr. Écoutez, dites-moi simplement comment les jeux étaient évalués. Svp? # character=FRED_GALLANT invisible
-Carl: Je ne me rappelle plus.  #character=CARL_WHITE expression=sterness
+Carl: Je ne m'en rappelle plus.  #character=CARL_WHITE expression=sterness
 Fred: Les anciens évaluateurs sont introuvables Monsieur White. Vous ne vous rappelez rien? # character=FRED_GALLANT invisible
 Carl: Non...  #character=CARL_WHITE expression=neutral
 Fred: Bon d’accord, pardonnez-moi de vous avoir dérangé. # character=FRED_GALLANT invisible
@@ -354,9 +356,9 @@ Carl: De passer pour des joueurs ou d’anciens joueurs. Ou des enfants de joueu
 Fred: Bon. Je vous remercie Monsieur White. Je ne vous dérange pas plus longtemps. # character=FRED_GALLANT invisible
 Carl: Désolé pour le numéro de vieux grincheux. Je ne suis pas réellement pressé. Vous voulez entrer prendre un café? #character=CARL_WHITE expression=joy
 Fred: C’est gentil, mais je suis pressée. # character=FRED_GALLANT invisible
+~ajouter_document(RATING_PROCESS)
 Carl: D’accord, mais prenez ça avant de partir. C’est une relique du passé, ça pourrait vous être utile. #character=CARL_WHITE expression=amusement
 ~ajouter_contact(CARL_WHITE)
-~ajouter_document(RATING_PROCESS)
 ~cacher_tout_personnages()
 
 -> quiz_4
@@ -405,7 +407,6 @@ Dans le cas du jeu GTA, il est probable que l’éditeur ait été sanctionné p
 -> scene_9
 
 =scene_9
-TODO: [Transition - Image non définie encore]
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_commissariat)
 ~afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
@@ -465,7 +466,6 @@ Ronny: Oui, je suis d’accord. # character=RONNY expression=neutral
 Christopher: Fred, à toi l’honneur!# character=CHRISTOPHER_YOUNG expression=amusement
 ~cacher_tout_personnages()
 
-TODO:Le joueur doit cliquer sur un bouton en surbrillance. Le bouton déclenche l’ouverture d’une trappe qui mène vers le grenier. Le joueur clique sur la trappe en surbrillance pour se rendre au grenier.
 ~jouer_effet_sonore(ouverture_trappe)
 ~afficher_fond(grenier)
 ~jouer_musique(theme_resistance)
@@ -584,7 +584,7 @@ Christopher: Eh bien? Alors? Tu nous aides? # character=CHRISTOPHER_YOUNG expres
 
 =scene_11
 ~ afficher_fond(chambre_leigh_kane)
-~jouer_musique(theme_police)
+~jouer_musique(theme_general)
 ~afficher_personnage(MERE_DE_LEIGH_KANE, "slideInLeft")
 ~afficher_personnage(PERE_DE_LEIGH_KANE, "slideInRight")
 Fred: Mais n’avez-vous jamais eu connaissance que votre fils…que Leigh jouait à des jeux vidéo? # character=FRED_GALLANT invisible
@@ -607,7 +607,7 @@ Fred: Comment? Comment était-il? Depuis quand? Connaissez-vous ceux qui lui aur
 
 Mère de Leigh Kane: Non! Non! Il était un bon garçon, un bon garçon. Tranquille, tranquille. # character=MERE_DE_LEIGH_KANE expression=grief
 
-Père de Leigh Kane: On n’a pas la moindre preuve. Juste cette conversation sur son téléphone et… son ordinateur qu’on a caché. Alors on a cru. Enfin, notre fils pouvait être influençable. Et à son âge! # character=PERE_DE_LEIGH_KANE expression=melancholy
+Père de Leigh Kane: On n’a pas la moindre preuve. Juste cette conversation sur son téléphone et… son ordinateur. Alors on a cru. Enfin, notre fils pouvait être influençable. Et à son âge! # character=PERE_DE_LEIGH_KANE expression=melancholy
 
 Fred: Je comprends. Mais est-ce que vous savez au moins s’il est allé à ce rendez-vous? # character=FRED_GALLANT invisible
 
@@ -629,23 +629,24 @@ Narrateur: L’agent Gallant est pleine de zèle. Aidez-la donc à coincer les m
 ~afficher_personnage(MERE_DE_LEIGH_KANE, "slideInLeft")
 ~afficher_personnage(PERE_DE_LEIGH_KANE, "slideInRight")
 Père: Vous allez bien? # character=PERE_DE_LEIGH_KANE expression=concern
-
+~ajouter_contact(PERE_DE_LEIGH_KANE)
 Fred: Oui, désolée. Ça va. Est-ce que vous pouvez me confier l’ordinateur de votre fils? Je vais en analyser le contenu. Je vous le rapporte aussitôt que j’aurai terminé mon inspection. Je vais trouver. Ne vous inquiétez pas. On va le retrouver. # character=FRED_GALLANT invisible
 
 Mère: Il ne se serait jamais enfui, Leigh. Jamais. Il y a quelqu’un qui le manipule! # character=MERE_DE_LEIGH_KANE expression=sadness
+~ajouter_contact(MERE_DE_LEIGH_KANE)
 
 Père: Allez, laisse-la faire son travail. # character=PERE_DE_LEIGH_KANE expression=neutral
 ~cacher_tout_personnages()
 ->scene_12
 
 =scene_12
-~afficher_fond(bureau_fred)
+~afficher_fond(bureau_fred_ordinateur_kane)
 ~jouer_musique(theme_police)
 <b>Fred</b> examine l'ordinateur de <b>Leigh Kane</b>
 
 Fred: Montre-moi ce que tu as dans le ventre. # character=FRED_GALLANT invisible
 
-Après une analyse minutieuse, <b>Fred</b> identifie deux fichiers qui semblent pertinents: un <b>log d'activité</b> et un <b>ficher texte</b>. # center
+Après une analyse minutieuse, <b>Fred</b> identifie deux fichiers qui semblent pertinents - un <b>log d'activité</b> et un <b>ficher texte</b>. # center
 
 Elle trouve d’abord un log d’activité. # center
 
@@ -654,9 +655,6 @@ Selon celui-ci, il n’y a rien qui relie la fugue à des jeux vidéo. Selon l�
 <b>Fred</b> trouve également le fichier texte suivant # center
 <i>Maman, papa,
 Je suis désolé de vous infliger ça. Si je dois partir, c’est que je sais que je suis un poids pour vous. J’ai raté mes examens de fin d’année et je vais devoir reprendre la plupart de mes cours de 7e année. J’ai trop honte. Ne cherchez pas à savoir où je suis. Je vais trouver du travail et quand j’aurai moins honte je reviendrai peut-être. Leigh</i> # center
-
-TODO=Image non définie encore
-
 ->scene_13
 
 =scene_13
@@ -748,7 +746,6 @@ Ces quatre jeux contenaient assurément des scènes ou des éléments violents. 
 
  =quiz_6_fin
 ~ terminer_quiz()
-TODO=Transition - Image non définie encore
 -> scene_15
 
 = scene_15
@@ -763,7 +760,7 @@ Chef Miller: Vous vouliez me voir? J’espère que vous avez de bonnes nouvelles
 Fred: Oui, j’ai des nouvelles de Kane. # character=FRED_GALLANT invisible
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
-Fred: Excellente! Il a fugué, mais ce n’est en rien lié aux jeux. J’ai retrouvé 34 minutes de temps de jeu sur le Dark Web, mais j’ai aussi retrouvé une lettre d’au revoir. # character=FRED_GALLANT invisible
+Fred: Excellentes! Il a fugué, mais ce n’est en rien lié aux jeux. J’ai retrouvé 34 minutes de temps de jeu sur le Dark Web, mais j’ai aussi retrouvé une lettre d’au revoir. # character=FRED_GALLANT invisible
 
 Chef Miller: Quel genre de lettre? # character=CHEF_MILLER_NO_CIGAR expression=concern
 
@@ -806,7 +803,7 @@ Chef Miller: Je ne vous retiens donc pas. Bonne journée. # character=CHEF_MILLE
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
 
-Fred: Excellente! Il a fugué, mais ce n’est en rien lié aux jeux. J’ai retrouvé 34 minutes de temps de jeu sur le Dark Web, mais j’ai aussi retrouvé une lettre d’au revoir. # character=FRED_GALLANT invisible
+Fred: Excellentes! Il a fugué, mais ce n’est en rien lié aux jeux. J’ai retrouvé 34 minutes de temps de jeu sur le Dark Web, mais j’ai aussi retrouvé une lettre d’au revoir. # character=FRED_GALLANT invisible
 
 Chef Miller: Quel genre de lettre? # character=CHEF_MILLER_NO_CIGAR expression=concern
 
@@ -865,7 +862,7 @@ Chef Miller: Je ne vous retiens donc pas. Bonne journée.# character=CHEF_MILLER
 
 Chef Miller: De bonnes nouvelles? # character=CHEF_MILLER_NO_CIGAR expression=concern
 
-Fred: Excellente! Il a fugué, mais ce n’est en rien lié aux jeux. J’ai retrouvé 34 minutes de temps de jeu sur le Dark Web, mais j’ai aussi retrouvé une lettre d’au revoir. # character=FRED_GALLANT invisible
+Fred: Excellentes! Il a fugué, mais ce n’est en rien lié aux jeux. J’ai retrouvé 34 minutes de temps de jeu sur le Dark Web, mais j’ai aussi retrouvé une lettre d’au revoir. # character=FRED_GALLANT invisible
 
 Chef Miller: Quel genre de lettre? # character=CHEF_MILLER_NO_CIGAR expression=concern
 

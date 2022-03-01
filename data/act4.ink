@@ -122,7 +122,7 @@ Bonnie: Tout le monde connaît Teacher. C’est juste qu’il a quitté notre fa
 
 Bonnie: Je ne sais pas où en est Teacher avec eux. Je ne sais pas s’il sait quelque chose, s’il peut vous aider. Je ne sais rien. Je sais juste que ce soir-là, j’ai entendu des conversations à propos de la dépendance aux jeux et je n’ai pas aimé. # character=BONNIE_RANDLE_V2 expression=sterness
 
-Bonnie: J’ai décidé d’arrêter. Mais j’étais coincée parce qu’eux, ils ne rigolent pas. Ils risquent gros. Ils ont tous de doubles vies. On ne peut pas juste quitter l’organisation. Ils vont nous empêcher de parler. # character=BONNIE_RANDLE_V2 expression=sterness
+Bonnie: J’ai décidé d’arrêter. Mais j’étais coincée parce qu’eux, ils ne rigolent pas. Ils risquent gros. Ils ont tous des doubles vies. On ne peut pas juste quitter l’organisation. Ils vont nous empêcher de parler. # character=BONNIE_RANDLE_V2 expression=sterness
 
 Fred: Y êtes-vous retournée? # character=FRED_GALLANT invisible
 
@@ -164,8 +164,7 @@ Narrateur: Fred à elle seule n’y arrivera pas. Soyez très attentif, parce qu
 Narrateur: Êtes-vous prêts? # character=NARRATEUR center
 
 ~afficher_fond(bureau_chef_miller_reve)
-~jouer_musique(theme_narrateur)
-
+~jouer_musique(theme_general)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 Chef Miller, au téléphone: Merci, je te revaudrai ça. L’info que tu m’as donnée m’a vraiment aidé. Gallant va se compromettre, je le sens. Cependant, elle est quand même très habile. Est-ce que je peux te demander de continuer la surveillance pour moi? Quelques jours seulement. Soit, elle va me donner quelque chose, soit je vais la coincer. # character=CHEF_MILLER expression=joy
 
@@ -223,7 +222,7 @@ Fred: Non. Bien sûr que non. Je n’ai pas dit ça. Au contraire. # character=F
 
 Teacher: Quoi, au contraire? # character=TEACHER_V1 expression=wonder
 
-Fred: Je veux dire que le droit de propriété intellectuelle m’intéresse. # character=FRED_GALLANT invisible
+Fred: Je veux dire que le droit de la propriété intellectuelle m’intéresse. # character=FRED_GALLANT invisible
 
 Teacher: Bon, l’échange est complété, tu es complice. Merci, ça a été un plaisir de faire affaire avec toi. # character=TEACHER_V1 expression=neutral
 
@@ -306,12 +305,10 @@ Fred: Non, je comprends, je suis certaine qu’ils savent bien ce qu’ils font.
 Fred: Vous n’allez pas vous faire voler vos conceptions tout de même. Sans recours? Lorsque les jeux seront à nouveau permis… que va-t-il se passer avec ceux-là? Je vais te laisser un message à remettre à ceux qui ont créé le jeu, d’accord? Tu le leur remets, c’est tout. Si ça ne les intéresse pas, je vais jouer à mon petit jeu et tu ne me revois plus. Voilà. # character=FRED_GALLANT invisible
 
 Teacher: Quel message? # character=TEACHER_V1 expression=neutral
-
+~ajouter_contact(TEACHER_V2)
 <b>Fred</b> griffonne sur un bout de papier.
 
 Message de Fred: <i>Je peux vous aider à protéger vos jeux. Vous devriez avoir des droits d’auteurs sur ces jeux. Même le marché noir devrait respecter la propriété intellectuelle et se préparer à un retour de la légalité. Contactez-moi si ça vous intéresse de savoir comment. <br/> twitter.com@Fredgallant47</i>
-
-~ajouter_contact(TEACHER_V2)
 ~cacher_tout_personnages()
 -> scene_4
 
@@ -322,7 +319,7 @@ Message de Fred: <i>Je peux vous aider à protéger vos jeux. Vous devriez avoir
 <i>Hey la justicière. Amène-toi demain 9h, 5567 rue Flemming. <br/> Pas un mot à personne.</i>
 
 Le lendemain, à l’heure convenue, <b>Fred</b> se présente au 5567 rue Flemming.
-
+~afficher_fond(rue_flemming)
 ~jouer_effet_sonore(cogner_porte)
 ~afficher_personnage(BORIS, "fadeIn")
 
@@ -360,7 +357,7 @@ TODO: Description document
 -> quiz_4_1_question_1
 
 =quiz_4_1_question_1
-1- Maintenant que je me suis embarquée dans cette histoire de juriste et de propriété intellectuelle, plus le choix d'en apprendre plus… Pourquoi créer des jeux vidéo, après tout il s’agissait d’un divertissement comme un autre, non ? Rien ne différenciait un jeu vidéo d'autres œuvres comme les films et la littérature, n’est-ce pas ? # question index=1
+1- Maintenant que je me suis embarquée dans cette histoire de juriste et de propriété intellectuelle, plus le choix d'en apprendre plus… Les informations que m’a communiquées Boris devraient m’aider à comprendre ce que sont les jeux vidéo et les principaux outils de la propriété intellectuelle pour les protéger. Pourquoi créer des jeux vidéo, après tout il s’agissait d’un divertissement comme un autre, non ? Rien ne différenciait un jeu vidéo d'autres œuvres comme les films et la littérature, n’est-ce pas? # question index=1
 +  (4_1_1_a) [{4_1_1_a: VISITE--}Vrai] Vrai
 +  (4_1_1_b) [BON--{4_1_1_b: VISITE--}Faux] Faux
  Il y avait une différence majeure entre une œuvre cinématographique et un jeu vidéo : l’interactivité qu’offrait ce dernier. Le joueur interagissait avec l’œuvre au moyen de divers périphériques (comme par exemple une manette de jeu). # retroaction
@@ -369,7 +366,7 @@ TODO: Description document
 -> quiz_4_1_question_1
 
 = quiz_4_1_question_2
-2- Mais cette agentivité, s’agissait-il d’une caractéristique que l'on ne retrouvait que dans les jeux vidéo ? # question index=2
+2- Mais cette agentivité, s’agissait-il d’une caractéristique que l'on ne retrouvait que dans les jeux vidéo? # question index=2
 +  (4_1_2_a) [{4_1_2_a: VISITE--}Oui] Oui
 +  (4_1_2_b) [BON--{4_1_2_b: VISITE--}Non] Non
   Non, je sais qu’il y a eu des exemples de vidéos interactives par le passé. Un certain <i>Bandersnatch</i> notamment… <br/>En principe, qu’il s’agisse d’un film ou d’un jeu vidéo, le spectateur et le joueur étaient contraints par ce que le créateur avait prévu. Néanmoins, des aspects de certains jeux étaient parfois générés aléatoirement… Voilà une variable qui pouvait influencer l’agentivité. Le cas de <i>No Man Sky</i> par exemple. # retroaction
@@ -401,7 +398,7 @@ Les phrases d’accroche sont des éléments distinctifs qui permettent d’iden
 -> quiz_4_1_question_4
 
 = quiz_4_1_question_5
-5- Qu’en était-il des développeurs associés à un projet ? Quel outil permettait de les protéger ? # question index=5
+5- Qu’en était-il de la liste des développeurs associés à un projet ? Quel outil permettait de les protéger ? # question index=5
 +   (4_1_5_a) [{4_1_5_a: VISITE--}Le droit d’auteur] Le droit d’auteur
 +   (4_1_5_b) [BON--{4_1_5_b: VISITE--}Le secret industriel] Le secret industriel
 Il s’agissait de données très sensibles et stratégiques d’un point de vue commercial. Les jeux vidéo ne sont ni d’une œuvre de l’esprit, ni d’innovations technologiques. Il n’y avait pas vraiment d’autre moyen que de protéger une liste comme celle-ci que par le secret industriel. # retroaction
@@ -443,7 +440,7 @@ Fred: C’est possible, mais je dois rester impartiale. # character=FRED_GALLANT
 
 Jonathan: Tu sors d’où au juste? # character=JONATHAN expression=aversion
 
-Fred: Je m’intéresse aux droits des jeux vidéo. Je connais le droit de propriété intellectuelle. # character=FRED_GALLANT invisible
+Fred: Je m’intéresse aux droits des jeux vidéo. Je connais le droit de la propriété intellectuelle. # character=FRED_GALLANT invisible
 
 Jonathan: Bon. Alors, tu vas voir que j’ai tous les droits sur ce jeu et qu’ils doivent me payer. # character=JONATHAN expression=disdain
 
@@ -511,7 +508,7 @@ Fred: Je comprends. Et depuis, vous n’avez jamais tenté de discuter, de voir 
 
 Jonathan: Jamais. # character=JONATHAN expression=sterness
 
-Fred: Mais même là. C’est pas un peu réactionnaire? Briser une amitié de toujours pour un <i>spoiler</i>? # character=FRED_GALLANT invisible
+Fred: Mais même là. C’est pas un peu radical? Briser une amitié de toujours pour un <i>spoiler</i>? # character=FRED_GALLANT invisible
 
 Jonathan: On voit que tu n’aimes pas jouer. # character=JONATHAN expression=disgust
 
@@ -536,10 +533,9 @@ Fred: Je comprends. Jonathan, laissez-moi cela entre les mains. Je vais examiner
 Jonathan: J’ai droit à la moitié. C’est ça la solution. # character=JONATHAN expression=sterness
 
 Fred: Je vous remercie de m’avoir raconté. Je vous tiens au courant rapidement. # character=FRED_GALLANT invisible
-
+~ajouter_document(PHOTO_JONATHAN_CHRISTIAN)
 <b>Jonathan</b> donne des documents à <b>Fred</b>.
 ~ajouter_document(BESTIAIRE)
-~ajouter_document(PHOTO_JONATHAN_CHRISTIAN)
 ~cacher_tout_personnages()
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
@@ -625,10 +621,9 @@ Fred, à elle-même: Je suis narcoleptique- somnambule ou quoi? La jurisprudence
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_4_2_question_1
 
+= quiz_4_2_question_2
 ~afficher_document(STATUT_LEGAL_JEUX_VIDEO)
 // Document 3 : La protection des jeux vidéo était vraisemblablement différentes selon les États. Il semblerait que ce document devrait me permettre de savoir plus précisément ce qui se passait au Canada avant l’interdiction des jeux vidéo… (en particulier p. 23 à 27)
-
-= quiz_4_2_question_2
 2- La Loi sur le droit d’auteur protégeait-elle les jeux vidéo au Canada ? # question index=2
 +  (4_2_2_a) [BON--{4_2_2_a: VISITE--}Oui] Oui
 Il s'agit de la bonne réponse. # retroaction
@@ -667,10 +662,9 @@ Les jeux vidéo étaient le résultat de la combinaison de plusieurs éléments 
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_4_2_question_5
 
+= quiz_4_2_question_6
 ~afficher_document(SEGGIE_ROOFDOG)
 // Description Document 4: Malgré les textes, on dirait bien que des conflits ont été portés devant les tribunaux. Cette affaire devrait me permettre de mieux comprendre la mise en œuvre des textes de loi et leur interprétation.
-
-= quiz_4_2_question_6
 6- Monsieur Seggie a-t-il contribué à la création du jeu vidéo commercialisé par Roofdog Game Inc ? # question index=6
 +  (4_2_6_a) [BON--{4_2_6_a: VISITE--}Oui] Oui
  Monsieur Seggie avait bien contribué à la création du jeu vidéo en produisant plusieurs éléments du jeu : six dessins de voitures, un arrière-plan et quelques accessoires (arbres, roches, bidon d’essence...) (voir à la page 12). # retroaction
