@@ -74,4 +74,10 @@ export const soundEffects: Record<string, Howl> = {
   typewriter: new Howl({
     src: [typewriter]
   }),
+  reception_courriel: new Howl({
+    src: [courrielRecu]
+  }),
+  vibration_telephone: new Howl({
+    src: [sonnerieFuturiste]
+  }),
 };

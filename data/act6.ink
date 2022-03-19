@@ -1,7 +1,6 @@
 === chapitre_6 ===
 
 = scene_1
-Chapitre 6 - Le sens des responsabilités
 ~ afficher_fond(transition)
 <center><titre>Chapitre 6</titre></center><br/><center>Le sens des responsabilités</center> # transition
 ~afficher_fond(art_house_cafe)
@@ -584,4 +583,6 @@ Chef Miller: Bon boulot, Gallant. # character=CHEF_MILLER expression=satisfactio
 ~cacher_tout_personnages()
 - ~afficher_fond(news_room_chapitre_6)
 ~jouer_musique(theme_news)
+Quel avenir pour les centres de traitement des dépendances aux jeux? La politique de l’autruche
+~arreter_musique()
 -> chapitre_7.scene_1

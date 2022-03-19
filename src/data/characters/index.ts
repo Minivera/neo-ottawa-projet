@@ -37,6 +37,8 @@ import { Jen } from './jen';
 import { Trevor } from './trevor';
 import { Andrea } from './andrea';
 import { Brad } from './brad';
+import { Styliste } from './styliste';
+import { Palvid } from './palvid';
 
 export {
   FredGallant,
@@ -78,6 +80,8 @@ export {
   Trevor,
   Andrea,
   Brad,
+  Styliste,
+  Palvid,
 };
 
 export const Characters = {
@@ -120,4 +124,6 @@ export const Characters = {
   [Trevor.id]: Trevor,
   [Andrea.id]: Andrea,
   [Brad.id]: Brad,
+  [Palvid.id]: Palvid,
+  [Styliste.id]: Styliste,
 };

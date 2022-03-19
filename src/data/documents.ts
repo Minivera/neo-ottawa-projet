@@ -37,7 +37,19 @@ export type documentsNames =
   | 'JOURNAL_CONCEPTION_CHRISTIAN'
   | 'CONCEPTS_ARTISTIQUES_CHRISTIAN'
   | 'PRATIQUE_SPORT_ELECTRONIQUE'
-  | 'CONTRAT_ESPORT';
+  | 'CONTRAT_ESPORT'
+  | 'REGLES_TOURNOIS_LOL'
+  | 'REGLES_TOURNOIS_LOL_ABREGEES'
+  | 'ELIGIBILITE_JOUEURS_LEC'
+  | 'PROFIL_JOUEURS'
+  | 'FINANCE_EQUIPE'
+  | 'LISTE_COMMANDITAIRES'
+  | 'REGLES_COMMANDITAIRES'
+  | 'REGLES_TENUES'
+  | 'STATISTIQUES_JEN'
+  | 'CODE_CONDUITE'
+  | 'REGLES_COMMUNICATION_PUBLIQUE'
+  | 'REGLES_PARIS';
 
 export const documents: Record<documentsNames, Document> = {
   LOI_GAME_OVER: {
@@ -212,7 +224,9 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'AVANTAGES_INCONVENIENTS_MOD',
     name: 'document-name-avantages-inconvenients-mod',
     description: 'document-description-avantages-inconvenients-mod',
-    path: `${import.meta.env.BASE_URL}documents/avantages-inconvenients-mod.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/avantages-inconvenients-mod.pdf`,
   },
   RAPPORT_CHRISTOPHER: {
     documentId: 'RAPPORT_CHRISTOPHER',
@@ -242,24 +256,102 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'JOURNAL_CONCEPTION_CHRISTIAN',
     name: 'document-name-journal-christopher',
     description: 'document-description-journal-christopher',
-    path: `${import.meta.env.BASE_URL}documents/journal-conception-christian.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/journal-conception-christian.pdf`,
   },
   CONCEPTS_ARTISTIQUES_CHRISTIAN: {
     documentId: 'CONCEPTS_ARTISTIQUES_CHRISTIAN',
     name: 'document-name-concepts-christopher',
     description: 'document-description-concepts-christopher',
-    path: `${import.meta.env.BASE_URL}documents/concepts-artistiques-christian.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/concepts-artistiques-christian.pdf`,
   },
   PRATIQUE_SPORT_ELECTRONIQUE: {
     documentId: 'PRATIQUE_SPORT_ELECTRONIQUE',
     name: 'document-name-pratique-sport-electronique',
     description: 'document-description-pratique-sport-electronique',
-    path: `${import.meta.env.BASE_URL}documents/pratique-sport-electronique.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/pratique-sport-electronique.pdf`,
   },
   CONTRAT_ESPORT: {
     documentId: 'CONTRAT_ESPORT',
     name: 'document-name-contrat-esport',
     description: 'document-description-contrat-esport',
     path: `${import.meta.env.BASE_URL}documents/contrat-esport.pdf`,
+  },
+  REGLES_TOURNOIS_LOL: {
+    documentId: 'REGLES_TOURNOIS_LOL',
+    name: 'document-name-regles-tournois-lol',
+    description: 'document-description-regles-tournois-lol',
+    path: `${import.meta.env.BASE_URL}documents/regles-tournois-lol.pdf`,
+  },
+  REGLES_TOURNOIS_LOL_ABREGEES: {
+    documentId: 'REGLES_TOURNOIS_LOL_ABREGEES',
+    name: 'document-name-regles-tournois-lol-abreges',
+    description: 'document-description-regles-tournois-lol-abreges',
+    path: `${import.meta.env.BASE_URL}documents/regles-tournois-lol-abreges.pdf`,
+  },
+  ELIGIBILITE_JOUEURS_LEC: {
+    documentId: 'ELIGIBILITE_JOUEURS_LEC',
+    name: 'document-name-eligibilite-joueurs-lec',
+    description: 'document-description-eligibilite-joueurs-lec.pdf',
+    path: `${import.meta.env.BASE_URL}documents/eligibilite-joueurs-lec.pdf`,
+  },
+  PROFIL_JOUEURS: {
+    documentId: 'PROFIL_JOUEURS',
+    name: 'document-name-profil-joueurs',
+    description: 'document-description-profil-joueurs',
+    path: `${import.meta.env.BASE_URL}documents/profil-joueurs.pdf`,
+  },
+  FINANCE_EQUIPE: {
+    documentId: 'FINANCE_EQUIPE',
+    name: 'document-name-contrat-esport',
+    description: 'document-description-contrat-esport',
+    path: `${import.meta.env.BASE_URL}documents/contrat-esport.pdf`,
+  },
+  LISTE_COMMANDITAIRES: {
+    documentId: 'LISTE_COMMANDITAIRES',
+    name: 'document-name-finance-equipe',
+    description: 'document-description-finance-equipe',
+    path: `${import.meta.env.BASE_URL}documents/finance-equipe.pdf`,
+  },
+  REGLES_COMMANDITAIRES: {
+    documentId: 'REGLES_COMMANDITAIRES',
+    name: 'document-name-regles-commanditaires',
+    description: 'document-description-regles-commanditaires',
+    path: `${import.meta.env.BASE_URL}documents/regles-commanditaires.pdf`,
+  },
+  REGLES_TENUES: {
+    documentId: 'REGLES_TENUES',
+    name: 'document-name-regles-tenues',
+    description: 'document-description-regles-tenues',
+    path: `${import.meta.env.BASE_URL}documents/regles-tenues.pdf`,
+  },
+  STATISTIQUES_JEN: {
+    documentId: 'STATISTIQUES_JEN',
+    name: 'document-name-statistique-jen',
+    description: 'document-description-statistique-jen',
+    path: `${import.meta.env.BASE_URL}documents/statistique-jen.pdf`,
+  },
+  CODE_CONDUITE: {
+    documentId: 'CODE_CONDUITE',
+    name: 'document-name-code-conduite',
+    description: 'document-description-code-conduite',
+    path: `${import.meta.env.BASE_URL}documents/code-conduite.pdf`,
+  },
+  REGLES_COMMUNICATION_PUBLIQUE: {
+    documentId: 'REGLES_COMMUNICATION_PUBLIQUE',
+    name: 'document-name-regles-communication-publique',
+    description: 'document-description-regles-communication-publique',
+    path: `${import.meta.env.BASE_URL}documents/regles-communication-publique.pdf`,
+  },
+  REGLES_PARIS: {
+    documentId: 'REGLES_PARIS',
+    name: 'document-name-regles-paris',
+    description: 'document-description-regles-paris',
+    path: `${import.meta.env.BASE_URL}documents/regles-communication-publique.pdf`,
   },
 };

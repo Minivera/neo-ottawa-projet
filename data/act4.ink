@@ -780,5 +780,6 @@ Boris: On ne peut toujours pas lancer le jeu et on n’est même pas certain que
 
 ~afficher_fond(news_room_chapitre_4)
 ~jouer_musique(theme_news)
-
+La colère monte : les jeux vidéo illicites occupent encore une grande part de marché selon les experts
+~arreter_musique()
 - -> chapitre_5.scene_1

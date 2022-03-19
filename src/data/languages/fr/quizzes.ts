@@ -24,4 +24,12 @@ export const quizzesNames = {
   [quizzesInfo.QUIZ_6_1.name]: `Quiz 6 - 1`,
   [quizzesInfo.QUIZ_6_2.name]: `Quiz 6 - 2`,
   [quizzesInfo.QUIZ_6_3.name]: `Quiz 6 - 3`,
+  [quizzesInfo.QUIZ_7_1.name]: `Quiz 7 - 1`,
+  [quizzesInfo.QUIZ_7_2.name]: `Quiz 7 - 2`,
+  [quizzesInfo.QUIZ_7_3.name]: `Quiz 7 - 3`,
+  [quizzesInfo.QUIZ_7_4.name]: `Quiz 7 - 4`,
+  [quizzesInfo.QUIZ_7_5.name]: `Quiz 7 - 5`,
+  [quizzesInfo.QUIZ_7_6.name]: `Quiz 7 - 6`,
+  [quizzesInfo.QUIZ_7_7.name]: `Quiz 7 - 7`,
+  [quizzesInfo.QUIZ_7_8.name]: `Quiz 7 - 8`,
 };

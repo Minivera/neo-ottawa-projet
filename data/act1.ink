@@ -921,6 +921,7 @@ Chef Miller: Parfait. Je ne vous retiens donc pas. Bonne journée. # character=C
 ~afficher_fond(news_room_chapitre_1)
 ~jouer_musique(theme_news)
 
-
+Quand les coupables se défilent : les nouveaux jeux vidéo du marché noir. Comment exercer plus de contrôle?
+~arreter_musique()
 
 -> chapitre_2.scene_1

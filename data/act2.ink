@@ -1033,5 +1033,6 @@ Selon l’article sur lequel j’ai mis la main, trois types d’intervention ou
 = scene_7
 ~afficher_fond(news_room_chapitre_2)
 ~jouer_musique(theme_news)
-
+Le petit Leigh Kane retrouvé. Les jeux vidéo n’étaient pas en cause!
+~arreter_musique()
 -> chapitre_3.scene_1

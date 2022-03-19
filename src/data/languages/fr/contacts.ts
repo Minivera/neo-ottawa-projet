@@ -29,6 +29,7 @@ import {
   Trevor,
   Andrea,
   Brad,
+  Palvid,
 } from '../../characters';
 import { contacts } from '../../contacts';
 
@@ -76,4 +77,5 @@ export const contactDescriptions = {
   [contacts[Trevor.id].description]: `Trevor est un joueur talentueux qui réussit toujours à maîtriser les jeux rapidement. Il n’est pas désagréable, mais il ne faut pas le chercher.`,
   [contacts[Andrea.id].description]: `Andrea est une idéaliste et une artiste du jeu. Elle est une joueuse professionnelle qui s’illustre à l’étranger.`,
   [contacts[Brad.id].description]: `Brad est un grand joueur. Beau, talentueux, en pleine forme, il fait tourner les têtes. Il n’est pas déstabilisé facilement.`,
+  [contacts[Palvid.id].description]: `Grand timide, Palvid_ est arrivé dans l’univers des jeux vidéo très jeune. Un grand joueur dont l’avenir est prometteur. `,
 };

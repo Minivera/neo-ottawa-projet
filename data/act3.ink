@@ -391,5 +391,6 @@ Selon le document, un Game Jam a été organisé. Un Game Jam est un événement
 =scene_5
 ~afficher_fond(news_room_chapitre_3)
 ~jouer_musique(theme_news)
-
+L’empreinte environnementale du marché illicite des jeux vidéo pointé du doigt
+~arreter_musique()
 -> chapitre_4.scene_1

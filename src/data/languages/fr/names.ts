@@ -36,6 +36,8 @@ import {
   Trevor,
   Andrea,
   Brad,
+  Palvid,
+  Styliste,
 } from '../../characters';
 
 export const charactersNames = {
@@ -76,4 +78,6 @@ export const charactersNames = {
   [Trevor.name]: 'Trevor',
   [Andrea.name]: 'Andrea',
   [Brad.name]: 'Brad',
+  [Styliste.name]: 'Styliste',
+  [Palvid.name]: 'Palvid_',
 };

@@ -42,8 +42,10 @@ export const backgroundNames: addNameToObject<typeof backgrounds> = {
     maison_fred_name: `Maison de Fred`,
     maison_jonathan_name: `Maison de Jonathan`,
     ecran_ordinateur_fred_name: `Ordinateur de Fred`,
+    bureau_fred_ordinateur_kane_name: `Ordinateur de Fred`,
     coin_flemming_arch_name: `Coin rue Flemming et Arch`,
     appartement_christopher_name: `Appartement de Christopher`,
+    telephone_boris_name: `Téléphone de Boris`,
     // Fins
     transition_1_name: ``,
     transition_2_name: ``,

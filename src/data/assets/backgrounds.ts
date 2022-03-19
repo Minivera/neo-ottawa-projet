@@ -97,6 +97,7 @@ export const backgrounds = {
   ecran_ordinateur_fred: { type: 'image', asset: ordinateurFred },
   coin_flemming_arch: { type: 'image', asset: coinFlemmingArch },
   appartement_christopher: { type: 'image', asset: appartementChristopher },
+  telephone_boris: { type: 'image', asset: telephone },
   // Transitions
   transition_1: { type: 'image', asset: transition1 },
   transition_2: { type: 'image', asset: transition2 },
