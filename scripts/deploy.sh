@@ -3,6 +3,8 @@
 # abort on errors
 set -e
 
+cp CNAME ./dist/CNAME
+
 # navigate into the build output directory
 cd dist
 
