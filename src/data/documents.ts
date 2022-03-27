@@ -49,7 +49,19 @@ export type documentsNames =
   | 'STATISTIQUES_JEN'
   | 'CODE_CONDUITE'
   | 'REGLES_COMMUNICATION_PUBLIQUE'
-  | 'REGLES_PARIS';
+  | 'REGLES_PARIS'
+  | 'MARCHE_STREAMING'
+  | 'REGLES_UTILISATION_TWITCH'
+  | 'POLITIQUES_COMPAGNIES_JV'
+  | 'FICHE_DESCRIPTIVE_OPULENCE'
+  | 'FICHE_DESCRIPTIVE_UPPERSTREAMER'
+  | 'LIGNE_CONDUITE_TWITCH'
+  | 'SANCTIONS_TWITCH'
+  | 'SYNDICALISATION_STREAMERS'
+  | 'TOXICITE_JEUX_VIDEO'
+  | 'TOXICITE_LOL'
+  | 'TRIBUNAL_JEUX_VIDEO'
+  | 'PENALITE_JEUX_VIDEO';
 
 export const documents: Record<documentsNames, Document> = {
   LOI_GAME_OVER: {
@@ -292,7 +304,9 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'REGLES_TOURNOIS_LOL_ABREGEES',
     name: 'document-name-regles-tournois-lol-abreges',
     description: 'document-description-regles-tournois-lol-abreges',
-    path: `${import.meta.env.BASE_URL}documents/regles-tournois-lol-abreges.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/regles-tournois-lol-abreges.pdf`,
   },
   ELIGIBILITE_JOUEURS_LEC: {
     documentId: 'ELIGIBILITE_JOUEURS_LEC',
@@ -346,12 +360,92 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'REGLES_COMMUNICATION_PUBLIQUE',
     name: 'document-name-regles-communication-publique',
     description: 'document-description-regles-communication-publique',
-    path: `${import.meta.env.BASE_URL}documents/regles-communication-publique.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/regles-communication-publique.pdf`,
   },
   REGLES_PARIS: {
     documentId: 'REGLES_PARIS',
     name: 'document-name-regles-paris',
     description: 'document-description-regles-paris',
-    path: `${import.meta.env.BASE_URL}documents/regles-communication-publique.pdf`,
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/regles-communication-publique.pdf`,
+  },
+  MARCHE_STREAMING: {
+    documentId: 'MARCHE_STREAMING',
+    name: 'document-name-marche-streaming',
+    description: 'document-description-marche-streaming',
+    path: `${import.meta.env.BASE_URL}documents/marche-streaming.pdf`,
+  },
+  REGLES_UTILISATION_TWITCH: {
+    documentId: 'REGLES_UTILISATION_TWITCH',
+    name: 'document-name-regle-utilisation-twitch',
+    description: 'document-description-regle-utilisation-twitch',
+    path: `${import.meta.env.BASE_URL}documents/regle-utilisation-twitch.pdf`,
+  },
+  POLITIQUES_COMPAGNIES_JV: {
+    documentId: 'POLITIQUES_COMPAGNIES_JV',
+    name: 'document-name-politiques-compagnies-jv',
+    description: 'document-description-politiques-compagnies-jv',
+    path: `${import.meta.env.BASE_URL}documents/politiques-compagnies-jv.pdf`,
+  },
+  // TODO: Document manquant
+  FICHE_DESCRIPTIVE_OPULENCE: {
+    documentId: 'FICHE_DESCRIPTIVE_OPULENCE',
+    name: 'document-name-fiche-descriptive-opulence',
+    description: 'document-description-fiche-descriptive-opulence',
+    path: `${import.meta.env.BASE_URL}documents/fiche-descriptive-opulence.pdf`,
+  },
+  // TODO: Document manquant
+  FICHE_DESCRIPTIVE_UPPERSTREAMER: {
+    documentId: 'FICHE_DESCRIPTIVE_UPPERSTREAMER',
+    name: 'document-name-fiche-descriptive-upperstreamer',
+    description: 'document-description-fiche-descriptive-upperstreamer',
+    path: `${import.meta.env.BASE_URL}documents/fiche-descriptive-upperstreamer.pdf`,
+  },
+  LIGNE_CONDUITE_TWITCH: {
+    documentId: 'LIGNE_CONDUITE_TWITCH',
+    name: 'document-name-ligne-conduite-twitch',
+    description: 'document-description-ligne-conduite-twitch',
+    path: `${import.meta.env.BASE_URL}documents/ligne-conduite-twitch.pdf`,
+  },
+  SANCTIONS_TWITCH: {
+    documentId: 'SANCTIONS_TWITCH',
+    name: 'document-name-sanctions-twitch',
+    description: 'document-description-sanctions-twitch',
+    path: `${import.meta.env.BASE_URL}documents/sanctions-twitch.pdf`,
+  },
+  SYNDICALISATION_STREAMERS: {
+    documentId: 'SYNDICALISATION_STREAMERS',
+    name: 'document-name-syndicalisation-streamers',
+    description: 'document-description-syndicalisation-streamers',
+    path: `${import.meta.env.BASE_URL}documents/syndicalisation-streamers.pdf`,
+  },
+  // TODO: Document manquant
+  TOXICITE_JEUX_VIDEO: {
+    documentId: 'TOXICITE_JEUX_VIDEO',
+    name: 'document-name-toxicite-jv',
+    description: 'document-description-toxicite-jv',
+    path: `${import.meta.env.BASE_URL}documents/toxicite-jv.pdf`,
+  },
+  // TODO: Document manquant
+  TOXICITE_LOL: {
+    documentId: 'TOXICITE_LOL',
+    name: 'document-name-toxicite-lol',
+    description: 'document-description-toxicite-lol',
+    path: `${import.meta.env.BASE_URL}documents/toxicite-lol.pdf`,
+  },
+  TRIBUNAL_JEUX_VIDEO: {
+    documentId: 'TRIBUNAL_JEUX_VIDEO',
+    name: 'document-name-tribunal-jv',
+    description: 'document-description-tribunal-jv',
+    path: `${import.meta.env.BASE_URL}documents/tribunal-jv.pdf`,
+  },
+  PENALITE_JEUX_VIDEO: {
+    documentId: 'PENALITE_JEUX_VIDEO',
+    name: 'document-name-penalite-jv',
+    description: 'document-description-penalite-jv',
+    path: `${import.meta.env.BASE_URL}documents/penalite-jv.pdf`,
   },
 };

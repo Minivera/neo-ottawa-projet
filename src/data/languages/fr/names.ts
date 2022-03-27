@@ -38,6 +38,12 @@ import {
   Brad,
   Palvid,
   Styliste,
+  Opulence,
+  UpperStreamer,
+  MRGhost,
+  ClearView,
+  JugeAbbott,
+  PremierMinistre,
 } from '../../characters';
 
 export const charactersNames = {
@@ -80,4 +86,10 @@ export const charactersNames = {
   [Brad.name]: 'Brad',
   [Styliste.name]: 'Styliste',
   [Palvid.name]: 'Palvid_',
+  [Opulence.name]: 'Opulence',
+  [UpperStreamer.name]: 'Upper Streamer',
+  [MRGhost.name]: 'Mr Ghost',
+  [ClearView.name]: 'Clear View',
+  [JugeAbbott.name]: 'Juge Abbott',
+  [PremierMinistre.name]: 'Premier Ministre',
 };

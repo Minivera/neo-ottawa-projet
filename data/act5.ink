@@ -1,7 +1,7 @@
 === chapitre_5 ===
 
 =scene_1
-~ afficher_fond(transition)
+~ afficher_fond(transition_5)
 <center><titre>Chapitre 5</titre></center><br/><center>À l'épreuve de la confiance</center> # transition
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
@@ -158,7 +158,7 @@ Les jeux vidéo dont on ne connaissait pas les auteurs étaient tout de même pr
 +   (5_1_4_d) [BON--{5_1_4_d: VISITE--}Toutes ces propositions] Toutes ces propositions
  Les droits des créateurs d’un jeu vidéo étaient très larges! Ils détenaient notamment le droit exclusif de produire le jeu vidéo ou l'œuvre sous n’importe quelle forme matérielle (selon l’article 3.(1) de la Loi sur le droit d’auteur)!  # retroaction
 -> quiz_5_1_question_5
- +  (5_1_4_e) [{5_1_4_d: VISITE--}Aucune de ces propositions] Aucune de ces propositions
+ +  (5_1_4_e) [{5_1_4_e: VISITE--}Aucune de ces propositions] Aucune de ces propositions
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_1_question_4
 
@@ -695,6 +695,8 @@ Teacher: C’est une occasion d’apprendre. # character=TEACHER_V2 expression=s
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
+
+<b>Fred</b> se réveille de sa torpeur au moment où <b>Olivia Paul</b> ouvre la porte.
 -> scene_5
 
 * <b>Teacher</b> et <b>Boris</b> font comprendre à <b>Fred</b> qu’il s’agit d’une simple formalité et qu’ils ne s’attendent pas à ce que la classification soit infaillible. Inutile de consulter quelqu’un. 
@@ -721,13 +723,14 @@ Fred: Oui, compris. # character=FRED_GALLANT invisible
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
+
+<b>Fred</b> se réveille de sa torpeur au moment où <b>Olivia Paul</b> ouvre la porte.
 -> scene_5
 
 = scene_5
 - ~afficher_fond(maison_olivia_exterieur)
 ~afficher_personnage(OLIVIA_PAUL, "fadeIn")
 ~jouer_musique(theme_general)
-<b>Fred</b> se réveille de sa torpeur au moment où <b>Olivia Paul</b> ouvre la porte.
 ~cacher_tout_personnages()
 
 ~afficher_fond(maison_olivia_interieur)

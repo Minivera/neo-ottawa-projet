@@ -1,0 +1,37 @@
+=== act_5_quiz_2 ===
+
+= quiz_5_2
+~ demarrer_quiz(QUIZ_5_2, 2)
+~jouer_musique(theme_quiz)
+~afficher_document(RAPPORT_CHRISTOPHER)
+// Description du document: Le rapport que m’a remis Christopher décrit les principales caractéristiques du futur jeu de la Résistance. Voyons voir s’il y a des problèmes potentiels…
+-> question_1
+
+=question_1
+1- Le jeu de la résistance comprend des éléments problématiques du point de vue de la dépendance, mais lesquels en particulier ? # question index=1
++   (1_a) [{1_a: VISITE--}Le jeu est entièrement gratuit.] Le jeu est entièrement gratuit.
++   (1_b) [{1_b: VISITE--}Les joueurs peuvent personnaliser leur avatar.] Les joueurs peuvent personnaliser leur avatar. 
++   (1_c) [BON--{1_c: VISITE--}Des offres d’achat adaptées à chaque joueur en fonction de ses habitudes de jeu sont faites chaque jour.] Des offres d’achat adaptées à chaque joueur en fonction de ses habitudes de jeu sont faites chaque jour.
+La personnalisation des offres dans les jeux gratuits ou payants était très courante. Elle permettait de fortement encourager les joueurs à dépenser de l’argent. Avant la Loi Game Over, les développeurs avaient de plus en plus tendance à utiliser cette technique pour maximiser leurs profits. Il est très problématique de trouver cet élément dans le jeu de la résistance. Des critiques pourraient être formulées à l’égard du jeu. # retroaction
+-> question_2
++   (1_d) [{1_d: VISITE--}Des graphismes jamais vus grâce à un moteur graphique révolutionnaire.] Des graphismes jamais vus grâce à un moteur graphique révolutionnaire. 
++   (1_e) [{1_e: VISITE--}Un système de récompenses aléatoires auxquelles tous les joueurs ont accès.] Un système de récompenses aléatoires auxquelles tous les joueurs ont accès.
++   (1_f) [{1_f: VISITE--}Aucun de ces éléments] Aucun de ces éléments
+- ~ generer_mauvaise_reponse_retroaction()
+-> question_1
+
+= question_2
+2- Et que penser de ces autres éléments, peuvent-ils être problématiques du point de vue de la dépendance aux jeux vidéo ? # question index=2
++   (2_a) [{2_a: VISITE--}Un jeu sans fin avec des environnements générés aléatoirement.] Un jeu sans fin avec des environnements générés aléatoirement.
++   (2_b) [{2_b: VISITE--}Un gameplay très facile d’accès, mais aussi très profond pour les joueurs les plus perfectionnistes.] Un gameplay très facile d’accès, mais aussi très profond pour les joueurs les plus perfectionnistes. 
++   (2_c) [{2_c: VISITE--}Une limite de temps de jeu journalier, sans quoi le joueur perd des ressources.] Une limite de temps de jeu journalier, sans quoi le joueur perd des ressources. 
++   (2_d) [BON--{2_d: VISITE--}La possibilité d’acheter des bonus afin d’augmenter son niveau.] La possibilité d’acheter des bonus afin d’augmenter son niveau. 
+Certains jeux permettaient aux joueurs de payer pour obtenir des bonus leur conférant un avantage sur les autres. Pour certains joueurs, cette possibilité pouvait les encourager à dépenser beaucoup d’argent pour obtenir de meilleurs résultats. Il est problématique de trouver cet élément dans le jeu de la résistance. Des critiques pourraient être formulées à l’égard du jeu en raison de sa présence. # retroaction
+-> quiz_5_2_fin
++   (2_e) [{2_e: VISITE--}Aucune de ces propositions] Aucune de ces propositions
+- ~ generer_mauvaise_reponse_retroaction()
+-> question_2
+
+= quiz_5_2_fin
+~ terminer_quiz()
+-> chapitre_5.scene_3_suite

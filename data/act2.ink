@@ -1,7 +1,7 @@
 === chapitre_2 ===
 
 = scene_1
-~afficher_fond(transition)
+~afficher_fond(transition_2)
 <center><titre>Chapitre 2</titre></center><br/><center>Au-delà des évidences</center> # transition
 ~ afficher_fond(art_house_cafe)
 <b>Fred</b> attend <b>Bonnie</b> dans un café. 

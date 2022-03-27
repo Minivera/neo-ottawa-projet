@@ -1,7 +1,7 @@
 === chapitre_7 ===
 
 = scene_1
-~ afficher_fond(transition)
+~ afficher_fond(transition_7)
 <center><titre>Chapitre 7</titre></center><br/><center>Le poids des responsabilités</center> # transition
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
@@ -82,14 +82,14 @@ Fred: Bon, merci pour vos conseils. Je vais analyser tout ça. On ne peut en pre
 ~ demarrer_quiz(QUIZ_7_1, 2)
 ~jouer_musique(theme_quiz)
 ~afficher_document(REGLES_TOURNOIS_LOL_ABREGEES)
-// Description document dans le pda : Le règlement de la LEC, voyons voir de quoi il s’agit exactement et qui était impliqué là-dedans. 
+// Description document dans le pda : Le règlement de la LEC, voyons voir de quoi il s’agit exactement et qui était impliqué là-dedans.
 -> quiz_7_1_question_1
 
 =quiz_7_1_question_1
 1- Qu’est-ce que signifie LEC? # question index=1
 +   (7_1_1_a) [{7_1_1_a: VISITE--}League of Legends Esport Championship] League of Legends Esport Championship
 +   (7_1_1_b) [{7_1_1_b: VISITE--}League of Legends European Contest] League of Legends European Contest
-+   (7_1_1_c) [BON--{7_1_1_c: VISITE--}League of Legends European Championship] League of Legends European Championship 
++   (7_1_1_c) [BON--{7_1_1_c: VISITE--}League of Legends European Championship] League of Legends European Championship
 Bonne réponse # retroaction
 -> quiz_7_1_question_2
 +   (7_1_1_d) [{7_1_1_d: VISITE--}League of Legends Esport Challenge] League of Legends Esport Challenge
@@ -100,7 +100,7 @@ Bonne réponse # retroaction
 2- Qui étaient les 3 types d’acteurs principaux dans le cadre des ligues professionnelles de sport électronique comme la LEC? # question index=2
 +   (7_1_2_a) [{7_1_2_a: VISITE--}L’éditeur d’un jeu vidéo, les joueurs et les commanditaires] L’éditeur d’un jeu vidéo, les joueurs et les commanditaires
 +   (7_1_2_b) [{7_1_2_b: VISITE--}Les équipes, les joueurs et les commanditaires] Les équipes, les joueurs et les commanditaires
-+   (7_1_2_c) [{7_1_2_c: VISITE--}Les équipes, les joueurs et leurs parents] Les équipes, les joueurs et leurs parents 
++   (7_1_2_c) [{7_1_2_c: VISITE--}Les équipes, les joueurs et leurs parents] Les équipes, les joueurs et leurs parents
 +   (7_1_2_d) [BON--{7_1_2_d: VISITE--}L’éditeur d’un jeu vidéo, les équipes et les joueurs] L’éditeur d’un jeu vidéo, les équipes et les joueurs
 Il y avait bien sûr l’éditeur du jeu vidéo objet de la compétition (par exemple, la compagnie Riot Games). Finalement, chaque jeu constituait un « sport » en quelque sorte, parfois avec plusieurs catégories pour un même jeu. Par la suite, le règlement dont nous disposons nous permet de constater que les équipes jouaient un rôle central tout comme les joueurs dont la participation était encadrée. Les commanditaires sont présents dans le règlement, mais ils ne jouaient pas un rôle central. # retroaction
 -> quiz_7_1_fin
@@ -138,7 +138,7 @@ Fred: Je ne m’isole pas par plaisir. # character=FRED_GALLANT invisible
 
 Agent Lucas: Pourquoi alors? # character=AGENT_LUCAS expression=neutral
 
-Fred: Je suis impliquée de manière de plus en plus délicate. # character=FRED_GALLANT invisible 
+Fred: Je suis impliquée de manière de plus en plus délicate. # character=FRED_GALLANT invisible
 
 Agent Lucas: Tu aurais dû faire de la politique, pas des enquêtes. # character=AGENT_LUCAS expression=cruel
 
@@ -158,7 +158,7 @@ Fref, à elle même: <b>MrNobodyYet</b>, la meilleure joueuse d’Islande… ref
 ~ demarrer_quiz(QUIZ_7_2, 4)
 ~jouer_musique(theme_quiz)
 ~afficher_document(ELIGIBILITE_JOUEURS_LEC)
-// Description du document : Voyons voir les règles d’éligibilité et de composition des équipes dans le règlement de la LEC (art. 1.1 ; 1.4 ; 3.1 et 3.7). 
+// Description du document : Voyons voir les règles d’éligibilité et de composition des équipes dans le règlement de la LEC (art. 1.1 ; 1.4 ; 3.1 et 3.7).
 -> quiz_7_2_question_1
 
 =quiz_7_2_question_1
@@ -204,7 +204,7 @@ Les joueurs ne pouvaient pas faire n’importe quoi si ils ou elles souhaitaient
 =scene_3
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_choix_cruciaux)
-<b>Fred</b> doit déterminer quels joueurs elle va recruter. 
+<b>Fred</b> doit déterminer quels joueurs elle va recruter.
 
 * Fred recrute les joueurs suivants : Kracotte, MrNobodyYet et MsJG.
 ~points_fin_B1 += 4
@@ -212,7 +212,7 @@ Les joueurs ne pouvaient pas faire n’importe quoi si ils ou elles souhaitaient
 * Fred recrute les joueurs suivants : RalfAle, FonGus et TakeMeOutofThisLane.
 ~points_fin_B2 += 4
 
-* Fred recrute les joueurs suivants : MsJG, FonGus et MrNobodyYet. 
+* Fred recrute les joueurs suivants : MsJG, FonGus et MrNobodyYet.
 ~points_fin_B1 += 2
 
 * Fred recrute les joueurs suivants : RalfAle, MrNobodyYet et FonGus.
@@ -298,7 +298,7 @@ Boris: Pas mon problème. # character=BORIS expression=sterness
 ~ demarrer_quiz(QUIZ_7_3, 2)
 ~jouer_musique(theme_quiz)
 ~afficher_document(FINANCE_EQUIPE)
-// Description document: Les finances n’ont jamais été mon fort… Mais si je veux constituer le budget de l’équipe je n’ai pas le choix de m’y replonger un peu dedans (art. 4.1 à 4.4). 
+// Description document: Les finances n’ont jamais été mon fort… Mais si je veux constituer le budget de l’équipe je n’ai pas le choix de m’y replonger un peu dedans (art. 4.1 à 4.4).
 -> quiz_7_3_question_1
 
 = quiz_7_3_question_1
@@ -388,7 +388,7 @@ Jen: Quand? # character=JEN expression=surprise
 
 Fred: Après. Il faut que ce soit légal. Là, les fonds vont pleuvoir. # character=FRED_GALLANT invisible
 
-Jen: Attention, on pourrait aussi être recrutés par d’autres équipes, moins pauvres. # character=JEN expression=alterness
+Jen: Attention, on pourrait aussi être recrutés par d’autres équipes, moins pauvres. # character=JEN expression=alertness
 
 Fred: Je sais. Mais vous contribuez aussi à un événement dont les gens vont se souvenir. # character=FRED_GALLANT invisible
 
@@ -525,7 +525,7 @@ Teacher: C’est pour ton bien, Fred. # character=TEACHER_V2 expression=sterness
 ~ demarrer_quiz(QUIZ_7_4, 2)
 ~jouer_musique(theme_quiz)
 ~afficher_document(REGLES_COMMANDITAIRES)
-// Description du document: Je devrais regarder si le règlement traite de la participation des commanditaires (art. 4.3). 
+// Description du document: Je devrais regarder si le règlement traite de la participation des commanditaires (art. 4.3).
 -> quiz_7_4_question_1
 
 =quiz_7_4_question_1
@@ -551,7 +551,7 @@ Teacher: C’est pour ton bien, Fred. # character=TEACHER_V2 expression=sterness
 -> scene_6
 
 =scene_6
-<b>Fred</b> doit décider quels commanditaires elle approchera. 
+<b>Fred</b> doit décider quels commanditaires elle approchera.
 ~jouer_musique(theme_choix_cruciaux)
 
 * <b>Fred</b> approche des commanditaires sans se soucier de la légalité au regard des critères du règlement. Comme les jeux sont encore illégaux, elle a plus de chance de réussir auprès de ceux qui commanditent déjà des équipes illégalement.
@@ -592,7 +592,7 @@ Christopher: Quelles sont vos options? # character=CHRISTOPHER_YOUNG expression=
 
 Styliste: Je n’ai rien en coton. On va devoir lui créer son costume sur mesure. # character=STYLISTE expression=alertness
 
-Christopher: C’est notre vedette principale. # character=CHRISTOPHER_YOUNG expression=satisfaction 
+Christopher: C’est notre vedette principale. # character=CHRISTOPHER_YOUNG expression=satisfaction
 
 Fred: Sans compter qu’il a un comportement exemplaire.# character=FRED_GALLANT invisible
 
@@ -876,7 +876,7 @@ L’<b>agent</b> Moore s’en va.
 ~cacher_tout_personnages()
 <b>Fred</b> tombe sur un message alarmant dans ses courriels. Elle n’a pas le temps de réfléchir à ce que vient de laisser entendre <b>Moore</b>.
 
-Il s’agit d’un courriel de <b>Jen</b>. Elle a relayé une publication de <b>Trevor</b> pendant le tournoi préparatoire pour se venger de lui. 
+Il s’agit d’un courriel de <b>Jen</b>. Elle a relayé une publication de <b>Trevor</b> pendant le tournoi préparatoire pour se venger de lui.
 
 Le message dit « Quelle joie de jouer au pays! Marre de Hong Kong XD ».
 
@@ -916,8 +916,8 @@ Le message dit « Quelle joie de jouer au pays! Marre de Hong Kong XD ».
 = scene_9
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_choix_cruciaux)
-<b>Fred</b> doit déterminer comment réagir à la publication de <b>Trevor</b>. 
-* <b>Fred</b> alerte immédiatement <b>Boris</b> de la situation. Elle envisage d’exclure <b>Trevor</b> de l’équipe. 
+<b>Fred</b> doit déterminer comment réagir à la publication de <b>Trevor</b>.
+* <b>Fred</b> alerte immédiatement <b>Boris</b> de la situation. Elle envisage d’exclure <b>Trevor</b> de l’équipe.
 ~points_fin_B1 += 4
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
@@ -1090,7 +1090,7 @@ Fred: Merci. # character=FRED_GALLANT invisible
 
 <b>Fred</b>, <b>Teacher</b>, <b>Christopher</b> et <b>PALVID_</b> discutent.
 
-Teacher: Très heureux de te rencontrer. Je t’ai vu jouer souvent. #character=TEACHER_V2 expression=satisfaction 
+Teacher: Très heureux de te rencontrer. Je t’ai vu jouer souvent. #character=TEACHER_V2 expression=satisfaction
 
 Palvid_: Merci. # character=PALVID expression=neutral
 
@@ -1197,10 +1197,10 @@ Narrateur: Bientôt, les jeux seront faits. Il n’y aura plus de retour en arri
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
 
-Son téléphone vibre avec insistance. 
+Son téléphone vibre avec insistance.
 ~jouer_effet_sonore(vibration_telephone)
 ~afficher_fond(telephone_boris)
-Fred, au téléphone: Que se passe-t-il, Boris? # character=FRED_GALLANT invisible 
+Fred, au téléphone: Que se passe-t-il, Boris? # character=FRED_GALLANT invisible
 
 Boris, au téléphone: Un autre pépin. # character=BORIS invisible
 
@@ -1329,7 +1329,7 @@ Jen: Merci. Vous savez, j’ai un excellent taux de réussite dans mes prédicti
 =scene_11
 ~afficher_fond(art_house_cafe)
 ~jouer_musique(theme_choix_cruciaux)
-<b>Fred</b> doit décider si elle permettra à <b>Jen</b> de placer quelques paris. 
+<b>Fred</b> doit décider si elle permettra à <b>Jen</b> de placer quelques paris.
 
 * <b>Fred</b> décide de permettre à <b>Jen</b> de placer quelques paris discrètement et sous un pseudonyme, si possible.
 ~points_fin_B2 += 4
@@ -1340,11 +1340,11 @@ Jen: Merci. Vous savez, j’ai un excellent taux de réussite dans mes prédicti
 * <b>Fred</b> explique à <b>Jen</b> que le règlement de la LEC interdit une telle pratique et qu’elle ne peut pas compromettre les chances de la résistance de réussir son événement.
 ~points_fin_B1 += 2
 
-* <b>Fred</b> décide de permettre à <b>Jen</b> de placer quelques paris discrètement et sous un pseudonyme, si possible. Elle ne parle pas de cette conversation aux autres membres de la résistance. Seul <b>Boris</b> est au courant, mais <b>Fred</b> ne lui donnera pas les détails. 
+* <b>Fred</b> décide de permettre à <b>Jen</b> de placer quelques paris discrètement et sous un pseudonyme, si possible. Elle ne parle pas de cette conversation aux autres membres de la résistance. Seul <b>Boris</b> est au courant, mais <b>Fred</b> ne lui donnera pas les détails.
 ~points_fin_B2 += 2
 
 - ~afficher_fond(news_room_chapitre_7)
 ~jouer_musique(theme_news)
 « Il n’y a aucune chance que ça marche mieux qu’avant » confirme le titulaire de la chaire de recherches en histoire de la technologie de l’Université d’Ottawa.
 ~arreter_musique()
--> fin 
+-> chapitre_7.scene_1

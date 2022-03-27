@@ -32,6 +32,16 @@ import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=10
 import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
 import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
 import appartementChristopher from '../../assets/backgrounds/apparement_christopher.jpg?w=1920&h=1080';
+import maisonJugeAbbot from '../../assets/backgrounds/maison_juge_abbot.jpg?w=1920&h=1080';
+import rueMcleodLiberte from '../../assets/backgrounds/rue_mcleod_liberte.jpg?w=1920&h=1080';
+import rueMcleodRaid from '../../assets/backgrounds/rue_mcleod_raid.jpg?w=1920&h=1080';
+import parlementPositif from '../../assets/backgrounds/parlement_positif.jpg?w=1920&h=1080';
+import parlementNegatif from '../../assets/backgrounds/parlement_negatif.jpg?w=1920&h=1080';
+import podiumMinistreBleu from '../../assets/backgrounds/podium_ministre_manette_bleu.jpg?w=1920&h=1080';
+import podiumMinistreRose from '../../assets/backgrounds/podium_ministe_rose.jpg?w=1920&h=1080';
+import podiumMinistreBleuBarre from '../../assets/backgrounds/podium_ministre_bleu.jpg?w=1920&h=1080';
+import discoursPremierMinistre from '../../assets/backgrounds/discours_premier_ministre.jpg?w=1920&h=1080';
+import grenierFoule from '../../assets/backgrounds/grenier_foulle.jpg?w=1920&h=1080';
 
 // Transitions
 import transition1 from '../../assets/backgrounds/transition_1.jpg?w=1920&h=1080';
@@ -42,6 +52,8 @@ import transition5 from '../../assets/backgrounds/transition_5.jpg?w=1920&h=1080
 import transition6 from '../../assets/backgrounds/transition_6.jpg?w=1920&h=1080';
 import transition7 from '../../assets/backgrounds/transition_7.jpg?w=1920&h=1080';
 import transition8 from '../../assets/backgrounds/transition_8.jpg?w=1920&h=1080';
+import transition9 from '../../assets/backgrounds/transition_9.jpg?w=1920&h=1080';
+import transitionConclusion from '../../assets/backgrounds/transition_conclusion.jpg?w=1920&h=1080';
 
 // Fins
 import newsRoom1 from '../../assets/backgrounds/news_room_1.jpg?w=1920&h=1080';
@@ -90,14 +102,31 @@ export const backgrounds = {
   ordinateur_fred: { type: 'image', asset: ordinateurFred },
   telephone_photo_john_randle: { type: 'image', asset: telephone },
   chambre_cousine_leigh_kane: { type: 'image', asset: chambreCousingLeighKane },
-  centre_rehabilitation_couloir: { type: 'image', asset: centreRehabilitationCouloir },
-  centre_rehabilitation_autre_piece: { type: 'image', asset: centreRehabilitationAutrePiece },
+  centre_rehabilitation_couloir: {
+    type: 'image',
+    asset: centreRehabilitationCouloir,
+  },
+  centre_rehabilitation_autre_piece: {
+    type: 'image',
+    asset: centreRehabilitationAutrePiece,
+  },
   maison_fred: { type: 'image', asset: maisonFred },
   maison_jonathan: { type: 'image', asset: maisonJonathan },
   ecran_ordinateur_fred: { type: 'image', asset: ordinateurFred },
   coin_flemming_arch: { type: 'image', asset: coinFlemmingArch },
   appartement_christopher: { type: 'image', asset: appartementChristopher },
   telephone_boris: { type: 'image', asset: telephone },
+  maison_fred_telephone: { type: 'image', asset: maisonFred },
+  maison_juge_abbot: { type: 'image', asset: maisonJugeAbbot },
+  rue_mcleod_liberte: { type: 'image', asset: rueMcleodLiberte },
+  rue_mcleod_raid: { type: 'image', asset: rueMcleodRaid },
+  parlement_positif: { type: 'image', asset: parlementPositif },
+  parlement_negatif: { type: 'image', asset: parlementNegatif },
+  porte_bleue_manette: { type: 'image', asset: podiumMinistreBleu },
+  porte_rose_manette: { type: 'image', asset: podiumMinistreRose },
+  porte_bleue_manette_barre: { type: 'image', asset: podiumMinistreBleuBarre },
+  discours_premier_ministre: { type: 'image', asset: discoursPremierMinistre },
+  grenier_foule: { type: 'image', asset: grenierFoule },
   // Transitions
   transition_1: { type: 'image', asset: transition1 },
   transition_2: { type: 'image', asset: transition2 },
@@ -107,15 +136,17 @@ export const backgrounds = {
   transition_6: { type: 'image', asset: transition6 },
   transition_7: { type: 'image', asset: transition7 },
   transition_8: { type: 'image', asset: transition8 },
+  transition_9: { type: 'image', asset: transition9 },
+  transition_conclusion: { type: 'image', asset: transitionConclusion },
   // Fins
   news_room: { type: 'image', asset: newsRoom1 },
-  news_room_1: { type: 'image', asset: newsRoom1 },
-  news_room_2: { type: 'image', asset: newsRoom2 },
-  news_room_3: { type: 'image', asset: newsRoom3 },
-  news_room_4: { type: 'image', asset: newsRoom4 },
-  news_room_5: { type: 'image', asset: newsRoom5 },
-  news_room_6: { type: 'image', asset: newsRoom6 },
-  news_room_7: { type: 'image', asset: newsRoom7 },
-  news_room_8: { type: 'image', asset: newsRoom8 },
-  news_room_9: { type: 'image', asset: newsRoom9 },
+  news_room_chapitre_1: { type: 'image', asset: newsRoom1 },
+  news_room_chapitre_2: { type: 'image', asset: newsRoom2 },
+  news_room_chapitre_3: { type: 'image', asset: newsRoom3 },
+  news_room_chapitre_4: { type: 'image', asset: newsRoom4 },
+  news_room_chapitre_5: { type: 'image', asset: newsRoom5 },
+  news_room_chapitre_6: { type: 'image', asset: newsRoom6 },
+  news_room_chapitre_7: { type: 'image', asset: newsRoom7 },
+  news_room_chapitre_8: { type: 'image', asset: newsRoom8 },
+  news_room_chapitre_9: { type: 'image', asset: newsRoom9 },
 } as const;

@@ -6,6 +6,7 @@ export const knownExpressions = {
     "neutral"
   ],
   "CHEF_MILLER": [
+    "alertness",
     "anger",
     "anxiety",
     "aversion",
@@ -13,10 +14,12 @@ export const knownExpressions = {
     "cruel",
     "disdain",
     "joy",
+    "melancholy",
     "neutral",
     "rage",
     "satisfaction",
     "sterness",
+    "surprise",
     "wonder",
     "wtf"
   ],
@@ -24,6 +27,8 @@ export const knownExpressions = {
     "amusement",
     "aversion",
     "concern",
+    "cruel",
+    "melancholy",
     "neutral",
     "sterness",
     "wonder"
@@ -32,21 +37,29 @@ export const knownExpressions = {
     "amusement",
     "concern",
     "cruel",
+    "dejection",
     "desperation",
     "laughing",
+    "melancholy",
     "neutral",
     "sterness",
-    "surprise"
+    "surprise",
+    "wtf"
   ],
   "ENQUETEUR_BEAULIEU": [
     "aversion",
     "cruel",
     "outrage",
     "rage",
+    "sterness",
     "wtf"
   ],
   "BRIGHTON": [
-    "neutral"
+    "cruel",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "surprise"
   ],
   "BONNIE_RANDLE_V1": [
     "alertness",
@@ -85,6 +98,7 @@ export const knownExpressions = {
     "melancholy",
     "neutral",
     "satisfaction",
+    "sneutral",
     "sterness",
     "surprise",
     "wonder",
@@ -98,7 +112,8 @@ export const knownExpressions = {
     "joy",
     "neutral",
     "sterness",
-    "surprise"
+    "surprise",
+    "wonder"
   ],
   "TOM": [
     "alertness",
@@ -111,9 +126,11 @@ export const knownExpressions = {
   "BONNIE_RANDLE_V2": [
     "alertness",
     "aversion",
+    "concern",
     "default",
     "dejection",
     "disdain",
+    "joy",
     "melancholy",
     "neutral",
     "rage",
@@ -187,13 +204,17 @@ export const knownExpressions = {
     "amusement",
     "anger",
     "anxiety",
+    "concern",
     "disdain",
     "horror",
     "indignation",
+    "joy",
     "melancholy",
     "neutral",
     "sterness",
-    "wonder"
+    "surprise",
+    "wonder",
+    "wtf"
   ],
   "INTERVENANT": [
     "concern",
@@ -216,6 +237,7 @@ export const knownExpressions = {
     "wonder"
   ],
   "BORIS": [
+    "alertness",
     "amusement",
     "concern",
     "disdain",
@@ -224,6 +246,7 @@ export const knownExpressions = {
     "neutral",
     "satisfaction",
     "sterness",
+    "surprise",
     "wonder",
     "wtf"
   ],
@@ -252,6 +275,7 @@ export const knownExpressions = {
     "sterness"
   ],
   "TEACHER_V2": [
+    "alertness",
     "amusement",
     "anxiety",
     "aversion",
@@ -259,6 +283,7 @@ export const knownExpressions = {
     "dejection",
     "disdain",
     "joy",
+    "melancholy",
     "neutral",
     "satisfaction",
     "sterness",
@@ -275,13 +300,27 @@ export const knownExpressions = {
     "wtf"
   ],
   "TREVOR": [
+    "alertness",
+    "concern",
     "disdain",
+    "melancholy",
     "neutral",
     "satisfaction",
-    "sterness"
+    "sterness",
+    "wtf"
   ],
   "JEN": [
+    "alertness",
+    "amusement",
+    "aversion",
+    "concern",
+    "default",
+    "dejection",
+    "joy",
     "melancholy",
+    "neutral",
+    "sterness",
+    "surprise",
     "wonder"
   ],
   "ANDREA": [
@@ -290,11 +329,59 @@ export const knownExpressions = {
     "wonder"
   ],
   "BRAD": [
+    "alertness",
+    "concern",
+    "disdain",
     "joy",
     "neutral",
     "satisfaction",
     "sterness",
     "wtf"
+  ],
+  "STYLISTE": [
+    "alertness",
+    "default",
+    "surprise"
+  ],
+  "PALVID": [
+    "alertness",
+    "amusement",
+    "concern",
+    "melancholy",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "surprise"
+  ],
+  "OPULENCE": [
+    "alertness",
+    "disdain",
+    "neutral",
+    "sterness"
+  ],
+  "MR_GHOST": [
+    "disdain",
+    "sterness",
+    "wtf"
+  ],
+  "CLEAR_VIEW": [
+    "dejection",
+    "disdain"
+  ],
+  "JUGE_ABBOTT": [
+    "concern",
+    "dejection",
+    "joy",
+    "melancholy",
+    "neutral",
+    "satisfaction",
+    "sterness",
+    "surprise",
+    "wonder"
+  ],
+  "PREMIER_MINISTRE": [
+    "joy",
+    "neutral",
+    "satisfaction"
   ]
 };
-  

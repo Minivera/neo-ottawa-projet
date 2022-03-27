@@ -30,6 +30,11 @@ import {
   Andrea,
   Brad,
   Palvid,
+  Opulence,
+  UpperStreamer,
+  MRGhost,
+  ClearView,
+  JugeAbbott,
 } from './characters';
 import { Contact } from '../game/pda';
 
@@ -219,5 +224,35 @@ export const contacts: Record<string, Contact> = {
     characterId: Palvid.id,
     name: Palvid.name,
     description: 'contact_palvid',
+  },
+  [Opulence.id]: {
+    type: 'resistance',
+    characterId: Opulence.id,
+    name: Opulence.name,
+    description: 'contact_opulence',
+  },
+  [UpperStreamer.id]: {
+    type: 'resistance',
+    characterId: UpperStreamer.id,
+    name: UpperStreamer.name,
+    description: 'contact_upper_streamer',
+  },
+  [MRGhost.id]: {
+    type: 'resistance',
+    characterId: MRGhost.id,
+    name: MRGhost.name,
+    description: 'contact_mr_ghost',
+  },
+  [ClearView.id]: {
+    type: 'police',
+    characterId: ClearView.id,
+    name: ClearView.name,
+    description: 'contact_clear_view',
+  },
+  [JugeAbbott.id]: {
+    type: 'resistance',
+    characterId: JugeAbbott.id,
+    name: JugeAbbott.name,
+    description: 'contact_juge_abbott',
   },
 } as const;

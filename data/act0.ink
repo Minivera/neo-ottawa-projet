@@ -99,7 +99,7 @@ Chef Miller: Commencez par les parents, mais méfiez-vous de ce qu’ils raconte
 Fred: Oui, Chef. # character=FRED_GALLANT invisible
 Chef Miller: Je compte sur vous. Vous travaillerez seule sur cette première mission. Ensuite, vous aurez peut-être ma confiance. # character=CHEF_MILLER expression=aversion
 
-*   <b>Fred</b> demande au <b>chef Miller</b> pourquoi il lui confie cette mission. # character=FRED_GALLANT invisible
+*   <b>Fred</b> demande au <b>chef Miller</b> pourquoi il lui confie une mission si importante dès son premier jour. # character=FRED_GALLANT invisible
     Chef Miller: Vous avez une occasion de faire vos preuves. Une seule occasion. Ne la bousillez pas. # character=CHEF_MILLER expression=sterness
 *   <b>Fred</b> remercie le chef Miller.
     Chef Miller: Allez faire ce pour quoi on vous paye. # character=CHEF_MILLER expression=sterness
@@ -253,6 +253,7 @@ De retour au bureau, <b>Fred</b> parcourt les données du téléphone de <b>Leig
 TEACHER: Tu vas adorer # character=TEACHER_V1 invisible
 Leigh Kane: Bah vous dites toujours ça # character=LEIGH_KANE invisible
 TEACHER: Cette fois, il est au point. On est tous à fond sur le jeu. Tu pourras plus t’arrêter. Il est immersif, complexe, on s’y croirait, on oublie tout. # character=TEACHER_V1 invisible
+~ afficher_fond(telephone_kane)
 Leigh Kane: Où et quand # character=LEIGH_KANE invisible
 TEACHER: Tu peux l’avoir dès ce soir # character=TEACHER_V1 invisible
 Leigh Kane: Combien # character=LEIGH_KANE invisible
@@ -410,19 +411,20 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
 - Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR expression=neutral
 ~ cacher_tout_personnages()
 ~ afficher_fond(telephone_fred)
-<b>Fred</b> compose au numéro que <b>Bonnie</b> lui a donné.
+<b>Fred</b> compose le numéro que <b>Bonnie</b> lui a donné.
 ~ jouer_effet_sonore(composer_numero)
-Homme: Qui est-ce? # character=CHRISTOPHER_YOUNG invisible
+~afficher_personnage(CHRISTOPHER_YOUNG, "fadeIn")
+Homme: Qui est-ce? # character=CHRISTOPHER_YOUNG expression=neutral phone
 Fred: Je m’appelle Fred. C’est John Randle qui m’a donné votre numéro. # character=FRED_GALLANT invisible
-  Christopher: John qui? # character=CHRISTOPHER_YOUNG invisible
+  Christopher: John qui? # character=CHRISTOPHER_YOUNG expression=concern phone
 Fred: Euuh...Randle. # character=FRED_GALLANT invisible
-  Christopher: Ah. Vous connaissez Randle? # character=CHRISTOPHER_YOUNG invisible
+  Christopher: Ah. Vous connaissez Randle? # character=CHRISTOPHER_YOUNG expression=concern phone
 Fred: Oui. # character=FRED_GALLANT invisible
-  Christopher: Comment? # character=CHRISTOPHER_YOUNG invisible
+  Christopher: Comment? # character=CHRISTOPHER_YOUNG expression=concern phone
 Fred: L’université. # character=FRED_GALLANT invisible
-  Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG invisible
+  Christopher: Et vous voulez quoi? # character=CHRISTOPHER_YOUNG expression=alertness phone
 Fred: Jouer. # character=FRED_GALLANT invisible
-
+~cacher_tout_personnages()
 -> scene_13
 
 = scene_13

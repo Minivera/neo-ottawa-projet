@@ -39,6 +39,12 @@ import { Andrea } from './andrea';
 import { Brad } from './brad';
 import { Styliste } from './styliste';
 import { Palvid } from './palvid';
+import { Opulence } from './opulence';
+import { UpperStreamer } from './upperStreamer';
+import { MRGhost } from './mrGhost';
+import { ClearView } from './clearView';
+import { JugeAbbott } from './jugeAbbott';
+import { PremierMinistre } from './premierMinistre';
 
 export {
   FredGallant,
@@ -82,6 +88,12 @@ export {
   Brad,
   Styliste,
   Palvid,
+  Opulence,
+  UpperStreamer,
+  MRGhost,
+  ClearView,
+  JugeAbbott,
+  PremierMinistre,
 };
 
 export const Characters = {
@@ -126,4 +138,10 @@ export const Characters = {
   [Brad.id]: Brad,
   [Palvid.id]: Palvid,
   [Styliste.id]: Styliste,
+  [Opulence.id]: Opulence,
+  [UpperStreamer.id]: UpperStreamer,
+  [MRGhost.id]: MRGhost,
+  [ClearView.id]: ClearView,
+  [JugeAbbott.id]: JugeAbbott,
+  [PremierMinistre.id]: PremierMinistre,
 };
