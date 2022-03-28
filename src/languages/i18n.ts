@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
 import { interfaceTerms as frInterfaceTerms } from '../data/languages/fr/interface';
+import { credits as frCredits } from '../data/languages/fr/credits';
 import { charactersNames as frCharacterNames } from '../data/languages/fr/names';
 import { contactDescriptions as frContactDescriptions } from '../data/languages/fr/contacts';
 import { quizzesNames as frQuizzesNames } from '../data/languages/fr/quizzes';
@@ -13,6 +14,7 @@ const resources = {
   fr: {
     translation: {
       ...frInterfaceTerms,
+      ...frCredits,
       ...frCharacterNames,
       ...frNotesMessages,
       ...frContactDescriptions,

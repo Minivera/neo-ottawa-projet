@@ -633,6 +633,14 @@ export const useGame = (
         },
         false
       );
+
+      story.BindExternalFunction(
+        'fin_jeu',
+        () => {
+          dispatch({ type: 'end' });
+        },
+        false
+      );
     } catch {
       // Ignore exceptions here as hot-reloading can cause this effect to rerun
     }

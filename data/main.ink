@@ -28,4 +28,5 @@ INCLUDE conclusion_A2_B1.ink
 
 === fin ===
 
+~ fin_jeu()
 -> END

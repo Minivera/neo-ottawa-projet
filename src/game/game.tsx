@@ -34,6 +34,7 @@ import clickShimmer from '../assets/sound/click-shimmer.mp3';
 import pdaOpen from '../assets/sound/futuristic-login.mp3';
 import buttonBeep from '../assets/sound/beep-single.mp3';
 import typewriter from '../assets/sound/typewriter.mp3';
+import { Credits } from '../components/credits';
 
 const clickSound = new Howl({
   src: [clickMetal],
@@ -282,6 +283,23 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
         </React.Fragment>
       );
     }
+    case GameState.Ended:
+      return (
+        <React.Fragment>
+          {globalCSS}
+          <GameBackground
+            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+            // @ts-ignore
+            src={bgVideo}
+            autoPlay={true}
+            muted
+            loop
+          />
+          <GameContainer>
+            <Credits />
+          </GameContainer>
+        </React.Fragment>
+      );
     case GameState.Started: {
       if (!gameState.currentScene) {
         return <GameContainer>Could not load scene</GameContainer>;
@@ -453,6 +471,4 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       );
     }
   }
-
-  return <GameContainer>Unknown state</GameContainer>;
 };

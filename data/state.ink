@@ -1,6 +1,10 @@
 EXTERNAL show_pda()
 === function show_pda() ===
     ~ return ""
+    
+EXTERNAL fin_jeu()
+=== function fin_jeu() ===
+    ~ return ""
 
 VAR known_contacts = ()
 VAR last_added_contact = false
