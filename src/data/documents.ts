@@ -324,13 +324,13 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'FINANCE_EQUIPE',
     name: 'document-name-contrat-esport',
     description: 'document-description-contrat-esport',
-    path: `${import.meta.env.BASE_URL}documents/contrat-esport.pdf`,
+    path: `${import.meta.env.BASE_URL}documents/finance-equipe.pdf`,
   },
   LISTE_COMMANDITAIRES: {
     documentId: 'LISTE_COMMANDITAIRES',
-    name: 'document-name-finance-equipe',
-    description: 'document-description-finance-equipe',
-    path: `${import.meta.env.BASE_URL}documents/finance-equipe.pdf`,
+    name: 'document-name-liste-commanditaires',
+    description: 'document-description-liste-commanditaires',
+    path: `${import.meta.env.BASE_URL}documents/liste-commanditaires.pdf`,
   },
   REGLES_COMMANDITAIRES: {
     documentId: 'REGLES_COMMANDITAIRES',
@@ -408,13 +408,13 @@ export const documents: Record<documentsNames, Document> = {
     documentId: 'LIGNE_CONDUITE_TWITCH',
     name: 'document-name-ligne-conduite-twitch',
     description: 'document-description-ligne-conduite-twitch',
-    path: `${import.meta.env.BASE_URL}documents/ligne-conduite-twitch.pdf`,
+    path: `${import.meta.env.BASE_URL}documents/sanctions-et-ligne-de-conduite-twitch.pdf`,
   },
   SANCTIONS_TWITCH: {
     documentId: 'SANCTIONS_TWITCH',
     name: 'document-name-sanctions-twitch',
     description: 'document-description-sanctions-twitch',
-    path: `${import.meta.env.BASE_URL}documents/sanctions-twitch.pdf`,
+    path: `${import.meta.env.BASE_URL}documents/sanctions-et-ligne-de-conduite-twitch.pdf`,
   },
   SYNDICALISATION_STREAMERS: {
     documentId: 'SYNDICALISATION_STREAMERS',
@@ -422,14 +422,12 @@ export const documents: Record<documentsNames, Document> = {
     description: 'document-description-syndicalisation-streamers',
     path: `${import.meta.env.BASE_URL}documents/syndicalisation-streamers.pdf`,
   },
-  // TODO: Document manquant
   TOXICITE_JEUX_VIDEO: {
     documentId: 'TOXICITE_JEUX_VIDEO',
     name: 'document-name-toxicite-jv',
-    description: 'document-description-toxicite-jv',
-    path: `${import.meta.env.BASE_URL}documents/toxicite-jv.pdf`,
+    description: 'document-description-toxicite-lol',
+    path: `${import.meta.env.BASE_URL}documents/toxicite-lol.pdf`,
   },
-  // TODO: Document manquant
   TOXICITE_LOL: {
     documentId: 'TOXICITE_LOL',
     name: 'document-name-toxicite-lol',

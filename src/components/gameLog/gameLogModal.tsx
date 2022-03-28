@@ -49,8 +49,8 @@ export const GameLogModal: FunctionComponent<GameLogModalProps> = ({
           max-height: calc(100vh - 3.5rem);
           overflow: hidden;
           display: grid;
-          grid-template-columns: auto 42px auto 16rem;
-          grid-template-rows: 50px auto;
+          grid-template-columns: auto 42px 1fr 16rem;
+          grid-template-rows: 50px 1fr;
         `}
       >
         <h2

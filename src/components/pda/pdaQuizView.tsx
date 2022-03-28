@@ -101,7 +101,7 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
       `}
     >
       <div
-          css={css`
+        css={css`
           flex: 1;
         `}
       >
@@ -329,6 +329,7 @@ export const PDAQuizView: React.FunctionComponent<PDAQuizViewProps> = ({
               @media only screen and (max-width: 1600px) {
                 margin-left: 0;
                 margin-top: 2rem;
+                width: 100%;
               }
             `}
           >
