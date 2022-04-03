@@ -53,12 +53,9 @@ export type documentsNames =
   | 'MARCHE_STREAMING'
   | 'REGLES_UTILISATION_TWITCH'
   | 'POLITIQUES_COMPAGNIES_JV'
-  | 'FICHE_DESCRIPTIVE_OPULENCE'
-  | 'FICHE_DESCRIPTIVE_UPPERSTREAMER'
   | 'LIGNE_CONDUITE_TWITCH'
   | 'SANCTIONS_TWITCH'
   | 'SYNDICALISATION_STREAMERS'
-  | 'TOXICITE_JEUX_VIDEO'
   | 'TOXICITE_LOL'
   | 'TRIBUNAL_JEUX_VIDEO'
   | 'PENALITE_JEUX_VIDEO';
@@ -390,20 +387,6 @@ export const documents: Record<documentsNames, Document> = {
     description: 'document-description-politiques-compagnies-jv',
     path: `${import.meta.env.BASE_URL}documents/politiques-compagnies-jv.pdf`,
   },
-  // TODO: Document manquant
-  FICHE_DESCRIPTIVE_OPULENCE: {
-    documentId: 'FICHE_DESCRIPTIVE_OPULENCE',
-    name: 'document-name-fiche-descriptive-opulence',
-    description: 'document-description-fiche-descriptive-opulence',
-    path: `${import.meta.env.BASE_URL}documents/fiche-descriptive-opulence.pdf`,
-  },
-  // TODO: Document manquant
-  FICHE_DESCRIPTIVE_UPPERSTREAMER: {
-    documentId: 'FICHE_DESCRIPTIVE_UPPERSTREAMER',
-    name: 'document-name-fiche-descriptive-upperstreamer',
-    description: 'document-description-fiche-descriptive-upperstreamer',
-    path: `${import.meta.env.BASE_URL}documents/fiche-descriptive-upperstreamer.pdf`,
-  },
   LIGNE_CONDUITE_TWITCH: {
     documentId: 'LIGNE_CONDUITE_TWITCH',
     name: 'document-name-ligne-conduite-twitch',
@@ -421,12 +404,6 @@ export const documents: Record<documentsNames, Document> = {
     name: 'document-name-syndicalisation-streamers',
     description: 'document-description-syndicalisation-streamers',
     path: `${import.meta.env.BASE_URL}documents/syndicalisation-streamers.pdf`,
-  },
-  TOXICITE_JEUX_VIDEO: {
-    documentId: 'TOXICITE_JEUX_VIDEO',
-    name: 'document-name-toxicite-jv',
-    description: 'document-description-toxicite-lol',
-    path: `${import.meta.env.BASE_URL}documents/toxicite-lol.pdf`,
   },
   TOXICITE_LOL: {
     documentId: 'TOXICITE_LOL',

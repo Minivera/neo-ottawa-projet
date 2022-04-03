@@ -32,7 +32,7 @@ import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=10
 import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
 import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
 import appartementChristopher from '../../assets/backgrounds/apparement_christopher.jpg?w=1920&h=1080';
-import maisonJugeAbbot from '../../assets/backgrounds/maison_juge_abbot.jpg?w=1920&h=1080';
+import maisonJugeAbbott from '../../assets/backgrounds/maison_juge_abbot.jpg?w=1920&h=1080';
 import rueMcleodLiberte from '../../assets/backgrounds/rue_mcleod_liberte.jpg?w=1920&h=1080';
 import rueMcleodRaid from '../../assets/backgrounds/rue_mcleod_raid.jpg?w=1920&h=1080';
 import parlementPositif from '../../assets/backgrounds/parlement_positif.jpg?w=1920&h=1080';
@@ -117,7 +117,7 @@ export const backgrounds = {
   appartement_christopher: { type: 'image', asset: appartementChristopher },
   telephone_boris: { type: 'image', asset: telephone },
   maison_fred_telephone: { type: 'image', asset: maisonFred },
-  maison_juge_abbot: { type: 'image', asset: maisonJugeAbbot },
+  maison_juge_abbott: { type: 'image', asset: maisonJugeAbbott },
   rue_mcleod_liberte: { type: 'image', asset: rueMcleodLiberte },
   rue_mcleod_raid: { type: 'image', asset: rueMcleodRaid },
   parlement_positif: { type: 'image', asset: parlementPositif },

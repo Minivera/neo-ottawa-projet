@@ -12,7 +12,7 @@ export const MRGhost: Character = {
   name: 'mr_ghost',
   images: {},
   imagePaths: {},
-  theme: 'other',
+  theme: 'resistance',
 };
 
 export const load: () => Promise<void[]> = loadingHelper(

@@ -8,6 +8,7 @@ import themeIntro from '../../assets/music/theme-intro.mp3';
 import themeNews from '../../assets/music/theme-news.mp3';
 import themeQuiz from '../../assets/music/theme-quiz.mp3';
 import themeCredits from '../../assets/music/theme-credits.mp3';
+import themeFin from '../../assets/music/theme-fin.mp3';
 
 const howlThemeMenu = new Howl({
   src: [themeIntro],
@@ -44,6 +45,10 @@ const howlThemeCredits = new Howl({
   src: [themeCredits],
   loop: true,
 });
+const howlThemeFin = new Howl({
+  src: [themeFin],
+  loop: true,
+});
 
 export const musics: Record<string, Howl> = {
   theme_menu: howlThemeMenu,
@@ -60,4 +65,5 @@ export const musics: Record<string, Howl> = {
   theme_news: howlThemeNews,
   theme_general: howlThemeGeneral,
   theme_credits: howlThemeCredits,
+  theme_fin: howlThemeFin,
 };
