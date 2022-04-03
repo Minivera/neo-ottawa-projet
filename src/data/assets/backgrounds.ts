@@ -54,6 +54,7 @@ import transition7 from '../../assets/backgrounds/transition_7.jpg?w=1920&h=1080
 import transition8 from '../../assets/backgrounds/transition_8.jpg?w=1920&h=1080';
 import transition9 from '../../assets/backgrounds/transition_9.jpg?w=1920&h=1080';
 import transitionConclusion from '../../assets/backgrounds/transition_conclusion.jpg?w=1920&h=1080';
+import blackout from '../../assets/backgrounds/blackout.jpg?w=1920&h=1080';
 
 // Fins
 import newsRoom1 from '../../assets/backgrounds/news_room_1.jpg?w=1920&h=1080';
@@ -138,6 +139,7 @@ export const backgrounds = {
   transition_8: { type: 'image', asset: transition8 },
   transition_9: { type: 'image', asset: transition9 },
   transition_conclusion: { type: 'image', asset: transitionConclusion },
+  blackout: { type: 'image', asset: blackout },
   // Fins
   news_room: { type: 'image', asset: newsRoom1 },
   news_room_chapitre_1: { type: 'image', asset: newsRoom1 },

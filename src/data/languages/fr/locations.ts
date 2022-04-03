@@ -68,6 +68,7 @@ export const backgroundNames: addNameToObject<typeof backgrounds> = {
     transition_8_name: ``,
     transition_9_name: ``,
     transition_conclusion_name: ``,
+    blackout_name: ``,
     // Fins
     news_room_name: `Salle des nouvelles`,
     news_room_chapitre_1_name: `Salle des nouvelles`,
