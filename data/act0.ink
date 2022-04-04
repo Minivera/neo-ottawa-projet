@@ -73,7 +73,7 @@ Chef Miller: Je sais. Mais pourquoi? # character=CHEF_MILLER expression=sterness
 Fred: C’est une cause qui m’intéresse. # character=FRED_GALLANT invisible
 Chef Miller: Allez droit au but, agent Gallant. Dites-moi la vérité. Je veux savoir qui j’envoie sur le terrain. # character=CHEF_MILLER expression=wtf
 Fred: La loi… Les contrevenants sont encore nombreux, parfois fanatiques. Je pense qu’il y a place à amélioration. Je voulais… # character=FRED_GALLANT invisible
-Chef Miller: Vous voulez innover? Vous démarquez? Dans un secteur où c’est encore possible? # character=CHEF_MILLER expression=sterness
+Chef Miller: Vous voulez innover? Vous démarquer? Dans un secteur où c’est encore possible? # character=CHEF_MILLER expression=sterness
 Fred: Je…	 # character=FRED_GALLANT invisible
 Chef Miller: Vous n’avez pas à rougir de votre ambition. J’aime bien votre pragmatisme. On a besoin d’éléments comme vous, Gallant. Bienvenue dans l’équipe. # character=CHEF_MILLER expression=satisfaction
 Chef Miller: Tenez Gallant, votre premier dossier. # character=CHEF_MILLER expression=neutral

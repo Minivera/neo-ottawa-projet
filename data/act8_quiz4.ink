@@ -26,10 +26,10 @@
 -> quiz_8_4_question_2
 
 = quiz_8_4_question_3
-3- Il n’existait aucun exemple de syndicat de joueurs dans le milieu du sport électronique avant l’adoption de la <i>Loi Game Over</i>. # question index=3
+3- Il n’existait aucun exemple de syndicat de joueurs dans le milieu du sport électronique avant l’adoption de la Loi Game Over. # question index=3
 +   (3_a) [{3_a: VISITE--}Vrai] Vrai
 +   (3_b) [BON--{3_b: VISITE--}Faux] Faux
-  Selon les archives, les joueurs professionnels du jeu Counter-Striker avaient réussi à former un syndicat : Association des joueurs professionnels de <i>Counter-Strike</i>. Ce syndicat représentait les joueurs dans leurs négociations collectives. # retroaction
+  Selon les archives, les joueurs professionnels du jeu Counter-Striker avaient réussi à former un syndicat, Association des joueurs professionnels de Counter-Strike. Ce syndicat représentait les joueurs dans leurs négociations collectives. # retroaction
     -> quiz_8_4_question_4
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_8_4_question_3

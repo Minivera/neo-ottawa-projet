@@ -16,7 +16,7 @@ Cependant, l’accueil du public n’est pas celui auquel les protagonistes s’
 
 Le jeu produit par la résistance est sévèrement jugé. Il perpétue certains des abus pointés par la <i>Loi Game Over</i>.
 
-Pour son événement, la résistance avait pourtant tout prévu : les contrats, les commanditaires, les streamers, etc. Mais il faut croire qu’ils ont fait preuve de négligence dans leur planification…
+Pour son événement, la résistance avait pourtant tout prévu - les contrats, les commanditaires, les streamers, etc. Mais il faut croire qu’ils ont fait preuve de négligence dans leur planification…
 
 L’évènement tant attendu tourne sérieusement au vinaigre. Sur les réseaux sociaux, la grogne monte. 
 
@@ -37,21 +37,18 @@ Les trois agents partent en courant former leurs équipes respectives.
 ~jouer_effet_sonore(porte_enfoncee)
 
 Au 530, l’<b>agent Moore</b>, l’<b>agent Lucas</b> et l’<b>agent Sand</b> donnent les ordres.
-~afficher_personnage(AGENT_MOORE, "slideInUp")
-~afficher_personnage(AGENT_LUCAS, "slideInUp")
-~afficher_personnage(GABRIEL_SAND, "slideInUp")
 Les arrestations sont instantanées. Tout le matériel est confisqué. Il y a de la casse. 
 
 ~afficher_fond(grenier_foule)
 
+~afficher_personnage(AGENT_MOORE, "slideInUp")
+~afficher_personnage(AGENT_LUCAS, "slideInUp")
+~afficher_personnage(GABRIEL_SAND, "slideInUp")
+
 <b>Fred</b> est sur les lieux. Impuissante, elle observe la descente de la brigade. Elle n’est pas arrêtée.
 
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 <b>Christopher</b> la regarde avec un mépris et une déception évidente.
-~cacher_personnage(CHRISTOPHER_YOUNG, "slideOutDown")
 
-~afficher_personnage(PALVID, "slideInUp")
-~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
 <b>Palvid_</b> réussit à s’échapper en entraînant <b>Bonnie</b> qui proteste. Elle pense encore qu’elle sera épargnée grâce à <b>Fred</b>.
 
 <b>Fred</b>, un peu honteuse, ne cherche pas à rattraper <b>Bonnie</b>.
@@ -64,6 +61,8 @@ Les arrestations sont instantanées. Tout le matériel est confisqué. Il y a de
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
+
+À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
 
 Chef Miller: Vous avez réussi, Gallant. # character=CHEF_MILLER expression=satisfaction
 
@@ -87,7 +86,7 @@ Chef Miller: Oui, bien sûr. Vous avez joué votre partition à la perfection et
 
 Fred: Il fallait bien que je leur donne quelque chose pour qu’ils me fassent confiance. Je vous le répète. # character=FRED_GALLANT invisible
 
-Chef Miller: Oui, mais vous avez joué avec mes nerfs Gallant! Je n’ai plus 20 ans Gallant et j’aimerais pouvoir profiter de ma retraite! En tout cas bravo Gallant, j’avais mes doutes, mais vous m’avez convaincu. Vous êtes un membre précieux de la brigade et vous serez promue. La promotion la plus rapide de la brigade! Qu’en dites-vous Gallant? # character=CHEF_MILLER expression=satisfaction
+Chef Miller: Oui, mais vous avez joué avec mes nerfs Gallant! Je n’ai plus 20 ans et j’aimerais pouvoir profiter de ma retraite! En tout cas bravo Gallant, j’avais mes doutes, mais vous m’avez convaincu. Vous êtes un membre précieux de la brigade et vous serez promue. La promotion la plus rapide de la brigade! Qu’en dites-vous Gallant? # character=CHEF_MILLER expression=satisfaction
 
 Fred: Je pense que j’ai besoin de vacances. # character=FRED_GALLANT invisible
 
@@ -102,13 +101,11 @@ Chef Miller: La brigade a besoin de vous Gallant! # character=CHEF_MILLER expres
 
 Colline du Parlement, Ottawa. # center
 
-Allocution du premier ministre. # center
-
 ~afficher_fond(discours_premier_ministre)
 ~afficher_personnage(PREMIER_MINISTRE, "slideInUp")
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
-Chef Miller: Monsieur le premier ministre, quel honneur de vous recevoir à la brigade. # character=CHEF_MILLER expression=satisfaction
+Chef Miller: Monsieur le premier ministre, c'est un honneur. # character=CHEF_MILLER expression=satisfaction
 
 Premier ministre: Merci d’avoir accepté mon invitation. Je tenais à rencontrer celle qui a permis d’appréhender les leaders du mouvement de résistance pro-jeux vidéo que nous pourchassons depuis plusieurs années. Agent Gallant c’est bien cela? # character=PREMIER_MINISTRE expression=neutral
 

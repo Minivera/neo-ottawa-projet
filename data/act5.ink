@@ -937,6 +937,6 @@ Christopher: Oui, ça, j’y arrive! # character=CHRISTOPHER_YOUNG expression=sa
 = scene_8
 ~afficher_fond(news_room_chapitre_5)
 ~jouer_musique(theme_news)
-La tension monte : des fuites indiquent qu’une organisation tente un retour des jeux vidéo sur le marché légal
+La tension monte, des fuites indiquent qu’une organisation tente un retour des jeux vidéo sur le marché légal
 ~arreter_musique()
 ->chapitre_6.scene_1

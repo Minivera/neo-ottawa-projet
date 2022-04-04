@@ -544,7 +544,7 @@ Après sa rencontre avec <b>Jonathan</b>, <b>Fred</b> retourne à son bureau pou
 ~jouer_effet_sonore(reception_courriel)
 ~afficher_fond(ecran_ordinateur_fred)
 
-<i>Bonjour agent Gallant, <br/>J’ai entendu dire que vous aviez eu une rencontre avec ce traître de Jonathan au sujet des créations artistiques. Je ne sais pas ce qu’il a pu vous dire, mais tout m’appartient. J’ai retravaillé et modifié ces créations. Il n’y a plus rien à lui dans le jeu final. Je vous envoie les preuves que j’ai à l’appui.<br/>Merci,</br>Christian</i> # center
+<i>Bonjour agent Gallant, <br/>J’ai entendu dire que vous aviez eu une rencontre avec ce traître de Jonathan au sujet des créations artistiques. Je ne sais pas ce qu’il a pu vous dire, mais tout m’appartient. J’ai retravaillé et modifié ces créations. Il n’y a plus rien à lui dans le jeu final. Je vous envoie les preuves que j’ai à l’appui.<br/>Merci,<br/>Christian</i> # center
 
 ~ajouter_document(JOURNAL_CONCEPTION_CHRISTIAN)
 ~ajouter_document(CONCEPTS_ARTISTIQUES_CHRISTIAN)
@@ -780,6 +780,6 @@ Boris: On ne peut toujours pas lancer le jeu et on n’est même pas certain que
 
 ~afficher_fond(news_room_chapitre_4)
 ~jouer_musique(theme_news)
-La colère monte : les jeux vidéo illicites occupent encore une grande part de marché selon les experts
+La colère monte. Les jeux vidéo illicites occupent encore une grande part de marché selon les experts
 ~arreter_musique()
 - -> chapitre_5.scene_1

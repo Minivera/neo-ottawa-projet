@@ -6,7 +6,7 @@
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
 
-<b>Boris</b>, <b>Teacher</b>, <b>MR GHOST</b>, <b>CLEAR VIEW</b> et <b>Fred</b> sont en réunion.
+<b>Boris</b>, <b>Christopher</b>, <b>MR GHOST</b>, <b>CLEAR VIEW</b> et <b>Fred</b> sont en réunion.
 ~afficher_personnage(BORIS, "slideInUp")
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 ~afficher_personnage(MR_GHOST, "slideInUp")
@@ -50,13 +50,12 @@ Narrateur: Qu’avez-vous donc fait? La résistance serait-elle victime de sa po
 
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
-~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
+
+<b>Brighton</b> voit <b>Fred</b> au 530, accompagnée de <b>Christopher</b> et <b>Bonnie</b>.
+
+<b>Brighton</b> interpelle <b>Fred</b>.
+
 ~afficher_personnage(BRIGHTON, "slideInUp")
-
-<b>Brighton</b> voit <b>Fred</b> entrer au 530, accompagnée de <b>Christopher</b> et <b>Bonnie</b>.
-
-<b>Brighton</b> décide d’entrer.
 
 Brighton: Fred, puis-je vous parler? # character=BRIGHTON expression=neutral
 
@@ -71,7 +70,8 @@ Brighton: J’ai à vous parler. # character=BRIGHTON expression=sterness
 
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
-
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
 Fred, à Christopher et Bonnie: Je n’en ai pas pour longtemps. # character=FRED_GALLANT invisible
 
 Christopher: Mais qui est ce clown? # character=CHRISTOPHER_YOUNG expression=concern
@@ -111,6 +111,8 @@ Fred: Ordure! # character=FRED_GALLANT invisible
 
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
 
 Fred: Je ne connais pas ce sinistre individu. Qu’est-ce que vous me voulez? # character=FRED_GALLANT invisible
 
@@ -142,6 +144,8 @@ Brighton: Oh, je reste à votre disposition, vous savez comment me joindre. # ch
 <b>Brighton</b> s’en va. <b>Christopher</b> et <b>Bonnie</b> se regardent, très inquiets.
 
 ~cacher_personnage(BRIGHTON, "slideOutDown")
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
 
 Christopher: Tu vas nous expliquer ça? # character=CHRISTOPHER_YOUNG expression=concern
 
@@ -162,6 +166,8 @@ Fred: Écoutez, ils sont fâchés. Il faut que je vous explique, c’est pour ç
 
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
 Fred: Qu’est-ce que vous me voulez? C’est une propriété privée ici! Je ne vous connais pas! # character=FRED_GALLANT invisible
 
 Brighton: Oh! Inquiète devant vos nouveaux amis? Remarquez, je le serais aussi. Bon, lorsque vous vous souviendrez de moi, vous savez comment me joindre. Je fais ça pour vous rendre service, moi. Agent euh… Fred, c’est ça? # character=BRIGHTON expression=cruel
@@ -197,11 +203,13 @@ Fred: Rien, je vais tout vous expliquer. Entrons. # character=FRED_GALLANT invis
 - -> scene_2
 
 = scene_2
-~afficher_fond(rue_mcleod)
+~afficher_fond(grenier)
 ~jouer_musique(theme_general)
+
+<b>Fred</b>, <b>Christopher</b> et <b>Bonnie</b> discutent.
+
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 ~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
-<b>Fred</b>, <b>Christopher</b> et <b>Bonnie</b> discutent.
 
 Fred: Bon, ils m’ont sommée de trouver une solution parce que les joueurs en ligne n’ont pas tous des comportements acceptables et ils ne veulent pas de débordements. # character=FRED_GALLANT invisible
 
@@ -249,8 +257,10 @@ Fred: Je crois que je sais à quelle porte frapper. # character=FRED_GALLANT inv
 
 ~afficher_fond(centre_rehabilitation_autre_piece)
 ~jouer_musique(theme_general)
-~afficher_personnage(AL, "slideInUp")
+
 <b>Fred</b> et <b>Al</b> jouent au poker.
+
+~afficher_personnage(AL, "slideInUp")
 
 Al: Je savais bien que vous reviendriez pour cette partie de poker. Ça ne se refuse pas. # character=AL expression=joy
 
@@ -332,8 +342,6 @@ Fred: Avez-vous des informations sur les pratiques avant la loi? # character=FRE
 
 <b>Al quitte</b> la partie, se lève et va dans un de ses tiroirs. Il en sort des documents.
 
-~ajouter_document(TOXICITE_JEUX_VIDEO)
-
 Al: Voilà. Commencez par ça. Vous verrez à quel point c’est incontrôlable. # character=AL expression=neutral
 
 ~ajouter_document(TOXICITE_LOL)
@@ -350,8 +358,6 @@ Al: Ha! Vous mentez mal! Tout ce que je peux vous dire Fred, c’est que vous de
 
 <b>Al</b> se lève et quitte la partie. Il va chercher un dossier dans ses tiroirs et le lance à Fred.
 
-~ajouter_document(TOXICITE_JEUX_VIDEO)
-
 Al: Lisez ceci et ne revenez pas me voir, Fred. Je sais que vous ne comprenez pas, mais moi, je me fais vieux pour ce genre de choses. # character=AL expression=disdain
 
 ~ajouter_document(TOXICITE_LOL)
@@ -365,9 +371,9 @@ Al: Empêchez les jeux de redevenir légaux, Fred. Empêchez-les à tout prix! #
 -> quiz_9_1
 
 = quiz_9_1
-~ demarrer_quiz(QUIZ_9_1, 4)
+~ demarrer_quiz(QUIZ_9_1, 2)
 ~jouer_musique(theme_quiz)
-~afficher_document(TOXICITE_JEUX_VIDEO)
+~afficher_document(TOXICITE_LOL)
 // Description du document: Qui l’eut cru... On dirait bien que la pratique des jeux vidéo n’était pas nécessairement positive pour tout le monde par le passé. Au contraire, on dirait bien que certains comportements pouvaient être toxiques. Mais de quoi parle-t-on au juste quand on parle de comportements toxiques? 
 -> quiz_9_1_question_1
 
@@ -388,31 +394,9 @@ Al: Empêchez les jeux de redevenir légaux, Fred. Empêchez-les à tout prix! #
 +  (9_1_2_a) [{9_1_2_a: VISITE--}Vrai] Vrai
 +  (9_1_2_b) [BON--{9_1_2_b: VISITE--}Faux] Faux
    Selon les données de l’époque, la grande majorité des joueurs avaient expérimenté des comportements toxiques dans leur pratique des jeux en ligne. Quelle situation effroyable… # retroaction
--> quiz_9_1_question_3
-- ~ generer_mauvaise_reponse_retroaction()
--> quiz_9_1_question_2
-
-= quiz_9_1_question_3
-3- De quelle manière les joueurs définissaient-ils les comportements toxiques? # question index=3
-+   (9_1_3_a) [{9_1_3_a: VISITE--}Comme un ensemble d’actions, peu importe l’intention de leur auteur] Comme un ensemble d’actions, peu importe l’intention de leur auteur
-+   (9_1_3_b) [BON--{9_1_3_b: VISITE--}Des actions dont l’intention visait à perturber l’expérience de jeu des autres joueurs] Des actions dont l’intention visait à perturber l’expérience de jeu des autres joueurs 
-  Les comportements toxiques étaient appréhendés par les joueurs au travers de l’intentionnalité de leur auteur (voir à la page 8). Un critère que l’on trouve également en droit pénal! Quelle coïncidence curieuse.  # retroaction
--> quiz_9_1_question_4
-+   (9_1_3_c) [{9_1_3_c: VISITE--}Aucune de ces réponses.] Aucune de ces réponses.
-- ~ generer_mauvaise_reponse_retroaction()
--> quiz_9_1_question_3
-
-= quiz_9_1_question_4
-4- De quelle(s) manière(s) les joueurs faisaient-ils face aux comportements toxiques? # question index=4
-+   (9_1_4_a) [{9_1_4_a: VISITE--}Ils acceptaient passivement les comportements et faisaient en sorte de les ignorer] Ils acceptaient passivement les comportements et faisaient en sorte de les ignorer
-+   (9_1_4_b) [{9_1_4_b: VISITE--}Ils s’éloignaient de ces comportements, par exemple en quittant une partie] Ils s’éloignaient de ces comportements, par exemple en quittant une partie 
-+   (9_1_4_c) [{9_1_4_c: VISITE--}Ils confrontaient les personnes ayant des comportements toxiques] Ils confrontaient les personnes ayant des comportements toxiques
-+   (9_1_4_d) [{9_1_4_d: VISITE--}Ils acceptaient les comportements toxiques comme légitimes étant donné leurs performances] Ils acceptaient les comportements toxiques comme légitimes étant donné leurs performances
- +  (9_1_4_e) [BON--{9_1_4_e: VISITE--}Toutes ces propositions] Toutes ces propositions
-  Malgré les comportements toxiques, les jeux demeuraient populaires et les joueurs continuaient à jouer. Pour supporter cette situation, ils avaient développé une série de stratégies allant de l’ignorance jusqu’à l’acceptation dans certains cas, en passant par l’évitement. # retroaction
 -> quiz_9_1_fin
 - ~ generer_mauvaise_reponse_retroaction()
--> quiz_9_1_question_4
+-> quiz_9_1_question_2
 
 = quiz_9_1_fin
 ~terminer_quiz()
@@ -421,12 +405,13 @@ Al: Empêchez les jeux de redevenir légaux, Fred. Empêchez-les à tout prix! #
 = scene_3
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
+
+<b>Fred</b>, <b>Teacher</b>, <b>Christopher</b>, <b>Palvid_</b> et <b>Jen</b> discutent.
+
 ~afficher_personnage(TEACHER_V2, "slideInUp")
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 ~afficher_personnage(PALVID, "slideInUp")
 ~afficher_personnage(JEN, "slideInUp")
-
-<b>Fred</b>, <b>Teacher</b>, <b>Christopher</b>, <b>Palvid_</b> et <b>Jen</b> discutent.
 
 Palvid_: Je sais ce qui vous inquiète, mais comme, moi, par exemple, je ne m’abaisse jamais à ces comportements. # character=PALVID expression=sterness
 
@@ -450,7 +435,7 @@ Fred: Mais que faites-vous de tous les parents qui sont inquiets que leurs enfan
 
 Christopher: Mais calme-toi Fred! Qu’est-ce qui t’arrive? # character=CHRISTOPHER_YOUNG expression=alertness
 
-Jen: C’est la pression qui est trop forte! # character=JEN expression=concern
+Jen: C’est la pression qui est trop forte! # character=JEN expression=wonder
 
 Fred: Non, c’est que je croyais qu’il y avait moyen que ça fonctionne! Je croyais que les jeux vidéo pouvaient se gérer. # character=FRED_GALLANT invisible
 
@@ -464,7 +449,7 @@ Fred: Mais qu’est-ce qu’on va faire si la presse se jette là-dessus pour no
 
 Teacher: Pas avant l’événement quand même? # character=TEACHER_V2 expression=concern
 
-Fred: Mais s’ils cherchent la bête noire? # character=FRED_GALLANT invisible
+Fred: Mais s’ils cherchent la petite bête? # character=FRED_GALLANT invisible
 
 Teacher: Et toi, tu cherches quoi? # character=TEACHER_V2 expression=concern
 
@@ -556,9 +541,10 @@ Agent Moore: Ah voilà. C’est un ancien juge. Le <b>JUGE ABBOTT</b>. # charact
 
 ~afficher_fond(maison_juge_abbott)
 ~jouer_musique(theme_general)
-~afficher_personnage(JUGE_ABBOTT, "slideInUp")
 
-<b>Fred</b> entre dans le véritable taudis qui sert de maison à l’ancien <b>juge Abbott</b> qu’on a continué à appeler juge Abbott pour rire. Il y a des dizaines de chats partout dans la maison.
+<b>Fred</b> entre dans le bureau de l’ancien <b>juge Abbott</b>. Il y a des dizaines de chats partout dans la maison.
+
+~afficher_personnage(JUGE_ABBOTT, "slideInUp")
 
 Fred: Merci de me recevoir. # character=FRED_GALLANT invisible
 
@@ -592,7 +578,7 @@ Juge Abbott: Parce que je m’étais prononcé contre la <i>Loi Game Over</i> à
 
 Fred: Ah oui? Et pour quelles raisons? # character=FRED_GALLANT invisible
 
-Juge Abbott: Parce que toute prohibition finit par amplifier le problème. Au lieu de jouer à l’autruche, il vaut mieux bien réglementer et exercer un contrôle responsable, examiner les comportements problématiques et y remédier dans les limites des droits humains. # character=JUGE_ABBOTT expression=sterness 
+Juge Abbott: Parce que toute prohibition finit par amplifier le problème. Au lieu de jouer à l’autruche, il vaut mieux bien réglementer et exercer un contrôle responsable, examiner les comportements problématiques et y remédier dans les limites déterminées par le droit. # character=JUGE_ABBOTT expression=sterness 
 
 Fred: Je vois. Et votre point de vue n’était pas populaire. # character=FRED_GALLANT invisible
 
@@ -604,13 +590,17 @@ Juge Abbott: La cour! # character=JUGE_ABBOTT expression=sterness
 
 Fred: La cour? Vous voulez dire un tribunal? # character=FRED_GALLANT invisible
 
-Juge Abbott: Oui! Un système de délation, mais qui prévoit que la personne accusée puisse se défendre et expliquer ses gestes. Une sorte de présomption d’innocence, mais dans l’univers des plateformes de streaming. # character=JUGE_ABBOTT expression=satisfaction
+Juge Abbott: Oui! Un système de délation, mais qui prévoit que la personne accusée puisse se défendre et expliquer ses gestes. Une sorte de présomption d’innocence, mais appliquée à l'univers des jeux vidéo. # character=JUGE_ABBOTT expression=satisfaction
 
 Fred: Intéressant, mais je n’aurai pas le temps de monter cela pour l’événement. C’est dans deux ou trois jours tout au plus. # character=FRED_GALLANT invisible
 
 Juge Abbott: Mais j’ai des notes !! Un instant. # character=JUGE_ABBOTT expression=wonder
 
+~cacher_personnage(JUGE_ABBOTT, "slideOutDown")
+
 Le <b>juge Abbott</b> disparaît dans son bureau. <b>Fred</b> entend des bruits pas très rassurants. Le <b>juge Abbott</b> est extatique. 
+
+~afficher_personnage(JUGE_ABBOTT, "slideInUp")
 
 Juge Abbott: Voilà !!! J’ai trouvé! # character=JUGE_ABBOTT expression=satisfaction
 
@@ -632,9 +622,10 @@ Fred: Merci beaucoup. Je vais examiner ces documents avec soin. # character=FRED
 
 ~afficher_fond(bureau_chef_miller)
 ~ jouer_musique(theme_general)
-~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 <b>Fred</b> informe le <b>chef Miller</b> des nouveaux développements.
+
+~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 Fred: Voilà, ils rencontrent maintenant des difficultés avec les comportements toxiques en ligne. Les adeptes sont devenus trop nombreux trop vite, ils ont perdu le contrôle. # character=FRED_GALLANT invisible
 
@@ -648,7 +639,7 @@ Fred: Dans deux ou trois jours. Pas plus. # character=FRED_GALLANT invisible
 
 Chef Miller: Aurez-vous la date exacte? # character=CHEF_MILLER expression=sterness
 
-Fred: Je préférerais ne pas retourner. Je n’en peux plus. # character=FRED_GALLANT invisible
+Fred: Je préférerais ne pas y retourner. Je n’en peux plus. # character=FRED_GALLANT invisible
 
 Chef Miller: Il me faudrait cette dernière information, Gallant. Ne baissez pas les bras. Il me faut cette information. # character=CHEF_MILLER expression=sterness
 
@@ -658,9 +649,10 @@ Fred: D’accord, je vais voir si je peux l’obtenir. # character=FRED_GALLANT 
 
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 
 <b>Fred</b> et <b>Christopher</b> analysent la situation des comportements toxiques.
+
+~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 
 Christopher: Ce n’est pas si grave et ça a toujours été pareil. # character=CHRISTOPHER_YOUNG expression=neutral
 
@@ -702,7 +694,7 @@ Christopher: Demain. # character=CHRISTOPHER_YOUNG expression=neutral
 = scene_4
 ~afficher_fond(news_room_chapitre_9)
 ~jouer_musique(theme_news)
-Le jeu créé et financé par la résistance existe bel et bien. Enquête exclusive de notre journaliste : il a eu accès au jeu avant sa sortie officielle!
+Le jeu créé et financé par la résistance existe bel et bien. Enquête exclusive de notre journaliste - il a eu accès au jeu avant sa sortie officielle!
 ~arreter_musique()
 
 	{
@@ -715,7 +707,7 @@ Le jeu créé et financé par la résistance existe bel et bien. Enquête exclus
 		- points_fin_A2 > points_fin_A1 && points_fin_B1 > points_fin_B2:
 			-> conclusion_A2_B1.scene_1
 
-		- points_fin_A2 > points_fin_A1 && points_fin_B2 > points_fin_B1:
+		- else:
 		-> conclusion_A2_B2.scene_1
 	}
 	

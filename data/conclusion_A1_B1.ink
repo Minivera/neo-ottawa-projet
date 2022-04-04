@@ -35,21 +35,19 @@ Les trois agents partent en courant former leurs équipes respectives.
 ~jouer_effet_sonore(porte_enfoncee)
 
 Au 530, l’<b>agent Moore</b>, l’<b>agent Lucas</b> et l’<b>agent Sand</b> donnent les ordres.
-~afficher_personnage(AGENT_MOORE, "slideInUp")
-~afficher_personnage(AGENT_LUCAS, "slideInUp")
-~afficher_personnage(GABRIEL_SAND, "slideInUp")
+
 Les arrestations sont instantanées. Tout le matériel est confisqué. Il y a de la casse. 
 
 ~afficher_fond(grenier_foule)
 
+~afficher_personnage(AGENT_MOORE, "slideInUp")
+~afficher_personnage(AGENT_LUCAS, "slideInUp")
+~afficher_personnage(GABRIEL_SAND, "slideInUp")
+
 <b>Fred</b> est sur les lieux. Impuissante, elle observe la descente de la brigade. Elle n’est pas arrêtée.
 
-~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 <b>Christopher</b> la regarde avec un mépris et une déception évidente.
-~cacher_personnage(CHRISTOPHER_YOUNG, "slideOutDown")
 
-~afficher_personnage(PALVID, "slideInUp")
-~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp")
 <b>Palvid_</b> réussit à s’échapper en entraînant <b>Bonnie</b> qui proteste. Elle pense encore qu’elle sera épargnée grâce à <b>Fred</b>.
 
 <b>Fred</b>, un peu honteuse, ne cherche pas à rattraper <b>Bonnie</b>.
@@ -62,6 +60,8 @@ Les arrestations sont instantanées. Tout le matériel est confisqué. Il y a de
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
+
+À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
 
 Fred: Je suis grillée pour de bon cette fois! # character=FRED_GALLANT invisible
 
@@ -112,7 +112,9 @@ Allocution du premier ministre. # center
 
 Premier ministre: Chers concitoyens, chères concitoyennes, # character=PREMIER_MINISTRE expression=neutral
 
-Premier ministre: Je me présente devant vous, aujourd’hui, avec humilité. La tâche m’incombe de vous faire part des plus récentes découvertes sur les activités illicites liées à la distribution et à la consommation de jeux vidéo. Vous n’êtes sans doute pas sans savoir que des groupes organisés ont continué, malgré la Loi Game Over, de créer, de vendre, de distribuer et d’utiliser des jeux vidéo. Nous constatons que les jeux vidéo et l’attrait du public pour ce média n'ont pas disparu, bien au contraire. Nous nous devons d’écouter la voix du peuple et d’en tirer les conséquences. Le droit doit suivre les aspirations de la société. Nous constatons que le retour des jeux vidéo n’est pas seulement nécessaire, il est également inéluctable. La Loi Game Over sera abrogée et les jeux vidéo seront de nouveau autorisés. # character=PREMIER_MINISTRE expression=neutral
+Premier ministre: Je me présente devant vous, aujourd’hui, avec humilité. La tâche m’incombe de vous faire part des plus récentes découvertes sur les activités illicites liées à la distribution et à la consommation de jeux vidéo. Vous n’êtes sans doute pas sans savoir que des groupes organisés ont continué, malgré la Loi Game Over, de créer, de vendre, de distribuer et d’utiliser des jeux vidéo. # character=PREMIER_MINISTRE expression=neutral
+
+Premier ministre: Nous constatons que les jeux vidéo et l’attrait du public pour ce média n'ont pas disparu, bien au contraire. Nous nous devons d’écouter la voix du peuple et d’en tirer les conséquences. Le droit doit suivre les aspirations de la société. Nous constatons que le retour des jeux vidéo n’est pas seulement nécessaire, il est également inéluctable. La Loi Game Over sera abrogée et les jeux vidéo seront de nouveau autorisés. # character=PREMIER_MINISTRE expression=neutral
 
 Premier ministre: Nous procéderons à la refonte du cadre législatif encadrant les jeux vidéo. Mais, en tant que père de famille, je partage les préoccupations de beaucoup de nos concitoyens concernant le retour des jeux vidéo dans nos foyers. J’ai les mêmes questions que vous au sujet de la transition nécessaire. Le gouvernement sera vigilant et gardera une main ferme sur la gestion du retour des jeux vidéo. # character=PREMIER_MINISTRE expression=neutral
 

@@ -47,6 +47,8 @@ Cabinet du premier ministre, au téléphone: Je suis désolé. # character=PREMI
 ~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
+À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
+
 Chef Miller: Où irez-vous, Gallant? # character=CHEF_MILLER expression=neutral
 
 Fred: Aucune idée. Je ne sais pas si je resterai agent de police. # character=FRED_GALLANT invisible

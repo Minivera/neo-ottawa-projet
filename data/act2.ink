@@ -482,8 +482,8 @@ Selon l’OMS, les pratiques problématiques devaient s’être déroulées sur 
 
 = quiz_2_1_question_3
 3 - Je me demande si la dépendance aux jeux vidéo ne concernait que les jeux qui se jouaient en ligne ? # question index=3
-*   (2_1_3_a) [{2_1_3_a: VISITE--}Vrai] Vrai
-*   (2_1_3_b) [BON--{2_1_3_b: VISITE--}Faux] Faux
++   (2_1_3_a) [{2_1_3_a: VISITE--}Vrai] Vrai
++   (2_1_3_b) [BON--{2_1_3_b: VISITE--}Faux] Faux
 Selon l’OMS, un trouble du jeu vidéo pouvait survenir aussi bien avec les jeux en ligne que les jeux hors ligne. On dirait bien qu’une interdiction de tous les jeux vidéo était donc légitime pour lutter contre les dépendances... # retroaction
 -> quiz_2_1_question_4
 - ~ generer_mauvaise_reponse_retroaction()
@@ -492,7 +492,6 @@ Selon l’OMS, un trouble du jeu vidéo pouvait survenir aussi bien avec les jeu
 = quiz_2_1_question_4
 4 – L’OMS avait apparemment défini un certain nombre de critères permettant d’établir un diagnostic de trouble du jeu vidéo. Je me demande si tous les critères suivants étaient reconnus… Il y a sûrement un intrus. # question index=4
 +   (2_1_4_a) [{2_1_4_a: VISITE--}Consommation excessive de jeux vidéo.] Consommation excessive de jeux vidéo.
--> quiz_2_1_question_3
 +   (2_1_4_b) [{2_1_4_b: VISITE--}Priorité donnée au jeu face à d’autres activités quotidiennes.] Priorité donnée au jeu face à d’autres activités quotidiennes.
 +   (2_1_4_c) [{2_1_4_c: VISITE--}Perte de contrôle en matière de jeu.] Perte de contrôle en matière de jeu.
 +   (2_1_4_d) [{2_1_4_d: VISITE--}Consommation de jeux vidéo en dépit de l’accumulation de conséquences négatives.] Consommation de jeux vidéo en dépit de l’accumulation de conséquences négatives.

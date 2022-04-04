@@ -16,7 +16,7 @@ Cependant, l’accueil du public n’est pas celui auquel les protagonistes s’
 
 Le jeu produit par la résistance est sévèrement jugé. Il perpétue certains des abus pointés par la <i>Loi Game Over</i>.
 
-Pour son événement, la résistance avait pourtant tout prévu : les contrats, les commanditaires, les streamers, etc. Mais il faut croire qu’ils ont fait preuve de négligence dans leur planification…
+Pour son événement, la résistance avait pourtant tout prévu - les contrats, les commanditaires, les streamers, etc. Mais il faut croire qu’ils ont fait preuve de négligence dans leur planification…
 
 L’évènement tant attendu tourne sérieusement au vinaigre. Sur les réseaux sociaux, la grogne monte. 
 
@@ -50,6 +50,8 @@ Chef Miller: Ce n’est pas dans mes habitudes, mais très bien. # character=CHE
 ~afficher_fond(bureau_chef_miller)
 ~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
+
+À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
 
 Chef Miller: Vous avez réussi malgré tout Gallant. Votre travail a permis de saborder l’événement de la Résistance. # character=CHEF_MILLER expression=sterness
 
