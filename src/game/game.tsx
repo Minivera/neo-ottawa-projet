@@ -139,7 +139,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     }
 
     return () => {};
-  }, [settings.settings.musicEnabled, settings.settings.musicVolume]);
+  }, [loading, gameState.state, settings.settings.musicEnabled, settings.settings.musicVolume]);
 
   useEffect(() => {
     if (
@@ -287,14 +287,6 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
       return (
         <React.Fragment>
           {globalCSS}
-          <GameBackground
-            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
-            // @ts-ignore
-            src={bgVideo}
-            autoPlay={true}
-            muted
-            loop
-          />
           <GameContainer>
             <Credits />
           </GameContainer>
