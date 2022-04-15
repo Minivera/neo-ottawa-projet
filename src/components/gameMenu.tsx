@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { theme, ifProp } from 'styled-tools';
 import { darken, transparentize } from 'polished';
 import { useMediaQuery } from 'react-responsive';
+import { IoBugSharp, IoOpenOutline } from 'react-icons/io5';
 
 import SettingsIcon from '../assets/ui/icons/Parametres.svg?component';
 import PDAIcon from '../assets/ui/pda/PDA-LePDA.svg?component';
@@ -32,7 +33,7 @@ const GameMenuLink = styled.a`
   color: ${theme('colors.darkGreen')};
   transition: all 150ms ease;
 
-  & svg {
+  & > svg {
     fill: ${theme('colors.darkGreen')};
     width: 1.3rem;
     height: 1.3rem;
@@ -56,7 +57,7 @@ const GameMenuLink = styled.a`
       font-size: 1.2rem;
     }
 
-    & svg {
+    & > svg {
       width: 1.8rem;
       height: 1.8rem;
     }
@@ -134,7 +135,7 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const [open, setOpen] = useState<boolean>(!isTabletOrMobile);
 
-  const locationNameTranslated = locationName ? t(locationName): undefined;
+  const locationNameTranslated = locationName ? t(locationName) : undefined;
 
   return (
     <React.Fragment>
@@ -186,13 +187,13 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
           filter: drop-shadow(0 0.4rem 0.4rem ${theme.colors.gray});
           z-index: 5;
           transition: right ease-in-out 500ms;
-          width: 11rem;
+          width: 13rem;
 
-          ${open ? 'right: 0' : 'right: -8.3rem'};
+          ${open ? 'right: 0' : 'right: -10.3rem'};
 
           @media only screen and (max-width: 768px) {
-            width: 13rem;
-            ${open ? 'right: 0;' : 'right: -10.1rem;'}
+            width: 15rem;
+            ${open ? 'right: 0;' : 'right: -12.1rem;'}
           }
         `}
       >
@@ -257,6 +258,27 @@ export const GameMenu: FunctionComponent<GameMenuProps> = ({
           >
             <SaveIcon />
             <span>{t('menu_save')}</span>
+          </GameMenuLink>
+          <GameMenuLink
+            href="https://docs.google.com/forms/d/e/1FAIpQLScHC8I6KZLXTVLs5hMOsj7I_ySjAAUB9AxztwjFjDbeuI1RGQ/viewform"
+            target="_blank"
+            css={css`
+              text-decoration: none;
+            `}
+          >
+            <IoBugSharp />
+            <span
+              css={css`
+                display: flex;
+                align-items: baseline;
+
+                & > svg {
+                  margin-left: 0.5rem;
+                }
+              `}
+            >
+              {t('menu_bug_report')} <IoOpenOutline size="1rem" />
+            </span>
           </GameMenuLink>
           <MinimizeLink
             role="link"

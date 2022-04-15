@@ -1,7 +1,7 @@
 import { Character } from '../../game/character';
 
 export const UpperStreamer: Character = {
-  id: 'UPPERSTREAMER',
+  id: 'UPPER_STREAMER',
   name: 'upperstreamer',
   images: {},
   imagePaths: {},

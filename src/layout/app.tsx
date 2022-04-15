@@ -65,8 +65,20 @@ export const App: React.FunctionComponent = () => (
               <h1>Erreur!</h1>
               <h2>
                 Une erreur a eu lieu dans le jeu, voici les détails à nous
-                transmettre
+                transmettre.
               </h2>
+              <p>
+                Remplissez{' '}
+                <a
+                  css={theme => css`
+                    color: ${theme.colors.white};
+                  `}
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScHC8I6KZLXTVLs5hMOsj7I_ySjAAUB9AxztwjFjDbeuI1RGQ/viewform"
+                >
+                  ce formulaire
+                </a>{' '}
+                pour signaler une erreur.
+              </p>
               <pre>
                 {error.name}
                 {error.message}

@@ -30,6 +30,7 @@ export type documentsNames =
   | 'MOD_COUNTER_STRIKE'
   | 'MOD_DOTA'
   | 'AVANTAGES_INCONVENIENTS_MOD'
+  | 'LICENSES_NORMES_INDUSTRIE'
   | 'RAPPORT_CHRISTOPHER'
   | 'SPORT_ELECTRONIQUE'
   | 'BESTIAIRE'
@@ -236,6 +237,14 @@ export const documents: Record<documentsNames, Document> = {
     path: `${
       import.meta.env.BASE_URL
     }documents/avantages-inconvenients-mod.pdf`,
+  },
+  LICENSES_NORMES_INDUSTRIE: {
+    documentId: 'LICENSES_NORMES_INDUSTRIE',
+    name: 'document-name-normes-licenses-industrie',
+    description: 'document-description-normes-licenses-industrie',
+    path: `${
+      import.meta.env.BASE_URL
+    }documents/licences-normes-industrie.pdf`,
   },
   RAPPORT_CHRISTOPHER: {
     documentId: 'RAPPORT_CHRISTOPHER',

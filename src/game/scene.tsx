@@ -88,6 +88,12 @@ export const Scene: React.FunctionComponent<SceneProps> = ({
       music.volume(settings.musicVolume / 100);
       music.play();
     }
+
+    return () => {
+      Object.values(musics).forEach(music => {
+        music.stop();
+      });
+    };
   }, [state.bgm]);
   useEffect(() => {
     window.onbeforeunload = () => true;

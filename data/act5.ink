@@ -6,7 +6,7 @@
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> rend visite à <b>Vivian</b>. 
+<b>Fred</b> rend visite à <b>Vivian</b>.
 ~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
@@ -20,7 +20,7 @@ Fred, à elle-même: Les mods de jeux! Bien sûr! # character=FRED_GALLANT invis
 
 Fred, à elle-même: Il faudrait quand même que je pense à consulter sur ces moments d’absences… # character=FRED_GALLANT invisible
 
-<b>Vivian</b> ouvre la porte. 
+<b>Vivian</b> ouvre la porte.
 ~afficher_personnage(VIVIAN, "slideInUp")
 
 Vivian: Tu tombes mal, il n’y a personne ici ce soir. # character=VIVIAN expression=neutral
@@ -117,13 +117,13 @@ Vivian: Demande à Christopher. Tiens. Débrouille-toi avec ça. # character=VIV
 = quiz_5_1
 ~ demarrer_quiz(QUIZ_5_1, 16)
 ~ jouer_musique(theme_quiz)
-~ajouter_document(DEFINITION_MOD) 
+~ajouter_document(DEFINITION_MOD)
 ~afficher_document(LOI_DROIT_AUTEUR)
 // Description du document: Cette loi incontournable dans le domaine du droit des jeux vidéo devrait me permettre de déterminer les droits dont disposaient les créateurs de jeux vidéo avant la <i>Loi Game Over</i> (en particulier aux pages 12-13 et 15-16).
 -> quiz_5_1_question_1
 
 = quiz_5_1_question_1
-1- Un jeu vidéo est protégé durant toute la vie de son auteur. # question index=1 
+1- Un jeu vidéo est protégé durant toute la vie de son auteur. # question index=1
 +  (5_1_1_a) [BON--{5_1_1_a: VISITE--}Vrai] Vrai
 Selon l’article 6 de la Loi sur le droit d’auteur, les droits d’un auteur étaient bien protégés durant toute la vie du créateur (sauf exceptions)! C’était donc très protecteur! # retroaction
 -> quiz_5_1_question_2
@@ -133,7 +133,7 @@ Selon l’article 6 de la Loi sur le droit d’auteur, les droits d’un auteur 
 
 
 = quiz_5_1_question_2
-2- Un jeu vidéo était protégé y compris après la mort de son auteur. # question index=2 
+2- Un jeu vidéo était protégé y compris après la mort de son auteur. # question index=2
 +  (5_1_2_a) [BON--{5_1_2_a: VISITE--}Vrai] Vrai
 Comment ça? La protection des œuvres perdurait y compris après la vie des créateurs (article 6, loi sur le droit d’auteur)? Cela signifie donc que les ayants droits pouvaient continuer à exploiter les droits très longtemps… On peut donc imaginer des jeux qui pouvaient être protégés pendant plus de 70 ans, voire plus de 100 ans dans certains cas!  # retroaction
 -> quiz_5_1_question_3
@@ -153,8 +153,8 @@ Les jeux vidéo dont on ne connaissait pas les auteurs étaient tout de même pr
 =quiz_5_1_question_4
 4- Un détenteur de droit peut... # question index=4
 +   (5_1_4_a) [{5_1_4_a: VISITE--}Exécuter une œuvre en public] Exécuter une œuvre en public
-+   (5_1_4_b) [{5_1_4_b: VISITE--}Publier une traduction de l’œuvre] Publier une traduction de l’œuvre 
-+   (5_1_4_c) [{5_1_4_c: VISITE--}Produire une œuvre sous une forme matérielle quelconque] Produire une œuvre sous une forme matérielle quelconque  
++   (5_1_4_b) [{5_1_4_b: VISITE--}Publier une traduction de l’œuvre] Publier une traduction de l’œuvre
++   (5_1_4_c) [{5_1_4_c: VISITE--}Produire une œuvre sous une forme matérielle quelconque] Produire une œuvre sous une forme matérielle quelconque
 +   (5_1_4_d) [BON--{5_1_4_d: VISITE--}Toutes ces propositions] Toutes ces propositions
  Les droits des créateurs d’un jeu vidéo étaient très larges! Ils détenaient notamment le droit exclusif de produire le jeu vidéo ou l'œuvre sous n’importe quelle forme matérielle (selon l’article 3.(1) de la Loi sur le droit d’auteur)!  # retroaction
 -> quiz_5_1_question_5
@@ -215,7 +215,7 @@ Les jeux vidéo dont on ne connaissait pas les auteurs étaient tout de même pr
 
 = quiz_5_1_question_10
 ~afficher_document(MOD_DOTA)
-// Description document: Il y a donc eu plusieurs mods qui sont devenus des succès commerciaux. Mais cela n’a pas été sans parfois entraîner des tensions et des litiges juridiques comme avec Dota. Je devrais tirer cela au clair. 
+// Description document: Il y a donc eu plusieurs mods qui sont devenus des succès commerciaux. Mais cela n’a pas été sans parfois entraîner des tensions et des litiges juridiques comme avec Dota. Je devrais tirer cela au clair.
 10- Le jeu original DOTA a été développé par : # question index=10
 +   (5_1_10_a) [{5_1_10_a: VISITE--}Valve] Valve
 +   (5_1_10_b) [{5_1_10_b: VISITE--}Blizzard] Blizzard
@@ -247,7 +247,7 @@ Il s'agit de la bonne réponse # retroaction
 -> quiz_5_1_question_12
 
 = quiz_5_1_question_13
-~afficher_document(AVANTAGES_INCONVENIENTS_MOD)
+~afficher_document(LICENSES_NORMES_INDUSTRIE)
 //Description document: Quelle chance d’avoir retrouvé ces reliques d’avant l’interdiction des jeux vidéo! Je vais pouvoir déterminer l’attitude de ces acteurs du milieu des jeux vidéo vis-à-vis des mods créés par les fans.
 13- Quel éditeur permettait la modification de ses productions (voir les pages 1,4, 6 et 15)? # question index=13
 +   (5_1_14_a) [BON--{(5_1_14_a % 2 == 1):ACTIF--}Blizzard] Blizzard
@@ -432,7 +432,7 @@ Christian: Tu vois ça avec Teacher d’accord? # character=CHRISTIAN expression
 
 Fred: D’accord. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
-TODO:Accès document décrivant les systèmes de jeu 
+TODO:Accès document décrivant les systèmes de jeu
 
 ~afficher_personnage(BORIS, "slideInUp")
 
@@ -473,7 +473,7 @@ Fred: Oui, justement, je voulais te parler. J’ai eu des informations sur le je
 
 Christopher: Oui, mais nous, ils ne nous disent rien. Ils veulent simplement qu’on monte une communauté de joueurs prêts à tester le jeu et à jouer lors de l’événement, en pro, comme dans le bon vieux temps. # character=CHRISTOPHER_YOUNG expression=desperation
 
-Fred: Je sais, mais je suis inquiète à propos de la dépendance que pourrait causer le jeu. # character=FRED_GALLANT invisible 
+Fred: Je sais, mais je suis inquiète à propos de la dépendance que pourrait causer le jeu. # character=FRED_GALLANT invisible
 
 Christopher: La dépendance? # character=CHRISTOPHER_YOUNG expression=concern
 
@@ -500,7 +500,7 @@ Christopher: Est-ce que c’est à leur insu? # character=CHRISTOPHER_YOUNG expr
 Fred: Non, bien sûr que non. Je leur ai parlé. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
 
-* Fred repense à Al, l’ancien dépendant interné… Mais elle est convaincue qu’il s’agit d’un cas isolé et qu’il n’est pas de la responsabilité des concepteurs de s’assurer que leur jeu n’entraîne pas de dépendances. Elle laisse tomber cette partie de l’enquête. 
+* Fred repense à Al, l’ancien dépendant interné… Mais elle est convaincue qu’il s’agit d’un cas isolé et qu’il n’est pas de la responsabilité des concepteurs de s’assurer que leur jeu n’entraîne pas de dépendances. Elle laisse tomber cette partie de l’enquête.
 ~ points_fin_B2 += 4
 - -> scene_3
 
@@ -509,7 +509,7 @@ Fred: Non, bien sûr que non. Je leur ai parlé. # character=FRED_GALLANT invisi
 ~jouer_musique(theme_choix_cruciaux)
 <b>Fred doit décider quelle sera la prochaine étape de son enquête</b>.
 
-* <b>Fred</b> regrette sa décision et décide d’examiner encore quelques éléments du jeu avant de clore l’affaire. 
+* <b>Fred</b> regrette sa décision et décide d’examiner encore quelques éléments du jeu avant de clore l’affaire.
 ~points_fin_A2 += 4
 
 ~afficher_fond(bureau_fred)
@@ -560,9 +560,9 @@ Chef Miller: Si, je pense que je vois où vous voulez en venir. Merci Gallant, j
 ~cacher_tout_personnages()
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
-<b>Fred</b> travaille sur des dossiers en lien avec la dépendance aux jeux vidéo. Ses inquiétudes sont confirmées. Avec le rapport de jeu de l’équipe de <b>Christopher</b>, plusieurs éléments du jeu peuvent mener à la dépendance. 
+<b>Fred</b> travaille sur des dossiers en lien avec la dépendance aux jeux vidéo. Ses inquiétudes sont confirmées. Avec le rapport de jeu de l’équipe de <b>Christopher</b>, plusieurs éléments du jeu peuvent mener à la dépendance.
 ~ajouter_document(RAPPORT_CHRISTOPHER)
-- -> act_5_quiz_2.quiz_5_2 
+- -> act_5_quiz_2.quiz_5_2
 
 = scene_3_suite
 ~afficher_fond(bureau_fred)
@@ -602,14 +602,14 @@ Teacher, au téléphone: Je te rappelle. # character=TEACHER_V2 expression=neutr
 
 Narrateur: Cette fois, Fred a perdu le contrôle. Voici un choix devant lequel vous êtes seuls. # character=NARRATEUR invisible
 ~jouer_musique(theme_choix_cruciaux)
-* La résistance va écouter les recommandations de <b>Fred</b> et diminuer les risques de dépendance du jeu. 
+* La résistance va écouter les recommandations de <b>Fred</b> et diminuer les risques de dépendance du jeu.
 ~points_fin_B1 += 4
 * La résistance va ignorer les recommandations de <b>Fred</b>.
 ~points_fin_B2 += 4
-- <b>Fred</b> se réveille de sa torpeur 
+- <b>Fred</b> se réveille de sa torpeur
 ->scene_4
 
- =scene_4 
+ =scene_4
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
 ~afficher_personnage(TEACHER_V2, "slideInLeft")
@@ -633,7 +633,7 @@ Boris: C’est toi qui vas le faire. # character=BORIS expression=satisfaction
 
 Fred: Très bien, je vais avoir besoin d’informations. # character=FRED_GALLANT invisible
 
-Teacher: Oui, je suis affecté à t’aider. De quoi auras-tu besoin? # character=TEACHER_V2 expression=neutral 
+Teacher: Oui, je suis affecté à t’aider. De quoi auras-tu besoin? # character=TEACHER_V2 expression=neutral
 
 Fred: Il me faut des informations sur le jeu. Des informations très précises. # character=FRED_GALLANT invisible
 
@@ -643,7 +643,7 @@ Teacher: Oui? # character=TEACHER_V2 expression=concern
 
 Fred: J’ai besoin d’assistance. Je peux contacter quelqu’un? # character=FRED_GALLANT invisible
 
-Teacher: C’est secret tout ça. Tu le sais. Qui veux-tu impliquer? # character=TEACHER_V2 expression=sterness 
+Teacher: C’est secret tout ça. Tu le sais. Qui veux-tu impliquer? # character=TEACHER_V2 expression=sterness
 
 Fred: Une ancienne employée de l’ESRB… # character=FRED_GALLANT invisible
 
@@ -653,7 +653,7 @@ Fred: Une ancienne employée de l’ESRB… # character=FRED_GALLANT invisible
 Narrateur: À vous de prendre les commandes de la résistance. Croyez-vous que Fred devrait consulter quelqu’un? Ou devra-t-elle se débrouiller seule? # character=NARRATEUR invisible
 
 ~jouer_musique(theme_choix_cruciaux)
-* <b>Teacher</b> et <b>Boris</b> décident de faire confiance à <b>Fred</b>. Elle ira consulter <b>Olivia Paul</b>. 
+* <b>Teacher</b> et <b>Boris</b> décident de faire confiance à <b>Fred</b>. Elle ira consulter <b>Olivia Paul</b>.
 ~points_fin_B1 += 4
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
@@ -690,8 +690,8 @@ Teacher: C’est une occasion d’apprendre. # character=TEACHER_V2 expression=s
 ~afficher_fond(maison_olivia_exterieur)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>. 
-~cacher_fond() 
+<b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>.
+~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
@@ -699,7 +699,7 @@ Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si
 <b>Fred</b> se réveille de sa torpeur au moment où <b>Olivia Paul</b> ouvre la porte.
 -> scene_5
 
-* <b>Teacher</b> et <b>Boris</b> font comprendre à <b>Fred</b> qu’il s’agit d’une simple formalité et qu’ils ne s’attendent pas à ce que la classification soit infaillible. Inutile de consulter quelqu’un. 
+* <b>Teacher</b> et <b>Boris</b> font comprendre à <b>Fred</b> qu’il s’agit d’une simple formalité et qu’ils ne s’attendent pas à ce que la classification soit infaillible. Inutile de consulter quelqu’un.
 ~points_fin_B2 += 4
 ~afficher_fond(rue_flemming)
 ~jouer_musique(theme_general)
@@ -718,8 +718,8 @@ Fred: Oui, compris. # character=FRED_GALLANT invisible
 ~afficher_fond(maison_olivia_exterieur)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>. 
-~cacher_fond() 
+<b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>.
+~cacher_fond()
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
@@ -767,7 +767,7 @@ Olivia Paul: D’accord. Mais je ne veux pas que mon nom figure où que ce soit.
 
 Fred: C’est compréhensible. Je vous le confirme. Il n’apparaîtra pas. # character=FRED_GALLANT invisible
 
-<b>Olivia Paul</b> et <b>Fred</b> jouent un peu au prototype du jeu que la résistance a préparé pour le grand événement. 
+<b>Olivia Paul</b> et <b>Fred</b> jouent un peu au prototype du jeu que la résistance a préparé pour le grand événement.
 
 Olivia Paul: Écoutez Fred, voici mes recommandations. Ce jeu contient du sang, de l’alcool, de la violence, de l’humour cru, un langage offensant et des simulations de jeux de hasard. La liste est longue! C’est du 16 ans et plus. Êtes-vous bien certain de vouloir utiliser ce jeu pour le retour de la légalité, ça me paraît très risqué. Je veux dire, comment rallier l’opinion publique avec un pareil contenu? # character=OLIVIA_PAUL expression=disdain
 
@@ -849,7 +849,7 @@ Teacher: Merci pour tes recommandations Fred, mais je vais régler ça. # charac
 Fred: Comme tu veux. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
 
-* <b>Fred</b> propose un compromis. 
+* <b>Fred</b> propose un compromis.
 ~points_fin_B2 += 4
 
 ~afficher_fond(rue_flemming)
@@ -861,7 +861,7 @@ Fred: J’ai le mandat difficile de t’informer que le jeu comporte plusieurs �
 
 Teacher: Ce qui veut dire? # character=TEACHER_V2 expression=concern
 
-Fred: Il devrait être classé 16 ans et plus. 
+Fred: Il devrait être classé 16 ans et plus.
 
 Teacher: Tu veux rire! # character=TEACHER_V2 expression=disdain
 
@@ -894,7 +894,7 @@ Teacher: Je vais faire part de tes recommandations aux patrons. # character=TEAC
 
 =scene_7
 ~afficher_fond(rue_mcleod)
-~jouer_musique(theme_general) 
+~jouer_musique(theme_general)
 <b>Tom</b>, <b>Christopher</b> et <b>Fred</b> sont ensemble.
 ~afficher_personnage(TOM, "slideInLeft")
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInRight")

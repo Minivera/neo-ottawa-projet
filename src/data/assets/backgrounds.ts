@@ -16,6 +16,7 @@ import voitureFred from '../../assets/backgrounds/voiture_fred.jpg?w=1920&h=1080
 import corridorPostePolice from '../../assets/backgrounds/corridor_poste_police.jpg?w=1920&h=1080';
 import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.jpg?w=1920&h=1080';
 import telephone from '../../assets/backgrounds/phone.png?w=1920&h=1080';
+import telephonePhotoRandle from '../../assets/backgrounds/telephone-photo-randle.png?w=1920&h=1080';
 import rueMcLeod from '../../assets/backgrounds/rue_mcleod.jpg?w=1920&h=1080';
 import siegeESRB from '../../assets/backgrounds/siege_esrb.jpg?w=1920&h=1080';
 import siegeESRBInformatique from '../../assets/backgrounds/siege_esrb_informatique.jpg?w=1920&h=1080';
@@ -101,7 +102,7 @@ export const backgrounds = {
   maison_carl_white: { type: 'image', asset: maisonCarlWhite },
   grenier: { type: 'image', asset: grenier },
   ordinateur_fred: { type: 'image', asset: ordinateurFred },
-  telephone_photo_john_randle: { type: 'image', asset: telephone },
+  telephone_photo_john_randle: { type: 'image', asset: telephonePhotoRandle },
   chambre_cousine_leigh_kane: { type: 'image', asset: chambreCousingLeighKane },
   centre_rehabilitation_couloir: {
     type: 'image',

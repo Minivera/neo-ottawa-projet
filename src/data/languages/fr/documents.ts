@@ -70,7 +70,7 @@ export const documentsContent = {
     .description]: `Maintenant que je me suis embarquée dans cette histoire de juriste et de propriété intellectuelle, plus le choix d'en apprendre plus… Les informations que m’a communiqué Boris devraient m’aider à comprendre ce que sont les jeux vidéo et les principaux outils de la propriété intellectuelle pour les protéger.`,
   [documents.LOI_DROIT_AUTEUR.name]: `Loi sur le droit d’auteur`,
   [documents.LOI_DROIT_AUTEUR
-    .description]: `On dirait bien une loi importante en matière de droits sur les œuvres de l’esprit. Je devrais regarder si les jeux vidéo étaient traités dedans. Mais la loi est longue... Il semble que les pages 13 et 14 soient les plus pertinentes. La description change au chapitre 5, elle deviendrait ceci : Cette loi incontournable dans le domaine du droit des jeux vidéo devrait me permettre de déterminer les droits dont disposaient les créateurs de jeux vidéo avant la Loi Game Over (en particulier aux pages 12-13 et 15-16).`,
+    .description]: `Cette loi incontournable dans le domaine du droit des jeux vidéo devrait me permettre de déterminer les droits dont disposaient les créateurs de jeux vidéo avant la Loi Game Over (en particulier aux pages 12-13 et 15-16)`,
   [documents.STATUT_LEGAL_JEUX_VIDEO.name]: `Le statut légal des jeux vidéo`,
   [documents.STATUT_LEGAL_JEUX_VIDEO
     .description]: `La protection des jeux vidéo était vraisemblablement différentes selon les États. Il semblerait que ce document devrait me permettre de savoir plus précisément ce qui se passait au Canada avant l’interdiction des jeux vidéo… (en particulier p. 23 à 27)`,
@@ -92,6 +92,10 @@ export const documentsContent = {
   [documents.AVANTAGES_INCONVENIENTS_MOD
     .name]: `Réactions de l’industrie aux mods`,
   [documents.AVANTAGES_INCONVENIENTS_MOD
+    .description]: `Quelle chance d’avoir retrouvé ces reliques d’avant l’interdiction des jeux vidéo ! Je vais pouvoir déterminer l’attitude de ces acteurs du milieu des jeux vidéo vis-à-vis des mods créés par les fans.`,
+  [documents.LICENSES_NORMES_INDUSTRIE
+    .name]: `Réactions de l’industrie aux mods`,
+  [documents.LICENSES_NORMES_INDUSTRIE
     .description]: `Quelle chance d’avoir retrouvé ces reliques d’avant l’interdiction des jeux vidéo ! Je vais pouvoir déterminer l’attitude de ces acteurs du milieu des jeux vidéo vis-à-vis des mods créés par les fans.`,
   [documents.RAPPORT_CHRISTOPHER.name]: `Rapport sur le Projet Reset`,
   [documents.RAPPORT_CHRISTOPHER

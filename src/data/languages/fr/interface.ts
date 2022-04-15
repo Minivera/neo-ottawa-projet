@@ -8,6 +8,7 @@ export const interfaceTerms = {
   menu_minimize: 'minimiser',
   menu_maximize: 'maximiser',
   menu_save: 'sauvegarder',
+  menu_bug_report: 'signaler un bug',
 
   // Interface
   pda: 'Accéder au PDA',
