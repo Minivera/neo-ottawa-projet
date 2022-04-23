@@ -57,8 +57,7 @@ Fred: Je sais. Mais c’est la seule que j’ai. # character=FRED_GALLANT invisi
   -> scene_2
 
   = scene_2
- ~afficher_fond(bureau_fred)
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 Narrateur: Entrez dans la résistance maintenant. Plongez, sans vous retourner. Parce que lorsque vous en sortirez, vous ne serez plus la même personne. Plus jamais la même. Allez au rendez-vous que Christopher a fixé. C’est l’heure. Il est temps. # character=NARRATEUR invisible center
 <b>Fred</b> se réveille de sa torpeur.
@@ -472,7 +471,7 @@ Christopher: Fred, à toi l’honneur!# character=CHRISTOPHER_YOUNG expression=a
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 Fred se retrouve dans la salle de jeux clandestine de la résistance.
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~arreter_musique()
 ~jouer_musique(theme_narrateur)
 Narrateur: Comment Fred expliquera au chef Miller qu’elle a été en présence de joueurs, une mine d’or pour la brigade, et qu’elle n’a rien fait? Jusqu’où ira Fred avant de se questionner sur son éthique de travail? Comment expliquer la présence de Bonnie? Comment va-t-elle l’aider ? Et vous, que ferez-vous? # character=NARRATEUR invisible
@@ -620,7 +619,7 @@ Père de Leigh Kane: Parce qu’on n’a pas d’autres pistes. # character=PERE
 Mère de Leigh Kane: C’est ce jeu! J’en suis sûre! Un cœur de mère ne se trompe pas! # character=MERE_DE_LEIGH_KANE expression=grief
 ~cacher_tout_personnages()
 ~arreter_musique()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: L’agent Gallant est pleine de zèle. Aidez-la donc à coincer les monstres de la résistance. Qu’attendez-vous? # character=NARRATEUR invisible

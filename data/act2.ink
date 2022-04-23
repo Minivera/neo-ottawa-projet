@@ -5,7 +5,7 @@
 <center><titre>Chapitre 2</titre></center><br/><center>Au-delà des évidences</center> # transition
 ~ afficher_fond(art_house_cafe)
 <b>Fred</b> attend <b>Bonnie</b> dans un café. 
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: L’agent Gallant s’enfonce. Qui croire? Qui a raison, qui a tort? Est-ce que la vérité réside entre les deux camps? Le gouvernement ou la résistance? À qui pouvez-vous faire confiance? Vous devrez continuer d’investiguer et de tirer vos propres conclusions. Ne perdez pas une minute, allez voir par vous-mêmes. Ne vous perdez pas en chemin, restez concentré sur votre objectif. Gallant, réveille-toi maintenant et ne triche pas. # character=NARRATEUR invisible center
@@ -903,7 +903,7 @@ Fred: Je… j’ai parlé à une personne qui a contribué à fonder la résista
 Chef Miller: Bien. Mais ça n’efface pas vos bourdes. Je vous retire l’enquête du 530 McLeod. Moore va s’en charger. Et je veux un rapport demain matin sur mon bureau faisant état de vos progrès dans le dossier d’infiltration de la résistance. Je vous conseille de ne rien oublier. Et tâchez de dormir un peu, bon sang! # character=CHEF_MILLER expression=disdain
 
 - ~cacher_tout_personnages() 
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Qu’est-ce que l’agent Gallant va écrire dans son rapport? Est-ce que toute vérité est bonne à dire? Commencez-vous à comprendre les enjeux de cette mission? Est-ce qu’un loisir aussi controversé est un droit? Est-ce que l’état doit intervenir au nom de la santé publique? Les jeux vidéo sont-ils une menace? Vous avez la nuit pour y penser avant de découvrir de nouvelles informations qui pourraient bien être déterminantes. Prenez bien note de ce que vous découvrirez, vous aurez besoin de tous les éléments pour prendre votre décision finale, car un jour, il sera trop tard pour revenir en arrière. # character=NARRATEUR center

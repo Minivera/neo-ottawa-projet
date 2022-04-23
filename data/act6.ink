@@ -410,7 +410,7 @@ Christopher: Tu veux jeter un coup d’œil à leur contrat? J’ai reçu la cop
 Fred: D’accord, laisse-moi une copie, je regarde cela à tête reposée. # character=FRED_GALLANT invisible
 ~ajouter_document(CONTRAT_ESPORT)
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Voilà qu’on sollicite à nouveau votre aide. Saurez-vous bien comprendre les enjeux? Attention aux dérives… # character=NARRATEUR invisible

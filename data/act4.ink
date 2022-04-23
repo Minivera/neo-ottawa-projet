@@ -152,7 +152,7 @@ Bonnie: Vous me devez 450$. # character=BONNIE_RANDLE_V2 expression=disdain
 
 <b>Bonnie</b> quitte le café.
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Attention! L’agent Gallant prend des engagements qu’elle ne pourra peut-être pas tenir. Comment protéger Bonnie si elle n’est plus agent de police? Je ne vous dicte pas vos choix, mais je vous préviens : méfiez-vous de l’agent Gallant. Elle ne se rend pas compte du foutoir dans lequel elle s’est mise. # character=NARRATEUR center
@@ -352,7 +352,6 @@ Fred: Je m’en occupe. # character=FRED_GALLANT invisible
 ~ demarrer_quiz(QUIZ_4_1, 6)
 ~afficher_document(DEFINITION_JEU_VIDEO)
 ~jouer_musique(theme_quiz)
-TODO: Description document
 
 -> quiz_4_1_question_1
 
@@ -589,7 +588,7 @@ Boris: Parfait. # character=BORIS expression=satisfaction
 ~cacher_tout_personnages()
 ~afficher_fond(voiture_fred)
 <b>Fred</b> retourne à sa voiture.
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: L’heure a sonné! Fred n’est pas une juriste, vous vous rappelez? C’est une agente de police! Sans votre aide, elle n’arrivera pas à trouver la solution à ce problème. Je lui réserve une petite surprise… Soyez attentifs. C’est vous qui trancherez! # character=NARRATEUR invisible

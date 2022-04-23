@@ -7,7 +7,7 @@
 ~jouer_musique(theme_general)
 
 <b>Fred</b> rend visite à <b>Vivian</b>.
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Fred est en train de perdre la confiance de ses collaborateurs de tous les côtés. Elle va devoir arriver avec une bonne idée pour leur faire oublier les mauvaises… Rappelez-lui le jeu qu’elle a acheté à Christopher. Christopher avait mentionné qu’elle pouvait moder le jeu… Skyrim. Vous savez, ces modifications faites par des fans pour transformer un jeu existant? Les mods de jeu… c’est une clé, agent Gallant. Faites vos preuves maintenant! # character=NARRATEUR invisible
@@ -250,60 +250,60 @@ Il s'agit de la bonne réponse # retroaction
 ~afficher_document(LICENSES_NORMES_INDUSTRIE)
 //Description document: Quelle chance d’avoir retrouvé ces reliques d’avant l’interdiction des jeux vidéo! Je vais pouvoir déterminer l’attitude de ces acteurs du milieu des jeux vidéo vis-à-vis des mods créés par les fans.
 13- Quel éditeur permettait la modification de ses productions (voir les pages 1,4, 6 et 15)? # question index=13
-+   (5_1_14_a) [BON--{(5_1_14_a % 2 == 1):ACTIF--}Blizzard] Blizzard
-+   (5_1_14_b) [BON--{(5_1_14_b % 2 == 1):ACTIF--}Bethesda] Bethesda
-+   (5_1_14_c) [{(5_1_14_c % 2 == 1):ACTIF--}Nintendo] Nintendo
-+   (5_1_14_d) [{(5_1_14_d % 2 == 1):ACTIF--}Aucune de ces propositions.] Aucune de ces propositions.
-+   { 5_1_14_a || 5_1_14_b || 5_1_14_c || 5_1_14_d } CACHER--Continuer
++   (5_1_13_a) [BON--{(5_1_13_a % 2 == 1):ACTIF--}Blizzard] Blizzard
++   (5_1_13_b) [BON--{(5_1_13_b % 2 == 1):ACTIF--}Bethesda] Bethesda
++   (5_1_13_c) [{(5_1_13_c % 2 == 1):ACTIF--}Nintendo] Nintendo
++   (5_1_13_d) [{(5_1_13_d % 2 == 1):ACTIF--}Aucune de ces propositions.] Aucune de ces propositions.
++   { 5_1_13_a || 5_1_13_b || 5_1_13_c || 5_1_13_d } CACHER--Continuer
     // % ici veut dire modulo. Si modulo 2 retourne 1, ça veut dire que le
     // nombre de sélections du choix est un nombre impaire 1, 3, 5, 7,...
     // donc logiquement, le choix est sélectionné (Ou reselectioner s'il a été
     // déselectionné.
-	{ (5_1_14_a % 2 == 1 && 5_1_14_b % 2 == 1 && 5_1_14_c % 2 == 0 && 5_1_14_d % 2 == 0):
-Selon les archives d’époque, Blizzard et Bethesda sont deux des éditeurs de jeux vidéo qui permettaient la modification de leurs productions. Nintendo était une compagnie très opposée à la modification de ses jeux. Il s’agissait peut-être d’une manière de contrôler son image.  # retroaction
+	{ (5_1_13_a % 2 == 1 && 5_1_13_b % 2 == 1 && 5_1_13_c % 2 == 0 && 5_1_13_d % 2 == 0):
+Selon les archives d’époque, Blizzard et Bethesda sont deux des éditeurs de jeux vidéo qui permettaient la modification de leurs productions. Nintendo était une compagnie très opposée à la modification de ses jeux. Il s’agissait peut-être d’une manière de contrôler son image. # retroaction
     	-> quiz_5_1_question_14
     - else:
     	~ generer_mauvaise_reponse_retroaction()
         -> quiz_5_1_question_13
     }
-- -> quiz_5_1_question_14
+- -> quiz_5_1_question_13
 
 = quiz_5_1_question_14
 14- Mais alors, était-il possible dans certains cas de générer des revenus avec des mods de jeux (voir les pages 6 et 15)? # question index=14
-+  (5_1_15_a) [BON--{5_1_15_a: VISITE--}Oui] Oui
++  (5_1_14_a) [BON--{5_1_14_a: VISITE--}Oui] Oui
 Selon la licence de l’éditeur Blizzard, il n’était pas possible (sauf accord préalable et écrit de la part de Blizzard) de générer des revenus avec les mods de jeux (voir section 1, D, i, 4). Selon la licence de l’éditeur Bethesda, qui proposait un éditeur de contenu aux joueurs, ces derniers ne pouvaient pas en principe distribuer commercialement leurs créations sans le consentement de Bethesda. Elles devaient être proposées sans frais (voir l’article 1). Cependant la licence prévoyait une exception à l’article 5. Les créateurs pouvaient proposer, contre rétribution, leurs créations sur le Steam Workshop. # retroaction
 -> quiz_5_1_question_15
-+  (5_1_15_b) [{5_1_15_b: VISITE--}Non] Non
++  (5_1_14_b) [{5_1_14_b: VISITE--}Non] Non
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_1_question_14
 
 = quiz_5_1_question_15
 15- À qui appartenaient les créations des joueurs selon Bethesda? # question index=15
-+   (5_1_16_a) [{5_1_16_a: VISITE--}Au joueur-créateur] Au joueur-créateur
-+   (5_1_16_b) [{5_1_16_b: VISITE--}À Bethesda] À Bethesda
-+   (5_1_16_c) [BON--{5_1_16_c: VISITE--}Elle est partagée entre l’éditeur et le joueur-créateur] Elle est partagée entre l’éditeur et le joueur-créateur
++   (5_1_15_a) [{5_1_15_a: VISITE--}Au joueur-créateur] Au joueur-créateur
++   (5_1_15_b) [{5_1_15_b: VISITE--}À Bethesda] À Bethesda
++   (5_1_15_c) [BON--{5_1_15_c: VISITE--}Elle est partagée entre l’éditeur et le joueur-créateur] Elle est partagée entre l’éditeur et le joueur-créateur
 Selon la licence de Bethesda, le nouveau matériel créé par les joueurs semblait rester la propriété de ces derniers, mais ça n’est pas clairement précisé. Nous pouvons le déduire, car dès lors que les créateurs décidaient de distribuer leurs créations, ils octroyaient automatiquement une licence d’exploitation très large (comportant notamment le droit de modifier, reproduire ou encore adapter les créations) à Bethesda (voir l’article 1). # retroaction
 -> quiz_5_1_question_16
- +  (5_1_16_d) [{5_1_16_d: VISITE--}Elles n’appartiennent à personne] Elles n’appartiennent à personne
- +  (5_1_16_e) [{5_1_16_e: VISITE--}Aucune de ces propositions]
+ +  (5_1_15_d) [{5_1_15_d: VISITE--}Elles n’appartiennent à personne] Elles n’appartiennent à personne
+ +  (5_1_15_e) [{5_1_15_e: VISITE--}Aucune de ces propositions]
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_1_question_15
 
 = quiz_5_1_question_16
 16- À qui appartenaient les créations des joueurs selon Blizzard? # question index=16
-+   (5_1_17_a) [{5_1_17_a: VISITE--}Au joueur-créateur] Au joueur-créateur
-+   (5_1_17_b) [BON--{5_1_17_b: VISITE--}À Blizzard] À Blizzard
++   (5_1_16_a) [{5_1_16_a: VISITE--}Au joueur-créateur] Au joueur-créateur
++   (5_1_16_b) [BON--{5_1_16_b: VISITE--}À Blizzard] À Blizzard
 Selon la licence de Blizzard, ce dernier conservait la propriété sur les créations des joueurs produites au moyen des outils mis à la disposition par l’éditeur (voir section 2, A). On dirait que Blizzard souhaitait se prémunir contre un cas comme Dota, développé par des joueurs et qui a échappé à Blizzard dans une certaine mesure. # retroaction
    -> quiz_5_1_fin
-+   (5_1_17_c) [{5_1_17_c: VISITE--}Elle est partagée entre l’éditeur et le joueur-créateur] Elle est partagée entre l’éditeur et le joueur-créateur
- +  (5_1_17_d) [{5_1_17_d: VISITE--}Elles n’appartiennent à personne] Elles n’appartiennent à personne
- +  (5_1_17_e) [{5_1_17_e: VISITE--}Aucune de ces propositions]
++   (5_1_16_c) [{5_1_16_c: VISITE--}Elle est partagée entre l’éditeur et le joueur-créateur] Elle est partagée entre l’éditeur et le joueur-créateur
+ +  (5_1_16_d) [{5_1_16_d: VISITE--}Elles n’appartiennent à personne] Elles n’appartiennent à personne
+ +  (5_1_16_e) [{5_1_16_e: VISITE--}Aucune de ces propositions]
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_1_question_16
 
 = quiz_5_1_fin
 ~terminer_quiz()
-~cacher_fond()
+~ afficher_fond(blackout)
 -> scene_2
 
 = scene_2
@@ -432,7 +432,6 @@ Christian: Tu vois ça avec Teacher d’accord? # character=CHRISTIAN expression
 
 Fred: D’accord. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
-TODO:Accès document décrivant les systèmes de jeu
 
 ~afficher_personnage(BORIS, "slideInUp")
 
@@ -597,7 +596,7 @@ Fred, au téléphone: Ça me surprendrait énormément que vous puissiez remettr
 Teacher, au téléphone: Je te rappelle. # character=TEACHER_V2 expression=neutral phone
 
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Cette fois, Fred a perdu le contrôle. Voici un choix devant lequel vous êtes seuls. # character=NARRATEUR invisible
@@ -648,7 +647,7 @@ Teacher: C’est secret tout ça. Tu le sais. Qui veux-tu impliquer? # character
 Fred: Une ancienne employée de l’ESRB… # character=FRED_GALLANT invisible
 
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 Narrateur: À vous de prendre les commandes de la résistance. Croyez-vous que Fred devrait consulter quelqu’un? Ou devra-t-elle se débrouiller seule? # character=NARRATEUR invisible
 
@@ -691,7 +690,7 @@ Teacher: C’est une occasion d’apprendre. # character=TEACHER_V2 expression=s
 ~jouer_musique(theme_general)
 
 <b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>.
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible
@@ -719,7 +718,7 @@ Fred: Oui, compris. # character=FRED_GALLANT invisible
 ~jouer_musique(theme_general)
 
 <b>Fred</b> se rend à la maison d’<b>Olivia Paul</b>.
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Eh oui! Je vous avais prévenu! Fred n’en fait qu’à sa tête. Si elle perd la confiance des personnes qui lui ont demandé cette classification, je crains qu’elle ne puisse plus continuer sa mission, une fois pour toutes. Soyez donc discrets! # character=NARRATEUR invisible

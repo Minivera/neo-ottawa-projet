@@ -23,7 +23,8 @@ import { GameLog } from '../components/gameLog/gameLog';
 import { getGameLog } from './gameLog';
 import { SaveSlot } from './saving';
 import { SaveSlots } from '../components/saveSlots/saveSlots';
-import { musics } from '../data/assets/musics';
+import { Credits } from '../components/credits';
+import { usePlausible } from '../components/plausibleTracking';
 
 import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 import StartIcon from '../assets/ui/icons/PowerResist.svg?component';
@@ -34,7 +35,7 @@ import clickShimmer from '../assets/sound/click-shimmer.mp3';
 import pdaOpen from '../assets/sound/futuristic-login.mp3';
 import buttonBeep from '../assets/sound/beep-single.mp3';
 import typewriter from '../assets/sound/typewriter.mp3';
-import { Credits } from '../components/credits';
+import { musics } from '../data/assets/musics';
 
 const clickSound = new Howl({
   src: [clickMetal],
@@ -75,6 +76,7 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     storyContent,
     () => setPDAOpened(true)
   );
+  const { trackEvent } = usePlausible();
 
   const debouncedHover = useCallback<throttle<() => void>>(
     throttle(100, () => {
@@ -139,7 +141,12 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     }
 
     return () => {};
-  }, [loading, gameState.state, settings.settings.musicEnabled, settings.settings.musicVolume]);
+  }, [
+    loading,
+    gameState.state,
+    settings.settings.musicEnabled,
+    settings.settings.musicVolume,
+  ]);
 
   useEffect(() => {
     if (
@@ -163,6 +170,20 @@ export const Game: React.FunctionComponent<GameProps> = ({ storyContent }) => {
     settings.settings.soundEffectsVolume,
     gameState.currentScene?.isTransition,
   ]);
+
+  const knotName =
+    story.state.currentPointer.path &&
+    story.state.currentPointer.path.length > 2
+      ? story.state.currentPointer.path.head?.name +
+        '.' +
+        story.state.currentPointer.path.tail.head?.name
+      : story.state.currentPointer.path?.head?.name;
+
+  useEffect(() => {
+    if (knotName) {
+      trackEvent(`Atteint le noeud ${knotName}`);
+    }
+  }, [knotName]);
 
   const globalCSS = (
     <Global

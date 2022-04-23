@@ -95,9 +95,9 @@ Premier ministre: Ceci démontre clairement les limites actuelles de la <i>Loi G
 Premier ministre: En tant que père de famille et premier ministre, je vous promets solennellement que nous traquerons tous les individus qui ont de près ou de loin collaboré avec ce mouvement de résistance pro-jeux vidéo. La <i>Loi Game Over</i> nous a protégés pendant 26 ans. La <i>Loi Game Over 2.0</i> nous protégera encore pendant 50 ans. # character=PREMIER_MINISTRE expression=neutral 
 
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 
 Narrateur: Vous croyez peut-être que l’agent Gallant ne s’en est pas trop mal tirée? Mais elle aurait fait quoi sans votre aide? Maintenant que vous connaissez mieux l’univers du droit des jeux vidéo, vous en pensez quoi? Quelle est la meilleure option selon vous? Comment gérer une activité aux multiples facettes? Vous avez tout en main pour vous faire votre propre opinion maintenant. Vous pouvez désormais vous dissocier une fois pour toutes de l’agent Gallant, car après tout, ce n’était qu’un jeu, n’est-ce pas? # character=NARRATEUR invisible
-
+~arreter_musique()
 
 -> fin

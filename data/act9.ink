@@ -43,7 +43,7 @@ Boris: Je n’en sais rien et cela ne m’intéresse pas de le savoir! Ce qui m�
 
 Mr Ghost: Nos pertes vous seront attribuées. Je dois vous dire que si c’est un fiasco et que ça reste illégal, vous paierez. D’une manière ou d’une autre, vous paierez. # character=MR_GHOST expression=sterness
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Qu’avez-vous donc fait? La résistance serait-elle victime de sa popularité? Les jeunes auraient-ils tenu pour acquis le retour des jeux et ainsi, compromis l'issue favorable de la lutte? Un peu de concentration et finissez cette mission avant de vendre la peau de l’ours! # character=NARRATEUR invisible

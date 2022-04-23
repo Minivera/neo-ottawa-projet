@@ -28,7 +28,6 @@ export const knownExpressions = {
     "aversion",
     "concern",
     "cruel",
-    "melancholy",
     "neutral",
     "sterness",
     "wonder"
@@ -313,7 +312,6 @@ export const knownExpressions = {
     "alertness",
     "amusement",
     "aversion",
-    "concern",
     "default",
     "dejection",
     "joy",
@@ -349,6 +347,7 @@ export const knownExpressions = {
     "concern",
     "melancholy",
     "neutral",
+    "neutre",
     "satisfaction",
     "sterness",
     "surprise"
@@ -385,3 +384,4 @@ export const knownExpressions = {
     "satisfaction"
   ]
 };
+  

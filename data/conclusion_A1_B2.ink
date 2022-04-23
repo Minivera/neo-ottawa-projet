@@ -123,8 +123,8 @@ Fred: Je n’ai fait que ce que n’importe quel agent de la brigade aurait fait
 Chef Miller: Et modeste avec ça! Vous irez loin agent Gallant! Qui sait, vous finirez peut-être par me remplacer un jour! # character=CHEF_MILLER expression=joy
 
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 
 Narrateur: Vous croyez peut-être que l’agent Gallant ne s’en est pas trop mal tirée? Mais elle aurait fait quoi sans votre aide? Maintenant que vous connaissez mieux l’univers du droit des jeux vidéo, vous en pensez quoi? Quelle est la meilleure option selon vous? Comment gérer une activité aux multiples facettes? Vous avez tout en main pour vous faire votre propre opinion maintenant. Vous pouvez désormais vous dissocier une fois pour toutes de l’agent Gallant, car après tout, ce n’était qu’un jeu, n’est-ce pas? # character=NARRATEUR invisible
-
+~arreter_musique()
 -> fin

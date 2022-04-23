@@ -261,7 +261,7 @@ Fred: Nous allons voir. # character=FRED_GALLANT invisible
 -> scene_2
 
 =scene_2
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: On dirait bien que Fred va finalement prendre parti. À vous de voir de quel côté elle penchera… # character=NARRATEUR invisible
@@ -397,7 +397,7 @@ Fred: Oui, excellente observation, je m’occupe de fournir des informations là
 ~jouer_musique(theme_general)
 
 Fred, à elle-même: Où pourrais-je trouver de l’information sur le streaming? Je n’ai plus le temps d’aller fouiller dans des archives et puis… par où commencer? # character=FRED_GALLANT invisible
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Vous croyiez que c’était terminé? Et non! Il reste du pain sur la planche encore à notre chère agent Gallant. Si elle commençait par le dossier Morris? Vous savez, celui dont lui avait parlé les agents Moore et Lucas… Morris ne streamait-il pas? # character=NARRATEUR invisible
@@ -713,7 +713,7 @@ Christopher: Des candidats très célèbres se sont portés volontaires. Ils von
 
 Boris: Qui vous avez? # character=BORIS expression=surprise
 ~cacher_tout_personnages()
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Vous devrez encore décider de ce qu’il convient de faire. Allez-vous mettre sous contrat des streamers qui ont des comportements discutables? Avez-vous examiné comme il se doit les paramètres? Allez-vous vous fier à eux ou les faire signer un contrat très contraignant? Réfléchissez-bien aux implications de chacune de vos décisions. Dans trois jours, il sera trop tard, les jeux seront faits. # character=NARRATEUR invisible
@@ -946,7 +946,7 @@ Fred: Je pensais qu’on montrerait l’exemple et la volonté de la résistance
 Boris: Il sera toujours temps pour l’idéalisme plus tard. # character=BORIS expression=sterness
 ~cacher_tout_personnages()
 
-~afficher_fond(maison_fred_telephone)
+~afficher_fond(maison_fred)
 ~jouer_musique(theme_general)
 
 <b>Fred</b> reçoit un message texte d’<b>Opulence</b>. 

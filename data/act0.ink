@@ -187,7 +187,7 @@ Chef Miller: Dépêchez-vous. On ignore comment il a pu se sauver avec tous les 
 ~ afficher_fond(voiture_fred)
 Fred: C’est pas le moment de t’énerver. Focus. # character=FRED_GALLANT invisible
 ~ jouer_effet_sonore(respiration)
-~ cacher_fond()
+~ afficher_fond(blackout)
 ~ jouer_musique(theme_narrateur)
 L'écran devient noir. #center
 Narrateur: L’agent Gallant n’a pas connaissance de cette conversation. Vous ne pouvez plus l’aider. Présentement, elle est éteinte, en pause. Elle se souviendra de ce moment comme de ce qu’elle appellera plus tard, une absence. Et ces absences ont précisément commencé aujourd’hui, à cet instant # character=NARRATEUR center
@@ -247,13 +247,11 @@ L’enquêteur du criminel est présent. # center
 ~ afficher_fond(bureau_fred)
 ~ jouer_musique(theme_fred)
 De retour au bureau, <b>Fred</b> parcourt les données du téléphone de <b>Leigh Kane</b>. Elle découvre deux conversations. L’une entre <b>Leigh Kane</b> et sa <b>cousine</b>. L’autre, avec un pseudo mystérieux… <b>TEACHER</b>.
-~ afficher_fond(telephone_kane)
 ~ ajouter_contact(TEACHER_V1)
 <b>Lundi, 18h37</b> # center
 TEACHER: Tu vas adorer # character=TEACHER_V1 invisible
 Leigh Kane: Bah vous dites toujours ça # character=LEIGH_KANE invisible
 TEACHER: Cette fois, il est au point. On est tous à fond sur le jeu. Tu pourras plus t’arrêter. Il est immersif, complexe, on s’y croirait, on oublie tout. # character=TEACHER_V1 invisible
-~ afficher_fond(telephone_kane)
 Leigh Kane: Où et quand # character=LEIGH_KANE invisible
 TEACHER: Tu peux l’avoir dès ce soir # character=TEACHER_V1 invisible
 Leigh Kane: Combien # character=LEIGH_KANE invisible
@@ -372,7 +370,7 @@ Bonnie: Non, jamais entendu parler. # character=BONNIE_RANDLE_V1 expression=defa
 ~ jouer_musique(theme_general)
 ~ afficher_personnage(CHEF_MILLER_NO_CIGAR, "slideInUp")
 Chef Miller: Gallant, j’ai… # character=CHEF_MILLER_NO_CIGAR expression=neutral
-~ cacher_fond()
+~ afficher_fond(blackout)
 ~ cacher_tout_personnages()
 ~ arreter_musique()
 L'écran devient noir. #center
@@ -410,9 +408,8 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
     Fred: J’appelle immédiatement. # character=FRED_GALLANT invisible
 - Chef Miller: Et vous devriez consulter un médecin. Vous n’avez pas l’air d’aller bien. # character=CHEF_MILLER_NO_CIGAR expression=neutral
 ~ cacher_tout_personnages()
-~ afficher_fond(telephone_fred)
+~afficher_fond(bureau_fred)
 <b>Fred</b> compose le numéro que <b>Bonnie</b> lui a donné.
-~ jouer_effet_sonore(composer_numero)
 ~afficher_personnage(CHRISTOPHER_YOUNG, "fadeIn")
 Homme: Qui est-ce? # character=CHRISTOPHER_YOUNG expression=neutral phone
 Fred: Je m’appelle Fred. C’est John Randle qui m’a donné votre numéro. # character=FRED_GALLANT invisible

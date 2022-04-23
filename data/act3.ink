@@ -286,6 +286,7 @@ Fred: Laissez-moi m’inquiéter de ça. # character=FRED_GALLANT invisible
 Administrateur: D’accord, vous aurez une bonne idée de la prise conscience de l’industrie des jeux vidéo en matière environnementale. Bonne chance dans votre enquête! # character=ADMINISTRATEUR expression=joy phone
 
 ~ajouter_document(PLAYING_FOR_PLANET)
+~cacher_tout_personnages()
 -> quiz_3_3
 
 = quiz_3_3

@@ -218,7 +218,7 @@ Les joueurs ne pouvaient pas faire n’importe quoi si ils ou elles souhaitaient
 * Fred recrute les joueurs suivants : RalfAle, MrNobodyYet et FonGus.
 ~points_fin_B2 += 2
 
--~cacher_fond()
+-~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Plus son enquête avance, plus l’agent Gallant joue avec le feu. Ça commence à sentir le roussi… # character=NARRATEUR invisible
@@ -1194,7 +1194,7 @@ Bonnie: Je vous crois. #character=BONNIE_RANDLE_V2 expression=alertness
 Fred: À bientôt. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
 
-~cacher_fond()
+~ afficher_fond(blackout)
 ~jouer_musique(theme_narrateur)
 
 Narrateur: Bientôt, les jeux seront faits. Il n’y aura plus de retour en arrière possible. La résistance, la brigade, le gouvernement, la population... Tout se mettra en place : les décisions prises en cours de route connaîtront leur dénouement. Fred sauvera-t-elle sa peau? Bonnie sera-t-elle blanchie? La brigade sera au chômage ou fera des arrestations? À vous de jouer! # character=NARRATEUR invisible
@@ -1205,7 +1205,6 @@ Narrateur: Bientôt, les jeux seront faits. Il n’y aura plus de retour en arri
 
 Son téléphone vibre avec insistance. 
 
-~afficher_fond(telephone_boris)
 Fred, au téléphone: Que se passe-t-il, Boris? # character=FRED_GALLANT invisible 
 
 Boris, au téléphone: Un autre pépin. # character=BORIS invisible
@@ -1228,7 +1227,7 @@ Boris, au téléphone: On dirait bien qu’ils sont accros à l’adrénaline. #
 
 Fred: Boris, dis-moi quand l’événement aura lieu. # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Bon... D’accord. La date prévue, c’est dans 1 semaine.
+Boris, au téléphone: Bon... D’accord. La date prévue, c’est dans 1 semaine. # character=BORIS invisible
 
 Fred: 1 semaine! # character=FRED_GALLANT invisible
 
