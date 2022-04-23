@@ -264,7 +264,7 @@ TEACHER: 23h, 5567 Flemming<br/>Tu cognes 4 coups secs<br/>Mot de passe : ratata
 Leigh Kane: (pouce en l’air) # character=LEIGH_KANE invisible
 ~cacher_tout_personnages()
 ~afficher_fond(bureau_fred)
-~jouer_musique(theme_general) 
+~jouer_musique(theme_general)
 
 Fred, à elle-même: Je vais aller me rendre au 5567 rue Flemming, voir ce qu’il y a. # character=FRED_GALLANT invisible
 -> scene_9
@@ -398,7 +398,7 @@ Chef Miller: Et ses conversations téléphoniques? Ses messages textes? Son ordi
 ~ points_fin_A2 += 4
  ~jouer_musique(theme_general)
     Fred: Il y a un groupe. # character=FRED_GALLANT invisible
-    Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=suprise
+    Chef Miller: Un groupe? # character=CHEF_MILLER_NO_CIGAR expression=surprise
     Fred: Qui semble fournir des jeux vidéo à ceux qui en cherchent. # character=FRED_GALLANT invisible
     Chef Miller: Vous avez trouvé des informations sur ce groupe? Ça fait une éternité qu’on en cherche! La résistance, c’est ça? # character=CHEF_MILLER_NO_CIGAR expression=surprise
     Fred: Oui, mais très peu. Leigh Kane avait une adresse dans ses messages texte. Une adresse qui mène à ce groupe. Il cherchait à se procurer un jeu. # character=FRED_GALLANT invisible

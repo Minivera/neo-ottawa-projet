@@ -92,7 +92,7 @@ Christopher: Ne nous laissons pas faire. Fred, il faut que tu essaies d’en sav
 
 Fred: Je suis fatiguée, Christopher. # character=FRED_GALLANT invisible
 
-Christopher: Mais tu as réussi à les convaincre et tu leur as livré la marchandise, ils ne vont pas t’évincer comme ça. Essaie de savoir comment ça marche le streaming et ce qu’ils pensent faire. # character=CHRISTOPHER_YOUNG expression=sneutral
+Christopher: Mais tu as réussi à les convaincre et tu leur as livré la marchandise, ils ne vont pas t’évincer comme ça. Essaie de savoir comment ça marche le streaming et ce qu’ils pensent faire. # character=CHRISTOPHER_YOUNG expression=neutral
 
 Fred: Je vais contacter Boris, mais après, j’arrête tout. J’ai fait ma part. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
@@ -140,12 +140,12 @@ Fred: Où donc? # character=FRED_GALLANT invisible
 
 <b>Boris</b> donne un bout de papier à <b>Fred</b> sur lequel sont indiqués des hyperliens.
 
-* <b>Fred</b> contacte <b>Boris</b> et lui propose son aide pour la dernière étape de la préparation. 
+* <b>Fred</b> contacte <b>Boris</b> et lui propose son aide pour la dernière étape de la préparation.
 ~points_fin_B1 += 4
 ~afficher_fond(art_house_cafe)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> discute avec <b>Boris</b>. 
+<b>Fred</b> discute avec <b>Boris</b>.
 ~afficher_personnage(BORIS, "slideInUp")
 
 Fred: Merci d’être venu Boris. # character=FRED_GALLANT invisible
@@ -158,7 +158,7 @@ Boris: Rien. Tu as fait du bon travail, mais maintenant, ils ont pris les derni�
 
 Fred: Ah bon? Et quelles sont les dernières étapes? # character=FRED_GALLANT invisible
 
-Boris: De la politique et des politicailleries. # character=BORIS expression=concern 
+Boris: De la politique et des politicailleries. # character=BORIS expression=concern
 
 Fred: Mais encore? # character=FRED_GALLANT invisible
 
@@ -188,12 +188,12 @@ Fred: Quelles informations? # character=FRED_GALLANT invisible
 
 <b>Boris</b> donne un bout de papier à <b>Fred</b> sur lequel sont indiqués des hyperliens.
 
-* <b>Fred</b> contacte <b>Boris</b> et lui propose son aide pour planifier le streaming. Elle lui avoue que <b>Teacher</b> l’a prévenue. 
+* <b>Fred</b> contacte <b>Boris</b> et lui propose son aide pour planifier le streaming. Elle lui avoue que <b>Teacher</b> l’a prévenue.
 ~points_fin_B1 += 2
 ~afficher_fond(art_house_cafe)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> discute avec <b>Boris</b>. 
+<b>Fred</b> discute avec <b>Boris</b>.
 ~afficher_personnage(BORIS, "slideInUp")
 
 Fred: Merci d’être venu Boris. # character=FRED_GALLANT invisible
@@ -225,7 +225,7 @@ Boris: Tout ce que j’ai, ce sont ces informations. Je peux te les donner, mais
 Fred: Nous allons voir. # character=FRED_GALLANT invisible
 
 <b>Boris</b> donne un bout de papier à <b>Fred</b> sur lequel sont indiqués des hyperliens  qui permettent à <b>Fred</b> d’accéder à des documents sur le streaming
-- ~cacher_tout_personnages() 
+- ~cacher_tout_personnages()
 -> quiz_8_1
 
 = quiz_8_1
@@ -247,10 +247,10 @@ Fred: Nous allons voir. # character=FRED_GALLANT invisible
 = quiz_8_1_question_2
 2- Quelle plateforme de streaming dominait le marché avant l’interdiction des jeux vidéo? # question index=2
 +   (8_1_2_a) [{8_1_2_a: VISITE--}Youtube] Youtube
-+   (8_1_2_b) [BON--{8_1_2_b: VISITE--}Twitch] Twitch 
++   (8_1_2_b) [BON--{8_1_2_b: VISITE--}Twitch] Twitch
   Selon les statistiques de 2019, la plateforme Twitch était de loin la plus utilisée (75 % du marché). À noter que la plateforme Mixer, lancée par Microsoft en 2016, a été fermée en 2020 (fusion avec Facebook gaming). # retroaction
 -> quiz_8_1_fin
-+   (8_1_2_c) [{8_1_2_c: VISITE--}Facebook gaming] Facebook gaming  
++   (8_1_2_c) [{8_1_2_c: VISITE--}Facebook gaming] Facebook gaming
 +   (8_1_2_d) [{8_1_2_d: VISITE--}Mixer] Mixer
  +  (8_1_2_e) [{8_1_2_d: VISITE--}Aucune de ces réponses] Aucune de ces réponses
 - ~ generer_mauvaise_reponse_retroaction()
@@ -279,7 +279,7 @@ Narrateur: On dirait bien que Fred va finalement prendre parti. À vous de voir 
 
 Fred: L’événement est prévu pour la semaine prochaine, chef. # character=FRED_GALLANT invisible
 
-Chef Miller: Beau boulot Gallant! Vraiment, je n’étais pas certain de vous. Je vous l’admets. # character=CHEF_MILLER expression=satisfaction 
+Chef Miller: Beau boulot Gallant! Vraiment, je n’étais pas certain de vous. Je vous l’admets. # character=CHEF_MILLER expression=satisfaction
 
 Fred: Je sais, c’est normal. # character=FRED_GALLANT invisible
 
@@ -311,14 +311,14 @@ Fred: Oui, je vais faire vite. # character=FRED_GALLANT invisible
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> rencontre <b>Jen</b>, <b>Palvid</b> et les autres joueurs de l’équipe. 
+<b>Fred</b> rencontre <b>Jen</b>, <b>Palvid</b> et les autres joueurs de l’équipe.
 
 ~afficher_personnage(JEN, "slideInLeft")
 ~afficher_personnage(PALVID, "slideInRight")
 
 Fred: Palvid_, as-tu beaucoup de fans? Est-ce qu’ils collaboreront tu crois? # character=FRED_GALLANT invisible
 
-Palvid_: Mes fans sont très discrets et je n’ai pas beaucoup de contacts avec eux. Je fais mon streaming en conséquence de mon style de jeu. Je ne m’adresse pas à eux directement comme d’autres streamers. Je publie des extraits de mes meilleurs jeux. C’est tout. # character=PALVID expression=neutre
+Palvid_: Mes fans sont très discrets et je n’ai pas beaucoup de contacts avec eux. Je fais mon streaming en conséquence de mon style de jeu. Je ne m’adresse pas à eux directement comme d’autres streamers. Je publie des extraits de mes meilleurs jeux. C’est tout. # character=PALVID expression=neutral
 
 Fred: Toi, Jen? # character=FRED_GALLANT invisible
 
@@ -369,7 +369,7 @@ Christopher: Je suis partant. # character=CHRISTOPHER_YOUNG expression=neutral
 Teacher: Moi aussi! # character=TEACHER_V2 expression=satisfaction
  ~cacher_tout_personnages()
 
-* <b>Fred</b> décide de demander aux joueurs de l’équipe d’inviter leurs fans à migrer vers la plateforme que proposera la résistance et de le faire en masse. Cela montrera au gouvernement que l’auditoire est varié, nombreux et bien motivé à poursuivre les activités liées aux jeux vidéo, peu importe la décision du gouvernement. 
+* <b>Fred</b> décide de demander aux joueurs de l’équipe d’inviter leurs fans à migrer vers la plateforme que proposera la résistance et de le faire en masse. Cela montrera au gouvernement que l’auditoire est varié, nombreux et bien motivé à poursuivre les activités liées aux jeux vidéo, peu importe la décision du gouvernement.
 ~points_fin_B1 += 2
 ~afficher_fond(rue_mcleod)
 ~jouer_musique(theme_general)
@@ -501,7 +501,7 @@ Fred: Merci d’être venu signer ton contrat ici. J’étais un peu coincée, j
 
 Palvid_: Pas de problème. Si tu me poses toutes ces questions, c’est parce que vous cherchez un streamer, c’est ça? # character=PALVID expression=alertness
 
-Fred: Oui, on va vers cette possibilité. Ça prend du monde à l’événement. Ça prend des vedettes. Les membres de l’équipe, vous apportez déjà beaucoup de visibilité, mais on a besoin de joueurs amateurs avec un gros, gros public. # character=FRED_GALLANT invisible  
+Fred: Oui, on va vers cette possibilité. Ça prend du monde à l’événement. Ça prend des vedettes. Les membres de l’équipe, vous apportez déjà beaucoup de visibilité, mais on a besoin de joueurs amateurs avec un gros, gros public. # character=FRED_GALLANT invisible
 
 Palvid_: Ah, je ne vous blâme pas. J’ai moins d’audience que Trevor, de toute façon. Les relations publiques, ce n'est pas mon fort. # character=PALVID expression=melancholy
 
@@ -592,7 +592,7 @@ Fred, à elle-même: Voyons voir l'autre candidat... # character=FRED_GALLANT in
 UPPERSTREAMER. Auditoire énorme et fidèle. Impeccabilité des contenus en streaming. Grande conscience éthique et dévouement envers une cause noble, les stéréotypes dans les jeux vidéo. Auditoire extrêmement fidèle. Beaucoup de commandites de qualité. Grande visibilité et beaucoup de commentaires positifs. Connu à l’extérieur du monde des jeux vidéo pour ses prises de position intransigeantes.
 ~ajouter_contact(UPPER_STREAMER)
 
-<b>Fred</b> doit enquêter sur ces streamers et essayer de voir s’il n’y a pas des comportements problématiques dans leur passé. 
+<b>Fred</b> doit enquêter sur ces streamers et essayer de voir s’il n’y a pas des comportements problématiques dans leur passé.
 
 Elle consulte les règlements d’époque annexés au dossier Morris.
 -> quiz_8_3
@@ -604,7 +604,7 @@ Elle consulte les règlements d’époque annexés au dossier Morris.
 
 = quiz_8_3_question_1
 ~afficher_document(LIGNE_CONDUITE_TWITCH)
-// Description du document: Voyons voir ce que prévoyaient les règlements d’époque à propos du contenu que pouvaient diffuser les streamers et à propos de leur comportement. 
+// Description du document: Voyons voir ce que prévoyaient les règlements d’époque à propos du contenu que pouvaient diffuser les streamers et à propos de leur comportement.
 1- Les streamers pouvaient diffuser n'importe quel contenu. # question index=1
 +  (8_3_1_a) [{8_3_1_a: VISITE--}Vrai] Vrai
 +  (8_3_1_b) [BON--{8_3_1_b: VISITE--}Faux] Faux
@@ -668,11 +668,11 @@ Christopher: Oui, j’ai fouillé le Dark Web. Le moins qu’on puisse dire, c�
 
 Fred: Vas-y je t’écoute. # character=FRED_GALLANT invisible
 
-Christopher: Lors d’une vidéo en direct l'année dernière, Opulence  a été filmée en train de lancer son chat qui passait devant son écran. Les fans ont réagi et elle a retiré son direct des ondes très peu de temps après l’événement. # character=CHRISTOPHER_YOUNG expression=concern 
+Christopher: Lors d’une vidéo en direct l'année dernière, Opulence  a été filmée en train de lancer son chat qui passait devant son écran. Les fans ont réagi et elle a retiré son direct des ondes très peu de temps après l’événement. # character=CHRISTOPHER_YOUNG expression=concern
 
 Christopher: Malgré tout, cela lui a fait une réputation de colérique et elle l’exploite un peu en faisant mine de se fâcher pour tout et pour rien depuis. C’est un peu sa marque de commerce. Elle a fait des excuses publiques pour avoir lancé son chat sur sa chaîne, mais affirme ne pas l’avoir blessé ni lui avoir fait peur. # character=CHRISTOPHER_YOUNG expression=concern
 
-Fred: C’est ennuyeux. C’est peut-être le type de comportement qui pourrait nous valoir des ennuis auprès du public… Et Upperstreamer? S’il te plaît, dis-moi que ce n’est pas la même chose? # character=FRED_GALLANT invisible 
+Fred: C’est ennuyeux. C’est peut-être le type de comportement qui pourrait nous valoir des ennuis auprès du public… Et Upperstreamer? S’il te plaît, dis-moi que ce n’est pas la même chose? # character=FRED_GALLANT invisible
 
 Christopher: Non, lui ne fait pas dans la cruauté animale… Mais sur le Dark Web, on peut voir qu’il fait partie de plusieurs organisations dont les Great Americans qui sont connus pour leur extrémisme et leurs positions misogynes. Il est un membre actif de l’association, bien qu’il n’ait jamais été vu dans les manifestations publiques du groupe extrémiste. # character=CHRISTOPHER_YOUNG expression=disdain
 
@@ -684,7 +684,7 @@ Fred: C’est déjà ça. Tu as autre chose? # character=FRED_GALLANT invisible
 
 Christopher: Oui, il fait aussi partie d’un groupe climatosceptique très actif pour lequel il ne se gêne pas d’intervenir régulièrement. Il donne des conférences publiques sur le sujet et même s’il n’utilise pas le même pseudonyme, son auditoire de streamer le suit également dans ses combats politiques. # character=CHRISTOPHER_YOUNG expression=disdain
 
-Fred: Et dire qu’on a passé le seuil symbolique des 2,5 degrés d’élévation de température en 2045… 30 ans après l’Accord de Paris. Et il y a encore qui ne croit pas à la réalité des changements climatiques. Affligeant. # character=FRED_GALLANT invisible 
+Fred: Et dire qu’on a passé le seuil symbolique des 2,5 degrés d’élévation de température en 2045… 30 ans après l’Accord de Paris. Et il y a encore qui ne croit pas à la réalité des changements climatiques. Affligeant. # character=FRED_GALLANT invisible
 
 Christopher: Tu t’y connais en environnement toi? Mais attends, le meilleur pour la fin… Upperstreamer a également fait 6 mois de prison pour une altercation avec une collègue alors qu’il travaillait comme animateur graphique dans une grande compagnie d’animation d’effets spéciaux. # character=CHRISTOPHER_YOUNG expression=sterness
 
@@ -823,7 +823,7 @@ Fred: Non, mais tu as une réputation d’impulsive. # character=FRED_GALLANT in
 Opulence: C’est un personnage pour garder les fans sous tension. Mais je n'ai rien fait de répréhensible depuis. Il y a de l’abus. Vous nous tenez avec vos contrats et après on n’est plus nous-mêmes. On a peur que vous interprétiez tout de travers. # character=OPULENCE expression=disdain
 
 Fred: Bon. Laisse-moi revoir tes revendications. Je vais lire cela à tête reposée et te revenir avec une contre-proposition. D’accord? # character=FRED_GALLANT invisible
- 
+
 Opulence: D’accord. Mais il y a une chose qui est non-négociable. Si on déménage sur la plateforme de la résistance, mes potes et moi on veut un syndicat. # character=OPULENCE expression=sterness
 
 Fred: Si la légalisation se fait. # character=FRED_GALLANT invisible
@@ -832,7 +832,7 @@ Opulence: Si la légalisation se fait. # character=OPULENCE expression=neutral
 ~cacher_tout_personnages()
 -> act_8_quiz_4.quiz_8_4
 
-* <b>Fred</b> propose que la résistance refasse ses devoirs et cherche des streamers peut-être moins populaires, mais sans controverse. 
+* <b>Fred</b> propose que la résistance refasse ses devoirs et cherche des streamers peut-être moins populaires, mais sans controverse.
 ~points_fin_B1 += 5
 
 ~afficher_fond(rue_flemming)
@@ -885,7 +885,7 @@ Fred: Je vais m’en occuper. # character=FRED_GALLANT invisible
 
 ~afficher_personnage(CHRISTOPHER_YOUNG, "slideInUp")
 
-Fred: J’ai identifié cinq streamers potentiels. # character=FRED_GALLANT invisible 
+Fred: J’ai identifié cinq streamers potentiels. # character=FRED_GALLANT invisible
 
  Christopher: On va leur demander de parler de la résistance et de l’événement qui s’en vient. Ils seront rémunérés selon un système de vues et d’abonnés. Certains signerons un contrat plus élaboré pour qu’ils deviennent les effigies officielles de la résistance. # character=CHRISTOPHER_YOUNG expression=satisfaction
 
@@ -910,7 +910,7 @@ Fred: D'accord. Faisons comme ça. # character=FRED_GALLANT invisible
 ~cacher_tout_personnages()
 -> act_8_quiz_4.quiz_8_4
 
-* <b>Fred</b> propose qu’on mette les deux streamers les plus populaires sous contrat et qu’on réfléchisse à des façons de faire face à la controverse s’il y a lieu, après. On a surtout besoin de visibilité et la résistance n’aura pas nécessairement à répondre des actes passés de streamers qui devaient composer avec l’illégalité de toute façon. 
+* <b>Fred</b> propose qu’on mette les deux streamers les plus populaires sous contrat et qu’on réfléchisse à des façons de faire face à la controverse s’il y a lieu, après. On a surtout besoin de visibilité et la résistance n’aura pas nécessairement à répondre des actes passés de streamers qui devaient composer avec l’illégalité de toute façon.
 ~points_fin_B2 += 5
 
 ~afficher_fond(rue_flemming)
@@ -949,7 +949,7 @@ Boris: Il sera toujours temps pour l’idéalisme plus tard. # character=BORIS e
 ~afficher_fond(maison_fred)
 ~jouer_musique(theme_general)
 
-<b>Fred</b> reçoit un message texte d’<b>Opulence</b>. 
+<b>Fred</b> reçoit un message texte d’<b>Opulence</b>.
 
 Opulence: Hey. Tu veux bien jeter un œil là-dessus. # character=OPULENCE invisible
 

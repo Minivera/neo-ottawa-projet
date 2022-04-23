@@ -80,7 +80,6 @@ export const knownExpressions = {
     "omg",
     "satisfaction",
     "sterness",
-    "suprise",
     "surprise",
     "wtf"
   ],
@@ -97,7 +96,6 @@ export const knownExpressions = {
     "melancholy",
     "neutral",
     "satisfaction",
-    "sneutral",
     "sterness",
     "surprise",
     "wonder",
@@ -347,7 +345,6 @@ export const knownExpressions = {
     "concern",
     "melancholy",
     "neutral",
-    "neutre",
     "satisfaction",
     "sterness",
     "surprise"
@@ -384,4 +381,3 @@ export const knownExpressions = {
     "satisfaction"
   ]
 };
-  
