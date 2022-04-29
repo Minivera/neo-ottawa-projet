@@ -412,8 +412,18 @@ export const useGame = (
     },
     saveSlots: [],
   });
-  const location = useMemo<Location>(() => window.location, []);
+  const location = useMemo<Location | null>(() => {
+    if (import.meta.env.SSR) {
+      return null;
+    }
+
+    return window.location;
+  }, []);
   useEffect(() => {
+    if (!location) {
+      return;
+    }
+
     const knot = new URLSearchParams(location.search).get('noeud');
     if (knot && story.ContentAtPath(new Path(knot))) {
       story.ChoosePathString(knot);

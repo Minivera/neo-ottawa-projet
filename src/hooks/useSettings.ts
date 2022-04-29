@@ -116,6 +116,10 @@ const defaultSettings: Settings = {
 };
 
 export const useSettings = (savedSettings: Partial<Settings>): [SettingsState, Dispatch<SettingsAction>] => {
+  if (import.meta.env.SSR) {
+    return [{ settings: defaultSettings }, () => {}];
+  }
+
   const locallySavedSettings = localStorage.getItem(settingsLocalStorageKey);
   let localStorageSettings: Partial<Settings> = {};
   if (locallySavedSettings) {
