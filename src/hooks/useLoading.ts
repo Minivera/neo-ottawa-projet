@@ -4,10 +4,17 @@ import { loadImage } from '../helpers/loadImage';
 
 const maxConcurrentLoading = 20;
 
+// Links used for SSR
+export const imageSSRLinks: string[] = [];
+
 export const usePreloader = (imagePaths: string[]): [boolean, number] => {
   const [loadedIndicators, setLoadedIndicators] = useState<Record<string, boolean>>({});
   const [started, setStarted] = useState(false);
   const [assetLoading, assetsLoaded, assetsToLoad] = useLazyAssetLoading();
+
+  if (import.meta.env.SSR) {
+    imageSSRLinks.push(...imagePaths.map(imagePath => `<link rel="preload" as="image" data-loading href="${imagePath}">`));
+  }
 
   useEffect(() => {
     if (started) {
