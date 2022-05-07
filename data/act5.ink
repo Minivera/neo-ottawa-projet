@@ -227,7 +227,7 @@ Les jeux vidéo dont on ne connaissait pas les auteurs étaient tout de même pr
 -> quiz_5_1_question_10
 
 = quiz_5_1_question_11
-11- Les droits sur le jeu DOTA a été cédé par des droits à des studios de jeux vidéo # question index=11
+11- Les droits sur le jeu DOTA ont été cédés par des droits à des studios de jeux vidéo # question index=11
 +  (5_1_11_a) [BON--{5_1_11_a: VISITE--}Vrai] Vrai
 Il s'agit de la bonne réponse # retroaction
 -> quiz_5_1_question_12
@@ -236,7 +236,7 @@ Il s'agit de la bonne réponse # retroaction
 -> quiz_5_1_question_11
 
 = quiz_5_1_question_12
-12- Le jeu DOTA a été centre d’une bataille juridique entre : # question index=12
+12- Le jeu DOTA a été au centre d’une bataille juridique entre : # question index=12
 +   (5_1_12_a) [{5_1_12_a: VISITE--}Un joueur et Valve] Un joueur et Valve
 +   (5_1_12_b) [BON--{5_1_12_b: VISITE--}Valve et Blizzard] Valve et Blizzard
    Il s'agit de la bonne réponse # retroaction
@@ -249,7 +249,7 @@ Il s'agit de la bonne réponse # retroaction
 = quiz_5_1_question_13
 ~afficher_document(LICENSES_NORMES_INDUSTRIE)
 //Description document: Quelle chance d’avoir retrouvé ces reliques d’avant l’interdiction des jeux vidéo! Je vais pouvoir déterminer l’attitude de ces acteurs du milieu des jeux vidéo vis-à-vis des mods créés par les fans.
-13- Quel éditeur permettait la modification de ses productions (voir les pages 1,4, 6 et 15)? # question index=13
+13- Quels éditeurs permettaient la modification de leurs productions (voir les pages 1,4, 6 et 15)? # question index=13
 +   (5_1_13_a) [BON--{(5_1_13_a % 2 == 1):ACTIF--}Blizzard] Blizzard
 +   (5_1_13_b) [BON--{(5_1_13_b % 2 == 1):ACTIF--}Bethesda] Bethesda
 +   (5_1_13_c) [{(5_1_13_c % 2 == 1):ACTIF--}Nintendo] Nintendo

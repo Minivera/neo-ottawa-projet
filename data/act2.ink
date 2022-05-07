@@ -912,7 +912,6 @@ Narrateur: Qu’est-ce que l’agent Gallant va écrire dans son rapport? Est-ce
 ~afficher_fond(bureau_fred)
 ~jouer_musique(theme_general)
 Le téléphone de <b>Fred</b> sonne.
-~jouer_effet_sonore(sonnerie_telephone)
 
 Fred: Allô? # character=FRED_GALLANT invisible
 ~afficher_personnage(CHRISTOPHER_YOUNG, "fadeIn") 

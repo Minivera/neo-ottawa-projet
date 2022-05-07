@@ -1356,4 +1356,4 @@ Fred: Écoute, je vais y réfléchir. Je te reviens sur le sujet. # character=FR
 ~jouer_musique(theme_news)
 « Il n’y a aucune chance que ça marche mieux qu’avant » confirme le titulaire de la chaire de recherches en histoire de la technologie de l’Université d’Ottawa.
 ~arreter_musique()
--> chapitre_7.scene_1 
+-> chapitre_8.scene_1 

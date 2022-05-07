@@ -10,7 +10,7 @@
 ~ afficher_fond(data_glitch)
 ~ jouer_musique(theme_intro)
 Néo-Ottawa, 2047. La <i>Loi Game Over</i> est en vigueur depuis 25 ans. Au Canada et dans de nombreux autres pays, il est interdit de concevoir, de distribuer, de vendre ou de jouer à quelque jeu vidéo que ce soit. # center
-Que la loi soit vous semble justifiée ou non, vous devrez la défendre. Vous êtes maintenant l’agent FRED GALLANT, jeune recrue. # center
+Que la loi vous semble justifiée ou non, vous devrez la défendre. Vous êtes maintenant l’agent FRED GALLANT, jeune recrue. # center
 C’est votre première journée. Vous êtes un peu nerveuse. #center
 Vous avez quelques appréhensions, mais vous devrez aller jusqu’au bout, prendre des risques. # center
 Faire des choix. Des choix qui changeront l’avenir. # center
@@ -273,8 +273,6 @@ Fred, à elle-même: Je vais aller me rendre au 5567 rue Flemming, voir ce qu’
 ~ afficher_fond(rue_flemming)
 *   <b>Fred</b> décide de sonner à la porte.
 ~ afficher_fond(rue_flemming_porte)
-~ jouer_effet_sonore(cris)
-~ jouer_effet_sonore(aboiements)
     Voix d'homme, derrière la porte: Qui est là? # character=HOMME invisible
     Fred: Police, ouvrez. # character=FRED_GALLANT invisible
     Voix d'homme: Faites passer votre mandat sous la porte. Si vous n’avez pas de mandat, fichez le camp d’ici. C’est une maison privée. # character=HOMME invisible

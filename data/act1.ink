@@ -27,6 +27,7 @@ Agent Lucas: Qui est ton contact? # character=AGENT_LUCAS expression=neutral
   -> scene_2
 *Fred répond qu'elle n'en sait pas tellement pour le moment. Mais elle donne le pseudo de <b>Teacher</b>. De toute façon, ses collègues y auront accès.
   ~ points_fin_2 += 1
+  ~jouer_musique(theme_general)
  Fred: J’en suis encore à tenter le coup. J’ai un pseudo découvert dans les conversations de la victime. # character=FRED_GALLANT invisible
  Agent Moore: Ouais. Toute une piste. # character=AGENT_MOORE expression=cruel
  Agent Lucas: Quel pseudo? # character=AGENT_LUCAS expression=neutral
@@ -40,6 +41,7 @@ Agent Lucas: Absolument! # character=AGENT_LUCAS expression=neutral
 Cependant, une autre adresse potentiellement liée à la résistance apparaît, le 530 rue McLeod. C’est le point de rendez-vous que <b>Christopher</b> vous a donné pour vous présenter aux autres. # center
 *Fred donne le nom de son contact, la fille, pas <b>Christopher</b>
   ~ points_fin_1 += 1
+  ~jouer_musique(theme_general)
 Fred: Il y a une fille, Bonnie. # character=FRED_GALLANT invisible
 Agent Lucas: Quel est son degré d’implication? Je suis désolé, mais ce nom ne me dit rien. # character=AGENT_LUCAS expression=neutral
 Agent Moore: Jamais entendu parler. # character=AGENT_MOORE expression=neutral
@@ -339,7 +341,7 @@ Fred: Bon d’accord, pardonnez-moi de vous avoir dérangé. # character=FRED_GA
 Carl: Attendez. Je me souviens d’une histoire avec GTA…  #character=CARL_WHITE expression=neutral
 Carl: C’est pour des histoires comme celle-là qu’ils ont tout interdit vous savez.  #character=CARL_WHITE expression=laughing
 Fred: Quelle histoire? # character=FRED_GALLANT invisible
-Carl: GTA! Quel jeu stupide! Ce n’est pas moi qui l’ai évalué, ça non. Mais le scandale! Ça, tout le monde qui l’a vécu se le rappelle.  #character=CARL_WHITE expression=amusement
+Carl: GTA! Quel jeu stupide! Ce n’est pas moi qui l’ai évalué, ça non. Mais le scandale! Ça, tout le monde qui l’a vécu s'en rappelle.  #character=CARL_WHITE expression=amusement
 Fred: Eh bien, pourriez-vous m’en parler ? # character=FRED_GALLANT invisible
 Carl: C’était en 2005, lorsque le jeu est sorti, il est arrivé en bonne et due forme avec le formulaire détaillé sur le contenu fourni par le concepteur et l’extrait de gameplay quoi, comme d’habitude. On l’a évalué et classé. Mais après que le jeu ait été en circulation un certain temps, des joueurs ont découvert une mission cachée, le hot coffee. On pouvait la débloquer avec un code et le personnage pouvait avoir une relation sexuelle avec une travailleuse du sexe.  #character=CARL_WHITE expression=neutral
 Fred: Ah bon? # character=FRED_GALLANT invisible
