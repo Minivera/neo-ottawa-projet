@@ -22,7 +22,7 @@ export const PlausibleProvider: FunctionComponent = ({ children }) => {
     }
 
     const plausible = Plausible({
-      domain: 'savoir.dev',
+      domain: 'reset2047.ca',
       hashMode: true,
     });
 

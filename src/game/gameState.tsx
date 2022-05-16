@@ -592,12 +592,15 @@ export const useGame = (
           };
         }
         case 'play_sound': {
+          /*
+          // Disabled for now
           const sound = soundEffects[action.soundId];
 
           if (sound && settings.soundEffectsEnabled) {
             sound.volume(settings.soundEffectsVolume / 100);
             sound.play();
           }
+          */
 
           return {
             ...state,
