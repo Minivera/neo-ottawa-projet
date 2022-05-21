@@ -356,7 +356,7 @@ Fred: Je m’en occupe. # character=FRED_GALLANT invisible
 -> quiz_4_1_question_1
 
 =quiz_4_1_question_1
-1- Maintenant que je me suis embarquée dans cette histoire de juriste et de propriété intellectuelle, plus le choix d'en apprendre plus… Les informations que m’a communiquées Boris devraient m’aider à comprendre ce que sont les jeux vidéo et les principaux outils de la propriété intellectuelle pour les protéger. Pourquoi créer des jeux vidéo, après tout il s’agissait d’un divertissement comme un autre, non ? Rien ne différenciait un jeu vidéo d'autres œuvres comme les films et la littérature, n’est-ce pas? # question index=1
+1- Les informations que m’a communiquées Boris devraient m’aider à comprendre ce que sont les jeux vidéo et les principaux outils de la propriété intellectuelle pour les protéger. Pourquoi créer des jeux vidéo, après tout il s’agissait d’un divertissement comme un autre, non ? Rien ne différenciait un jeu vidéo d'autres œuvres comme les films et la littérature, n’est-ce pas? # question index=1
 +  (4_1_1_a) [{4_1_1_a: VISITE--}Vrai] Vrai
 +  (4_1_1_b) [BON--{4_1_1_b: VISITE--}Faux] Faux
  Il y avait une différence majeure entre une œuvre cinématographique et un jeu vidéo : l’interactivité qu’offrait ce dernier. Le joueur interagissait avec l’œuvre au moyen de divers périphériques (comme par exemple une manette de jeu). # retroaction
@@ -777,8 +777,8 @@ Fred: Quel avocat? Tant que ce n’est pas légal, on ne risque rien. # characte
 Boris: On ne peut toujours pas lancer le jeu et on n’est même pas certain que tu aies raison? C’est le plan Fred, le retour de la légalité. Je veux plus te voir ici pour l’instant, Fred. Quitte les lieux. Je vais devoir en parler à mes patrons. # character=BORIS expression=disgust
 ~cacher_tout_personnages()
 
-~afficher_fond(news_room_chapitre_4)
+-~afficher_fond(news_room_chapitre_4)
 ~jouer_musique(theme_news)
-La colère monte. Les jeux vidéo illicites occupent encore une grande part de marché selon les experts
+La colère monte. Les jeux vidéo illicites occupent encore une grande part de marché selon les experts.
 ~arreter_musique()
-- -> chapitre_5.scene_1
+-> chapitre_5.scene_1

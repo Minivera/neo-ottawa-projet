@@ -26,7 +26,6 @@ import { SaveSlots } from '../components/saveSlots/saveSlots';
 import { Credits } from '../components/credits';
 import { usePlausible } from '../components/plausibleTracking';
 
-import bgVideo from '../assets/videos/videoblocks-synthwave-noise-net-retro.mp4';
 import StartIcon from '../assets/ui/icons/PowerResist.svg?component';
 import SettingsIcon from '../assets/ui/icons/Parametres.svg?component';
 import SaveIcon from '../assets/ui/icons/Sauvegarder.svg?component';
@@ -36,6 +35,10 @@ import pdaOpen from '../assets/sound/futuristic-login.mp3';
 import buttonBeep from '../assets/sound/beep-single.mp3';
 import typewriter from '../assets/sound/typewriter.mp3';
 import { musics } from '../data/assets/musics';
+
+const bgVideo = `${
+  import.meta.env.BASE_URL
+}videos/videoblocks-synthwave-noise-net-retro.mp4`;
 
 const clickSound = new Howl({
   src: [clickMetal],

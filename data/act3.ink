@@ -243,7 +243,7 @@ Fred: J’en prends note. # character=FRED_GALLANT invisible
 <i>Playing for the Planet</i> n’est pas une initiative de l’Organisation pour l’alimentation et l’agriculture.
 ->scene_3_suite
 
-*1C UNEA (Assemblée des Nations Unies pour l’environnement)
+*UNEA (Assemblée des Nations Unies pour l’environnement)
 <i>Playing for the Planet</i> n’est pas une initiative de l’Assemblée des Nations Unies pour l’environnement.
 ->scene_3_suite
 
@@ -330,7 +330,7 @@ Malheureusement l’initiative Playing for the Planet ne comptait qu’environ u
 4 - Mais alors, est- ce que tous les acteurs du milieu des jeux vidéo impliqués dans l'initiative Playing for the Planet se sont fixé des objectifs de réduction des gaz à effet de serre (voir aux pages 51 à 70 du document)? # question index=4
 *  (3_3_4_a) [{3_3_4_a: VISITE--}Oui] Oui
 *  (3_3_4_b) [BON--{3_3_4_b: VISITE--}Non] Non
-Selon ce même rapport annuel, tous les membres ne se sont pas fixé d'objectifs de réduction des gaz à effet de serre. Néanmoins, huit membres s’étaient engagés à le faire en 2021 (en plus des membres disposant déjà de cibles). # retroaction
+Selon ce même rapport annuel, tous les membres ne se sont pas fixés d'objectifs de réduction des gaz à effet de serre. Néanmoins, huit membres s’étaient engagés à le faire en 2021 (en plus des membres disposant déjà de cibles). # retroaction
 -> quiz_3_3_question_5
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_3_3_question_4
@@ -347,7 +347,7 @@ Selon le rapport, la compagnie Supercell s’était engagée à réduire ses ém
 -> quiz_3_3_question_5
 
 = quiz_3_3_question_6
-6 - Bon, tous les membres de l'initiative Playing for the Planet ne se sont pas fixé des objectifs de réduction des gaz à effet de serre, mais est-ce qu’ils avaient l'obligation d'adopter de telles mesures (voir la page 33 du document)? # question index=6
+6 - Bon, tous les membres de l'initiative Playing for the Planet ne se sont pas fixés des objectifs de réduction des gaz à effet de serre, mais est-ce qu’ils avaient l'obligation d'adopter de telles mesures (voir la page 33 du document)? # question index=6
 *  (3_3_6_a) [{3_3_6_a: VISITE--}Vrai] Vrai
 *  (3_3_6_b) [BON--{3_3_6_b: VISITE--}Faux] Faux
  Selon le document, les membres se sont fixé des : « voluntary, specific, time-based and increasingly ambitious commitments for both people and planet ». Les membres n’avaient donc pas d’obligations spécifiques… Mais ils étaient encouragés à adopter des cibles et des stratégies en faveur de l’environnement. # retroaction

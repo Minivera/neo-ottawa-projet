@@ -1,74 +1,206 @@
-import artHouseCafe from '../../assets/backgrounds/art_house_cafe.jpg?w=1920&h=1080';
-import bureauChefMiller from '../../assets/backgrounds/bureau_chef_miller.jpg?w=1920&h=1080';
-import bureauChefMillerReve from '../../assets/backgrounds/bureau_chef_miller_flou.jpg?w=1920&h=1080';
-import porteChefMiller from '../../assets/backgrounds/porte_chef_miller.png?w=1920&h=1080';
-import brigade from '../../assets/backgrounds/brigade.jpg?w=1920&h=1080';
-import glitch from '../../assets/backgrounds/glitch.jpg?w=1920&h=1080';
-import brigadeOutside from '../../assets/backgrounds/brigade_outside.jpg?w=1920&h=1080';
-import quartier from '../../assets/backgrounds/quartier.jpg?w=1920&h=1080';
-import rueFlemming from '../../assets/backgrounds/rue_flemming.jpg?w=1920&h=1080';
-import rueFlemmingPorte from '../../assets/backgrounds/rue_flemming_porte.jpg?w=1920&h=1080';
-import chambreLeighKane from '../../assets/backgrounds/chambre_leigh_kane.jpg?w=1920&h=1080';
-import universite from '../../assets/backgrounds/universite.jpg?w=1920&h=1080';
-import britanniaPark from '../../assets/backgrounds/britannia_park.jpg?w=1920&h=1080';
-import bureauFred from '../../assets/backgrounds/bureau_fred.jpg?w=1920&h=1080';
-import voitureFred from '../../assets/backgrounds/voiture_fred.jpg?w=1920&h=1080';
-import corridorPostePolice from '../../assets/backgrounds/corridor_poste_police.jpg?w=1920&h=1080';
-import ouvertureDossierKane from '../../assets/backgrounds/ouverture_dossier_kane.jpg?w=1920&h=1080';
-import telephone from '../../assets/backgrounds/phone.png?w=1920&h=1080';
-import telephonePhotoRandle from '../../assets/backgrounds/telephone-photo-randle.png?w=1920&h=1080';
-import rueMcLeod from '../../assets/backgrounds/rue_mcleod.jpg?w=1920&h=1080';
-import siegeESRB from '../../assets/backgrounds/siege_esrb.jpg?w=1920&h=1080';
-import siegeESRBInformatique from '../../assets/backgrounds/siege_esrb_informatique.jpg?w=1920&h=1080';
-import ecranOrdinateurESRB from '../../assets/backgrounds/ecran_ordinateur_esrb.jpg?w=1920&h=1080';
-import maisonOliviaExterieur from '../../assets/backgrounds/maison_olivia_exterieur.jpg?w=1920&h=1080';
-import maisonOliviaInterieur from '../../assets/backgrounds/maison_olivia_interieur.jpg?w=1920&h=1080';
-import maisonCarlWhite from '../../assets/backgrounds/maison_carl_white.jpg?w=1920&h=1080';
-import grenier from '../../assets/backgrounds/grenier.jpg?w=1920&h=1080';
-import ordinateurFred from '../../assets/backgrounds/ordinateur_fred.jpg?w=1920&h=1080';
-import chambreCousingLeighKane from '../../assets/backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1080';
-import centreRehabilitationCouloir from '../../assets/backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1080';
-import centreRehabilitationAutrePiece from '../../assets/backgrounds/centre_rehabilitation.jpg?w=1920&h=1080';
-import maisonFred from '../../assets/backgrounds/apparement_fred.jpg?w=1920&h=1080';
-import maisonJonathan from '../../assets/backgrounds/maison_jonathan.jpg?w=1920&h=1080';
-import coinFlemmingArch from '../../assets/backgrounds/coin_flemming_arch.jpg?w=1920&h=1080';
-import appartementChristopher from '../../assets/backgrounds/apparement_christopher.jpg?w=1920&h=1080';
-import maisonJugeAbbott from '../../assets/backgrounds/maison_juge_abbot.jpg?w=1920&h=1080';
-import rueMcleodLiberte from '../../assets/backgrounds/rue_mcleod_liberte.jpg?w=1920&h=1080';
-import rueMcleodRaid from '../../assets/backgrounds/rue_mcleod_raid.jpg?w=1920&h=1080';
-import parlementPositif from '../../assets/backgrounds/parlement_positif.jpg?w=1920&h=1080';
-import parlementNegatif from '../../assets/backgrounds/parlement_negatif.jpg?w=1920&h=1080';
-import podiumMinistreBleu from '../../assets/backgrounds/podium_ministre_manette_bleu.jpg?w=1920&h=1080';
-import podiumMinistreRose from '../../assets/backgrounds/podium_ministe_rose.jpg?w=1920&h=1080';
-import podiumMinistreBleuBarre from '../../assets/backgrounds/podium_ministre_bleu.jpg?w=1920&h=1080';
-import discoursPremierMinistre from '../../assets/backgrounds/discours_premier_ministre.jpg?w=1920&h=1080';
-import grenierFoule from '../../assets/backgrounds/grenier_foulle.jpg?w=1920&h=1080';
+const artHouseCafe = `${
+  import.meta.env.BASE_URL
+}backgrounds/art_house_cafe.jpg?w=1920&h=1080`;
+const bureauChefMiller = `${
+  import.meta.env.BASE_URL
+}backgrounds/bureau_chef_miller.jpg?w=1920&h=1080`;
+const bureauChefMillerReve = `${
+  import.meta.env.BASE_URL
+}backgrounds/bureau_chef_miller_flou.jpg?w=1920&h=1080`;
+const porteChefMiller = `${
+  import.meta.env.BASE_URL
+}backgrounds/porte_chef_miller.png?w=1920&h=1080`;
+const brigade = `${
+  import.meta.env.BASE_URL
+}backgrounds/brigade.jpg?w=1920&h=1080`;
+const glitch = `${
+  import.meta.env.BASE_URL
+}backgrounds/glitch.jpg?w=1920&h=1080`;
+const brigadeOutside = `${
+  import.meta.env.BASE_URL
+}backgrounds/brigade_outside.jpg?w=1920&h=1080`;
+const quartier = `${
+  import.meta.env.BASE_URL
+}backgrounds/quartier.jpg?w=1920&h=1080`;
+const rueFlemming = `${
+  import.meta.env.BASE_URL
+}backgrounds/rue_flemming.jpg?w=1920&h=1080`;
+const rueFlemmingPorte = `${
+  import.meta.env.BASE_URL
+}backgrounds/rue_flemming_porte.jpg?w=1920&h=1080`;
+const chambreLeighKane = `${
+  import.meta.env.BASE_URL
+}backgrounds/chambre_leigh_kane.jpg?w=1920&h=1080`;
+const universite = `${
+  import.meta.env.BASE_URL
+}backgrounds/universite.jpg?w=1920&h=1080`;
+const britanniaPark = `${
+  import.meta.env.BASE_URL
+}backgrounds/britannia_park.jpg?w=1920&h=1080`;
+const bureauFred = `${
+  import.meta.env.BASE_URL
+}backgrounds/bureau_fred.jpg?w=1920&h=1080`;
+const voitureFred = `${
+  import.meta.env.BASE_URL
+}backgrounds/voiture_fred.jpg?w=1920&h=1080`;
+const corridorPostePolice = `${
+  import.meta.env.BASE_URL
+}backgrounds/corridor_poste_police.jpg?w=1920&h=1080`;
+const ouvertureDossierKane = `${
+  import.meta.env.BASE_URL
+}backgrounds/ouverture_dossier_kane.jpg?w=1920&h=1080`;
+const telephone = `${
+  import.meta.env.BASE_URL
+}backgrounds/phone.png?w=1920&h=1080`;
+const telephonePhotoRandle = `${
+  import.meta.env.BASE_URL
+}backgrounds/telephone-photo-randle.png?w=1920&h=1080`;
+const rueMcLeod = `${
+  import.meta.env.BASE_URL
+}backgrounds/rue_mcleod.jpg?w=1920&h=1080`;
+const siegeESRB = `${
+  import.meta.env.BASE_URL
+}backgrounds/siege_esrb.jpg?w=1920&h=1080`;
+const siegeESRBInformatique = `${
+  import.meta.env.BASE_URL
+}backgrounds/siege_esrb_informatique.jpg?w=1920&h=1080`;
+const ecranOrdinateurESRB = `${
+  import.meta.env.BASE_URL
+}backgrounds/ecran_ordinateur_esrb.jpg?w=1920&h=1080`;
+const maisonOliviaExterieur = `${
+  import.meta.env.BASE_URL
+}backgrounds/maison_olivia_exterieur.jpg?w=1920&h=1080`;
+const maisonOliviaInterieur = `${
+  import.meta.env.BASE_URL
+}backgrounds/maison_olivia_interieur.jpg?w=1920&h=1080`;
+const maisonCarlWhite = `${
+  import.meta.env.BASE_URL
+}backgrounds/maison_carl_white.jpg?w=1920&h=1080`;
+const grenier = `${
+  import.meta.env.BASE_URL
+}backgrounds/grenier.jpg?w=1920&h=1080`;
+const ordinateurFred = `${
+  import.meta.env.BASE_URL
+}backgrounds/ordinateur_fred.jpg?w=1920&h=1080`;
+const chambreCousingLeighKane = `${
+  import.meta.env.BASE_URL
+}backgrounds/chambre_cousine_leigh_kane.jpg?w=1920&h=1080`;
+const centreRehabilitationCouloir = `${
+  import.meta.env.BASE_URL
+}backgrounds/centre_rehabilitation_couloir.jpg?w=1920&h=1080`;
+const centreRehabilitationAutrePiece = `${
+  import.meta.env.BASE_URL
+}backgrounds/centre_rehabilitation.jpg?w=1920&h=1080`;
+const maisonFred = `${
+  import.meta.env.BASE_URL
+}backgrounds/apparement_fred.jpg?w=1920&h=1080`;
+const maisonJonathan = `${
+  import.meta.env.BASE_URL
+}backgrounds/maison_jonathan.jpg?w=1920&h=1080`;
+const coinFlemmingArch = `${
+  import.meta.env.BASE_URL
+}backgrounds/coin_flemming_arch.jpg?w=1920&h=1080`;
+const appartementChristopher = `${
+  import.meta.env.BASE_URL
+}backgrounds/apparement_christopher.jpg?w=1920&h=1080`;
+const maisonJugeAbbott = `${
+  import.meta.env.BASE_URL
+}backgrounds/maison_juge_abbot.jpg?w=1920&h=1080`;
+const rueMcleodLiberte = `${
+  import.meta.env.BASE_URL
+}backgrounds/rue_mcleod_liberte.jpg?w=1920&h=1080`;
+const rueMcleodRaid = `${
+  import.meta.env.BASE_URL
+}backgrounds/rue_mcleod_raid.jpg?w=1920&h=1080`;
+const parlementPositif = `${
+  import.meta.env.BASE_URL
+}backgrounds/parlement_positif.jpg?w=1920&h=1080`;
+const parlementNegatif = `${
+  import.meta.env.BASE_URL
+}backgrounds/parlement_negatif.jpg?w=1920&h=1080`;
+const podiumMinistreBleu = `${
+  import.meta.env.BASE_URL
+}backgrounds/podium_ministre_manette_bleu.jpg?w=1920&h=1080`;
+const podiumMinistreRose = `${
+  import.meta.env.BASE_URL
+}backgrounds/podium_ministe_rose.jpg?w=1920&h=1080`;
+const podiumMinistreBleuBarre = `${
+  import.meta.env.BASE_URL
+}backgrounds/podium_ministre_bleu.jpg?w=1920&h=1080`;
+const discoursPremierMinistre = `${
+  import.meta.env.BASE_URL
+}backgrounds/discours_premier_ministre.jpg?w=1920&h=1080`;
+const grenierFoule = `${
+  import.meta.env.BASE_URL
+}backgrounds/grenier_foulle.jpg?w=1920&h=1080`;
 
 // Transitions
-import transition1 from '../../assets/backgrounds/transition_1.jpg?w=1920&h=1080';
-import transition2 from '../../assets/backgrounds/transition_2.jpg?w=1920&h=1080';
-import transition3 from '../../assets/backgrounds/transition_3.jpg?w=1920&h=1080';
-import transition4 from '../../assets/backgrounds/transition_4.jpg?w=1920&h=1080';
-import transition5 from '../../assets/backgrounds/transition_5.jpg?w=1920&h=1080';
-import transition6 from '../../assets/backgrounds/transition_6.jpg?w=1920&h=1080';
-import transition7 from '../../assets/backgrounds/transition_7.jpg?w=1920&h=1080';
-import transition8 from '../../assets/backgrounds/transition_8.jpg?w=1920&h=1080';
-import transition9 from '../../assets/backgrounds/transition_9.jpg?w=1920&h=1080';
-import transitionConclusion from '../../assets/backgrounds/transition_conclusion.jpg?w=1920&h=1080';
-import blackout from '../../assets/backgrounds/blackout.jpg?w=1920&h=1080';
+const transition1 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_1.jpg?w=1920&h=1080`;
+const transition2 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_2.jpg?w=1920&h=1080`;
+const transition3 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_3.jpg?w=1920&h=1080`;
+const transition4 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_4.jpg?w=1920&h=1080`;
+const transition5 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_5.jpg?w=1920&h=1080`;
+const transition6 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_6.jpg?w=1920&h=1080`;
+const transition7 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_7.jpg?w=1920&h=1080`;
+const transition8 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_8.jpg?w=1920&h=1080`;
+const transition9 = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_9.jpg?w=1920&h=1080`;
+const transitionConclusion = `${
+  import.meta.env.BASE_URL
+}backgrounds/transition_conclusion.jpg?w=1920&h=1080`;
+const blackout = `${
+  import.meta.env.BASE_URL
+}backgrounds/blackout.jpg?w=1920&h=1080`;
 
 // Fins
-import newsRoom1 from '../../assets/backgrounds/news_room_1.jpg?w=1920&h=1080';
-import newsRoom2 from '../../assets/backgrounds/news_room_2.jpg?w=1920&h=1080';
-import newsRoom3 from '../../assets/backgrounds/news_room_3.jpg?w=1920&h=1080';
-import newsRoom4 from '../../assets/backgrounds/news_room_4.jpg?w=1920&h=1080';
-import newsRoom5 from '../../assets/backgrounds/news_room_5.jpg?w=1920&h=1080';
-import newsRoom6 from '../../assets/backgrounds/news_room_6.jpg?w=1920&h=1080';
-import newsRoom7 from '../../assets/backgrounds/news_room_7.jpg?w=1920&h=1080';
-import newsRoom8 from '../../assets/backgrounds/news_room_8.jpg?w=1920&h=1080';
-import newsRoom9 from '../../assets/backgrounds/news_room_9.jpg?w=1920&h=1080';
+const newsRoom1 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_1.jpg?w=1920&h=1080`;
+const newsRoom2 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_2.jpg?w=1920&h=1080`;
+const newsRoom3 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_3.jpg?w=1920&h=1080`;
+const newsRoom4 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_4.jpg?w=1920&h=1080`;
+const newsRoom5 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_5.jpg?w=1920&h=1080`;
+const newsRoom6 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_6.jpg?w=1920&h=1080`;
+const newsRoom7 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_7.jpg?w=1920&h=1080`;
+const newsRoom8 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_8.jpg?w=1920&h=1080`;
+const newsRoom9 = `${
+  import.meta.env.BASE_URL
+}backgrounds/news_room_9.jpg?w=1920&h=1080`;
 
-import dataGlitch from '../../assets/videos/videoblocks-data-glitch.mp4';
+const dataGlitch = `${
+  import.meta.env.BASE_URL
+}videos/videoblocks-data-glitch.mp4`;
 
 export const backgrounds = {
   data_glitch: { type: 'video', asset: dataGlitch },

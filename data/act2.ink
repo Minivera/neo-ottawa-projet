@@ -139,11 +139,13 @@ Bonnie: Non, pas depuis longtemps. Mon frère ne joue pas. Il voit Christopher e
 
 Fred: Si jamais il avait l’intention d’y aller, il faudra me prévenir au plus tôt. Avez-vous une photo de lui sur vous? # character=FRED_GALLANT invisible
 
+~ cacher_tout_personnages()
 ~afficher_fond(telephone_photo_john_randle)
 
 Bonnie: Oui, en voici une. # character=BONNIE_RANDLE_V2 expression=neutral
 
 ~afficher_fond(art_house_cafe)
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp") 
 
 Fred: Merci. Alors, jusqu’à nouvel ordre, ne faites rien d’inhabituel. Vous pouvez espacer vos visites au 530, mais pas trop, rien de suspect. # character=FRED_GALLANT invisible
 
@@ -172,11 +174,13 @@ Bonnie: Non, pas depuis longtemps. Mon frère ne joue pas. Il voit Christopher e
 
 Fred: Si jamais il avait l’intention d’y aller, il faudra me prévenir au plus tôt. Avez-vous une photo de lui sur vous? # character=FRED_GALLANT invisible
 
+~ cacher_tout_personnages()
 ~afficher_fond(telephone_photo_john_randle)
 
 Bonnie: Oui, en voici une. # character=BONNIE_RANDLE_V2 expression=neutral
 
 ~afficher_fond(art_house_cafe)
+~afficher_personnage(BONNIE_RANDLE_V2, "slideInUp") 
 
 Fred: Merci. Alors, jusqu’à nouvel ordre, ne faites rien d’inhabituel. Vous pouvez espacer vos visites au 530, mais pas trop, rien de suspect. # character=FRED_GALLANT invisible
 
@@ -727,7 +731,7 @@ Fred, à elle-même: Je vais maintenant examiner le dernier document. # characte
 1 - Quelle était la position des acteurs de l’industrie des jeux vidéo à propos des loot boxes et de leur réglementation ? # question index=1
 +   (2_4_1_a) [{2_4_1_a: VISITE--}Les États devraient légiférer.] Les États devraient légiférer.
 +   (2_4_1_b) [BON--{2_4_1_b: VISITE--}Le choix appartient aux consommateurs.] Le choix appartient aux consommateurs. 
-La réponse des acteurs de l’industrie des jeux vidéo peut paraître un peu cynique... Mais il semble que selon eux le choix appartenait aux consommateurs. Si les loot boxes étaient consommées par les joueurs, pourquoi les interdire ? Je peux comprendre cette position, mais les consommateurs avaient vraiment le choix compte tenu des pratiques cherchant à les inciter à obtenir des loot boxes ? # retroaction
+La réponse des acteurs de l’industrie des jeux vidéo peut paraître un peu cynique... Mais il semble que selon eux, le choix appartenait aux consommateurs. Si les loot boxes étaient consommées par les joueurs, pourquoi les interdire ? Je peux comprendre cette position, mais les consommateurs avaient-ils vraiment le choix compte tenu des pratiques cherchant à les inciter à obtenir des loot boxes ? # retroaction
 -> quiz_2_4_fin
 +   (2_4_1_c) [{2_4_1_c: VISITE--}Les acteurs du milieu vidéoludiques devraient se concerter pour adopter des règles communes.] Les acteurs du milieu vidéoludiques devraient se concerter pour adopter des règles communes.
 +   (2_4_1_d) [{2_4_1_d: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.

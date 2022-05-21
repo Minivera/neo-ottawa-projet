@@ -48,7 +48,6 @@ Chef Miller: Ce n’est pas dans mes habitudes, mais très bien. # character=CHE
 
 = scene_2
 ~afficher_fond(bureau_chef_miller)
-~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
@@ -75,7 +74,6 @@ Chef Miller: À votre retour de vacances forcées, vous risquez d’être transf
 
 = scene_3
 ~afficher_fond(parlement_negatif)
-~jouer_musique(theme_fin)
 
 Colline du Parlement, Ottawa. # center
 
@@ -96,6 +94,7 @@ Premier ministre: En tant que père de famille et premier ministre, je vous prom
 
 ~cacher_tout_personnages()
 ~ afficher_fond(blackout)
+~jouer_musique(theme_narrateur)
 
 Narrateur: Vous croyez peut-être que l’agent Gallant ne s’en est pas trop mal tirée? Mais elle aurait fait quoi sans votre aide? Maintenant que vous connaissez mieux l’univers du droit des jeux vidéo, vous en pensez quoi? Quelle est la meilleure option selon vous? Comment gérer une activité aux multiples facettes? Vous avez tout en main pour vous faire votre propre opinion maintenant. Vous pouvez désormais vous dissocier une fois pour toutes de l’agent Gallant, car après tout, ce n’était qu’un jeu, n’est-ce pas? # character=NARRATEUR invisible
 ~arreter_musique()

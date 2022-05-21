@@ -178,7 +178,7 @@ export const contacts: Record<string, Contact> = {
     description: 'contact_al',
   },
   [Boris.id]: {
-    type: 'police',
+    type: 'resistance',
     characterId: Boris.id,
     name: Boris.name,
     description: 'contact_boris',
@@ -190,7 +190,7 @@ export const contacts: Record<string, Contact> = {
     description: 'contact_christian',
   },
   [Jonathan.id]: {
-    type: 'police',
+    type: 'resistance',
     characterId: Jonathan.id,
     name: Jonathan.name,
     description: 'contact_jonathan',
@@ -244,7 +244,7 @@ export const contacts: Record<string, Contact> = {
     description: 'contact_mr_ghost',
   },
   [ClearView.id]: {
-    type: 'police',
+    type: 'resistance',
     characterId: ClearView.id,
     name: ClearView.name,
     description: 'contact_clear_view',

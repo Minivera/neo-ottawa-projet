@@ -537,7 +537,9 @@ Fred: Il faut réécrire en partie le contrat et rééquilibrer les relations en
 
 Christopher: Merci pour ta vigilance et tes conseils Fred, je remets l’équipe là-dessus immédiatement. # character=CHRISTOPHER_YOUNG expression=satisfaction
 - ~cacher_tout_personnages()
- ~afficher_fond(bureau_chef_miller)
+
+ ~afficher_fond(maison_fred)
+ De retour chez elle, <b>Fred</b> profite d’un moment de répit pour réfléchir à ce qu’elle va rapporter au <b>Chef Miller</b>.
 ~jouer_musique(theme_choix_cruciaux)
 
 * <b>Fred</b> envoie des messages textes au chef <b>Miller</b> pour le mettre au courant de la tentative de la résistance de remettre des équipes d’esport sur la carte. 
@@ -550,6 +552,8 @@ Fred: Je suis responsable de créer une équipe de pros. Ces noms devraient nous
 
 Chef Miller: Bon boulot, Gallant. # character=CHEF_MILLER expression=satisfaction
 
+~cacher_tout_personnages()
+
 * <b>Fred</b> envoie une fausse piste au chef <b>Miller</b> dans le but de ralentir l’opération qui vise à court-circuiter le retour des jeux.
 ~points_fin_A2 += 4
 ~jouer_musique(theme_general)
@@ -561,6 +565,8 @@ Fred: Ils ne s’occupent pas des questions qui influenceraient beaucoup l’opi
 Fred: Je fais de mon mieux pour mal les conseiller. # character=FRED_GALLANT invisible
 
 Chef Miller: Bon boulot, Gallant. <br/> Soyez prudente. # character=CHEF_MILLER expression=concern
+
+~cacher_tout_personnages()
 
 * <b>Fred</b> n’envoie rien au chef <b>Miller</b> tant qu’il ne demande rien.
 ~points_fin_A2 += 2
@@ -580,7 +586,9 @@ Chef Miller: Sont-ils liés au 530? # character=CHEF_MILLER expression=wonder
 Fred: Non. Ce sont de nouvelles pistes. # character=FRED_GALLANT invisible
 
 Chef Miller: Bon boulot, Gallant. # character=CHEF_MILLER expression=satisfaction
+
 ~cacher_tout_personnages()
+
 - ~afficher_fond(news_room_chapitre_6)
 ~jouer_musique(theme_news)
 Quel avenir pour les centres de traitement des dépendances aux jeux? La politique de l’autruche

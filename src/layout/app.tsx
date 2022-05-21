@@ -7,7 +7,6 @@ import { fontFace } from 'polished';
 
 import { Game } from '../game/game';
 import { theme } from '../theme';
-import { CharacterImageProvider } from '../hooks/useCharacterImageLoading';
 import { PlausibleProvider } from '../components/plausibleTracking';
 import { GameErrorBoundary } from '../components/gameError';
 
@@ -51,9 +50,7 @@ export const App: FunctionComponent = () => (
           `}
         />
         <GameErrorBoundary>
-          <CharacterImageProvider>
-            <Game storyContent={storyContent} />
-          </CharacterImageProvider>
+          <Game storyContent={storyContent} />
         </GameErrorBoundary>
       </Container>
     </PlausibleProvider>

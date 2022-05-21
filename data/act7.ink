@@ -183,7 +183,7 @@ Le règlement ne prévoyait aucune restriction en ce qui concerne la mixité des
 3- Pouvait-on accepter des joueurs du jeu League of Legends et ce qu’importe leur classement dans le jeu? # question index=3
 +  (7_2_3_a) [{7_2_3_a: VISITE--}Vrai] Vrai
 +  (7_2_3_b) [BON--{7_2_3_b: VISITE--}Faux] Faux
-Tous les joueurs du jeu League of Legends n’étaient pas automatiquement sélectionnable dans la LEC. Ils ou elles devaient disposer d’un certain classement… Ils ou elles devaient être Diamond 3 pour pouvoir intégrer la LEC (voir l’article 3.1.16 du règlement de la LEC). Diamond 3, mais qu’est-ce que cela peut bien signifier? # retroaction
+Tous les joueurs du jeu League of Legends n’étaient pas automatiquement sélectionnables dans la LEC. Ils ou elles devaient disposer d’un certain classement… Ils ou elles devaient être Diamond 3 pour pouvoir intégrer la LEC (voir l’article 3.1.16 du règlement de la LEC). Diamond 3, mais qu’est-ce que cela peut bien signifier? # retroaction
 -> quiz_7_2_question_4
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_7_2_question_3
@@ -1158,7 +1158,7 @@ Christopher: Hahaha! Il va attirer les foules alors! # character=CHRISTOPHER_YOU
 
 Fred: C’est un enfant, attention tout de même! # character=FRED_GALLANT invisible
 
-Bonnie: Presque majeur. # character=BONNIE_RANDLE_V2 expression=concern
+Bonnie: Presque majeur. # character=BONNIE_RANDLE_V2 expression=alertness
 
 Fred: Presque. # character=FRED_GALLANT invisible
 ~cacher_personnage(CHRISTOPHER_YOUNG, "slideOutDown")
@@ -1205,47 +1205,50 @@ Narrateur: Bientôt, les jeux seront faits. Il n’y aura plus de retour en arri
 
 Son téléphone vibre avec insistance. 
 
-Fred, au téléphone: Que se passe-t-il, Boris? # character=FRED_GALLANT invisible 
+Fred: Que se passe-t-il, Boris? # character=FRED_GALLANT invisible 
 
-Boris, au téléphone: Un autre pépin. # character=BORIS invisible
+~afficher_personnage(BORIS, "fadeIn")
+Boris: Un autre pépin. # character=BORIS expression=concern phone
 
 Fred: Qu’est-ce qui se passe? Pas Palvid? # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Non, c’est Jen. # character=BORIS invisible
+Boris, au téléphone: Non, c’est Jen. # character=BORIS expression=sterness phone
 
 Fred: Non! Pas encore! # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Oui, encore. Mais cette fois-ci c’est plus grave. # character=BORIS invisible
+Boris, au téléphone: Oui, encore. Mais cette fois-ci c’est plus grave. # character=BORIS expression=sterness phone
 
 Fred: Qu’est-ce qui se passe? # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Elle m’a appelé pour me demander si elle pouvait s’inscrire sur un site américain de paris. Un tournoi à Las Vegas. Elle prédit toujours le bon gagnant et sa mère veut qu’elle tente sa chance. # character=BORIS invisible
+Boris, au téléphone: Elle m’a appelé pour me demander si elle pouvait s’inscrire sur un site américain de paris. Un tournoi à Las Vegas. Elle prédit toujours le bon gagnant et sa mère veut qu’elle tente sa chance. # character=BORIS expression=disdain phone
 
 Fred: Mais ils ne se reposent jamais ces enfants-là? # character=FRED_GALLANT invisible
 
-Boris, au téléphone: On dirait bien qu’ils sont accros à l’adrénaline. # character=BORIS invisible
+Boris, au téléphone: On dirait bien qu’ils sont accros à l’adrénaline. # character=BORIS expression=disdain phone
 
 Fred: Boris, dis-moi quand l’événement aura lieu. # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Bon... D’accord. La date prévue, c’est dans 1 semaine. # character=BORIS invisible
+Boris, au téléphone: Bon... D’accord. La date prévue, c’est dans 1 semaine. # character=BORIS expression=neutral phone
 
 Fred: 1 semaine! # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Oui, tout est en place. Il faut régler ça tout de suite pour Jen. # character=BORIS invisible
+Boris, au téléphone: Oui, tout est en place. Il faut régler ça tout de suite pour Jen. # character=BORIS expression=sterness phone
 
 Fred: Tu es conscient que c’est non, bien sûr? Qu’est-ce qu’elle va inventer après ça, celle-là. # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Je commence à croire qu’on aurait dû la relâcher avec Trevor. # character=BORIS invisible
+Boris, au téléphone: Je commence à croire qu’on aurait dû la relâcher avec Trevor. # character=BORIS expression=melancholy phone
 
 Fred: Moi aussi. Je commence à être nerveuse. # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Parle-lui sérieusement. # character=BORIS invisible
+Boris, au téléphone: Parle-lui sérieusement. # character=BORIS expression=sterness phone
 
 Fred: Pourquoi c’est toujours moi? # character=FRED_GALLANT invisible
 
-Boris, au téléphone: Parce que tu t’en sors vraiment bien. # character=BORIS invisible
+Boris, au téléphone: Parce que tu t’en sors vraiment bien. # character=BORIS expression=neutral phone
 
 Fred: Très drôle. # character=FRED_GALLANT invisible
+
+~cacher_tout_personnages()
 
 ~afficher_fond(art_house_cafe)
 ~jouer_musique(theme_general)

@@ -530,7 +530,7 @@ Fred: Je vais la lire, merci. # character=FRED_GALLANT invisible
 +   (5_1_d) [BON--{5_1_d: VISITE--}Toutes ces propositions.] Toutes ces propositions.
 Toutes les propositions sont pertinentes. Elles renvoient à des articles qui traitent de l’ESRB (en français la Commission… )  #retroaction
 -> quiz_5_question_2
-+ (5_1_e) [{5_1_e: VISITE--}AUcune de ces propositions.] Aucune de ces propositions.
++ (5_1_e) [{5_1_e: VISITE--}Aucune de ces propositions.] Aucune de ces propositions.
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_5_question_1
 
@@ -654,7 +654,7 @@ Elle trouve d’abord un log d’activité. # center
 Selon celui-ci, il n’y a rien qui relie la fugue à des jeux vidéo. Selon l’historique d’utilisation, <b>Leigh</b> a joué 25 minutes sur une plateforme qui s’appelle <i>Friv</i> et qui est en ligne sur le Dark Web. Il a joué à <i>Baskatball</i> et <i>RioRex</i>. # center
 
 <b>Fred</b> trouve également le fichier texte suivant # center
-<i>Maman, papa,
+<i>Maman, papa, # center
 Je suis désolé de vous infliger ça. Si je dois partir, c’est que je sais que je suis un poids pour vous. J’ai raté mes examens de fin d’année et je vais devoir reprendre la plupart de mes cours de 7e année. J’ai trop honte. Ne cherchez pas à savoir où je suis. Je vais trouver du travail et quand j’aurai moins honte je reviendrai peut-être. Leigh</i> # center
 ->scene_13
 

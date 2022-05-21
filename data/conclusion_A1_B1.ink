@@ -58,7 +58,6 @@ Les arrestations sont instantanées. Tout le matériel est confisqué. Il y a de
 
 = scene_2
 ~afficher_fond(bureau_chef_miller)
-~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
@@ -101,7 +100,6 @@ Chef Miller: À votre retour de vacances forcées, vous risquez d’être transf
 
 = scene_3
 ~afficher_fond(parlement_positif)
-~jouer_musique(theme_fin)
 
 Colline du Parlement, Ottawa. # center
 
@@ -121,6 +119,7 @@ Premier ministre: Nous procéderons à la refonte du cadre législatif encadrant
 Premier ministre: Soyez assurés que l’organisation criminelle qui se nommait elle-même la Résistance ne prendra pas part à cette transition. Une partie des leaders de cette organisation ont été arrêtés et ils seront jugés pour leurs crimes. Le retour des jeux vidéo ne signifie pas un retour trente ans en arrière, je peux vous l’assurer. Je vous fais la promesse aujourd’hui de lutter sans relâche pour que cette industrie respecte les valeurs de la population et entende les préoccupations des familles canadiennes. # character=PREMIER_MINISTRE expression=neutral
 ~cacher_tout_personnages()
 ~ afficher_fond(blackout)
+~jouer_musique(theme_narrateur)
 
 Narrateur: Vous croyez peut-être que l’agent Gallant ne s’en est pas trop mal tirée? Mais elle aurait fait quoi sans votre aide? Maintenant que vous connaissez mieux l’univers du droit des jeux vidéo, vous en pensez quoi? Quelle est la meilleure option selon vous? Comment gérer une activité aux multiples facettes? Vous avez tout en main pour vous faire votre propre opinion maintenant. Vous pouvez désormais vous dissocier une fois pour toutes de l’agent Gallant, car après tout, ce n’était qu’un jeu, n’est-ce pas? # character=NARRATEUR invisible
 ~arreter_musique()

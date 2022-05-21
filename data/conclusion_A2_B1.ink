@@ -44,7 +44,6 @@ Cabinet du premier ministre, au téléphone: Je suis désolé. # character=PREMI
 
 = scene_2
 ~afficher_fond(bureau_chef_miller)
-~jouer_musique(theme_fin)
 ~afficher_personnage(CHEF_MILLER, "slideInUp")
 
 À la suite de l'évènement de la résistance, <b>Fred</b> est convoquée par le <b>chef Miller</b>.
@@ -85,7 +84,6 @@ Chef Miller: Non. Mais quelle importance? # character=CHEF_MILLER expression=mel
 
 = scene_3
 ~afficher_fond(parlement_positif)
-~jouer_musique(theme_fin)
 
 Colline du Parlement, Ottawa. # center
 Allocution du premier ministre. # center
@@ -104,6 +102,7 @@ Premier ministre: L’organisation qui se nommait elle-même la Résistance nous
 Premier ministre: C’est pourquoi je vous annonce aujourd’hui l’abrogation de cette loi. J’ai les mêmes questions que vous au sujet de la transition nécessaire. Nous pourrons néanmoins nous appuyer sur l’expertise développée par le mouvement de résistance qui nous accompagnera dans la réintroduction progressive des jeux vidéo dans notre société. Cette transition ne doit pas nous effrayer. Elle doit au contraire nous réjouir : une nouvelle ère de découvertes et d’explorations virtuelles s’ouvre à nous. Vive les jeux vidéo, vive le Canada. # character=PREMIER_MINISTRE expression=neutral 
 ~cacher_tout_personnages()
 ~afficher_fond(blackout)
+~jouer_musique(theme_narrateur)
 
 Narrateur: Vous croyez peut-être que l’agent Gallant ne s’en est pas trop mal tirée? Mais elle aurait fait quoi sans votre aide? Maintenant que vous connaissez mieux l’univers du droit des jeux vidéo, vous en pensez quoi? Quelle est la meilleure option selon vous? Comment gérer une activité aux multiples facettes? Vous avez tout en main pour vous faire votre propre opinion maintenant. Vous pouvez désormais vous dissocier une fois pour toutes de l’agent Gallant, car après tout, ce n’était qu’un jeu, n’est-ce pas? # character=NARRATEUR invisible
 ~arreter_musique()

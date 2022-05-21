@@ -123,7 +123,6 @@ export const knownExpressions = {
   "BONNIE_RANDLE_V2": [
     "alertness",
     "aversion",
-    "concern",
     "default",
     "dejection",
     "disdain",

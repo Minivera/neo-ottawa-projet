@@ -636,7 +636,7 @@ Selon les règles de la plateforme Twitch, il existait deux grands types de sanc
 = quiz_8_3_question_4
 4- Les plateformes de diffusion pouvaient mettre fin à la carrière d’un streamer. # question index=4
 +  (8_3_4_a) [BON--{8_3_4_a: VISITE--}Vrai] Vrai
-Selon les archives, la plateforme Twitch pouvait mettre un terme à la carrière d’un streamer. En effet, Twitch disposait de nouveaux pouvoirs pour sanctionner les joueurs. Il existait bien un mécanisme d’appel, mais ultimement Twitch pouvait décider de fermer un compte ou non. Dans ce cas, un streamer pouvait perdre l’accès à sa communauté et ses revenus.  # retroaction
+Selon les archives, la plateforme Twitch pouvait mettre un terme à la carrière d’un streamer. En effet, Twitch disposait de nombreux pouvoirs pour sanctionner les joueurs. Il existait bien un mécanisme d’appel, mais ultimement Twitch pouvait décider de fermer un compte ou non. Dans ce cas, un streamer pouvait perdre l’accès à sa communauté et ses revenus.  # retroaction
   -> quiz_8_3_question_5
 +  (8_3_4_b) [{8_3_4_b: VISITE--}Faux] Faux
 - ~ generer_mauvaise_reponse_retroaction()
@@ -646,7 +646,7 @@ Selon les archives, la plateforme Twitch pouvait mettre un terme à la carrière
 5- Les rapports entre les streamers et les plateformes de diffusion étaient équilibrés. # question index=5
 +  (8_3_5_a) [{8_3_5_a: VISITE--}Vrai] Vrai
 +  (8_3_5_b) [BON--{8_3_5_b: VISITE--}Faux] Faux
-Selon les archives que j’ai pu consulter, les rapports entre les plateformes et les streamers étaient à l’avantage des premiers. Il existe de nombreux indices qui vont dans ce sens. Twitch pouvait modifier à tout moment les conditions d’utilisation. Ce n’était pas négociable. Twitch disposait d’une licence d’utilisation du contenu publié sur leur plateforme. Les dispositions en matière de résiliation étaient clairement à l’avantage de la plateforme qui peut fermer des comptes pour n’importe quel motif. Les réclamations à l’encontre de Twitch devaient être effectuées dans un délai d’un an sans quoi elles sont caduques (voir le point 15(e) des conditions d’utilisation). # retroaction
+Selon les archives que j’ai pu consulter, les rapports entre les plateformes et les streamers étaient à l’avantage des premiers. Il existe de nombreux indices qui vont dans ce sens. Twitch pouvait modifier à tout moment les conditions d’utilisation. Ce n’était pas négociable. Twitch disposait d’une licence d’utilisation du contenu publié sur leur plateforme. Les dispositions en matière de résiliation étaient clairement à l’avantage de la plateforme qui peut fermer des comptes pour n’importe quel motif. Les réclamations à l’encontre de Twitch devaient être effectuées dans un délai d’un an, sans quoi elles devenaient caduques (voir le point 15(e) des conditions d’utilisation). # retroaction
   -> quiz_8_3_fin
 - ~ generer_mauvaise_reponse_retroaction()
 -> quiz_8_3_question_5
@@ -684,7 +684,7 @@ Fred: C’est déjà ça. Tu as autre chose? # character=FRED_GALLANT invisible
 
 Christopher: Oui, il fait aussi partie d’un groupe climatosceptique très actif pour lequel il ne se gêne pas d’intervenir régulièrement. Il donne des conférences publiques sur le sujet et même s’il n’utilise pas le même pseudonyme, son auditoire de streamer le suit également dans ses combats politiques. # character=CHRISTOPHER_YOUNG expression=disdain
 
-Fred: Et dire qu’on a passé le seuil symbolique des 2,5 degrés d’élévation de température en 2045… 30 ans après l’Accord de Paris. Et il y a encore qui ne croit pas à la réalité des changements climatiques. Affligeant. # character=FRED_GALLANT invisible
+Fred: Et dire qu’on a passé le seuil symbolique des 2,5 degrés d’élévation de température en 2045… 30 ans après l’Accord de Paris. Et il y en a encore qui ne croient pas à la réalité des changements climatiques. Affligeant. # character=FRED_GALLANT invisible
 
 Christopher: Tu t’y connais en environnement toi? Mais attends, le meilleur pour la fin… Upperstreamer a également fait 6 mois de prison pour une altercation avec une collègue alors qu’il travaillait comme animateur graphique dans une grande compagnie d’animation d’effets spéciaux. # character=CHRISTOPHER_YOUNG expression=sterness
 

@@ -237,7 +237,7 @@ Fred: Mais oui, dites-moi tout ce que vous savez sur ces comportements. # charac
 
 Christopher: Je ne sais rien. Nous, on aime jouer, c’est tout. Quand quelqu’un n’a pas un bon esprit sportif, on l’ignore. Il y a des serveurs partout dans le monde, parfois on ne comprend même pas ce que les joueurs disent. # character=CHRISTOPHER_YOUNG expression=sterness
 
-Bonnie: C’est vrai qu’il peut y avoir des comportements grossiers, du racisme, de la xénophobie. Toutes sortes de choses… # character=BONNIE_RANDLE_V2 expression=concern
+Bonnie: C’est vrai qu’il peut y avoir des comportements grossiers, du racisme, de la xénophobie. Toutes sortes de choses… # character=BONNIE_RANDLE_V2 expression=alertness
 
 Fred: Mais il fallait me le dire avant! Comment ça se passait avant la loi? Est-ce que quelqu’un s’occupait de ça? # character=FRED_GALLANT invisible
 
@@ -415,7 +415,7 @@ Al: Empêchez les jeux de redevenir légaux, Fred. Empêchez-les à tout prix! #
 
 Palvid_: Je sais ce qui vous inquiète, mais comme, moi, par exemple, je ne m’abaisse jamais à ces comportements. # character=PALVID expression=sterness
 
-Fred: Mais vos fans le font, tous ceux qui ont acheté le jeu et qui joue présentement, qui stream sur la plateforme, beaucoup ont de ces comportements toxiques. # character=FRED_GALLANT invisible
+Fred: Mais vos fans le font, tous ceux qui ont acheté le jeu et qui jouent présentement, qui streament sur la plateforme, beaucoup ont de ces comportements toxiques. # character=FRED_GALLANT invisible
 
 Palvid_: Je sais. Moi, je n’écoute pas. Je bloque leur son. # character=PALVID expression=neutral
 

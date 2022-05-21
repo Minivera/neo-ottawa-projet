@@ -443,12 +443,13 @@ export const useGame = (
     pdaBorderBotLeft,
     pdaBorderBotRight,
     pdaBorderTopLeft,
-    ...Object.keys(backgrounds)
+    // Do not preload backgrounds to try to save some memory
+    /* ...Object.keys(backgrounds)
       .filter(
         key => backgrounds[key as keyof typeof backgrounds].type === 'image'
       )
       .map(key => backgrounds[key as keyof typeof backgrounds].asset)
-      .flat(),
+      .flat(), */
   ];
 
   const dispatch = async (action: GameAction): Promise<void> => {

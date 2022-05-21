@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import { Character } from '../game/character';
 import { loadImage } from '../helpers/loadImage';
-import { useLoadCharacterImage } from './useCharacterImageLoading';
 
 const characterModules = import.meta.glob<
   Character,
@@ -57,7 +56,6 @@ export const useLazyAssetLoading = (): [boolean, number, number] => {
   const [loadingCount, setLoadingCount] = useState<number>(0);
   const [loadedCount, setLoadedCount] = useState<number>(0);
   const [started, setStarted] = useState(false);
-  const loadCharacterImage = useLoadCharacterImage();
 
   const modulePromises = Object.values(characterModules);
 
@@ -93,9 +91,8 @@ export const useLazyAssetLoading = (): [boolean, number, number] => {
 
               if (imageModule) {
                 const imagePath = (await imageModule[1]()).default;
-                await loadImage(imagePath, element => {
+                await loadImage(imagePath, () => {
                   setLoadedCount(count => count + 1);
-                  loadCharacterImage(imagePath, element);
                 });
               }
             })
